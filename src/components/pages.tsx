@@ -1253,76 +1253,385 @@ function FormPage({
 }
 
 export function LoginPage() {
-  return <AuthPage mode="login" />;
+  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const [phoneOrEmail, setPhoneOrEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  // Validation logic
+  const isEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+  const isPhone = (val: string) => /^\d{10}$/.test(val);
+  
+  const isValid = useMemo(() => {
+    return (isEmail(phoneOrEmail) || isPhone(phoneOrEmail)) && password.length >= 6;
+  }, [phoneOrEmail, password]);
+
+  const handleLoginSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isValid) return;
+
+    setLoading(true);
+    setErrorMessage("");
+
+    try {
+      // Simulate API call authentication
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      
+      // Perform successful redirect to homepage
+      void navigate({ to: "/" });
+    } catch (err) {
+      setErrorMessage("Invalid credentials. Please try again.");
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="w-full min-h-[calc(100vh-4rem)] grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] bg-[#f8fbf9]">
+      
+      {/* LEFT VISUAL PANEL */}
+      <div className="relative hidden lg:flex flex-col justify-between p-10 text-white overflow-hidden bg-emerald-950 min-h-[500px]">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1000" 
+            alt="Indian farmer in golden crop field at sunrise" 
+            className="h-full w-full object-cover opacity-35 mix-blend-overlay"
+          />
+          {/* Subtle green gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-emerald-950/90 via-emerald-900/80 to-emerald-950/50" />
+        </div>
+
+        {/* Top Branding Logo */}
+        <div className="relative z-10 flex items-center gap-3">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[#1b4332] shadow-sm">
+            <Leaf className="h-5 w-5" />
+          </span>
+          <div>
+            <span className="block text-lg font-black tracking-wide">PureFarm</span>
+            <span className="block text-[10px] font-semibold text-emerald-300 uppercase tracking-widest leading-none mt-0.5">
+              Connect • Grow • Prosper
+            </span>
+          </div>
+        </div>
+
+        {/* Center Slogans & Features */}
+        <div className="relative z-10 max-w-lg my-auto space-y-6">
+          <h2 className="text-3xl lg:text-4xl font-black leading-tight">
+            Empowering Farmers,<br />Building a Better Tomorrow
+          </h2>
+          <p className="text-sm text-emerald-100/90 leading-relaxed font-medium">
+            Access fresh produce, market prices, government schemes and farming resources — all in one place.
+          </p>
+
+          <div className="space-y-3 pt-4">
+            {[
+              "Fresh Agricultural Marketplace",
+              "Real-Time Market Prices",
+              "Government Schemes & Support",
+              "Smart Farming Resources"
+            ].map((feature, i) => (
+              <div key={i} className="flex items-center gap-2.5 text-sm">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-300">
+                  ✓
+                </span>
+                <span className="font-semibold text-emerald-50">{feature}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer info */}
+        <div className="relative z-10 text-[10px] text-emerald-200/60 uppercase tracking-widest font-bold">
+          © {new Date().getFullYear()} PureFarm Platform. All rights reserved.
+        </div>
+      </div>
+
+      {/* RIGHT LOGIN CARD */}
+      <div className="flex items-center justify-center p-6 sm:p-10 lg:p-16">
+        <div className="w-full max-w-md space-y-6">
+          {/* Card Top Welcome Header */}
+          <div className="text-center lg:text-left space-y-2">
+            <div className="flex justify-center lg:justify-start">
+              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#eef7f2] text-[#2d6a4f] border border-emerald-100 shadow-sm mb-3">
+                <Leaf className="h-6 w-6" />
+              </span>
+            </div>
+            <h3 className="text-2xl font-black text-[#1b4332]">Welcome Back 👋</h3>
+            <p className="text-xs text-muted-foreground">Sign in to continue to PureFarm</p>
+          </div>
+
+          {/* Form Card Content */}
+          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-soft">
+            <form onSubmit={handleLoginSubmit} className="space-y-4">
+              
+              {/* Username field */}
+              <div className="space-y-1.5">
+                <label className="text-xs font-black text-[#1b4332] block">
+                  Email / Phone Number
+                </label>
+                <input
+                  type="text"
+                  required
+                  disabled={loading}
+                  value={phoneOrEmail}
+                  onChange={(e) => {
+                    setPhoneOrEmail(e.target.value);
+                    if (errorMessage) setErrorMessage("");
+                  }}
+                  placeholder="Enter your email or phone number"
+                  className="h-11 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+                />
+              </div>
+
+              {/* Password field */}
+              <div className="space-y-1.5">
+                <label className="text-xs font-black text-[#1b4332] block">
+                  Password
+                </label>
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    required
+                    disabled={loading}
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                      if (errorMessage) setErrorMessage("");
+                    }}
+                    placeholder="Enter your password"
+                    className="h-11 w-full rounded-xl border border-input bg-background pl-4 pr-12 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3.5 top-3 text-xs font-bold text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {showPassword ? "Hide" : "Show"}
+                  </button>
+                </div>
+              </div>
+
+              {/* Error messages */}
+              {errorMessage ? (
+                <p className="text-xs font-bold text-rose-500">{errorMessage}</p>
+              ) : null}
+
+              {/* Info checklist helper */}
+              {!isValid && (phoneOrEmail.length > 0 || password.length > 0) && (
+                <p className="text-[10px] leading-normal text-muted-foreground">
+                  • Use a valid email address or 10-digit mobile number.<br />
+                  • Password must be at least 6 characters long.
+                </p>
+              )}
+
+              {/* Remember + Forgot Row */}
+              <div className="flex items-center justify-between text-xs pt-1">
+                <label className="flex items-center gap-2 cursor-pointer select-none font-medium text-foreground/80">
+                  <input
+                    type="checkbox"
+                    checked={rememberMe}
+                    disabled={loading}
+                    onChange={(e) => setRememberMe(e.target.checked)}
+                    className="rounded text-[#2d6a4f] focus:ring-[#2d6a4f] border-border"
+                  />
+                  Remember me
+                </label>
+                <Link
+                  to="/support"
+                  className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition"
+                >
+                  Forgot Password?
+                </Link>
+              </div>
+
+              {/* Sign In button */}
+              <button
+                type="submit"
+                disabled={!isValid || loading}
+                className="mt-2 w-full h-11 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] disabled:bg-muted disabled:text-muted-foreground disabled:opacity-50 text-white font-black text-sm shadow-sm transition hover:scale-[1.01] flex items-center justify-center gap-2"
+              >
+                {loading ? (
+                  <>
+                    <svg className="animate-spin h-4.5 w-4.5 text-white" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    <span>Signing In...</span>
+                  </>
+                ) : (
+                  <span>Sign In</span>
+                )}
+              </button>
+            </form>
+
+            {/* Divider */}
+            <div className="my-5 flex items-center gap-3 text-muted-foreground text-[10px] font-bold uppercase tracking-wider">
+              <span className="h-px bg-border/80 flex-1" />
+              <span>OR</span>
+              <span className="h-px bg-border/80 flex-1" />
+            </div>
+
+            {/* Continue with Google */}
+            <button
+              type="button"
+              onClick={() => {
+                alert("This is a demo frontend sign-in. Please use the email/mobile number + password form.");
+              }}
+              className="w-full h-10 border border-border rounded-xl bg-background hover:bg-muted/30 transition text-xs font-bold flex items-center justify-center gap-2 text-foreground"
+            >
+              <span>Continue with Google</span>
+            </button>
+          </div>
+
+          {/* Register redirect links */}
+          <div className="text-center text-xs">
+            <span className="text-muted-foreground">Don't have an account? </span>
+            <Link
+              to="/register"
+              className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition"
+            >
+              Create an account
+            </Link>
+          </div>
+
+          {/* Subtle footer label */}
+          <p className="text-center text-[10px] text-muted-foreground font-semibold">
+            Built for farmers. Designed for a better tomorrow. 🌱
+          </p>
+        </div>
+      </div>
+
+    </div>
+  );
 }
 
 export function RegisterPage() {
-  return <AuthPage mode="register" />;
-}
-
-function AuthPage({ mode }: { mode: "login" | "register" }) {
   const navigate = useNavigate();
-  const [show, setShow] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "", password: "" });
-  const valid =
-    form.phone.length >= 10 &&
-    form.password.length >= 6 &&
-    (mode === "login" || form.name.length > 2);
+  const [showPassword, setShowPassword] = useState(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const isValid = useMemo(() => {
+    return name.length > 2 && /^\d{10}$/.test(phone) && password.length >= 6;
+  }, [name, phone, password]);
+
+  const handleRegisterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isValid) return;
+
+    setLoading(true);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      void navigate({ to: "/" });
+    } catch (err) {
+      setLoading(false);
+    }
+  };
+
   return (
     <PageShell
       eyebrow="Account"
-      title={mode === "login" ? "Login" : "Register"}
-      intro="Frontend-only demo authentication with validation and a success navigation."
+      title="Create an account"
+      intro="Join thousands of farmers using PureFarm for inputs, market feeds, and advisories."
     >
-      <form
-        className={`${cardClass} mx-auto max-w-md space-y-4`}
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (valid) void navigate({ to: "/" });
-        }}
-      >
-        {mode === "register" ? (
-          <input
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            placeholder="Full name"
-            className="h-11 w-full rounded-lg border border-input bg-background px-3"
-          />
-        ) : null}
-        <input
-          value={form.phone}
-          onChange={(e) => setForm({ ...form, phone: e.target.value })}
-          placeholder="Mobile number"
-          className="h-11 w-full rounded-lg border border-input bg-background px-3"
-        />
-        <div className="flex gap-2">
-          <input
-            type={show ? "text" : "password"}
-            value={form.password}
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
-            placeholder="Password"
-            className="h-11 min-w-0 flex-1 rounded-lg border border-input bg-background px-3"
-          />
+      <div className="max-w-md mx-auto rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-soft">
+        <form onSubmit={handleRegisterSubmit} className="space-y-4">
+          <div className="space-y-1.5">
+            <label className="text-xs font-black text-[#1b4332] block">
+              Full Name
+            </label>
+            <input
+              type="text"
+              required
+              disabled={loading}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your full name"
+              className="h-11 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+            />
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="text-xs font-black text-[#1b4332] block">
+              Mobile Number
+            </label>
+            <input
+              type="tel"
+              required
+              disabled={loading}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="Enter 10-digit mobile number"
+              className="h-11 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+            />
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="text-xs font-black text-[#1b4332] block">
+              Password
+            </label>
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                required
+                disabled={loading}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Create a password (min. 6 chars)"
+                className="h-11 w-full rounded-xl border border-input bg-background pl-4 pr-12 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3.5 top-3 text-xs font-bold text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+          </div>
+
+          {!isValid && (name.length > 0 || phone.length > 0 || password.length > 0) && (
+            <p className="text-[10px] leading-normal text-muted-foreground">
+              • Name should be at least 3 characters.<br />
+              • Mobile number must be exactly 10 digits.<br />
+              • Password must be at least 6 characters.
+            </p>
+          )}
+
           <button
-            type="button"
-            onClick={() => setShow(!show)}
-            className="rounded-lg border border-border px-3 text-sm font-bold"
+            type="submit"
+            disabled={!isValid || loading}
+            className="w-full h-11 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] disabled:bg-muted disabled:text-muted-foreground disabled:opacity-50 text-white font-black text-sm shadow-sm transition hover:scale-[1.01] flex items-center justify-center gap-2 mt-4"
           >
-            {show ? "Hide" : "Show"}
+            {loading ? (
+              <>
+                <svg className="animate-spin h-4.5 w-4.5 text-white" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                </svg>
+                <span>Creating Account...</span>
+              </>
+            ) : (
+              <span>Create Account</span>
+            )}
           </button>
+        </form>
+
+        <div className="text-center text-xs mt-6">
+          <span className="text-muted-foreground">Already have an account? </span>
+          <Link
+            to="/login"
+            className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition"
+          >
+            Sign In
+          </Link>
         </div>
-        {!valid ? (
-          <p className="text-sm text-muted-foreground">
-            Use a 10-digit phone number and at least 6 password characters.
-          </p>
-        ) : null}
-        <button
-          disabled={!valid}
-          className="w-full rounded-lg bg-primary px-4 py-3 font-black text-primary-foreground disabled:opacity-50"
-        >
-          {mode === "login" ? "Login" : "Create account"}
-        </button>
-      </form>
+      </div>
     </PageShell>
   );
 }
