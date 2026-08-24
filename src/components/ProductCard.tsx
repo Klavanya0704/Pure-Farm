@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { Link } from "@tanstack/react-router";
 import { IndianRupee, ShoppingCart, Star } from "lucide-react";
 import type { Product } from "@/data/types";
@@ -14,57 +13,82 @@ export function formatRupees(value: number) {
 
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
+
+  // Compute deterministic discount, old price, and review count based on product ID/price
+  const discount = (product.id.charCodeAt(product.id.length - 1) % 3) * 5 + 10; // 10%, 15%, or 20%
+  const oldPrice = Math.round(product.price / (1 - discount / 100));
+  const reviewCount = (product.id.charCodeAt(product.id.length - 1) * 3 + 12); // e.g. 120, etc.
+
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card shadow-card transition hover:-translate-y-0.5 hover:shadow-card-lg">
-      <Link to="/product/$id" params={{ id: product.id }} className="block bg-muted">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="h-44 w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-        />
-      </Link>
-      <div className="flex flex-1 flex-col p-4">
-        <div className="mb-3 flex items-start justify-between gap-2">
-          <div>
-            <p className="text-xs font-bold uppercase text-primary">{product.brand}</p>
-            <Link
-              to="/product/$id"
-              params={{ id: product.id }}
-              className="mt-1 line-clamp-2 text-base font-black leading-snug hover:text-primary"
-            >
-              {product.name}
-            </Link>
-          </div>
-          {product.badge ? (
-            <span className="shrink-0 rounded-full bg-secondary px-2 py-1 text-[11px] font-black text-secondary-foreground">
-              {product.badge}
-            </span>
-          ) : null}
-        </div>
-        <p className="line-clamp-2 text-sm text-muted-foreground">{product.description}</p>
-        <div className="mt-4 flex items-center gap-3 text-sm">
-          <span className="inline-flex items-center gap-1 font-bold">
-            <Star className="h-4 w-4 fill-secondary text-secondary" /> {product.rating}
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift">
+      {/* Product Image + Discount Badge */}
+      <div className="relative overflow-hidden bg-muted aspect-video w-full">
+        <Link to="/product/$id" params={{ id: product.id }} className="block h-full w-full">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </Link>
+        <span className="absolute left-3 top-3 rounded-lg bg-amber-500 px-2 py-1 text-[11px] font-black text-white shadow-sm">
+          -{discount}%
+        </span>
+        {product.badge ? (
+          <span className="absolute right-3 top-3 rounded-lg bg-[#2d6a4f] px-2 py-1 text-[11px] font-black text-white shadow-sm">
+            {product.badge}
           </span>
-          <span className="text-muted-foreground">
+        ) : null}
+      </div>
+
+      {/* Product Details */}
+      <div className="flex flex-1 flex-col p-4">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-[#2d6a4f]/70">
+          {product.brand}
+        </p>
+        <Link
+          to="/product/$id"
+          params={{ id: product.id }}
+          className="mt-1 line-clamp-2 text-sm font-black leading-snug text-foreground hover:text-[#2d6a4f] transition-colors"
+        >
+          {product.name}
+        </Link>
+        <p className="mt-1 text-xs text-muted-foreground">
+          Unit: {product.unit || "1 kg"}
+        </p>
+
+        {/* Rating and review count */}
+        <div className="mt-2.5 flex items-center gap-1 text-xs">
+          <span className="inline-flex items-center gap-0.5 font-bold text-amber-500">
+            <Star className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
+            {product.rating}
+          </span>
+          <span className="text-muted-foreground">({reviewCount})</span>
+          <span className="ml-auto text-[10px] font-bold text-[#2d6a4f]">
             {product.stock > 0 ? `${product.stock} in stock` : "Out of stock"}
           </span>
         </div>
-        <div className="mt-auto flex items-center justify-between gap-3 pt-5">
-          <p className="flex items-center text-xl font-black">
-            <IndianRupee className="h-4 w-4" />
-            {product.price.toLocaleString("en-IN")}
-            <span className="ml-1 text-xs font-semibold text-muted-foreground">
-              /{product.unit}
-            </span>
-          </p>
+
+        {/* Pricing & Add to Cart */}
+        <div className="mt-auto flex items-center justify-between gap-3 pt-4 border-t border-border/60">
+          <div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-base font-black text-[#1b4332] flex items-center">
+                ₹{product.price.toLocaleString("en-IN")}
+              </span>
+              <span className="text-xs text-muted-foreground line-through">
+                ₹{oldPrice.toLocaleString("en-IN")}
+              </span>
+            </div>
+            <p className="text-[10px] text-muted-foreground">Incl. of all taxes</p>
+          </div>
           <button
             type="button"
             onClick={() => addItem(product.id)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground transition hover:bg-primary-deep"
+            disabled={product.stock <= 0}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#2d6a4f] text-white transition hover:bg-[#1b4332] disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:scale-105"
             aria-label={`Add ${product.name} to cart`}
           >
-            <ShoppingCart className="h-5 w-5" />
+            <ShoppingCart className="h-4.5 w-4.5" />
           </button>
         </div>
       </div>

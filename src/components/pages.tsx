@@ -16,8 +16,22 @@ import {
   TrendingDown,
   TrendingUp,
   Users,
+  Award,
+  Scale,
+  Truck,
+  Lock,
+  MapPin,
+  Sun,
+  Droplets,
+  Wind,
+  Shield,
+  Heart,
+  Info,
+  HelpCircle,
+  MessageCircle,
+  Leaf,
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import {
   ADMIN_STATS,
   COURSES,
@@ -31,7 +45,7 @@ import {
   WEATHER,
 } from "@/data/agriculture";
 import { CATEGORIES, getProduct, PRODUCTS } from "@/data/products";
-import { SITE } from "@/data/site";
+import { SITE, waLink } from "@/data/site";
 import type { Category, NotificationItem, Product } from "@/data/types";
 import { cardClass, PageShell } from "./AppShell";
 import { getCartProducts, useCart } from "./CartContext";
@@ -73,116 +87,379 @@ function EmptyState({
 }
 
 export function HomePage() {
-  const featured = PRODUCTS.filter((p) => p.badge).slice(0, 4);
+  const navigate = useNavigate();
+
+  // Find 6 products for Best Deals
+  const dealProductKeywords = ["tomato", "cucumber", "potato", "onion", "chilli", "marigold"];
+  const dealProducts = useMemo(() => {
+    const matches: Product[] = [];
+    dealProductKeywords.forEach((kw) => {
+      const found = PRODUCTS.find((p) => p.name.toLowerCase().includes(kw));
+      if (found) matches.push(found);
+    });
+    if (matches.length < 6) {
+      const extra = PRODUCTS.filter((p) => !matches.find((m) => m.id === p.id));
+      return [...matches, ...extra].slice(0, 6);
+    }
+    return matches.slice(0, 6);
+  }, []);
+
+  // Map 5 Mandi prices with fallbacks
+  const cropsToDisplay = [
+    { name: "Tomato", fallbackPrice: 18, fallbackChange: -5.2 },
+    { name: "Potato", fallbackPrice: 15, fallbackChange: 2.1 },
+    { name: "Onion", fallbackPrice: 20, fallbackChange: -3.4 },
+    { name: "Green Chilli", fallbackPrice: 30, fallbackChange: 4.3 },
+    { name: "Brinjal", fallbackPrice: 25, fallbackChange: 1.6 }
+  ];
+  const mandiPrices = useMemo(() => {
+    return cropsToDisplay.map(crop => {
+      const dbItem = MANDI_PRICES.find(m => m.crop.toLowerCase() === crop.name.toLowerCase());
+      return {
+        crop: crop.name,
+        price: dbItem ? Math.round(dbItem.price / 100) : crop.fallbackPrice,
+        changePct: dbItem ? dbItem.changePct : crop.fallbackChange
+      };
+    });
+  }, []);
+
+  // Map Weather forecast
+  const weatherData = WEATHER.length >= 5 ? WEATHER : [];
+  const forecastDays = ["Sat", "Sun", "Mon", "Tue"];
+  const weatherForecast = useMemo(() => {
+    return forecastDays.map((d, i) => {
+      const dbItem = weatherData[i + 1];
+      return {
+        day: d,
+        temp: dbItem ? `${dbItem.high}°/${dbItem.low}°` : `${29 + i}°/${22 + i % 2}°`,
+        condition: dbItem ? dbItem.condition : "Sunny"
+      };
+    });
+  }, []);
+
+  // Map Schemes
+  const displaySchemes = [
+    { id: "pm-kisan", fallbackName: "PM Kisan Samman Nidhi", fallbackDesc: "Financial support to farmers" },
+    { id: "soil-health", fallbackName: "Soil Health Card Scheme", fallbackDesc: "Improve soil health & productivity" },
+    { id: "kcc", fallbackName: "Kisan Credit Card", fallbackDesc: "Easy credit for farmers" },
+    { id: "pmfby", fallbackName: "Crop Insurance Scheme", fallbackDesc: "Protect your crops & income" }
+  ];
+  const schemesToRender = useMemo(() => {
+    return displaySchemes.map(s => {
+      const dbScheme = SCHEMES.find(ds => ds.id === s.id) || INSURANCE_SCHEMES.find(di => di.code === s.id);
+      return {
+        name: dbScheme ? dbScheme.name : s.fallbackName,
+        desc: dbScheme ? dbScheme.description : s.fallbackDesc
+      };
+    });
+  }, []);
+
+  // Categories list
+  const categoriesList = [
+    { name: "Fruits", img: "https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?auto=format&fit=crop&q=80&w=300" },
+    { name: "Vegetables", img: "https://images.unsplash.com/photo-1566385101042-1a010c129fa6?auto=format&fit=crop&q=80&w=300" },
+    { name: "Seeds", img: "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&q=80&w=300" },
+    { name: "Fertilizers", img: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&q=80&w=300" },
+    { name: "Pesticides", img: "https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&q=80&w=300" },
+    { name: "Farm Tools", img: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&q=80&w=300" },
+    { name: "Equipment", img: "https://images.unsplash.com/photo-1530268578403-125039bcdc16?auto=format&fit=crop&q=80&w=300" }
+  ];
+
   return (
-    <>
-      <section className="gradient-hero px-4 py-10 text-white sm:px-6 lg:px-8 lg:py-16">
-        <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-          <div>
-            <p className="inline-flex rounded-full bg-white/14 px-4 py-2 text-sm font-bold">
-              Trusted local farm commerce and advisory
-            </p>
-            <h1 className="mt-5 max-w-3xl text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
-              PureFarm
-            </h1>
-            <p className="mt-4 max-w-2xl text-lg leading-8 text-white/84">
-              Buy farm inputs, track mandi prices, follow weather advisories, discover schemes, and
-              learn crop practices from one farmer-first dashboard.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link
-                to="/marketplace"
-                className="inline-flex items-center gap-2 rounded-lg bg-secondary px-5 py-3 font-black text-secondary-foreground"
-              >
-                Shop inputs <ArrowRight className="h-5 w-5" />
-              </Link>
-              <Link
-                to="/market"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-5 py-3 font-bold text-white"
-              >
-                View mandi prices
-              </Link>
+    <div className="px-4 py-6 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
+      {/* 2-Column Desktop Layout */}
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_310px] items-start">
+        
+        {/* Left Column (Main content) */}
+        <div className="space-y-8 min-w-0">
+          {/* Hero Banner */}
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-950 to-emerald-900 text-white min-h-[340px] flex items-center p-6 sm:p-10 shadow-soft">
+            <div className="absolute inset-0 z-0">
+              <img 
+                src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=1200" 
+                alt="Agricultural field at sunrise" 
+                className="h-full w-full object-cover opacity-20 mix-blend-overlay"
+              />
             </div>
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              <Stat value="100" label="catalogued products" />
-              <Stat value="8" label="active mandi feeds" />
-              <Stat value="24/7" label="support via WhatsApp" />
+            <div className="relative z-10 max-w-xl space-y-4">
+              <span className="inline-flex rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-black uppercase tracking-wider text-emerald-300">
+                Premium Farming Advisory & Marketplace
+              </span>
+              <h1 className="text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
+                Empowering Farmers, Building a Better Tomorrow
+              </h1>
+              <p className="text-sm leading-relaxed text-emerald-100">
+                Your one-stop platform for quality products, real-time market prices, government schemes and expert knowledge.
+              </p>
+              <div className="pt-2 flex flex-wrap gap-3">
+                <Link
+                  to="/marketplace"
+                  className="inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 transition px-5 py-3 text-sm font-black text-white shadow-sm hover:scale-105 duration-200"
+                >
+                  Shop Marketplace <ArrowRight className="h-4.5 w-4.5" />
+                </Link>
+                <Link
+                  to="/schemes"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 hover:bg-white/20 transition px-5 py-3 text-sm font-bold text-white hover:scale-105 duration-200"
+                >
+                  Explore Schemes
+                </Link>
+              </div>
             </div>
           </div>
-          <div className="overflow-hidden rounded-2xl border border-white/20 bg-white/10 shadow-card-lg">
-            <img
-              src={featured[0]?.image}
-              alt="PureFarm agriculture products"
-              className="h-72 w-full object-cover sm:h-96"
-            />
-            <div className="grid grid-cols-3 gap-px bg-white/20">
-              {featured.slice(1, 4).map((product) => (
-                <img
-                  key={product.id}
-                  src={product.image}
-                  alt=""
-                  className="h-24 w-full object-cover"
-                />
+
+          {/* Feature Cards */}
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {[
+              { title: "100% Organic", desc: "Healthy & Chemical Free", icon: Leaf },
+              { title: "Best Quality", desc: "Carefully Handpicked", icon: Award },
+              { title: "Fair Prices", desc: "Direct from Farmers", icon: Scale },
+              { title: "Fast Delivery", desc: "Across India", icon: Truck },
+              { title: "Secure Payments", desc: "100% Safe & Secure", icon: Lock }
+            ].map((f, i) => {
+              const Icon = f.icon;
+              return (
+                <div key={i} className="rounded-2xl border border-border bg-card p-4 text-center shadow-soft transition-all duration-200 hover:scale-[1.02] hover:shadow-card-lg">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sidebar-primary text-sidebar-primary-foreground mb-3">
+                    <Icon className="h-5 w-5 text-[#2d6a4f]" />
+                  </span>
+                  <p className="text-xs font-black text-[#1b4332]">{f.title}</p>
+                  <p className="mt-1 text-[10px] text-muted-foreground leading-normal">{f.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Category Section */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-xl font-black text-[#1b4332]">Shop by Category</h2>
+                <p className="text-xs text-muted-foreground">Certified products and inputs for your crops</p>
+              </div>
+              <Link to="/marketplace" className="inline-flex items-center gap-1 text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition">
+                View All <ArrowRight className="h-3 w-3" />
+              </Link>
+            </div>
+            
+            {/* Category horizontal scroll / flex wrap */}
+            <div className="flex gap-4 overflow-x-auto pb-2 no-scrollbar scroll-smooth">
+              {categoriesList.map((cat, idx) => (
+                <Link
+                  key={idx}
+                  to="/marketplace"
+                  className="flex flex-col items-center justify-center rounded-2xl border border-border bg-card p-3 shadow-soft min-w-[100px] sm:min-w-[110px] hover:scale-[1.03] transition-transform duration-200 hover:shadow-card-lg"
+                >
+                  <div className="h-14 w-14 rounded-full overflow-hidden bg-muted flex items-center justify-center border border-border">
+                    <img src={cat.img} alt={cat.name} className="h-full w-full object-cover" />
+                  </div>
+                  <span className="mt-2 text-xs font-black text-foreground text-center line-clamp-1">{cat.name}</span>
+                </Link>
               ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      <section className="px-4 py-10 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-4 md:grid-cols-4">
-            {(
-              [
-                [
-                  "Marketplace",
-                  "Certified seeds, fertilisers, tools, irrigation kits.",
-                  "/marketplace",
-                ],
-                ["Crop Services", "Weather, crop calendar, insurance, and schemes.", "/weather"],
-                ["Learning", "Short field-ready courses for better decisions.", "/learn"],
-                ["Support", "Contact forms, FAQs, and WhatsApp assistance.", "/support"],
-              ] as const
-            ).map(([title, body, to]) => (
-              <Link
-                key={title}
-                to={to}
-                className={`${cardClass} block transition hover:-translate-y-0.5 hover:shadow-card-lg`}
-              >
-                <p className="text-lg font-black">{title}</p>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">{body}</p>
+          {/* Product Section */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-xl font-black text-[#1b4332]">Best Deals for You</h2>
+                <p className="text-xs text-muted-foreground">Handpicked agricultural seeds & inputs on discount</p>
+              </div>
+              <Link to="/marketplace" className="inline-flex items-center gap-1 text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition">
+                View All <ArrowRight className="h-3 w-3" />
               </Link>
-            ))}
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {dealProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
           </div>
 
-          <div className="mt-12 flex items-end justify-between gap-4">
-            <div>
-              <p className="text-sm font-black uppercase text-primary">Featured inputs</p>
-              <h2 className="mt-2 text-3xl font-black">Popular this season</h2>
+          {/* App download Banner */}
+          <div className="rounded-2xl bg-gradient-to-br from-[#1b4332] to-[#0d1e16] text-white p-6 sm:p-8 shadow-soft flex flex-col sm:flex-row items-center justify-between gap-6 overflow-hidden relative">
+            <div className="absolute right-0 top-0 bottom-0 opacity-10 pointer-events-none hidden md:block">
+              <Leaf className="h-48 w-48 text-white rotate-45 transform translate-x-12 translate-y-4" />
             </div>
-            <Link
-              to="/marketplace"
-              className="hidden items-center gap-2 font-bold text-primary sm:inline-flex"
-            >
-              Browse all <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-            {featured.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            <div className="space-y-2 max-w-md">
+              <h3 className="text-xl font-black">Stay Updated, Stay Ahead!</h3>
+              <p className="text-xs text-emerald-100 leading-relaxed">
+                Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.
+              </p>
+              <div className="pt-2 flex flex-wrap gap-2.5">
+                <button className="h-9 px-3.5 rounded-lg bg-white text-[#1b4332] hover:bg-emerald-50 transition text-xs font-bold flex items-center gap-2">
+                  <span>Google Play</span>
+                </button>
+                <button className="h-9 px-3.5 rounded-lg bg-emerald-900 border border-emerald-700 text-white hover:bg-emerald-800 transition text-xs font-bold flex items-center gap-2">
+                  <span>App Store</span>
+                </button>
+              </div>
+            </div>
+            <div className="shrink-0 flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white/5 border border-white/10 backdrop-blur shadow-inner">
+              <div className="text-center">
+                <span className="block text-2xl font-black text-amber-400">App</span>
+                <span className="block text-[10px] uppercase font-bold tracking-widest">PureFarm</span>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-    </>
+
+        {/* Right Column (Widgets) */}
+        <div className="space-y-6 lg:sticky lg:top-20">
+          
+          {/* Weather Widget */}
+          <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Weather Update</p>
+              <Sun className="h-5 w-5 text-amber-500 fill-amber-100" />
+            </div>
+            <div className="mt-3">
+              <p className="text-sm font-black text-[#1b4332]">Rajahmundry, AP</p>
+              <div className="mt-2 flex items-baseline gap-2">
+                <span className="text-4xl font-black text-[#1b4332]">28°C</span>
+                <span className="text-sm font-bold text-muted-foreground">Sunny</span>
+              </div>
+              
+              <div className="mt-4 grid grid-cols-3 gap-2 border-t border-b border-border/60 py-3 text-center">
+                <div>
+                  <p className="text-[10px] text-muted-foreground font-semibold">Humidity</p>
+                  <p className="text-xs font-black text-[#1b4332] mt-0.5">62%</p>
+                </div>
+                <div>
+                  <p className="text-[10px] text-muted-foreground font-semibold">Wind</p>
+                  <p className="text-xs font-black text-[#1b4332] mt-0.5">12 km/h</p>
+                </div>
+                <div>
+                  <p className="text-[10px] text-muted-foreground font-semibold">Rain</p>
+                  <p className="text-xs font-black text-[#1b4332] mt-0.5">10%</p>
+                </div>
+              </div>
+
+              {/* 4-Day Forecast */}
+              <div className="mt-4 space-y-2.5">
+                {weatherForecast.map((fc, i) => (
+                  <div key={i} className="flex items-center justify-between text-xs">
+                    <span className="font-semibold text-muted-foreground w-10">{fc.day}</span>
+                    <span className="text-foreground/80 font-medium text-center flex-1">{fc.condition}</span>
+                    <span className="font-bold text-[#1b4332] w-12 text-right">{fc.temp}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Today's Market Prices Widget */}
+          <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Market Prices</p>
+                <p className="text-[10px] text-muted-foreground mt-0.5">Today's Mandi Feeds</p>
+              </div>
+              <Link to="/market" className="text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition">
+                View All
+              </Link>
+            </div>
+            
+            <div className="mt-4 space-y-3">
+              {mandiPrices.map((p, idx) => {
+                const isPositive = p.changePct >= 0;
+                return (
+                  <div key={idx} className="flex items-center justify-between border-b border-border/50 pb-2.5 last:border-0 last:pb-0">
+                    <div>
+                      <p className="text-xs font-black text-[#1b4332]">{p.crop}</p>
+                      <p className="text-[10px] text-muted-foreground mt-0.5">Local Area Hub</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs font-black text-[#1b4332]">₹{p.price} / kg</p>
+                      <p className={`mt-0.5 text-[10px] font-bold flex items-center justify-end gap-0.5 ${isPositive ? "text-emerald-600" : "text-rose-500"}`}>
+                        {isPositive ? (
+                          <TrendingUp className="h-3 w-3" />
+                        ) : (
+                          <TrendingDown className="h-3 w-3" />
+                        )}
+                        {isPositive ? `+${p.changePct}%` : `${p.changePct}%`}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Government Schemes Widget */}
+          <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Govt Schemes</p>
+              <Link to="/schemes" className="text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition">
+                View All
+              </Link>
+            </div>
+            
+            <div className="mt-4 space-y-3.5">
+              {schemesToRender.map((s, idx) => (
+                <div key={idx} className="flex items-start gap-2.5">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700 mt-0.5 border border-emerald-100">
+                    <ShieldCheck className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <h4 className="text-xs font-black text-[#1b4332] line-clamp-1 leading-snug">{s.name}</h4>
+                    <p className="text-[10px] text-muted-foreground leading-normal mt-0.5 line-clamp-2">{s.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Help Card / Support */}
+          <div className="rounded-2xl border border-border bg-card p-5 shadow-soft relative overflow-hidden">
+            <p className="text-sm font-black text-[#1b4332]">Need Help?</p>
+            <p className="mt-1 text-xs text-muted-foreground leading-normal">
+              Chat with our support team on WhatsApp for quick farm consulting.
+            </p>
+            <div className="mt-4 flex items-center gap-3">
+              <img 
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100" 
+                alt="Support representative" 
+                className="h-10 w-10 rounded-full object-cover border border-border"
+              />
+              <div>
+                <p className="text-xs font-bold text-foreground">Advisor Pooja</p>
+                <p className="text-[10px] text-emerald-600 font-bold">Online Now</p>
+              </div>
+            </div>
+            <a
+              href={waLink("Hello PureFarm, I need help with my farm.")}
+              className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-[#25d366] hover:bg-[#1ebd55] text-white py-2.5 text-xs font-black shadow-sm transition hover:scale-105 duration-200"
+            >
+              <MessageCircle className="mr-1.5 h-4 w-4" /> Chat Now
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
   );
 }
 
 export function MarketplacePage() {
-  const [query, setQuery] = useState("");
+  // Read search query from URL search parameters on initialization
+  const initialQuery = useMemo(() => {
+    if (typeof window === "undefined") return "";
+    return new URL(window.location.href).searchParams.get("query") || "";
+  }, []);
+  const [query, setQuery] = useState(initialQuery);
   const [category, setCategory] = useState<Category | "all">("all");
   const [sort, setSort] = useState("featured");
   const [maxPrice, setMaxPrice] = useState(200000);
+
+  const urlQuery = typeof window !== "undefined" ? new URL(window.location.href).searchParams.get("query") : null;
+  useEffect(() => {
+    if (urlQuery !== null) {
+      setQuery(urlQuery);
+    }
+  }, [urlQuery]);
 
   const filtered = useMemo(() => {
     const next = PRODUCTS.filter((product) => {
@@ -209,20 +486,20 @@ export function MarketplacePage() {
       title="Farm input marketplace"
       intro="Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart."
     >
-      <div className="mb-6 grid gap-3 rounded-xl border border-border bg-card p-4 shadow-card lg:grid-cols-[1fr_12rem_12rem_14rem]">
+      <div className="mb-6 grid gap-3 rounded-2xl border border-border bg-card p-4 shadow-soft lg:grid-cols-[1fr_12rem_12rem_14rem]">
         <label className="relative block">
-          <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+          <Search className="absolute left-3 top-3 h-4 w-4 text-[#2d6a4f]" />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search seeds, fertiliser, tools..."
-            className="h-10 w-full rounded-lg border border-input bg-background pl-9 pr-3 text-sm outline-none ring-primary focus:ring-2"
+            className="h-10 w-full rounded-xl border border-input bg-background pl-9 pr-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
           />
         </label>
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value as Category | "all")}
-          className="h-10 rounded-lg border border-input bg-background px-3 text-sm"
+          className="h-10 rounded-xl border border-input bg-background px-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
         >
           {CATEGORIES.map((cat) => (
             <option key={cat.id} value={cat.id}>
@@ -233,7 +510,7 @@ export function MarketplacePage() {
         <select
           value={sort}
           onChange={(e) => setSort(e.target.value)}
-          className="h-10 rounded-lg border border-input bg-background px-3 text-sm"
+          className="h-10 rounded-xl border border-input bg-background px-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
         >
           <option value="featured">Featured first</option>
           <option value="rating">Top rated</option>
@@ -310,55 +587,57 @@ export function ProductDetailPage({ id }: { id: string }) {
         <img
           src={product.image}
           alt={product.name}
-          className="h-80 w-full rounded-xl object-cover shadow-card lg:h-[32rem]"
+          className="h-80 w-full rounded-2xl object-cover shadow-soft lg:h-[32rem]"
         />
-        <div className={cardClass}>
+        <div className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-6">
           <div className="flex flex-wrap items-center gap-2">
-            <Pill>{product.brand}</Pill>
-            {product.badge ? <Pill>{product.badge}</Pill> : null}
-            <Pill>{product.rating} rating</Pill>
+            <span className="rounded-lg bg-emerald-50 border border-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-800">{product.brand}</span>
+            {product.badge ? (
+              <span className="rounded-lg bg-amber-50 border border-amber-100 px-2.5 py-1 text-xs font-bold text-amber-800">{product.badge}</span>
+            ) : null}
+            <span className="rounded-lg bg-accent px-2.5 py-1 text-xs font-bold text-accent-foreground">{product.rating} ★ rating</span>
           </div>
-          <p className="mt-5 text-4xl font-black">
+          <p className="text-4xl font-black text-[#1b4332]">
             {formatRupees(product.price)}{" "}
             <span className="text-base font-semibold text-muted-foreground">/{product.unit}</span>
           </p>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-2">
             {[
               ["Availability", product.stock > 0 ? `${product.stock} units ready` : "Out of stock"],
               ["Seller", product.brand],
               ["Category", product.category],
               ["Delivery", "Local hub dispatch in 1-3 days"],
             ].map(([label, value]) => (
-              <div key={label} className="rounded-lg bg-muted p-4">
-                <p className="text-xs font-bold uppercase text-muted-foreground">{label}</p>
-                <p className="mt-1 font-black">{value}</p>
+              <div key={label} className="rounded-xl bg-[#f4f9f6]/70 border border-emerald-50/50 p-4">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">{label}</p>
+                <p className="mt-1 text-sm font-black text-[#1b4332]">{value}</p>
               </div>
             ))}
           </div>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <div className="inline-flex items-center rounded-lg border border-border bg-background">
+          <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-border/60">
+            <div className="inline-flex items-center rounded-xl border border-border bg-background">
               <button
                 type="button"
                 onClick={() => setQty(Math.max(1, qty - 1))}
-                className="h-11 w-11"
+                className="h-11 w-11 flex items-center justify-center text-muted-foreground hover:text-foreground transition"
                 aria-label="Decrease quantity"
               >
-                <Minus className="mx-auto h-4 w-4" />
+                <Minus className="h-4 w-4" />
               </button>
-              <span className="w-12 text-center font-black">{qty}</span>
+              <span className="w-12 text-center font-black text-foreground">{qty}</span>
               <button
                 type="button"
                 onClick={() => setQty(qty + 1)}
-                className="h-11 w-11"
+                className="h-11 w-11 flex items-center justify-center text-muted-foreground hover:text-foreground transition"
                 aria-label="Increase quantity"
               >
-                <Plus className="mx-auto h-4 w-4" />
+                <Plus className="h-4 w-4" />
               </button>
             </div>
             <button
               type="button"
               onClick={() => addItem(product.id, qty)}
-              className="rounded-lg bg-primary px-5 py-3 font-black text-primary-foreground"
+              className="rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-6 py-3 font-black text-sm shadow-sm transition hover:scale-105 duration-200"
             >
               Add to cart
             </button>
@@ -368,7 +647,7 @@ export function ProductDetailPage({ id }: { id: string }) {
                 addItem(product.id, qty);
                 void navigate({ to: "/order" });
               }}
-              className="rounded-lg bg-secondary px-5 py-3 font-black text-secondary-foreground"
+              className="rounded-xl bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 font-black text-sm shadow-sm transition hover:scale-105 duration-200"
             >
               Buy now
             </button>
