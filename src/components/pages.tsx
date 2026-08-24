@@ -49,6 +49,7 @@ import { SITE, waLink } from "@/data/site";
 import type { Category, NotificationItem, Product } from "@/data/types";
 import { cardClass, PageShell } from "./AppShell";
 import { getCartProducts, useCart } from "./CartContext";
+import { useAuth } from "./AuthContext";
 import { formatRupees, ProductCard } from "./ProductCard";
 
 function Stat({ label, value }: { label: string; value: string }) {
@@ -1254,6 +1255,7 @@ function FormPage({
 
 export function LoginPage() {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [phoneOrEmail, setPhoneOrEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -1261,7 +1263,6 @@ export function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Validation logic
   const isEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
   const isPhone = (val: string) => /^\d{10}$/.test(val);
   
@@ -1269,242 +1270,135 @@ export function LoginPage() {
     return (isEmail(phoneOrEmail) || isPhone(phoneOrEmail)) && password.length >= 6;
   }, [phoneOrEmail, password]);
 
-  const handleLoginSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isValid) return;
 
     setLoading(true);
     setErrorMessage("");
 
-    try {
-      // Simulate API call authentication
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
-      // Perform successful redirect to homepage
+    const success = await login(phoneOrEmail, password);
+    if (success) {
       void navigate({ to: "/" });
-    } catch (err) {
-      setErrorMessage("Invalid credentials. Please try again.");
+    } else {
+      setErrorMessage("Invalid credentials. Try farmer@purefarm.com / password123");
       setLoading(false);
     }
   };
 
   return (
-    <div className="w-full min-h-[calc(100vh-4rem)] grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] bg-[#f8fbf9]">
-      
-      {/* LEFT VISUAL PANEL */}
-      <div className="relative hidden lg:flex flex-col justify-between p-10 text-white overflow-hidden bg-emerald-950 min-h-[500px]">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1000" 
-            alt="Indian farmer in golden crop field at sunrise" 
-            className="h-full w-full object-cover opacity-35 mix-blend-overlay"
+    <PageShell
+      eyebrow="Account"
+      title="Login"
+      intro="Sign in to your farmer dashboard using your email or phone number."
+    >
+      <form onSubmit={handleSubmit} className="mx-auto max-w-md rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-soft space-y-4">
+        <h3 className="text-xl font-black text-[#1b4332] text-center">Welcome Back 👋</h3>
+        <p className="text-xs text-muted-foreground text-center -mt-2 mb-4">Sign in to continue to PureFarm</p>
+
+        <div className="space-y-1.5">
+          <label className="text-xs font-bold text-foreground">Email / Phone Number</label>
+          <input
+            type="text"
+            disabled={loading}
+            value={phoneOrEmail}
+            onChange={(e) => {
+              setPhoneOrEmail(e.target.value);
+              if (errorMessage) setErrorMessage("");
+            }}
+            placeholder="Enter your email or phone number"
+            className="h-11 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
           />
-          {/* Subtle green gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-emerald-950/90 via-emerald-900/80 to-emerald-950/50" />
         </div>
 
-        {/* Top Branding Logo */}
-        <div className="relative z-10 flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[#1b4332] shadow-sm">
-            <Leaf className="h-5 w-5" />
-          </span>
-          <div>
-            <span className="block text-lg font-black tracking-wide">PureFarm</span>
-            <span className="block text-[10px] font-semibold text-emerald-300 uppercase tracking-widest leading-none mt-0.5">
-              Connect • Grow • Prosper
-            </span>
-          </div>
-        </div>
-
-        {/* Center Slogans & Features */}
-        <div className="relative z-10 max-w-lg my-auto space-y-6">
-          <h2 className="text-3xl lg:text-4xl font-black leading-tight">
-            Empowering Farmers,<br />Building a Better Tomorrow
-          </h2>
-          <p className="text-sm text-emerald-100/90 leading-relaxed font-medium">
-            Access fresh produce, market prices, government schemes and farming resources — all in one place.
-          </p>
-
-          <div className="space-y-3 pt-4">
-            {[
-              "Fresh Agricultural Marketplace",
-              "Real-Time Market Prices",
-              "Government Schemes & Support",
-              "Smart Farming Resources"
-            ].map((feature, i) => (
-              <div key={i} className="flex items-center gap-2.5 text-sm">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-300">
-                  ✓
-                </span>
-                <span className="font-semibold text-emerald-50">{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Footer info */}
-        <div className="relative z-10 text-[10px] text-emerald-200/60 uppercase tracking-widest font-bold">
-          © {new Date().getFullYear()} PureFarm Platform. All rights reserved.
-        </div>
-      </div>
-
-      {/* RIGHT LOGIN CARD */}
-      <div className="flex items-center justify-center p-6 sm:p-10 lg:p-16">
-        <div className="w-full max-w-md space-y-6">
-          {/* Card Top Welcome Header */}
-          <div className="text-center lg:text-left space-y-2">
-            <div className="flex justify-center lg:justify-start">
-              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#eef7f2] text-[#2d6a4f] border border-emerald-100 shadow-sm mb-3">
-                <Leaf className="h-6 w-6" />
-              </span>
-            </div>
-            <h3 className="text-2xl font-black text-[#1b4332]">Welcome Back 👋</h3>
-            <p className="text-xs text-muted-foreground">Sign in to continue to PureFarm</p>
-          </div>
-
-          {/* Form Card Content */}
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-soft">
-            <form onSubmit={handleLoginSubmit} className="space-y-4">
-              
-              {/* Username field */}
-              <div className="space-y-1.5">
-                <label className="text-xs font-black text-[#1b4332] block">
-                  Email / Phone Number
-                </label>
-                <input
-                  type="text"
-                  required
-                  disabled={loading}
-                  value={phoneOrEmail}
-                  onChange={(e) => {
-                    setPhoneOrEmail(e.target.value);
-                    if (errorMessage) setErrorMessage("");
-                  }}
-                  placeholder="Enter your email or phone number"
-                  className="h-11 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
-                />
-              </div>
-
-              {/* Password field */}
-              <div className="space-y-1.5">
-                <label className="text-xs font-black text-[#1b4332] block">
-                  Password
-                </label>
-                <div className="relative">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    required
-                    disabled={loading}
-                    value={password}
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                      if (errorMessage) setErrorMessage("");
-                    }}
-                    placeholder="Enter your password"
-                    className="h-11 w-full rounded-xl border border-input bg-background pl-4 pr-12 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3.5 top-3 text-xs font-bold text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {showPassword ? "Hide" : "Show"}
-                  </button>
-                </div>
-              </div>
-
-              {/* Error messages */}
-              {errorMessage ? (
-                <p className="text-xs font-bold text-rose-500">{errorMessage}</p>
-              ) : null}
-
-              {/* Info checklist helper */}
-              {!isValid && (phoneOrEmail.length > 0 || password.length > 0) && (
-                <p className="text-[10px] leading-normal text-muted-foreground">
-                  • Use a valid email address or 10-digit mobile number.<br />
-                  • Password must be at least 6 characters long.
-                </p>
-              )}
-
-              {/* Remember + Forgot Row */}
-              <div className="flex items-center justify-between text-xs pt-1">
-                <label className="flex items-center gap-2 cursor-pointer select-none font-medium text-foreground/80">
-                  <input
-                    type="checkbox"
-                    checked={rememberMe}
-                    disabled={loading}
-                    onChange={(e) => setRememberMe(e.target.checked)}
-                    className="rounded text-[#2d6a4f] focus:ring-[#2d6a4f] border-border"
-                  />
-                  Remember me
-                </label>
-                <Link
-                  to="/support"
-                  className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition"
-                >
-                  Forgot Password?
-                </Link>
-              </div>
-
-              {/* Sign In button */}
-              <button
-                type="submit"
-                disabled={!isValid || loading}
-                className="mt-2 w-full h-11 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] disabled:bg-muted disabled:text-muted-foreground disabled:opacity-50 text-white font-black text-sm shadow-sm transition hover:scale-[1.01] flex items-center justify-center gap-2"
-              >
-                {loading ? (
-                  <>
-                    <svg className="animate-spin h-4.5 w-4.5 text-white" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                    </svg>
-                    <span>Signing In...</span>
-                  </>
-                ) : (
-                  <span>Sign In</span>
-                )}
-              </button>
-            </form>
-
-            {/* Divider */}
-            <div className="my-5 flex items-center gap-3 text-muted-foreground text-[10px] font-bold uppercase tracking-wider">
-              <span className="h-px bg-border/80 flex-1" />
-              <span>OR</span>
-              <span className="h-px bg-border/80 flex-1" />
-            </div>
-
-            {/* Continue with Google */}
+        <div className="space-y-1.5">
+          <label className="text-xs font-bold text-foreground">Password</label>
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              disabled={loading}
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                if (errorMessage) setErrorMessage("");
+              }}
+              placeholder="Enter your password"
+              className="h-11 w-full rounded-xl border border-input bg-background pl-4 pr-12 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+            />
             <button
               type="button"
-              onClick={() => {
-                alert("This is a demo frontend sign-in. Please use the email/mobile number + password form.");
-              }}
-              className="w-full h-10 border border-border rounded-xl bg-background hover:bg-muted/30 transition text-xs font-bold flex items-center justify-center gap-2 text-foreground"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3.5 top-3 text-xs font-bold text-muted-foreground hover:text-foreground transition-colors"
             >
-              <span>Continue with Google</span>
+              {showPassword ? "Hide" : "Show"}
             </button>
           </div>
-
-          {/* Register redirect links */}
-          <div className="text-center text-xs">
-            <span className="text-muted-foreground">Don't have an account? </span>
-            <Link
-              to="/register"
-              className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition"
-            >
-              Create an account
-            </Link>
-          </div>
-
-          {/* Subtle footer label */}
-          <p className="text-center text-[10px] text-muted-foreground font-semibold">
-            Built for farmers. Designed for a better tomorrow. 🌱
-          </p>
         </div>
-      </div>
 
-    </div>
+        {errorMessage ? (
+          <p className="text-xs font-bold text-rose-500">{errorMessage}</p>
+        ) : null}
+
+        <div className="flex items-center justify-between text-xs pt-1">
+          <label className="flex items-center gap-2 cursor-pointer font-medium text-foreground/80">
+            <input
+              type="checkbox"
+              checked={rememberMe}
+              disabled={loading}
+              onChange={(e) => setRememberMe(e.target.checked)}
+              className="rounded text-[#2d6a4f] border-border focus:ring-[#2d6a4f]"
+            />
+            Remember me
+          </label>
+          <Link to="/support" className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition">
+            Forgot Password?
+          </Link>
+        </div>
+
+        <button
+          type="submit"
+          disabled={!isValid || loading}
+          className="w-full h-11 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] disabled:opacity-50 disabled:cursor-not-allowed text-white font-black text-sm shadow-sm transition hover:scale-[1.01] flex items-center justify-center gap-2"
+        >
+          {loading ? (
+            <>
+              <svg className="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+              </svg>
+              <span>Signing In...</span>
+            </>
+          ) : (
+            <span>Sign In</span>
+          )}
+        </button>
+
+        <div className="my-4 flex items-center gap-3 text-muted-foreground text-[10px] font-bold uppercase tracking-wider">
+          <span className="h-px bg-border/80 flex-1" />
+          <span>OR</span>
+          <span className="h-px bg-border/80 flex-1" />
+        </div>
+
+        <button
+          type="button"
+          onClick={() => alert("Demo credentials: farmer@purefarm.com / password123")}
+          className="w-full h-10 border border-border rounded-xl bg-background hover:bg-muted/30 transition text-xs font-bold flex items-center justify-center gap-2 text-foreground"
+        >
+          <span>Continue with Google</span>
+        </button>
+
+        <div className="text-center text-xs pt-2">
+          <span className="text-muted-foreground">Don't have an account? </span>
+          <Link to="/register" className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition">
+            Create an account
+          </Link>
+        </div>
+
+        <p className="text-center text-[10px] text-muted-foreground font-semibold pt-1">
+          Built for farmers. Designed for a better tomorrow. 🌱
+        </p>
+      </form>
+    </PageShell>
   );
 }
 
@@ -1526,8 +1420,21 @@ export function RegisterPage() {
 
     setLoading(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      
+      const session = {
+        name: name,
+        role: "Farmer",
+        phoneOrEmail: phone,
+      };
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("purefarm_session", JSON.stringify(session));
+      }
+      
       void navigate({ to: "/" });
+      if (typeof window !== "undefined") {
+        window.location.reload();
+      }
     } catch (err) {
       setLoading(false);
     }
@@ -1637,6 +1544,23 @@ export function RegisterPage() {
 }
 
 export function AdminPage() {
+  const navigate = useNavigate();
+  const { user, loading } = useAuth();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      void navigate({ to: "/login" });
+    }
+  }, [user, loading, navigate]);
+
+  if (loading || !user) {
+    return (
+      <div className="flex h-64 items-center justify-center">
+        <p className="text-sm text-muted-foreground font-semibold">Redirecting to login...</p>
+      </div>
+    );
+  }
+
   return (
     <PageShell
       eyebrow="Admin"

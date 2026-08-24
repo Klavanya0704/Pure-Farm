@@ -33,6 +33,7 @@ import {
 import { useState, type ReactNode } from "react";
 import { SITE, waLink } from "@/data/site";
 import { useCart } from "./CartContext";
+import { useAuth } from "./AuthContext";
 
 const mainNav = [
   { to: "/", label: "Home", icon: Home },
@@ -80,6 +81,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { count } = useCart();
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
@@ -239,18 +241,38 @@ export function AppShell({ children }: { children: ReactNode }) {
                 ) : null}
               </Link>
 
-              {/* User profile */}
-              <div className="flex items-center gap-2 border-l border-border pl-3">
-                <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100"
-                  alt="Lavanya"
-                  className="h-9 w-9 rounded-full object-cover border border-primary/20"
-                />
-                <div className="hidden sm:block text-left">
-                  <p className="text-xs font-bold leading-none text-foreground">Lavanya</p>
-                  <p className="mt-1 text-[10px] leading-none text-muted-foreground">Farmer</p>
+              {/* User profile / Auth status */}
+              {user ? (
+                <div className="flex items-center gap-3 border-l border-border pl-3">
+                  <div className="flex items-center gap-2">
+                    <img
+                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100"
+                      alt={user.name}
+                      className="h-9 w-9 rounded-full object-cover border border-[#2d6a4f]/20"
+                    />
+                    <div className="hidden sm:block text-left">
+                      <p className="text-xs font-bold leading-none text-foreground">{user.name}</p>
+                      <p className="mt-1.5 text-[10px] leading-none text-muted-foreground">{user.role}</p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={logout}
+                    className="inline-flex h-8 items-center justify-center rounded-lg border border-border bg-card px-2.5 text-[10px] font-bold text-destructive hover:bg-muted/50 transition"
+                  >
+                    Logout
+                  </button>
                 </div>
-              </div>
+              ) : (
+                <div className="border-l border-border pl-3">
+                  <Link
+                    to="/login"
+                    className="inline-flex h-9 items-center justify-center rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-4 text-xs font-bold shadow-sm transition"
+                  >
+                    Sign In
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </header>
