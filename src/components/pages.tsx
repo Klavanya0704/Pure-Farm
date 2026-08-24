@@ -115,7 +115,7 @@ export function AccessDenied({ requiredRoles }: { requiredRoles: string[] }) {
         </div>
         <button
           type="button"
-          onClick={() => void navigate({ to: getDashboardDestination() as any })}
+          onClick={() => void navigate({ to: getDashboardDestination() as "/" })}
           className="w-full h-11 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white font-black text-xs shadow-sm transition hover:scale-[1.01]"
         >
           Go to Dashboard
@@ -180,15 +180,15 @@ export function HomePage() {
     { name: "Potato", fallbackPrice: 15, fallbackChange: 2.1 },
     { name: "Onion", fallbackPrice: 20, fallbackChange: -3.4 },
     { name: "Green Chilli", fallbackPrice: 30, fallbackChange: 4.3 },
-    { name: "Brinjal", fallbackPrice: 25, fallbackChange: 1.6 }
+    { name: "Brinjal", fallbackPrice: 25, fallbackChange: 1.6 },
   ];
   const mandiPrices = useMemo(() => {
-    return cropsToDisplay.map(crop => {
-      const dbItem = MANDI_PRICES.find(m => m.crop.toLowerCase() === crop.name.toLowerCase());
+    return cropsToDisplay.map((crop) => {
+      const dbItem = MANDI_PRICES.find((m) => m.crop.toLowerCase() === crop.name.toLowerCase());
       return {
         crop: crop.name,
         price: dbItem ? Math.round(dbItem.price / 100) : crop.fallbackPrice,
-        changePct: dbItem ? dbItem.changePct : crop.fallbackChange
+        changePct: dbItem ? dbItem.changePct : crop.fallbackChange,
       };
     });
   }, []);
@@ -201,318 +201,393 @@ export function HomePage() {
       const dbItem = weatherData[i + 1];
       return {
         day: d,
-        temp: dbItem ? `${dbItem.high}°/${dbItem.low}°` : `${29 + i}°/${22 + i % 2}°`,
-        condition: dbItem ? dbItem.condition : "Sunny"
+        temp: dbItem ? `${dbItem.high}°/${dbItem.low}°` : `${29 + i}°/${22 + (i % 2)}°`,
+        condition: dbItem ? dbItem.condition : "Sunny",
       };
     });
   }, []);
 
   // Map Schemes
   const displaySchemes = [
-    { id: "pm-kisan", fallbackName: "PM Kisan Samman Nidhi", fallbackDesc: "Financial support to farmers" },
-    { id: "soil-health", fallbackName: "Soil Health Card Scheme", fallbackDesc: "Improve soil health & productivity" },
+    {
+      id: "pm-kisan",
+      fallbackName: "PM Kisan Samman Nidhi",
+      fallbackDesc: "Financial support to farmers",
+    },
+    {
+      id: "soil-health",
+      fallbackName: "Soil Health Card Scheme",
+      fallbackDesc: "Improve soil health & productivity",
+    },
     { id: "kcc", fallbackName: "Kisan Credit Card", fallbackDesc: "Easy credit for farmers" },
-    { id: "pmfby", fallbackName: "Crop Insurance Scheme", fallbackDesc: "Protect your crops & income" }
+    {
+      id: "pmfby",
+      fallbackName: "Crop Insurance Scheme",
+      fallbackDesc: "Protect your crops & income",
+    },
   ];
   const schemesToRender = useMemo(() => {
-    return displaySchemes.map(s => {
-      const dbScheme = SCHEMES.find(ds => ds.id === s.id) || INSURANCE_SCHEMES.find(di => di.code === s.id);
+    return displaySchemes.map((s) => {
+      const dbScheme =
+        SCHEMES.find((ds) => ds.id === s.id) || INSURANCE_SCHEMES.find((di) => di.code === s.id);
       return {
         name: dbScheme ? dbScheme.name : s.fallbackName,
-        desc: dbScheme ? dbScheme.description : s.fallbackDesc
+        desc: dbScheme ? dbScheme.description : s.fallbackDesc,
       };
     });
   }, []);
 
   // Categories list
   const categoriesList = [
-    { name: "Fruits", img: "https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?auto=format&fit=crop&q=80&w=300" },
-    { name: "Vegetables", img: "https://images.unsplash.com/photo-1566385101042-1a010c129fa6?auto=format&fit=crop&q=80&w=300" },
-    { name: "Seeds", img: "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&q=80&w=300" },
-    { name: "Fertilizers", img: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&q=80&w=300" },
-    { name: "Pesticides", img: "https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&q=80&w=300" },
-    { name: "Farm Tools", img: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&q=80&w=300" },
-    { name: "Equipment", img: "https://images.unsplash.com/photo-1530268578403-125039bcdc16?auto=format&fit=crop&q=80&w=300" }
+    {
+      name: "Fruits",
+      img: "https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?auto=format&fit=crop&q=80&w=300",
+    },
+    {
+      name: "Vegetables",
+      img: "https://images.unsplash.com/photo-1566385101042-1a010c129fa6?auto=format&fit=crop&q=80&w=300",
+    },
+    {
+      name: "Seeds",
+      img: "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&q=80&w=300",
+    },
+    {
+      name: "Fertilizers",
+      img: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&q=80&w=300",
+    },
+    {
+      name: "Pesticides",
+      img: "https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&q=80&w=300",
+    },
+    {
+      name: "Farm Tools",
+      img: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&q=80&w=300",
+    },
+    {
+      name: "Equipment",
+      img: "https://images.unsplash.com/photo-1530268578403-125039bcdc16?auto=format&fit=crop&q=80&w=300",
+    },
   ];
 
   return (
     <RoleGuard allowedRoles={["farmer", "admin"]}>
       <div className="px-4 py-6 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
-      {/* 2-Column Desktop Layout */}
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_310px] items-start">
-        
-        {/* Left Column (Main content) */}
-        <div className="space-y-8 min-w-0">
-          {/* Hero Banner */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-950 to-emerald-900 text-white min-h-[340px] flex items-center p-6 sm:p-10 shadow-soft">
-            <div className="absolute inset-0 z-0">
-              <img 
-                src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=1200" 
-                alt="Agricultural field at sunrise" 
-                className="h-full w-full object-cover opacity-20 mix-blend-overlay"
-              />
-            </div>
-            <div className="relative z-10 max-w-xl space-y-4">
-              <span className="inline-flex rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-black uppercase tracking-wider text-emerald-300">
-                Premium Farming Advisory & Marketplace
-              </span>
-              <h1 className="text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
-                Empowering Farmers, Building a Better Tomorrow
-              </h1>
-              <p className="text-sm leading-relaxed text-emerald-100">
-                Your one-stop platform for quality products, real-time market prices, government schemes and expert knowledge.
-              </p>
-              <div className="pt-2 flex flex-wrap gap-3">
-                <Link
-                  to="/marketplace"
-                  className="inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 transition px-5 py-3 text-sm font-black text-white shadow-sm hover:scale-105 duration-200"
-                >
-                  Shop Marketplace <ArrowRight className="h-4.5 w-4.5" />
-                </Link>
-                <Link
-                  to="/schemes"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 hover:bg-white/20 transition px-5 py-3 text-sm font-bold text-white hover:scale-105 duration-200"
-                >
-                  Explore Schemes
-                </Link>
+        {/* 2-Column Desktop Layout */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_310px] items-start">
+          {/* Left Column (Main content) */}
+          <div className="space-y-8 min-w-0">
+            {/* Hero Banner */}
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-950 to-emerald-900 text-white min-h-[340px] flex items-center p-6 sm:p-10 shadow-soft">
+              <div className="absolute inset-0 z-0">
+                <img
+                  src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=1200"
+                  alt="Agricultural field at sunrise"
+                  className="h-full w-full object-cover opacity-20 mix-blend-overlay"
+                />
               </div>
-            </div>
-          </div>
-
-          {/* Feature Cards */}
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-            {[
-              { title: "100% Organic", desc: "Healthy & Chemical Free", icon: Leaf },
-              { title: "Best Quality", desc: "Carefully Handpicked", icon: Award },
-              { title: "Fair Prices", desc: "Direct from Farmers", icon: Scale },
-              { title: "Fast Delivery", desc: "Across India", icon: Truck },
-              { title: "Secure Payments", desc: "100% Safe & Secure", icon: Lock }
-            ].map((f, i) => {
-              const Icon = f.icon;
-              return (
-                <div key={i} className="rounded-2xl border border-border bg-card p-4 text-center shadow-soft transition-all duration-200 hover:scale-[1.02] hover:shadow-card-lg">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sidebar-primary text-sidebar-primary-foreground mb-3">
-                    <Icon className="h-5 w-5 text-[#2d6a4f]" />
-                  </span>
-                  <p className="text-xs font-black text-[#1b4332]">{f.title}</p>
-                  <p className="mt-1 text-[10px] text-muted-foreground leading-normal">{f.desc}</p>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Category Section */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-xl font-black text-[#1b4332]">Shop by Category</h2>
-                <p className="text-xs text-muted-foreground">Certified products and inputs for your crops</p>
-              </div>
-              <Link to="/marketplace" className="inline-flex items-center gap-1 text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition">
-                View All <ArrowRight className="h-3 w-3" />
-              </Link>
-            </div>
-            
-            {/* Category horizontal scroll / flex wrap */}
-            <div className="flex gap-4 overflow-x-auto pb-2 no-scrollbar scroll-smooth">
-              {categoriesList.map((cat, idx) => (
-                <Link
-                  key={idx}
-                  to="/marketplace"
-                  className="flex flex-col items-center justify-center rounded-2xl border border-border bg-card p-3 shadow-soft min-w-[100px] sm:min-w-[110px] hover:scale-[1.03] transition-transform duration-200 hover:shadow-card-lg"
-                >
-                  <div className="h-14 w-14 rounded-full overflow-hidden bg-muted flex items-center justify-center border border-border">
-                    <img src={cat.img} alt={cat.name} className="h-full w-full object-cover" />
-                  </div>
-                  <span className="mt-2 text-xs font-black text-foreground text-center line-clamp-1">{cat.name}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Product Section */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-xl font-black text-[#1b4332]">Best Deals for You</h2>
-                <p className="text-xs text-muted-foreground">Handpicked agricultural seeds & inputs on discount</p>
-              </div>
-              <Link to="/marketplace" className="inline-flex items-center gap-1 text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition">
-                View All <ArrowRight className="h-3 w-3" />
-              </Link>
-            </div>
-
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {dealProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          </div>
-
-          {/* App download Banner */}
-          <div className="rounded-2xl bg-gradient-to-br from-[#1b4332] to-[#0d1e16] text-white p-6 sm:p-8 shadow-soft flex flex-col sm:flex-row items-center justify-between gap-6 overflow-hidden relative">
-            <div className="absolute right-0 top-0 bottom-0 opacity-10 pointer-events-none hidden md:block">
-              <Leaf className="h-48 w-48 text-white rotate-45 transform translate-x-12 translate-y-4" />
-            </div>
-            <div className="space-y-2 max-w-md">
-              <h3 className="text-xl font-black">Stay Updated, Stay Ahead!</h3>
-              <p className="text-xs text-emerald-100 leading-relaxed">
-                Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.
-              </p>
-              <div className="pt-2 flex flex-wrap gap-2.5">
-                <button className="h-9 px-3.5 rounded-lg bg-white text-[#1b4332] hover:bg-emerald-50 transition text-xs font-bold flex items-center gap-2">
-                  <span>Google Play</span>
-                </button>
-                <button className="h-9 px-3.5 rounded-lg bg-emerald-900 border border-emerald-700 text-white hover:bg-emerald-800 transition text-xs font-bold flex items-center gap-2">
-                  <span>App Store</span>
-                </button>
-              </div>
-            </div>
-            <div className="shrink-0 flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white/5 border border-white/10 backdrop-blur shadow-inner">
-              <div className="text-center">
-                <span className="block text-2xl font-black text-amber-400">App</span>
-                <span className="block text-[10px] uppercase font-bold tracking-widest">PureFarm</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column (Widgets) */}
-        <div className="space-y-6 lg:sticky lg:top-20">
-          
-          {/* Weather Widget */}
-          <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
-            <div className="flex items-center justify-between">
-              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Weather Update</p>
-              <Sun className="h-5 w-5 text-amber-500 fill-amber-100" />
-            </div>
-            <div className="mt-3">
-              <p className="text-sm font-black text-[#1b4332]">Rajahmundry, AP</p>
-              <div className="mt-2 flex items-baseline gap-2">
-                <span className="text-4xl font-black text-[#1b4332]">28°C</span>
-                <span className="text-sm font-bold text-muted-foreground">Sunny</span>
-              </div>
-              
-              <div className="mt-4 grid grid-cols-3 gap-2 border-t border-b border-border/60 py-3 text-center">
-                <div>
-                  <p className="text-[10px] text-muted-foreground font-semibold">Humidity</p>
-                  <p className="text-xs font-black text-[#1b4332] mt-0.5">62%</p>
-                </div>
-                <div>
-                  <p className="text-[10px] text-muted-foreground font-semibold">Wind</p>
-                  <p className="text-xs font-black text-[#1b4332] mt-0.5">12 km/h</p>
-                </div>
-                <div>
-                  <p className="text-[10px] text-muted-foreground font-semibold">Rain</p>
-                  <p className="text-xs font-black text-[#1b4332] mt-0.5">10%</p>
+              <div className="relative z-10 max-w-xl space-y-4">
+                <span className="inline-flex rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-black uppercase tracking-wider text-emerald-300">
+                  Premium Farming Advisory & Marketplace
+                </span>
+                <h1 className="text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
+                  Empowering Farmers, Building a Better Tomorrow
+                </h1>
+                <p className="text-sm leading-relaxed text-emerald-100">
+                  Your one-stop platform for quality products, real-time market prices, government
+                  schemes and expert knowledge.
+                </p>
+                <div className="pt-2 flex flex-wrap gap-3">
+                  <Link
+                    to="/marketplace"
+                    className="inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 transition px-5 py-3 text-sm font-black text-white shadow-sm hover:scale-105 duration-200"
+                  >
+                    Shop Marketplace <ArrowRight className="h-4.5 w-4.5" />
+                  </Link>
+                  <Link
+                    to="/schemes"
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 hover:bg-white/20 transition px-5 py-3 text-sm font-bold text-white hover:scale-105 duration-200"
+                  >
+                    Explore Schemes
+                  </Link>
                 </div>
               </div>
-
-              {/* 4-Day Forecast */}
-              <div className="mt-4 space-y-2.5">
-                {weatherForecast.map((fc, i) => (
-                  <div key={i} className="flex items-center justify-between text-xs">
-                    <span className="font-semibold text-muted-foreground w-10">{fc.day}</span>
-                    <span className="text-foreground/80 font-medium text-center flex-1">{fc.condition}</span>
-                    <span className="font-bold text-[#1b4332] w-12 text-right">{fc.temp}</span>
-                  </div>
-                ))}
-              </div>
             </div>
-          </div>
 
-          {/* Today's Market Prices Widget */}
-          <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Market Prices</p>
-                <p className="text-[10px] text-muted-foreground mt-0.5">Today's Mandi Feeds</p>
-              </div>
-              <Link to="/market" className="text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition">
-                View All
-              </Link>
-            </div>
-            
-            <div className="mt-4 space-y-3">
-              {mandiPrices.map((p, idx) => {
-                const isPositive = p.changePct >= 0;
+            {/* Feature Cards */}
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+              {[
+                { title: "100% Organic", desc: "Healthy & Chemical Free", icon: Leaf },
+                { title: "Best Quality", desc: "Carefully Handpicked", icon: Award },
+                { title: "Fair Prices", desc: "Direct from Farmers", icon: Scale },
+                { title: "Fast Delivery", desc: "Across India", icon: Truck },
+                { title: "Secure Payments", desc: "100% Safe & Secure", icon: Lock },
+              ].map((f, i) => {
+                const Icon = f.icon;
                 return (
-                  <div key={idx} className="flex items-center justify-between border-b border-border/50 pb-2.5 last:border-0 last:pb-0">
-                    <div>
-                      <p className="text-xs font-black text-[#1b4332]">{p.crop}</p>
-                      <p className="text-[10px] text-muted-foreground mt-0.5">Local Area Hub</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-xs font-black text-[#1b4332]">₹{p.price} / kg</p>
-                      <p className={`mt-0.5 text-[10px] font-bold flex items-center justify-end gap-0.5 ${isPositive ? "text-emerald-600" : "text-rose-500"}`}>
-                        {isPositive ? (
-                          <TrendingUp className="h-3 w-3" />
-                        ) : (
-                          <TrendingDown className="h-3 w-3" />
-                        )}
-                        {isPositive ? `+${p.changePct}%` : `${p.changePct}%`}
-                      </p>
-                    </div>
+                  <div
+                    key={i}
+                    className="rounded-2xl border border-border bg-card p-4 text-center shadow-soft transition-all duration-200 hover:scale-[1.02] hover:shadow-card-lg"
+                  >
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sidebar-primary text-sidebar-primary-foreground mb-3">
+                      <Icon className="h-5 w-5 text-[#2d6a4f]" />
+                    </span>
+                    <p className="text-xs font-black text-[#1b4332]">{f.title}</p>
+                    <p className="mt-1 text-[10px] text-muted-foreground leading-normal">
+                      {f.desc}
+                    </p>
                   </div>
                 );
               })}
             </div>
-          </div>
 
-          {/* Government Schemes Widget */}
-          <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
-            <div className="flex items-center justify-between">
-              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Govt Schemes</p>
-              <Link to="/schemes" className="text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition">
-                View All
-              </Link>
-            </div>
-            
-            <div className="mt-4 space-y-3.5">
-              {schemesToRender.map((s, idx) => (
-                <div key={idx} className="flex items-start gap-2.5">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700 mt-0.5 border border-emerald-100">
-                    <ShieldCheck className="h-4 w-4" />
-                  </span>
-                  <div>
-                    <h4 className="text-xs font-black text-[#1b4332] line-clamp-1 leading-snug">{s.name}</h4>
-                    <p className="text-[10px] text-muted-foreground leading-normal mt-0.5 line-clamp-2">{s.desc}</p>
-                  </div>
+            {/* Category Section */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-xl font-black text-[#1b4332]">Shop by Category</h2>
+                  <p className="text-xs text-muted-foreground">
+                    Certified products and inputs for your crops
+                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
+                <Link
+                  to="/marketplace"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition"
+                >
+                  View All <ArrowRight className="h-3 w-3" />
+                </Link>
+              </div>
 
-          {/* Help Card / Support */}
-          <div className="rounded-2xl border border-border bg-card p-5 shadow-soft relative overflow-hidden">
-            <p className="text-sm font-black text-[#1b4332]">Need Help?</p>
-            <p className="mt-1 text-xs text-muted-foreground leading-normal">
-              Chat with our support team on WhatsApp for quick farm consulting.
-            </p>
-            <div className="mt-4 flex items-center gap-3">
-              <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100" 
-                alt="Support representative" 
-                className="h-10 w-10 rounded-full object-cover border border-border"
-              />
-              <div>
-                <p className="text-xs font-bold text-foreground">Advisor Pooja</p>
-                <p className="text-[10px] text-emerald-600 font-bold">Online Now</p>
+              {/* Category horizontal scroll / flex wrap */}
+              <div className="flex gap-4 overflow-x-auto pb-2 no-scrollbar scroll-smooth">
+                {categoriesList.map((cat, idx) => (
+                  <Link
+                    key={idx}
+                    to="/marketplace"
+                    className="flex flex-col items-center justify-center rounded-2xl border border-border bg-card p-3 shadow-soft min-w-[100px] sm:min-w-[110px] hover:scale-[1.03] transition-transform duration-200 hover:shadow-card-lg"
+                  >
+                    <div className="h-14 w-14 rounded-full overflow-hidden bg-muted flex items-center justify-center border border-border">
+                      <img src={cat.img} alt={cat.name} className="h-full w-full object-cover" />
+                    </div>
+                    <span className="mt-2 text-xs font-black text-foreground text-center line-clamp-1">
+                      {cat.name}
+                    </span>
+                  </Link>
+                ))}
               </div>
             </div>
-            <a
-              href={waLink("Hello PureFarm, I need help with my farm.")}
-              className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-[#25d366] hover:bg-[#1ebd55] text-white py-2.5 text-xs font-black shadow-sm transition hover:scale-105 duration-200"
-            >
-              <MessageCircle className="mr-1.5 h-4 w-4" /> Chat Now
-            </a>
+
+            {/* Product Section */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-xl font-black text-[#1b4332]">Best Deals for You</h2>
+                  <p className="text-xs text-muted-foreground">
+                    Handpicked agricultural seeds & inputs on discount
+                  </p>
+                </div>
+                <Link
+                  to="/marketplace"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition"
+                >
+                  View All <ArrowRight className="h-3 w-3" />
+                </Link>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {dealProducts.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+            </div>
+
+            {/* App download Banner */}
+            <div className="rounded-2xl bg-gradient-to-br from-[#1b4332] to-[#0d1e16] text-white p-6 sm:p-8 shadow-soft flex flex-col sm:flex-row items-center justify-between gap-6 overflow-hidden relative">
+              <div className="absolute right-0 top-0 bottom-0 opacity-10 pointer-events-none hidden md:block">
+                <Leaf className="h-48 w-48 text-white rotate-45 transform translate-x-12 translate-y-4" />
+              </div>
+              <div className="space-y-2 max-w-md">
+                <h3 className="text-xl font-black">Stay Updated, Stay Ahead!</h3>
+                <p className="text-xs text-emerald-100 leading-relaxed">
+                  Get the latest agriculture news, market updates, weather forecasts and expert tips
+                  directly on your mobile device.
+                </p>
+                <div className="pt-2 flex flex-wrap gap-2.5">
+                  <button className="h-9 px-3.5 rounded-lg bg-white text-[#1b4332] hover:bg-emerald-50 transition text-xs font-bold flex items-center gap-2">
+                    <span>Google Play</span>
+                  </button>
+                  <button className="h-9 px-3.5 rounded-lg bg-emerald-900 border border-emerald-700 text-white hover:bg-emerald-800 transition text-xs font-bold flex items-center gap-2">
+                    <span>App Store</span>
+                  </button>
+                </div>
+              </div>
+              <div className="shrink-0 flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white/5 border border-white/10 backdrop-blur shadow-inner">
+                <div className="text-center">
+                  <span className="block text-2xl font-black text-amber-400">App</span>
+                  <span className="block text-[10px] uppercase font-bold tracking-widest">
+                    PureFarm
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
 
+          {/* Right Column (Widgets) */}
+          <div className="space-y-6 lg:sticky lg:top-20">
+            {/* Weather Widget */}
+            <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  Weather Update
+                </p>
+                <Sun className="h-5 w-5 text-amber-500 fill-amber-100" />
+              </div>
+              <div className="mt-3">
+                <p className="text-sm font-black text-[#1b4332]">Rajahmundry, AP</p>
+                <div className="mt-2 flex items-baseline gap-2">
+                  <span className="text-4xl font-black text-[#1b4332]">28°C</span>
+                  <span className="text-sm font-bold text-muted-foreground">Sunny</span>
+                </div>
+
+                <div className="mt-4 grid grid-cols-3 gap-2 border-t border-b border-border/60 py-3 text-center">
+                  <div>
+                    <p className="text-[10px] text-muted-foreground font-semibold">Humidity</p>
+                    <p className="text-xs font-black text-[#1b4332] mt-0.5">62%</p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-muted-foreground font-semibold">Wind</p>
+                    <p className="text-xs font-black text-[#1b4332] mt-0.5">12 km/h</p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-muted-foreground font-semibold">Rain</p>
+                    <p className="text-xs font-black text-[#1b4332] mt-0.5">10%</p>
+                  </div>
+                </div>
+
+                {/* 4-Day Forecast */}
+                <div className="mt-4 space-y-2.5">
+                  {weatherForecast.map((fc, i) => (
+                    <div key={i} className="flex items-center justify-between text-xs">
+                      <span className="font-semibold text-muted-foreground w-10">{fc.day}</span>
+                      <span className="text-foreground/80 font-medium text-center flex-1">
+                        {fc.condition}
+                      </span>
+                      <span className="font-bold text-[#1b4332] w-12 text-right">{fc.temp}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Today's Market Prices Widget */}
+            <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                    Market Prices
+                  </p>
+                  <p className="text-[10px] text-muted-foreground mt-0.5">Today's Mandi Feeds</p>
+                </div>
+                <Link
+                  to="/market"
+                  className="text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition"
+                >
+                  View All
+                </Link>
+              </div>
+
+              <div className="mt-4 space-y-3">
+                {mandiPrices.map((p, idx) => {
+                  const isPositive = p.changePct >= 0;
+                  return (
+                    <div
+                      key={idx}
+                      className="flex items-center justify-between border-b border-border/50 pb-2.5 last:border-0 last:pb-0"
+                    >
+                      <div>
+                        <p className="text-xs font-black text-[#1b4332]">{p.crop}</p>
+                        <p className="text-[10px] text-muted-foreground mt-0.5">Local Area Hub</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-xs font-black text-[#1b4332]">₹{p.price} / kg</p>
+                        <p
+                          className={`mt-0.5 text-[10px] font-bold flex items-center justify-end gap-0.5 ${isPositive ? "text-emerald-600" : "text-rose-500"}`}
+                        >
+                          {isPositive ? (
+                            <TrendingUp className="h-3 w-3" />
+                          ) : (
+                            <TrendingDown className="h-3 w-3" />
+                          )}
+                          {isPositive ? `+${p.changePct}%` : `${p.changePct}%`}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Government Schemes Widget */}
+            <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  Govt Schemes
+                </p>
+                <Link
+                  to="/schemes"
+                  className="text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition"
+                >
+                  View All
+                </Link>
+              </div>
+
+              <div className="mt-4 space-y-3.5">
+                {schemesToRender.map((s, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700 mt-0.5 border border-emerald-100">
+                      <ShieldCheck className="h-4 w-4" />
+                    </span>
+                    <div>
+                      <h4 className="text-xs font-black text-[#1b4332] line-clamp-1 leading-snug">
+                        {s.name}
+                      </h4>
+                      <p className="text-[10px] text-muted-foreground leading-normal mt-0.5 line-clamp-2">
+                        {s.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Help Card / Support */}
+            <div className="rounded-2xl border border-border bg-card p-5 shadow-soft relative overflow-hidden">
+              <p className="text-sm font-black text-[#1b4332]">Need Help?</p>
+              <p className="mt-1 text-xs text-muted-foreground leading-normal">
+                Chat with our support team on WhatsApp for quick farm consulting.
+              </p>
+              <div className="mt-4 flex items-center gap-3">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100"
+                  alt="Support representative"
+                  className="h-10 w-10 rounded-full object-cover border border-border"
+                />
+                <div>
+                  <p className="text-xs font-bold text-foreground">Advisor Pooja</p>
+                  <p className="text-[10px] text-emerald-600 font-bold">Online Now</p>
+                </div>
+              </div>
+              <a
+                href={waLink("Hello PureFarm, I need help with my farm.")}
+                className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-[#25d366] hover:bg-[#1ebd55] text-white py-2.5 text-xs font-black shadow-sm transition hover:scale-105 duration-200"
+              >
+                <MessageCircle className="mr-1.5 h-4 w-4" /> Chat Now
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </RoleGuard>
-);
+    </RoleGuard>
+  );
 }
 
 export function MarketplacePage() {
@@ -526,7 +601,8 @@ export function MarketplacePage() {
   const [sort, setSort] = useState("featured");
   const [maxPrice, setMaxPrice] = useState(200000);
 
-  const urlQuery = typeof window !== "undefined" ? new URL(window.location.href).searchParams.get("query") : null;
+  const urlQuery =
+    typeof window !== "undefined" ? new URL(window.location.href).searchParams.get("query") : null;
   useEffect(() => {
     if (urlQuery !== null) {
       setQuery(urlQuery);
@@ -555,69 +631,69 @@ export function MarketplacePage() {
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
       <PageShell
-      eyebrow="Marketplace"
-      title="Farm input marketplace"
-      intro="Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart."
-    >
-      <div className="mb-6 grid gap-3 rounded-2xl border border-border bg-card p-4 shadow-soft lg:grid-cols-[1fr_12rem_12rem_14rem]">
-        <label className="relative block">
-          <Search className="absolute left-3 top-3 h-4 w-4 text-[#2d6a4f]" />
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search seeds, fertiliser, tools..."
-            className="h-10 w-full rounded-xl border border-input bg-background pl-9 pr-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
-          />
-        </label>
-        <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value as Category | "all")}
-          className="h-10 rounded-xl border border-input bg-background px-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
-        >
-          {CATEGORIES.map((cat) => (
-            <option key={cat.id} value={cat.id}>
-              {cat.label}
-            </option>
-          ))}
-        </select>
-        <select
-          value={sort}
-          onChange={(e) => setSort(e.target.value)}
-          className="h-10 rounded-xl border border-input bg-background px-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
-        >
-          <option value="featured">Featured first</option>
-          <option value="rating">Top rated</option>
-          <option value="price-low">Price low to high</option>
-          <option value="price-high">Price high to low</option>
-        </select>
-        <label className="flex items-center gap-3 text-sm">
-          <Filter className="h-4 w-4 text-primary" />
-          <span className="shrink-0">Max</span>
-          <input
-            type="range"
-            min="500"
-            max="200000"
-            step="500"
-            value={maxPrice}
-            onChange={(e) => setMaxPrice(Number(e.target.value))}
-            className="min-w-0 flex-1"
-          />
-          <span className="w-16 text-right font-bold">{formatRupees(maxPrice)}</span>
-        </label>
-      </div>
-      <p className="mb-4 text-sm text-muted-foreground">{filtered.length} products found</p>
-      {filtered.length ? (
-        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-          {filtered.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+        eyebrow="Marketplace"
+        title="Farm input marketplace"
+        intro="Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart."
+      >
+        <div className="mb-6 grid gap-3 rounded-2xl border border-border bg-card p-4 shadow-soft lg:grid-cols-[1fr_12rem_12rem_14rem]">
+          <label className="relative block">
+            <Search className="absolute left-3 top-3 h-4 w-4 text-[#2d6a4f]" />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search seeds, fertiliser, tools..."
+              className="h-10 w-full rounded-xl border border-input bg-background pl-9 pr-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
+            />
+          </label>
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value as Category | "all")}
+            className="h-10 rounded-xl border border-input bg-background px-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
+          >
+            {CATEGORIES.map((cat) => (
+              <option key={cat.id} value={cat.id}>
+                {cat.label}
+              </option>
+            ))}
+          </select>
+          <select
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+            className="h-10 rounded-xl border border-input bg-background px-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
+          >
+            <option value="featured">Featured first</option>
+            <option value="rating">Top rated</option>
+            <option value="price-low">Price low to high</option>
+            <option value="price-high">Price high to low</option>
+          </select>
+          <label className="flex items-center gap-3 text-sm">
+            <Filter className="h-4 w-4 text-primary" />
+            <span className="shrink-0">Max</span>
+            <input
+              type="range"
+              min="500"
+              max="200000"
+              step="500"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(Number(e.target.value))}
+              className="min-w-0 flex-1"
+            />
+            <span className="w-16 text-right font-bold">{formatRupees(maxPrice)}</span>
+          </label>
         </div>
-      ) : (
-        <EmptyState
-          title="No matching products"
-          body="Try another crop input, category, or raise the max price filter."
-        />
-      )}
+        <p className="mb-4 text-sm text-muted-foreground">{filtered.length} products found</p>
+        {filtered.length ? (
+          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+            {filtered.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        ) : (
+          <EmptyState
+            title="No matching products"
+            body="Try another crop input, category, or raise the max price filter."
+          />
+        )}
       </PageShell>
     </RoleGuard>
   );
@@ -660,84 +736,98 @@ export function ProductDetailPage({ id }: { id: string }) {
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
       <PageShell eyebrow={product.category} title={product.name} intro={product.description}>
-      <div className="grid gap-7 lg:grid-cols-[0.9fr_1.1fr]">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="h-80 w-full rounded-2xl object-cover shadow-soft lg:h-[32rem]"
-        />
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-6">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-lg bg-emerald-50 border border-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-800">{product.brand}</span>
-            {product.badge ? (
-              <span className="rounded-lg bg-amber-50 border border-amber-100 px-2.5 py-1 text-xs font-bold text-amber-800">{product.badge}</span>
-            ) : null}
-            <span className="rounded-lg bg-accent px-2.5 py-1 text-xs font-bold text-accent-foreground">{product.rating} ★ rating</span>
-          </div>
-          <p className="text-4xl font-black text-[#1b4332]">
-            {formatRupees(product.price)}{" "}
-            <span className="text-base font-semibold text-muted-foreground">/{product.unit}</span>
-          </p>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {[
-              ["Availability", product.stock > 0 ? `${product.stock} units ready` : "Out of stock"],
-              ["Seller", product.brand],
-              ["Category", product.category],
-              ["Delivery", "Local hub dispatch in 1-3 days"],
-            ].map(([label, value]) => (
-              <div key={label} className="rounded-xl bg-[#f4f9f6]/70 border border-emerald-50/50 p-4">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">{label}</p>
-                <p className="mt-1 text-sm font-black text-[#1b4332]">{value}</p>
+        <div className="grid gap-7 lg:grid-cols-[0.9fr_1.1fr]">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="h-80 w-full rounded-2xl object-cover shadow-soft lg:h-[32rem]"
+          />
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-6">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="rounded-lg bg-emerald-50 border border-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-800">
+                {product.brand}
+              </span>
+              {product.badge ? (
+                <span className="rounded-lg bg-amber-50 border border-amber-100 px-2.5 py-1 text-xs font-bold text-amber-800">
+                  {product.badge}
+                </span>
+              ) : null}
+              <span className="rounded-lg bg-accent px-2.5 py-1 text-xs font-bold text-accent-foreground">
+                {product.rating} ★ rating
+              </span>
+            </div>
+            <p className="text-4xl font-black text-[#1b4332]">
+              {formatRupees(product.price)}{" "}
+              <span className="text-base font-semibold text-muted-foreground">/{product.unit}</span>
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                [
+                  "Availability",
+                  product.stock > 0 ? `${product.stock} units ready` : "Out of stock",
+                ],
+                ["Seller", product.brand],
+                ["Category", product.category],
+                ["Delivery", "Local hub dispatch in 1-3 days"],
+              ].map(([label, value]) => (
+                <div
+                  key={label}
+                  className="rounded-xl bg-[#f4f9f6]/70 border border-emerald-50/50 p-4"
+                >
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                    {label}
+                  </p>
+                  <p className="mt-1 text-sm font-black text-[#1b4332]">{value}</p>
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-border/60">
+              <div className="inline-flex items-center rounded-xl border border-border bg-background">
+                <button
+                  type="button"
+                  onClick={() => setQty(Math.max(1, qty - 1))}
+                  className="h-11 w-11 flex items-center justify-center text-muted-foreground hover:text-foreground transition"
+                  aria-label="Decrease quantity"
+                >
+                  <Minus className="h-4 w-4" />
+                </button>
+                <span className="w-12 text-center font-black text-foreground">{qty}</span>
+                <button
+                  type="button"
+                  onClick={() => setQty(qty + 1)}
+                  className="h-11 w-11 flex items-center justify-center text-muted-foreground hover:text-foreground transition"
+                  aria-label="Increase quantity"
+                >
+                  <Plus className="h-4 w-4" />
+                </button>
               </div>
-            ))}
-          </div>
-          <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-border/60">
-            <div className="inline-flex items-center rounded-xl border border-border bg-background">
               <button
                 type="button"
-                onClick={() => setQty(Math.max(1, qty - 1))}
-                className="h-11 w-11 flex items-center justify-center text-muted-foreground hover:text-foreground transition"
-                aria-label="Decrease quantity"
+                onClick={() => addItem(product.id, qty)}
+                className="rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-6 py-3 font-black text-sm shadow-sm transition hover:scale-105 duration-200"
               >
-                <Minus className="h-4 w-4" />
+                Add to cart
               </button>
-              <span className="w-12 text-center font-black text-foreground">{qty}</span>
               <button
                 type="button"
-                onClick={() => setQty(qty + 1)}
-                className="h-11 w-11 flex items-center justify-center text-muted-foreground hover:text-foreground transition"
-                aria-label="Increase quantity"
+                onClick={() => {
+                  addItem(product.id, qty);
+                  void navigate({ to: "/order" });
+                }}
+                className="rounded-xl bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 font-black text-sm shadow-sm transition hover:scale-105 duration-200"
               >
-                <Plus className="h-4 w-4" />
+                Buy now
               </button>
             </div>
-            <button
-              type="button"
-              onClick={() => addItem(product.id, qty)}
-              className="rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-6 py-3 font-black text-sm shadow-sm transition hover:scale-105 duration-200"
-            >
-              Add to cart
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                addItem(product.id, qty);
-                void navigate({ to: "/order" });
-              }}
-              className="rounded-xl bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 font-black text-sm shadow-sm transition hover:scale-105 duration-200"
-            >
-              Buy now
-            </button>
           </div>
         </div>
-      </div>
-      <h2 className="mt-12 text-2xl font-black">Related products</h2>
-      <div className="mt-5 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-        {related.map((item) => (
-          <ProductCard key={item.id} product={item} />
-        ))}
-      </div>
-    </PageShell>
+        <h2 className="mt-12 text-2xl font-black">Related products</h2>
+        <div className="mt-5 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          {related.map((item) => (
+            <ProductCard key={item.id} product={item} />
+          ))}
+        </div>
+      </PageShell>
     </RoleGuard>
   );
 }
@@ -751,100 +841,100 @@ export function CartPage() {
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
       <PageShell
-      eyebrow="Cart"
-      title="Your cart"
-      intro="Review quantities before placing a mock local fulfilment order."
-    >
-      {rows.length ? (
-        <div className="grid gap-6 lg:grid-cols-[1fr_22rem]">
-          <div className="space-y-4">
-            {rows.map(({ product, qty }) => (
-              <div
-                key={product.id}
-                className="grid gap-4 rounded-xl border border-border bg-card p-4 shadow-card sm:grid-cols-[7rem_1fr_auto]"
-              >
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="h-28 w-full rounded-lg object-cover"
-                />
-                <div>
-                  <p className="font-black">{product.name}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {product.brand} · {formatRupees(product.price)} / {product.unit}
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => removeItem(product.id)}
-                    className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-destructive"
-                  >
-                    <Trash2 className="h-4 w-4" /> Remove
-                  </button>
-                </div>
-                <div className="flex items-center justify-between gap-4 sm:flex-col sm:items-end">
-                  <div className="inline-flex items-center rounded-lg border border-border">
+        eyebrow="Cart"
+        title="Your cart"
+        intro="Review quantities before placing a mock local fulfilment order."
+      >
+        {rows.length ? (
+          <div className="grid gap-6 lg:grid-cols-[1fr_22rem]">
+            <div className="space-y-4">
+              {rows.map(({ product, qty }) => (
+                <div
+                  key={product.id}
+                  className="grid gap-4 rounded-xl border border-border bg-card p-4 shadow-card sm:grid-cols-[7rem_1fr_auto]"
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="h-28 w-full rounded-lg object-cover"
+                  />
+                  <div>
+                    <p className="font-black">{product.name}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {product.brand} · {formatRupees(product.price)} / {product.unit}
+                    </p>
                     <button
                       type="button"
-                      onClick={() => updateQty(product.id, qty - 1)}
-                      className="h-9 w-9"
-                      aria-label={`Decrease ${product.name} quantity`}
+                      onClick={() => removeItem(product.id)}
+                      className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-destructive"
                     >
-                      <Minus className="mx-auto h-4 w-4" />
-                    </button>
-                    <span className="w-10 text-center font-black">{qty}</span>
-                    <button
-                      type="button"
-                      onClick={() => updateQty(product.id, qty + 1)}
-                      className="h-9 w-9"
-                      aria-label={`Increase ${product.name} quantity`}
-                    >
-                      <Plus className="mx-auto h-4 w-4" />
+                      <Trash2 className="h-4 w-4" /> Remove
                     </button>
                   </div>
-                  <p className="font-black">{formatRupees(product.price * qty)}</p>
+                  <div className="flex items-center justify-between gap-4 sm:flex-col sm:items-end">
+                    <div className="inline-flex items-center rounded-lg border border-border">
+                      <button
+                        type="button"
+                        onClick={() => updateQty(product.id, qty - 1)}
+                        className="h-9 w-9"
+                        aria-label={`Decrease ${product.name} quantity`}
+                      >
+                        <Minus className="mx-auto h-4 w-4" />
+                      </button>
+                      <span className="w-10 text-center font-black">{qty}</span>
+                      <button
+                        type="button"
+                        onClick={() => updateQty(product.id, qty + 1)}
+                        className="h-9 w-9"
+                        aria-label={`Increase ${product.name} quantity`}
+                      >
+                        <Plus className="mx-auto h-4 w-4" />
+                      </button>
+                    </div>
+                    <p className="font-black">{formatRupees(product.price * qty)}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className={`${cardClass} h-fit`}>
+              <p className="text-lg font-black">Order summary</p>
+              <div className="mt-4 space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span>Subtotal</span>
+                  <strong>{formatRupees(subtotal)}</strong>
+                </div>
+                <div className="flex justify-between">
+                  <span>Delivery</span>
+                  <strong>{delivery ? formatRupees(delivery) : "Free"}</strong>
+                </div>
+                <div className="border-t border-border pt-3 flex justify-between text-lg">
+                  <span>Total</span>
+                  <strong>{formatRupees(total)}</strong>
                 </div>
               </div>
-            ))}
-          </div>
-          <div className={`${cardClass} h-fit`}>
-            <p className="text-lg font-black">Order summary</p>
-            <div className="mt-4 space-y-3 text-sm">
-              <div className="flex justify-between">
-                <span>Subtotal</span>
-                <strong>{formatRupees(subtotal)}</strong>
-              </div>
-              <div className="flex justify-between">
-                <span>Delivery</span>
-                <strong>{delivery ? formatRupees(delivery) : "Free"}</strong>
-              </div>
-              <div className="border-t border-border pt-3 flex justify-between text-lg">
-                <span>Total</span>
-                <strong>{formatRupees(total)}</strong>
-              </div>
+              <Link
+                to="/order"
+                className="mt-5 block rounded-lg bg-primary px-4 py-3 text-center font-black text-primary-foreground"
+              >
+                Proceed to order
+              </Link>
             </div>
-            <Link
-              to="/order"
-              className="mt-5 block rounded-lg bg-primary px-4 py-3 text-center font-black text-primary-foreground"
-            >
-              Proceed to order
-            </Link>
           </div>
-        </div>
-      ) : (
-        <EmptyState
-          title="Your cart is empty"
-          body="Add seeds, fertilisers, or tools from the marketplace."
-          action={
-            <Link
-              to="/marketplace"
-              className="rounded-lg bg-primary px-4 py-2 font-bold text-primary-foreground"
-            >
-              Continue shopping
-            </Link>
-          }
-        />
-      )}
-    </PageShell>
+        ) : (
+          <EmptyState
+            title="Your cart is empty"
+            body="Add seeds, fertilisers, or tools from the marketplace."
+            action={
+              <Link
+                to="/marketplace"
+                className="rounded-lg bg-primary px-4 py-2 font-bold text-primary-foreground"
+              >
+                Continue shopping
+              </Link>
+            }
+          />
+        )}
+      </PageShell>
     </RoleGuard>
   );
 }
@@ -894,71 +984,71 @@ export function OrderPage() {
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
       <PageShell
-      eyebrow="Checkout"
-      title="Place order"
-      intro="Complete a safe mock order flow. No real payment is processed."
-    >
-      <div className="grid gap-6 lg:grid-cols-[1fr_24rem]">
-        <form
-          className={`${cardClass} space-y-4`}
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (ready) setSubmitted(true);
-          }}
-        >
-          {["name", "phone", "village"].map((field) => (
-            <label key={field} className="block text-sm font-bold capitalize">
-              {field}
-              <input
-                value={form[field as keyof typeof form]}
-                onChange={(e) => setForm({ ...form, [field]: e.target.value })}
-                className="mt-2 h-11 w-full rounded-lg border border-input bg-background px-3 font-normal"
-              />
-            </label>
-          ))}
-          <label className="block text-sm font-bold">
-            Payment
-            <select
-              value={form.payment}
-              onChange={(e) => setForm({ ...form, payment: e.target.value })}
-              className="mt-2 h-11 w-full rounded-lg border border-input bg-background px-3 font-normal"
-            >
-              <option>Cash on delivery</option>
-              <option>UPI on delivery</option>
-              <option>Advisor callback</option>
-            </select>
-          </label>
-          {!rows.length ? (
-            <p className="text-sm font-bold text-destructive">
-              Add products to the cart before ordering.
-            </p>
-          ) : null}
-          <button
-            disabled={!ready}
-            className="rounded-lg bg-primary px-5 py-3 font-black text-primary-foreground disabled:cursor-not-allowed disabled:opacity-50"
+        eyebrow="Checkout"
+        title="Place order"
+        intro="Complete a safe mock order flow. No real payment is processed."
+      >
+        <div className="grid gap-6 lg:grid-cols-[1fr_24rem]">
+          <form
+            className={`${cardClass} space-y-4`}
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (ready) setSubmitted(true);
+            }}
           >
-            Confirm order
-          </button>
-        </form>
-        <div className={`${cardClass} h-fit`}>
-          <p className="font-black">Summary</p>
-          <div className="mt-3 space-y-3">
-            {rows.map(({ product, qty }) => (
-              <div key={product.id} className="flex justify-between gap-3 text-sm">
-                <span>
-                  {product.name} x {qty}
-                </span>
-                <strong>{formatRupees(product.price * qty)}</strong>
-              </div>
+            {["name", "phone", "village"].map((field) => (
+              <label key={field} className="block text-sm font-bold capitalize">
+                {field}
+                <input
+                  value={form[field as keyof typeof form]}
+                  onChange={(e) => setForm({ ...form, [field]: e.target.value })}
+                  className="mt-2 h-11 w-full rounded-lg border border-input bg-background px-3 font-normal"
+                />
+              </label>
             ))}
-          </div>
-          <div className="mt-4 border-t border-border pt-4 flex justify-between text-lg font-black">
-            <span>Total</span>
-            <span>{formatRupees(subtotal)}</span>
+            <label className="block text-sm font-bold">
+              Payment
+              <select
+                value={form.payment}
+                onChange={(e) => setForm({ ...form, payment: e.target.value })}
+                className="mt-2 h-11 w-full rounded-lg border border-input bg-background px-3 font-normal"
+              >
+                <option>Cash on delivery</option>
+                <option>UPI on delivery</option>
+                <option>Advisor callback</option>
+              </select>
+            </label>
+            {!rows.length ? (
+              <p className="text-sm font-bold text-destructive">
+                Add products to the cart before ordering.
+              </p>
+            ) : null}
+            <button
+              disabled={!ready}
+              className="rounded-lg bg-primary px-5 py-3 font-black text-primary-foreground disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              Confirm order
+            </button>
+          </form>
+          <div className={`${cardClass} h-fit`}>
+            <p className="font-black">Summary</p>
+            <div className="mt-3 space-y-3">
+              {rows.map(({ product, qty }) => (
+                <div key={product.id} className="flex justify-between gap-3 text-sm">
+                  <span>
+                    {product.name} x {qty}
+                  </span>
+                  <strong>{formatRupees(product.price * qty)}</strong>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 border-t border-border pt-4 flex justify-between text-lg font-black">
+              <span>Total</span>
+              <span>{formatRupees(subtotal)}</span>
+            </div>
           </div>
         </div>
-      </div>
-    </PageShell>
+      </PageShell>
     </RoleGuard>
   );
 }
@@ -971,51 +1061,51 @@ export function MarketPage() {
   return (
     <RoleGuard allowedRoles={["farmer", "admin"]}>
       <PageShell
-      eyebrow="Mandi"
-      title="Market prices"
-      intro="Track local crop prices, arrivals, and trend movement for better selling decisions."
-    >
-      <input
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search crop, mandi, state..."
-        className="mb-5 h-11 w-full max-w-xl rounded-lg border border-input bg-card px-4"
-      />
-      <div className="overflow-hidden rounded-xl border border-border bg-card shadow-card">
-        <div className="grid grid-cols-[1fr_1fr_1fr] gap-3 border-b border-border bg-muted p-4 text-sm font-black sm:grid-cols-[1fr_1fr_1fr_1fr_1fr]">
-          <span>Crop</span>
-          <span>Mandi</span>
-          <span className="hidden sm:block">Arrival</span>
-          <span>Price</span>
-          <span>Trend</span>
-        </div>
-        {rows.map((item) => (
-          <div
-            key={item.id}
-            className="grid grid-cols-[1fr_1fr_1fr] gap-3 border-b border-border p-4 text-sm last:border-b-0 sm:grid-cols-[1fr_1fr_1fr_1fr_1fr]"
-          >
-            <strong>{item.crop}</strong>
-            <span>
-              {item.mandi}, {item.state}
-            </span>
-            <span className="hidden sm:block">{item.arrival}</span>
-            <span>{formatRupees(item.price)}/qtl</span>
-            <span
-              className={
-                item.changePct >= 0 ? "font-bold text-success" : "font-bold text-destructive"
-              }
-            >
-              {item.changePct >= 0 ? (
-                <TrendingUp className="mr-1 inline h-4 w-4" />
-              ) : (
-                <TrendingDown className="mr-1 inline h-4 w-4" />
-              )}
-              {item.changePct}%
-            </span>
+        eyebrow="Mandi"
+        title="Market prices"
+        intro="Track local crop prices, arrivals, and trend movement for better selling decisions."
+      >
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search crop, mandi, state..."
+          className="mb-5 h-11 w-full max-w-xl rounded-lg border border-input bg-card px-4"
+        />
+        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-card">
+          <div className="grid grid-cols-[1fr_1fr_1fr] gap-3 border-b border-border bg-muted p-4 text-sm font-black sm:grid-cols-[1fr_1fr_1fr_1fr_1fr]">
+            <span>Crop</span>
+            <span>Mandi</span>
+            <span className="hidden sm:block">Arrival</span>
+            <span>Price</span>
+            <span>Trend</span>
           </div>
-        ))}
-      </div>
-    </PageShell>
+          {rows.map((item) => (
+            <div
+              key={item.id}
+              className="grid grid-cols-[1fr_1fr_1fr] gap-3 border-b border-border p-4 text-sm last:border-b-0 sm:grid-cols-[1fr_1fr_1fr_1fr_1fr]"
+            >
+              <strong>{item.crop}</strong>
+              <span>
+                {item.mandi}, {item.state}
+              </span>
+              <span className="hidden sm:block">{item.arrival}</span>
+              <span>{formatRupees(item.price)}/qtl</span>
+              <span
+                className={
+                  item.changePct >= 0 ? "font-bold text-success" : "font-bold text-destructive"
+                }
+              >
+                {item.changePct >= 0 ? (
+                  <TrendingUp className="mr-1 inline h-4 w-4" />
+                ) : (
+                  <TrendingDown className="mr-1 inline h-4 w-4" />
+                )}
+                {item.changePct}%
+              </span>
+            </div>
+          ))}
+        </div>
+      </PageShell>
     </RoleGuard>
   );
 }
@@ -1028,19 +1118,19 @@ export function SchemesPage() {
   return (
     <RoleGuard allowedRoles={["farmer", "admin"]}>
       <CardGridPage
-      eyebrow="Schemes"
-      title="Government schemes"
-      intro="Find farmer support programmes, eligibility, and official application links."
-      query={query}
-      setQuery={setQuery}
-      items={rows.map((s) => ({
-        title: s.name,
-        meta: `${s.issuer} · ${s.category}`,
-        body: s.description,
-        footer: `${s.deadline} · ${s.eligibility}`,
-        url: s.url,
-      }))}
-    />
+        eyebrow="Schemes"
+        title="Government schemes"
+        intro="Find farmer support programmes, eligibility, and official application links."
+        query={query}
+        setQuery={setQuery}
+        items={rows.map((s) => ({
+          title: s.name,
+          meta: `${s.issuer} · ${s.category}`,
+          body: s.description,
+          footer: `${s.deadline} · ${s.eligibility}`,
+          url: s.url,
+        }))}
+      />
     </RoleGuard>
   );
 }
@@ -1096,54 +1186,54 @@ export function CropCalendarPage() {
   return (
     <RoleGuard allowedRoles={["farmer", "admin"]}>
       <PageShell
-      eyebrow="Crop calendar"
-      title="Season planner"
-      intro="Select a crop to see its sowing window, harvest timing, and activity timeline."
-    >
-      <div className="grid gap-6 lg:grid-cols-[18rem_1fr]">
-        <div className={cardClass}>
-          {CROPS.map((item) => (
-            <button
-              key={item.name}
-              type="button"
-              onClick={() => setSelected(item.name)}
-              className={`mb-2 block w-full rounded-lg px-3 py-2 text-left font-bold ${selected === item.name ? "bg-primary text-primary-foreground" : "bg-muted"}`}
-            >
-              {item.name}
-            </button>
-          ))}
-        </div>
-        {crop ? (
+        eyebrow="Crop calendar"
+        title="Season planner"
+        intro="Select a crop to see its sowing window, harvest timing, and activity timeline."
+      >
+        <div className="grid gap-6 lg:grid-cols-[18rem_1fr]">
           <div className={cardClass}>
-            <p className="text-2xl font-black">
-              {crop.name} · {crop.season}
-            </p>
-            <div className="mt-5 grid gap-3 sm:grid-cols-4">
-              {[
-                ["Sowing", crop.sowing],
-                ["Harvest", crop.harvest],
-                ["Duration", crop.duration],
-                ["Water", crop.water],
-              ].map(([a, b]) => (
-                <div key={a} className="rounded-lg bg-muted p-3">
-                  <p className="text-xs font-bold uppercase text-muted-foreground">{a}</p>
-                  <p className="font-black">{b}</p>
-                </div>
-              ))}
-            </div>
-            <p className="mt-5 text-muted-foreground">{crop.tip}</p>
-            <div className="mt-6 grid gap-2 sm:grid-cols-5">
-              {(crop.tasks || []).map((task, index) => (
-                <div key={task} className="rounded-lg border border-border p-3">
-                  <p className="text-xs font-bold text-primary">Step {index + 1}</p>
-                  <p className="font-bold">{task}</p>
-                </div>
-              ))}
-            </div>
+            {CROPS.map((item) => (
+              <button
+                key={item.name}
+                type="button"
+                onClick={() => setSelected(item.name)}
+                className={`mb-2 block w-full rounded-lg px-3 py-2 text-left font-bold ${selected === item.name ? "bg-primary text-primary-foreground" : "bg-muted"}`}
+              >
+                {item.name}
+              </button>
+            ))}
           </div>
-        ) : null}
-      </div>
-    </PageShell>
+          {crop ? (
+            <div className={cardClass}>
+              <p className="text-2xl font-black">
+                {crop.name} · {crop.season}
+              </p>
+              <div className="mt-5 grid gap-3 sm:grid-cols-4">
+                {[
+                  ["Sowing", crop.sowing],
+                  ["Harvest", crop.harvest],
+                  ["Duration", crop.duration],
+                  ["Water", crop.water],
+                ].map(([a, b]) => (
+                  <div key={a} className="rounded-lg bg-muted p-3">
+                    <p className="text-xs font-bold uppercase text-muted-foreground">{a}</p>
+                    <p className="font-black">{b}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-5 text-muted-foreground">{crop.tip}</p>
+              <div className="mt-6 grid gap-2 sm:grid-cols-5">
+                {(crop.tasks || []).map((task, index) => (
+                  <div key={task} className="rounded-lg border border-border p-3">
+                    <p className="text-xs font-bold text-primary">Step {index + 1}</p>
+                    <p className="font-bold">{task}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
+        </div>
+      </PageShell>
     </RoleGuard>
   );
 }
@@ -1364,7 +1454,7 @@ export function LoginPage() {
 
   const isEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
   const isPhone = (val: string) => /^\d{10}$/.test(val);
-  
+
   const isValid = useMemo(() => {
     return (isEmail(phoneOrEmail) || isPhone(phoneOrEmail)) && password.length >= 6;
   }, [phoneOrEmail, password]);
@@ -1383,12 +1473,8 @@ export function LoginPage() {
       if (key.includes("buyer")) dest = "/marketplace";
       else if (key.includes("seller")) dest = "/seller";
       else if (key.includes("admin")) dest = "/admin";
-      
-      void navigate({ to: dest as any }).then(() => {
-        if (typeof window !== "undefined") {
-          window.location.reload();
-        }
-      });
+
+      void navigate({ to: dest as "/" });
     } else {
       setErrorMessage("Invalid credentials. Try admin@purefarm.test / password123");
       setLoading(false);
@@ -1396,130 +1482,243 @@ export function LoginPage() {
   };
 
   return (
-    <PageShell
-      eyebrow="Account"
-      title="Login"
-      intro="Sign in to your farmer dashboard using your email or phone number."
-    >
-      <form onSubmit={handleSubmit} className="mx-auto max-w-md rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-soft space-y-4">
-        <h3 className="text-xl font-black text-[#1b4332] text-center">Welcome Back 👋</h3>
-        <p className="text-xs text-muted-foreground text-center -mt-2 mb-4">Sign in to continue to PureFarm</p>
-
-        <div className="space-y-1.5">
-          <label className="text-xs font-bold text-foreground">Email / Phone Number</label>
-          <input
-            type="text"
-            disabled={loading}
-            value={phoneOrEmail}
-            onChange={(e) => {
-              setPhoneOrEmail(e.target.value);
-              if (errorMessage) setErrorMessage("");
-            }}
-            placeholder="Enter your email or phone number"
-            className="h-11 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+    <div className="w-full min-h-screen grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] bg-[#f8fbf9]">
+      {/* LEFT VISUAL PANEL */}
+      <div className="relative hidden lg:flex flex-col justify-between p-12 text-white overflow-hidden bg-emerald-950 min-h-screen">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1000"
+            alt="Indian farmer in golden crop field at sunrise"
+            className="h-full w-full object-cover opacity-35 mix-blend-overlay"
           />
+          {/* Subtle green gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-emerald-950/95 via-emerald-900/85 to-emerald-950/60" />
         </div>
 
-        <div className="space-y-1.5">
-          <label className="text-xs font-bold text-foreground">Password</label>
-          <div className="relative">
-            <input
-              type={showPassword ? "text" : "password"}
-              disabled={loading}
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-                if (errorMessage) setErrorMessage("");
-              }}
-              placeholder="Enter your password"
-              className="h-11 w-full rounded-xl border border-input bg-background pl-4 pr-12 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3.5 top-3 text-xs font-bold text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {showPassword ? "Hide" : "Show"}
-            </button>
+        {/* Top Branding Logo */}
+        <div className="relative z-10 flex items-center gap-3">
+          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#1b4332] shadow-sm">
+            <Leaf className="h-6 w-6" />
+          </span>
+          <div>
+            <span className="block text-xl font-black tracking-wide leading-none">PureFarm</span>
+            <span className="block text-[10px] font-bold text-emerald-300 uppercase tracking-widest leading-none mt-1.5">
+              Connect • Grow • Prosper
+            </span>
           </div>
         </div>
 
-        {errorMessage ? (
-          <p className="text-xs font-bold text-rose-500">{errorMessage}</p>
-        ) : null}
+        {/* Center Slogans & Features */}
+        <div className="relative z-10 max-w-lg my-auto space-y-6">
+          <h2 className="text-4xl lg:text-5xl font-black leading-tight">
+            Empowering Farmers,
+            <br />
+            Building a Better Tomorrow
+          </h2>
+          <p className="text-sm text-emerald-100/90 leading-relaxed font-medium">
+            Access fresh produce marketplace, crop guidance, mandi prices, and government support —
+            all in one unified agricultural portal.
+          </p>
 
-        <div className="flex items-center justify-between text-xs pt-1">
-          <label className="flex items-center gap-2 cursor-pointer font-medium text-foreground/80">
-            <input
-              type="checkbox"
-              checked={rememberMe}
-              disabled={loading}
-              onChange={(e) => setRememberMe(e.target.checked)}
-              className="rounded text-[#2d6a4f] border-border focus:ring-[#2d6a4f]"
-            />
-            Remember me
-          </label>
-          <Link to="/support" className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition">
-            Forgot Password?
-          </Link>
-        </div>
-
-        <button
-          type="submit"
-          disabled={!isValid || loading}
-          className="w-full h-11 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] disabled:opacity-50 disabled:cursor-not-allowed text-white font-black text-sm shadow-sm transition hover:scale-[1.01] flex items-center justify-center gap-2"
-        >
-          {loading ? (
-            <>
-              <svg className="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-              </svg>
-              <span>Signing In...</span>
-            </>
-          ) : (
-            <span>Sign In</span>
-          )}
-        </button>
-
-        <div className="mt-4 rounded-xl border border-dashed border-border bg-[#fdfdfd] p-3 space-y-2 text-xs">
-          <p className="font-bold text-[#1b4332] text-center text-[10px] uppercase tracking-wider">Development Test Accounts</p>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="space-y-3 pt-4">
             {[
-              { label: "Farmer", email: "farmer@purefarm.test" },
-              { label: "Buyer", email: "buyer@purefarm.test" },
-              { label: "Seller", email: "seller@purefarm.test" },
-              { label: "Admin", email: "admin@purefarm.test" },
-            ].map((acc) => (
-              <button
-                key={acc.label}
-                type="button"
-                onClick={() => {
-                  setPhoneOrEmail(acc.email);
-                  setPassword("password123");
-                }}
-                className="rounded-lg border border-border bg-card p-1.5 hover:bg-muted/30 transition text-left text-[11px]"
-              >
-                <span className="font-bold block text-foreground">{acc.label}</span>
-                <span className="text-[9px] text-muted-foreground block truncate">{acc.email}</span>
-              </button>
+              "Premium Agri-Input Marketplace",
+              "Real-Time Mandi Pricing & Feeds",
+              "Verified Government Schemes Support",
+              "Expert Agronomist Sowing Guidance",
+            ].map((feature, i) => (
+              <div key={i} className="flex items-center gap-3 text-sm">
+                <span className="flex h-5.5 w-5.5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-300 font-bold">
+                  ✓
+                </span>
+                <span className="font-semibold text-emerald-50">{feature}</span>
+              </div>
             ))}
           </div>
-          <p className="text-[9px] text-muted-foreground text-center">Password: <code className="font-bold">password123</code> (Click any card to pre-fill)</p>
         </div>
 
-        <div className="text-center text-xs pt-2">
-          <span className="text-muted-foreground">Don't have an account? </span>
-          <Link to="/register" className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition">
-            Create an account
-          </Link>
+        {/* Footer info */}
+        <div className="relative z-10 text-[10px] text-emerald-200/50 uppercase tracking-widest font-bold">
+          © {new Date().getFullYear()} PureFarm Platform. Secured and Verified.
         </div>
+      </div>
 
-        <p className="text-center text-[10px] text-muted-foreground font-semibold pt-1">
-          Built for farmers. Designed for a better tomorrow. 🌱
-        </p>
-      </form>
-    </PageShell>
+      {/* RIGHT LOGIN CARD */}
+      <div className="flex items-center justify-center p-6 sm:p-12 lg:p-16 bg-white min-h-screen">
+        <div className="w-full max-w-md space-y-6">
+          {/* Card Top Welcome Header */}
+          <div className="text-center lg:text-left space-y-2">
+            <div className="flex justify-center lg:justify-start">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#eef7f2] text-[#2d6a4f] border border-emerald-100 shadow-sm mb-3">
+                <Leaf className="h-6 w-6" />
+              </span>
+            </div>
+            <h3 className="text-2xl font-black text-[#1b4332]">Welcome Back 👋</h3>
+            <p className="text-xs text-muted-foreground">Sign in to continue to PureFarm portal</p>
+          </div>
+
+          {/* Form Card Content */}
+          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-soft">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Username field */}
+              <div className="space-y-1.5">
+                <label className="text-xs font-black text-[#1b4332] block">
+                  Email / Phone Number
+                </label>
+                <input
+                  type="text"
+                  required
+                  disabled={loading}
+                  value={phoneOrEmail}
+                  onChange={(e) => {
+                    setPhoneOrEmail(e.target.value);
+                    if (errorMessage) setErrorMessage("");
+                  }}
+                  placeholder="Enter farmer@purefarm.test"
+                  className="h-11 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+                />
+              </div>
+
+              {/* Password field */}
+              <div className="space-y-1.5">
+                <label className="text-xs font-black text-[#1b4332] block">Password</label>
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    required
+                    disabled={loading}
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                      if (errorMessage) setErrorMessage("");
+                    }}
+                    placeholder="Enter your password"
+                    className="h-11 w-full rounded-xl border border-input bg-background pl-4 pr-12 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3.5 top-3 text-xs font-bold text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {showPassword ? "Hide" : "Show"}
+                  </button>
+                </div>
+              </div>
+
+              {/* Error messages */}
+              {errorMessage ? (
+                <p className="text-xs font-bold text-rose-500">{errorMessage}</p>
+              ) : null}
+
+              {/* Remember + Forgot Row */}
+              <div className="flex items-center justify-between text-xs pt-1">
+                <label className="flex items-center gap-2 cursor-pointer select-none font-medium text-foreground/80">
+                  <input
+                    type="checkbox"
+                    checked={rememberMe}
+                    disabled={loading}
+                    onChange={(e) => setRememberMe(e.target.checked)}
+                    className="rounded text-[#2d6a4f] focus:ring-[#2d6a4f] border-border"
+                  />
+                  Remember me
+                </label>
+                <Link
+                  to="/support"
+                  className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition"
+                >
+                  Forgot Password?
+                </Link>
+              </div>
+
+              {/* Sign In button */}
+              <button
+                type="submit"
+                disabled={!isValid || loading}
+                className="mt-2 w-full h-11 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] disabled:bg-muted disabled:text-muted-foreground disabled:opacity-50 text-white font-black text-sm shadow-sm transition hover:scale-[1.01] flex items-center justify-center gap-2"
+              >
+                {loading ? (
+                  <>
+                    <svg
+                      className="animate-spin h-4.5 w-4.5 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                    <span>Signing In...</span>
+                  </>
+                ) : (
+                  <span>Sign In</span>
+                )}
+              </button>
+            </form>
+
+            {/* Interactive prefills block */}
+            <div className="mt-5 border-t border-border/80 pt-4 space-y-2 text-xs">
+              <p className="font-bold text-[#1b4332] text-[10px] uppercase tracking-wider">
+                Demo Accounts (Click to Fill)
+              </p>
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { label: "Farmer", email: "farmer@purefarm.test" },
+                  { label: "Buyer", email: "buyer@purefarm.test" },
+                  { label: "Seller", email: "seller@purefarm.test" },
+                  { label: "Admin", email: "admin@purefarm.test" },
+                ].map((acc) => (
+                  <button
+                    key={acc.label}
+                    type="button"
+                    onClick={() => {
+                      setPhoneOrEmail(acc.email);
+                      setPassword("password123");
+                      if (errorMessage) setErrorMessage("");
+                    }}
+                    className="rounded-lg border border-border bg-card p-2 hover:bg-muted/30 transition text-left text-[11px]"
+                  >
+                    <span className="font-bold block text-foreground">{acc.label}</span>
+                    <span className="text-[9px] text-muted-foreground block truncate">
+                      {acc.email}
+                    </span>
+                  </button>
+                ))}
+              </div>
+              <p className="text-[9.5px] text-muted-foreground text-center">
+                Password: <code className="font-bold">password123</code>
+              </p>
+            </div>
+          </div>
+
+          {/* Register redirect links */}
+          <div className="text-center text-xs">
+            <span className="text-muted-foreground">Don't have an account? </span>
+            <Link
+              to="/register"
+              className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition"
+            >
+              Create an account
+            </Link>
+          </div>
+
+          {/* Subtle footer label */}
+          <p className="text-center text-[10px] text-muted-foreground font-semibold">
+            Built for farmers. Designed for a better tomorrow. 🌱
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -1542,125 +1741,193 @@ export function RegisterPage() {
     setLoading(true);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      
+
       const session = {
+        id: "u-registered-" + Date.now(),
         name: name,
-        role: "Farmer",
-        phoneOrEmail: phone,
+        email: phone + "@purefarm.test",
+        role: "farmer" as const,
       };
       if (typeof window !== "undefined") {
         window.localStorage.setItem("purefarm_session", JSON.stringify(session));
       }
-      
+
       void navigate({ to: "/" });
-      if (typeof window !== "undefined") {
-        window.location.reload();
-      }
     } catch (err) {
       setLoading(false);
     }
   };
 
   return (
-    <PageShell
-      eyebrow="Account"
-      title="Create an account"
-      intro="Join thousands of farmers using PureFarm for inputs, market feeds, and advisories."
-    >
-      <div className="max-w-md mx-auto rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-soft">
-        <form onSubmit={handleRegisterSubmit} className="space-y-4">
-          <div className="space-y-1.5">
-            <label className="text-xs font-black text-[#1b4332] block">
-              Full Name
-            </label>
-            <input
-              type="text"
-              required
-              disabled={loading}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Enter your full name"
-              className="h-11 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
-            />
+    <div className="w-full min-h-screen grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] bg-[#f8fbf9]">
+      {/* LEFT VISUAL PANEL */}
+      <div className="relative hidden lg:flex flex-col justify-between p-12 text-white overflow-hidden bg-emerald-950 min-h-screen">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1000"
+            alt="Indian farmer in golden crop field at sunrise"
+            className="h-full w-full object-cover opacity-35 mix-blend-overlay"
+          />
+          {/* Subtle green gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-emerald-950/95 via-emerald-900/85 to-emerald-950/60" />
+        </div>
+
+        {/* Top Branding Logo */}
+        <div className="relative z-10 flex items-center gap-3">
+          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#1b4332] shadow-sm">
+            <Leaf className="h-6 w-6" />
+          </span>
+          <div>
+            <span className="block text-xl font-black tracking-wide leading-none">PureFarm</span>
+            <span className="block text-[10px] font-bold text-emerald-300 uppercase tracking-widest leading-none mt-1.5">
+              Connect • Grow • Prosper
+            </span>
           </div>
+        </div>
 
-          <div className="space-y-1.5">
-            <label className="text-xs font-black text-[#1b4332] block">
-              Mobile Number
-            </label>
-            <input
-              type="tel"
-              required
-              disabled={loading}
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="Enter 10-digit mobile number"
-              className="h-11 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
-            />
-          </div>
+        {/* Center Slogans & Features */}
+        <div className="relative z-10 max-w-lg my-auto space-y-6">
+          <h2 className="text-4xl lg:text-5xl font-black leading-tight">
+            Join the Digital
+            <br />
+            Agri Revolution
+          </h2>
+          <p className="text-sm text-emerald-100/90 leading-relaxed font-medium">
+            Register your farmer profile today to unlock crop guidance, Mandi price trackers,
+            government scheme applications, and premium seed/fertiliser listings.
+          </p>
+        </div>
 
-          <div className="space-y-1.5">
-            <label className="text-xs font-black text-[#1b4332] block">
-              Password
-            </label>
-            <div className="relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                required
-                disabled={loading}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Create a password (min. 6 chars)"
-                className="h-11 w-full rounded-xl border border-input bg-background pl-4 pr-12 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3.5 top-3 text-xs font-bold text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {showPassword ? "Hide" : "Show"}
-              </button>
-            </div>
-          </div>
-
-          {!isValid && (name.length > 0 || phone.length > 0 || password.length > 0) && (
-            <p className="text-[10px] leading-normal text-muted-foreground">
-              • Name should be at least 3 characters.<br />
-              • Mobile number must be exactly 10 digits.<br />
-              • Password must be at least 6 characters.
-            </p>
-          )}
-
-          <button
-            type="submit"
-            disabled={!isValid || loading}
-            className="w-full h-11 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] disabled:bg-muted disabled:text-muted-foreground disabled:opacity-50 text-white font-black text-sm shadow-sm transition hover:scale-[1.01] flex items-center justify-center gap-2 mt-4"
-          >
-            {loading ? (
-              <>
-                <svg className="animate-spin h-4.5 w-4.5 text-white" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                </svg>
-                <span>Creating Account...</span>
-              </>
-            ) : (
-              <span>Create Account</span>
-            )}
-          </button>
-        </form>
-
-        <div className="text-center text-xs mt-6">
-          <span className="text-muted-foreground">Already have an account? </span>
-          <Link
-            to="/login"
-            className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition"
-          >
-            Sign In
-          </Link>
+        {/* Footer info */}
+        <div className="relative z-10 text-[10px] text-emerald-200/50 uppercase tracking-widest font-bold">
+          © {new Date().getFullYear()} PureFarm Platform. Secured and Verified.
         </div>
       </div>
-    </PageShell>
+
+      {/* RIGHT REGISTER CARD */}
+      <div className="flex items-center justify-center p-6 sm:p-12 lg:p-16 bg-white min-h-screen">
+        <div className="w-full max-w-md space-y-6">
+          {/* Card Top Welcome Header */}
+          <div className="text-center lg:text-left space-y-2">
+            <div className="flex justify-center lg:justify-start">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#eef7f2] text-[#2d6a4f] border border-emerald-100 shadow-sm mb-3">
+                <Leaf className="h-6 w-6" />
+              </span>
+            </div>
+            <h3 className="text-2xl font-black text-[#1b4332]">Create Account 🌱</h3>
+            <p className="text-xs text-muted-foreground">
+              Register your farmer profile to get started
+            </p>
+          </div>
+
+          {/* Form Card Content */}
+          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-soft">
+            <form onSubmit={handleRegisterSubmit} className="space-y-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-black text-[#1b4332] block">Full Name</label>
+                <input
+                  type="text"
+                  required
+                  disabled={loading}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter your full name"
+                  className="h-11 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-black text-[#1b4332] block">Mobile Number</label>
+                <input
+                  type="tel"
+                  required
+                  disabled={loading}
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Enter 10-digit mobile number"
+                  className="h-11 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-black text-[#1b4332] block">Password</label>
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    required
+                    disabled={loading}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Create a password (min. 6 chars)"
+                    className="h-11 w-full rounded-xl border border-input bg-background pl-4 pr-12 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3.5 top-3 text-xs font-bold text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {showPassword ? "Hide" : "Show"}
+                  </button>
+                </div>
+              </div>
+
+              {!isValid && (name.length > 0 || phone.length > 0 || password.length > 0) && (
+                <p className="text-[10px] leading-normal text-muted-foreground">
+                  • Name should be at least 3 characters.
+                  <br />
+                  • Mobile number must be exactly 10 digits.
+                  <br />• Password must be at least 6 characters.
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={!isValid || loading}
+                className="w-full h-11 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] disabled:bg-muted disabled:text-muted-foreground disabled:opacity-50 text-white font-black text-sm shadow-sm transition hover:scale-[1.01] flex items-center justify-center gap-2 mt-4"
+              >
+                {loading ? (
+                  <>
+                    <svg
+                      className="animate-spin h-4.5 w-4.5 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                    <span>Creating Account...</span>
+                  </>
+                ) : (
+                  <span>Create Account</span>
+                )}
+              </button>
+            </form>
+
+            <div className="text-center text-xs mt-6">
+              <span className="text-muted-foreground">Already have an account? </span>
+              <Link
+                to="/login"
+                className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition"
+              >
+                Sign In
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -1699,13 +1966,35 @@ export function SellerPage() {
       {/* Seller KPI Statistics */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
         {[
-          { label: "Total Sales", value: "₹1,42,800", delta: "+12.4% this week", color: "text-[#2d6a4f]" },
-          { label: "Active Listings", value: "18 Products", delta: "Synced live", color: "text-[#1b4332]" },
-          { label: "Pending Orders", value: "5 Orders", delta: "Requires dispatch", color: "text-amber-600" },
-          { label: "Seller Rating", value: "4.8 ★", delta: "From 120 reviews", color: "text-amber-500" }
+          {
+            label: "Total Sales",
+            value: "₹1,42,800",
+            delta: "+12.4% this week",
+            color: "text-[#2d6a4f]",
+          },
+          {
+            label: "Active Listings",
+            value: "18 Products",
+            delta: "Synced live",
+            color: "text-[#1b4332]",
+          },
+          {
+            label: "Pending Orders",
+            value: "5 Orders",
+            delta: "Requires dispatch",
+            color: "text-amber-600",
+          },
+          {
+            label: "Seller Rating",
+            value: "4.8 ★",
+            delta: "From 120 reviews",
+            color: "text-amber-500",
+          },
         ].map((stat, idx) => (
           <div key={idx} className="rounded-2xl border border-border bg-card p-5 shadow-soft">
-            <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">{stat.label}</p>
+            <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
+              {stat.label}
+            </p>
             <p className={`mt-2 text-2xl font-black ${stat.color}`}>{stat.value}</p>
             <p className="mt-1 text-[10px] font-bold text-muted-foreground">{stat.delta}</p>
           </div>
@@ -1714,7 +2003,6 @@ export function SellerPage() {
 
       {/* Grid: Listings + Orders */}
       <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-        
         {/* Inventory Column */}
         <div className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-4">
           <div className="flex items-center justify-between">
@@ -1741,9 +2029,13 @@ export function SellerPage() {
                 {sellerProducts.map((p) => (
                   <tr key={p.id} className="hover:bg-muted/10 transition-colors">
                     <td className="py-3 font-bold text-[#1b4332]">{p.name}</td>
-                    <td className="py-3">₹{p.price} / {p.unit}</td>
                     <td className="py-3">
-                      <span className={`font-semibold ${p.stock > 10 ? "text-emerald-600" : "text-rose-500"}`}>
+                      ₹{p.price} / {p.unit}
+                    </td>
+                    <td className="py-3">
+                      <span
+                        className={`font-semibold ${p.stock > 10 ? "text-emerald-600" : "text-rose-500"}`}
+                      >
                         {p.stock} units
                       </span>
                     </td>
@@ -1771,25 +2063,55 @@ export function SellerPage() {
         {/* Orders Column */}
         <div className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-4">
           <h3 className="text-base font-black text-[#1b4332]">Recent Orders</h3>
-          
+
           <div className="space-y-3.5">
             {[
-              { id: "PF-2049", customer: "Suresh Rao", items: "Certified Seed Potatoes", total: "₹4,500", status: "Pending", date: "10 mins ago" },
-              { id: "PF-2048", customer: "M. Naidu", items: "Organic Vermicompost", total: "₹2,250", status: "Processing", date: "2 hrs ago" },
-              { id: "PF-2047", customer: "V. Reddy", items: "Premium NPK Blend", total: "₹8,100", status: "Dispatched", date: "Yesterday" }
+              {
+                id: "PF-2049",
+                customer: "Suresh Rao",
+                items: "Certified Seed Potatoes",
+                total: "₹4,500",
+                status: "Pending",
+                date: "10 mins ago",
+              },
+              {
+                id: "PF-2048",
+                customer: "M. Naidu",
+                items: "Organic Vermicompost",
+                total: "₹2,250",
+                status: "Processing",
+                date: "2 hrs ago",
+              },
+              {
+                id: "PF-2047",
+                customer: "V. Reddy",
+                items: "Premium NPK Blend",
+                total: "₹8,100",
+                status: "Dispatched",
+                date: "Yesterday",
+              },
             ].map((o, idx) => (
-              <div key={idx} className="border-b border-border/50 pb-3 last:border-0 last:pb-0 flex items-center justify-between text-xs">
+              <div
+                key={idx}
+                className="border-b border-border/50 pb-3 last:border-0 last:pb-0 flex items-center justify-between text-xs"
+              >
                 <div>
                   <p className="font-bold text-[#1b4332]">{o.items}</p>
-                  <p className="text-[10px] text-muted-foreground mt-0.5">Order {o.id} · Customer: {o.customer} · {o.date}</p>
+                  <p className="text-[10px] text-muted-foreground mt-0.5">
+                    Order {o.id} · Customer: {o.customer} · {o.date}
+                  </p>
                 </div>
                 <div className="text-right">
                   <p className="font-bold text-foreground">{o.total}</p>
-                  <span className={`inline-block mt-1 px-2 py-0.5 rounded text-[9px] font-bold ${
-                    o.status === "Pending" ? "bg-amber-50 text-amber-700 border border-amber-100" :
-                    o.status === "Processing" ? "bg-blue-50 text-blue-700 border border-blue-100" :
-                    "bg-emerald-50 text-emerald-700 border border-emerald-100"
-                  }`}>
+                  <span
+                    className={`inline-block mt-1 px-2 py-0.5 rounded text-[9px] font-bold ${
+                      o.status === "Pending"
+                        ? "bg-amber-50 text-amber-700 border border-amber-100"
+                        : o.status === "Processing"
+                          ? "bg-blue-50 text-blue-700 border border-blue-100"
+                          : "bg-emerald-50 text-emerald-700 border border-emerald-100"
+                    }`}
+                  >
                     {o.status}
                   </span>
                 </div>
@@ -1797,7 +2119,6 @@ export function SellerPage() {
             ))}
           </div>
         </div>
-
       </div>
     </PageShell>
   );

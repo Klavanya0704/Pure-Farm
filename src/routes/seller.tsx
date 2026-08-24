@@ -5,7 +5,10 @@ export const Route = createFileRoute("/seller")({
   head: () => ({
     meta: [
       { title: "Seller Dashboard | PureFarm" },
-      { name: "description", content: "PureFarm seller dashboard console for listings and inventory." },
+      {
+        name: "description",
+        content: "PureFarm seller dashboard console for listings and inventory.",
+      },
     ],
   }),
   component: SellerPage,

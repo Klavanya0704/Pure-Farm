@@ -133,15 +133,23 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+  const currentPath = router.state.location.pathname;
+
+  const isAuthRoute = currentPath === "/login" || currentPath === "/register";
 
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <CartProvider>
-          <AppShell>
-            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          {isAuthRoute ? (
             <Outlet />
-          </AppShell>
+          ) : (
+            <AppShell>
+              {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+              <Outlet />
+            </AppShell>
+          )}
         </CartProvider>
       </AuthProvider>
     </QueryClientProvider>
