@@ -49,7 +49,7 @@ import { SITE, waLink } from "@/data/site";
 import type { Category, NotificationItem, Product } from "@/data/types";
 import { cardClass, PageShell } from "./AppShell";
 import { getCartProducts, useCart } from "./CartContext";
-import { useAuth } from "./AuthContext";
+import { useAuth, type UserRole } from "./AuthContext";
 import { formatRupees, ProductCard } from "./ProductCard";
 
 function Stat({ label, value }: { label: string; value: string }) {
@@ -85,6 +85,75 @@ function EmptyState({
       {action ? <div className="mt-5">{action}</div> : null}
     </div>
   );
+}
+
+export function AccessDenied({ requiredRoles }: { requiredRoles: string[] }) {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const getDashboardDestination = () => {
+    if (!user) return "/login";
+    if (user.role === "farmer") return "/";
+    if (user.role === "buyer") return "/marketplace";
+    if (user.role === "seller") return "/seller";
+    if (user.role === "admin") return "/admin";
+    return "/";
+  };
+
+  return (
+    <PageShell eyebrow="Security Alert" title="Access Restricted">
+      <div className="mx-auto max-w-md rounded-2xl border border-border bg-card p-8 text-center shadow-soft space-y-5">
+        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-50 text-rose-600 border border-rose-100 shadow-sm mx-auto">
+          <Shield className="h-7 w-7" />
+        </div>
+        <div className="space-y-2">
+          <h2 className="text-xl font-black text-foreground">Access Restricted</h2>
+          <p className="text-xs leading-relaxed text-muted-foreground">
+            You don't have permission to access this page. This area is restricted to{" "}
+            <span className="font-bold text-[#1b4332]">{requiredRoles.join(", ")}</span> users.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => void navigate({ to: getDashboardDestination() as any })}
+          className="w-full h-11 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white font-black text-xs shadow-sm transition hover:scale-[1.01]"
+        >
+          Go to Dashboard
+        </button>
+      </div>
+    </PageShell>
+  );
+}
+
+export function RoleGuard({
+  allowedRoles,
+  children,
+}: {
+  allowedRoles: UserRole[];
+  children: React.ReactNode;
+}) {
+  const navigate = useNavigate();
+  const { user, loading } = useAuth();
+
+  useEffect(() => {
+    if (!loading && (!user || !allowedRoles.includes(user.role))) {
+      void navigate({ to: "/login" });
+    }
+  }, [user, loading, navigate, allowedRoles]);
+
+  if (loading) {
+    return (
+      <div className="flex h-64 items-center justify-center">
+        <p className="text-sm text-muted-foreground font-semibold">Checking authorization...</p>
+      </div>
+    );
+  }
+
+  if (!user || !allowedRoles.includes(user.role)) {
+    return <AccessDenied requiredRoles={allowedRoles} />;
+  }
+
+  return <>{children}</>;
 }
 
 export function HomePage() {
@@ -167,7 +236,8 @@ export function HomePage() {
   ];
 
   return (
-    <div className="px-4 py-6 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
+    <RoleGuard allowedRoles={["farmer", "admin"]}>
+      <div className="px-4 py-6 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
       {/* 2-Column Desktop Layout */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_310px] items-start">
         
@@ -441,7 +511,8 @@ export function HomePage() {
         </div>
       </div>
     </div>
-  );
+  </RoleGuard>
+);
 }
 
 export function MarketplacePage() {
@@ -482,7 +553,8 @@ export function MarketplacePage() {
   }, [category, maxPrice, query, sort]);
 
   return (
-    <PageShell
+    <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
+      <PageShell
       eyebrow="Marketplace"
       title="Farm input marketplace"
       intro="Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart."
@@ -546,7 +618,8 @@ export function MarketplacePage() {
           body="Try another crop input, category, or raise the max price filter."
         />
       )}
-    </PageShell>
+      </PageShell>
+    </RoleGuard>
   );
 }
 
@@ -558,23 +631,25 @@ export function ProductDetailPage({ id }: { id: string }) {
 
   if (!product) {
     return (
-      <PageShell
-        title="Product not found"
-        intro="This product ID does not match the current PureFarm catalogue."
-      >
-        <EmptyState
-          title="Invalid product"
-          body="Return to the marketplace to find active products."
-          action={
-            <Link
-              to="/marketplace"
-              className="rounded-lg bg-primary px-4 py-2 font-bold text-primary-foreground"
-            >
-              Browse marketplace
-            </Link>
-          }
-        />
-      </PageShell>
+      <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
+        <PageShell
+          title="Product not found"
+          intro="This product ID does not match the current PureFarm catalogue."
+        >
+          <EmptyState
+            title="Invalid product"
+            body="Return to the marketplace to find active products."
+            action={
+              <Link
+                to="/marketplace"
+                className="rounded-lg bg-primary px-4 py-2 font-bold text-primary-foreground"
+              >
+                Browse marketplace
+              </Link>
+            }
+          />
+        </PageShell>
+      </RoleGuard>
     );
   }
 
@@ -583,7 +658,8 @@ export function ProductDetailPage({ id }: { id: string }) {
   ).slice(0, 4);
 
   return (
-    <PageShell eyebrow={product.category} title={product.name} intro={product.description}>
+    <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
+      <PageShell eyebrow={product.category} title={product.name} intro={product.description}>
       <div className="grid gap-7 lg:grid-cols-[0.9fr_1.1fr]">
         <img
           src={product.image}
@@ -662,6 +738,7 @@ export function ProductDetailPage({ id }: { id: string }) {
         ))}
       </div>
     </PageShell>
+    </RoleGuard>
   );
 }
 
@@ -672,7 +749,8 @@ export function CartPage() {
   const total = subtotal + delivery;
 
   return (
-    <PageShell
+    <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
+      <PageShell
       eyebrow="Cart"
       title="Your cart"
       intro="Review quantities before placing a mock local fulfilment order."
@@ -767,6 +845,7 @@ export function CartPage() {
         />
       )}
     </PageShell>
+    </RoleGuard>
   );
 }
 
@@ -788,30 +867,33 @@ export function OrderPage() {
 
   if (submitted) {
     return (
-      <PageShell
-        title="Order confirmed"
-        intro="A PureFarm advisor would confirm stock and delivery timing by phone or WhatsApp."
-      >
-        <div className={cardClass}>
-          <CheckCircle2 className="h-12 w-12 text-success" />
-          <p className="mt-4 text-2xl font-black">Order PF-{Math.floor(2000 + subtotal)}</p>
-          <p className="mt-2 text-muted-foreground">
-            Status: confirmation pending · Payment: {form.payment}
-          </p>
-          <Link
-            to="/marketplace"
-            onClick={() => clearCart()}
-            className="mt-6 inline-flex rounded-lg bg-primary px-4 py-2 font-bold text-primary-foreground"
-          >
-            Back to marketplace
-          </Link>
-        </div>
-      </PageShell>
+      <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
+        <PageShell
+          title="Order confirmed"
+          intro="A PureFarm advisor would confirm stock and delivery timing by phone or WhatsApp."
+        >
+          <div className={cardClass}>
+            <CheckCircle2 className="h-12 w-12 text-success" />
+            <p className="mt-4 text-2xl font-black">Order PF-{Math.floor(2000 + subtotal)}</p>
+            <p className="mt-2 text-muted-foreground">
+              Status: confirmation pending · Payment: {form.payment}
+            </p>
+            <Link
+              to="/marketplace"
+              onClick={() => clearCart()}
+              className="mt-6 inline-flex rounded-lg bg-primary px-4 py-2 font-bold text-primary-foreground"
+            >
+              Back to marketplace
+            </Link>
+          </div>
+        </PageShell>
+      </RoleGuard>
     );
   }
 
   return (
-    <PageShell
+    <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
+      <PageShell
       eyebrow="Checkout"
       title="Place order"
       intro="Complete a safe mock order flow. No real payment is processed."
@@ -877,6 +959,7 @@ export function OrderPage() {
         </div>
       </div>
     </PageShell>
+    </RoleGuard>
   );
 }
 
@@ -886,7 +969,8 @@ export function MarketPage() {
     `${item.crop} ${item.mandi} ${item.state}`.toLowerCase().includes(query.toLowerCase()),
   );
   return (
-    <PageShell
+    <RoleGuard allowedRoles={["farmer", "admin"]}>
+      <PageShell
       eyebrow="Mandi"
       title="Market prices"
       intro="Track local crop prices, arrivals, and trend movement for better selling decisions."
@@ -932,6 +1016,7 @@ export function MarketPage() {
         ))}
       </div>
     </PageShell>
+    </RoleGuard>
   );
 }
 
@@ -941,7 +1026,8 @@ export function SchemesPage() {
     `${s.name} ${s.category} ${s.eligibility}`.toLowerCase().includes(query.toLowerCase()),
   );
   return (
-    <CardGridPage
+    <RoleGuard allowedRoles={["farmer", "admin"]}>
+      <CardGridPage
       eyebrow="Schemes"
       title="Government schemes"
       intro="Find farmer support programmes, eligibility, and official application links."
@@ -955,47 +1041,52 @@ export function SchemesPage() {
         url: s.url,
       }))}
     />
+    </RoleGuard>
   );
 }
 
 export function InsurancePage() {
   return (
-    <CardGridPage
-      eyebrow="Insurance"
-      title="Crop insurance"
-      intro="Compare crop, weather, and allied farming insurance options."
-      items={INSURANCE_SCHEMES.map((s) => ({
-        title: s.name,
-        meta: `${s.type} · ${s.premium}`,
-        body: s.description,
-        footer: `${s.coverage || ""} Crops: ${(s.crops || []).join(", ")}`,
-      }))}
-    />
+    <RoleGuard allowedRoles={["farmer", "admin"]}>
+      <CardGridPage
+        eyebrow="Insurance"
+        title="Crop insurance"
+        intro="Compare crop, weather, and allied farming insurance options."
+        items={INSURANCE_SCHEMES.map((s) => ({
+          title: s.name,
+          meta: `${s.type} · ${s.premium}`,
+          body: s.description,
+          footer: `${s.coverage || ""} Crops: ${(s.crops || []).join(", ")}`,
+        }))}
+      />
+    </RoleGuard>
   );
 }
 
 export function WeatherPage() {
   return (
-    <PageShell
-      eyebrow="Weather"
-      title="Farm weather advisory"
-      intro="Five-day local forecast with field action notes."
-    >
-      <div className="grid gap-4 md:grid-cols-5">
-        {WEATHER.map((day) => (
-          <div key={day.day} className={cardClass}>
-            <CloudSun className="h-8 w-8 text-primary" />
-            <p className="mt-3 font-black">{day.day}</p>
-            <p className="text-sm text-muted-foreground">{day.condition}</p>
-            <p className="mt-3 text-2xl font-black">
-              {day.high}° / {day.low}°
-            </p>
-            <p className="mt-1 text-sm font-bold text-primary">{day.rain}% rain</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">{day.advisory}</p>
-          </div>
-        ))}
-      </div>
-    </PageShell>
+    <RoleGuard allowedRoles={["farmer", "admin"]}>
+      <PageShell
+        eyebrow="Weather"
+        title="Farm weather advisory"
+        intro="Five-day local forecast with field action notes."
+      >
+        <div className="grid gap-4 md:grid-cols-5">
+          {WEATHER.map((day) => (
+            <div key={day.day} className={cardClass}>
+              <CloudSun className="h-8 w-8 text-primary" />
+              <p className="mt-3 font-black">{day.day}</p>
+              <p className="text-sm text-muted-foreground">{day.condition}</p>
+              <p className="mt-3 text-2xl font-black">
+                {day.high}° / {day.low}°
+              </p>
+              <p className="mt-1 text-sm font-bold text-primary">{day.rain}% rain</p>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">{day.advisory}</p>
+            </div>
+          ))}
+        </div>
+      </PageShell>
+    </RoleGuard>
   );
 }
 
@@ -1003,7 +1094,8 @@ export function CropCalendarPage() {
   const [selected, setSelected] = useState(CROPS[0]?.name || "");
   const crop = CROPS.find((item) => item.name === selected) || CROPS[0];
   return (
-    <PageShell
+    <RoleGuard allowedRoles={["farmer", "admin"]}>
+      <PageShell
       eyebrow="Crop calendar"
       title="Season planner"
       intro="Select a crop to see its sowing window, harvest timing, and activity timeline."
@@ -1052,6 +1144,7 @@ export function CropCalendarPage() {
         ) : null}
       </div>
     </PageShell>
+    </RoleGuard>
   );
 }
 
@@ -1061,36 +1154,40 @@ export function LearnPage() {
     `${c.title} ${c.topic} ${c.level}`.toLowerCase().includes(query.toLowerCase()),
   );
   return (
-    <CardGridPage
-      eyebrow="Learning"
-      title="Farmer learning hub"
-      intro="Short, practical modules for field operations and farm business."
-      query={query}
-      setQuery={setQuery}
-      items={rows.map((c) => ({
-        title: c.title,
-        meta: `${c.level} · ${c.hours} hrs · ${c.lessons} lessons`,
-        body: c.description || "",
-        footer: `${c.instructor} · ${c.progress}% progress`,
-        icon: <GraduationCap className="h-5 w-5" />,
-      }))}
-    />
+    <RoleGuard allowedRoles={["farmer", "admin"]}>
+      <CardGridPage
+        eyebrow="Learning"
+        title="Farmer learning hub"
+        intro="Short, practical modules for field operations and farm business."
+        query={query}
+        setQuery={setQuery}
+        items={rows.map((c) => ({
+          title: c.title,
+          meta: `${c.level} · ${c.hours} hrs · ${c.lessons} lessons`,
+          body: c.description || "",
+          footer: `${c.instructor} · ${c.progress}% progress`,
+          icon: <GraduationCap className="h-5 w-5" />,
+        }))}
+      />
+    </RoleGuard>
   );
 }
 
 export function InternshipsPage() {
   return (
-    <CardGridPage
-      eyebrow="Internships"
-      title="Agri internships"
-      intro="Field, operations, content, and lab roles for agriculture learners."
-      items={INTERNSHIPS.map((i) => ({
-        title: i.title,
-        meta: `${i.org} · ${i.location} · ${i.type}`,
-        body: i.description || "",
-        footer: `${i.stipend} · Apply by ${i.deadline} · ${i.skills.join(", ")}`,
-      }))}
-    />
+    <RoleGuard allowedRoles={["farmer", "admin"]}>
+      <CardGridPage
+        eyebrow="Internships"
+        title="Agri internships"
+        intro="Field, operations, content, and lab roles for agriculture learners."
+        items={INTERNSHIPS.map((i) => ({
+          title: i.org,
+          meta: `${i.title} · ${i.location} · ${i.type}`,
+          body: i.description || "",
+          footer: `${i.stipend} · Apply by ${i.deadline} · ${i.skills.join(", ")}`,
+        }))}
+      />
+    </RoleGuard>
   );
 }
 
@@ -1098,25 +1195,27 @@ export function NotificationsPage() {
   const [items, setItems] = useState(NOTIFICATIONS);
   const unread = items.filter((n) => !n.read).length;
   return (
-    <PageShell
-      eyebrow="Notifications"
-      title="Farm alerts"
-      intro={`${unread} unread advisories across market, weather, schemes, and orders.`}
-    >
-      <div className="space-y-3">
-        {items.map((item) => (
-          <NotificationRow
-            key={item.id}
-            item={item}
-            onToggle={() =>
-              setItems((current) =>
-                current.map((n) => (n.id === item.id ? { ...n, read: !n.read } : n)),
-              )
-            }
-          />
-        ))}
-      </div>
-    </PageShell>
+    <RoleGuard allowedRoles={["buyer", "farmer", "seller", "admin"]}>
+      <PageShell
+        eyebrow="Notifications"
+        title="Farm alerts"
+        intro={`${unread} unread advisories across market, weather, schemes, and orders.`}
+      >
+        <div className="space-y-3">
+          {items.map((item) => (
+            <NotificationRow
+              key={item.id}
+              item={item}
+              onToggle={() =>
+                setItems((current) =>
+                  current.map((n) => (n.id === item.id ? { ...n, read: !n.read } : n)),
+                )
+              }
+            />
+          ))}
+        </div>
+      </PageShell>
+    </RoleGuard>
   );
 }
 
@@ -1279,9 +1378,19 @@ export function LoginPage() {
 
     const success = await login(phoneOrEmail, password);
     if (success) {
-      void navigate({ to: "/" });
+      const key = phoneOrEmail.trim().toLowerCase();
+      let dest = "/";
+      if (key.includes("buyer")) dest = "/marketplace";
+      else if (key.includes("seller")) dest = "/seller";
+      else if (key.includes("admin")) dest = "/admin";
+      
+      void navigate({ to: dest as any }).then(() => {
+        if (typeof window !== "undefined") {
+          window.location.reload();
+        }
+      });
     } else {
-      setErrorMessage("Invalid credentials. Try farmer@purefarm.com / password123");
+      setErrorMessage("Invalid credentials. Try admin@purefarm.test / password123");
       setLoading(false);
     }
   };
@@ -1373,19 +1482,31 @@ export function LoginPage() {
           )}
         </button>
 
-        <div className="my-4 flex items-center gap-3 text-muted-foreground text-[10px] font-bold uppercase tracking-wider">
-          <span className="h-px bg-border/80 flex-1" />
-          <span>OR</span>
-          <span className="h-px bg-border/80 flex-1" />
+        <div className="mt-4 rounded-xl border border-dashed border-border bg-[#fdfdfd] p-3 space-y-2 text-xs">
+          <p className="font-bold text-[#1b4332] text-center text-[10px] uppercase tracking-wider">Development Test Accounts</p>
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { label: "Farmer", email: "farmer@purefarm.test" },
+              { label: "Buyer", email: "buyer@purefarm.test" },
+              { label: "Seller", email: "seller@purefarm.test" },
+              { label: "Admin", email: "admin@purefarm.test" },
+            ].map((acc) => (
+              <button
+                key={acc.label}
+                type="button"
+                onClick={() => {
+                  setPhoneOrEmail(acc.email);
+                  setPassword("password123");
+                }}
+                className="rounded-lg border border-border bg-card p-1.5 hover:bg-muted/30 transition text-left text-[11px]"
+              >
+                <span className="font-bold block text-foreground">{acc.label}</span>
+                <span className="text-[9px] text-muted-foreground block truncate">{acc.email}</span>
+              </button>
+            ))}
+          </div>
+          <p className="text-[9px] text-muted-foreground text-center">Password: <code className="font-bold">password123</code> (Click any card to pre-fill)</p>
         </div>
-
-        <button
-          type="button"
-          onClick={() => alert("Demo credentials: farmer@purefarm.com / password123")}
-          className="w-full h-10 border border-border rounded-xl bg-background hover:bg-muted/30 transition text-xs font-bold flex items-center justify-center gap-2 text-foreground"
-        >
-          <span>Continue with Google</span>
-        </button>
 
         <div className="text-center text-xs pt-2">
           <span className="text-muted-foreground">Don't have an account? </span>
@@ -1543,62 +1664,186 @@ export function RegisterPage() {
   );
 }
 
-export function AdminPage() {
+export function SellerPage() {
   const navigate = useNavigate();
   const { user, loading } = useAuth();
 
+  // Authentication check for Route Protection
   useEffect(() => {
-    if (!loading && !user) {
+    if (!loading && (!user || (user.role !== "seller" && user.role !== "admin"))) {
       void navigate({ to: "/login" });
     }
   }, [user, loading, navigate]);
 
-  if (loading || !user) {
+  if (loading) {
     return (
       <div className="flex h-64 items-center justify-center">
-        <p className="text-sm text-muted-foreground font-semibold">Redirecting to login...</p>
+        <p className="text-sm text-muted-foreground">Checking authorization...</p>
       </div>
     );
   }
 
+  if (!user || (user.role !== "seller" && user.role !== "admin")) {
+    return <AccessDenied requiredRoles={["seller", "admin"]} />;
+  }
+
+  // Get a few mock products for Kiran's inventory
+  const sellerProducts = PRODUCTS.slice(5, 10);
+
   return (
     <PageShell
-      eyebrow="Admin"
-      title="Operations dashboard"
-      intro="Mock management view for products, orders, farmers, and support workload."
+      eyebrow="Seller Hub"
+      title="Seller Dashboard"
+      intro="Manage your farm produce listings, update inventory levels, and process customer orders."
     >
-      <div className="grid gap-4 md:grid-cols-4">
-        {ADMIN_STATS.map((stat) => (
-          <div key={stat.label} className={cardClass}>
-            <p className="text-sm text-muted-foreground">{stat.label}</p>
-            <p className="mt-2 text-3xl font-black">{stat.value}</p>
-            <p className="mt-1 text-sm font-bold text-primary">{stat.delta}</p>
+      {/* Seller KPI Statistics */}
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
+        {[
+          { label: "Total Sales", value: "₹1,42,800", delta: "+12.4% this week", color: "text-[#2d6a4f]" },
+          { label: "Active Listings", value: "18 Products", delta: "Synced live", color: "text-[#1b4332]" },
+          { label: "Pending Orders", value: "5 Orders", delta: "Requires dispatch", color: "text-amber-600" },
+          { label: "Seller Rating", value: "4.8 ★", delta: "From 120 reviews", color: "text-amber-500" }
+        ].map((stat, idx) => (
+          <div key={idx} className="rounded-2xl border border-border bg-card p-5 shadow-soft">
+            <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">{stat.label}</p>
+            <p className={`mt-2 text-2xl font-black ${stat.color}`}>{stat.value}</p>
+            <p className="mt-1 text-[10px] font-bold text-muted-foreground">{stat.delta}</p>
           </div>
         ))}
       </div>
-      <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1fr]">
-        <div className={cardClass}>
-          <p className="font-black">Recent orders</p>
-          {[
-            "PF-2048 · Drip kit · Pending",
-            "PF-2047 · Wheat seed · Dispatched",
-            "PF-2046 · Vermicompost · Delivered",
-          ].map((row) => (
-            <p key={row} className="mt-3 rounded-lg bg-muted p-3 text-sm">
-              {row}
-            </p>
-          ))}
+
+      {/* Grid: Listings + Orders */}
+      <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+        
+        {/* Inventory Column */}
+        <div className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-base font-black text-[#1b4332]">Product Inventory</h3>
+            <button
+              onClick={() => alert("Add Product mock action clicked!")}
+              className="rounded-lg bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-3 py-1.5 text-xs font-bold transition shadow-sm"
+            >
+              + Add Product
+            </button>
+          </div>
+
+          <div className="overflow-x-auto no-scrollbar">
+            <table className="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr className="border-b border-border text-muted-foreground font-bold">
+                  <th className="pb-3">Product Name</th>
+                  <th className="pb-3">Price</th>
+                  <th className="pb-3">Stock Level</th>
+                  <th className="pb-3 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border/60">
+                {sellerProducts.map((p) => (
+                  <tr key={p.id} className="hover:bg-muted/10 transition-colors">
+                    <td className="py-3 font-bold text-[#1b4332]">{p.name}</td>
+                    <td className="py-3">₹{p.price} / {p.unit}</td>
+                    <td className="py-3">
+                      <span className={`font-semibold ${p.stock > 10 ? "text-emerald-600" : "text-rose-500"}`}>
+                        {p.stock} units
+                      </span>
+                    </td>
+                    <td className="py-3 text-right space-x-2">
+                      <button
+                        onClick={() => alert(`Edit mock action for: ${p.name}`)}
+                        className="text-xs font-bold text-[#2d6a4f] hover:underline"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => alert(`Restock mock action for: ${p.name}`)}
+                        className="text-xs font-bold text-amber-500 hover:underline"
+                      >
+                        Restock
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div className={cardClass}>
-          <p className="font-black">Catalogue health</p>
-          {CATEGORIES.filter((c) => c.id !== "all").map((cat) => (
-            <p key={cat.id} className="mt-3 rounded-lg bg-muted p-3 text-sm">
-              {cat.label}: {PRODUCTS.filter((p) => p.category === cat.id).length} active listings
-            </p>
-          ))}
+
+        {/* Orders Column */}
+        <div className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-4">
+          <h3 className="text-base font-black text-[#1b4332]">Recent Orders</h3>
+          
+          <div className="space-y-3.5">
+            {[
+              { id: "PF-2049", customer: "Suresh Rao", items: "Certified Seed Potatoes", total: "₹4,500", status: "Pending", date: "10 mins ago" },
+              { id: "PF-2048", customer: "M. Naidu", items: "Organic Vermicompost", total: "₹2,250", status: "Processing", date: "2 hrs ago" },
+              { id: "PF-2047", customer: "V. Reddy", items: "Premium NPK Blend", total: "₹8,100", status: "Dispatched", date: "Yesterday" }
+            ].map((o, idx) => (
+              <div key={idx} className="border-b border-border/50 pb-3 last:border-0 last:pb-0 flex items-center justify-between text-xs">
+                <div>
+                  <p className="font-bold text-[#1b4332]">{o.items}</p>
+                  <p className="text-[10px] text-muted-foreground mt-0.5">Order {o.id} · Customer: {o.customer} · {o.date}</p>
+                </div>
+                <div className="text-right">
+                  <p className="font-bold text-foreground">{o.total}</p>
+                  <span className={`inline-block mt-1 px-2 py-0.5 rounded text-[9px] font-bold ${
+                    o.status === "Pending" ? "bg-amber-50 text-amber-700 border border-amber-100" :
+                    o.status === "Processing" ? "bg-blue-50 text-blue-700 border border-blue-100" :
+                    "bg-emerald-50 text-emerald-700 border border-emerald-100"
+                  }`}>
+                    {o.status}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
+
       </div>
     </PageShell>
+  );
+}
+
+export function AdminPage() {
+  return (
+    <RoleGuard allowedRoles={["admin"]}>
+      <PageShell
+        eyebrow="Admin"
+        title="Operations dashboard"
+        intro="Mock management view for products, orders, farmers, and support workload."
+      >
+        <div className="grid gap-4 md:grid-cols-4">
+          {ADMIN_STATS.map((stat) => (
+            <div key={stat.label} className={cardClass}>
+              <p className="text-sm text-muted-foreground">{stat.label}</p>
+              <p className="mt-2 text-3xl font-black">{stat.value}</p>
+              <p className="mt-1 text-sm font-bold text-primary">{stat.delta}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1fr]">
+          <div className={cardClass}>
+            <p className="font-black">Recent orders</p>
+            {[
+              "PF-2048 · Drip kit · Pending",
+              "PF-2047 · Wheat seed · Dispatched",
+              "PF-2046 · Vermicompost · Delivered",
+            ].map((row) => (
+              <p key={row} className="mt-3 rounded-lg bg-muted p-3 text-sm">
+                {row}
+              </p>
+            ))}
+          </div>
+          <div className={cardClass}>
+            <p className="font-black">Catalogue health</p>
+            {CATEGORIES.filter((c) => c.id !== "all").map((cat) => (
+              <p key={cat.id} className="mt-3 rounded-lg bg-muted p-3 text-sm">
+                {cat.label}: {PRODUCTS.filter((p) => p.category === cat.id).length} active listings
+              </p>
+            ))}
+          </div>
+        </div>
+      </PageShell>
+    </RoleGuard>
   );
 }
 

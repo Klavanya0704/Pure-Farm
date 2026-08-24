@@ -25,6 +25,7 @@ import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as OrderRouteImport } from './routes/order'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as SchemesRouteImport } from './routes/schemes'
+import { Route as SellerRouteImport } from './routes/seller'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as WeatherRouteImport } from './routes/weather'
 import { Route as ProductIdRouteImport } from './routes/product/$id'
@@ -109,6 +110,11 @@ const SchemesRoute = SchemesRouteImport.update({
   path: '/schemes',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SellerRoute = SellerRouteImport.update({
+  id: '/seller',
+  path: '/seller',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SupportRoute = SupportRouteImport.update({
   id: '/support',
   path: '/support',
@@ -142,6 +148,7 @@ export interface FileRoutesByFullPath {
   '/order': typeof OrderRoute
   '/register': typeof RegisterRoute
   '/schemes': typeof SchemesRoute
+  '/seller': typeof SellerRoute
   '/support': typeof SupportRoute
   '/weather': typeof WeatherRoute
   '/product/$id': typeof ProductIdRoute
@@ -163,6 +170,7 @@ export interface FileRoutesByTo {
   '/order': typeof OrderRoute
   '/register': typeof RegisterRoute
   '/schemes': typeof SchemesRoute
+  '/seller': typeof SellerRoute
   '/support': typeof SupportRoute
   '/weather': typeof WeatherRoute
   '/product/$id': typeof ProductIdRoute
@@ -185,6 +193,7 @@ export interface FileRoutesById {
   '/order': typeof OrderRoute
   '/register': typeof RegisterRoute
   '/schemes': typeof SchemesRoute
+  '/seller': typeof SellerRoute
   '/support': typeof SupportRoute
   '/weather': typeof WeatherRoute
   '/product/$id': typeof ProductIdRoute
@@ -208,6 +217,7 @@ export interface FileRouteTypes {
     | '/order'
     | '/register'
     | '/schemes'
+    | '/seller'
     | '/support'
     | '/weather'
     | '/product/$id'
@@ -229,6 +239,7 @@ export interface FileRouteTypes {
     | '/order'
     | '/register'
     | '/schemes'
+    | '/seller'
     | '/support'
     | '/weather'
     | '/product/$id'
@@ -250,6 +261,7 @@ export interface FileRouteTypes {
     | '/order'
     | '/register'
     | '/schemes'
+    | '/seller'
     | '/support'
     | '/weather'
     | '/product/$id'
@@ -272,6 +284,7 @@ export interface RootRouteChildren {
   OrderRoute: typeof OrderRoute
   RegisterRoute: typeof RegisterRoute
   SchemesRoute: typeof SchemesRoute
+  SellerRoute: typeof SellerRoute
   SupportRoute: typeof SupportRoute
   WeatherRoute: typeof WeatherRoute
   ProductIdRoute: typeof ProductIdRoute
@@ -391,6 +404,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SchemesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/seller': {
+      id: '/seller'
+      path: '/seller'
+      fullPath: '/seller'
+      preLoaderRoute: typeof SellerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/support': {
       id: '/support'
       path: '/support'
@@ -432,6 +452,7 @@ const rootRouteChildren: RootRouteChildren = {
   OrderRoute: OrderRoute,
   RegisterRoute: RegisterRoute,
   SchemesRoute: SchemesRoute,
+  SellerRoute: SellerRoute,
   SupportRoute: SupportRoute,
   WeatherRoute: WeatherRoute,
   ProductIdRoute: ProductIdRoute,
