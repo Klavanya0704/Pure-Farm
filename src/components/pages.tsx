@@ -1756,29 +1756,28 @@ export function LoginPage() {
 
   return (
     <div className="relative min-h-screen w-full flex flex-col justify-between overflow-x-hidden select-none bg-slate-950">
-      {/* 1. Cinematic Farm Fullscreen Background */}
+      {/* 1. Cinematic Farm Fullscreen Background Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <img
           src="/login-bg.jpg"
           alt="Cinematic Smart Farm at Sunrise"
           className="w-full h-full object-cover object-center scale-[1.02] transform transition-transform duration-1000 ease-out"
         />
-        {/* Soft atmospheric gradient & contrast enhancement */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/40" />
-        <div className="absolute inset-0 bg-emerald-950/20 mix-blend-multiply" />
+        {/* Subtle dark tint to maximize text & glass legibility without hiding scenery */}
+        <div className="absolute inset-0 bg-black/25 backdrop-brightness-[0.95]" />
       </div>
 
       {/* Top Bar / Header Branding */}
       <header className="relative z-20 w-full px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/80 dark:bg-black/60 backdrop-blur-md border border-white/50 shadow-sm group-hover:scale-105 transition duration-200">
-            <Leaf className="h-5 w-5 text-emerald-700 dark:text-emerald-400" />
+          <span className="flex h-10 w-10 items-center justify-center rounded-2xl glass-card text-emerald-800 dark:text-emerald-300 shadow-md group-hover:scale-105 transition duration-200">
+            <Leaf className="h-5 w-5 text-emerald-700" />
           </span>
           <div>
-            <span className="block text-lg font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] leading-none">
+            <span className="block text-lg font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] leading-none">
               Pure Farm
             </span>
-            <span className="block text-[9px] font-bold text-emerald-200 tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] mt-1">
+            <span className="block text-[9px] font-bold text-emerald-200 tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] mt-1">
               Agri Portal
             </span>
           </div>
@@ -1786,91 +1785,85 @@ export function LoginPage() {
 
         <Link
           to="/"
-          className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-white text-xs font-bold transition shadow-sm"
+          className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full glass-btn-secondary text-white text-xs font-black transition shadow-sm hover:scale-105"
         >
           <span>Explore Marketplace</span>
           <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       </header>
 
-      {/* Main Center Area with Glassmorphism Login Card & Floating Side Badges */}
+      {/* Main Center Area with Translucent Glassmorphism Login Card & Floating Badges */}
       <main className="relative z-20 flex-1 flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
         <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* LEFT SIDE: Decorative Floating Smart Farming Badges (Desktop) */}
           <div className="hidden lg:flex lg:col-span-3 flex-col gap-4 animate-subtle-float-1">
-            <div className="backdrop-blur-xl bg-white/75 dark:bg-slate-900/75 border border-white/60 dark:border-white/20 p-4 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 hover:bg-white/85">
+            <div className="glass-card p-4 rounded-2xl transition-all duration-300 hover:scale-105">
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">
-                  <Cpu className="h-5 w-5" />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-700/20 text-[#0d281e] border border-white/40">
+                  <Cpu className="h-5 w-5 text-emerald-800" />
                 </span>
                 <div>
-                  <h4 className="text-xs font-black text-[#1b4332] dark:text-emerald-400">
-                    Smart Farming
-                  </h4>
-                  <p className="text-[11px] text-muted-foreground font-medium">Smarter decisions</p>
+                  <h4 className="text-xs font-black text-[#0d281e]">Smart Farming</h4>
+                  <p className="text-[11px] text-[#1b4332] font-semibold">Smarter decisions</p>
                 </div>
               </div>
             </div>
 
-            <div className="backdrop-blur-xl bg-white/75 dark:bg-slate-900/75 border border-white/60 dark:border-white/20 p-4 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 hover:bg-white/85">
+            <div className="glass-card p-4 rounded-2xl transition-all duration-300 hover:scale-105">
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-100 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300">
-                  <Droplets className="h-5 w-5" />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-700/20 text-[#0d281e] border border-white/40">
+                  <Droplets className="h-5 w-5 text-cyan-800" />
                 </span>
                 <div>
-                  <h4 className="text-xs font-black text-[#1b4332] dark:text-emerald-400">
-                    Water Efficient
-                  </h4>
-                  <p className="text-[11px] text-muted-foreground font-medium">Save every drop</p>
+                  <h4 className="text-xs font-black text-[#0d281e]">Water Efficient</h4>
+                  <p className="text-[11px] text-[#1b4332] font-semibold">Save every drop</p>
                 </div>
               </div>
             </div>
 
-            <div className="backdrop-blur-xl bg-white/75 dark:bg-slate-900/75 border border-white/60 dark:border-white/20 p-4 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 hover:bg-white/85">
+            <div className="glass-card p-4 rounded-2xl transition-all duration-300 hover:scale-105">
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300">
-                  <Sprout className="h-5 w-5" />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-700/20 text-[#0d281e] border border-white/40">
+                  <Sprout className="h-5 w-5 text-amber-800" />
                 </span>
                 <div>
-                  <h4 className="text-xs font-black text-[#1b4332] dark:text-emerald-400">
-                    Healthy Crop
-                  </h4>
-                  <p className="text-[11px] text-muted-foreground font-medium">Better yield</p>
+                  <h4 className="text-xs font-black text-[#0d281e]">Healthy Crop</h4>
+                  <p className="text-[11px] text-[#1b4332] font-semibold">Better yield</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* CENTER: Main Glassmorphic Login Card */}
+          {/* CENTER: Main Translucent Glassmorphic Login Card */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className="w-full max-w-[430px] rounded-[32px] backdrop-blur-2xl bg-white/85 dark:bg-slate-950/85 border border-white/80 dark:border-white/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] p-6 sm:p-8 transition-all">
+            <div className="w-full max-w-[440px] rounded-[32px] glass-panel p-7 sm:p-9 transition-all">
               {/* Brand Icon & Heading */}
-              <div className="text-center space-y-1.5 pb-3">
+              <div className="text-center space-y-1.5 pb-2">
                 <div className="flex justify-center">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-[#1b4332] text-white shadow-md">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-[#1b4332] text-white shadow-lg border border-white/40">
                     <Leaf className="h-6 w-6" />
                   </span>
                 </div>
-                <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-[#1b4332] dark:text-white">
+                <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-[#0d281e] drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
                   Pure Farm
                 </h1>
-                <p className="text-xs font-bold text-emerald-800 dark:text-emerald-300">
+                <p className="text-xs font-black text-[#1b4332]">
                   Nurturing Nature, Growing Future
                 </p>
-                <p className="text-[10px] text-muted-foreground font-medium">
+                <p className="text-[10.5px] text-[#2d6a4f] font-bold">
                   Chain Address, Mark Two, Pure Farm
                 </p>
               </div>
 
               {/* Login Form */}
-              <form onSubmit={handleSubmit} className="space-y-3.5 mt-2">
+              <form onSubmit={handleSubmit} className="space-y-3.5 mt-3">
                 {/* Username / Email */}
                 <div className="space-y-1">
-                  <label className="text-[11px] font-bold text-[#1b4332] dark:text-emerald-200 block">
+                  <label className="text-xs font-black text-[#0d281e] block">
                     Username or Email
                   </label>
                   <div className="relative flex items-center">
-                    <span className="absolute left-3.5 text-muted-foreground">
+                    <span className="absolute left-3.5 text-[#1b4332]">
                       <User className="h-4 w-4" />
                     </span>
                     <input
@@ -1883,18 +1876,16 @@ export function LoginPage() {
                         if (errorMessage) setErrorMessage("");
                       }}
                       placeholder="Username or Email"
-                      className="h-11 w-full rounded-xl border border-input/70 bg-white/90 dark:bg-slate-900/90 pl-10 pr-4 text-xs font-medium outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 transition shadow-inner"
+                      className="h-11 w-full rounded-xl glass-input pl-10 pr-4 text-xs font-bold text-[#0d281e] placeholder:text-[#1b4332]/60 outline-none transition"
                     />
                   </div>
                 </div>
 
                 {/* Password */}
                 <div className="space-y-1">
-                  <label className="text-[11px] font-bold text-[#1b4332] dark:text-emerald-200 block">
-                    Password
-                  </label>
+                  <label className="text-xs font-black text-[#0d281e] block">Password</label>
                   <div className="relative flex items-center">
-                    <span className="absolute left-3.5 text-muted-foreground">
+                    <span className="absolute left-3.5 text-[#1b4332]">
                       <Lock className="h-4 w-4" />
                     </span>
                     <input
@@ -1907,41 +1898,45 @@ export function LoginPage() {
                         if (errorMessage) setErrorMessage("");
                       }}
                       placeholder="Password"
-                      className="h-11 w-full rounded-xl border border-input/70 bg-white/90 dark:bg-slate-900/90 pl-10 pr-11 text-xs font-medium outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 transition shadow-inner"
+                      className="h-11 w-full rounded-xl glass-input pl-10 pr-11 text-xs font-bold text-[#0d281e] placeholder:text-[#1b4332]/60 outline-none transition"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 text-muted-foreground hover:text-foreground transition p-1"
+                      className="absolute right-3 text-[#1b4332] hover:text-[#0d281e] transition p-1"
                       aria-label={showPassword ? "Hide password" : "Show password"}
                     >
-                      {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                      {showPassword ? (
+                        <EyeOff className="h-4 w-4" />
+                      ) : (
+                        <Eye className="h-4 w-4" />
+                      )}
                     </button>
                   </div>
                 </div>
 
                 {/* Error Banner */}
                 {errorMessage ? (
-                  <p className="text-[11px] font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 p-2 rounded-lg border border-rose-200 dark:border-rose-900">
+                  <p className="text-[11px] font-black text-rose-700 bg-rose-100/80 backdrop-blur-md p-2 rounded-lg border border-rose-300">
                     {errorMessage}
                   </p>
                 ) : null}
 
                 {/* Remember Me & Forgot Password */}
                 <div className="flex items-center justify-between text-xs pt-0.5">
-                  <label className="flex items-center gap-2 cursor-pointer select-none font-medium text-foreground/80 text-[11px]">
+                  <label className="flex items-center gap-2 cursor-pointer select-none font-bold text-[#0d281e] text-xs">
                     <input
                       type="checkbox"
                       checked={rememberMe}
                       disabled={loading}
                       onChange={(e) => setRememberMe(e.target.checked)}
-                      className="rounded text-emerald-600 focus:ring-emerald-500 border-border"
+                      className="rounded text-emerald-700 focus:ring-emerald-600 border-white/60 bg-white/40"
                     />
                     Remember me
                   </label>
                   <Link
                     to="/support"
-                    className="font-bold text-[11px] text-emerald-700 dark:text-emerald-400 hover:underline transition"
+                    className="font-black text-xs text-[#1b4332] hover:text-[#0d281e] hover:underline transition"
                   >
                     Forgot Password?
                   </Link>
@@ -1951,7 +1946,7 @@ export function LoginPage() {
                 <button
                   type="submit"
                   disabled={!isValid || loading}
-                  className="w-full h-11 sm:h-12 rounded-xl bg-gradient-to-r from-[#2d6a4f] to-[#1b4332] hover:from-[#1b4332] hover:to-[#0d1e16] disabled:from-muted disabled:to-muted disabled:text-muted-foreground disabled:opacity-50 text-white font-black text-xs sm:text-sm shadow-md transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 mt-2"
+                  className="w-full h-11 sm:h-12 rounded-xl glass-btn-primary disabled:opacity-50 text-white font-black text-xs sm:text-sm shadow-md transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 mt-2"
                 >
                   {loading ? (
                     <>
@@ -1987,18 +1982,18 @@ export function LoginPage() {
 
               {/* Divider */}
               <div className="relative my-4 flex items-center justify-center">
-                <div className="w-full border-t border-border/80" />
-                <span className="absolute bg-white/90 dark:bg-slate-900/90 px-3 text-[10px] font-bold text-muted-foreground uppercase tracking-wider rounded-full">
+                <div className="w-full border-t border-white/40" />
+                <span className="absolute bg-white/40 backdrop-blur-md px-3 py-0.5 text-[10px] font-black text-[#0d281e] uppercase tracking-wider rounded-full border border-white/40 shadow-sm">
                   or continue with
                 </span>
               </div>
 
-              {/* Social Login / Supported Auth & Demo Quick-Login */}
+              {/* Social Login & Demo Quick-Login */}
               <div className="space-y-2">
                 <button
                   type="button"
                   onClick={() => handleDemoFill("farmer@purefarm.test")}
-                  className="w-full h-10 rounded-xl border border-border/80 bg-white/80 dark:bg-slate-900/80 hover:bg-white dark:hover:bg-slate-800 transition flex items-center justify-center gap-2.5 text-xs font-bold text-foreground shadow-sm"
+                  className="w-full h-10 rounded-xl glass-btn-secondary transition flex items-center justify-center gap-2.5 text-xs font-black text-[#0d281e] shadow-sm"
                 >
                   {/* Google SVG Icon */}
                   <svg className="h-4 w-4" viewBox="0 0 24 24">
@@ -2024,7 +2019,7 @@ export function LoginPage() {
 
                 {/* Demo Accounts Quick-Select Pills */}
                 <div className="pt-2">
-                  <p className="text-[10px] font-bold text-center text-muted-foreground uppercase tracking-wider mb-1.5">
+                  <p className="text-[10px] font-black text-center text-[#0d281e] uppercase tracking-wider mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
                     Demo Profiles (Click to prefill)
                   </p>
                   <div className="grid grid-cols-4 gap-1.5">
@@ -2038,7 +2033,7 @@ export function LoginPage() {
                         key={demo.role}
                         type="button"
                         onClick={() => handleDemoFill(demo.email)}
-                        className="py-1 px-1.5 rounded-lg border border-border/70 bg-white/60 dark:bg-slate-900/60 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 hover:border-emerald-300 text-[10.5px] font-bold text-foreground transition text-center"
+                        className="py-1 px-1.5 rounded-lg glass-btn-secondary text-[11px] font-black text-[#0d281e] transition text-center"
                       >
                         {demo.role}
                       </button>
@@ -2048,11 +2043,11 @@ export function LoginPage() {
               </div>
 
               {/* Bottom Sign-Up Link */}
-              <div className="text-center text-xs pt-3">
-                <span className="text-muted-foreground">Don't have an account? </span>
+              <div className="text-center text-xs pt-3 font-bold text-[#0d281e]">
+                <span>Don't have an account? </span>
                 <Link
                   to="/register"
-                  className="font-black text-emerald-700 dark:text-emerald-400 hover:text-[#1b4332] hover:underline transition"
+                  className="font-black text-[#1b4332] hover:text-[#0d281e] hover:underline transition"
                 >
                   Sign Up
                 </Link>
@@ -2062,18 +2057,14 @@ export function LoginPage() {
 
           {/* RIGHT SIDE: Decorative Floating Farm Tomorrow Badge (Desktop) */}
           <div className="hidden lg:flex lg:col-span-3 justify-end animate-subtle-float-2">
-            <div className="backdrop-blur-xl bg-white/75 dark:bg-slate-900/75 border border-white/60 dark:border-white/20 p-5 rounded-3xl shadow-xl max-w-[220px] space-y-3 transition-all duration-300 hover:scale-105 hover:bg-white/85">
-              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-500 text-white shadow-md">
+            <div className="glass-card p-5 rounded-3xl max-w-[220px] space-y-3 transition-all duration-300 hover:scale-105">
+              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-md border border-white/40">
                 <Sparkles className="h-5 w-5" />
               </span>
               <div>
-                <h4 className="text-sm font-black text-[#1b4332] dark:text-emerald-300">
-                  Better Farming
-                </h4>
-                <p className="text-xs font-bold text-emerald-700 dark:text-emerald-400">
-                  Better Tomorrow
-                </p>
-                <p className="text-[10px] text-muted-foreground mt-1 leading-normal">
+                <h4 className="text-sm font-black text-[#0d281e]">Better Farming</h4>
+                <p className="text-xs font-bold text-[#1b4332]">Better Tomorrow</p>
+                <p className="text-[10px] text-[#0d281e]/80 font-semibold mt-1 leading-normal">
                   Empowering Indian agriculture with connected smart solutions.
                 </p>
               </div>
@@ -2083,13 +2074,13 @@ export function LoginPage() {
       </main>
 
       {/* BOTTOM BAR: Wide Subtle Glass Information Bar */}
-      <footer className="relative z-20 w-full px-4 py-3 border-t border-white/20 backdrop-blur-md bg-white/30 dark:bg-black/30">
-        <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-around gap-4 text-center sm:text-left text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
+      <footer className="relative z-20 w-full px-4 py-3 glass-bar text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+        <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-around gap-4 text-center sm:text-left">
           <div className="flex items-center gap-2">
             <ShieldCheck className="h-4 w-4 text-emerald-300" />
             <div>
-              <span className="block text-xs font-bold leading-tight">Secure & Reliable</span>
-              <span className="block text-[10px] text-emerald-100/80 leading-tight">
+              <span className="block text-xs font-black leading-tight">Secure & Reliable</span>
+              <span className="block text-[10px] text-emerald-100 font-semibold leading-tight">
                 Your data is protected
               </span>
             </div>
@@ -2098,8 +2089,8 @@ export function LoginPage() {
           <div className="flex items-center gap-2">
             <Activity className="h-4 w-4 text-cyan-300" />
             <div>
-              <span className="block text-xs font-bold leading-tight">Real-time Insights</span>
-              <span className="block text-[10px] text-emerald-100/80 leading-tight">
+              <span className="block text-xs font-black leading-tight">Real-time Insights</span>
+              <span className="block text-[10px] text-emerald-100 font-semibold leading-tight">
                 Data-driven farming
               </span>
             </div>
@@ -2108,8 +2099,8 @@ export function LoginPage() {
           <div className="flex items-center gap-2">
             <Globe className="h-4 w-4 text-amber-300" />
             <div>
-              <span className="block text-xs font-bold leading-tight">Sustainable Future</span>
-              <span className="block text-[10px] text-emerald-100/80 leading-tight">
+              <span className="block text-xs font-black leading-tight">Sustainable Future</span>
+              <span className="block text-[10px] text-emerald-100 font-semibold leading-tight">
                 For a better tomorrow
               </span>
             </div>
