@@ -258,7 +258,7 @@ export function HomePage() {
           customized.unit = "1 kg";
           customized.rating = 4.6;
           customized.customReviewCount = 238;
-          customized.image = "/products/deals/fresh-tomatoes.jpg";
+          customized.image = "/products/deals/fresh-tomatoes-farm.jpg";
         } else if (kw === "cucumber") {
           customized.name = "Cucumber";
           customized.price = 16;
@@ -268,7 +268,7 @@ export function HomePage() {
           customized.unit = "500 g";
           customized.rating = 4.4;
           customized.customReviewCount = 192;
-          customized.image = "/products/deals/cucumber.jpg";
+          customized.image = "/products/deals/cucumber-farm.jpg";
         } else if (kw === "potato") {
           customized.name = "Potatoes";
           customized.price = 14;
@@ -277,7 +277,7 @@ export function HomePage() {
           customized.unit = "1 kg";
           customized.rating = 4.5;
           customized.customReviewCount = 210;
-          customized.image = "/products/deals/potatoes.jpg";
+          customized.image = "/products/deals/potatoes-farm.jpg";
         } else if (kw === "onion") {
           customized.name = "Red Onions";
           customized.price = 20;
@@ -287,7 +287,7 @@ export function HomePage() {
           customized.unit = "1 kg";
           customized.rating = 4.6;
           customized.customReviewCount = 185;
-          customized.image = "/products/deals/red-onions.jpg";
+          customized.image = "/products/deals/red-onions-farm.jpg";
         } else if (kw === "chilli") {
           customized.name = "Green Chillies";
           customized.price = 16;
@@ -297,7 +297,7 @@ export function HomePage() {
           customized.unit = "250 g";
           customized.rating = 4.4;
           customized.customReviewCount = 188;
-          customized.image = "/products/deals/green-chillies.jpg";
+          customized.image = "/products/deals/green-chillies-farm.jpg";
         } else if (kw === "marigold") {
           customized.name = "Oranges";
           customized.price = 28;
@@ -306,7 +306,7 @@ export function HomePage() {
           customized.unit = "1 kg";
           customized.rating = 4.6;
           customized.customReviewCount = 176;
-          customized.image = "/products/deals/oranges.jpg";
+          customized.image = "/products/deals/oranges-farm.jpg";
         }
         matches.push(customized);
       }
