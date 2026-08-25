@@ -207,7 +207,7 @@
 .deals-marquee-track {
   display: flex;
   width: max-content;
-  animation: deals-marquee 30s linear infinite;
+  animation: deals-marquee 60s linear infinite;
 }
 
 .deals-marquee-track:hover {
