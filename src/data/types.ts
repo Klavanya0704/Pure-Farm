@@ -12,6 +12,10 @@ export interface Product {
   description: string;
   badge?: "Best Seller" | "Top Rated" | "Featured";
   image: string;
+  customDiscount?: string;
+  customOldPrice?: number;
+  customReviewCount?: number;
+  customBadgeText?: string;
 }
 
 export interface ProductReview {

@@ -241,20 +241,134 @@ export function HomePage() {
     setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
   };
 
-  // Find 6 products for Best Deals
-  const dealProductKeywords = ["tomato", "cucumber", "potato", "onion", "chilli", "marigold"];
+  // Find 6 products for Best Deals (customized to: Tomatoes, Cucumber, Potatoes, Red Onions, Green Chillies, Oranges)
   const dealProducts = useMemo(() => {
+    const keywords = ["tomato", "cucumber", "potato", "onion", "chilli", "marigold"];
     const matches: Product[] = [];
-    dealProductKeywords.forEach((kw) => {
+    keywords.forEach((kw) => {
       const found = PRODUCTS.find((p) => p.name.toLowerCase().includes(kw));
-      if (found) matches.push(found);
+      if (found) {
+        const customized = { ...found };
+        if (kw === "tomato") {
+          customized.name = "Fresh Tomatoes";
+          customized.price = 18;
+          customized.customOldPrice = 22;
+          customized.customDiscount = "-20%";
+          customized.customBadgeText = "HOT";
+          customized.unit = "1 kg";
+          customized.rating = 4.6;
+          customized.customReviewCount = 238;
+        } else if (kw === "cucumber") {
+          customized.name = "Cucumber";
+          customized.price = 16;
+          customized.customOldPrice = 19;
+          customized.customDiscount = "-15%";
+          customized.customBadgeText = "BEST SELLER";
+          customized.unit = "1 kg";
+          customized.rating = 4.4;
+          customized.customReviewCount = 145;
+        } else if (kw === "potato") {
+          customized.name = "Potatoes";
+          customized.price = 14;
+          customized.customOldPrice = 17;
+          customized.customDiscount = "-18%";
+          customized.unit = "1 kg";
+          customized.rating = 4.5;
+          customized.customReviewCount = 312;
+        } else if (kw === "onion") {
+          customized.name = "Red Onions";
+          customized.price = 20;
+          customized.customOldPrice = 24;
+          customized.customDiscount = "-15%";
+          customized.customBadgeText = "BEST SELLER";
+          customized.unit = "1 kg";
+          customized.rating = 4.6;
+          customized.customReviewCount = 189;
+        } else if (kw === "chilli") {
+          customized.name = "Green Chillies";
+          customized.price = 16;
+          customized.customOldPrice = 20;
+          customized.customDiscount = "-20%";
+          customized.customBadgeText = "HOT";
+          customized.unit = "1 kg";
+          customized.rating = 4.4;
+          customized.customReviewCount = 98;
+        } else if (kw === "marigold") {
+          customized.name = "Oranges";
+          customized.price = 28;
+          customized.customOldPrice = 33;
+          customized.customDiscount = "-15%";
+          customized.unit = "1 kg";
+          customized.rating = 4.6;
+          customized.customReviewCount = 156;
+          customized.image = "/products/oranges.jpg";
+        }
+        matches.push(customized);
+      }
     });
-    if (matches.length < 6) {
-      const extra = PRODUCTS.filter((p) => !matches.find((m) => m.id === p.id));
-      return [...matches, ...extra].slice(0, 6);
-    }
-    return matches.slice(0, 6);
+    return matches;
   }, []);
+
+  // Deals Countdown Timer State: 02 Days : 23 Hours : 47 Mins : 19 Secs
+  const [timeLeft, setTimeLeft] = useState(258439);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 258439));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const formatTime = (seconds: number) => {
+    const d = Math.floor(seconds / (24 * 3600));
+    const h = Math.floor((seconds % (24 * 3600)) / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = seconds % 60;
+    return {
+      days: String(d).padStart(2, "0"),
+      hours: String(h).padStart(2, "0"),
+      mins: String(m).padStart(2, "0"),
+      secs: String(s).padStart(2, "0"),
+    };
+  };
+  const countdownTime = formatTime(timeLeft);
+
+  // Deals Responsive Carousel States
+  const [visibleCards, setVisibleCards] = useState(6);
+  const [dealsIndex, setDealsIndex] = useState(0);
+  const [isDealsHovered, setIsDealsHovered] = useState(false);
+
+  useEffect(() => {
+    const updateVisible = () => {
+      const w = window.innerWidth;
+      if (w >= 1024) {
+        setVisibleCards(6);
+      } else if (w >= 768) {
+        setVisibleCards(3);
+      } else {
+        setVisibleCards(2);
+      }
+    };
+    updateVisible();
+    window.addEventListener("resize", updateVisible);
+    return () => window.removeEventListener("resize", updateVisible);
+  }, []);
+
+  const maxDealsIndex = Math.max(0, dealProducts.length - visibleCards);
+
+  const prevDeals = () => {
+    setDealsIndex((prev) => (prev > 0 ? prev - 1 : maxDealsIndex));
+  };
+  const nextDeals = () => {
+    setDealsIndex((prev) => (prev < maxDealsIndex ? prev + 1 : 0));
+  };
+
+  useEffect(() => {
+    if (maxDealsIndex === 0 || isDealsHovered) return;
+    const timer = setInterval(() => {
+      setDealsIndex((prev) => (prev < maxDealsIndex ? prev + 1 : 0));
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [maxDealsIndex, isDealsHovered, dealsIndex]);
 
   // Map 5 Mandi prices with fallbacks
   const cropsToDisplay = [
@@ -524,28 +638,132 @@ export function HomePage() {
               </div>
             </div>
 
-            {/* Product Section */}
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
+            {/* Product Section — Premium Animated Product Carousel */}
+            <div
+              className="space-y-4"
+              onMouseEnter={() => setIsDealsHovered(true)}
+              onMouseLeave={() => setIsDealsHovered(false)}
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <h2 className="text-xl font-black text-[#1b4332]">Best Deals for You</h2>
+                  <h2 className="text-xl font-black text-[#1b4332] flex items-center gap-1.5 select-none">
+                    Best Deals for You <span className="animate-bounce">🔥</span>
+                  </h2>
                   <p className="text-xs text-muted-foreground">
-                    Handpicked agricultural seeds & inputs on discount
+                    Handpicked products & inputs on discount
                   </p>
                 </div>
-                <Link
-                  to="/marketplace"
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition"
-                >
-                  View All <ArrowRight className="h-3 w-3" />
-                </Link>
+
+                {/* Countdown Timer */}
+                <div className="flex items-center gap-2 sm:gap-3 justify-start sm:justify-end select-none">
+                  <span className="text-[10px] sm:text-xs font-black uppercase text-muted-foreground tracking-wider block">
+                    Deals end in
+                  </span>
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    {/* Days */}
+                    <div className="text-center">
+                      <div className="bg-[#eef7f2] text-[#2d6a4f] rounded-lg px-2 py-1 text-xs sm:text-sm font-black border border-emerald-100/50 shadow-sm min-w-[28px] sm:min-w-[34px]">
+                        {countdownTime.days}
+                      </div>
+                      <span className="text-[8px] sm:text-[9px] font-black text-muted-foreground uppercase block mt-1">
+                        Days
+                      </span>
+                    </div>
+                    <span className="text-sm font-black text-[#2d6a4f] -mt-4">:</span>
+                    {/* Hours */}
+                    <div className="text-center">
+                      <div className="bg-[#eef7f2] text-[#2d6a4f] rounded-lg px-2 py-1 text-xs sm:text-sm font-black border border-emerald-100/50 shadow-sm min-w-[28px] sm:min-w-[34px]">
+                        {countdownTime.hours}
+                      </div>
+                      <span className="text-[8px] sm:text-[9px] font-black text-muted-foreground uppercase block mt-1">
+                        Hrs
+                      </span>
+                    </div>
+                    <span className="text-sm font-black text-[#2d6a4f] -mt-4">:</span>
+                    {/* Minutes */}
+                    <div className="text-center">
+                      <div className="bg-[#eef7f2] text-[#2d6a4f] rounded-lg px-2 py-1 text-xs sm:text-sm font-black border border-emerald-100/50 shadow-sm min-w-[28px] sm:min-w-[34px]">
+                        {countdownTime.mins}
+                      </div>
+                      <span className="text-[8px] sm:text-[9px] font-black text-muted-foreground uppercase block mt-1">
+                        Mins
+                      </span>
+                    </div>
+                    <span className="text-sm font-black text-[#2d6a4f] -mt-4">:</span>
+                    {/* Seconds */}
+                    <div className="text-center">
+                      <div className="bg-red-50 text-red-600 rounded-lg px-2 py-1 text-xs sm:text-sm font-black border border-red-100/50 shadow-sm min-w-[28px] sm:min-w-[34px] animate-pulse">
+                        {countdownTime.secs}
+                      </div>
+                      <span className="text-[8px] sm:text-[9px] font-black text-muted-foreground uppercase block mt-1">
+                        Secs
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
-                {dealProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
+              {/* Product Carousel Slider Track */}
+              <div className="relative group/carousel px-1">
+                {/* Carousel Viewport Container */}
+                <div className="overflow-hidden w-full py-2">
+                  <div
+                    className="flex transition-transform duration-500 ease-out"
+                    style={{
+                      transform: `translateX(-${dealsIndex * (100 / visibleCards)}%)`,
+                    }}
+                  >
+                    {dealProducts.map((product) => (
+                      <div
+                        key={product.id}
+                        style={{ width: `${100 / visibleCards}%` }}
+                        className="shrink-0 px-2 flex justify-center"
+                      >
+                        <ProductCard product={product} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Left/Right Navigation Controls */}
+                {maxDealsIndex > 0 && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={prevDeals}
+                      className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 rounded-full border border-border bg-white text-[#2d6a4f] shadow-soft hover:bg-emerald-50 active:scale-95 transition-all duration-200 flex items-center justify-center font-black"
+                      aria-label="Previous slide"
+                    >
+                      ‹
+                    </button>
+                    <button
+                      type="button"
+                      onClick={nextDeals}
+                      className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 rounded-full border border-border bg-white text-[#2d6a4f] shadow-soft hover:bg-emerald-50 active:scale-95 transition-all duration-200 flex items-center justify-center font-black"
+                      aria-label="Next slide"
+                    >
+                      ›
+                    </button>
+                  </>
+                )}
               </div>
+
+              {/* Pagination Dots */}
+              {maxDealsIndex > 0 && (
+                <div className="flex justify-center gap-1.5 pt-1 select-none">
+                  {Array.from({ length: maxDealsIndex + 1 }).map((_, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setDealsIndex(idx)}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        dealsIndex === idx ? "w-4 bg-[#2d6a4f]" : "w-1.5 bg-gray-300"
+                      }`}
+                      aria-label={`Go to slide page ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* App download Banner */}
