@@ -159,47 +159,80 @@ export function RoleGuard({
 export function HomePage() {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const HERO_SLIDES = useMemo(
     () => [
       {
-        badge: "From Our Farms",
-        title: "From Our Farms to Your Home",
+        badge: "SMART FARMING",
+        title: "Powering Every Acre",
+        subtitle: "Modern farm machinery helps farmers work smarter, faster and more efficiently.",
+        img: "/hero-tractor.jpg",
+        badgeColor: "bg-amber-500/20 text-amber-300",
+        linkText: "Explore Farm Equipment",
+        linkTo: "/marketplace",
+        secLinkText: "Shop Marketplace",
+        secLinkTo: "/marketplace",
+      },
+      {
+        badge: "HEALTHY SOIL • HEALTHY CROPS",
+        title: "Nourish Your Soil, Grow Better",
         subtitle:
-          "Fresh produce and premium agricultural inputs delivered direct with organic freshness.",
-        img: "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800", // Indian farmer with crops
+          "Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests.",
+        img: "/hero-fertilizer.jpg",
         badgeColor: "bg-emerald-500/20 text-emerald-300",
+        linkText: "Shop Fertilizers",
+        linkTo: "/marketplace",
+        secLinkText: "Explore Products",
+        secLinkTo: "/marketplace",
+      },
+      {
+        badge: "NEXT-GEN AGRICULTURE",
+        title: "Technology Taking Farming Higher",
+        subtitle:
+          "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.",
+        img: "/hero-drone.jpg",
+        badgeColor: "bg-teal-500/20 text-teal-300",
+        linkText: "Explore Agri Technology",
+        linkTo: "/marketplace",
+        secLinkText: "Learn More",
+        secLinkTo: "/learn",
+      },
+      {
+        badge: "SMART WATER MANAGEMENT",
+        title: "Every Drop Counts",
+        subtitle:
+          "Efficient irrigation helps conserve water while keeping crops healthy and productive.",
+        img: "/hero-irrigation.jpg",
+        badgeColor: "bg-blue-500/20 text-blue-300",
+        linkText: "Explore Irrigation",
+        linkTo: "/marketplace",
+        secLinkText: "View Farm Tools",
+        secLinkTo: "/marketplace",
+      },
+      {
+        badge: "FROM FIELD TO FUTURE",
+        title: "Grow More. Harvest Better.",
+        subtitle:
+          "Everything farmers need — from quality farm inputs and equipment to fresh agricultural products.",
+        img: "/hero-harvest.jpg",
+        badgeColor: "bg-amber-500/20 text-amber-300",
         linkText: "Shop Marketplace",
         linkTo: "/marketplace",
-      },
-      {
-        badge: "Government Support",
-        title: "Apply For Schemes",
-        subtitle: "Unlock PM-Kisan, soil health benefits, and crop insurance policies seamlessly.",
-        img: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=800", // Farmer in golden crop field
-        badgeColor: "bg-amber-500/20 text-amber-300",
-        linkText: "Explore Schemes",
-        linkTo: "/schemes",
-      },
-      {
-        badge: "Agronomy Advisory",
-        title: "Real-time Mandi Pricing",
-        subtitle: "Review live market rates and local weather advisories to plan your harvest.",
-        img: "https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&q=80&w=800", // Green field spraying/caring
-        badgeColor: "bg-sky-500/20 text-sky-300",
-        linkText: "Check Weather",
-        linkTo: "/weather",
+        secLinkText: "Explore Farm Inputs",
+        secLinkTo: "/marketplace",
       },
     ],
     [],
   );
 
   useEffect(() => {
+    if (isHovered) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 5000);
+    }, 5500);
     return () => clearInterval(timer);
-  }, [HERO_SLIDES.length]);
+  }, [HERO_SLIDES.length, isHovered]);
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
@@ -326,7 +359,11 @@ export function HomePage() {
           {/* Left Column (Main content) */}
           <div className="space-y-8 min-w-0">
             {/* Hero Carousel Banner */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-950 to-emerald-900 text-white h-[220px] sm:h-[260px] shadow-soft">
+            <div
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-950 to-emerald-900 text-white h-[200px] xs:h-[240px] sm:h-[280px] md:h-[320px] lg:h-[340px] shadow-soft"
+            >
               {/* Carousel Slides */}
               <div
                 className="flex h-full transition-transform duration-500 ease-out"
@@ -343,11 +380,11 @@ export function HomePage() {
                   >
                     {/* Right Column / Central Background Image */}
                     <div className="absolute top-0 right-0 bottom-0 left-1/3 sm:left-1/2 z-0">
-                      <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/80 to-transparent z-10" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/90 sm:via-emerald-950/80 to-transparent z-10" />
                       <img
                         src={slide.img}
                         alt={slide.title}
-                        className="h-full w-full object-cover opacity-75 sm:opacity-90"
+                        className="h-full w-full object-cover object-center opacity-75 sm:opacity-90"
                       />
                     </div>
 
@@ -364,13 +401,21 @@ export function HomePage() {
                       <p className="text-[11px] sm:text-xs text-emerald-100/90 line-clamp-2 max-w-sm font-medium">
                         {slide.subtitle}
                       </p>
-                      <div className="pt-1 flex gap-2">
+                      <div className="pt-1 flex flex-wrap gap-2.5">
                         <Link
                           to={slide.linkTo}
-                          className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 transition px-3.5 py-2 text-xs font-black text-white shadow-sm hover:scale-105 duration-200"
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 hover:scale-105 transition px-3.5 py-2 text-xs font-black text-white shadow-sm duration-200"
                         >
                           {slide.linkText} <ArrowRight className="h-3 w-3" />
                         </Link>
+                        {slide.secLinkText && slide.secLinkTo && (
+                          <Link
+                            to={slide.secLinkTo}
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/10 hover:bg-white/20 transition px-3.5 py-2 text-xs font-black text-white hover:scale-105 duration-200"
+                          >
+                            {slide.secLinkText}
+                          </Link>
+                        )}
                       </div>
                     </div>
                   </div>
