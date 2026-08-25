@@ -335,110 +335,17 @@ export function HomePage() {
   };
   const countdownTime = formatTime(timeLeft);
 
-  // Deals Responsive Infinite Loop Carousel States
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [cardWidth, setCardWidth] = useState(165);
-  const [currentIndex, setCurrentIndex] = useState(6); // Start at clone 1
-  const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
-  const [isDealsHovered, setIsDealsHovered] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1200,
-  );
-
-  const gap = windowWidth < 768 ? 12 : 16;
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-      if (trackRef.current && trackRef.current.firstElementChild) {
-        setCardWidth(trackRef.current.firstElementChild.getBoundingClientRect().width);
-      }
-    };
-    // Initial call
-    handleResize();
-    const observer = new ResizeObserver(() => {
-      handleResize();
-    });
-    if (trackRef.current) {
-      observer.observe(trackRef.current);
-    }
-    window.addEventListener("resize", handleResize);
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  // Triple clone products list to support infinite loop transitions
-  const extendedProducts = useMemo(() => {
-    return [...dealProducts, ...dealProducts, ...dealProducts];
+  // 6 copies of the product list to support continuous seamless CSS marquee looping
+  const marqueeProducts = useMemo(() => {
+    return [
+      ...dealProducts,
+      ...dealProducts,
+      ...dealProducts,
+      ...dealProducts,
+      ...dealProducts,
+      ...dealProducts,
+    ];
   }, [dealProducts]);
-
-  const handleTransitionEnd = () => {
-    if (currentIndex >= 12) {
-      setIsTransitionEnabled(false);
-      setCurrentIndex(6);
-    } else if (currentIndex <= 0) {
-      setIsTransitionEnabled(false);
-      setCurrentIndex(6);
-    }
-  };
-
-  useEffect(() => {
-    if (!isTransitionEnabled) {
-      const raf = requestAnimationFrame(() => {
-        setIsTransitionEnabled(true);
-      });
-      return () => cancelAnimationFrame(raf);
-    }
-    return undefined;
-  }, [isTransitionEnabled]);
-
-  const nextDeals = () => {
-    if (!isTransitionEnabled) return;
-    setCurrentIndex((prev) => prev + 1);
-  };
-
-  const prevDeals = () => {
-    if (!isTransitionEnabled) return;
-    setCurrentIndex((prev) => prev - 1);
-  };
-
-  useEffect(() => {
-    if (isDealsHovered) return;
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => prev + 1);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, [isDealsHovered, isTransitionEnabled]);
-
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    if (e.targetTouches && e.targetTouches[0]) {
-      setTouchStart(e.targetTouches[0].clientX);
-    }
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    if (e.targetTouches && e.targetTouches[0]) {
-      setTouchEnd(e.targetTouches[0].clientX);
-    }
-  };
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-    if (isLeftSwipe) {
-      nextDeals();
-    } else if (isRightSwipe) {
-      prevDeals();
-    }
-  };
 
   // Map 5 Mandi prices with fallbacks
   const cropsToDisplay = [
@@ -707,21 +614,15 @@ export function HomePage() {
                 ))}
               </div>
             </div>
-
-            {/* Product Section — Premium Animated Product Carousel */}
-            <div
-              className="space-y-4"
-              onMouseEnter={() => setIsDealsHovered(true)}
-              onMouseLeave={() => setIsDealsHovered(false)}
-            >
+            {/* Product Section — Premium Animated Product Marquee */}
+            <div className="space-y-4">
               {/* Header Container */}
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-border/40 pb-3 select-none">
                 <div>
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                     <h2 className="text-xl font-black text-[#1b4332]">Best Deals for You 🔥</h2>
                     <span className="inline-flex items-center gap-1 rounded-full bg-red-50 text-red-600 px-2 py-0.5 text-[10px] font-black border border-red-100/50 animate-pulse">
-                      🔥 Deals ending soon · {countdownTime.hours}h {countdownTime.mins}m{" "}
-                      {countdownTime.secs}s
+                      🔥 Deals ending soon · {countdownTime.hours}h {countdownTime.mins}m
                     </span>
                   </div>
                   <p className="text-xs text-muted-foreground mt-0.5">
@@ -739,76 +640,18 @@ export function HomePage() {
                 </Link>
               </div>
 
-              {/* Product Carousel Slider Track */}
-              <div className="relative group/carousel px-1">
-                {/* Carousel Viewport Container */}
-                <div
-                  className="overflow-hidden w-full py-2"
-                  onTouchStart={onTouchStart}
-                  onTouchMove={onTouchMove}
-                  onTouchEnd={onTouchEnd}
-                >
-                  <div
-                    ref={trackRef}
-                    onTransitionEnd={handleTransitionEnd}
-                    className="flex"
-                    style={{
-                      transform: `translateX(-${currentIndex * (cardWidth + gap)}px)`,
-                      transition: isTransitionEnabled
-                        ? "transform 600ms cubic-bezier(0.25, 1, 0.5, 1)"
-                        : "none",
-                      gap: `${gap}px`,
-                    }}
-                  >
-                    {extendedProducts.map((product, idx) => (
-                      <div
-                        key={`${product.id}-${idx}`}
-                        className="shrink-0 flex justify-center w-[145px] xs:w-[155px] sm:w-[160px] md:w-[165px] lg:w-[165px]"
-                      >
-                        <ProductCard product={product} />
-                      </div>
-                    ))}
-                  </div>
+              {/* Product Carousel Slider Marquee Track */}
+              <div className="deals-marquee overflow-hidden w-full py-2">
+                <div className="deals-marquee-track flex gap-3 md:gap-4">
+                  {marqueeProducts.map((product, idx) => (
+                    <div
+                      key={`${product.id}-${idx}`}
+                      className="shrink-0 flex justify-center w-[145px] xs:w-[155px] sm:w-[160px] md:w-[165px] lg:w-[165px]"
+                    >
+                      <ProductCard product={product} />
+                    </div>
+                  ))}
                 </div>
-
-                {/* Left/Right Navigation Controls */}
-                <button
-                  type="button"
-                  onClick={prevDeals}
-                  className="absolute -left-3 top-1/2 -translate-y-1/2 z-30 h-8 w-8 rounded-full border border-border bg-white text-[#2d6a4f] shadow-soft opacity-40 group-hover/carousel:opacity-100 hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center font-black cursor-pointer"
-                  aria-label="Previous slide"
-                >
-                  ‹
-                </button>
-                <button
-                  type="button"
-                  onClick={nextDeals}
-                  className="absolute -right-3 top-1/2 -translate-y-1/2 z-30 h-8 w-8 rounded-full border border-border bg-white text-[#2d6a4f] shadow-soft opacity-40 group-hover/carousel:opacity-100 hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center font-black cursor-pointer"
-                  aria-label="Next slide"
-                >
-                  ›
-                </button>
-              </div>
-
-              {/* Pagination Dots */}
-              <div className="flex justify-center gap-1.5 pt-1 select-none">
-                {Array.from({ length: 6 }).map((_, idx) => {
-                  const isActive = (((currentIndex - 6) % 6) + 6) % 6 === idx;
-                  return (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={() => {
-                        if (!isTransitionEnabled) return;
-                        setCurrentIndex(6 + idx);
-                      }}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${
-                        isActive ? "w-4 bg-[#2d6a4f]" : "w-1.5 bg-gray-300"
-                      }`}
-                      aria-label={`Go to slide page ${idx + 1}`}
-                    />
-                  );
-                })}
               </div>
             </div>
 
