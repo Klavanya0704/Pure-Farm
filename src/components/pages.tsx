@@ -31,7 +31,7 @@ import {
   MessageCircle,
   Leaf,
 } from "lucide-react";
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import {
   ADMIN_STATS,
   COURSES,
@@ -335,43 +335,110 @@ export function HomePage() {
   };
   const countdownTime = formatTime(timeLeft);
 
-  // Deals Responsive Carousel States
-  const [visibleCards, setVisibleCards] = useState(6);
-  const [dealsIndex, setDealsIndex] = useState(0);
+  // Deals Responsive Infinite Loop Carousel States
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [cardWidth, setCardWidth] = useState(165);
+  const [currentIndex, setCurrentIndex] = useState(6); // Start at clone 1
+  const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
   const [isDealsHovered, setIsDealsHovered] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1200,
+  );
+
+  const gap = windowWidth < 768 ? 12 : 16;
 
   useEffect(() => {
-    const updateVisible = () => {
-      const w = window.innerWidth;
-      if (w >= 1024) {
-        setVisibleCards(6);
-      } else if (w >= 768) {
-        setVisibleCards(3);
-      } else {
-        setVisibleCards(2.2); // Partially cuts off next card to invite scrolling
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      if (trackRef.current && trackRef.current.firstElementChild) {
+        setCardWidth(trackRef.current.firstElementChild.getBoundingClientRect().width);
       }
     };
-    updateVisible();
-    window.addEventListener("resize", updateVisible);
-    return () => window.removeEventListener("resize", updateVisible);
+    // Initial call
+    handleResize();
+    const observer = new ResizeObserver(() => {
+      handleResize();
+    });
+    if (trackRef.current) {
+      observer.observe(trackRef.current);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
-  const maxDealsIndex = Math.max(0, dealProducts.length - Math.floor(visibleCards));
+  // Triple clone products list to support infinite loop transitions
+  const extendedProducts = useMemo(() => {
+    return [...dealProducts, ...dealProducts, ...dealProducts];
+  }, [dealProducts]);
 
-  const prevDeals = () => {
-    setDealsIndex((prev) => (prev > 0 ? prev - 1 : maxDealsIndex));
-  };
-  const nextDeals = () => {
-    setDealsIndex((prev) => (prev < maxDealsIndex ? prev + 1 : 0));
+  const handleTransitionEnd = () => {
+    if (currentIndex >= 12) {
+      setIsTransitionEnabled(false);
+      setCurrentIndex(6);
+    } else if (currentIndex <= 0) {
+      setIsTransitionEnabled(false);
+      setCurrentIndex(6);
+    }
   };
 
   useEffect(() => {
-    if (maxDealsIndex === 0 || isDealsHovered) return;
+    if (!isTransitionEnabled) {
+      const raf = requestAnimationFrame(() => {
+        setIsTransitionEnabled(true);
+      });
+      return () => cancelAnimationFrame(raf);
+    }
+    return undefined;
+  }, [isTransitionEnabled]);
+
+  const nextDeals = () => {
+    if (!isTransitionEnabled) return;
+    setCurrentIndex((prev) => prev + 1);
+  };
+
+  const prevDeals = () => {
+    if (!isTransitionEnabled) return;
+    setCurrentIndex((prev) => prev - 1);
+  };
+
+  useEffect(() => {
+    if (isDealsHovered) return;
     const timer = setInterval(() => {
-      setDealsIndex((prev) => (prev < maxDealsIndex ? prev + 1 : 0));
-    }, 4500);
+      setCurrentIndex((prev) => prev + 1);
+    }, 4000);
     return () => clearInterval(timer);
-  }, [maxDealsIndex, isDealsHovered, dealsIndex]);
+  }, [isDealsHovered, isTransitionEnabled]);
+
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    if (e.targetTouches && e.targetTouches[0]) {
+      setTouchStart(e.targetTouches[0].clientX);
+    }
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (e.targetTouches && e.targetTouches[0]) {
+      setTouchEnd(e.targetTouches[0].clientX);
+    }
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+    if (isLeftSwipe) {
+      nextDeals();
+    } else if (isRightSwipe) {
+      prevDeals();
+    }
+  };
 
   // Map 5 Mandi prices with fallbacks
   const cropsToDisplay = [
@@ -675,21 +742,28 @@ export function HomePage() {
               {/* Product Carousel Slider Track */}
               <div className="relative group/carousel px-1">
                 {/* Carousel Viewport Container */}
-                <div className="overflow-hidden w-full py-2">
+                <div
+                  className="overflow-hidden w-full py-2"
+                  onTouchStart={onTouchStart}
+                  onTouchMove={onTouchMove}
+                  onTouchEnd={onTouchEnd}
+                >
                   <div
-                    className="flex transition-transform duration-[600ms] ease-out"
+                    ref={trackRef}
+                    onTransitionEnd={handleTransitionEnd}
+                    className="flex"
                     style={{
-                      transform: `translateX(-${dealsIndex * (100 / visibleCards)}%)`,
+                      transform: `translateX(-${currentIndex * (cardWidth + gap)}px)`,
+                      transition: isTransitionEnabled
+                        ? "transform 600ms cubic-bezier(0.25, 1, 0.5, 1)"
+                        : "none",
+                      gap: `${gap}px`,
                     }}
                   >
-                    {dealProducts.map((product, idx) => (
+                    {extendedProducts.map((product, idx) => (
                       <div
-                        key={product.id}
-                        style={{
-                          width: `${100 / visibleCards}%`,
-                          animationDelay: `${idx * 60}ms`,
-                        }}
-                        className="shrink-0 px-2 flex justify-center deals-fade-in-up"
+                        key={`${product.id}-${idx}`}
+                        className="shrink-0 flex justify-center w-[145px] xs:w-[155px] sm:w-[160px] md:w-[165px] lg:w-[165px]"
                       >
                         <ProductCard product={product} />
                       </div>
@@ -698,44 +772,44 @@ export function HomePage() {
                 </div>
 
                 {/* Left/Right Navigation Controls */}
-                {maxDealsIndex > 0 && (
-                  <>
-                    <button
-                      type="button"
-                      onClick={prevDeals}
-                      className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 rounded-full border border-border bg-white text-[#2d6a4f] shadow-soft hover:bg-emerald-50 active:scale-95 transition-all duration-200 flex items-center justify-center font-black opacity-30 group-hover/carousel:opacity-100"
-                      aria-label="Previous slide"
-                    >
-                      ‹
-                    </button>
-                    <button
-                      type="button"
-                      onClick={nextDeals}
-                      className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 rounded-full border border-border bg-white text-[#2d6a4f] shadow-soft hover:bg-emerald-50 active:scale-95 transition-all duration-200 flex items-center justify-center font-black opacity-30 group-hover/carousel:opacity-100"
-                      aria-label="Next slide"
-                    >
-                      ›
-                    </button>
-                  </>
-                )}
+                <button
+                  type="button"
+                  onClick={prevDeals}
+                  className="absolute -left-3 top-1/2 -translate-y-1/2 z-30 h-8 w-8 rounded-full border border-border bg-white text-[#2d6a4f] shadow-soft opacity-40 group-hover/carousel:opacity-100 hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center font-black cursor-pointer"
+                  aria-label="Previous slide"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  onClick={nextDeals}
+                  className="absolute -right-3 top-1/2 -translate-y-1/2 z-30 h-8 w-8 rounded-full border border-border bg-white text-[#2d6a4f] shadow-soft opacity-40 group-hover/carousel:opacity-100 hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center font-black cursor-pointer"
+                  aria-label="Next slide"
+                >
+                  ›
+                </button>
               </div>
 
               {/* Pagination Dots */}
-              {maxDealsIndex > 0 && (
-                <div className="flex justify-center gap-1.5 pt-1 select-none">
-                  {Array.from({ length: maxDealsIndex + 1 }).map((_, idx) => (
+              <div className="flex justify-center gap-1.5 pt-1 select-none">
+                {Array.from({ length: 6 }).map((_, idx) => {
+                  const isActive = (((currentIndex - 6) % 6) + 6) % 6 === idx;
+                  return (
                     <button
                       key={idx}
                       type="button"
-                      onClick={() => setDealsIndex(idx)}
+                      onClick={() => {
+                        if (!isTransitionEnabled) return;
+                        setCurrentIndex(6 + idx);
+                      }}
                       className={`h-1.5 rounded-full transition-all duration-300 ${
-                        dealsIndex === idx ? "w-4 bg-[#2d6a4f]" : "w-1.5 bg-gray-300"
+                        isActive ? "w-4 bg-[#2d6a4f]" : "w-1.5 bg-gray-300"
                       }`}
                       aria-label={`Go to slide page ${idx + 1}`}
                     />
-                  ))}
-                </div>
-              )}
+                  );
+                })}
+              </div>
             </div>
 
             {/* App download Banner */}
