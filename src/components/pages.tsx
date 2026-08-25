@@ -158,6 +158,55 @@ export function RoleGuard({
 
 export function HomePage() {
   const navigate = useNavigate();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const HERO_SLIDES = useMemo(
+    () => [
+      {
+        badge: "From Our Farms",
+        title: "From Our Farms to Your Home",
+        subtitle:
+          "Fresh produce and premium agricultural inputs delivered direct with organic freshness.",
+        img: "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800", // Indian farmer with crops
+        badgeColor: "bg-emerald-500/20 text-emerald-300",
+        linkText: "Shop Marketplace",
+        linkTo: "/marketplace",
+      },
+      {
+        badge: "Government Support",
+        title: "Apply For Schemes",
+        subtitle: "Unlock PM-Kisan, soil health benefits, and crop insurance policies seamlessly.",
+        img: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=800", // Farmer in golden crop field
+        badgeColor: "bg-amber-500/20 text-amber-300",
+        linkText: "Explore Schemes",
+        linkTo: "/schemes",
+      },
+      {
+        badge: "Agronomy Advisory",
+        title: "Real-time Mandi Pricing",
+        subtitle: "Review live market rates and local weather advisories to plan your harvest.",
+        img: "https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&q=80&w=800", // Green field spraying/caring
+        badgeColor: "bg-sky-500/20 text-sky-300",
+        linkText: "Check Weather",
+        linkTo: "/weather",
+      },
+    ],
+    [],
+  );
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [HERO_SLIDES.length]);
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+  };
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+  };
 
   // Find 6 products for Best Deals
   const dealProductKeywords = ["tomato", "cucumber", "potato", "onion", "chilli", "marigold"];
@@ -241,7 +290,7 @@ export function HomePage() {
   const categoriesList = [
     {
       name: "Fruits",
-      img: "https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?auto=format&fit=crop&q=80&w=300",
+      img: "https://images.unsplash.com/photo-1610832958506-ee5633619144?auto=format&fit=crop&q=80&w=300",
     },
     {
       name: "Vegetables",
@@ -276,40 +325,86 @@ export function HomePage() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_310px] items-start">
           {/* Left Column (Main content) */}
           <div className="space-y-8 min-w-0">
-            {/* Hero Banner */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-950 to-emerald-900 text-white min-h-[340px] flex items-center p-6 sm:p-10 shadow-soft">
-              <div className="absolute inset-0 z-0">
-                <img
-                  src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=1200"
-                  alt="Agricultural field at sunrise"
-                  className="h-full w-full object-cover opacity-20 mix-blend-overlay"
-                />
+            {/* Hero Carousel Banner */}
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-950 to-emerald-900 text-white h-[220px] sm:h-[260px] shadow-soft">
+              {/* Carousel Slides */}
+              <div
+                className="flex h-full transition-transform duration-500 ease-out"
+                style={{
+                  transform: `translateX(-${currentSlide * 100}%)`,
+                  width: `${HERO_SLIDES.length * 100}%`,
+                }}
+              >
+                {HERO_SLIDES.map((slide, index) => (
+                  <div
+                    key={index}
+                    className="relative h-full flex items-center px-6 sm:px-10 justify-between overflow-hidden"
+                    style={{ width: `${100 / HERO_SLIDES.length}%` }}
+                  >
+                    {/* Right Column / Central Background Image */}
+                    <div className="absolute top-0 right-0 bottom-0 left-1/3 sm:left-1/2 z-0">
+                      <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/80 to-transparent z-10" />
+                      <img
+                        src={slide.img}
+                        alt={slide.title}
+                        className="h-full w-full object-cover opacity-75 sm:opacity-90"
+                      />
+                    </div>
+
+                    {/* Left Column Content */}
+                    <div className="relative z-25 max-w-[65%] sm:max-w-[50%] space-y-2 sm:space-y-3">
+                      <span
+                        className={`inline-flex rounded-full px-2.5 py-1 text-[10px] sm:text-xs font-black uppercase tracking-wider ${slide.badgeColor}`}
+                      >
+                        {slide.badge}
+                      </span>
+                      <h1 className="text-xl sm:text-2xl md:text-3xl font-black leading-tight">
+                        {slide.title}
+                      </h1>
+                      <p className="text-[11px] sm:text-xs text-emerald-100/90 line-clamp-2 max-w-sm font-medium">
+                        {slide.subtitle}
+                      </p>
+                      <div className="pt-1 flex gap-2">
+                        <Link
+                          to={slide.linkTo}
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 transition px-3.5 py-2 text-xs font-black text-white shadow-sm hover:scale-105 duration-200"
+                        >
+                          {slide.linkText} <ArrowRight className="h-3 w-3" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="relative z-10 max-w-xl space-y-4">
-                <span className="inline-flex rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-black uppercase tracking-wider text-emerald-300">
-                  Premium Farming Advisory & Marketplace
-                </span>
-                <h1 className="text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
-                  Empowering Farmers, Building a Better Tomorrow
-                </h1>
-                <p className="text-sm leading-relaxed text-emerald-100">
-                  Your one-stop platform for quality products, real-time market prices, government
-                  schemes and expert knowledge.
-                </p>
-                <div className="pt-2 flex flex-wrap gap-3">
-                  <Link
-                    to="/marketplace"
-                    className="inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 transition px-5 py-3 text-sm font-black text-white shadow-sm hover:scale-105 duration-200"
-                  >
-                    Shop Marketplace <ArrowRight className="h-4.5 w-4.5" />
-                  </Link>
-                  <Link
-                    to="/schemes"
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 hover:bg-white/20 transition px-5 py-3 text-sm font-bold text-white hover:scale-105 duration-200"
-                  >
-                    Explore Schemes
-                  </Link>
-                </div>
+
+              {/* Prev/Next Navigation Controls */}
+              <button
+                type="button"
+                onClick={prevSlide}
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-black/25 text-white hover:bg-black/55 flex items-center justify-center transition text-sm font-bold"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                onClick={nextSlide}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-black/25 text-white hover:bg-black/55 flex items-center justify-center transition text-sm font-bold"
+              >
+                ›
+              </button>
+
+              {/* Pagination Dots */}
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex gap-1.5">
+                {HERO_SLIDES.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setCurrentSlide(idx)}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      currentSlide === idx ? "w-4 bg-amber-500" : "w-1.5 bg-white/40"
+                    }`}
+                  />
+                ))}
               </div>
             </div>
 
@@ -357,18 +452,22 @@ export function HomePage() {
                 </Link>
               </div>
 
-              {/* Category horizontal scroll / flex wrap */}
-              <div className="flex gap-4 overflow-x-auto pb-2 no-scrollbar scroll-smooth">
+              {/* Grid category cards */}
+              <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-3 sm:gap-4">
                 {categoriesList.map((cat, idx) => (
                   <Link
                     key={idx}
                     to="/marketplace"
-                    className="flex flex-col items-center justify-center rounded-2xl border border-border bg-card p-3 shadow-soft min-w-[100px] sm:min-w-[110px] hover:scale-[1.03] transition-transform duration-200 hover:shadow-card-lg"
+                    className="flex flex-col rounded-xl border border-border bg-white p-2.5 shadow-sm hover:shadow-md transition-all duration-200 text-center hover:scale-[1.02] aspect-square justify-between"
                   >
-                    <div className="h-14 w-14 rounded-full overflow-hidden bg-muted flex items-center justify-center border border-border">
-                      <img src={cat.img} alt={cat.name} className="h-full w-full object-cover" />
+                    <div className="h-[65%] w-full rounded-lg overflow-hidden bg-muted flex items-center justify-center">
+                      <img
+                        src={cat.img}
+                        alt={cat.name}
+                        className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
-                    <span className="mt-2 text-xs font-black text-foreground text-center line-clamp-1">
+                    <span className="text-xs font-black text-[#1b4332] tracking-tight block py-1 line-clamp-1">
                       {cat.name}
                     </span>
                   </Link>
@@ -393,7 +492,7 @@ export function HomePage() {
                 </Link>
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
                 {dealProducts.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}

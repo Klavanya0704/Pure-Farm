@@ -1232,6 +1232,29 @@ const ROWS: Row[] = [
 ];
 
 export const PRODUCTS: Product[] = ROWS.map((r, i) => {
+  const nameLower = r[0].toLowerCase();
+  let imgUrl = (IMAGES[r[2]][i % 2] || IMAGES[r[2]][0]) as string;
+
+  if (nameLower.includes("tomato")) {
+    imgUrl =
+      "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&q=80&w=400";
+  } else if (nameLower.includes("cucumber")) {
+    imgUrl =
+      "https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?auto=format&fit=crop&q=80&w=400";
+  } else if (nameLower.includes("potato")) {
+    imgUrl =
+      "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&q=80&w=400";
+  } else if (nameLower.includes("onion")) {
+    imgUrl =
+      "https://images.unsplash.com/photo-1608797178974-15b35a61d121?auto=format&fit=crop&q=80&w=400";
+  } else if (nameLower.includes("chilli") || nameLower.includes("chili")) {
+    imgUrl =
+      "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&q=80&w=400";
+  } else if (nameLower.includes("orange") || nameLower.includes("marigold")) {
+    imgUrl =
+      "https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&q=80&w=400";
+  }
+
   const p: Product = {
     id: `p-${String(i + 1).padStart(3, "0")}`,
     name: r[0],
@@ -1242,7 +1265,7 @@ export const PRODUCTS: Product[] = ROWS.map((r, i) => {
     rating: r[5],
     stock: r[6],
     description: r[7],
-    image: (IMAGES[r[2]][i % 2] || IMAGES[r[2]][0]) as string,
+    image: imgUrl,
   };
   if (r[8]) {
     p.badge = r[8] as "Best Seller" | "Top Rated" | "Featured";
