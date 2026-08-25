@@ -241,7 +241,7 @@ export function HomePage() {
     setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
   };
 
-  // Find 6 products for Best Deals (customized to: Tomatoes, Cucumber, Potatoes, Red Onions, Green Chillies, Oranges)
+  // Find 6 products for Best Deals (customized to exact spec values: Tomatoes, Cucumber, Potatoes, Red Onions, Green Chillies, Oranges)
   const dealProducts = useMemo(() => {
     const keywords = ["tomato", "cucumber", "potato", "onion", "chilli", "marigold"];
     const matches: Product[] = [];
@@ -258,15 +258,17 @@ export function HomePage() {
           customized.unit = "1 kg";
           customized.rating = 4.6;
           customized.customReviewCount = 238;
+          customized.image = "/products/tomatoes.jpg";
         } else if (kw === "cucumber") {
           customized.name = "Cucumber";
           customized.price = 16;
           customized.customOldPrice = 19;
           customized.customDiscount = "-15%";
           customized.customBadgeText = "BEST SELLER";
-          customized.unit = "1 kg";
+          customized.unit = "500 g";
           customized.rating = 4.4;
-          customized.customReviewCount = 145;
+          customized.customReviewCount = 192;
+          customized.image = "/products/cucumber.jpg";
         } else if (kw === "potato") {
           customized.name = "Potatoes";
           customized.price = 14;
@@ -274,7 +276,8 @@ export function HomePage() {
           customized.customDiscount = "-18%";
           customized.unit = "1 kg";
           customized.rating = 4.5;
-          customized.customReviewCount = 312;
+          customized.customReviewCount = 210;
+          customized.image = "/products/potatoes.jpg";
         } else if (kw === "onion") {
           customized.name = "Red Onions";
           customized.price = 20;
@@ -283,16 +286,18 @@ export function HomePage() {
           customized.customBadgeText = "BEST SELLER";
           customized.unit = "1 kg";
           customized.rating = 4.6;
-          customized.customReviewCount = 189;
+          customized.customReviewCount = 185;
+          customized.image = "/products/onions.jpg";
         } else if (kw === "chilli") {
           customized.name = "Green Chillies";
           customized.price = 16;
           customized.customOldPrice = 20;
           customized.customDiscount = "-20%";
           customized.customBadgeText = "HOT";
-          customized.unit = "1 kg";
+          customized.unit = "250 g";
           customized.rating = 4.4;
-          customized.customReviewCount = 98;
+          customized.customReviewCount = 188;
+          customized.image = "/products/chillies.jpg";
         } else if (kw === "marigold") {
           customized.name = "Oranges";
           customized.price = 28;
@@ -300,7 +305,7 @@ export function HomePage() {
           customized.customDiscount = "-15%";
           customized.unit = "1 kg";
           customized.rating = 4.6;
-          customized.customReviewCount = 156;
+          customized.customReviewCount = 176;
           customized.image = "/products/oranges.jpg";
         }
         matches.push(customized);
@@ -309,22 +314,20 @@ export function HomePage() {
     return matches;
   }, []);
 
-  // Deals Countdown Timer State: 02 Days : 23 Hours : 47 Mins : 19 Secs
-  const [timeLeft, setTimeLeft] = useState(258439);
+  // Deals Countdown Timer State: 02 Hours : 23 Mins : 47 Secs
+  const [timeLeft, setTimeLeft] = useState(8627); // 02h 23m 47s
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 258439));
+      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 8627));
     }, 1000);
     return () => clearInterval(timer);
   }, []);
 
   const formatTime = (seconds: number) => {
-    const d = Math.floor(seconds / (24 * 3600));
-    const h = Math.floor((seconds % (24 * 3600)) / 3600);
+    const h = Math.floor(seconds / 3600);
     const m = Math.floor((seconds % 3600) / 60);
     const s = seconds % 60;
     return {
-      days: String(d).padStart(2, "0"),
       hours: String(h).padStart(2, "0"),
       mins: String(m).padStart(2, "0"),
       secs: String(s).padStart(2, "0"),
@@ -345,7 +348,7 @@ export function HomePage() {
       } else if (w >= 768) {
         setVisibleCards(3);
       } else {
-        setVisibleCards(2);
+        setVisibleCards(2.2); // Partially cuts off next card to invite scrolling
       }
     };
     updateVisible();
@@ -353,7 +356,7 @@ export function HomePage() {
     return () => window.removeEventListener("resize", updateVisible);
   }, []);
 
-  const maxDealsIndex = Math.max(0, dealProducts.length - visibleCards);
+  const maxDealsIndex = Math.max(0, dealProducts.length - Math.floor(visibleCards));
 
   const prevDeals = () => {
     setDealsIndex((prev) => (prev > 0 ? prev - 1 : maxDealsIndex));
@@ -644,63 +647,29 @@ export function HomePage() {
               onMouseEnter={() => setIsDealsHovered(true)}
               onMouseLeave={() => setIsDealsHovered(false)}
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              {/* Header Container */}
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-border/40 pb-3 select-none">
                 <div>
-                  <h2 className="text-xl font-black text-[#1b4332] flex items-center gap-1.5 select-none">
-                    Best Deals for You <span className="animate-bounce">🔥</span>
-                  </h2>
-                  <p className="text-xs text-muted-foreground">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <h2 className="text-xl font-black text-[#1b4332]">Best Deals for You 🔥</h2>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-red-50 text-red-600 px-2 py-0.5 text-[10px] font-black border border-red-100/50 animate-pulse">
+                      🔥 Deals ending soon · {countdownTime.hours}h {countdownTime.mins}m{" "}
+                      {countdownTime.secs}s
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-0.5">
                     Handpicked products & inputs on discount
                   </p>
                 </div>
-
-                {/* Countdown Timer */}
-                <div className="flex items-center gap-2 sm:gap-3 justify-start sm:justify-end select-none">
-                  <span className="text-[10px] sm:text-xs font-black uppercase text-muted-foreground tracking-wider block">
-                    Deals end in
+                <Link
+                  to="/marketplace"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition group/viewall"
+                >
+                  View All{" "}
+                  <span className="group-hover/viewall:translate-x-0.5 transition-transform duration-200">
+                    →
                   </span>
-                  <div className="flex items-center gap-1.5 sm:gap-2">
-                    {/* Days */}
-                    <div className="text-center">
-                      <div className="bg-[#eef7f2] text-[#2d6a4f] rounded-lg px-2 py-1 text-xs sm:text-sm font-black border border-emerald-100/50 shadow-sm min-w-[28px] sm:min-w-[34px]">
-                        {countdownTime.days}
-                      </div>
-                      <span className="text-[8px] sm:text-[9px] font-black text-muted-foreground uppercase block mt-1">
-                        Days
-                      </span>
-                    </div>
-                    <span className="text-sm font-black text-[#2d6a4f] -mt-4">:</span>
-                    {/* Hours */}
-                    <div className="text-center">
-                      <div className="bg-[#eef7f2] text-[#2d6a4f] rounded-lg px-2 py-1 text-xs sm:text-sm font-black border border-emerald-100/50 shadow-sm min-w-[28px] sm:min-w-[34px]">
-                        {countdownTime.hours}
-                      </div>
-                      <span className="text-[8px] sm:text-[9px] font-black text-muted-foreground uppercase block mt-1">
-                        Hrs
-                      </span>
-                    </div>
-                    <span className="text-sm font-black text-[#2d6a4f] -mt-4">:</span>
-                    {/* Minutes */}
-                    <div className="text-center">
-                      <div className="bg-[#eef7f2] text-[#2d6a4f] rounded-lg px-2 py-1 text-xs sm:text-sm font-black border border-emerald-100/50 shadow-sm min-w-[28px] sm:min-w-[34px]">
-                        {countdownTime.mins}
-                      </div>
-                      <span className="text-[8px] sm:text-[9px] font-black text-muted-foreground uppercase block mt-1">
-                        Mins
-                      </span>
-                    </div>
-                    <span className="text-sm font-black text-[#2d6a4f] -mt-4">:</span>
-                    {/* Seconds */}
-                    <div className="text-center">
-                      <div className="bg-red-50 text-red-600 rounded-lg px-2 py-1 text-xs sm:text-sm font-black border border-red-100/50 shadow-sm min-w-[28px] sm:min-w-[34px] animate-pulse">
-                        {countdownTime.secs}
-                      </div>
-                      <span className="text-[8px] sm:text-[9px] font-black text-muted-foreground uppercase block mt-1">
-                        Secs
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                </Link>
               </div>
 
               {/* Product Carousel Slider Track */}
@@ -708,16 +677,19 @@ export function HomePage() {
                 {/* Carousel Viewport Container */}
                 <div className="overflow-hidden w-full py-2">
                   <div
-                    className="flex transition-transform duration-500 ease-out"
+                    className="flex transition-transform duration-[600ms] ease-out"
                     style={{
                       transform: `translateX(-${dealsIndex * (100 / visibleCards)}%)`,
                     }}
                   >
-                    {dealProducts.map((product) => (
+                    {dealProducts.map((product, idx) => (
                       <div
                         key={product.id}
-                        style={{ width: `${100 / visibleCards}%` }}
-                        className="shrink-0 px-2 flex justify-center"
+                        style={{
+                          width: `${100 / visibleCards}%`,
+                          animationDelay: `${idx * 60}ms`,
+                        }}
+                        className="shrink-0 px-2 flex justify-center deals-fade-in-up"
                       >
                         <ProductCard product={product} />
                       </div>
@@ -731,7 +703,7 @@ export function HomePage() {
                     <button
                       type="button"
                       onClick={prevDeals}
-                      className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 rounded-full border border-border bg-white text-[#2d6a4f] shadow-soft hover:bg-emerald-50 active:scale-95 transition-all duration-200 flex items-center justify-center font-black"
+                      className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 rounded-full border border-border bg-white text-[#2d6a4f] shadow-soft hover:bg-emerald-50 active:scale-95 transition-all duration-200 flex items-center justify-center font-black opacity-30 group-hover/carousel:opacity-100"
                       aria-label="Previous slide"
                     >
                       ‹
@@ -739,7 +711,7 @@ export function HomePage() {
                     <button
                       type="button"
                       onClick={nextDeals}
-                      className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 rounded-full border border-border bg-white text-[#2d6a4f] shadow-soft hover:bg-emerald-50 active:scale-95 transition-all duration-200 flex items-center justify-center font-black"
+                      className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 rounded-full border border-border bg-white text-[#2d6a4f] shadow-soft hover:bg-emerald-50 active:scale-95 transition-all duration-200 flex items-center justify-center font-black opacity-30 group-hover/carousel:opacity-100"
                       aria-label="Next slide"
                     >
                       ›
