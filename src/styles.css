@@ -219,7 +219,7 @@
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
   }
 }
 
@@ -228,7 +228,7 @@
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(5px);
+    transform: translateY(3px);
   }
 }
 
@@ -240,63 +240,90 @@
   animation: subtle-float-2 6.5s ease-in-out infinite;
 }
 
-/* Glassmorphism System */
+/* Glassmorphism System - High Contrast & Crisp Transparency */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(24px) saturate(130%);
-  -webkit-backdrop-filter: blur(24px) saturate(130%);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), inset 0 1px 1px 0 rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.26);
+  backdrop-filter: blur(22px) saturate(125%);
+  -webkit-backdrop-filter: blur(22px) saturate(125%);
+  border: 1px solid rgba(255, 255, 255, 0.50);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25), inset 0 1px 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .glass-card {
   background: rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(18px) saturate(125%);
-  -webkit-backdrop-filter: blur(18px) saturate(125%);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.15), inset 0 1px 1px 0 rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.50);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18), inset 0 1px 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .glass-input {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  color: #073B2A;
+}
+
+.glass-input::placeholder {
+  color: rgba(20, 60, 45, 0.65);
 }
 
 .glass-input:focus {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 0 0 2px rgba(45, 106, 79, 0.4), inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 2px rgba(11, 107, 79, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.4);
 }
 
 .glass-btn-primary {
-  background: linear-gradient(135deg, rgba(45, 106, 79, 0.88), rgba(27, 67, 50, 0.95));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.4), inset 0 1px 1px 0 rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #0B6B4F, #064B38);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 10px 25px rgba(0, 80, 55, 0.30);
+  transition: all 300ms ease;
+}
+
+.glass-btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 80, 55, 0.35);
 }
 
 .glass-btn-secondary {
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.30);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.50);
+  color: #073B2A;
   box-shadow: 0 4px 15px -2px rgba(0, 0, 0, 0.1);
+  transition: all 300ms ease;
 }
 
 .glass-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.50);
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-1px);
+}
+
+.glass-btn-google {
   background: rgba(255, 255, 255, 0.35);
-  border-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.60);
+  color: #073B2A;
+  transition: all 300ms ease;
+}
+
+.glass-btn-google:hover {
+  background: rgba(255, 255, 255, 0.55);
+  transform: translateY(-1px);
 }
 
 .glass-bar {
-  background: rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(16px) saturate(120%);
-  -webkit-backdrop-filter: blur(16px) saturate(120%);
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(10, 55, 40, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 @media (prefers-reduced-motion: reduce) {
