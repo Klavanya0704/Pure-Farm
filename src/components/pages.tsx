@@ -1763,21 +1763,21 @@ export function LoginPage() {
           alt="Cinematic Smart Farm at Sunrise"
           className="w-full h-full object-cover object-center scale-[1.02] transform transition-transform duration-1000 ease-out"
         />
-        {/* Very subtle dark overlay: rgba(0,25,18,0.12) */}
-        <div className="absolute inset-0 bg-[#001912]/[0.12] backdrop-brightness-[0.98]" />
+        {/* Subtle atmospheric dark overlay to retain warm cinematic colors */}
+        <div className="absolute inset-0 bg-[#00140f]/[0.10] backdrop-brightness-[0.98]" />
       </div>
 
       {/* Top Bar / Header Branding */}
       <header className="relative z-20 w-full px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl glass-card text-[#073B2A] shadow-md group-hover:scale-105 transition duration-200">
-            <Leaf className="h-5 w-5 text-[#075C40]" />
+          <span className="flex h-10 w-10 items-center justify-center rounded-2xl glass-card-dark text-[#19C37D] shadow-md group-hover:scale-105 transition duration-200 border border-white/40">
+            <Leaf className="h-5 w-5 text-[#19C37D]" />
           </span>
           <div>
-            <span className="block text-lg font-extrabold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] leading-none">
+            <span className="block text-lg font-extrabold text-[#FFFFFF] drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] leading-none">
               Pure Farm
             </span>
-            <span className="block text-[9px] font-bold text-emerald-200 tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] mt-1">
+            <span className="block text-[9px] font-bold text-[#E8F5EE] tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] mt-1">
               Agri Portal
             </span>
           </div>
@@ -1785,10 +1785,10 @@ export function LoginPage() {
 
         <Link
           to="/"
-          className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full glass-btn-secondary text-white text-xs font-extrabold transition shadow-sm hover:scale-105"
+          className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full glass-btn-google-white text-[#FFFFFF] text-xs font-extrabold transition shadow-sm hover:scale-105"
         >
           <span>Explore Marketplace</span>
-          <ArrowRight className="h-3.5 w-3.5" />
+          <ArrowRight className="h-3.5 w-3.5 text-[#B7F34A]" />
         </Link>
       </header>
 
@@ -1797,38 +1797,53 @@ export function LoginPage() {
         <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* LEFT SIDE: Decorative Floating Smart Farming Badges (Desktop) */}
           <div className="hidden lg:flex lg:col-span-3 flex-col gap-4 animate-subtle-float-1">
-            <div className="glass-card p-4 rounded-2xl transition-all duration-300 hover:scale-105">
+            <div className="glass-card-dark p-4 rounded-2xl transition-all duration-300 hover:scale-105">
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-700/20 text-[#073B2A] border border-white/40">
-                  <Cpu className="h-5 w-5 text-[#075C40]" />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#19C37D]/20 text-[#19C37D] border border-[#19C37D]/40 shadow-[0_0_12px_rgba(25,195,125,0.3)]">
+                  <Cpu className="h-5 w-5 text-[#19C37D]" />
                 </span>
                 <div>
-                  <h4 className="text-sm font-extrabold text-[#073B2A]">Smart Farming</h4>
-                  <p className="text-xs font-semibold text-[#245C49]">Smarter decisions</p>
+                  <h4
+                    className="text-sm font-extrabold text-[#FFFFFF]"
+                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
+                  >
+                    Smart Farming
+                  </h4>
+                  <p className="text-xs font-medium text-[#E8F5EE]">Smarter decisions</p>
                 </div>
               </div>
             </div>
 
-            <div className="glass-card p-4 rounded-2xl transition-all duration-300 hover:scale-105">
+            <div className="glass-card-dark p-4 rounded-2xl transition-all duration-300 hover:scale-105">
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-700/20 text-[#073B2A] border border-white/40">
-                  <Droplets className="h-5 w-5 text-cyan-800" />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#19C37D]/20 text-[#19C37D] border border-[#19C37D]/40 shadow-[0_0_12px_rgba(25,195,125,0.3)]">
+                  <Droplets className="h-5 w-5 text-[#19C37D]" />
                 </span>
                 <div>
-                  <h4 className="text-sm font-extrabold text-[#073B2A]">Water Efficient</h4>
-                  <p className="text-xs font-semibold text-[#245C49]">Save every drop</p>
+                  <h4
+                    className="text-sm font-extrabold text-[#FFFFFF]"
+                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
+                  >
+                    Water Efficient
+                  </h4>
+                  <p className="text-xs font-medium text-[#E8F5EE]">Save every drop</p>
                 </div>
               </div>
             </div>
 
-            <div className="glass-card p-4 rounded-2xl transition-all duration-300 hover:scale-105">
+            <div className="glass-card-dark p-4 rounded-2xl transition-all duration-300 hover:scale-105">
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-700/20 text-[#073B2A] border border-white/40">
-                  <Sprout className="h-5 w-5 text-amber-800" />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#19C37D]/20 text-[#19C37D] border border-[#19C37D]/40 shadow-[0_0_12px_rgba(25,195,125,0.3)]">
+                  <Sprout className="h-5 w-5 text-[#19C37D]" />
                 </span>
                 <div>
-                  <h4 className="text-sm font-extrabold text-[#073B2A]">Healthy Crop</h4>
-                  <p className="text-xs font-semibold text-[#245C49]">Better yield</p>
+                  <h4
+                    className="text-sm font-extrabold text-[#FFFFFF]"
+                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
+                  >
+                    Healthy Crop
+                  </h4>
+                  <p className="text-xs font-medium text-[#E8F5EE]">Better yield</p>
                 </div>
               </div>
             </div>
@@ -1836,24 +1851,24 @@ export function LoginPage() {
 
           {/* CENTER: Main Translucent Glassmorphic Login Card */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className="w-full max-w-[440px] rounded-[32px] glass-panel p-7 sm:p-9 transition-all">
+            <div className="w-full max-w-[440px] rounded-[28px] glass-panel p-7 sm:p-9 transition-all">
               {/* Brand Icon & Heading */}
               <div className="text-center space-y-1.5 pb-2">
                 <div className="flex justify-center">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0B6B4F] to-[#064B38] text-white shadow-lg border border-white/40">
-                    <Leaf className="h-6 w-6" />
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#087A50] to-[#064B38] text-white shadow-lg border border-white/40">
+                    <Leaf className="h-6 w-6 text-[#B7F34A]" />
                   </span>
                 </div>
                 <h1
-                  className="text-3xl sm:text-4xl font-extrabold tracking-[-0.02em] text-[#073B2A]"
-                  style={{ textShadow: "0 2px 8px rgba(255,255,255,0.55)" }}
+                  className="text-3xl sm:text-[42px] font-extrabold tracking-tight text-[#FFFFFF] leading-tight"
+                  style={{ textShadow: "0 3px 12px rgba(0,0,0,0.30)" }}
                 >
                   Pure Farm
                 </h1>
-                <p className="text-xs font-bold text-[#075C40]">
+                <p className="text-xs font-bold text-[#E8F5EE]">
                   Nurturing Nature, Growing Future
                 </p>
-                <p className="text-[11px] font-semibold text-[#174C3B]">
+                <p className="text-[11px] font-medium text-[#FFFFFF]/85">
                   Chain Address, Mark Two, Pure Farm
                 </p>
               </div>
@@ -1863,13 +1878,13 @@ export function LoginPage() {
                 {/* Username / Email */}
                 <div className="space-y-1">
                   <label
-                    className="text-[14px] font-bold text-[#063D2B] block"
-                    style={{ textShadow: "0 1px 3px rgba(255,255,255,0.5)" }}
+                    className="text-[14px] font-bold text-[#FFFFFF] block"
+                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
                   >
                     Username or Email
                   </label>
                   <div className="relative flex items-center">
-                    <span className="absolute left-3.5 text-[#075C40]">
+                    <span className="absolute left-3.5 text-[#FFFFFF]/90">
                       <User className="h-4 w-4" />
                     </span>
                     <input
@@ -1882,7 +1897,7 @@ export function LoginPage() {
                         if (errorMessage) setErrorMessage("");
                       }}
                       placeholder="Username or Email"
-                      className="h-11 w-full rounded-xl glass-input pl-10 pr-4 text-sm font-semibold text-[#073B2A] placeholder:text-[#143C2D]/65 outline-none transition"
+                      className="h-11 w-full rounded-xl glass-input-white pl-10 pr-4 text-sm font-semibold text-[#FFFFFF] placeholder:text-white/70 outline-none transition"
                     />
                   </div>
                 </div>
@@ -1890,13 +1905,13 @@ export function LoginPage() {
                 {/* Password */}
                 <div className="space-y-1">
                   <label
-                    className="text-[14px] font-bold text-[#063D2B] block"
-                    style={{ textShadow: "0 1px 3px rgba(255,255,255,0.5)" }}
+                    className="text-[14px] font-bold text-[#FFFFFF] block"
+                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
                   >
                     Password
                   </label>
                   <div className="relative flex items-center">
-                    <span className="absolute left-3.5 text-[#075C40]">
+                    <span className="absolute left-3.5 text-[#FFFFFF]/90">
                       <Lock className="h-4 w-4" />
                     </span>
                     <input
@@ -1909,12 +1924,12 @@ export function LoginPage() {
                         if (errorMessage) setErrorMessage("");
                       }}
                       placeholder="Password"
-                      className="h-11 w-full rounded-xl glass-input pl-10 pr-11 text-sm font-semibold text-[#073B2A] placeholder:text-[#143C2D]/65 outline-none transition"
+                      className="h-11 w-full rounded-xl glass-input-white pl-10 pr-11 text-sm font-semibold text-[#FFFFFF] placeholder:text-white/70 outline-none transition"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 text-[#075C40] hover:text-[#073B2A] transition p-1"
+                      className="absolute right-3 text-[#FFFFFF] hover:text-[#B7F34A] transition p-1"
                       aria-label={showPassword ? "Hide password" : "Show password"}
                     >
                       {showPassword ? (
@@ -1928,7 +1943,7 @@ export function LoginPage() {
 
                 {/* Error Banner */}
                 {errorMessage ? (
-                  <p className="text-xs font-extrabold text-rose-800 bg-rose-100/90 backdrop-blur-md p-2 rounded-lg border border-rose-300">
+                  <p className="text-xs font-extrabold text-rose-200 bg-rose-950/70 backdrop-blur-md p-2 rounded-lg border border-rose-500/50">
                     {errorMessage}
                   </p>
                 ) : null}
@@ -1936,22 +1951,22 @@ export function LoginPage() {
                 {/* Remember Me & Forgot Password */}
                 <div className="flex items-center justify-between text-xs pt-0.5">
                   <label
-                    className="flex items-center gap-2 cursor-pointer select-none font-bold text-[#063D2B] text-[14px]"
-                    style={{ textShadow: "0 1px 3px rgba(255,255,255,0.5)" }}
+                    className="flex items-center gap-2 cursor-pointer select-none font-bold text-[#FFFFFF] text-[14px]"
+                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
                   >
                     <input
                       type="checkbox"
                       checked={rememberMe}
                       disabled={loading}
                       onChange={(e) => setRememberMe(e.target.checked)}
-                      className="rounded text-[#0B6B4F] focus:ring-[#0B6B4F] border-white/60 bg-white/40"
+                      className="rounded text-[#19C37D] focus:ring-[#19C37D] border-white/60 bg-white/30"
                     />
                     Remember me
                   </label>
                   <Link
                     to="/support"
-                    className="font-bold text-[14px] text-[#063D2B] hover:text-[#075C40] hover:underline transition"
-                    style={{ textShadow: "0 1px 3px rgba(255,255,255,0.5)" }}
+                    className="font-bold text-[14px] text-[#FFFFFF] hover:text-[#B7F34A] hover:underline transition"
+                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
                   >
                     Forgot Password?
                   </Link>
@@ -1961,7 +1976,7 @@ export function LoginPage() {
                 <button
                   type="submit"
                   disabled={!isValid || loading}
-                  className="w-full h-11 sm:h-12 rounded-xl glass-btn-primary disabled:opacity-50 text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 mt-2"
+                  className="w-full h-11 sm:h-12 rounded-xl glass-btn-primary-agri disabled:opacity-50 text-[#FFFFFF] font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 mt-2"
                 >
                   {loading ? (
                     <>
@@ -1989,7 +2004,7 @@ export function LoginPage() {
                   ) : (
                     <>
                       <span>Login</span>
-                      <LogIn className="h-4 w-4" />
+                      <LogIn className="h-4 w-4 text-[#B7F34A]" />
                     </>
                   )}
                 </button>
@@ -1997,8 +2012,8 @@ export function LoginPage() {
 
               {/* Divider */}
               <div className="relative my-4 flex items-center justify-center">
-                <div className="w-full border-t border-[#144632]/30" />
-                <span className="absolute bg-white/40 backdrop-blur-md px-3 py-0.5 text-[11px] font-bold text-[#174C3B] uppercase tracking-wider rounded-full border border-white/50 shadow-sm">
+                <div className="w-full border-t border-white/30" />
+                <span className="absolute bg-black/40 backdrop-blur-md px-3 py-0.5 text-[11px] font-bold text-[#E8F5EE] uppercase tracking-wider rounded-full border border-white/40 shadow-sm">
                   or continue with
                 </span>
               </div>
@@ -2008,7 +2023,7 @@ export function LoginPage() {
                 <button
                   type="button"
                   onClick={() => handleDemoFill("farmer@purefarm.test")}
-                  className="w-full h-10 rounded-xl glass-btn-google flex items-center justify-center gap-2.5 text-xs font-bold text-[#073B2A] shadow-sm"
+                  className="w-full h-10 rounded-xl glass-btn-google-white flex items-center justify-center gap-2.5 text-xs font-bold text-[#FFFFFF] shadow-sm"
                 >
                   {/* Google SVG Icon */}
                   <svg className="h-4 w-4" viewBox="0 0 24 24">
@@ -2034,7 +2049,7 @@ export function LoginPage() {
 
                 {/* Demo Accounts Quick-Select Pills */}
                 <div className="pt-2">
-                  <p className="text-[10px] font-bold text-center text-[#174C3B] uppercase tracking-wider mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+                  <p className="text-[10px] font-bold text-center text-[#E8F5EE] uppercase tracking-wider mb-1.5 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
                     Demo Profiles (Click to prefill)
                   </p>
                   <div className="grid grid-cols-4 gap-1.5">
@@ -2048,7 +2063,7 @@ export function LoginPage() {
                         key={demo.role}
                         type="button"
                         onClick={() => handleDemoFill(demo.email)}
-                        className="py-1 px-1.5 rounded-lg glass-btn-secondary text-[11px] font-bold text-[#073B2A] transition text-center"
+                        className="py-1 px-1.5 rounded-lg glass-pill-demo text-[11px] font-bold text-[#FFFFFF] transition text-center"
                       >
                         {demo.role}
                       </button>
@@ -2058,11 +2073,11 @@ export function LoginPage() {
               </div>
 
               {/* Bottom Sign-Up Link */}
-              <div className="text-center text-xs pt-3 font-semibold text-[#174C3B]">
+              <div className="text-center text-xs pt-3 font-medium text-[#E8F5EE]">
                 <span>Don't have an account? </span>
                 <Link
                   to="/register"
-                  className="font-extrabold text-[#00875A] hover:underline transition"
+                  className="font-extrabold text-[#B7F34A] hover:underline transition drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]"
                 >
                   Sign Up
                 </Link>
@@ -2072,14 +2087,19 @@ export function LoginPage() {
 
           {/* RIGHT SIDE: Decorative Floating Farm Tomorrow Badge (Desktop) */}
           <div className="hidden lg:flex lg:col-span-3 justify-end animate-subtle-float-2">
-            <div className="glass-card p-5 rounded-3xl max-w-[220px] space-y-3 transition-all duration-300 hover:scale-105">
-              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#0B6B4F] text-white shadow-md border border-white/40">
-                <Sparkles className="h-5 w-5" />
+            <div className="glass-card-dark p-5 rounded-3xl max-w-[220px] space-y-3 transition-all duration-300 hover:scale-105">
+              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#087A50] text-[#B7F34A] shadow-md border border-white/40">
+                <Sparkles className="h-5 w-5 text-[#B7F34A]" />
               </span>
               <div>
-                <h4 className="text-sm font-extrabold text-[#073B2A]">Better Farming</h4>
-                <p className="text-xs font-extrabold text-[#00875A]">Better Tomorrow</p>
-                <p className="text-[10px] text-[#245C49] font-semibold mt-1 leading-normal">
+                <h4
+                  className="text-sm font-extrabold text-[#FFFFFF]"
+                  style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
+                >
+                  Better Farming
+                </h4>
+                <p className="text-xs font-extrabold text-[#B7F34A]">Better Tomorrow</p>
+                <p className="text-[10px] font-medium text-[#E8F5EE] mt-1 leading-normal">
                   Empowering Indian agriculture with connected smart solutions.
                 </p>
               </div>
@@ -2089,39 +2109,39 @@ export function LoginPage() {
       </main>
 
       {/* BOTTOM BAR: Wide Subtle Glass Information Bar */}
-      <footer className="relative z-20 w-full px-4 py-3 glass-bar text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+      <footer className="relative z-20 w-full px-4 py-3 glass-bar-dark text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
         <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-around gap-4 text-center sm:text-left">
           <div className="flex items-center gap-2">
-            <ShieldCheck className="h-4 w-4 text-emerald-300" />
+            <ShieldCheck className="h-4 w-4 text-[#19C37D]" />
             <div>
-              <span className="block text-xs font-extrabold leading-tight text-white">
+              <span className="block text-xs font-extrabold leading-tight text-[#FFFFFF]">
                 Secure & Reliable
               </span>
-              <span className="block text-[10px] text-white/90 font-semibold leading-tight">
+              <span className="block text-[10px] text-[#E8F5EE] font-medium leading-tight">
                 Your data is protected
               </span>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <Activity className="h-4 w-4 text-cyan-300" />
+            <Activity className="h-4 w-4 text-[#19C37D]" />
             <div>
-              <span className="block text-xs font-extrabold leading-tight text-white">
+              <span className="block text-xs font-extrabold leading-tight text-[#FFFFFF]">
                 Real-time Insights
               </span>
-              <span className="block text-[10px] text-white/90 font-semibold leading-tight">
+              <span className="block text-[10px] text-[#E8F5EE] font-medium leading-tight">
                 Data-driven farming
               </span>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <Globe className="h-4 w-4 text-amber-300" />
+            <Globe className="h-4 w-4 text-[#B7F34A]" />
             <div>
-              <span className="block text-xs font-extrabold leading-tight text-white">
+              <span className="block text-xs font-extrabold leading-tight text-[#FFFFFF]">
                 Sustainable Future
               </span>
-              <span className="block text-[10px] text-white/90 font-semibold leading-tight">
+              <span className="block text-[10px] text-[#E8F5EE] font-medium leading-tight">
                 For a better tomorrow
               </span>
             </div>
