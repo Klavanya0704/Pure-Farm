@@ -213,3 +213,37 @@
 .deals-marquee-track:hover {
   animation-play-state: paused;
 }
+
+@keyframes subtle-float-1 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes subtle-float-2 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.animate-subtle-float-1 {
+  animation: subtle-float-1 5s ease-in-out infinite;
+}
+
+.animate-subtle-float-2 {
+  animation: subtle-float-2 6.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-subtle-float-1,
+  .animate-subtle-float-2,
+  .deals-marquee-track {
+    animation: none !important;
+  }
+}

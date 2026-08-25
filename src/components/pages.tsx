@@ -30,6 +30,15 @@ import {
   HelpCircle,
   MessageCircle,
   Leaf,
+  User,
+  Eye,
+  EyeOff,
+  LogIn,
+  Sparkles,
+  Sprout,
+  Cpu,
+  Activity,
+  Globe,
 } from "lucide-react";
 import { useMemo, useState, useEffect, useRef } from "react";
 import {
@@ -1711,7 +1720,10 @@ export function LoginPage() {
   const isPhone = (val: string) => /^\d{10}$/.test(val);
 
   const isValid = useMemo(() => {
-    return (isEmail(phoneOrEmail) || isPhone(phoneOrEmail)) && password.length >= 6;
+    return (
+      (isEmail(phoneOrEmail) || isPhone(phoneOrEmail) || phoneOrEmail.trim().length >= 3) &&
+      password.length >= 6
+    );
   }, [phoneOrEmail, password]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -1736,243 +1748,374 @@ export function LoginPage() {
     }
   };
 
+  const handleDemoFill = (email: string) => {
+    setPhoneOrEmail(email);
+    setPassword("password123");
+    if (errorMessage) setErrorMessage("");
+  };
+
   return (
-    <div className="w-full min-h-screen grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] bg-[#f8fbf9]">
-      {/* LEFT VISUAL PANEL */}
-      <div className="relative hidden lg:flex flex-col justify-between p-12 text-white overflow-hidden bg-emerald-950 min-h-screen">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1000"
-            alt="Indian farmer in golden crop field at sunrise"
-            className="h-full w-full object-cover opacity-35 mix-blend-overlay"
-          />
-          {/* Subtle green gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-emerald-950/95 via-emerald-900/85 to-emerald-950/60" />
-        </div>
-
-        {/* Top Branding Logo */}
-        <div className="relative z-10 flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#1b4332] shadow-sm">
-            <Leaf className="h-6 w-6" />
-          </span>
-          <div>
-            <span className="block text-xl font-black tracking-wide leading-none">PureFarm</span>
-            <span className="block text-[10px] font-bold text-emerald-300 uppercase tracking-widest leading-none mt-1.5">
-              Connect • Grow • Prosper
-            </span>
-          </div>
-        </div>
-
-        {/* Center Slogans & Features */}
-        <div className="relative z-10 max-w-lg my-auto space-y-6">
-          <h2 className="text-4xl lg:text-5xl font-black leading-tight">
-            Empowering Farmers,
-            <br />
-            Building a Better Tomorrow
-          </h2>
-          <p className="text-sm text-emerald-100/90 leading-relaxed font-medium">
-            Access fresh produce marketplace, crop guidance, mandi prices, and government support —
-            all in one unified agricultural portal.
-          </p>
-
-          <div className="space-y-3 pt-4">
-            {[
-              "Premium Agri-Input Marketplace",
-              "Real-Time Mandi Pricing & Feeds",
-              "Verified Government Schemes Support",
-              "Expert Agronomist Sowing Guidance",
-            ].map((feature, i) => (
-              <div key={i} className="flex items-center gap-3 text-sm">
-                <span className="flex h-5.5 w-5.5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-300 font-bold">
-                  ✓
-                </span>
-                <span className="font-semibold text-emerald-50">{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Footer info */}
-        <div className="relative z-10 text-[10px] text-emerald-200/50 uppercase tracking-widest font-bold">
-          © {new Date().getFullYear()} PureFarm Platform. Secured and Verified.
-        </div>
+    <div className="relative min-h-screen w-full flex flex-col justify-between overflow-x-hidden select-none bg-slate-950">
+      {/* 1. Cinematic Farm Fullscreen Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <img
+          src="/login-bg.jpg"
+          alt="Cinematic Smart Farm at Sunrise"
+          className="w-full h-full object-cover object-center scale-[1.02] transform transition-transform duration-1000 ease-out"
+        />
+        {/* Soft atmospheric gradient & contrast enhancement */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/40" />
+        <div className="absolute inset-0 bg-emerald-950/20 mix-blend-multiply" />
       </div>
 
-      {/* RIGHT LOGIN CARD */}
-      <div className="flex items-center justify-center p-6 sm:p-12 lg:p-16 bg-white min-h-screen">
-        <div className="w-full max-w-md space-y-6">
-          {/* Card Top Welcome Header */}
-          <div className="text-center lg:text-left space-y-2">
-            <div className="flex justify-center lg:justify-start">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#eef7f2] text-[#2d6a4f] border border-emerald-100 shadow-sm mb-3">
-                <Leaf className="h-6 w-6" />
-              </span>
+      {/* Top Bar / Header Branding */}
+      <header className="relative z-20 w-full px-6 py-4 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/80 dark:bg-black/60 backdrop-blur-md border border-white/50 shadow-sm group-hover:scale-105 transition duration-200">
+            <Leaf className="h-5 w-5 text-emerald-700 dark:text-emerald-400" />
+          </span>
+          <div>
+            <span className="block text-lg font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] leading-none">
+              Pure Farm
+            </span>
+            <span className="block text-[9px] font-bold text-emerald-200 tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] mt-1">
+              Agri Portal
+            </span>
+          </div>
+        </Link>
+
+        <Link
+          to="/"
+          className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-white text-xs font-bold transition shadow-sm"
+        >
+          <span>Explore Marketplace</span>
+          <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </header>
+
+      {/* Main Center Area with Glassmorphism Login Card & Floating Side Badges */}
+      <main className="relative z-20 flex-1 flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
+        <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* LEFT SIDE: Decorative Floating Smart Farming Badges (Desktop) */}
+          <div className="hidden lg:flex lg:col-span-3 flex-col gap-4 animate-subtle-float-1">
+            <div className="backdrop-blur-xl bg-white/75 dark:bg-slate-900/75 border border-white/60 dark:border-white/20 p-4 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 hover:bg-white/85">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">
+                  <Cpu className="h-5 w-5" />
+                </span>
+                <div>
+                  <h4 className="text-xs font-black text-[#1b4332] dark:text-emerald-400">
+                    Smart Farming
+                  </h4>
+                  <p className="text-[11px] text-muted-foreground font-medium">Smarter decisions</p>
+                </div>
+              </div>
             </div>
-            <h3 className="text-2xl font-black text-[#1b4332]">Welcome Back 👋</h3>
-            <p className="text-xs text-muted-foreground">Sign in to continue to PureFarm portal</p>
+
+            <div className="backdrop-blur-xl bg-white/75 dark:bg-slate-900/75 border border-white/60 dark:border-white/20 p-4 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 hover:bg-white/85">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-100 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300">
+                  <Droplets className="h-5 w-5" />
+                </span>
+                <div>
+                  <h4 className="text-xs font-black text-[#1b4332] dark:text-emerald-400">
+                    Water Efficient
+                  </h4>
+                  <p className="text-[11px] text-muted-foreground font-medium">Save every drop</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="backdrop-blur-xl bg-white/75 dark:bg-slate-900/75 border border-white/60 dark:border-white/20 p-4 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 hover:bg-white/85">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300">
+                  <Sprout className="h-5 w-5" />
+                </span>
+                <div>
+                  <h4 className="text-xs font-black text-[#1b4332] dark:text-emerald-400">
+                    Healthy Crop
+                  </h4>
+                  <p className="text-[11px] text-muted-foreground font-medium">Better yield</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Form Card Content */}
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-soft">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Username field */}
-              <div className="space-y-1.5">
-                <label className="text-xs font-black text-[#1b4332] block">
-                  Email / Phone Number
-                </label>
-                <input
-                  type="text"
-                  required
-                  disabled={loading}
-                  value={phoneOrEmail}
-                  onChange={(e) => {
-                    setPhoneOrEmail(e.target.value);
-                    if (errorMessage) setErrorMessage("");
-                  }}
-                  placeholder="Enter farmer@purefarm.test"
-                  className="h-11 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
-                />
+          {/* CENTER: Main Glassmorphic Login Card */}
+          <div className="lg:col-span-6 flex justify-center">
+            <div className="w-full max-w-[430px] rounded-[32px] backdrop-blur-2xl bg-white/85 dark:bg-slate-950/85 border border-white/80 dark:border-white/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] p-6 sm:p-8 transition-all">
+              {/* Brand Icon & Heading */}
+              <div className="text-center space-y-1.5 pb-3">
+                <div className="flex justify-center">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-[#1b4332] text-white shadow-md">
+                    <Leaf className="h-6 w-6" />
+                  </span>
+                </div>
+                <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-[#1b4332] dark:text-white">
+                  Pure Farm
+                </h1>
+                <p className="text-xs font-bold text-emerald-800 dark:text-emerald-300">
+                  Nurturing Nature, Growing Future
+                </p>
+                <p className="text-[10px] text-muted-foreground font-medium">
+                  Chain Address, Mark Two, Pure Farm
+                </p>
               </div>
 
-              {/* Password field */}
-              <div className="space-y-1.5">
-                <label className="text-xs font-black text-[#1b4332] block">Password</label>
-                <div className="relative">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    required
-                    disabled={loading}
-                    value={password}
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                      if (errorMessage) setErrorMessage("");
-                    }}
-                    placeholder="Enter your password"
-                    className="h-11 w-full rounded-xl border border-input bg-background pl-4 pr-12 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3.5 top-3 text-xs font-bold text-muted-foreground hover:text-foreground transition-colors"
+              {/* Login Form */}
+              <form onSubmit={handleSubmit} className="space-y-3.5 mt-2">
+                {/* Username / Email */}
+                <div className="space-y-1">
+                  <label className="text-[11px] font-bold text-[#1b4332] dark:text-emerald-200 block">
+                    Username or Email
+                  </label>
+                  <div className="relative flex items-center">
+                    <span className="absolute left-3.5 text-muted-foreground">
+                      <User className="h-4 w-4" />
+                    </span>
+                    <input
+                      type="text"
+                      required
+                      disabled={loading}
+                      value={phoneOrEmail}
+                      onChange={(e) => {
+                        setPhoneOrEmail(e.target.value);
+                        if (errorMessage) setErrorMessage("");
+                      }}
+                      placeholder="Username or Email"
+                      className="h-11 w-full rounded-xl border border-input/70 bg-white/90 dark:bg-slate-900/90 pl-10 pr-4 text-xs font-medium outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 transition shadow-inner"
+                    />
+                  </div>
+                </div>
+
+                {/* Password */}
+                <div className="space-y-1">
+                  <label className="text-[11px] font-bold text-[#1b4332] dark:text-emerald-200 block">
+                    Password
+                  </label>
+                  <div className="relative flex items-center">
+                    <span className="absolute left-3.5 text-muted-foreground">
+                      <Lock className="h-4 w-4" />
+                    </span>
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      required
+                      disabled={loading}
+                      value={password}
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                        if (errorMessage) setErrorMessage("");
+                      }}
+                      placeholder="Password"
+                      className="h-11 w-full rounded-xl border border-input/70 bg-white/90 dark:bg-slate-900/90 pl-10 pr-11 text-xs font-medium outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 transition shadow-inner"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 text-muted-foreground hover:text-foreground transition p-1"
+                      aria-label={showPassword ? "Hide password" : "Show password"}
+                    >
+                      {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Error Banner */}
+                {errorMessage ? (
+                  <p className="text-[11px] font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 p-2 rounded-lg border border-rose-200 dark:border-rose-900">
+                    {errorMessage}
+                  </p>
+                ) : null}
+
+                {/* Remember Me & Forgot Password */}
+                <div className="flex items-center justify-between text-xs pt-0.5">
+                  <label className="flex items-center gap-2 cursor-pointer select-none font-medium text-foreground/80 text-[11px]">
+                    <input
+                      type="checkbox"
+                      checked={rememberMe}
+                      disabled={loading}
+                      onChange={(e) => setRememberMe(e.target.checked)}
+                      className="rounded text-emerald-600 focus:ring-emerald-500 border-border"
+                    />
+                    Remember me
+                  </label>
+                  <Link
+                    to="/support"
+                    className="font-bold text-[11px] text-emerald-700 dark:text-emerald-400 hover:underline transition"
                   >
-                    {showPassword ? "Hide" : "Show"}
-                  </button>
+                    Forgot Password?
+                  </Link>
+                </div>
+
+                {/* Main Submit Button */}
+                <button
+                  type="submit"
+                  disabled={!isValid || loading}
+                  className="w-full h-11 sm:h-12 rounded-xl bg-gradient-to-r from-[#2d6a4f] to-[#1b4332] hover:from-[#1b4332] hover:to-[#0d1e16] disabled:from-muted disabled:to-muted disabled:text-muted-foreground disabled:opacity-50 text-white font-black text-xs sm:text-sm shadow-md transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 mt-2"
+                >
+                  {loading ? (
+                    <>
+                      <svg
+                        className="animate-spin h-4 w-4 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        />
+                      </svg>
+                      <span>Authenticating...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Login</span>
+                      <LogIn className="h-4 w-4" />
+                    </>
+                  )}
+                </button>
+              </form>
+
+              {/* Divider */}
+              <div className="relative my-4 flex items-center justify-center">
+                <div className="w-full border-t border-border/80" />
+                <span className="absolute bg-white/90 dark:bg-slate-900/90 px-3 text-[10px] font-bold text-muted-foreground uppercase tracking-wider rounded-full">
+                  or continue with
+                </span>
+              </div>
+
+              {/* Social Login / Supported Auth & Demo Quick-Login */}
+              <div className="space-y-2">
+                <button
+                  type="button"
+                  onClick={() => handleDemoFill("farmer@purefarm.test")}
+                  className="w-full h-10 rounded-xl border border-border/80 bg-white/80 dark:bg-slate-900/80 hover:bg-white dark:hover:bg-slate-800 transition flex items-center justify-center gap-2.5 text-xs font-bold text-foreground shadow-sm"
+                >
+                  {/* Google SVG Icon */}
+                  <svg className="h-4 w-4" viewBox="0 0 24 24">
+                    <path
+                      fill="#4285F4"
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                    />
+                    <path
+                      fill="#34A853"
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                    />
+                    <path
+                      fill="#FBBC05"
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
+                    />
+                    <path
+                      fill="#EA4335"
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+                    />
+                  </svg>
+                  <span>Continue with Google</span>
+                </button>
+
+                {/* Demo Accounts Quick-Select Pills */}
+                <div className="pt-2">
+                  <p className="text-[10px] font-bold text-center text-muted-foreground uppercase tracking-wider mb-1.5">
+                    Demo Profiles (Click to prefill)
+                  </p>
+                  <div className="grid grid-cols-4 gap-1.5">
+                    {[
+                      { role: "Farmer", email: "farmer@purefarm.test" },
+                      { role: "Buyer", email: "buyer@purefarm.test" },
+                      { role: "Seller", email: "seller@purefarm.test" },
+                      { role: "Admin", email: "admin@purefarm.test" },
+                    ].map((demo) => (
+                      <button
+                        key={demo.role}
+                        type="button"
+                        onClick={() => handleDemoFill(demo.email)}
+                        className="py-1 px-1.5 rounded-lg border border-border/70 bg-white/60 dark:bg-slate-900/60 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 hover:border-emerald-300 text-[10.5px] font-bold text-foreground transition text-center"
+                      >
+                        {demo.role}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              {/* Error messages */}
-              {errorMessage ? (
-                <p className="text-xs font-bold text-rose-500">{errorMessage}</p>
-              ) : null}
-
-              {/* Remember + Forgot Row */}
-              <div className="flex items-center justify-between text-xs pt-1">
-                <label className="flex items-center gap-2 cursor-pointer select-none font-medium text-foreground/80">
-                  <input
-                    type="checkbox"
-                    checked={rememberMe}
-                    disabled={loading}
-                    onChange={(e) => setRememberMe(e.target.checked)}
-                    className="rounded text-[#2d6a4f] focus:ring-[#2d6a4f] border-border"
-                  />
-                  Remember me
-                </label>
+              {/* Bottom Sign-Up Link */}
+              <div className="text-center text-xs pt-3">
+                <span className="text-muted-foreground">Don't have an account? </span>
                 <Link
-                  to="/support"
-                  className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition"
+                  to="/register"
+                  className="font-black text-emerald-700 dark:text-emerald-400 hover:text-[#1b4332] hover:underline transition"
                 >
-                  Forgot Password?
+                  Sign Up
                 </Link>
               </div>
-
-              {/* Sign In button */}
-              <button
-                type="submit"
-                disabled={!isValid || loading}
-                className="mt-2 w-full h-11 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] disabled:bg-muted disabled:text-muted-foreground disabled:opacity-50 text-white font-black text-sm shadow-sm transition hover:scale-[1.01] flex items-center justify-center gap-2"
-              >
-                {loading ? (
-                  <>
-                    <svg
-                      className="animate-spin h-4.5 w-4.5 text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      />
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      />
-                    </svg>
-                    <span>Signing In...</span>
-                  </>
-                ) : (
-                  <span>Sign In</span>
-                )}
-              </button>
-            </form>
-
-            {/* Interactive prefills block */}
-            <div className="mt-5 border-t border-border/80 pt-4 space-y-2 text-xs">
-              <p className="font-bold text-[#1b4332] text-[10px] uppercase tracking-wider">
-                Demo Accounts (Click to Fill)
-              </p>
-              <div className="grid grid-cols-2 gap-2">
-                {[
-                  { label: "Farmer", email: "farmer@purefarm.test" },
-                  { label: "Buyer", email: "buyer@purefarm.test" },
-                  { label: "Seller", email: "seller@purefarm.test" },
-                  { label: "Admin", email: "admin@purefarm.test" },
-                ].map((acc) => (
-                  <button
-                    key={acc.label}
-                    type="button"
-                    onClick={() => {
-                      setPhoneOrEmail(acc.email);
-                      setPassword("password123");
-                      if (errorMessage) setErrorMessage("");
-                    }}
-                    className="rounded-lg border border-border bg-card p-2 hover:bg-muted/30 transition text-left text-[11px]"
-                  >
-                    <span className="font-bold block text-foreground">{acc.label}</span>
-                    <span className="text-[9px] text-muted-foreground block truncate">
-                      {acc.email}
-                    </span>
-                  </button>
-                ))}
-              </div>
-              <p className="text-[9.5px] text-muted-foreground text-center">
-                Password: <code className="font-bold">password123</code>
-              </p>
             </div>
           </div>
 
-          {/* Register redirect links */}
-          <div className="text-center text-xs">
-            <span className="text-muted-foreground">Don't have an account? </span>
-            <Link
-              to="/register"
-              className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition"
-            >
-              Create an account
-            </Link>
+          {/* RIGHT SIDE: Decorative Floating Farm Tomorrow Badge (Desktop) */}
+          <div className="hidden lg:flex lg:col-span-3 justify-end animate-subtle-float-2">
+            <div className="backdrop-blur-xl bg-white/75 dark:bg-slate-900/75 border border-white/60 dark:border-white/20 p-5 rounded-3xl shadow-xl max-w-[220px] space-y-3 transition-all duration-300 hover:scale-105 hover:bg-white/85">
+              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-500 text-white shadow-md">
+                <Sparkles className="h-5 w-5" />
+              </span>
+              <div>
+                <h4 className="text-sm font-black text-[#1b4332] dark:text-emerald-300">
+                  Better Farming
+                </h4>
+                <p className="text-xs font-bold text-emerald-700 dark:text-emerald-400">
+                  Better Tomorrow
+                </p>
+                <p className="text-[10px] text-muted-foreground mt-1 leading-normal">
+                  Empowering Indian agriculture with connected smart solutions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      {/* BOTTOM BAR: Wide Subtle Glass Information Bar */}
+      <footer className="relative z-20 w-full px-4 py-3 border-t border-white/20 backdrop-blur-md bg-white/30 dark:bg-black/30">
+        <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-around gap-4 text-center sm:text-left text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="h-4 w-4 text-emerald-300" />
+            <div>
+              <span className="block text-xs font-bold leading-tight">Secure & Reliable</span>
+              <span className="block text-[10px] text-emerald-100/80 leading-tight">
+                Your data is protected
+              </span>
+            </div>
           </div>
 
-          {/* Subtle footer label */}
-          <p className="text-center text-[10px] text-muted-foreground font-semibold">
-            Built for farmers. Designed for a better tomorrow. 🌱
-          </p>
+          <div className="flex items-center gap-2">
+            <Activity className="h-4 w-4 text-cyan-300" />
+            <div>
+              <span className="block text-xs font-bold leading-tight">Real-time Insights</span>
+              <span className="block text-[10px] text-emerald-100/80 leading-tight">
+                Data-driven farming
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Globe className="h-4 w-4 text-amber-300" />
+            <div>
+              <span className="block text-xs font-bold leading-tight">Sustainable Future</span>
+              <span className="block text-[10px] text-emerald-100/80 leading-tight">
+                For a better tomorrow
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }
