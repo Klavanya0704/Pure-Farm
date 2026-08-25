@@ -323,31 +323,31 @@ export function HomePage() {
   const categoriesList = [
     {
       name: "Fruits",
-      img: "https://images.unsplash.com/photo-1610832958506-ee5633619144?auto=format&fit=crop&q=80&w=300",
+      img: "/categories/fruits.jpg",
     },
     {
       name: "Vegetables",
-      img: "https://images.unsplash.com/photo-1566385101042-1a010c129fa6?auto=format&fit=crop&q=80&w=300",
+      img: "/categories/vegetables.jpg",
     },
     {
       name: "Seeds",
-      img: "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&q=80&w=300",
+      img: "/categories/seeds.jpg",
     },
     {
       name: "Fertilizers",
-      img: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&q=80&w=300",
+      img: "/categories/fertilizers.jpg",
     },
     {
       name: "Pesticides",
-      img: "https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&q=80&w=300",
+      img: "/categories/pesticides.jpg",
     },
     {
       name: "Farm Tools",
-      img: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&q=80&w=300",
+      img: "/categories/farm-tools.jpg",
     },
     {
       name: "Equipment",
-      img: "https://images.unsplash.com/photo-1530268578403-125039bcdc16?auto=format&fit=crop&q=80&w=300",
+      img: "/categories/equipment.jpg",
     },
   ];
 
