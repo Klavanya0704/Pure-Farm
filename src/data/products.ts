@@ -1236,19 +1236,19 @@ export const PRODUCTS: Product[] = ROWS.map((r, i) => {
   let imgUrl = (IMAGES[r[2]][i % 2] || IMAGES[r[2]][0]) as string;
 
   if (nameLower.includes("tomato")) {
-    imgUrl = "/products/tomatoes.jpg";
+    imgUrl = "/products/deals/fresh-tomatoes.jpg";
   } else if (nameLower.includes("cucumber")) {
-    imgUrl = "/products/cucumber.jpg";
+    imgUrl = "/products/deals/cucumber.jpg";
   } else if (nameLower.includes("potato")) {
-    imgUrl = "/products/potatoes.jpg";
+    imgUrl = "/products/deals/potatoes.jpg";
   } else if (nameLower.includes("onion")) {
-    imgUrl = "/products/onions.jpg";
+    imgUrl = "/products/deals/red-onions.jpg";
   } else if (nameLower.includes("chilli") || nameLower.includes("chili")) {
-    imgUrl = "/products/chillies.jpg";
+    imgUrl = "/products/deals/green-chillies.jpg";
   } else if (nameLower.includes("orange")) {
-    imgUrl = "/products/oranges.jpg";
+    imgUrl = "/products/deals/oranges.jpg";
   } else if (nameLower.includes("marigold")) {
-    imgUrl = "/products/oranges.jpg";
+    imgUrl = "/products/deals/oranges.jpg";
   }
 
   const p: Product = {
