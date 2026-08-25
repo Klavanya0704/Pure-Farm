@@ -362,56 +362,60 @@ export function HomePage() {
             <div
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-950 to-emerald-900 text-white h-[200px] xs:h-[240px] sm:h-[280px] md:h-[320px] lg:h-[340px] shadow-soft"
+              className="relative overflow-hidden rounded-2xl bg-slate-950 text-white h-[200px] xs:h-[240px] sm:h-[280px] md:h-[320px] lg:h-[340px] shadow-soft"
             >
               {/* Carousel Slides */}
               <div
                 className="flex h-full transition-transform duration-500 ease-out"
                 style={{
                   transform: `translateX(-${currentSlide * 100}%)`,
-                  width: `${HERO_SLIDES.length * 100}%`,
                 }}
               >
                 {HERO_SLIDES.map((slide, index) => (
                   <div
                     key={index}
-                    className="relative h-full flex items-center px-6 sm:px-10 justify-between overflow-hidden"
-                    style={{ width: `${100 / HERO_SLIDES.length}%` }}
+                    className="relative w-full h-full shrink-0 flex items-center px-6 sm:px-12 md:px-16 overflow-hidden"
                   >
-                    {/* Right Column / Central Background Image */}
-                    <div className="absolute top-0 right-0 bottom-0 left-1/3 sm:left-1/2 z-0">
-                      <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/90 sm:via-emerald-950/80 to-transparent z-10" />
-                      <img
-                        src={slide.img}
-                        alt={slide.title}
-                        className="h-full w-full object-cover object-center opacity-75 sm:opacity-90"
-                      />
-                    </div>
+                    {/* Full Background Image */}
+                    <img
+                      src={slide.img}
+                      alt={slide.title}
+                      className="absolute inset-0 w-full h-full object-cover object-center z-0"
+                    />
+
+                    {/* Subtle Left-Side Gradient Overlay for Text Readability */}
+                    <div
+                      className="absolute inset-0 z-10"
+                      style={{
+                        background:
+                          "linear-gradient(to right, rgba(0, 45, 30, 0.85) 0%, rgba(0, 45, 30, 0.6) 35%, rgba(0, 45, 30, 0.2) 60%, rgba(0, 45, 30, 0) 80%)",
+                      }}
+                    />
 
                     {/* Left Column Content */}
-                    <div className="relative z-25 max-w-[65%] sm:max-w-[50%] space-y-2 sm:space-y-3">
+                    <div className="relative z-20 max-w-[65%] sm:max-w-[50%] space-y-2.5 sm:space-y-4">
                       <span
                         className={`inline-flex rounded-full px-2.5 py-1 text-[10px] sm:text-xs font-black uppercase tracking-wider ${slide.badgeColor}`}
                       >
                         {slide.badge}
                       </span>
-                      <h1 className="text-xl sm:text-2xl md:text-3xl font-black leading-tight">
+                      <h1 className="text-xl sm:text-2xl md:text-3xl font-black leading-tight text-white drop-shadow-sm">
                         {slide.title}
                       </h1>
-                      <p className="text-[11px] sm:text-xs text-emerald-100/90 line-clamp-2 max-w-sm font-medium">
+                      <p className="text-[11px] sm:text-xs text-emerald-100/90 leading-relaxed font-medium line-clamp-2 drop-shadow-sm">
                         {slide.subtitle}
                       </p>
                       <div className="pt-1 flex flex-wrap gap-2.5">
                         <Link
                           to={slide.linkTo}
-                          className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 hover:scale-105 transition px-3.5 py-2 text-xs font-black text-white shadow-sm duration-200"
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 hover:scale-105 active:scale-95 transition px-3.5 py-2 text-xs font-black text-white shadow-sm duration-200"
                         >
                           {slide.linkText} <ArrowRight className="h-3 w-3" />
                         </Link>
                         {slide.secLinkText && slide.secLinkTo && (
                           <Link
                             to={slide.secLinkTo}
-                            className="inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/10 hover:bg-white/20 transition px-3.5 py-2 text-xs font-black text-white hover:scale-105 duration-200"
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/10 hover:bg-white/20 hover:scale-105 active:scale-95 transition px-3.5 py-2 text-xs font-black text-white duration-200"
                           >
                             {slide.secLinkText}
                           </Link>
@@ -426,14 +430,14 @@ export function HomePage() {
               <button
                 type="button"
                 onClick={prevSlide}
-                className="absolute left-2.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-black/25 text-white hover:bg-black/55 flex items-center justify-center transition text-sm font-bold"
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-black/20 text-white hover:bg-black/50 flex items-center justify-center transition text-sm font-bold shadow-sm"
               >
                 ‹
               </button>
               <button
                 type="button"
                 onClick={nextSlide}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-black/25 text-white hover:bg-black/55 flex items-center justify-center transition text-sm font-bold"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-black/20 text-white hover:bg-black/50 flex items-center justify-center transition text-sm font-bold shadow-sm"
               >
                 ›
               </button>
