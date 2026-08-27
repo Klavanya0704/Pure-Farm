@@ -1241,9 +1241,16 @@ export const PRODUCTS: Product[] = ROWS.map((r, i) => {
   else if (i === 2) imageUrl = "/products/seeds/cotton_seed.jpg";
   else if (i === 3) imageUrl = "/products/seeds/groundnut_seed.jpg";
   else {
-    const prompt = `${name}, photorealistic premium product photography. The product occupies 75% of the frame. Subtle outdoor agricultural farm environment background, natural lighting.`;
+    let prompt = `${name}, realistic agricultural photography. `;
+    if (name.toLowerCase().includes("seed") || name.toLowerCase().includes("tissue culture") || name.toLowerCase().includes("rhizome")) {
+      prompt += "Growing healthy crop plants in a real farm field, agricultural soil, outdoor daylight. The product must be the main focus.";
+    } else if (name.toLowerCase().includes("urea") || name.toLowerCase().includes("dap") || name.toLowerCase().includes("sprayer")) {
+      prompt += "Realistic product in an outdoor farm setting. The product must be the main focus.";
+    } else {
+      prompt += "Fresh agricultural produce in a real farm environment. The product must be the main focus.";
+    }
     const encodedPrompt = encodeURIComponent(prompt);
-    imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=600&height=600&nologo=true&seed=${i}`;
+    imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=600&height=450&nologo=true&seed=${i}`;
   }
   
   const p: Product = {

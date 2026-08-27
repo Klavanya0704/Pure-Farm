@@ -35,7 +35,7 @@ export function ProductCard({ product }: { product: Product }) {
       className="group flex w-full flex-col overflow-hidden transition-all duration-250 ease-out bg-[#FFFFFF] rounded-[20px] border border-[#E5E7EB] shadow-[0_3px_12px_rgba(0,0,0,0.06)] hover:-translate-y-[5px] hover:shadow-[0_10px_28px_rgba(0,0,0,0.12)]"
     >
       {/* Upper Half: Large Product Image Area */}
-      <div className="relative h-[190px] md:h-[220px] w-full overflow-hidden rounded-t-[18px] bg-white">
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-[18px] bg-white">
         <Link to="/product/$id" params={{ id: product.id }} className="block h-full w-full">
           <img
             src={product.image}
