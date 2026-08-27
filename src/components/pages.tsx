@@ -2268,7 +2268,7 @@ export function RegisterPage() {
               </div>
               {/* 7. TEXT VISIBILITY (High Contrast) */}
               <h3 className="text-[28px] font-black text-center text-[#0A2617] leading-tight">
-                Create Account ??
+                Create Account 🌱
               </h3>
               <p className="text-center text-[#11311F] text-sm font-semibold mt-2">
                 Register your farmer profile to get started
