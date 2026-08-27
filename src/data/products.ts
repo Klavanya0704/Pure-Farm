@@ -1232,28 +1232,23 @@ const ROWS: Row[] = [
 ];
 
 export const PRODUCTS: Product[] = ROWS.map((r, i) => {
-  const nameLower = r[0].toLowerCase();
-  let imgUrl = (IMAGES[r[2]][i % 2] || IMAGES[r[2]][0]) as string;
-
-  if (nameLower.includes("tomato")) {
-    imgUrl = "/products/deals/fresh-tomatoes-farm.jpg";
-  } else if (nameLower.includes("cucumber")) {
-    imgUrl = "/products/deals/cucumber-farm.jpg";
-  } else if (nameLower.includes("potato")) {
-    imgUrl = "/products/deals/potatoes-farm.jpg";
-  } else if (nameLower.includes("onion")) {
-    imgUrl = "/products/deals/red-onions-farm.jpg";
-  } else if (nameLower.includes("chilli") || nameLower.includes("chili")) {
-    imgUrl = "/products/deals/green-chillies-farm.jpg";
-  } else if (nameLower.includes("orange")) {
-    imgUrl = "/products/deals/oranges-farm.jpg";
-  } else if (nameLower.includes("marigold")) {
-    imgUrl = "/products/deals/oranges-farm.jpg";
+  const id = `p-${String(i + 1).padStart(3, "0")}`;
+  const name = r[0];
+  
+  let imageUrl = "";
+  if (i === 0) imageUrl = "/products/seeds/paddy_seed.jpg";
+  else if (i === 1) imageUrl = "/products/seeds/wheat_seed.jpg";
+  else if (i === 2) imageUrl = "/products/seeds/cotton_seed.jpg";
+  else if (i === 3) imageUrl = "/products/seeds/groundnut_seed.jpg";
+  else {
+    const prompt = `${name}, photorealistic premium product photography. The product occupies 75% of the frame. Subtle outdoor agricultural farm environment background, natural lighting.`;
+    const encodedPrompt = encodeURIComponent(prompt);
+    imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=600&height=600&nologo=true&seed=${i}`;
   }
-
+  
   const p: Product = {
-    id: `p-${String(i + 1).padStart(3, "0")}`,
-    name: r[0],
+    id,
+    name,
     brand: r[1],
     category: r[2],
     unit: r[3],
@@ -1261,8 +1256,9 @@ export const PRODUCTS: Product[] = ROWS.map((r, i) => {
     rating: r[5],
     stock: r[6],
     description: r[7],
-    image: imgUrl,
+    image: imageUrl,
   };
+  
   if (r[8]) {
     p.badge = r[8] as "Best Seller" | "Top Rated" | "Featured";
   }

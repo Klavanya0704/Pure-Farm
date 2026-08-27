@@ -947,7 +947,7 @@ export function MarketplacePage() {
         </div>
         <p className="mb-4 text-sm text-muted-foreground">{filtered.length} products found</p>
         {filtered.length ? (
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[18px]">
             {filtered.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
