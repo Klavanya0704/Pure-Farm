@@ -2256,8 +2256,8 @@ export function RegisterPage() {
         </div>
 
         {/* 2 & 3. GLASSMORPHISM CREATE ACCOUNT PANEL */}
-        <div className="w-full max-w-md lg:ml-auto">
-          <div className="bg-white/30 backdrop-blur-[24px] border border-white/40 rounded-[28px] p-8 lg:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+        <div className="w-full max-w-[540px] lg:ml-auto">
+          <div className="bg-[rgba(255,255,255,0.18)] backdrop-blur-[24px] border border-[rgba(255,255,255,0.45)] rounded-[28px] p-8 lg:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
             
             {/* 6. CREATE ACCOUNT PANEL CONTENT */}
             <div className="mb-8">
@@ -2287,7 +2287,7 @@ export function RegisterPage() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter your full name"
-                  className="h-12 w-full rounded-[14px] border border-white/50 bg-white/40 backdrop-blur-sm px-4 text-[15px] font-semibold text-[#0A2617] placeholder:text-[#11311F]/60 outline-none focus:ring-2 focus:ring-[#145A43] focus:bg-white/60 transition-all shadow-inner"
+                  className="h-[52px] w-full rounded-[14px] border border-white/50 bg-[rgba(255,255,255,0.25)] backdrop-blur-sm px-4 text-[15px] font-semibold text-[#0A2617] placeholder:text-[#11311F]/60 outline-none focus:ring-2 focus:ring-[#145A43] focus:bg-white/60 transition-all shadow-inner"
                 />
               </div>
 
@@ -2300,7 +2300,7 @@ export function RegisterPage() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="Enter 10-digit mobile number"
-                  className="h-12 w-full rounded-[14px] border border-white/50 bg-white/40 backdrop-blur-sm px-4 text-[15px] font-semibold text-[#0A2617] placeholder:text-[#11311F]/60 outline-none focus:ring-2 focus:ring-[#145A43] focus:bg-white/60 transition-all shadow-inner"
+                  className="h-[52px] w-full rounded-[14px] border border-white/50 bg-[rgba(255,255,255,0.25)] backdrop-blur-sm px-4 text-[15px] font-semibold text-[#0A2617] placeholder:text-[#11311F]/60 outline-none focus:ring-2 focus:ring-[#145A43] focus:bg-white/60 transition-all shadow-inner"
                 />
               </div>
 
@@ -2314,7 +2314,7 @@ export function RegisterPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Create a password (min. 6 chars)"
-                    className="h-12 w-full rounded-[14px] border border-white/50 bg-white/40 backdrop-blur-sm pl-4 pr-14 text-[15px] font-semibold text-[#0A2617] placeholder:text-[#11311F]/60 outline-none focus:ring-2 focus:ring-[#145A43] focus:bg-white/60 transition-all shadow-inner"
+                    className="h-[52px] w-full rounded-[14px] border border-white/50 bg-[rgba(255,255,255,0.25)] backdrop-blur-sm pl-4 pr-14 text-[15px] font-semibold text-[#0A2617] placeholder:text-[#11311F]/60 outline-none focus:ring-2 focus:ring-[#145A43] focus:bg-white/60 transition-all shadow-inner"
                   />
                   <button
                     type="button"
@@ -2338,7 +2338,7 @@ export function RegisterPage() {
               <button
                 type="submit"
                 disabled={!isValid || loading}
-                className="group relative w-full h-12 mt-4 rounded-[14px] bg-gradient-to-r from-[#145A43] to-[#0D3B2E] hover:from-[#0D3B2E] hover:to-[#0A2617] disabled:from-white/30 disabled:to-white/30 disabled:text-[#11311F]/40 disabled:cursor-not-allowed text-white font-bold text-[15px] shadow-[0_4px_14px_rgba(20,90,67,0.3)] transition-all hover:shadow-[0_6px_20px_rgba(20,90,67,0.4)] hover:-translate-y-0.5 flex items-center justify-center gap-2 overflow-hidden"
+                className="group relative w-full h-[52px] mt-4 rounded-[14px] bg-gradient-to-r from-[#145A43] to-[#0D3B2E] hover:from-[#0D3B2E] hover:to-[#0A2617] disabled:from-white/30 disabled:to-white/30 disabled:text-[#11311F]/40 disabled:cursor-not-allowed text-white font-bold text-[15px] shadow-[0_4px_14px_rgba(20,90,67,0.3)] transition-all hover:shadow-[0_6px_20px_rgba(20,90,67,0.4)] hover:-translate-y-0.5 flex items-center justify-center gap-2 overflow-hidden"
               >
                 {loading ? (
                   <>
