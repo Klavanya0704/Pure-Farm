@@ -2193,10 +2193,10 @@ export function RegisterPage() {
       {/* 1. FULL-SCREEN AGRICULTURE BACKGROUND */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1920)' }}
+        style={{ backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/commons/5/56/Two_farmers_driving_a_tractor_towing_a_raft_loaded_with_green_rice_sheaves_in_a_paddy_field_of_Vang_Vieng_Laos.jpg)' }}
       >
         {/* 2. PROPER DARK OVERLAY */}
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 35, 25, 0.38)' }} />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 35, 25, 0.30)' }} />
       </div>
 
       {/* 8. LEFT SIDE DESIGN - PUREFARM BRANDING (Top Left) */}
