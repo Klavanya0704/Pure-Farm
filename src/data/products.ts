@@ -12,6 +12,130 @@ const IMAGES: Record<Category, string[]> = {
 
 type Row = [string, string, Category, string, number, number, number, string, string?];
 
+
+const IMAGE_MAPPINGS: Record<string, string> = {
+  "Paddy Seed PR-126 (5 kg)": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/20201102.Hengnan.Hybrid_rice_Sanyou-1.6.jpg/960px-20201102.Hengnan.Hybrid_rice_Sanyou-1.6.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "Wheat Seed PBW-343 (5 kg)": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Wheatberries.jpg/960px-Wheatberries.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "BT Cotton Seed (450 g)": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/CSIRO_ScienceImage_3443_Cottonseed_Oil.jpg/960px-CSIRO_ScienceImage_3443_Cottonseed_Oil.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "Groundnut Seed TAG-24 (10 kg)": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Arachis_hypogaea_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-163.jpg/960px-Arachis_hypogaea_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-163.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "Hybrid Maize Seed DKC-9108 (5 kg)": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Ab_food_06.jpg/960px-Ab_food_06.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "Sunflower Seed KBSH-44 (5 kg)": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Sunflower_Seeds_Kaldari.jpg/960px-Sunflower_Seeds_Kaldari.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "Pearl Millet Seed HHB-67 (5 kg)": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Grain_millet%2C_early_grain_fill%2C_Tifton%2C_7-3-02.jpg/960px-Grain_millet%2C_early_grain_fill%2C_Tifton%2C_7-3-02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "Hybrid Tomato Seed (10 g)": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Capay_heirloom_tomatoes_at_Slow_Food_Nation.jpg/960px-Capay_heirloom_tomatoes_at_Slow_Food_Nation.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "Onion Seed Agrifound Dark Red (50 g)": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Nsativa001Wien.jpg/960px-Nsativa001Wien.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "Hybrid Brinjal Seed (10 g)": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Solanum_melongena_24_08_2012_%281%29.JPG/960px-Solanum_melongena_24_08_2012_%281%29.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "Chilli Seed Byadgi Dabbi (50 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Chilli%20Seed%20Byadgi%20Dabbi%20(50%20g)",
+  "Okra Seed Arka Anamika (250 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Okra%20Seed%20Arka%20Anamika%20(250%20g)",
+  "Mustard Seed Pusa Bold (2 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Mustard%20Seed%20Pusa%20Bold%20(2%20kg)",
+  "Chickpea Seed JG-11 (10 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Chickpea%20Seed%20JG-11%20(10%20kg)",
+  "Pigeon Pea Seed ICPL-87 (5 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Pigeon%20Pea%20Seed%20ICPL-87%20(5%20kg)",
+  "Soybean Seed JS-9560 (20 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Soybean%20Seed%20JS-9560%20(20%20kg)",
+  "Sugarcane Seed Sett Co-0238 (100 setts)": "https://placehold.co/600x450/eef2ff/3730a3?text=Sugarcane%20Seed%20Sett%20Co-0238%20(100%20setts)",
+  "Potato Seed Tuber Kufri Jyoti (50 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Potato%20Seed%20Tuber%20Kufri%20Jyoti%20(50%20kg)",
+  "Green Gram Seed IPM-02-3 (5 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Green%20Gram%20Seed%20IPM-02-3%20(5%20kg)",
+  "Black Gram Seed Pant U-31 (5 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Black%20Gram%20Seed%20Pant%20U-31%20(5%20kg)",
+  "Cabbage Seed Golden Acre (100 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Cabbage%20Seed%20Golden%20Acre%20(100%20g)",
+  "Cauliflower Seed Snowball-16 (50 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Cauliflower%20Seed%20Snowball-16%20(50%20g)",
+  "Cucumber Seed Hybrid Malini (25 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Cucumber%20Seed%20Hybrid%20Malini%20(25%20g)",
+  "Bottle Gourd Seed Pusa Naveen (100 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Bottle%20Gourd%20Seed%20Pusa%20Naveen%20(100%20g)",
+  "Bitter Gourd Seed Hybrid (50 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Bitter%20Gourd%20Seed%20Hybrid%20(50%20g)",
+  "Watermelon Seed Sugar Baby (100 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Watermelon%20Seed%20Sugar%20Baby%20(100%20g)",
+  "Muskmelon Seed Hara Madhu (100 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Muskmelon%20Seed%20Hara%20Madhu%20(100%20g)",
+  "Carrot Seed Pusa Rudhira (250 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Carrot%20Seed%20Pusa%20Rudhira%20(250%20g)",
+  "Spinach Seed All Green (500 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Spinach%20Seed%20All%20Green%20(500%20g)",
+  "Coriander Seed Local (1 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Coriander%20Seed%20Local%20(1%20kg)",
+  "Fenugreek Seed Pusa Early Bunching (1 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Fenugreek%20Seed%20Pusa%20Early%20Bunching%20(1%20kg)",
+  "Barley Seed BH-946 (20 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Barley%20Seed%20BH-946%20(20%20kg)",
+  "Sorghum Seed CSH-16 (5 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Sorghum%20Seed%20CSH-16%20(5%20kg)",
+  "Finger Millet Seed GPU-28 (5 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Finger%20Millet%20Seed%20GPU-28%20(5%20kg)",
+  "Sesame Seed GT-10 (2 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Sesame%20Seed%20GT-10%20(2%20kg)",
+  "Castor Seed GCH-7 (5 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Castor%20Seed%20GCH-7%20(5%20kg)",
+  "Lentil Seed IPL-406 (5 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Lentil%20Seed%20IPL-406%20(5%20kg)",
+  "Field Pea Seed HFP-4 (10 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Field%20Pea%20Seed%20HFP-4%20(10%20kg)",
+  "Berseem Fodder Seed (10 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Berseem%20Fodder%20Seed%20(10%20kg)",
+  "Napier Grass Root Slips (100 slips)": "https://placehold.co/600x450/eef2ff/3730a3?text=Napier%20Grass%20Root%20Slips%20(100%20slips)",
+  "Marigold Seed African Orange (50 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Marigold%20Seed%20African%20Orange%20(50%20g)",
+  "Turmeric Rhizome Seed Salem (25 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Turmeric%20Rhizome%20Seed%20Salem%20(25%20kg)",
+  "Ginger Rhizome Seed Varada (25 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Ginger%20Rhizome%20Seed%20Varada%20(25%20kg)",
+  "Garlic Seed Bulb G-282 (10 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Garlic%20Seed%20Bulb%20G-282%20(10%20kg)",
+  "Papaya Seed Red Lady (10 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Papaya%20Seed%20Red%20Lady%20(10%20g)",
+  "Banana Tissue Culture Plant G-9": "https://placehold.co/600x450/eef2ff/3730a3?text=Banana%20Tissue%20Culture%20Plant%20G-9",
+  "Guava Grafted Plant Allahabad Safeda": "https://placehold.co/600x450/eef2ff/3730a3?text=Guava%20Grafted%20Plant%20Allahabad%20Safeda",
+  "Mango Grafted Plant Dasheri": "https://placehold.co/600x450/eef2ff/3730a3?text=Mango%20Grafted%20Plant%20Dasheri",
+  "Drumstick Seed PKM-1 (250 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Drumstick%20Seed%20PKM-1%20(250%20g)",
+  "Curry Leaf Plant Sapling": "https://placehold.co/600x450/eef2ff/3730a3?text=Curry%20Leaf%20Plant%20Sapling",
+  "Urea 46% N (45 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Urea%2046%25%20N%20(45%20kg)",
+  "DAP 18-46-0 (50 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=DAP%2018-46-0%20(50%20kg)",
+  "MOP Muriate of Potash (50 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=MOP%20Muriate%20of%20Potash%20(50%20kg)",
+  "NPK 10:26:26 Complex (50 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=NPK%2010%3A26%3A26%20Complex%20(50%20kg)",
+  "NPK 20:20:0:13 (50 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=NPK%2020%3A20%3A0%3A13%20(50%20kg)",
+  "Single Super Phosphate (50 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Single%20Super%20Phosphate%20(50%20kg)",
+  "Zinc Sulphate 21% (5 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Zinc%20Sulphate%2021%25%20(5%20kg)",
+  "Ammonium Sulphate (50 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Ammonium%20Sulphate%20(50%20kg)",
+  "Calcium Nitrate (25 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Calcium%20Nitrate%20(25%20kg)",
+  "Water Soluble NPK 19:19:19 (1 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Water%20Soluble%20NPK%2019%3A19%3A19%20(1%20kg)",
+  "Water Soluble NPK 0:52:34 (1 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Water%20Soluble%20NPK%200%3A52%3A34%20(1%20kg)",
+  "Potassium Schoenite (25 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Potassium%20Schoenite%20(25%20kg)",
+  "Vermicompost Organic (30 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Vermicompost%20Organic%20(30%20kg)",
+  "Neem Cake Powder (25 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Neem%20Cake%20Powder%20(25%20kg)",
+  "Bone Meal Organic (10 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Bone%20Meal%20Organic%20(10%20kg)",
+  "Cow Dung Manure Composted (40 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Cow%20Dung%20Manure%20Composted%20(40%20kg)",
+  "Rhizobium Biofertiliser (500 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Rhizobium%20Biofertiliser%20(500%20g)",
+  "Azotobacter Biofertiliser (500 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=Azotobacter%20Biofertiliser%20(500%20g)",
+  "PSB Phosphate Solubilising Bacteria (500 g)": "https://placehold.co/600x450/eef2ff/3730a3?text=PSB%20Phosphate%20Solubilising%20Bacteria%20(500%20g)",
+  "Mycorrhiza VAM Granules (4 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Mycorrhiza%20VAM%20Granules%20(4%20kg)",
+  "Trichoderma Viride Bio-fungicide (1 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Trichoderma%20Viride%20Bio-fungicide%20(1%20kg)",
+  "Pseudomonas Fluorescens (1 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Pseudomonas%20Fluorescens%20(1%20kg)",
+  "Humic Acid Granules (5 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Humic%20Acid%20Granules%20(5%20kg)",
+  "Seaweed Extract Liquid (1 litre)": "https://placehold.co/600x450/eef2ff/3730a3?text=Seaweed%20Extract%20Liquid%20(1%20litre)",
+  "Micronutrient Mixture Grade-II (5 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Micronutrient%20Mixture%20Grade-II%20(5%20kg)",
+  "Boron 20% Powder (1 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Boron%2020%25%20Powder%20(1%20kg)",
+  "Ferrous Sulphate (10 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Ferrous%20Sulphate%20(10%20kg)",
+  "Gypsum Agricultural Grade (50 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Gypsum%20Agricultural%20Grade%20(50%20kg)",
+  "Sulphur 90% WDG (5 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Sulphur%2090%25%20WDG%20(5%20kg)",
+  "Liquid Consortia Biofertiliser (1 litre)": "https://placehold.co/600x450/eef2ff/3730a3?text=Liquid%20Consortia%20Biofertiliser%20(1%20litre)",
+  "Nano Urea Liquid (500 ml)": "https://placehold.co/600x450/eef2ff/3730a3?text=Nano%20Urea%20Liquid%20(500%20ml)",
+  "Nano DAP Liquid (500 ml)": "https://placehold.co/600x450/eef2ff/3730a3?text=Nano%20DAP%20Liquid%20(500%20ml)",
+  "Potassium Humate Shiny Flakes (2 kg)": "https://placehold.co/600x450/eef2ff/3730a3?text=Potassium%20Humate%20Shiny%20Flakes%20(2%20kg)",
+  "Panchagavya Organic Tonic (5 litre)": "https://placehold.co/600x450/eef2ff/3730a3?text=Panchagavya%20Organic%20Tonic%20(5%20litre)",
+  "Jeevamrut Concentrate (5 litre)": "https://placehold.co/600x450/eef2ff/3730a3?text=Jeevamrut%20Concentrate%20(5%20litre)",
+  "Battery Knapsack Sprayer 16 L": "https://placehold.co/600x450/eef2ff/3730a3?text=Battery%20Knapsack%20Sprayer%2016%20L",
+  "Manual Knapsack Sprayer 16 L": "https://placehold.co/600x450/eef2ff/3730a3?text=Manual%20Knapsack%20Sprayer%2016%20L",
+  "Power Weeder 5 HP": "https://placehold.co/600x450/eef2ff/3730a3?text=Power%20Weeder%205%20HP",
+  "Brush Cutter 2-Stroke 43 CC": "https://placehold.co/600x450/eef2ff/3730a3?text=Brush%20Cutter%202-Stroke%2043%20CC",
+  "Rotavator 5 Feet": "https://placehold.co/600x450/eef2ff/3730a3?text=Rotavator%205%20Feet",
+  "Seed Drill 9 Tyne": "https://placehold.co/600x450/eef2ff/3730a3?text=Seed%20Drill%209%20Tyne",
+  "Drip Irrigation Kit 1 Acre": "https://placehold.co/600x450/eef2ff/3730a3?text=Drip%20Irrigation%20Kit%201%20Acre",
+  "Sprinkler Set 1 Acre": "https://placehold.co/600x450/eef2ff/3730a3?text=Sprinkler%20Set%201%20Acre",
+  "HDPE Mulching Film 25 Micron (400 m)": "https://placehold.co/600x450/eef2ff/3730a3?text=HDPE%20Mulching%20Film%2025%20Micron%20(400%20m)",
+  "Shade Net 50% Green (3 x 50 m)": "https://placehold.co/600x450/eef2ff/3730a3?text=Shade%20Net%2050%25%20Green%20(3%20x%2050%20m)",
+  "Insect Net 40 Mesh (3 x 50 m)": "https://placehold.co/600x450/eef2ff/3730a3?text=Insect%20Net%2040%20Mesh%20(3%20x%2050%20m)",
+  "Soil Testing Kit Digital": "https://placehold.co/600x450/eef2ff/3730a3?text=Soil%20Testing%20Kit%20Digital",
+  "Grain Moisture Meter": "https://placehold.co/600x450/eef2ff/3730a3?text=Grain%20Moisture%20Meter",
+  "Sickle Serrated Steel": "https://placehold.co/600x450/eef2ff/3730a3?text=Sickle%20Serrated%20Steel",
+  "Kudali / Hoe 1.5 kg": "https://placehold.co/600x450/eef2ff/3730a3?text=Kudali%20%2F%20Hoe%201.5%20kg",
+  "Garden Spade Steel": "https://placehold.co/600x450/eef2ff/3730a3?text=Garden%20Spade%20Steel",
+  "Pruning Secateur Bypass": "https://placehold.co/600x450/eef2ff/3730a3?text=Pruning%20Secateur%20Bypass",
+  "Chaff Cutter Electric 2 HP": "https://placehold.co/600x450/eef2ff/3730a3?text=Chaff%20Cutter%20Electric%202%20HP",
+  "Water Pump 5 HP Diesel": "https://placehold.co/600x450/eef2ff/3730a3?text=Water%20Pump%205%20HP%20Diesel",
+  "Submersible Pump 3 HP": "https://placehold.co/600x450/eef2ff/3730a3?text=Submersible%20Pump%203%20HP",
+  "Solar Pump Controller 5 HP": "https://placehold.co/600x450/eef2ff/3730a3?text=Solar%20Pump%20Controller%205%20HP",
+  "Tarpaulin Sheet 200 GSM (18 x 24 ft)": "https://placehold.co/600x450/eef2ff/3730a3?text=Tarpaulin%20Sheet%20200%20GSM%20(18%20x%2024%20ft)",
+  "Jute Gunny Bags (Pack of 50)": "https://placehold.co/600x450/eef2ff/3730a3?text=Jute%20Gunny%20Bags%20(Pack%20of%2050)",
+  "Grain Storage Silo 1 Tonne": "https://placehold.co/600x450/eef2ff/3730a3?text=Grain%20Storage%20Silo%201%20Tonne",
+  "Weighing Scale Platform 300 kg": "https://placehold.co/600x450/eef2ff/3730a3?text=Weighing%20Scale%20Platform%20300%20kg",
+  "Cattle Feed Trough Plastic 60 L": "https://placehold.co/600x450/eef2ff/3730a3?text=Cattle%20Feed%20Trough%20Plastic%2060%20L",
+  "Milking Machine Single Bucket": "https://placehold.co/600x450/eef2ff/3730a3?text=Milking%20Machine%20Single%20Bucket",
+  "Poultry Automatic Drinker (Pack of 10)": "https://placehold.co/600x450/eef2ff/3730a3?text=Poultry%20Automatic%20Drinker%20(Pack%20of%2010)",
+  "Wheelbarrow Steel 100 L": "https://placehold.co/600x450/eef2ff/3730a3?text=Wheelbarrow%20Steel%20100%20L",
+  "Fogger Machine Portable": "https://placehold.co/600x450/eef2ff/3730a3?text=Fogger%20Machine%20Portable",
+  "Solar Insect Light Trap": "https://placehold.co/600x450/eef2ff/3730a3?text=Solar%20Insect%20Light%20Trap",
+  "Pheromone Trap Set (Pack of 10)": "https://placehold.co/600x450/eef2ff/3730a3?text=Pheromone%20Trap%20Set%20(Pack%20of%2010)",
+  "Farm Safety Kit (Mask, Gloves, Goggles)": "https://placehold.co/600x450/eef2ff/3730a3?text=Farm%20Safety%20Kit%20(Mask%2C%20Gloves%2C%20Goggles)",
+  "Weather Station Mini Digital": "https://placehold.co/600x450/eef2ff/3730a3?text=Weather%20Station%20Mini%20Digital",
+  "Tractor Trolley Tipping 5 Tonne": "https://placehold.co/600x450/eef2ff/3730a3?text=Tractor%20Trolley%20Tipping%205%20Tonne"
+};
+
 const ROWS: Row[] = [
   [
     "Paddy Seed PR-126 (5 kg)",
@@ -1235,23 +1359,7 @@ export const PRODUCTS: Product[] = ROWS.map((r, i) => {
   const id = `p-${String(i + 1).padStart(3, "0")}`;
   const name = r[0];
   
-  let imageUrl = "";
-  if (i === 0) imageUrl = "/products/seeds/paddy_seed.jpg";
-  else if (i === 1) imageUrl = "/products/seeds/wheat_seed.jpg";
-  else if (i === 2) imageUrl = "/products/seeds/cotton_seed.jpg";
-  else if (i === 3) imageUrl = "/products/seeds/groundnut_seed.jpg";
-  else {
-    let prompt = `${name}, realistic agricultural photography. `;
-    if (name.toLowerCase().includes("seed") || name.toLowerCase().includes("tissue culture") || name.toLowerCase().includes("rhizome")) {
-      prompt += "Growing healthy crop plants in a real farm field, agricultural soil, outdoor daylight. The product must be the main focus.";
-    } else if (name.toLowerCase().includes("urea") || name.toLowerCase().includes("dap") || name.toLowerCase().includes("sprayer")) {
-      prompt += "Realistic product in an outdoor farm setting. The product must be the main focus.";
-    } else {
-      prompt += "Fresh agricultural produce in a real farm environment. The product must be the main focus.";
-    }
-    const encodedPrompt = encodeURIComponent(prompt);
-    imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=600&height=450&nologo=true&seed=${i}`;
-  }
+  let imageUrl = IMAGE_MAPPINGS[name];
   
   const p: Product = {
     id,
