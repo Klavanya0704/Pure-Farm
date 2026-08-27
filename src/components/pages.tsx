@@ -2189,73 +2189,97 @@ export function RegisterPage() {
   };
 
   return (
-    <div className="w-full min-h-screen grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] bg-[#f8fbf9]">
-      {/* LEFT VISUAL PANEL */}
-      <div className="relative hidden lg:flex flex-col justify-between p-12 text-white overflow-hidden bg-emerald-950 min-h-screen">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1000"
-            alt="Indian farmer in golden crop field at sunrise"
-            className="h-full w-full object-cover opacity-35 mix-blend-overlay"
-          />
-          {/* Subtle green gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-emerald-950/95 via-emerald-900/85 to-emerald-950/60" />
-        </div>
+    <div className="relative min-h-screen w-full flex items-center overflow-hidden font-sans">
+      {/* 1. FULL-SCREEN AGRICULTURE BACKGROUND */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1920"
+          alt="Realistic Indian agricultural farm field"
+          className="h-full w-full object-cover"
+        />
+        {/* Subtle dark/green overlay for text readability */}
+        <div className="absolute inset-0 bg-[#0A2617]/50 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
+      </div>
 
-        {/* Top Branding Logo */}
-        <div className="relative z-10 flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#1b4332] shadow-sm">
-            <Leaf className="h-6 w-6" />
+      {/* 4. PUREFARM BRANDING (Top Left) */}
+      <div className="absolute top-6 left-6 lg:top-10 lg:left-12 z-10 flex items-center gap-3">
+        <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-lg">
+          <Leaf className="h-6 w-6" />
+        </span>
+        <div>
+          <span className="block text-2xl font-black tracking-wide leading-none text-white drop-shadow-md">PureFarm</span>
+          <span className="block text-[10px] font-bold text-white/90 uppercase tracking-widest leading-none mt-1.5 drop-shadow-md">
+            Connect � Grow � Prosper
           </span>
-          <div>
-            <span className="block text-xl font-black tracking-wide leading-none">PureFarm</span>
-            <span className="block text-[10px] font-bold text-emerald-300 uppercase tracking-widest leading-none mt-1.5">
-              Connect • Grow • Prosper
-            </span>
-          </div>
-        </div>
-
-        {/* Center Slogans & Features */}
-        <div className="relative z-10 max-w-lg my-auto space-y-6">
-          <h2 className="text-4xl lg:text-5xl font-black leading-tight">
-            Join the Digital
-            <br />
-            Agri Revolution
-          </h2>
-          <p className="text-sm text-emerald-100/90 leading-relaxed font-medium">
-            Register your farmer profile today to unlock crop guidance, Mandi price trackers,
-            government scheme applications, and premium seed/fertiliser listings.
-          </p>
-        </div>
-
-        {/* Footer info */}
-        <div className="relative z-10 text-[10px] text-emerald-200/50 uppercase tracking-widest font-bold">
-          © {new Date().getFullYear()} PureFarm Platform. Secured and Verified.
         </div>
       </div>
 
-      {/* RIGHT REGISTER CARD */}
-      <div className="flex items-center justify-center p-6 sm:p-12 lg:p-16 bg-white min-h-screen">
-        <div className="w-full max-w-md space-y-6">
-          {/* Card Top Welcome Header */}
-          <div className="text-center lg:text-left space-y-2">
-            <div className="flex justify-center lg:justify-start">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#eef7f2] text-[#2d6a4f] border border-emerald-100 shadow-sm mb-3">
-                <Leaf className="h-6 w-6" />
-              </span>
+      {/* Main Content Layout */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center justify-between p-6 lg:p-12 mt-16 lg:mt-0">
+        
+        {/* 5. LEFT-SIDE CONTENT */}
+        <div className="w-full lg:w-1/2 text-white mb-10 lg:mb-0 lg:pr-12 hidden md:block">
+          <h2 className="text-4xl lg:text-6xl font-black leading-tight drop-shadow-lg mb-6">
+            Join the Digital<br />Agri Revolution
+          </h2>
+          <p className="text-lg text-white/90 leading-relaxed font-medium max-w-md mb-10 drop-shadow-md">
+            Register your farmer profile today to unlock crop guidance, Mandi price trackers, government scheme applications, and premium seed/fertiliser listings.
+          </p>
+          
+          <div className="space-y-4">
+            {/* Feature 1 */}
+            <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-[16px] p-4 max-w-sm">
+              <div className="bg-[#145A43] p-2 rounded-lg"><Leaf className="h-5 w-5 text-white" /></div>
+              <div>
+                <h4 className="font-bold text-white text-sm">Smart Farming</h4>
+                <p className="text-white/80 text-xs">Smarter decisions</p>
+              </div>
             </div>
-            <h3 className="text-2xl font-black text-[#1b4332]">Create Account 🌱</h3>
-            <p className="text-xs text-muted-foreground">
-              Register your farmer profile to get started
-            </p>
+            {/* Feature 2 */}
+            <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-[16px] p-4 max-w-sm">
+              <div className="bg-[#145A43] p-2 rounded-lg"><svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg></div>
+              <div>
+                <h4 className="font-bold text-white text-sm">Water Efficient</h4>
+                <p className="text-white/80 text-xs">Every drop counts</p>
+              </div>
+            </div>
+            {/* Feature 3 */}
+            <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-[16px] p-4 max-w-sm">
+              <div className="bg-[#145A43] p-2 rounded-lg"><svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div>
+              <div>
+                <h4 className="font-bold text-white text-sm">Healthy Crop</h4>
+                <p className="text-white/80 text-xs">Better yield</p>
+              </div>
+            </div>
           </div>
+        </div>
 
-          {/* Form Card Content */}
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-soft">
-            <form onSubmit={handleRegisterSubmit} className="space-y-4">
+        {/* 2 & 3. GLASSMORPHISM CREATE ACCOUNT PANEL */}
+        <div className="w-full max-w-md lg:ml-auto">
+          <div className="bg-white/30 backdrop-blur-[24px] border border-white/40 rounded-[28px] p-8 lg:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+            
+            {/* 6. CREATE ACCOUNT PANEL CONTENT */}
+            <div className="mb-8">
+              <div className="flex justify-center mb-4">
+                <span className="flex h-14 w-14 items-center justify-center rounded-[18px] bg-[#145A43]/10 backdrop-blur-md border border-[#145A43]/20 text-[#0A2617] shadow-sm">
+                  <Leaf className="h-7 w-7" />
+                </span>
+              </div>
+              {/* 7. TEXT VISIBILITY (High Contrast) */}
+              <h3 className="text-[28px] font-black text-center text-[#0A2617] leading-tight">
+                Create Account ??
+              </h3>
+              <p className="text-center text-[#11311F] text-sm font-semibold mt-2">
+                Register your farmer profile to get started
+              </p>
+            </div>
+
+            <form onSubmit={handleRegisterSubmit} className="space-y-5">
+              
+              {/* 8. INPUT DESIGN (Frosted) */}
               <div className="space-y-1.5">
-                <label className="text-xs font-black text-[#1b4332] block">Full Name</label>
+                <label className="text-[13px] font-bold text-[#0A2617] block">Full Name</label>
                 <input
                   type="text"
                   required
@@ -2263,12 +2287,12 @@ export function RegisterPage() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter your full name"
-                  className="h-11 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+                  className="h-12 w-full rounded-[14px] border border-white/50 bg-white/40 backdrop-blur-sm px-4 text-[15px] font-semibold text-[#0A2617] placeholder:text-[#11311F]/60 outline-none focus:ring-2 focus:ring-[#145A43] focus:bg-white/60 transition-all shadow-inner"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-black text-[#1b4332] block">Mobile Number</label>
+                <label className="text-[13px] font-bold text-[#0A2617] block">Mobile Number</label>
                 <input
                   type="tel"
                   required
@@ -2276,12 +2300,12 @@ export function RegisterPage() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="Enter 10-digit mobile number"
-                  className="h-11 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+                  className="h-12 w-full rounded-[14px] border border-white/50 bg-white/40 backdrop-blur-sm px-4 text-[15px] font-semibold text-[#0A2617] placeholder:text-[#11311F]/60 outline-none focus:ring-2 focus:ring-[#145A43] focus:bg-white/60 transition-all shadow-inner"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-black text-[#1b4332] block">Password</label>
+                <label className="text-[13px] font-bold text-[#0A2617] block">Password</label>
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
@@ -2290,12 +2314,12 @@ export function RegisterPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Create a password (min. 6 chars)"
-                    className="h-11 w-full rounded-xl border border-input bg-background pl-4 pr-12 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] transition"
+                    className="h-12 w-full rounded-[14px] border border-white/50 bg-white/40 backdrop-blur-sm pl-4 pr-14 text-[15px] font-semibold text-[#0A2617] placeholder:text-[#11311F]/60 outline-none focus:ring-2 focus:ring-[#145A43] focus:bg-white/60 transition-all shadow-inner"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3.5 top-3 text-xs font-bold text-muted-foreground hover:text-foreground transition-colors"
+                    className="absolute right-4 top-3.5 text-xs font-bold text-[#145A43] hover:text-[#0A2617] transition-colors"
                   >
                     {showPassword ? "Hide" : "Show"}
                   </button>
@@ -2303,53 +2327,43 @@ export function RegisterPage() {
               </div>
 
               {!isValid && (name.length > 0 || phone.length > 0 || password.length > 0) && (
-                <p className="text-[10px] leading-normal text-muted-foreground">
-                  • Name should be at least 3 characters.
-                  <br />
-                  • Mobile number must be exactly 10 digits.
-                  <br />• Password must be at least 6 characters.
+                <p className="text-[11px] font-semibold leading-relaxed text-[#145A43] bg-white/30 backdrop-blur-sm p-3 rounded-xl border border-[#145A43]/20">
+                  � Name should be at least 3 characters.<br />
+                  � Mobile number must be exactly 10 digits.<br />
+                  � Password must be at least 6 characters.
                 </p>
               )}
 
+              {/* 9. CREATE ACCOUNT BUTTON (Premium) */}
               <button
                 type="submit"
                 disabled={!isValid || loading}
-                className="w-full h-11 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] disabled:bg-muted disabled:text-muted-foreground disabled:opacity-50 text-white font-black text-sm shadow-sm transition hover:scale-[1.01] flex items-center justify-center gap-2 mt-4"
+                className="group relative w-full h-12 mt-4 rounded-[14px] bg-gradient-to-r from-[#145A43] to-[#0D3B2E] hover:from-[#0D3B2E] hover:to-[#0A2617] disabled:from-white/30 disabled:to-white/30 disabled:text-[#11311F]/40 disabled:cursor-not-allowed text-white font-bold text-[15px] shadow-[0_4px_14px_rgba(20,90,67,0.3)] transition-all hover:shadow-[0_6px_20px_rgba(20,90,67,0.4)] hover:-translate-y-0.5 flex items-center justify-center gap-2 overflow-hidden"
               >
                 {loading ? (
                   <>
-                    <svg
-                      className="animate-spin h-4.5 w-4.5 text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      />
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      />
+                    <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
                     <span>Creating Account...</span>
                   </>
                 ) : (
-                  <span>Create Account</span>
+                  <>
+                    <span>Create Account</span>
+                    <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </>
                 )}
               </button>
             </form>
 
-            <div className="text-center text-xs mt-6">
-              <span className="text-muted-foreground">Already have an account? </span>
+            <div className="text-center text-sm font-semibold mt-6">
+              <span className="text-[#11311F]">Already have an account? </span>
               <Link
                 to="/login"
-                className="font-bold text-[#2d6a4f] hover:text-[#1b4332] hover:underline transition"
+                className="text-[#145A43] hover:text-[#0A2617] transition-colors hover:underline"
               >
                 Sign In
               </Link>
