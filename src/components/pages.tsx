@@ -1,4 +1,4 @@
-﻿import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import {
   ArrowRight,
   Bell,
@@ -58,7 +58,7 @@ import {
 import { CATEGORIES, getProduct, PRODUCTS } from "@/data/products";
 import { SITE, waLink } from "@/data/site";
 import type { Category, NotificationItem, Product } from "@/data/types";
-import { cardClass, PageShell } from "./AppShell";
+import { cardClass, glassCardClass, PageShell } from "./AppShell";
 import { getCartProducts, useCart } from "./CartContext";
 import { useAuth, type UserRole } from "./AuthContext";
 import { formatRupees, ProductCard } from "./ProductCard";
@@ -1225,10 +1225,11 @@ export function OrderPage() {
     return (
       <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
         <PageShell
+          bgImage="https://images.unsplash.com/photo-1591955506264-3f5a6834570a?auto=format&fit=crop&w=2000"
           title="Order confirmed"
           intro="A PureFarm advisor would confirm stock and delivery timing by phone or WhatsApp."
         >
-          <div className={cardClass}>
+          <div className={glassCardClass}>
             <CheckCircle2 className="h-12 w-12 text-success" />
             <p className="mt-4 text-2xl font-black">Order PF-{Math.floor(2000 + subtotal)}</p>
             <p className="mt-2 text-muted-foreground">
@@ -1250,6 +1251,7 @@ export function OrderPage() {
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
       <PageShell
+        bgImage="https://images.unsplash.com/photo-1591955506264-3f5a6834570a?auto=format&fit=crop&w=2000"
         eyebrow="Checkout"
         title="Place order"
         intro="Complete a safe mock order flow. No real payment is processed."
@@ -1497,6 +1499,7 @@ export function SchemesPage() {
   return (
     <RoleGuard allowedRoles={["farmer", "admin"]}>
       <CardGridPage
+        bgImage="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=2000"
         eyebrow="Schemes"
         title="Government schemes"
         intro="Find farmer support programmes, eligibility, and official application links."
@@ -1518,6 +1521,7 @@ export function InsurancePage() {
   return (
     <RoleGuard allowedRoles={["farmer", "admin"]}>
       <CardGridPage
+        bgImage="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=2000"
         eyebrow="Insurance"
         title="Crop insurance"
         intro="Compare crop, weather, and allied farming insurance options."
@@ -1536,13 +1540,14 @@ export function WeatherPage() {
   return (
     <RoleGuard allowedRoles={["farmer", "admin"]}>
       <PageShell
+        bgImage="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=2000"
         eyebrow="Weather"
         title="Farm weather advisory"
         intro="Five-day local forecast with field action notes."
       >
         <div className="grid gap-4 md:grid-cols-5">
           {WEATHER.map((day) => (
-            <div key={day.day} className={cardClass}>
+            <div key={day.day} className={glassCardClass}>
               <CloudSun className="h-8 w-8 text-primary" />
               <p className="mt-3 font-black">{day.day}</p>
               <p className="text-sm text-muted-foreground">{day.condition}</p>
@@ -1565,12 +1570,13 @@ export function CropCalendarPage() {
   return (
     <RoleGuard allowedRoles={["farmer", "admin"]}>
       <PageShell
+        bgImage="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=2000"
         eyebrow="Crop calendar"
         title="Season planner"
         intro="Select a crop to see its sowing window, harvest timing, and activity timeline."
       >
         <div className="grid gap-6 lg:grid-cols-[18rem_1fr]">
-          <div className={cardClass}>
+          <div className={glassCardClass}>
             {CROPS.map((item) => (
               <button
                 key={item.name}
@@ -1583,7 +1589,7 @@ export function CropCalendarPage() {
             ))}
           </div>
           {crop ? (
-            <div className={cardClass}>
+            <div className={glassCardClass}>
               <p className="text-2xl font-black">
                 {crop.name} Â· {crop.season}
               </p>
@@ -1625,6 +1631,7 @@ export function LearnPage() {
   return (
     <RoleGuard allowedRoles={["farmer", "admin"]}>
       <CardGridPage
+        bgImage="https://upload.wikimedia.org/wikipedia/commons/f/fc/Farmer_working_in_the_field_with_their_tractor.jpg"
         eyebrow="Learning"
         title="Farmer learning hub"
         intro="Short, practical modules for field operations and farm business."
@@ -1646,6 +1653,7 @@ export function InternshipsPage() {
   return (
     <RoleGuard allowedRoles={["farmer", "admin"]}>
       <CardGridPage
+        bgImage="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=2000"
         eyebrow="Internships"
         title="Agri internships"
         intro="Field, operations, content, and lab roles for agriculture learners."
@@ -1666,6 +1674,7 @@ export function NotificationsPage() {
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "seller", "admin"]}>
       <PageShell
+        bgImage="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000"
         eyebrow="Notifications"
         title="Farm alerts"
         intro={`${unread} unread advisories across market, weather, schemes, and orders.`}
@@ -2811,6 +2820,7 @@ function CardGridPage({
   intro,
   query,
   setQuery,
+  bgImage,
   items,
 }: {
   eyebrow: string;
@@ -2818,6 +2828,7 @@ function CardGridPage({
   intro: string;
   query?: string;
   setQuery?: (value: string) => void;
+  bgImage?: string;
   items: {
     title: string;
     meta: string;
@@ -2827,20 +2838,21 @@ function CardGridPage({
     icon?: React.ReactNode;
   }[];
 }) {
+  const currentCardClass = bgImage ? glassCardClass : cardClass;
   return (
-    <PageShell eyebrow={eyebrow} title={title} intro={intro}>
+    <PageShell eyebrow={eyebrow} title={title} intro={intro} bgImage={bgImage}>
       {setQuery ? (
         <input
           value={query || ""}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search..."
-          className="mb-5 h-11 w-full max-w-xl rounded-lg border border-input bg-card px-4"
+          className={`mb-5 h-12 w-full max-w-xl rounded-xl border px-4 shadow-sm outline-none transition-all ${bgImage ? 'bg-white/80 border-white/50 backdrop-blur-md focus:bg-white focus:ring-2 focus:ring-white' : 'border-input bg-card'}`}
         />
       ) : null}
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {items.map((item) => {
           const content = (
-            <div className={`${cardClass} h-full`}>
+            <div className={`${currentCardClass} h-full`}>
               <div className="flex items-start gap-3">
                 {item.icon}
                 <div>

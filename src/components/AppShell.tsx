@@ -1,4 +1,4 @@
-import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
+﻿import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import {
   Bell,
   BookOpen,
@@ -102,7 +102,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div>
             <span className="block text-lg font-black text-[#1b4332]">PureFarm</span>
             <span className="block text-[10px] font-semibold text-[#2d6a4f]/70 uppercase tracking-wider">
-              Connect • Grow • Prosper
+              Connect â€¢ Grow â€¢ Prosper
             </span>
           </div>
         </Link>
@@ -214,7 +214,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               {/* Weather */}
               <div className="hidden sm:flex items-center gap-1 text-xs font-semibold text-foreground/80 border-l border-border pl-3">
                 <Sun className="h-3.5 w-3.5 text-amber-500 fill-amber-100" />
-                <span>28°C, Sunny</span>
+                <span>28Â°C, Sunny</span>
               </div>
 
               {/* Notifications */}
@@ -346,13 +346,35 @@ export function PageShell({
   eyebrow,
   title,
   intro,
+  bgImage,
   children,
 }: {
   eyebrow?: string;
   title: string;
   intro?: string;
+  bgImage?: string;
   children: ReactNode;
 }) {
+  if (bgImage) {
+    return (
+      <section className="relative min-h-[calc(100vh-4rem)] bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${bgImage})` }}>
+        <div className="absolute inset-0 bg-[#052d20]/35" />
+        <div className="relative z-10 px-4 py-8 sm:px-6 lg:px-8 lg:py-10 mx-auto max-w-7xl">
+          <div className="mb-7 max-w-3xl">
+            {eyebrow ? (
+              <p className="text-sm font-black uppercase tracking-wider text-[#a7f3d0] drop-shadow-md">{eyebrow}</p>
+            ) : null}
+            <h1 className="mt-2 text-3xl font-black tracking-normal text-white sm:text-4xl drop-shadow-lg">
+              {title}
+            </h1>
+            {intro ? <p className="mt-3 text-base leading-7 text-white/95 drop-shadow-md font-medium">{intro}</p> : null}
+          </div>
+          {children}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
       <div className="mx-auto max-w-7xl">
@@ -371,4 +393,6 @@ export function PageShell({
   );
 }
 
+export const glassCardClass = "rounded-[20px] border border-white/45 bg-white/75 p-5 shadow-[0_10px_35px_rgba(0,0,0,0.10)] backdrop-blur-[16px] transition-all duration-200 hover:bg-white/85 text-foreground";
 export const cardClass = "rounded-2xl border border-border bg-card p-5 shadow-card transition-all duration-200 hover:shadow-card-lg";
+
