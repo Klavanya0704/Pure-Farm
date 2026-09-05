@@ -1359,7 +1359,7 @@ export const PRODUCTS: Product[] = ROWS.map((r, i) => {
   const id = `p-${String(i + 1).padStart(3, "0")}`;
   const name = r[0];
   
-  let imageUrl = IMAGE_MAPPINGS[name] || "";
+  let imageUrl = `/images/products/${id}.jpg`;
   
   const p: Product = {
     id,
