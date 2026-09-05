@@ -1359,7 +1359,7 @@ export const PRODUCTS: Product[] = ROWS.map((r, i) => {
   const id = `p-${String(i + 1).padStart(3, "0")}`;
   const name = r[0];
   
-  let imageUrl = IMAGE_MAPPINGS[name] || "https://upload.wikimedia.org/wikipedia/commons/1/12/Tractor_New_Holland_T6.165_plowing_%28Zadobrova%2C_Ljubljana%29.jpg";
+  let imageUrl = IMAGE_MAPPINGS[name] || "";
   
   const p: Product = {
     id,

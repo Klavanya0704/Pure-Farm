@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { IndianRupee, ShoppingCart, Star } from "lucide-react";
 import type { Product } from "@/data/types";
@@ -13,6 +14,7 @@ export function formatRupees(value: number) {
 
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
+  const [imageError, setImageError] = useState(false);
 
   // Compute deterministic discount, old price, and review count based on product ID/price, or use custom overrides
   const discountStr = product.customDiscount
