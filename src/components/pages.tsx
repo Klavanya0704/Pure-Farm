@@ -1,8 +1,10 @@
-import { Link, useNavigate } from "@tanstack/react-router";
+﻿import { Link, useNavigate } from "@tanstack/react-router";
 import {
   ArrowRight,
   Bell,
   CalendarDays,
+  Clock,
+  LineChart,
   CheckCircle2,
   CloudSun,
   Filter,
@@ -184,7 +186,7 @@ export function HomePage() {
         secLinkTo: "/marketplace",
       },
       {
-        badge: "HEALTHY SOIL • HEALTHY CROPS",
+        badge: "HEALTHY SOIL â€¢ HEALTHY CROPS",
         title: "Nourish Your Soil, Grow Better",
         subtitle:
           "Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests.",
@@ -223,7 +225,7 @@ export function HomePage() {
         badge: "FROM FIELD TO FUTURE",
         title: "Grow More. Harvest Better.",
         subtitle:
-          "Everything farmers need — from quality farm inputs and equipment to fresh agricultural products.",
+          "Everything farmers need â€” from quality farm inputs and equipment to fresh agricultural products.",
         img: "/hero-harvest.jpg",
         badgeColor: "bg-amber-500/20 text-amber-300",
         linkText: "Shop Marketplace",
@@ -383,7 +385,7 @@ export function HomePage() {
       const dbItem = weatherData[i + 1];
       return {
         day: d,
-        temp: dbItem ? `${dbItem.high}°/${dbItem.low}°` : `${29 + i}°/${22 + (i % 2)}°`,
+        temp: dbItem ? `${dbItem.high}Â°/${dbItem.low}Â°` : `${29 + i}Â°/${22 + (i % 2)}Â°`,
         condition: dbItem ? dbItem.condition : "Sunny",
       };
     });
@@ -532,14 +534,14 @@ export function HomePage() {
                 onClick={prevSlide}
                 className="absolute left-2.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-black/20 text-white hover:bg-black/50 flex items-center justify-center transition text-sm font-bold shadow-sm"
               >
-                ‹
+                â€¹
               </button>
               <button
                 type="button"
                 onClick={nextSlide}
                 className="absolute right-2.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-black/20 text-white hover:bg-black/50 flex items-center justify-center transition text-sm font-bold shadow-sm"
               >
-                ›
+                â€º
               </button>
 
               {/* Pagination Dots */}
@@ -623,15 +625,15 @@ export function HomePage() {
                 ))}
               </div>
             </div>
-            {/* Product Section — Premium Animated Product Marquee */}
+            {/* Product Section â€” Premium Animated Product Marquee */}
             <div className="space-y-4">
               {/* Header Container */}
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-border/40 pb-3 select-none">
                 <div>
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                    <h2 className="text-xl font-black text-[#1b4332]">Best Deals for You 🔥</h2>
+                    <h2 className="text-xl font-black text-[#1b4332]">Best Deals for You ðŸ”¥</h2>
                     <span className="inline-flex items-center gap-1 rounded-full bg-red-50 text-red-600 px-2 py-0.5 text-[10px] font-black border border-red-100/50 animate-pulse">
-                      🔥 Deals ending soon · {countdownTime.hours}h {countdownTime.mins}m
+                      ðŸ”¥ Deals ending soon Â· {countdownTime.hours}h {countdownTime.mins}m
                     </span>
                   </div>
                   <p className="text-xs text-muted-foreground mt-0.5">
@@ -644,7 +646,7 @@ export function HomePage() {
                 >
                   View All{" "}
                   <span className="group-hover/viewall:translate-x-0.5 transition-transform duration-200">
-                    →
+                    â†’
                   </span>
                 </Link>
               </div>
@@ -708,7 +710,7 @@ export function HomePage() {
               <div className="mt-3">
                 <p className="text-sm font-black text-[#1b4332]">Rajahmundry, AP</p>
                 <div className="mt-2 flex items-baseline gap-2">
-                  <span className="text-4xl font-black text-[#1b4332]">28°C</span>
+                  <span className="text-4xl font-black text-[#1b4332]">28Â°C</span>
                   <span className="text-sm font-bold text-muted-foreground">Sunny</span>
                 </div>
 
@@ -772,7 +774,7 @@ export function HomePage() {
                         <p className="text-[10px] text-muted-foreground mt-0.5">Local Area Hub</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-xs font-black text-[#1b4332]">₹{p.price} / kg</p>
+                        <p className="text-xs font-black text-[#1b4332]">â‚¹{p.price} / kg</p>
                         <p
                           className={`mt-0.5 text-[10px] font-bold flex items-center justify-end gap-0.5 ${isPositive ? "text-emerald-600" : "text-rose-500"}`}
                         >
@@ -1017,7 +1019,7 @@ export function ProductDetailPage({ id }: { id: string }) {
                 </span>
               ) : null}
               <span className="rounded-lg bg-accent px-2.5 py-1 text-xs font-bold text-accent-foreground">
-                {product.rating} ★ rating
+                {product.rating} â˜… rating
               </span>
             </div>
             <p className="text-4xl font-black text-[#1b4332]">
@@ -1125,7 +1127,7 @@ export function CartPage() {
                   <div>
                     <p className="font-black">{product.name}</p>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      {product.brand} · {formatRupees(product.price)} / {product.unit}
+                      {product.brand} Â· {formatRupees(product.price)} / {product.unit}
                     </p>
                     <button
                       type="button"
@@ -1230,7 +1232,7 @@ export function OrderPage() {
             <CheckCircle2 className="h-12 w-12 text-success" />
             <p className="mt-4 text-2xl font-black">Order PF-{Math.floor(2000 + subtotal)}</p>
             <p className="mt-2 text-muted-foreground">
-              Status: confirmation pending · Payment: {form.payment}
+              Status: confirmation pending Â· Payment: {form.payment}
             </p>
             <Link
               to="/marketplace"
@@ -1319,57 +1321,170 @@ export function OrderPage() {
 
 export function MarketPage() {
   const [query, setQuery] = useState("");
-  const rows = MANDI_PRICES.filter((item) =>
-    `${item.crop} ${item.mandi} ${item.state}`.toLowerCase().includes(query.toLowerCase()),
-  );
+  const [selectedState, setSelectedState] = useState("All States");
+  const [selectedCrop, setSelectedCrop] = useState("All Crops");
+
+  const cropsList = ["All Crops", ...Array.from(new Set(MANDI_PRICES.map(m => m.crop)))];
+  const statesList = ["All States", ...Array.from(new Set(MANDI_PRICES.map(m => m.state)))];
+
+  const rows = MANDI_PRICES.filter((item) => {
+    const matchQuery = `${item.crop} ${item.mandi} ${item.state}`.toLowerCase().includes(query.toLowerCase());
+    const matchState = selectedState === "All States" || item.state === selectedState;
+    const matchCrop = selectedCrop === "All Crops" || item.crop === selectedCrop;
+    return matchQuery && matchState && matchCrop;
+  });
+
+  const getCropIcon = (crop: string) => {
+    switch(crop.toLowerCase()) {
+      case 'wheat': return 'ðŸŒ¾';
+      case 'paddy': return 'ðŸš';
+      case 'maize': return 'ðŸŒ½';
+      case 'cotton': return 'â˜ï¸';
+      case 'mustard': return 'ðŸŒ¼';
+      case 'onion': return 'ðŸ§…';
+      case 'tomato': return 'ðŸ…';
+      case 'potato': return 'ðŸ¥”';
+      default: return 'ðŸŒ±';
+    }
+  };
+
   return (
     <RoleGuard allowedRoles={["farmer", "admin"]}>
-      <PageShell
-        eyebrow="Mandi"
-        title="Market prices"
-        intro="Track local crop prices, arrivals, and trend movement for better selling decisions."
-      >
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search crop, mandi, state..."
-          className="mb-5 h-11 w-full max-w-xl rounded-lg border border-input bg-card px-4"
-        />
-        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-card">
-          <div className="grid grid-cols-[1fr_1fr_1fr] gap-3 border-b border-border bg-muted p-4 text-sm font-black sm:grid-cols-[1fr_1fr_1fr_1fr_1fr]">
-            <span>Crop</span>
-            <span>Mandi</span>
-            <span className="hidden sm:block">Arrival</span>
-            <span>Price</span>
-            <span>Trend</span>
+      <div className="flex flex-col min-h-[calc(100vh-4rem)] bg-[#f8faf9]">
+        {/* HERO SECTION */}
+        <div className="relative h-[280px] w-full flex items-center justify-center overflow-hidden rounded-b-[2rem]">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/commons/1/12/Tractor_New_Holland_T6.165_plowing_%28Zadobrova%2C_Ljubljana%29.jpg)' }}
+          >
+            <div className="absolute inset-0 bg-black/40" />
           </div>
-          {rows.map((item) => (
-            <div
-              key={item.id}
-              className="grid grid-cols-[1fr_1fr_1fr] gap-3 border-b border-border p-4 text-sm last:border-b-0 sm:grid-cols-[1fr_1fr_1fr_1fr_1fr]"
-            >
-              <strong>{item.crop}</strong>
-              <span>
-                {item.mandi}, {item.state}
-              </span>
-              <span className="hidden sm:block">{item.arrival}</span>
-              <span>{formatRupees(item.price)}/qtl</span>
-              <span
-                className={
-                  item.changePct >= 0 ? "font-bold text-success" : "font-bold text-destructive"
-                }
-              >
-                {item.changePct >= 0 ? (
-                  <TrendingUp className="mr-1 inline h-4 w-4" />
-                ) : (
-                  <TrendingDown className="mr-1 inline h-4 w-4" />
-                )}
-                {item.changePct}%
-              </span>
-            </div>
-          ))}
+          <div className="relative z-10 text-center px-4 max-w-2xl mx-auto">
+             <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-md text-white mb-4 shadow-lg border border-white/20">
+               <TrendingUp className="h-6 w-6" />
+             </div>
+             <h1 className="text-3xl sm:text-4xl font-black text-white mb-3 drop-shadow-md">Market Prices</h1>
+             <p className="text-white/95 text-sm sm:text-base font-medium drop-shadow">Stay updated with the latest mandi prices across India</p>
+             <p className="mt-5 text-[#a7f3d0] font-serif italic text-xl sm:text-2xl drop-shadow-md">"Better Prices, Brighter Futures"</p>
+          </div>
         </div>
-      </PageShell>
+
+        {/* SEARCH + FILTER SECTION */}
+        <div className="px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+          <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-card p-3 sm:p-4 border border-border flex flex-col md:flex-row gap-3 items-center">
+            <div className="relative flex-1 w-full">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <input 
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+                placeholder="Search crop, mandi, state..."
+                className="w-full h-11 pl-10 pr-4 rounded-xl border border-input bg-background text-sm focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] outline-none transition-all"
+              />
+            </div>
+            <select 
+              value={selectedCrop}
+              onChange={e => setSelectedCrop(e.target.value)}
+              className="h-11 w-full md:w-48 rounded-xl border border-input bg-background px-4 text-sm focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] outline-none"
+            >
+              {cropsList.map(c => <option key={c} value={c}>{c}</option>)}
+            </select>
+            <select 
+              value={selectedState}
+              onChange={e => setSelectedState(e.target.value)}
+              className="h-11 w-full md:w-48 rounded-xl border border-input bg-background px-4 text-sm focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] outline-none"
+            >
+              {statesList.map(s => <option key={s} value={s}>{s}</option>)}
+            </select>
+            <div className="h-11 w-full md:w-auto px-4 rounded-xl border border-input bg-background text-sm flex items-center justify-between text-muted-foreground">
+               <span className="flex items-center gap-2"><CalendarDays className="h-4 w-4"/> Today</span>
+            </div>
+          </div>
+        </div>
+
+        {/* MARKET PRICE TABLE */}
+        <div className="px-4 sm:px-6 lg:px-8 py-8 flex-1">
+          <div className="max-w-6xl mx-auto">
+            <div className="overflow-x-auto rounded-3xl border border-border bg-white shadow-card-lg">
+              <table className="w-full text-left border-collapse min-w-[700px]">
+                <thead>
+                  <tr className="bg-[#f0fdf4] border-b border-border text-sm">
+                    <th className="py-5 px-6 font-bold text-[#1b4332] rounded-tl-3xl">Crop</th>
+                    <th className="py-5 px-6 font-bold text-[#1b4332]">Mandi</th>
+                    <th className="py-5 px-6 font-bold text-[#1b4332]">Arrival</th>
+                    <th className="py-5 px-6 font-bold text-[#1b4332]">Price</th>
+                    <th className="py-5 px-6 font-bold text-[#1b4332]">Trend</th>
+                    <th className="py-5 px-6 font-bold text-[#1b4332] text-right rounded-tr-3xl">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map((item) => (
+                    <tr key={item.id} className="border-b border-border last:border-b-0 hover:bg-muted/30 transition-colors">
+                      <td className="py-4 px-6">
+                        <div className="flex items-center gap-3">
+                          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#e8f3ee] text-xl shadow-sm border border-[#2d6a4f]/10">
+                            {getCropIcon(item.crop)}
+                          </span>
+                          <span className="font-bold text-foreground text-[15px]">{item.crop}</span>
+                        </div>
+                      </td>
+                      <td className="py-4 px-6">
+                        <span className="block font-bold text-foreground text-[15px]">{item.mandi}</span>
+                        <span className="block text-xs font-medium text-muted-foreground mt-0.5">{item.state}</span>
+                      </td>
+                      <td className="py-4 px-6 text-sm text-foreground font-semibold">{item.arrival}</td>
+                      <td className="py-4 px-6 font-black text-foreground text-[15px]">{formatRupees(item.price)}<span className="text-xs font-semibold text-muted-foreground">/qtl</span></td>
+                      <td className="py-4 px-6">
+                        <span className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-black ${item.changePct >= 0 ? "bg-[#dcfce7] text-[#166534]" : "bg-[#fee2e2] text-[#991b1b]"}`}>
+                          {item.changePct >= 0 ? <TrendingUp className="h-3.5 w-3.5" /> : <TrendingDown className="h-3.5 w-3.5" />}
+                          {Math.abs(item.changePct)}%
+                        </span>
+                      </td>
+                      <td className="py-4 px-6 text-right">
+                        <button className="inline-flex h-9 items-center justify-center rounded-xl bg-[#e8f3ee] px-4 text-xs font-bold text-[#2d6a4f] hover:bg-[#d8efe5] transition-colors border border-[#2d6a4f]/10">
+                          View Details
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                  {rows.length === 0 && (
+                     <tr>
+                       <td colSpan={6} className="py-16 text-center text-muted-foreground text-sm font-medium">No market prices found matching your filters.</td>
+                     </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM VALUE PROPOSITION SECTION */}
+        <div className="bg-white border-t border-border mt-auto">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { icon: Clock, title: "Real-time Prices", desc: "Updated from authentic sources" },
+                { icon: ShieldCheck, title: "Trusted Information", desc: "Verified mandi data" },
+                { icon: LineChart, title: "Better Decisions", desc: "Plan your sell with confidence" },
+                { icon: Users, title: "Stronger Farmers", desc: "Together for a prosperous future" }
+              ].map((val, i) => (
+                <div key={i} className="flex flex-col items-center text-center group">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#f0fdf4] text-[#2d6a4f] mb-5 group-hover:scale-110 transition-transform duration-300">
+                    <val.icon className="h-7 w-7" />
+                  </div>
+                  <h4 className="font-bold text-foreground mb-2">{val.title}</h4>
+                  <p className="text-sm text-muted-foreground">{val.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM DECORATIVE AREA */}
+        <div className="bg-[#1b4332] relative overflow-hidden h-40 flex items-center justify-center rounded-t-[2.5rem]">
+           <div className="absolute inset-0 opacity-20 bg-[url('https://upload.wikimedia.org/wikipedia/commons/1/12/Tractor_New_Holland_T6.165_plowing_%28Zadobrova%2C_Ljubljana%29.jpg')] bg-cover bg-center" />
+           <p className="relative z-10 text-emerald-50 text-xl md:text-2xl font-serif italic tracking-wide">"Farming Today for a Greener Tomorrow"</p>
+        </div>
+      </div>
     </RoleGuard>
   );
 }
@@ -1389,9 +1504,9 @@ export function SchemesPage() {
         setQuery={setQuery}
         items={rows.map((s) => ({
           title: s.name,
-          meta: `${s.issuer} · ${s.category}`,
+          meta: `${s.issuer} Â· ${s.category}`,
           body: s.description,
-          footer: `${s.deadline} · ${s.eligibility}`,
+          footer: `${s.deadline} Â· ${s.eligibility}`,
           url: s.url,
         }))}
       />
@@ -1408,7 +1523,7 @@ export function InsurancePage() {
         intro="Compare crop, weather, and allied farming insurance options."
         items={INSURANCE_SCHEMES.map((s) => ({
           title: s.name,
-          meta: `${s.type} · ${s.premium}`,
+          meta: `${s.type} Â· ${s.premium}`,
           body: s.description,
           footer: `${s.coverage || ""} Crops: ${(s.crops || []).join(", ")}`,
         }))}
@@ -1432,7 +1547,7 @@ export function WeatherPage() {
               <p className="mt-3 font-black">{day.day}</p>
               <p className="text-sm text-muted-foreground">{day.condition}</p>
               <p className="mt-3 text-2xl font-black">
-                {day.high}° / {day.low}°
+                {day.high}Â° / {day.low}Â°
               </p>
               <p className="mt-1 text-sm font-bold text-primary">{day.rain}% rain</p>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">{day.advisory}</p>
@@ -1470,7 +1585,7 @@ export function CropCalendarPage() {
           {crop ? (
             <div className={cardClass}>
               <p className="text-2xl font-black">
-                {crop.name} · {crop.season}
+                {crop.name} Â· {crop.season}
               </p>
               <div className="mt-5 grid gap-3 sm:grid-cols-4">
                 {[
@@ -1517,9 +1632,9 @@ export function LearnPage() {
         setQuery={setQuery}
         items={rows.map((c) => ({
           title: c.title,
-          meta: `${c.level} · ${c.hours} hrs · ${c.lessons} lessons`,
+          meta: `${c.level} Â· ${c.hours} hrs Â· ${c.lessons} lessons`,
           body: c.description || "",
-          footer: `${c.instructor} · ${c.progress}% progress`,
+          footer: `${c.instructor} Â· ${c.progress}% progress`,
           icon: <GraduationCap className="h-5 w-5" />,
         }))}
       />
@@ -1536,9 +1651,9 @@ export function InternshipsPage() {
         intro="Field, operations, content, and lab roles for agriculture learners."
         items={INTERNSHIPS.map((i) => ({
           title: i.org,
-          meta: `${i.title} · ${i.location} · ${i.type}`,
+          meta: `${i.title} Â· ${i.location} Â· ${i.type}`,
           body: i.description || "",
-          footer: `${i.stipend} · Apply by ${i.deadline} · ${i.skills.join(", ")}`,
+          footer: `${i.stipend} Â· Apply by ${i.deadline} Â· ${i.skills.join(", ")}`,
         }))}
       />
     </RoleGuard>
@@ -2207,7 +2322,7 @@ export function RegisterPage() {
         <div>
           <span className="block text-2xl font-black tracking-wide leading-none text-white drop-shadow-md">PureFarm</span>
           <span className="block text-[10px] font-bold text-white uppercase tracking-widest leading-none mt-1.5 drop-shadow-md">
-            Connect • Grow • Prosper
+            Connect â€¢ Grow â€¢ Prosper
           </span>
         </div>
       </div>
@@ -2307,7 +2422,7 @@ export function RegisterPage() {
                 className="text-[28px] text-center leading-tight" 
                 style={{ color: '#073B2A', fontWeight: 800 }}
               >
-                Create Account 🌱
+                Create Account ðŸŒ±
               </h3>
               <p 
                 className="text-center text-sm mt-2"
@@ -2397,9 +2512,9 @@ export function RegisterPage() {
 
               {!isValid && (name.length > 0 || phone.length > 0 || password.length > 0) && (
                 <p className="text-[11px] font-semibold leading-relaxed text-[#087F5B] bg-white/30 backdrop-blur-sm p-3 rounded-xl border border-white/40">
-                  • Name should be at least 3 characters.<br />
-                  • Mobile number must be exactly 10 digits.<br />
-                  • Password must be at least 6 characters.
+                  â€¢ Name should be at least 3 characters.<br />
+                  â€¢ Mobile number must be exactly 10 digits.<br />
+                  â€¢ Password must be at least 6 characters.
                 </p>
               )}
 
@@ -2490,7 +2605,7 @@ export function SellerPage() {
         {[
           {
             label: "Total Sales",
-            value: "₹1,42,800",
+            value: "â‚¹1,42,800",
             delta: "+12.4% this week",
             color: "text-[#2d6a4f]",
           },
@@ -2508,7 +2623,7 @@ export function SellerPage() {
           },
           {
             label: "Seller Rating",
-            value: "4.8 ★",
+            value: "4.8 â˜…",
             delta: "From 120 reviews",
             color: "text-amber-500",
           },
@@ -2552,7 +2667,7 @@ export function SellerPage() {
                   <tr key={p.id} className="hover:bg-muted/10 transition-colors">
                     <td className="py-3 font-bold text-[#1b4332]">{p.name}</td>
                     <td className="py-3">
-                      ₹{p.price} / {p.unit}
+                      â‚¹{p.price} / {p.unit}
                     </td>
                     <td className="py-3">
                       <span
@@ -2592,7 +2707,7 @@ export function SellerPage() {
                 id: "PF-2049",
                 customer: "Suresh Rao",
                 items: "Certified Seed Potatoes",
-                total: "₹4,500",
+                total: "â‚¹4,500",
                 status: "Pending",
                 date: "10 mins ago",
               },
@@ -2600,7 +2715,7 @@ export function SellerPage() {
                 id: "PF-2048",
                 customer: "M. Naidu",
                 items: "Organic Vermicompost",
-                total: "₹2,250",
+                total: "â‚¹2,250",
                 status: "Processing",
                 date: "2 hrs ago",
               },
@@ -2608,7 +2723,7 @@ export function SellerPage() {
                 id: "PF-2047",
                 customer: "V. Reddy",
                 items: "Premium NPK Blend",
-                total: "₹8,100",
+                total: "â‚¹8,100",
                 status: "Dispatched",
                 date: "Yesterday",
               },
@@ -2620,7 +2735,7 @@ export function SellerPage() {
                 <div>
                   <p className="font-bold text-[#1b4332]">{o.items}</p>
                   <p className="text-[10px] text-muted-foreground mt-0.5">
-                    Order {o.id} · Customer: {o.customer} · {o.date}
+                    Order {o.id} Â· Customer: {o.customer} Â· {o.date}
                   </p>
                 </div>
                 <div className="text-right">
@@ -2667,9 +2782,9 @@ export function AdminPage() {
           <div className={cardClass}>
             <p className="font-black">Recent orders</p>
             {[
-              "PF-2048 · Drip kit · Pending",
-              "PF-2047 · Wheat seed · Dispatched",
-              "PF-2046 · Vermicompost · Delivered",
+              "PF-2048 Â· Drip kit Â· Pending",
+              "PF-2047 Â· Wheat seed Â· Dispatched",
+              "PF-2046 Â· Vermicompost Â· Delivered",
             ].map((row) => (
               <p key={row} className="mt-3 rounded-lg bg-muted p-3 text-sm">
                 {row}
@@ -2755,3 +2870,4 @@ function CardGridPage({
     </PageShell>
   );
 }
+
