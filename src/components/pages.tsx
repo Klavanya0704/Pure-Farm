@@ -2395,7 +2395,7 @@ export function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const isEmail = (val: string) => /^[^s@]+@[^s@]+.[^s@]+$/.test(val);
+  const isEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
   const isPhone = (val: string) => /^\d{10}$/.test(val);
 
   const isValid = useMemo(() => {
