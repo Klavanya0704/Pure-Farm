@@ -107,7 +107,7 @@ export async function getColdStorageFacilities(options?: {
         throw error;
       }
 
-      if (data && data.length > 0) {
+      if (data) {
         facilities = data.map((item) => ({
           id: item.id,
           name: item.name,
@@ -122,15 +122,13 @@ export async function getColdStorageFacilities(options?: {
           created_at: item.created_at,
           updated_at: item.updated_at,
         }));
-      } else {
-        facilities = DEFAULT_COLD_STORAGE_FACILITIES;
       }
     } catch (err) {
-      console.warn("Falling back to default cold storage facilities due to query issue:", err);
-      facilities = DEFAULT_COLD_STORAGE_FACILITIES;
+      console.error("Error fetching cold storage facilities from Supabase:", err);
+      facilities = [];
     }
   } else {
-    facilities = DEFAULT_COLD_STORAGE_FACILITIES;
+    facilities = [];
   }
 
   if (options?.userLat && options?.userLng) {
