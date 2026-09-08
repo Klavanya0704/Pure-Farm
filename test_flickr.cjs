@@ -1,5 +1,5 @@
 const https = require('https');
-const url = "https://source.unsplash.com/800x600/?onion,seed";
+const url = "https://loremflickr.com/800/600/corn,seed";
 
 https.get(url, (res) => {
   console.log("Status:", res.statusCode);

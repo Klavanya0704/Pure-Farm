@@ -1,0 +1,602 @@
+[
+  {
+    "name": "Paddy Seed PR-126 (5 kg)",
+    "brand": "Punjab Seeds Corp.",
+    "category": "seeds"
+  },
+  {
+    "name": "Wheat Seed PBW-343 (5 kg)",
+    "brand": "Punjab Seeds Corp.",
+    "category": "seeds"
+  },
+  {
+    "name": "BT Cotton Seed (450 g)",
+    "brand": "Mahyco Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Groundnut Seed TAG-24 (10 kg)",
+    "brand": "Gujarat Seeds Corp.",
+    "category": "seeds"
+  },
+  {
+    "name": "Hybrid Maize Seed DKC-9108 (5 kg)",
+    "brand": "Dekalb Agri",
+    "category": "seeds"
+  },
+  {
+    "name": "Sunflower Seed KBSH-44 (5 kg)",
+    "brand": "Karnataka Seeds Corp.",
+    "category": "seeds"
+  },
+  {
+    "name": "Pearl Millet Seed HHB-67 (5 kg)",
+    "brand": "Raj Agri Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Hybrid Tomato Seed (10 g)",
+    "brand": "Syngenta Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Onion Seed Agrifound Dark Red (50 g)",
+    "brand": "NHRDF",
+    "category": "seeds"
+  },
+  {
+    "name": "Hybrid Brinjal Seed (10 g)",
+    "brand": "East-West Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Chilli Seed Byadgi Dabbi (50 g)",
+    "brand": "Karnataka Seeds Corp.",
+    "category": "seeds"
+  },
+  {
+    "name": "Okra Seed Arka Anamika (250 g)",
+    "brand": "IIHR Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Mustard Seed Pusa Bold (2 kg)",
+    "brand": "IARI Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Chickpea Seed JG-11 (10 kg)",
+    "brand": "MP Seeds Corp.",
+    "category": "seeds"
+  },
+  {
+    "name": "Pigeon Pea Seed ICPL-87 (5 kg)",
+    "brand": "ICRISAT Certified",
+    "category": "seeds"
+  },
+  {
+    "name": "Soybean Seed JS-9560 (20 kg)",
+    "brand": "MP Seeds Corp.",
+    "category": "seeds"
+  },
+  {
+    "name": "Sugarcane Seed Sett Co-0238 (100 setts)",
+    "brand": "UP Cane Research",
+    "category": "seeds"
+  },
+  {
+    "name": "Potato Seed Tuber Kufri Jyoti (50 kg)",
+    "brand": "CPRI Shimla",
+    "category": "seeds"
+  },
+  {
+    "name": "Green Gram Seed IPM-02-3 (5 kg)",
+    "brand": "IIPR Kanpur",
+    "category": "seeds"
+  },
+  {
+    "name": "Black Gram Seed Pant U-31 (5 kg)",
+    "brand": "GBPUAT Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Cabbage Seed Golden Acre (100 g)",
+    "brand": "Namdhari Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Cauliflower Seed Snowball-16 (50 g)",
+    "brand": "Namdhari Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Cucumber Seed Hybrid Malini (25 g)",
+    "brand": "East-West Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Bottle Gourd Seed Pusa Naveen (100 g)",
+    "brand": "IARI Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Bitter Gourd Seed Hybrid (50 g)",
+    "brand": "Syngenta Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Watermelon Seed Sugar Baby (100 g)",
+    "brand": "Nunhems India",
+    "category": "seeds"
+  },
+  {
+    "name": "Muskmelon Seed Hara Madhu (100 g)",
+    "brand": "Punjab Seeds Corp.",
+    "category": "seeds"
+  },
+  {
+    "name": "Carrot Seed Pusa Rudhira (250 g)",
+    "brand": "IARI Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Spinach Seed All Green (500 g)",
+    "brand": "Namdhari Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Coriander Seed Local (1 kg)",
+    "brand": "Raj Agri Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Fenugreek Seed Pusa Early Bunching (1 kg)",
+    "brand": "IARI Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Barley Seed BH-946 (20 kg)",
+    "brand": "Haryana Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Sorghum Seed CSH-16 (5 kg)",
+    "brand": "Maharashtra Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Finger Millet Seed GPU-28 (5 kg)",
+    "brand": "Karnataka Seeds Corp.",
+    "category": "seeds"
+  },
+  {
+    "name": "Sesame Seed GT-10 (2 kg)",
+    "brand": "Gujarat Seeds Corp.",
+    "category": "seeds"
+  },
+  {
+    "name": "Castor Seed GCH-7 (5 kg)",
+    "brand": "Gujarat Seeds Corp.",
+    "category": "seeds"
+  },
+  {
+    "name": "Lentil Seed IPL-406 (5 kg)",
+    "brand": "IIPR Kanpur",
+    "category": "seeds"
+  },
+  {
+    "name": "Field Pea Seed HFP-4 (10 kg)",
+    "brand": "Haryana Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Berseem Fodder Seed (10 kg)",
+    "brand": "Punjab Seeds Corp.",
+    "category": "seeds"
+  },
+  {
+    "name": "Napier Grass Root Slips (100 slips)",
+    "brand": "TNAU Certified",
+    "category": "seeds"
+  },
+  {
+    "name": "Marigold Seed African Orange (50 g)",
+    "brand": "Namdhari Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Turmeric Rhizome Seed Salem (25 kg)",
+    "brand": "TNAU Certified",
+    "category": "seeds"
+  },
+  {
+    "name": "Ginger Rhizome Seed Varada (25 kg)",
+    "brand": "Kerala Agri Board",
+    "category": "seeds"
+  },
+  {
+    "name": "Garlic Seed Bulb G-282 (10 kg)",
+    "brand": "NHRDF",
+    "category": "seeds"
+  },
+  {
+    "name": "Papaya Seed Red Lady (10 g)",
+    "brand": "Known-You Seeds",
+    "category": "seeds"
+  },
+  {
+    "name": "Banana Tissue Culture Plant G-9",
+    "brand": "Jain Tissue Culture",
+    "category": "seeds"
+  },
+  {
+    "name": "Guava Grafted Plant Allahabad Safeda",
+    "brand": "Punjab Nursery",
+    "category": "seeds"
+  },
+  {
+    "name": "Mango Grafted Plant Dasheri",
+    "brand": "UP Horticulture Nursery",
+    "category": "seeds"
+  },
+  {
+    "name": "Drumstick Seed PKM-1 (250 g)",
+    "brand": "TNAU Certified",
+    "category": "seeds"
+  },
+  {
+    "name": "Curry Leaf Plant Sapling",
+    "brand": "Kerala Agri Board",
+    "category": "seeds"
+  },
+  {
+    "name": "Urea 46% N (45 kg)",
+    "brand": "IFFCO",
+    "category": "fertilizers"
+  },
+  {
+    "name": "DAP 18-46-0 (50 kg)",
+    "brand": "IFFCO",
+    "category": "fertilizers"
+  },
+  {
+    "name": "MOP Muriate of Potash (50 kg)",
+    "brand": "IPL",
+    "category": "fertilizers"
+  },
+  {
+    "name": "NPK 10:26:26 Complex (50 kg)",
+    "brand": "Coromandel",
+    "category": "fertilizers"
+  },
+  {
+    "name": "NPK 20:20:0:13 (50 kg)",
+    "brand": "Chambal Fertilisers",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Single Super Phosphate (50 kg)",
+    "brand": "Rama Phosphates",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Zinc Sulphate 21% (5 kg)",
+    "brand": "Coromandel",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Ammonium Sulphate (50 kg)",
+    "brand": "GSFC",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Calcium Nitrate (25 kg)",
+    "brand": "Haifa India",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Water Soluble NPK 19:19:19 (1 kg)",
+    "brand": "Yara India",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Water Soluble NPK 0:52:34 (1 kg)",
+    "brand": "Yara India",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Potassium Schoenite (25 kg)",
+    "brand": "IFFCO",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Vermicompost Organic (30 kg)",
+    "brand": "PureFarm Organics",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Neem Cake Powder (25 kg)",
+    "brand": "PureFarm Organics",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Bone Meal Organic (10 kg)",
+    "brand": "Green Earth Agri",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Cow Dung Manure Composted (40 kg)",
+    "brand": "PureFarm Organics",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Rhizobium Biofertiliser (500 g)",
+    "brand": "NBAIM Certified",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Azotobacter Biofertiliser (500 g)",
+    "brand": "NBAIM Certified",
+    "category": "fertilizers"
+  },
+  {
+    "name": "PSB Phosphate Solubilising Bacteria (500 g)",
+    "brand": "NBAIM Certified",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Mycorrhiza VAM Granules (4 kg)",
+    "brand": "Green Earth Agri",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Trichoderma Viride Bio-fungicide (1 kg)",
+    "brand": "Multiplex",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Pseudomonas Fluorescens (1 kg)",
+    "brand": "Multiplex",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Humic Acid Granules (5 kg)",
+    "brand": "Kribhco",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Seaweed Extract Liquid (1 litre)",
+    "brand": "Multiplex",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Micronutrient Mixture Grade-II (5 kg)",
+    "brand": "Coromandel",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Boron 20% Powder (1 kg)",
+    "brand": "Yara India",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Ferrous Sulphate (10 kg)",
+    "brand": "GSFC",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Gypsum Agricultural Grade (50 kg)",
+    "brand": "Rajasthan Minerals",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Sulphur 90% WDG (5 kg)",
+    "brand": "Coromandel",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Liquid Consortia Biofertiliser (1 litre)",
+    "brand": "IFFCO",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Nano Urea Liquid (500 ml)",
+    "brand": "IFFCO",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Nano DAP Liquid (500 ml)",
+    "brand": "IFFCO",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Potassium Humate Shiny Flakes (2 kg)",
+    "brand": "Green Earth Agri",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Panchagavya Organic Tonic (5 litre)",
+    "brand": "PureFarm Organics",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Jeevamrut Concentrate (5 litre)",
+    "brand": "PureFarm Organics",
+    "category": "fertilizers"
+  },
+  {
+    "name": "Battery Knapsack Sprayer 16 L",
+    "brand": "Neptune Agri",
+    "category": "tools"
+  },
+  {
+    "name": "Manual Knapsack Sprayer 16 L",
+    "brand": "Aspee",
+    "category": "tools"
+  },
+  {
+    "name": "Power Weeder 5 HP",
+    "brand": "VST Shakti",
+    "category": "tools"
+  },
+  {
+    "name": "Brush Cutter 2-Stroke 43 CC",
+    "brand": "Honda Power",
+    "category": "tools"
+  },
+  {
+    "name": "Rotavator 5 Feet",
+    "brand": "Shaktiman",
+    "category": "tools"
+  },
+  {
+    "name": "Seed Drill 9 Tyne",
+    "brand": "Landforce",
+    "category": "tools"
+  },
+  {
+    "name": "Drip Irrigation Kit 1 Acre",
+    "brand": "Jain Irrigation",
+    "category": "tools"
+  },
+  {
+    "name": "Sprinkler Set 1 Acre",
+    "brand": "Finolex Plasson",
+    "category": "tools"
+  },
+  {
+    "name": "HDPE Mulching Film 25 Micron (400 m)",
+    "brand": "Garware",
+    "category": "tools"
+  },
+  {
+    "name": "Shade Net 50% Green (3 x 50 m)",
+    "brand": "Garware",
+    "category": "tools"
+  },
+  {
+    "name": "Insect Net 40 Mesh (3 x 50 m)",
+    "brand": "Garware",
+    "category": "tools"
+  },
+  {
+    "name": "Soil Testing Kit Digital",
+    "brand": "AgriLab India",
+    "category": "tools"
+  },
+  {
+    "name": "Grain Moisture Meter",
+    "brand": "AgriLab India",
+    "category": "tools"
+  },
+  {
+    "name": "Sickle Serrated Steel",
+    "brand": "Falcon Tools",
+    "category": "tools"
+  },
+  {
+    "name": "Kudali / Hoe 1.5 kg",
+    "brand": "Falcon Tools",
+    "category": "tools"
+  },
+  {
+    "name": "Garden Spade Steel",
+    "brand": "Falcon Tools",
+    "category": "tools"
+  },
+  {
+    "name": "Pruning Secateur Bypass",
+    "brand": "Falcon Tools",
+    "category": "tools"
+  },
+  {
+    "name": "Chaff Cutter Electric 2 HP",
+    "brand": "Kisankraft",
+    "category": "tools"
+  },
+  {
+    "name": "Water Pump 5 HP Diesel",
+    "brand": "Kirloskar",
+    "category": "tools"
+  },
+  {
+    "name": "Submersible Pump 3 HP",
+    "brand": "Crompton",
+    "category": "tools"
+  },
+  {
+    "name": "Solar Pump Controller 5 HP",
+    "brand": "Shakti Solar",
+    "category": "tools"
+  },
+  {
+    "name": "Tarpaulin Sheet 200 GSM (18 x 24 ft)",
+    "brand": "Tirupati Plastics",
+    "category": "tools"
+  },
+  {
+    "name": "Jute Gunny Bags (Pack of 50)",
+    "brand": "Bengal Jute Mills",
+    "category": "tools"
+  },
+  {
+    "name": "Grain Storage Silo 1 Tonne",
+    "brand": "Agrosaw",
+    "category": "tools"
+  },
+  {
+    "name": "Weighing Scale Platform 300 kg",
+    "brand": "Essae Digitronics",
+    "category": "tools"
+  },
+  {
+    "name": "Cattle Feed Trough Plastic 60 L",
+    "brand": "Tirupati Plastics",
+    "category": "tools"
+  },
+  {
+    "name": "Milking Machine Single Bucket",
+    "brand": "Delaval India",
+    "category": "tools"
+  },
+  {
+    "name": "Poultry Automatic Drinker (Pack of 10)",
+    "brand": "Kisankraft",
+    "category": "tools"
+  },
+  {
+    "name": "Wheelbarrow Steel 100 L",
+    "brand": "Falcon Tools",
+    "category": "tools"
+  },
+  {
+    "name": "Fogger Machine Portable",
+    "brand": "Neptune Agri",
+    "category": "tools"
+  },
+  {
+    "name": "Solar Insect Light Trap",
+    "brand": "Shakti Solar",
+    "category": "tools"
+  },
+  {
+    "name": "Pheromone Trap Set (Pack of 10)",
+    "brand": "Multiplex",
+    "category": "tools"
+  },
+  {
+    "name": "Farm Safety Kit (Mask, Gloves, Goggles)",
+    "brand": "Karam Safety",
+    "category": "tools"
+  },
+  {
+    "name": "Weather Station Mini Digital",
+    "brand": "AgriLab India",
+    "category": "tools"
+  },
+  {
+    "name": "Tractor Trolley Tipping 5 Tonne",
+    "brand": "Shaktiman",
+    "category": "tools"
+  }
+]

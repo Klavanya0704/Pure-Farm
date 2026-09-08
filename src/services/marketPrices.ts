@@ -1,37 +1,76 @@
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import type { MarketPrice } from "@/types/database";
-import { MANDI_PRICES } from "@/data/agriculture";
 
-export async function getMarketPrices(options?: {
-  state?: string;
+export interface GetMarketPricesOptions {
+  search?: string;
   cropName?: string;
+  marketName?: string;
+  state?: string;
+  sortOrder?: "price_low_high" | "price_high_low" | "recently_updated";
   limit?: number;
-}): Promise<MarketPrice[]> {
-  if (!isSupabaseConfigured) {
-    return fallbackMandiPrices(options);
-  }
-
-  let query = supabase.from("market_prices").select("*").order("recorded_at", { ascending: false });
-
-  if (options?.state) {
-    query = query.ilike("state", `%${options.state}%`);
-  }
-  if (options?.cropName) {
-    query = query.ilike("crop_name", `%${options.cropName}%`);
-  }
-  if (options?.limit) {
-    query = query.limit(options.limit);
-  }
-
-  const { data, error } = await query;
-  if (error || !data || data.length === 0) {
-    return fallbackMandiPrices(options);
-  }
-
-  return data;
 }
 
-export async function addMarketPrice(input: Omit<MarketPrice, 'id' | 'created_at' | 'updated_at'>): Promise<MarketPrice | null> {
+export async function getMarketPrices(options?: GetMarketPricesOptions): Promise<MarketPrice[]> {
+  if (!isSupabaseConfigured) {
+    return [];
+  }
+
+  try {
+    let query = supabase.from("market_prices").select("*");
+
+    if (options?.sortOrder === "price_low_high") {
+      query = query.order("price", { ascending: true });
+    } else if (options?.sortOrder === "price_high_low") {
+      query = query.order("price", { ascending: false });
+    } else {
+      query = query.order("recorded_at", { ascending: false, nullsFirst: false });
+    }
+
+    if (options?.state && options.state !== "all" && options.state !== "All States") {
+      query = query.ilike("state", `%${options.state}%`);
+    }
+    if (options?.cropName && options.cropName !== "all" && options.cropName !== "All Crops") {
+      query = query.ilike("crop_name", `%${options.cropName}%`);
+    }
+    if (options?.marketName && options.marketName !== "all" && options.marketName !== "All Markets") {
+      query = query.ilike("market_name", `%${options.marketName}%`);
+    }
+
+    if (options?.limit) {
+      query = query.limit(options.limit);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+      console.error("Error fetching market prices from Supabase:", error.message);
+      throw error;
+    }
+
+    let records: MarketPrice[] = data || [];
+
+    // Client-side search filtering across crop, market, location, state
+    if (options?.search && options.search.trim()) {
+      const q = options.search.trim().toLowerCase();
+      records = records.filter(
+        (m) =>
+          m.crop_name?.toLowerCase().includes(q) ||
+          m.market_name?.toLowerCase().includes(q) ||
+          m.location?.toLowerCase().includes(q) ||
+          m.state?.toLowerCase().includes(q)
+      );
+    }
+
+    return records;
+  } catch (err) {
+    console.error("Failed to query market_prices from Supabase:", err);
+    throw err;
+  }
+}
+
+export async function addMarketPrice(
+  input: Omit<MarketPrice, "id" | "created_at" | "updated_at">
+): Promise<MarketPrice | null> {
   if (!isSupabaseConfigured) throw new Error("Supabase is not configured");
   const { data, error } = await supabase
     .from("market_prices")
@@ -46,30 +85,3 @@ export async function addMarketPrice(input: Omit<MarketPrice, 'id' | 'created_at
   return data;
 }
 
-function fallbackMandiPrices(options?: { state?: string; cropName?: string; limit?: number }): MarketPrice[] {
-  let list = MANDI_PRICES.map((m, idx) => ({
-    id: `mp-${idx + 1}`,
-    crop_name: m.crop,
-    market_name: m.mandi,
-    location: m.mandi,
-    state: m.state,
-    price: m.price,
-    unit: 'quintal',
-    change_pct: m.changePct,
-    source: 'Mandi Agmarknet Record',
-    recorded_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
-  }));
-
-  if (options?.state) {
-    list = list.filter(m => m.state.toLowerCase().includes(options.state!.toLowerCase()));
-  }
-  if (options?.cropName) {
-    list = list.filter(m => m.crop_name.toLowerCase().includes(options.cropName!.toLowerCase()));
-  }
-  if (options?.limit) {
-    list = list.slice(0, options.limit);
-  }
-
-  return list;
-}

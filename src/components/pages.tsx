@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { getColdStorageFacilities, type ColdStorageFacility } from "@/services/coldStorage";
+import { getMarketPrices } from "@/services/marketPrices";
+import type { MarketPrice } from "@/types/database";
 import {
   ArrowRight,
   Bell,
@@ -1665,171 +1667,257 @@ export function OrderPage() {
   );
 }
 export function MarketPage() {
-  const [query, setQuery] = useState("");
-  const [selectedState, setSelectedState] = useState("All States");
-  const [selectedCrop, setSelectedCrop] = useState("All Crops");
+  const [records, setRecords] = useState<MarketPrice[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const cropsList = ["All Crops", ...Array.from(new Set(MANDI_PRICES.map(m => m.crop)))];
-  const statesList = ["All States", ...Array.from(new Set(MANDI_PRICES.map(m => m.state)))];
+  // Filters & Search
+  const [search, setSearch] = useState("");
+  const [cropFilter, setCropFilter] = useState("all");
+  const [marketFilter, setMarketFilter] = useState("all");
+  const [stateFilter, setStateFilter] = useState("all");
+  const [sortOrder, setSortOrder] = useState<"recently_updated" | "price_low_high" | "price_high_low">("recently_updated");
 
-  const rows = MANDI_PRICES.filter((item) => {
-    const matchQuery = `${item.crop} ${item.mandi} ${item.state}`.toLowerCase().includes(query.toLowerCase());
-    const matchState = selectedState === "All States" || item.state === selectedState;
-    const matchCrop = selectedCrop === "All Crops" || item.crop === selectedCrop;
-    return matchQuery && matchState && matchCrop;
-  });
+  // Dynamic filter options generated from loaded records
+  const cropsList = useMemo(() => ["all", ...Array.from(new Set(records.map(r => r.crop_name).filter(Boolean)))], [records]);
+  const marketsList = useMemo(() => ["all", ...Array.from(new Set(records.map(r => r.market_name).filter(Boolean)))], [records]);
+  const statesList = useMemo(() => ["all", ...Array.from(new Set(records.map(r => r.state).filter(Boolean)))], [records]);
 
-  const getCropIcon = (crop: string) => {
-    switch(crop.toLowerCase()) {
-      case 'wheat': return 'ðŸŒ¾';
-      case 'paddy': return 'ðŸš';
-      case 'maize': return 'ðŸŒ½';
-      case 'cotton': return 'â˜ï¸';
-      case 'mustard': return 'ðŸŒ¼';
-      case 'onion': return 'ðŸ§…';
-      case 'tomato': return 'ðŸ…';
-      case 'potato': return 'ðŸ¥”';
-      default: return 'ðŸŒ±';
+  const fetchPrices = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const data = await getMarketPrices({
+        search,
+        cropName: cropFilter,
+        marketName: marketFilter,
+        state: stateFilter,
+        sortOrder,
+      });
+      setRecords(data);
+    } catch (err: any) {
+      console.error("Failed to load market prices:", err);
+      setError(err.message || "Unable to load market prices.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchPrices();
+  }, [search, cropFilter, marketFilter, stateFilter, sortOrder]);
+
+  const formatTimestamp = (dateStr?: string) => {
+    if (!dateStr) return "Timestamp unavailable";
+    try {
+      const d = new Date(dateStr);
+      if (isNaN(d.getTime())) return dateStr;
+      return d.toLocaleDateString("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      });
+    } catch {
+      return dateStr;
     }
   };
 
   return (
-    <RoleGuard allowedRoles={["farmer", "admin"]}>
-      <div className="flex flex-col min-h-[calc(100vh-4rem)] bg-[#f8faf9]">
-        {/* HERO SECTION */}
-        <div className="relative h-[280px] w-full flex items-center justify-center overflow-hidden rounded-b-[2rem]">
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/commons/1/12/Tractor_New_Holland_T6.165_plowing_%28Zadobrova%2C_Ljubljana%29.jpg)' }}
-          >
-            <div className="absolute inset-0 bg-black/40" />
-          </div>
-          <div className="relative z-10 text-center px-4 max-w-2xl mx-auto">
-             <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-md text-white mb-4 shadow-lg border border-white/20">
-               <TrendingUp className="h-6 w-6" />
-             </div>
-             <h1 className="text-3xl sm:text-4xl font-black text-white mb-3 drop-shadow-md">Market Prices</h1>
-             <p className="text-white/95 text-sm sm:text-base font-medium drop-shadow">Stay updated with the latest mandi prices across India</p>
-             <p className="mt-5 text-[#a7f3d0] font-serif italic text-xl sm:text-2xl drop-shadow-md">"Better Prices, Brighter Futures"</p>
-          </div>
-        </div>
-
-        {/* SEARCH + FILTER SECTION */}
-        <div className="px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
-          <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-card p-3 sm:p-4 border border-border flex flex-col md:flex-row gap-3 items-center">
-            <div className="relative flex-1 w-full">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <input 
-                value={query}
-                onChange={e => setQuery(e.target.value)}
-                placeholder="Search crop, mandi, state..."
-                className="w-full h-11 pl-10 pr-4 rounded-xl border border-input bg-background text-sm focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] outline-none transition-all"
+    <RoleGuard allowedRoles={["farmer", "buyer", "admin"]}>
+      <PageShell
+        eyebrow="Live Mandi Intelligence"
+        title="Market Prices"
+        intro="Track crop prices across nearby markets"
+        bgImage="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?q=80&w=2070&auto=format&fit=crop"
+      >
+        {/* Controls Panel */}
+        <div className="mb-8 p-6 rounded-2xl border border-white/50 bg-white/85 backdrop-blur-md shadow-md space-y-4">
+          <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4">
+            <div className="relative flex-1">
+              <Search className="absolute left-3.5 top-3.5 h-4 w-4 text-muted-foreground" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search crops, markets or locations..."
+                className="w-full h-11 pl-10 pr-4 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
               />
             </div>
-            <select 
-              value={selectedCrop}
-              onChange={e => setSelectedCrop(e.target.value)}
-              className="h-11 w-full md:w-48 rounded-xl border border-input bg-background px-4 text-sm focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] outline-none"
-            >
-              {cropsList.map(c => <option key={c} value={c}>{c}</option>)}
-            </select>
-            <select 
-              value={selectedState}
-              onChange={e => setSelectedState(e.target.value)}
-              className="h-11 w-full md:w-48 rounded-xl border border-input bg-background px-4 text-sm focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f] outline-none"
-            >
-              {statesList.map(s => <option key={s} value={s}>{s}</option>)}
-            </select>
-            <div className="h-11 w-full md:w-auto px-4 rounded-xl border border-input bg-background text-sm flex items-center justify-between text-muted-foreground">
-               <span className="flex items-center gap-2"><CalendarDays className="h-4 w-4"/> Today</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2 border-t border-border/60">
+            <div>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Crop</label>
+              <select
+                value={cropFilter}
+                onChange={(e) => setCropFilter(e.target.value)}
+                className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
+              >
+                <option value="all">All Crops</option>
+                {cropsList.filter(c => c !== "all").map(c => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
             </div>
+
+            <div>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Market</label>
+              <select
+                value={marketFilter}
+                onChange={(e) => setMarketFilter(e.target.value)}
+                className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
+              >
+                <option value="all">All Markets</option>
+                {marketsList.filter(m => m !== "all").map(m => (
+                  <option key={m} value={m}>{m}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">State</label>
+              <select
+                value={stateFilter}
+                onChange={(e) => setStateFilter(e.target.value)}
+                className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
+              >
+                <option value="all">All States</option>
+                {statesList.filter(s => s !== "all").map(s => (
+                  <option key={s} value={s}>{s}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Sort By</label>
+              <select
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value as any)}
+                className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
+              >
+                <option value="recently_updated">Recently Updated</option>
+                <option value="price_low_high">Price: Low → High</option>
+                <option value="price_high_low">Price: High → Low</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between pt-2 text-xs font-bold text-muted-foreground">
+            <span>Showing {records.length} market price record(s)</span>
+            <button
+              onClick={fetchPrices}
+              className="inline-flex items-center gap-1.5 text-[#087F5B] hover:underline cursor-pointer"
+            >
+              <RefreshCw className="h-3.5 w-3.5" /> Refresh Prices
+            </button>
           </div>
         </div>
 
-        {/* MARKET PRICE TABLE */}
-        <div className="px-4 sm:px-6 lg:px-8 py-8 flex-1">
-          <div className="max-w-6xl mx-auto">
-            <div className="overflow-x-auto rounded-3xl border border-border bg-white shadow-card-lg">
-              <table className="w-full text-left border-collapse min-w-[700px]">
-                <thead>
-                  <tr className="bg-[#f0fdf4] border-b border-border text-sm">
-                    <th className="py-5 px-6 font-bold text-[#1b4332] rounded-tl-3xl">Crop</th>
-                    <th className="py-5 px-6 font-bold text-[#1b4332]">Mandi</th>
-                    <th className="py-5 px-6 font-bold text-[#1b4332]">Arrival</th>
-                    <th className="py-5 px-6 font-bold text-[#1b4332]">Price</th>
-                    <th className="py-5 px-6 font-bold text-[#1b4332]">Trend</th>
-                    <th className="py-5 px-6 font-bold text-[#1b4332] text-right rounded-tr-3xl">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {rows.map((item) => (
-                    <tr key={item.id} className="border-b border-border last:border-b-0 hover:bg-muted/30 transition-colors">
-                      <td className="py-4 px-6">
-                        <div className="flex items-center gap-3">
-                          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#e8f3ee] text-xl shadow-sm border border-[#2d6a4f]/10">
-                            {getCropIcon(item.crop)}
-                          </span>
-                          <span className="font-bold text-foreground text-[15px]">{item.crop}</span>
-                        </div>
-                      </td>
-                      <td className="py-4 px-6">
-                        <span className="block font-bold text-foreground text-[15px]">{item.mandi}</span>
-                        <span className="block text-xs font-medium text-muted-foreground mt-0.5">{item.state}</span>
-                      </td>
-                      <td className="py-4 px-6 text-sm text-foreground font-semibold">{item.arrival}</td>
-                      <td className="py-4 px-6 font-black text-foreground text-[15px]">{formatRupees(item.price)}<span className="text-xs font-semibold text-muted-foreground">/qtl</span></td>
-                      <td className="py-4 px-6">
-                        <span className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-black ${item.changePct >= 0 ? "bg-[#dcfce7] text-[#166534]" : "bg-[#fee2e2] text-[#991b1b]"}`}>
-                          {item.changePct >= 0 ? <TrendingUp className="h-3.5 w-3.5" /> : <TrendingDown className="h-3.5 w-3.5" />}
-                          {Math.abs(item.changePct)}%
+        {/* Content Display */}
+        {loading ? (
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {[1, 2, 3].map((n) => (
+              <div key={n} className="h-56 rounded-2xl border bg-card p-6 animate-pulse space-y-4">
+                <div className="h-6 w-3/4 bg-muted rounded"></div>
+                <div className="h-4 w-1/2 bg-muted rounded"></div>
+                <div className="h-10 w-full bg-muted rounded-xl"></div>
+              </div>
+            ))}
+          </div>
+        ) : error ? (
+          <div className="rounded-2xl border border-rose-200 bg-rose-50/80 p-8 text-center max-w-xl mx-auto my-8 space-y-4">
+            <AlertTriangle className="h-12 w-12 text-rose-600 mx-auto" />
+            <h3 className="text-lg font-bold text-rose-900">Unable to load market prices.</h3>
+            <p className="text-xs text-rose-700">{error}</p>
+            <button
+              onClick={fetchPrices}
+              className="px-6 py-2.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs shadow-md transition"
+            >
+              Retry
+            </button>
+          </div>
+        ) : records.length === 0 ? (
+          <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/60 p-12 text-center max-w-xl mx-auto my-8 space-y-4">
+            <TrendingUp className="h-12 w-12 text-[#087F5B] mx-auto mb-2 opacity-80" />
+            <h3 className="text-xl font-bold text-[#073B2A]">No market prices available.</h3>
+            <p className="text-sm text-emerald-800/80">Market price data will appear here when available.</p>
+            <button
+              onClick={() => {
+                setSearch("");
+                setCropFilter("all");
+                setMarketFilter("all");
+                setStateFilter("all");
+                setSortOrder("recently_updated");
+              }}
+              className="px-5 py-2.5 rounded-xl bg-[#087F5B] text-white font-bold text-xs shadow-md"
+            >
+              Reset Filters
+            </button>
+          </div>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {records.map((item) => (
+              <div
+                key={item.id}
+                className="rounded-2xl border bg-card/90 backdrop-blur-sm p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#087F5B]">
+                        🌾 {item.crop_name}
+                      </span>
+                      <h3 className="text-lg font-extrabold text-foreground mt-0.5">
+                        {item.market_name}
+                      </h3>
+                    </div>
+                    <div className="text-right">
+                      {item.change_pct != null && item.change_pct !== 0 ? (
+                        <span
+                          className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-black ${
+                            item.change_pct >= 0
+                              ? "bg-emerald-100 text-emerald-800"
+                              : "bg-rose-100 text-rose-800"
+                          }`}
+                        >
+                          {item.change_pct >= 0 ? (
+                            <TrendingUp className="h-3.5 w-3.5" />
+                          ) : (
+                            <TrendingDown className="h-3.5 w-3.5" />
+                          )}
+                          {Math.abs(item.change_pct)}%
                         </span>
-                      </td>
-                      <td className="py-4 px-6 text-right">
-                        <button className="inline-flex h-9 items-center justify-center rounded-xl bg-[#e8f3ee] px-4 text-xs font-bold text-[#2d6a4f] hover:bg-[#d8efe5] transition-colors border border-[#2d6a4f]/10">
-                          View Details
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                  {rows.length === 0 && (
-                     <tr>
-                       <td colSpan={6} className="py-16 text-center text-muted-foreground text-sm font-medium">No market prices found matching your filters.</td>
-                     </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        {/* BOTTOM VALUE PROPOSITION SECTION */}
-        <div className="bg-white border-t border-border mt-auto">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { icon: Clock, title: "Real-time Prices", desc: "Updated from authentic sources" },
-                { icon: ShieldCheck, title: "Trusted Information", desc: "Verified mandi data" },
-                { icon: LineChart, title: "Better Decisions", desc: "Plan your sell with confidence" },
-                { icon: Users, title: "Stronger Farmers", desc: "Together for a prosperous future" }
-              ].map((val, i) => (
-                <div key={i} className="flex flex-col items-center text-center group">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#f0fdf4] text-[#2d6a4f] mb-5 group-hover:scale-110 transition-transform duration-300">
-                    <val.icon className="h-7 w-7" />
+                      ) : (
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-100 text-slate-700">
+                          Latest recorded price
+                        </span>
+                      )}
+                    </div>
                   </div>
-                  <h4 className="font-bold text-foreground mb-2">{val.title}</h4>
-                  <p className="text-sm text-muted-foreground">{val.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
 
-        {/* BOTTOM DECORATIVE AREA */}
-        <div className="bg-[#1b4332] relative overflow-hidden h-40 flex items-center justify-center rounded-t-[2.5rem]">
-           <div className="absolute inset-0 opacity-20 bg-[url('https://upload.wikimedia.org/wikipedia/commons/1/12/Tractor_New_Holland_T6.165_plowing_%28Zadobrova%2C_Ljubljana%29.jpg')] bg-cover bg-center" />
-           <p className="relative z-10 text-emerald-50 text-xl md:text-2xl font-serif italic tracking-wide">"Farming Today for a Greener Tomorrow"</p>
-        </div>
-      </div>
+                  <div className="p-3.5 rounded-xl bg-emerald-50/60 border border-emerald-100 flex items-center justify-between">
+                    <span className="text-xs font-semibold text-emerald-900">Current Price</span>
+                    <span className="text-xl font-black text-[#073B2A]">
+                      ₹{Number(item.price || 0).toLocaleString()} <span className="text-xs font-bold text-muted-foreground">/ {item.unit || "unit"}</span>
+                    </span>
+                  </div>
+
+                  <div className="space-y-1.5 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-1.5 font-medium">
+                      <MapPin className="h-3.5 w-3.5 text-[#087F5B] shrink-0" />
+                      <span>{item.location ? `${item.location}, ` : ""}{item.state}</span>
+                    </div>
+                    <div className="flex items-center justify-between pt-2 border-t text-[11px] font-semibold text-muted-foreground">
+                      <span>Source: {item.source || "Source unavailable"}</span>
+                      <span>Updated: {formatTimestamp(item.recorded_at || item.updated_at)}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </PageShell>
     </RoleGuard>
   );
 }

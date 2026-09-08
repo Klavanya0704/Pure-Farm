@@ -5,16 +5,17 @@ async function test() {
   const page = await browser.newPage();
   
   const query = "corn seeds";
-  const url = `https://unsplash.com/s/photos/${encodeURIComponent(query)}`;
+  const url = `https://www.pexels.com/search/${encodeURIComponent(query)}/`;
   
   await page.goto(url, { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('article img', { timeout: 5000 }).catch(() => {});
   
   const imgUrl = await page.evaluate(() => {
-    const img = document.querySelector('img[src*="images.unsplash.com/photo-"]');
+    const img = document.querySelector('article img');
     return img ? img.src : null;
   });
   
-  console.log("Unsplash Image:", imgUrl);
+  console.log("Pexels Image:", imgUrl);
   await browser.close();
 }
 test();
