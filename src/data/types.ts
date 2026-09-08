@@ -28,6 +28,13 @@ export interface ProductReview {
 export interface CartItem {
   productId: string;
   qty: number;
+  name?: string;
+  farmerId?: string | null;
+  price?: number;
+  unit?: string;
+  imageUrl?: string | null;
+  availableQuantity?: number;
+  isSoldOut?: boolean;
 }
 
 export interface MandiPrice {

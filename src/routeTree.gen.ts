@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as CartRouteImport } from './routes/cart'
+import { Route as ColdStorageRouteImport } from './routes/cold-storage'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CropCalendarRouteImport } from './routes/crop-calendar'
 import { Route as CropInsuranceRouteImport } from './routes/crop-insurance'
@@ -48,6 +49,11 @@ const AdminRoute = AdminRouteImport.update({
 const CartRoute = CartRouteImport.update({
   id: '/cart',
   path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ColdStorageRoute = ColdStorageRouteImport.update({
+  id: '/cold-storage',
+  path: '/cold-storage',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -136,6 +142,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
   '/cart': typeof CartRoute
+  '/cold-storage': typeof ColdStorageRoute
   '/contact': typeof ContactRoute
   '/crop-calendar': typeof CropCalendarRoute
   '/crop-insurance': typeof CropInsuranceRoute
@@ -158,6 +165,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
   '/cart': typeof CartRoute
+  '/cold-storage': typeof ColdStorageRoute
   '/contact': typeof ContactRoute
   '/crop-calendar': typeof CropCalendarRoute
   '/crop-insurance': typeof CropInsuranceRoute
@@ -181,6 +189,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
   '/cart': typeof CartRoute
+  '/cold-storage': typeof ColdStorageRoute
   '/contact': typeof ContactRoute
   '/crop-calendar': typeof CropCalendarRoute
   '/crop-insurance': typeof CropInsuranceRoute
@@ -205,6 +214,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/cart'
+    | '/cold-storage'
     | '/contact'
     | '/crop-calendar'
     | '/crop-insurance'
@@ -227,6 +237,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/cart'
+    | '/cold-storage'
     | '/contact'
     | '/crop-calendar'
     | '/crop-insurance'
@@ -249,6 +260,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/cart'
+    | '/cold-storage'
     | '/contact'
     | '/crop-calendar'
     | '/crop-insurance'
@@ -272,6 +284,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRoute
   CartRoute: typeof CartRoute
+  ColdStorageRoute: typeof ColdStorageRoute
   ContactRoute: typeof ContactRoute
   CropCalendarRoute: typeof CropCalendarRoute
   CropInsuranceRoute: typeof CropInsuranceRoute
@@ -318,6 +331,13 @@ declare module '@tanstack/react-router' {
       path: '/cart'
       fullPath: '/cart'
       preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cold-storage': {
+      id: '/cold-storage'
+      path: '/cold-storage'
+      fullPath: '/cold-storage'
+      preLoaderRoute: typeof ColdStorageRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -440,6 +460,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AdminRoute: AdminRoute,
   CartRoute: CartRoute,
+  ColdStorageRoute: ColdStorageRoute,
   ContactRoute: ContactRoute,
   CropCalendarRoute: CropCalendarRoute,
   CropInsuranceRoute: CropInsuranceRoute,

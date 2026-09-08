@@ -9,16 +9,18 @@ import {
   type ReactNode,
 } from "react";
 import { PRODUCTS } from "@/data/products";
+import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import type { CartItem } from "@/data/types";
 
-interface CartContextValue {
+export interface CartContextValue {
   items: CartItem[];
   count: number;
   subtotal: number;
-  addItem: (productId: string, qty?: number) => void;
-  updateQty: (productId: string, qty: number) => void;
+  addItem: (productId: string, qty?: number, details?: Partial<CartItem>) => { success: boolean; message?: string };
+  updateQty: (productId: string, qty: number, maxStock?: number) => { success: boolean; message?: string };
   removeItem: (productId: string) => void;
   clearCart: () => void;
+  syncCartWithDatabase: () => Promise<{ warnings: string[] }>;
 }
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -94,8 +96,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<CartContextValue>(() => {
     const subtotal = items.reduce((sum, item) => {
-      const product = PRODUCTS.find((p) => p.id === item.productId);
-      return sum + (product ? product.price * item.qty : 0);
+      const dbPrice = item.price;
+      const staticProduct = PRODUCTS.find((p) => p.id === item.productId);
+      const price = dbPrice !== undefined ? dbPrice : (staticProduct ? staticProduct.price : 0);
+      return sum + price * item.qty;
     }, 0);
 
     const commitItems = (nextItems: CartItem[]) => {
@@ -108,36 +112,108 @@ export function CartProvider({ children }: { children: ReactNode }) {
       items,
       count: items.reduce((sum, item) => sum + item.qty, 0),
       subtotal,
-      addItem: (productId, qty = 1) => {
+      addItem: (productId, qty = 1, details) => {
         const current = itemsRef.current;
         const existing = current.find((item) => item.productId === productId);
+        const avail = details?.availableQuantity ?? existing?.availableQuantity;
+        const currentQty = existing ? existing.qty : 0;
+        const requestedTotal = currentQty + qty;
+
+        if (avail !== undefined && requestedTotal > avail) {
+          return { success: false, message: `Only ${avail} units are currently available.` };
+        }
+
         if (existing) {
           commitItems(
             current.map((item) =>
-              item.productId === productId ? { ...item, qty: Math.min(item.qty + qty, 99) } : item,
+              item.productId === productId
+                ? { ...item, ...details, qty: requestedTotal }
+                : item,
             ),
           );
-          return;
+        } else {
+          commitItems([...current, { productId, qty: Math.max(1, qty), ...details }]);
         }
-        commitItems([...current, { productId, qty: Math.max(1, qty) }]);
+        return { success: true };
       },
-      updateQty: (productId, qty) => {
+      updateQty: (productId, qty, maxStock) => {
         const current = itemsRef.current;
         if (qty <= 0) {
           commitItems(current.filter((item) => item.productId !== productId));
-          return;
+          return { success: true };
+        }
+        const existing = current.find((item) => item.productId === productId);
+        const avail = maxStock ?? existing?.availableQuantity;
+        if (avail !== undefined && qty > avail) {
+          return { success: false, message: `Only ${avail} units are currently available.` };
         }
         commitItems(
           current.map((item) =>
-            item.productId === productId ? { ...item, qty: Math.min(qty, 99) } : item,
+            item.productId === productId ? { ...item, qty } : item,
           ),
         );
+        return { success: true };
       },
       removeItem: (productId) => {
         commitItems(itemsRef.current.filter((item) => item.productId !== productId));
       },
       clearCart: () => {
         commitItems([]);
+      },
+      syncCartWithDatabase: async () => {
+        const current = itemsRef.current;
+        if (current.length === 0 || !isSupabaseConfigured) {
+          return { warnings: [] };
+        }
+
+        const productIds = current.map((i) => i.productId);
+        const { data: liveProducts, error } = await supabase
+          .from("products")
+          .select("id, name, price, available_quantity, status, image_url, unit, farmer_id")
+          .in("id", productIds);
+
+        if (error || !liveProducts) {
+          return { warnings: [] };
+        }
+
+        const warnings: string[] = [];
+        const updatedItems: CartItem[] = [];
+
+        for (const item of current) {
+          const live = liveProducts.find((p) => p.id === item.productId);
+          if (!live || live.status === "inactive" || live.status === "sold_out" || Number(live.available_quantity) <= 0) {
+            warnings.push(`"${live?.name || item.name || "Product"}" is sold out and unavailable.`);
+            updatedItems.push({
+              ...item,
+              availableQuantity: 0,
+              isSoldOut: true,
+            });
+          } else {
+            const liveStock = Number(live.available_quantity);
+            const livePrice = Number(live.price);
+            let newQty = item.qty;
+
+            if (item.qty > liveStock) {
+              newQty = liveStock;
+              warnings.push(`Only ${liveStock} units of "${live.name || item.name}" are currently available.`);
+            }
+
+            updatedItems.push({
+              ...item,
+              name: live.name,
+              price: livePrice,
+              unit: live.unit,
+              farmerId: live.farmer_id ?? item.farmerId,
+              imageUrl: live.image_url ?? item.imageUrl,
+              availableQuantity: liveStock,
+              qty: newQty,
+              isSoldOut: false,
+            });
+          }
+        }
+
+        commitItems(updatedItems);
+        return { warnings };
       },
     };
   }, [items]);
@@ -154,8 +230,33 @@ export function useCart() {
 export function getCartProducts(items: CartItem[]) {
   return items
     .map((item) => {
-      const product = PRODUCTS.find((p) => p.id === item.productId);
-      return product ? { product, qty: item.qty } : null;
+      const staticProduct = PRODUCTS.find((p) => p.id === item.productId);
+      if (staticProduct) {
+        return {
+          product: {
+            ...staticProduct,
+            price: item.price !== undefined ? item.price : staticProduct.price,
+          },
+          qty: item.qty,
+          cartItem: item,
+        };
+      }
+      if (item.name) {
+        const syntheticProduct = {
+          id: item.productId,
+          name: item.name,
+          brand: "PureFarm Direct",
+          category: "seeds" as const,
+          unit: item.unit || "unit",
+          price: item.price || 0,
+          rating: 4.8,
+          stock: item.availableQuantity ?? 99,
+          description: "Fresh produce directly from verified farmer",
+          image: item.imageUrl || "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300' fill='%23f3f4f6'><rect width='400' height='300' fill='%23f3f4f6'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='%239ca3af'>Image Unavailable</text></svg>",
+        };
+        return { product: syntheticProduct, qty: item.qty, cartItem: item };
+      }
+      return null;
     })
-    .filter((item): item is { product: (typeof PRODUCTS)[number]; qty: number } => Boolean(item));
+    .filter((entry): entry is { product: any; qty: number; cartItem: CartItem } => Boolean(entry));
 }

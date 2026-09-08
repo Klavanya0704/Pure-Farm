@@ -1,21 +1,17 @@
-﻿import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import {
   Bell,
-  BookOpen,
   CalendarDays,
   CloudSun,
+  Snowflake,
   Home,
   Leaf,
   LifeBuoy,
-  LogIn,
   Menu,
   MessageCircle,
-  PackageSearch,
-  PanelLeft,
   ShieldCheck,
   ShoppingCart,
   Store,
-  UserPlus,
   X,
   MapPin,
   Sun,
@@ -25,57 +21,15 @@ import {
   Briefcase,
   ShoppingBag,
   User,
-  Heart,
   Info,
   Phone,
-  Search
+  Search,
+  LogOut
 } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { SITE, waLink } from "@/data/site";
 import { useCart } from "./CartContext";
 import { useAuth } from "./AuthContext";
-
-const mainNav = [
-  { to: "/", label: "Home", icon: Home },
-  { to: "/marketplace", label: "Marketplace", icon: Store },
-  { to: "/market", label: "Market Prices", icon: TrendingUp },
-  { to: "/schemes", label: "Schemes", icon: ShieldCheck },
-  { to: "/crop-insurance", label: "Crop Insurance", icon: Shield },
-  { to: "/weather", label: "Weather", icon: CloudSun },
-  { to: "/learn", label: "Learn", icon: GraduationCap },
-  { to: "/internships", label: "Internships", icon: Briefcase },
-  { to: "/crop-calendar", label: "Crop Calendar", icon: CalendarDays },
-  { to: "/notifications", label: "Notifications", icon: Bell },
-] as const;
-
-const accountNav = [
-  { to: "/order", label: "My Orders", icon: ShoppingBag },
-  { to: "/cart", label: "My Cart", icon: ShoppingCart },
-  { to: "/admin", label: "My Profile", icon: User },
-  { to: "/marketplace", label: "Wishlist", icon: Heart },
-] as const;
-
-const moreNav = [
-  { to: "/about", label: "About Us", icon: Info },
-  { to: "/support", label: "Support", icon: LifeBuoy },
-  { to: "/contact", label: "Contact Us", icon: Phone },
-] as const;
-
-function NavLink({ to, label, icon: Icon }: { to: string; label: string; icon: typeof Home }) {
-  return (
-    <Link
-      to={to}
-      className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium text-foreground/80 hover:bg-sidebar-accent hover:text-foreground transition-all duration-200"
-      activeProps={{
-        className:
-          "flex items-center gap-3 rounded-xl bg-sidebar-primary px-3 py-2 text-sm font-bold text-sidebar-primary-foreground shadow-sm transition-all duration-200",
-      }}
-    >
-      <Icon className="h-4.5 w-4.5 text-[#2d6a4f]" aria-hidden="true" />
-      <span>{label}</span>
-    </Link>
-  );
-}
 
 export function AppShell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -91,75 +45,190 @@ export function AppShell({ children }: { children: ReactNode }) {
     }
   };
 
+  // Dynamic Role-Based Navigation
+  const getMainNav = () => {
+    if (user?.role === "admin") {
+      return [
+        { to: "/admin", label: "Admin Console", icon: ShieldCheck },
+        { to: "/marketplace", label: "Marketplace", icon: Store },
+        { to: "/market", label: "Market Prices", icon: TrendingUp },
+      { to: "/cold-storage", label: "Cold Storage", icon: Snowflake },
+        { to: "/schemes", label: "Schemes", icon: Shield },
+        { to: "/weather", label: "Weather", icon: CloudSun },
+        { to: "/crop-calendar", label: "Crop Calendar", icon: CalendarDays },
+        { to: "/notifications", label: "Notifications", icon: Bell },
+      ];
+    }
+
+    if (user?.role === "buyer") {
+      return [
+        { to: "/", label: "Home", icon: Home },
+        { to: "/marketplace", label: "Marketplace", icon: Store },
+        { to: "/market", label: "Market Prices", icon: TrendingUp },
+      { to: "/cold-storage", label: "Cold Storage", icon: Snowflake },
+        { to: "/learn", label: "Learn", icon: GraduationCap },
+        { to: "/notifications", label: "Notifications", icon: Bell },
+      ];
+    }
+
+    // Default / Farmer
+    return [
+      { to: "/", label: "Home", icon: Home },
+      { to: "/marketplace", label: "Marketplace", icon: Store },
+      { to: "/market", label: "Market Prices", icon: TrendingUp },
+      { to: "/cold-storage", label: "Cold Storage", icon: Snowflake },
+      { to: "/schemes", label: "Schemes", icon: ShieldCheck },
+      { to: "/crop-insurance", label: "Crop Insurance", icon: Shield },
+      { to: "/weather", label: "Weather", icon: CloudSun },
+      { to: "/learn", label: "Learn", icon: GraduationCap },
+      { to: "/internships", label: "Internships", icon: Briefcase },
+      { to: "/crop-calendar", label: "Crop Calendar", icon: CalendarDays },
+      { to: "/notifications", label: "Notifications", icon: Bell },
+    ];
+  };
+
+  const getAccountNav = () => {
+    if (user?.role === "admin") {
+      return [
+        { to: "/admin", label: "Admin Overview", icon: ShieldCheck },
+        { to: "/seller", label: "Manage Products", icon: Store },
+        { to: "/order", label: "All Orders", icon: ShoppingBag },
+      ];
+    }
+
+    if (user?.role === "buyer") {
+      return [
+        { to: "/order", label: "My Orders", icon: ShoppingBag },
+        { to: "/cart", label: "My Cart", icon: ShoppingCart },
+        { to: "/marketplace", label: "Browse Catalog", icon: Store },
+      ];
+    }
+
+    // Farmer
+    return [
+      { to: "/seller", label: "My Products (Sell)", icon: Store },
+      { to: "/order", label: "My Orders", icon: ShoppingBag },
+      { to: "/cart", label: "My Cart", icon: ShoppingCart },
+      { to: "/admin", label: "Farmer Profile", icon: User },
+    ];
+  };
+
+  const mainNav = getMainNav();
+  const accountNav = getAccountNav();
+
+  const moreNav = [
+    { to: "/about", label: "About Us", icon: Info },
+    { to: "/support", label: "Support", icon: LifeBuoy },
+    { to: "/contact", label: "Contact Us", icon: Phone },
+  ] as const;
+
+  function NavLinkItem({ to, label, icon: Icon }: { to: string; label: string; icon: any }) {
+    return (
+      <Link
+        to={to}
+        className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium text-foreground/80 hover:bg-sidebar-accent hover:text-foreground transition-all duration-200"
+        activeProps={{
+          className:
+            "flex items-center gap-3 rounded-xl bg-sidebar-primary px-3 py-2 text-sm font-bold text-sidebar-primary-foreground shadow-sm transition-all duration-200",
+        }}
+      >
+        <Icon className="h-4.5 w-4.5 text-[#2d6a4f]" aria-hidden="true" />
+        <span>{label}</span>
+      </Link>
+    );
+  }
+
   const sidebarContent = (
     <div className="flex h-full flex-col justify-between">
       <div className="space-y-6">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 px-2">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#2d6a4f] text-white">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#2d6a4f] text-white shadow-sm">
             <Leaf className="h-5 w-5" aria-hidden="true" />
           </span>
           <div>
             <span className="block text-lg font-black text-[#1b4332]">PureFarm</span>
             <span className="block text-[10px] font-semibold text-[#2d6a4f]/70 uppercase tracking-wider">
-              Connect â€¢ Grow â€¢ Prosper
+              Connect - Grow - Prosper
             </span>
           </div>
         </Link>
 
-        {/* Groups */}
-        <div className="space-y-5 overflow-y-auto no-scrollbar max-h-[calc(100vh-16rem)] pr-1">
+        {/* User Role Badge in Sidebar */}
+        {user ? (
+          <div className="mx-2 p-2.5 rounded-xl bg-[#2d6a4f]/10 border border-[#2d6a4f]/20">
+            <p className="text-xs font-bold text-[#1b4332] truncate">{user.name}</p>
+            <div className="flex items-center justify-between mt-1">
+              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-[#2d6a4f] text-white">
+                {user.role}
+              </span>
+              <button
+                type="button"
+                onClick={logout}
+                className="text-[11px] font-semibold text-rose-600 hover:underline flex items-center gap-1"
+              >
+                <LogOut className="h-3 w-3" />
+                Sign Out
+              </button>
+            </div>
+          </div>
+        ) : null}
+
+        {/* Navigation Groups */}
+        <div className="space-y-5 overflow-y-auto no-scrollbar max-h-[calc(100vh-18rem)] pr-1">
           <div>
             <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-              Main
+              {user?.role === "admin" ? "Management" : "Main Navigation"}
             </p>
             <nav className="mt-2 flex flex-col gap-0.5">
               {mainNav.map((item) => (
-                <NavLink key={item.to} {...item} />
+                <NavLinkItem key={item.to} {...item} />
               ))}
             </nav>
           </div>
 
           <div>
             <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-              Account
+              Account & Activity
             </p>
             <nav className="mt-2 flex flex-col gap-0.5">
               {accountNav.map((item) => (
-                <NavLink key={item.to} {...item} />
+                <NavLinkItem key={item.to} {...item} />
               ))}
             </nav>
           </div>
 
           <div>
             <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-              More
+              More Information
             </p>
             <nav className="mt-2 flex flex-col gap-0.5">
               {moreNav.map((item) => (
-                <NavLink key={item.to} {...item} />
+                <NavLinkItem key={item.to} {...item} />
               ))}
             </nav>
           </div>
         </div>
       </div>
 
-      {/* Sell card */}
-      <div className="mt-6 rounded-2xl border border-border bg-[#f4f9f6] p-4 relative overflow-hidden">
-        <div className="absolute -right-6 -bottom-6 opacity-[0.03]">
-          <Leaf className="h-24 w-24 text-primary" />
+      {/* Seller callout card for non-sellers/buyers */}
+      {(!user || user.role === "buyer") ? (
+        <div className="mt-4 rounded-2xl border border-border bg-[#f4f9f6] p-4 relative overflow-hidden">
+          <div className="absolute -right-6 -bottom-6 opacity-[0.03]">
+            <Leaf className="h-24 w-24 text-primary" />
+          </div>
+          <p className="text-sm font-bold text-[#1b4332]">Sell Your Produce</p>
+          <p className="mt-1 text-xs leading-normal text-[#2d6a4f]">
+            Register as a Farmer to sell your harvest directly.
+          </p>
+          <Link
+            to="/register"
+            className="mt-3 inline-flex w-full items-center justify-center rounded-xl bg-[#2d6a4f] py-2 text-xs font-bold text-white transition hover:bg-[#1b4332] shadow-sm"
+          >
+            Farmer Registration
+          </Link>
         </div>
-        <p className="text-sm font-bold text-[#1b4332]">Sell Your Produce</p>
-        <p className="mt-1 text-xs leading-normal text-[#2d6a4f]">
-          Join thousands of farmers and grow your business.
-        </p>
-        <Link
-          to="/register"
-          className="mt-3 inline-flex w-full items-center justify-center rounded-xl bg-[#2d6a4f] py-2 text-xs font-bold text-white transition hover:bg-[#1b4332] shadow-sm"
-        >
-          Become a Seller
-        </Link>
-      </div>
+      ) : null}
     </div>
   );
 
@@ -208,13 +277,13 @@ export function AppShell({ children }: { children: ReactNode }) {
               {/* Location */}
               <div className="hidden sm:flex items-center gap-1 text-xs font-semibold text-foreground/80">
                 <MapPin className="h-3.5 w-3.5 text-[#2d6a4f]" />
-                <span>Rajahmundry, AP</span>
+                <span>{user?.location || "Rajahmundry, AP"}</span>
               </div>
 
               {/* Weather */}
               <div className="hidden sm:flex items-center gap-1 text-xs font-semibold text-foreground/80 border-l border-border pl-3">
                 <Sun className="h-3.5 w-3.5 text-amber-500 fill-amber-100" />
-                <span>28Â°C, Sunny</span>
+                <span>28 deg C, Sunny</span>
               </div>
 
               {/* Notifications */}
@@ -245,14 +314,14 @@ export function AppShell({ children }: { children: ReactNode }) {
               {user ? (
                 <div className="flex items-center gap-3 border-l border-border pl-3">
                   <div className="flex items-center gap-2">
-                    <img
-                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100"
-                      alt={user.name}
-                      className="h-9 w-9 rounded-full object-cover border border-[#2d6a4f]/20"
-                    />
+                    <div className="h-9 w-9 rounded-full bg-[#2d6a4f] text-white flex items-center justify-center font-bold text-xs shadow-sm">
+                      {user.name ? user.name.charAt(0).toUpperCase() : "U"}
+                    </div>
                     <div className="hidden sm:block text-left">
                       <p className="text-xs font-bold leading-none text-foreground">{user.name}</p>
-                      <p className="mt-1.5 text-[10px] leading-none text-muted-foreground">{user.role}</p>
+                      <p className="mt-1 text-[10px] font-semibold leading-none uppercase text-[#2d6a4f]">
+                        {user.role}
+                      </p>
                     </div>
                   </div>
                   <button
@@ -264,12 +333,18 @@ export function AppShell({ children }: { children: ReactNode }) {
                   </button>
                 </div>
               ) : (
-                <div className="border-l border-border pl-3">
+                <div className="flex items-center gap-2 border-l border-border pl-3">
                   <Link
                     to="/login"
-                    className="inline-flex h-9 items-center justify-center rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-4 text-xs font-bold shadow-sm transition"
+                    className="inline-flex h-9 items-center justify-center rounded-xl border border-border bg-card hover:bg-muted/50 px-3 text-xs font-bold transition"
                   >
                     Sign In
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="inline-flex h-9 items-center justify-center rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-3.5 text-xs font-bold shadow-sm transition"
+                  >
+                    Register
                   </Link>
                 </div>
               )}
@@ -357,7 +432,7 @@ export function PageShell({
 }) {
   if (bgImage) {
     return (
-      <section className="relative min-h-[calc(100vh-4rem)] bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${bgImage})` }}>
+      <section className="relative min-h-[calc(100vh-4rem)] bg-cover bg-center bg-fixed" style={{ backgroundImage: "url(" + bgImage + ")" }}>
         <div className="absolute inset-0 bg-[#052d20]/35" />
         <div className="relative z-10 px-4 py-8 sm:px-6 lg:px-8 lg:py-10 mx-auto max-w-7xl">
           <div className="mb-7 max-w-3xl">
@@ -395,4 +470,3 @@ export function PageShell({
 
 export const glassCardClass = "rounded-[20px] border border-white/45 bg-white/75 p-5 shadow-[0_10px_35px_rgba(0,0,0,0.10)] backdrop-blur-[16px] transition-all duration-200 hover:bg-white/85 text-foreground";
 export const cardClass = "rounded-2xl border border-border bg-card p-5 shadow-card transition-all duration-200 hover:shadow-card-lg";
-

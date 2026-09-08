@@ -12,6 +12,8 @@ export function formatRupees(value: number) {
   }).format(value);
 }
 
+export const NEUTRAL_PRODUCT_FALLBACK = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300' fill='%23f3f4f6'><rect width='400' height='300' fill='%23f3f4f6'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='%239ca3af'>Image Unavailable</text><text x='50%' y='58%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='12' fill='%239ca3af'>PureFarm Produce</text></svg>";
+
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
   const [imageError, setImageError] = useState(false);
@@ -40,8 +42,9 @@ export function ProductCard({ product }: { product: Product }) {
       <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-[18px] bg-white">
         <Link to="/product/$id" params={{ id: product.id }} className="block h-full w-full">
           <img
-            src={product.image}
+            src={imageError || !product.image ? NEUTRAL_PRODUCT_FALLBACK : product.image}
             alt={product.name}
+            onError={() => setImageError(true)}
             className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
           />
         </Link>
@@ -109,13 +112,25 @@ export function ProductCard({ product }: { product: Product }) {
         <div className="mt-auto pt-1">
           <button
             type="button"
-            onClick={() => addItem(product.id)}
+            onClick={() => {
+              const res = addItem(product.id, 1, {
+                name: product.name,
+                price: product.price,
+                unit: product.unit,
+                imageUrl: product.image,
+                farmerId: (product as any).farmer_id,
+                availableQuantity: product.stock,
+              });
+              if (!res.success && res.message) {
+                alert(res.message);
+              }
+            }}
             disabled={product.stock <= 0}
             className="w-full h-[44px] flex items-center justify-center gap-2 rounded-[12px] bg-[#145A43] text-white font-[700] text-sm transition-all hover:bg-[#0D3B2E] hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
             aria-label={`Add ${product.name} to cart`}
           >
             <ShoppingCart className="h-4 w-4" />
-            Add to Cart
+            {product.stock <= 0 ? "Out of Stock" : "Add to Cart"}
           </button>
         </div>
       </div>

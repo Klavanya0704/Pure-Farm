@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "@tanstack/react-router";
+import { getColdStorageFacilities, type ColdStorageFacility } from "@/services/coldStorage";
 import {
   ArrowRight,
   Bell,
@@ -41,6 +42,15 @@ import {
   Cpu,
   Activity,
   Globe,
+  Package,
+  RefreshCw,
+  Navigation,
+  ChevronUp,
+  ChevronDown,
+  AlertTriangle,
+  Snowflake,
+  Building2,
+  Phone,
 } from "lucide-react";
 import { useMemo, useState, useEffect, useRef } from "react";
 import {
@@ -61,7 +71,10 @@ import type { Category, NotificationItem, Product } from "@/data/types";
 import { cardClass, glassCardClass, PageShell } from "./AppShell";
 import { getCartProducts, useCart } from "./CartContext";
 import { useAuth, type UserRole } from "./AuthContext";
-import { formatRupees, ProductCard } from "./ProductCard";
+import { formatRupees, ProductCard, NEUTRAL_PRODUCT_FALLBACK } from "./ProductCard";
+import { getProducts, getFarmerProducts, createProduct, updateProduct, deleteProduct } from "@/services/products";
+import { createRealBuyerOrder, getOrdersByBuyer, getOrdersByFarmer, type OrderWithItems } from "@/services/orders";
+import type { DbProduct, ProductCategory, ProductStatus } from "@/types/database";
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
@@ -319,7 +332,7 @@ export function HomePage() {
           customized.customReviewCount = 176;
           customized.image = "/products/deals/oranges-farm.jpg";
         }
-        matches.push(customized);
+        matches.push(customized as Product);
       }
     });
     return matches;
@@ -347,7 +360,7 @@ export function HomePage() {
   const countdownTime = formatTime(timeLeft);
 
   // 6 copies of the product list to support continuous seamless CSS marquee looping
-  const marqueeProducts = useMemo(() => {
+  const marqueeProducts = useMemo((): Product[] => {
     return [
       ...dealProducts,
       ...dealProducts,
@@ -866,6 +879,8 @@ export function MarketplacePage() {
   const [category, setCategory] = useState<Category | "all">("all");
   const [sort, setSort] = useState("featured");
   const [maxPrice, setMaxPrice] = useState(200000);
+  const [dbProducts, setDbProducts] = useState<Product[]>([]);
+  const [loadingProducts, setLoadingProducts] = useState(true);
 
   const urlQuery =
     typeof window !== "undefined" ? new URL(window.location.href).searchParams.get("query") : null;
@@ -875,8 +890,38 @@ export function MarketplacePage() {
     }
   }, [urlQuery]);
 
+  useEffect(() => {
+    async function loadMarketplaceProducts() {
+      setLoadingProducts(true);
+      try {
+        const data = await getProducts();
+        const mapped: Product[] = data.map((p) => ({
+          id: p.id,
+          name: p.name,
+          category: (p.category as Category) || "other",
+          description: p.description || "",
+          price: p.price,
+          unit: p.unit,
+          stock: p.available_quantity,
+          image: p.image_url || "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=600",
+          rating: p.rating || 4.5,
+          brand: p.location ? `Farmer (${p.location})` : "PureFarm Direct",
+          ...(p.badge ? { badge: p.badge as any } : {}),
+        }));
+        setDbProducts(mapped);
+      } catch (err) {
+        console.error("Error loading marketplace products:", err);
+      } finally {
+        setLoadingProducts(false);
+      }
+    }
+    loadMarketplaceProducts();
+  }, []);
+
+  const allProducts = dbProducts.length > 0 ? dbProducts : PRODUCTS;
+
   const filtered = useMemo(() => {
-    const next = PRODUCTS.filter((product) => {
+    const next = allProducts.filter((product) => {
       const matchesQuery = `${product.name} ${product.brand} ${product.description}`
         .toLowerCase()
         .includes(query.toLowerCase());
@@ -892,7 +937,7 @@ export function MarketplacePage() {
       if (sort === "rating") return b.rating - a.rating;
       return Number(Boolean(b.badge)) - Number(Boolean(a.badge));
     });
-  }, [category, maxPrice, query, sort]);
+  }, [allProducts, category, maxPrice, query, sort]);
 
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
@@ -1099,106 +1144,173 @@ export function ProductDetailPage({ id }: { id: string }) {
 }
 
 export function CartPage() {
-  const { items, subtotal, updateQty, removeItem } = useCart();
+  const { items, subtotal, updateQty, removeItem, syncCartWithDatabase } = useCart();
   const rows = getCartProducts(items);
-  const delivery = subtotal > 0 && subtotal < 2000 ? 120 : 0;
-  const total = subtotal + delivery;
+  const [stockWarning, setStockWarning] = useState<string | null>(null);
+  const [syncing, setSyncing] = useState(false);
+
+  useEffect(() => {
+    async function initCartSync() {
+      setSyncing(true);
+      const { warnings } = await syncCartWithDatabase();
+      if (warnings && warnings.length > 0) {
+        setStockWarning(warnings.join(" "));
+      }
+      setSyncing(false);
+    }
+    initCartSync();
+  }, []);
+
+  const hasSoldOutItem = useMemo(() => {
+    return items.some((i) => i.isSoldOut || (i.availableQuantity !== undefined && i.availableQuantity <= 0));
+  }, [items]);
+
+  const handleQtyChange = (productId: string, currentQty: number, delta: number, availStock?: number) => {
+    setStockWarning(null);
+    const newQty = currentQty + delta;
+    const res = updateQty(productId, newQty, availStock);
+    if (!res.success && res.message) {
+      setStockWarning(res.message);
+    }
+  };
 
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
       <PageShell
-        eyebrow="Cart"
-        title="Your cart"
-        intro="Review quantities before placing a mock local fulfilment order."
+        eyebrow="Shopping Cart"
+        title="Your Cart & Produce Items"
+        intro="Review your items and selected quantities before proceeding to checkout."
       >
-        {rows.length ? (
+        {stockWarning && (
+          <div className="mb-6 p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm font-semibold flex items-center justify-between">
+            <span>⚠️ {stockWarning}</span>
+            <button onClick={() => setStockWarning(null)} className="text-xs font-bold text-amber-900 underline">Dismiss</button>
+          </div>
+        )}
+
+        {rows.length > 0 ? (
           <div className="grid gap-6 lg:grid-cols-[1fr_22rem]">
             <div className="space-y-4">
-              {rows.map(({ product, qty }) => (
-                <div
-                  key={product.id}
-                  className="grid gap-4 rounded-xl border border-border bg-card p-4 shadow-card sm:grid-cols-[7rem_1fr_auto]"
-                >
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="h-28 w-full rounded-lg object-cover"
-                  />
-                  <div>
-                    <p className="font-black">{product.name}</p>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      {product.brand} Â· {formatRupees(product.price)} / {product.unit}
-                    </p>
-                    <button
-                      type="button"
-                      onClick={() => removeItem(product.id)}
-                      className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-destructive"
-                    >
-                      <Trash2 className="h-4 w-4" /> Remove
-                    </button>
-                  </div>
-                  <div className="flex items-center justify-between gap-4 sm:flex-col sm:items-end">
-                    <div className="inline-flex items-center rounded-lg border border-border">
+              {rows.map(({ product, qty, cartItem }) => {
+                const availStock = cartItem?.availableQuantity ?? product.stock;
+                const unitPrice = cartItem?.price ?? product.price;
+
+                return (
+                  <div
+                    key={product.id}
+                    className="grid gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm sm:grid-cols-[7rem_1fr_auto] items-center"
+                  >
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = NEUTRAL_PRODUCT_FALLBACK;
+                      }}
+                      className="h-24 w-full rounded-xl object-cover bg-muted"
+                    />
+                    <div>
+                      <h3 className="font-bold text-lg text-foreground">{product.name}</h3>
+                      <p className="mt-1 text-xs font-semibold text-muted-foreground">
+                        {formatRupees(unitPrice)} / {product.unit}
+                      </p>
+                      {availStock !== undefined && (
+                        <p className="mt-1 text-xs font-medium text-emerald-700">
+                          Stock Available: {availStock} {product.unit}
+                        </p>
+                      )}
                       <button
                         type="button"
-                        onClick={() => updateQty(product.id, qty - 1)}
-                        className="h-9 w-9"
-                        aria-label={`Decrease ${product.name} quantity`}
+                        onClick={() => removeItem(product.id)}
+                        className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 hover:text-rose-800 transition"
                       >
-                        <Minus className="mx-auto h-4 w-4" />
-                      </button>
-                      <span className="w-10 text-center font-black">{qty}</span>
-                      <button
-                        type="button"
-                        onClick={() => updateQty(product.id, qty + 1)}
-                        className="h-9 w-9"
-                        aria-label={`Increase ${product.name} quantity`}
-                      >
-                        <Plus className="mx-auto h-4 w-4" />
+                        <Trash2 className="h-3.5 w-3.5" /> Remove Item
                       </button>
                     </div>
-                    <p className="font-black">{formatRupees(product.price * qty)}</p>
+                    <div className="flex items-center justify-between gap-4 sm:flex-col sm:items-end">
+                      <div className="inline-flex items-center rounded-xl border bg-background shadow-sm">
+                        <button
+                          type="button"
+                          onClick={() => handleQtyChange(product.id, qty, -1, availStock)}
+                          className="h-9 w-9 flex items-center justify-center font-bold hover:bg-muted transition rounded-l-xl"
+                          aria-label="Decrease quantity"
+                        >
+                          <Minus className="h-3.5 w-3.5" />
+                        </button>
+                        <span className="w-10 text-center font-black text-sm">{qty}</span>
+                        <button
+                          type="button"
+                          onClick={() => handleQtyChange(product.id, qty, 1, availStock)}
+                          className="h-9 w-9 flex items-center justify-center font-bold hover:bg-muted transition rounded-r-xl"
+                          aria-label="Increase quantity"
+                        >
+                          <Plus className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                      <p className="font-black text-lg text-[#087F5B]">
+                        {formatRupees(unitPrice * qty)}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
-            <div className={`${cardClass} h-fit`}>
-              <p className="text-lg font-black">Order summary</p>
-              <div className="mt-4 space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span>Subtotal</span>
-                  <strong>{formatRupees(subtotal)}</strong>
+
+            {/* Summary Box */}
+            <div className="rounded-2xl border bg-card p-6 shadow-sm h-fit space-y-4">
+              <h3 className="text-lg font-bold text-foreground">Order Summary</h3>
+              <div className="space-y-3 text-sm border-t pt-4">
+                <div className="flex justify-between text-muted-foreground font-medium">
+                  <span>Subtotal ({items.reduce((s, i) => s + i.qty, 0)} items)</span>
+                  <span className="font-bold text-foreground">{formatRupees(subtotal)}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span>Delivery</span>
-                  <strong>{delivery ? formatRupees(delivery) : "Free"}</strong>
+                <div className="flex justify-between text-muted-foreground font-medium">
+                  <span>Delivery Fee</span>
+                  <span className="font-bold text-emerald-600">FREE</span>
                 </div>
-                <div className="border-t border-border pt-3 flex justify-between text-lg">
-                  <span>Total</span>
-                  <strong>{formatRupees(total)}</strong>
+                <div className="border-t pt-3 flex justify-between text-lg font-black text-foreground">
+                  <span>Total Amount</span>
+                  <span className="text-[#087F5B]">{formatRupees(subtotal)}</span>
                 </div>
               </div>
+
+              {hasSoldOutItem ? (
+                <div className="w-full mt-4 p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-bold text-center">
+                  Some items in your cart are sold out. Remove them to proceed.
+                </div>
+              ) : null}
+
               <Link
                 to="/order"
-                className="mt-5 block rounded-lg bg-primary px-4 py-3 text-center font-black text-primary-foreground"
+                onClick={(e) => {
+                  if (hasSoldOutItem) e.preventDefault();
+                }}
+                className={`w-full mt-4 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-center font-bold text-white shadow-md transition ${
+                  hasSoldOutItem
+                    ? "bg-gray-400 cursor-not-allowed opacity-60"
+                    : "bg-[#087F5B] hover:bg-[#073B2A]"
+                }`}
               >
-                Proceed to order
+                Proceed to Checkout <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
         ) : (
-          <EmptyState
-            title="Your cart is empty"
-            body="Add seeds, fertilisers, or tools from the marketplace."
-            action={
-              <Link
-                to="/marketplace"
-                className="rounded-lg bg-primary px-4 py-2 font-bold text-primary-foreground"
-              >
-                Continue shopping
-              </Link>
-            }
-          />
+          /* Empty Cart State */
+          <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/50 p-12 text-center max-w-xl mx-auto my-8 space-y-4">
+            <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#087F5B] flex items-center justify-center mx-auto mb-2">
+              <ShoppingBag className="h-8 w-8" />
+            </div>
+            <h3 className="text-xl font-bold text-[#073B2A]">Your cart is empty.</h3>
+            <p className="text-sm text-emerald-800/80 leading-relaxed">
+              Add farm produce from the marketplace to get started with direct purchasing.
+            </p>
+            <Link
+              to="/marketplace"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-md transition"
+            >
+              Browse Marketplace <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         )}
       </PageShell>
     </RoleGuard>
@@ -1206,121 +1318,352 @@ export function CartPage() {
 }
 
 export function OrderPage() {
-  const { items, subtotal, clearCart } = useCart();
+  const { user } = useAuth();
+  const { items, subtotal, clearCart, syncCartWithDatabase } = useCart();
   const rows = getCartProducts(items);
-  const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    village: "",
-    payment: "Cash on delivery",
-  });
-  const ready =
-    form.name.trim().length > 2 &&
-    form.phone.trim().length >= 10 &&
-    form.village.trim().length > 2 &&
-    rows.length > 0;
 
-  if (submitted) {
-    return (
-      <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
-        <PageShell
-          bgImage="https://images.unsplash.com/photo-1591955506264-3f5a6834570a?auto=format&fit=crop&w=2000"
-          title="Order confirmed"
-          intro="A PureFarm advisor would confirm stock and delivery timing by phone or WhatsApp."
-        >
-          <div className={glassCardClass}>
-            <CheckCircle2 className="h-12 w-12 text-success" />
-            <p className="mt-4 text-2xl font-black">Order PF-{Math.floor(2000 + subtotal)}</p>
-            <p className="mt-2 text-muted-foreground">
-              Status: confirmation pending Â· Payment: {form.payment}
-            </p>
-            <Link
-              to="/marketplace"
-              onClick={() => clearCart()}
-              className="mt-6 inline-flex rounded-lg bg-primary px-4 py-2 font-bold text-primary-foreground"
-            >
-              Back to marketplace
-            </Link>
-          </div>
-        </PageShell>
-      </RoleGuard>
-    );
-  }
+  const [activeTab, setActiveTab] = useState<"checkout" | "my_orders">(items.length > 0 ? "checkout" : "my_orders");
+  const [submitting, setSubmitting] = useState(false);
+  const [orderError, setOrderError] = useState<string | null>(null);
+  const [orderSuccess, setOrderSuccess] = useState<boolean>(false);
+
+  // Buyer Form State
+  const [buyerName, setBuyerName] = useState(user?.name || "");
+  const [phone, setPhone] = useState(user?.phone || "");
+  const [deliveryLocation, setDeliveryLocation] = useState(user?.location || "Rajahmundry, Andhra Pradesh");
+  const [notes, setNotes] = useState("");
+
+  // My Orders State
+  const [buyerOrders, setBuyerOrders] = useState<OrderWithItems[]>([]);
+  const [loadingOrders, setLoadingOrders] = useState(false);
+
+  const fetchBuyerOrders = async () => {
+    if (!user) return;
+    setLoadingOrders(true);
+    try {
+      const data = await getOrdersByBuyer(user.id);
+      setBuyerOrders(data);
+    } catch (err: any) {
+      console.error("Failed to load buyer orders:", err);
+    } finally {
+      setLoadingOrders(false);
+    }
+  };
+
+  useEffect(() => {
+    if (user && (activeTab === "my_orders" || orderSuccess)) {
+      fetchBuyerOrders();
+    }
+  }, [user, activeTab, orderSuccess]);
+
+  const handlePlaceOrderSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setOrderError(null);
+
+    if (!user) {
+      setOrderError("Please sign in to place an order.");
+      return;
+    }
+
+    if (rows.length === 0) {
+      setOrderError("Your cart is empty. Please add products before placing an order.");
+      return;
+    }
+
+    if (!deliveryLocation.trim()) {
+      setOrderError("Delivery location address is required.");
+      return;
+    }
+
+    setSubmitting(true);
+
+    try {
+      const { warnings } = await syncCartWithDatabase();
+      if (warnings && warnings.length > 0) {
+        setOrderError(warnings.join(" ") + " Please review your cart before placing the order.");
+        setSubmitting(false);
+        return;
+      }
+
+      const hasSoldOut = items.some((i) => i.isSoldOut || (i.availableQuantity !== undefined && i.availableQuantity <= 0));
+      if (hasSoldOut) {
+        setOrderError("One or more items in your cart are sold out or unavailable.");
+        setSubmitting(false);
+        return;
+      }
+
+      const orderPayloadItems = items.map((item) => ({
+        productId: item.productId,
+        qty: item.qty,
+      }));
+
+      await createRealBuyerOrder({
+        buyer_id: user.id,
+        delivery_location: deliveryLocation.trim(),
+        notes: notes.trim() || null,
+        items: orderPayloadItems,
+      });
+
+      clearCart();
+      setOrderSuccess(true);
+      setActiveTab("my_orders");
+      await fetchBuyerOrders();
+    } catch (err: any) {
+      console.error("Order placement error:", err);
+      setOrderError(err.message || "Failed to place order.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
       <PageShell
-        bgImage="https://images.unsplash.com/photo-1591955506264-3f5a6834570a?auto=format&fit=crop&w=2000"
-        eyebrow="Checkout"
-        title="Place order"
-        intro="Complete a safe mock order flow. No real payment is processed."
+        eyebrow="Order Console"
+        title={activeTab === "checkout" ? "Checkout & Place Order" : "My Orders"}
+        intro={
+          activeTab === "checkout"
+            ? "Confirm delivery location and place your direct farmer produce order."
+            : "Track your past purchases, order statuses, and delivery details."
+        }
       >
-        <div className="grid gap-6 lg:grid-cols-[1fr_24rem]">
-          <form
-            className={`${cardClass} space-y-4`}
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (ready) setSubmitted(true);
-            }}
+        {/* Navigation Tabs */}
+        <div className="flex items-center gap-3 mb-8 border-b pb-4">
+          <button
+            onClick={() => setActiveTab("checkout")}
+            className={`px-4 py-2 rounded-xl font-bold text-sm transition ${
+              activeTab === "checkout" ? "bg-[#087F5B] text-white shadow-sm" : "bg-muted text-muted-foreground hover:text-foreground"
+            }`}
           >
-            {["name", "phone", "village"].map((field) => (
-              <label key={field} className="block text-sm font-bold capitalize">
-                {field}
-                <input
-                  value={form[field as keyof typeof form]}
-                  onChange={(e) => setForm({ ...form, [field]: e.target.value })}
-                  className="mt-2 h-11 w-full rounded-lg border border-input bg-background px-3 font-normal"
-                />
-              </label>
-            ))}
-            <label className="block text-sm font-bold">
-              Payment
-              <select
-                value={form.payment}
-                onChange={(e) => setForm({ ...form, payment: e.target.value })}
-                className="mt-2 h-11 w-full rounded-lg border border-input bg-background px-3 font-normal"
-              >
-                <option>Cash on delivery</option>
-                <option>UPI on delivery</option>
-                <option>Advisor callback</option>
-              </select>
-            </label>
-            {!rows.length ? (
-              <p className="text-sm font-bold text-destructive">
-                Add products to the cart before ordering.
-              </p>
-            ) : null}
-            <button
-              disabled={!ready}
-              className="rounded-lg bg-primary px-5 py-3 font-black text-primary-foreground disabled:cursor-not-allowed disabled:opacity-50"
-            >
-              Confirm order
-            </button>
-          </form>
-          <div className={`${cardClass} h-fit`}>
-            <p className="font-black">Summary</p>
-            <div className="mt-3 space-y-3">
-              {rows.map(({ product, qty }) => (
-                <div key={product.id} className="flex justify-between gap-3 text-sm">
-                  <span>
-                    {product.name} x {qty}
-                  </span>
-                  <strong>{formatRupees(product.price * qty)}</strong>
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 border-t border-border pt-4 flex justify-between text-lg font-black">
-              <span>Total</span>
-              <span>{formatRupees(subtotal)}</span>
-            </div>
-          </div>
+            Checkout ({rows.length})
+          </button>
+          <button
+            onClick={() => setActiveTab("my_orders")}
+            className={`px-4 py-2 rounded-xl font-bold text-sm transition ${
+              activeTab === "my_orders" ? "bg-[#087F5B] text-white shadow-sm" : "bg-muted text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            My Orders ({buyerOrders.length})
+          </button>
         </div>
+
+        {activeTab === "checkout" ? (
+          <div>
+            {orderError && (
+              <div className="mb-6 p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm font-semibold">
+                ⚠️ {orderError}
+              </div>
+            )}
+
+            {rows.length === 0 ? (
+              <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/50 p-12 text-center max-w-xl mx-auto my-8 space-y-4">
+                <ShoppingBag className="h-12 w-12 text-[#087F5B] mx-auto mb-2" />
+                <h3 className="text-xl font-bold text-[#073B2A]">Your cart is empty.</h3>
+                <p className="text-sm text-emerald-800/80">Add products to the cart before checking out.</p>
+                <Link
+                  to="/marketplace"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] text-white font-bold text-sm shadow-md"
+                >
+                  Start Shopping <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            ) : (
+              <div className="grid gap-6 lg:grid-cols-[1fr_24rem]">
+                {/* Delivery & Contact Details Form */}
+                <form onSubmit={handlePlaceOrderSubmit} className="rounded-2xl border bg-card p-6 shadow-sm space-y-4">
+                  <h3 className="text-lg font-bold text-foreground">Delivery & Contact Information</h3>
+
+                  <div>
+                    <label className="text-xs font-bold text-foreground block mb-1">Full Name</label>
+                    <input
+                      type="text"
+                      required
+                      value={buyerName}
+                      onChange={(e) => setBuyerName(e.target.value)}
+                      placeholder="e.g. Ramesh Kumar"
+                      className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-xs font-bold text-foreground block mb-1">Phone Number</label>
+                    <input
+                      type="tel"
+                      required
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder="10-digit mobile number"
+                      className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-xs font-bold text-foreground block mb-1">Delivery Location / Address *</label>
+                    <textarea
+                      rows={3}
+                      required
+                      value={deliveryLocation}
+                      onChange={(e) => setDeliveryLocation(e.target.value)}
+                      placeholder="Village/City, Landmark, District, State, Pincode"
+                      className="w-full p-3 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-xs font-bold text-foreground block mb-1">Order Notes (Optional)</label>
+                    <input
+                      type="text"
+                      value={notes}
+                      onChange={(e) => setNotes(e.target.value)}
+                      placeholder="Special delivery instructions, timing, etc."
+                      className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                    />
+                  </div>
+
+                  {/* Payment Disclaimer */}
+                  <div className="p-4 rounded-xl bg-muted border text-xs text-muted-foreground space-y-1">
+                    <p className="font-bold text-foreground">Payment Method</p>
+                    <p>💳 <strong>Payment integration coming soon (Cash on Delivery)</strong></p>
+                    <p className="text-xs">No online payment is processed today. Pay cash or UPI upon crop inspection & delivery.</p>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="w-full h-12 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-md transition disabled:opacity-50 flex items-center justify-center gap-2"
+                  >
+                    {submitting ? "Placing Order..." : "Place Order Now"}
+                  </button>
+                </form>
+
+                {/* Order Summary Sidebar */}
+                <div className="rounded-2xl border bg-card p-6 shadow-sm h-fit space-y-4">
+                  <h3 className="text-lg font-bold text-foreground">Order Items ({rows.length})</h3>
+
+                  <div className="space-y-3 divide-y">
+                    {rows.map(({ product, qty, cartItem }) => {
+                      const price = cartItem?.price ?? product.price;
+                      return (
+                        <div key={product.id} className="pt-3 first:pt-0 flex items-center justify-between text-sm">
+                          <div>
+                            <p className="font-bold text-foreground">{product.name}</p>
+                            <p className="text-xs text-muted-foreground">
+                              {qty} {product.unit} × {formatRupees(price)}
+                            </p>
+                          </div>
+                          <span className="font-bold text-foreground">{formatRupees(price * qty)}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="border-t pt-4 space-y-2 text-sm">
+                    <div className="flex justify-between text-muted-foreground font-medium">
+                      <span>Subtotal</span>
+                      <span className="font-bold text-foreground">{formatRupees(subtotal)}</span>
+                    </div>
+                    <div className="flex justify-between text-muted-foreground font-medium">
+                      <span>Delivery</span>
+                      <span className="font-bold text-emerald-600">FREE</span>
+                    </div>
+                    <div className="border-t pt-3 flex justify-between text-lg font-black text-foreground">
+                      <span>Total</span>
+                      <span className="text-[#087F5B]">{formatRupees(subtotal)}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+          /* My Orders View */
+          <div>
+            {loadingOrders ? (
+              <div className="space-y-4">
+                {[1, 2].map((n) => (
+                  <div key={n} className="rounded-2xl border p-6 bg-card animate-pulse space-y-3">
+                    <div className="h-5 bg-muted rounded w-1/4" />
+                    <div className="h-4 bg-muted rounded w-1/2" />
+                  </div>
+                ))}
+              </div>
+            ) : buyerOrders.length === 0 ? (
+              /* Empty My Orders State */
+              <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/50 p-12 text-center max-w-xl mx-auto my-8 space-y-4">
+                <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#087F5B] flex items-center justify-center mx-auto mb-2">
+                  <Package className="h-8 w-8" />
+                </div>
+                <h3 className="text-xl font-bold text-[#073B2A]">You haven't placed any orders yet.</h3>
+                <p className="text-sm text-emerald-800/80 leading-relaxed">
+                  Explore fresh produce from local farmers across India and place your first direct order.
+                </p>
+                <Link
+                  to="/marketplace"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-md transition"
+                >
+                  Start Shopping <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            ) : (
+              /* Orders List */
+              <div className="space-y-6">
+                {buyerOrders.map((order) => (
+                  <div key={order.id} className="rounded-2xl border bg-card p-6 shadow-sm space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b pb-4">
+                      <div>
+                        <div className="flex items-center gap-3">
+                          <span className="font-black text-lg text-foreground">
+                            Order #PF-{order.id.substring(0, 8).toUpperCase()}
+                          </span>
+                          <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 uppercase">
+                            {order.status}
+                          </span>
+                        </div>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          Placed on {new Date(order.created_at).toLocaleDateString("en-IN", { dateStyle: "medium" })}
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-xs text-muted-foreground block font-medium">Total Amount</span>
+                        <span className="text-xl font-black text-[#087F5B]">{formatRupees(order.total_amount)}</span>
+                      </div>
+                    </div>
+
+                    {/* Order Items */}
+                    <div className="space-y-3">
+                      {order.order_items?.map((item) => (
+                        <div key={item.id} className="flex items-center justify-between text-sm py-1">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-lg bg-emerald-100 text-[#087F5B] flex items-center justify-center font-bold text-xs">
+                              📦
+                            </div>
+                            <div>
+                              <p className="font-bold text-foreground">{item.products?.name || "Farm Produce"}</p>
+                              <p className="text-xs text-muted-foreground">
+                                {item.quantity} {item.products?.unit || "units"} × {formatRupees(item.unit_price)}
+                              </p>
+                            </div>
+                          </div>
+                          <span className="font-bold text-foreground">{formatRupees(item.subtotal)}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Delivery Location */}
+                    <div className="pt-3 border-t flex items-center gap-2 text-xs text-muted-foreground">
+                      <MapPin className="h-3.5 w-3.5 text-[#087F5B]" />
+                      <span>Delivery Location: <strong>{order.delivery_location}</strong></span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </PageShell>
     </RoleGuard>
   );
 }
-
 export function MarketPage() {
   const [query, setQuery] = useState("");
   const [selectedState, setSelectedState] = useState("All States");
@@ -1840,7 +2183,7 @@ export function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const isEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+  const isEmail = (val: string) => /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(val);
   const isPhone = (val: string) => /^\d{10}$/.test(val);
 
   const isValid = useMemo(() => {
@@ -1857,17 +2200,17 @@ export function LoginPage() {
     setLoading(true);
     setErrorMessage("");
 
-    const success = await login(phoneOrEmail, password);
-    if (success) {
-      const key = phoneOrEmail.trim().toLowerCase();
+    const res = await login(phoneOrEmail, password);
+    if (res.success) {
       let dest = "/";
-      if (key.includes("buyer")) dest = "/marketplace";
-      else if (key.includes("seller")) dest = "/seller";
-      else if (key.includes("admin")) dest = "/admin";
+      if (res.role === "admin") dest = "/admin";
+      else if (res.role === "buyer") dest = "/marketplace";
+      else if (res.role === "seller") dest = "/seller";
+      else dest = "/";
 
       void navigate({ to: dest as "/" });
     } else {
-      setErrorMessage("Invalid credentials. Try admin@purefarm.test / password123");
+      setErrorMessage(res.error || "Invalid credentials. Please verify your email and password.");
       setLoading(false);
     }
   };
@@ -1916,10 +2259,10 @@ export function LoginPage() {
         </Link>
       </header>
 
-      {/* Main Center Area with Translucent Glassmorphism Login Card & Floating Badges */}
+      {/* Main Center Area with Translucent Glassmorphism Login Card */}
       <main className="relative z-20 flex-1 flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
         <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* LEFT SIDE: Decorative Floating Smart Farming Badges (Desktop) */}
+          {/* LEFT SIDE: Decorative Floating Smart Farming Badges */}
           <div className="hidden lg:flex lg:col-span-3 flex-col gap-4 animate-subtle-float-1">
             <div className="glass-card-dark p-4 rounded-2xl transition-all duration-300 hover:scale-105">
               <div className="flex items-center gap-3">
@@ -1927,12 +2270,7 @@ export function LoginPage() {
                   <Cpu className="h-5 w-5 text-[#19C37D]" />
                 </span>
                 <div>
-                  <h4
-                    className="text-sm font-extrabold text-[#FFFFFF]"
-                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
-                  >
-                    Smart Farming
-                  </h4>
+                  <h4 className="text-sm font-extrabold text-[#FFFFFF]">Smart Farming</h4>
                   <p className="text-xs font-medium text-[#E8F5EE]">Smarter decisions</p>
                 </div>
               </div>
@@ -1944,370 +2282,152 @@ export function LoginPage() {
                   <Droplets className="h-5 w-5 text-[#19C37D]" />
                 </span>
                 <div>
-                  <h4
-                    className="text-sm font-extrabold text-[#FFFFFF]"
-                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
-                  >
-                    Water Efficient
-                  </h4>
-                  <p className="text-xs font-medium text-[#E8F5EE]">Save every drop</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass-card-dark p-4 rounded-2xl transition-all duration-300 hover:scale-105">
-              <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#19C37D]/20 text-[#19C37D] border border-[#19C37D]/40 shadow-[0_0_12px_rgba(25,195,125,0.3)]">
-                  <Sprout className="h-5 w-5 text-[#19C37D]" />
-                </span>
-                <div>
-                  <h4
-                    className="text-sm font-extrabold text-[#FFFFFF]"
-                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
-                  >
-                    Healthy Crop
-                  </h4>
-                  <p className="text-xs font-medium text-[#E8F5EE]">Better yield</p>
+                  <h4 className="text-sm font-extrabold text-[#FFFFFF]">Water Efficient</h4>
+                  <p className="text-xs font-medium text-[#E8F5EE]">Every drop counts</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* CENTER: Main Translucent Glassmorphic Login Card */}
+          {/* CENTER: Login Card */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className="w-full max-w-[440px] rounded-[28px] glass-panel p-7 sm:p-9 transition-all">
-              {/* Brand Icon & Heading */}
-              <div className="text-center space-y-1.5 pb-2">
-                <div className="flex justify-center">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#087A50] to-[#064B38] text-white shadow-lg border border-white/40">
-                    <Leaf className="h-6 w-6 text-[#B7F34A]" />
-                  </span>
-                </div>
-                <h1
-                  className="text-3xl sm:text-[42px] font-extrabold tracking-tight text-[#FFFFFF] leading-tight"
-                  style={{ textShadow: "0 3px 12px rgba(0,0,0,0.30)" }}
-                >
-                  Pure Farm
-                </h1>
-                <p className="text-xs font-bold text-[#E8F5EE]">
-                  Nurturing Nature, Growing Future
-                </p>
-                <p className="text-[11px] font-medium text-[#FFFFFF]/85">
-                  Chain Address, Mark Two, Pure Farm
-                </p>
+            <div className="w-full max-w-md glass-card-dark p-6 sm:p-8 rounded-3xl border border-white/30 shadow-2xl">
+              <div className="text-center mb-6">
+                <h2 className="text-2xl sm:text-3xl font-black text-white">Sign In to PureFarm</h2>
+                <p className="text-xs text-white/80 mt-1.5">Enter your account credentials to access your dashboard</p>
               </div>
 
-              {/* Login Form */}
-              <form onSubmit={handleSubmit} className="space-y-3.5 mt-3">
-                {/* Username / Email */}
-                <div className="space-y-1">
-                  <label
-                    className="text-[14px] font-bold text-[#FFFFFF] block"
-                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
-                  >
-                    Username or Email
-                  </label>
-                  <div className="relative flex items-center">
-                    <span className="absolute left-3.5 text-[#FFFFFF]/90">
-                      <User className="h-4 w-4" />
-                    </span>
+              {errorMessage && (
+                <div className="mb-4 p-3 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-200 text-xs font-semibold">
+                  {errorMessage}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-white block">Email Address</label>
+                  <div className="relative">
                     <input
                       type="text"
                       required
-                      disabled={loading}
                       value={phoneOrEmail}
-                      onChange={(e) => {
-                        setPhoneOrEmail(e.target.value);
-                        if (errorMessage) setErrorMessage("");
-                      }}
-                      placeholder="Username or Email"
-                      className="h-11 w-full rounded-xl glass-input-white pl-10 pr-4 text-sm font-semibold text-[#FFFFFF] placeholder:text-white/70 outline-none transition"
+                      onChange={(e) => setPhoneOrEmail(e.target.value)}
+                      placeholder="farmer@purefarm.test or your email"
+                      className="w-full h-11 pl-10 pr-4 rounded-xl bg-white/20 border border-white/30 text-white placeholder:text-white/60 text-sm outline-none focus:border-[#19C37D] transition"
                     />
+                    <User className="h-4 w-4 text-white/70 absolute left-3.5 top-3.5" />
                   </div>
                 </div>
 
-                {/* Password */}
-                <div className="space-y-1">
-                  <label
-                    className="text-[14px] font-bold text-[#FFFFFF] block"
-                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
-                  >
-                    Password
-                  </label>
-                  <div className="relative flex items-center">
-                    <span className="absolute left-3.5 text-[#FFFFFF]/90">
-                      <Lock className="h-4 w-4" />
-                    </span>
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-white block">Password</label>
+                  <div className="relative">
                     <input
                       type={showPassword ? "text" : "password"}
                       required
-                      disabled={loading}
                       value={password}
-                      onChange={(e) => {
-                        setPassword(e.target.value);
-                        if (errorMessage) setErrorMessage("");
-                      }}
-                      placeholder="Password"
-                      className="h-11 w-full rounded-xl glass-input-white pl-10 pr-11 text-sm font-semibold text-[#FFFFFF] placeholder:text-white/70 outline-none transition"
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Enter your password"
+                      className="w-full h-11 pl-10 pr-11 rounded-xl bg-white/20 border border-white/30 text-white placeholder:text-white/60 text-sm outline-none focus:border-[#19C37D] transition"
                     />
+                    <Lock className="h-4 w-4 text-white/70 absolute left-3.5 top-3.5" />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 text-[#FFFFFF] hover:text-[#B7F34A] transition p-1"
-                      aria-label={showPassword ? "Hide password" : "Show password"}
+                      className="absolute right-3.5 top-3.5 text-white/70 hover:text-white text-xs font-bold"
                     >
-                      {showPassword ? (
-                        <EyeOff className="h-4 w-4" />
-                      ) : (
-                        <Eye className="h-4 w-4" />
-                      )}
+                      {showPassword ? "Hide" : "Show"}
                     </button>
                   </div>
                 </div>
 
-                {/* Error Banner */}
-                {errorMessage ? (
-                  <p className="text-xs font-extrabold text-rose-200 bg-rose-950/70 backdrop-blur-md p-2 rounded-lg border border-rose-500/50">
-                    {errorMessage}
-                  </p>
-                ) : null}
-
-                {/* Remember Me & Forgot Password */}
-                <div className="flex items-center justify-between text-xs pt-0.5">
-                  <label
-                    className="flex items-center gap-2 cursor-pointer select-none font-bold text-[#FFFFFF] text-[14px]"
-                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={rememberMe}
-                      disabled={loading}
-                      onChange={(e) => setRememberMe(e.target.checked)}
-                      className="rounded text-[#19C37D] focus:ring-[#19C37D] border-white/60 bg-white/30"
-                    />
-                    Remember me
-                  </label>
-                  <Link
-                    to="/support"
-                    className="font-bold text-[14px] text-[#FFFFFF] hover:text-[#B7F34A] hover:underline transition"
-                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
-                  >
-                    Forgot Password?
-                  </Link>
-                </div>
-
-                {/* Main Submit Button */}
                 <button
                   type="submit"
                   disabled={!isValid || loading}
-                  className="w-full h-11 sm:h-12 rounded-xl glass-btn-primary-agri disabled:opacity-50 text-[#FFFFFF] font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 mt-2"
+                  className="w-full h-12 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white font-bold text-sm shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2"
                 >
-                  {loading ? (
-                    <>
-                      <svg
-                        className="animate-spin h-4 w-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        />
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        />
-                      </svg>
-                      <span>Authenticating...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Login</span>
-                      <LogIn className="h-4 w-4 text-[#B7F34A]" />
-                    </>
-                  )}
+                  {loading ? "Signing in..." : "Sign In"}
+                  <ArrowRight className="h-4 w-4" />
                 </button>
               </form>
 
-              {/* Divider */}
-              <div className="relative my-4 flex items-center justify-center">
-                <div className="w-full border-t border-white/30" />
-                <span className="absolute bg-black/40 backdrop-blur-md px-3 py-0.5 text-[11px] font-bold text-[#E8F5EE] uppercase tracking-wider rounded-full border border-white/40 shadow-sm">
-                  or continue with
-                </span>
-              </div>
-
-              {/* Social Login & Demo Quick-Login */}
-              <div className="space-y-2">
-                <button
-                  type="button"
-                  onClick={() => handleDemoFill("farmer@purefarm.test")}
-                  className="w-full h-10 rounded-xl glass-btn-google-white flex items-center justify-center gap-2.5 text-xs font-bold text-[#FFFFFF] shadow-sm"
-                >
-                  {/* Google SVG Icon */}
-                  <svg className="h-4 w-4" viewBox="0 0 24 24">
-                    <path
-                      fill="#4285F4"
-                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                    />
-                    <path
-                      fill="#34A853"
-                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                    />
-                    <path
-                      fill="#FBBC05"
-                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
-                    />
-                    <path
-                      fill="#EA4335"
-                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
-                    />
-                  </svg>
-                  <span>Continue with Google</span>
-                </button>
-
-                {/* Demo Accounts Quick-Select Pills */}
-                <div className="pt-2">
-                  <p className="text-[10px] font-bold text-center text-[#E8F5EE] uppercase tracking-wider mb-1.5 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
-                    Demo Profiles (Click to prefill)
-                  </p>
-                  <div className="grid grid-cols-4 gap-1.5">
-                    {[
-                      { role: "Farmer", email: "farmer@purefarm.test" },
-                      { role: "Buyer", email: "buyer@purefarm.test" },
-                      { role: "Seller", email: "seller@purefarm.test" },
-                      { role: "Admin", email: "admin@purefarm.test" },
-                    ].map((demo) => (
-                      <button
-                        key={demo.role}
-                        type="button"
-                        onClick={() => handleDemoFill(demo.email)}
-                        className="py-1 px-1.5 rounded-lg glass-pill-demo text-[11px] font-bold text-[#FFFFFF] transition text-center"
-                      >
-                        {demo.role}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Sign-Up Link */}
-              <div className="text-center text-xs pt-3 font-medium text-[#E8F5EE]">
-                <span>Don't have an account? </span>
-                <Link
-                  to="/register"
-                  className="font-extrabold text-[#B7F34A] hover:underline transition drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]"
-                >
-                  Sign Up
-                </Link>
+              <div className="mt-6 pt-4 border-t border-white/20 text-center">
+                <p className="text-xs text-white/80">
+                  Don't have an account?{" "}
+                  <Link to="/register" className="font-bold text-[#19C37D] hover:underline">
+                    Create Account
+                  </Link>
+                </p>
               </div>
             </div>
           </div>
 
-          {/* RIGHT SIDE: Decorative Floating Farm Tomorrow Badge (Desktop) */}
-          <div className="hidden lg:flex lg:col-span-3 justify-end animate-subtle-float-2">
-            <div className="glass-card-dark p-5 rounded-3xl max-w-[220px] space-y-3 transition-all duration-300 hover:scale-105">
-              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#087A50] text-[#B7F34A] shadow-md border border-white/40">
-                <Sparkles className="h-5 w-5 text-[#B7F34A]" />
-              </span>
-              <div>
-                <h4
-                  className="text-sm font-extrabold text-[#FFFFFF]"
-                  style={{ textShadow: "0 2px 8px rgba(0,0,0,0.25)" }}
-                >
-                  Better Farming
-                </h4>
-                <p className="text-xs font-extrabold text-[#B7F34A]">Better Tomorrow</p>
-                <p className="text-[10px] font-medium text-[#E8F5EE] mt-1 leading-normal">
-                  Empowering Indian agriculture with connected smart solutions.
-                </p>
+          {/* RIGHT SIDE: Decorative Badges */}
+          <div className="hidden lg:flex lg:col-span-3 flex-col gap-4 animate-subtle-float-2">
+            <div className="glass-card-dark p-4 rounded-2xl transition-all duration-300 hover:scale-105">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#19C37D]/20 text-[#19C37D] border border-[#19C37D]/40 shadow-[0_0_12px_rgba(25,195,125,0.3)]">
+                  <ShieldCheck className="h-5 w-5 text-[#19C37D]" />
+                </span>
+                <div>
+                  <h4 className="text-sm font-extrabold text-[#FFFFFF]">Verified Quality</h4>
+                  <p className="text-xs font-medium text-[#E8F5EE]">100% Certified</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </main>
-
-      {/* BOTTOM BAR: Wide Subtle Glass Information Bar */}
-      <footer className="relative z-20 w-full px-4 py-3 glass-bar-dark text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-        <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-around gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="h-4 w-4 text-[#19C37D]" />
-            <div>
-              <span className="block text-xs font-extrabold leading-tight text-[#FFFFFF]">
-                Secure & Reliable
-              </span>
-              <span className="block text-[10px] text-[#E8F5EE] font-medium leading-tight">
-                Your data is protected
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <Activity className="h-4 w-4 text-[#19C37D]" />
-            <div>
-              <span className="block text-xs font-extrabold leading-tight text-[#FFFFFF]">
-                Real-time Insights
-              </span>
-              <span className="block text-[10px] text-[#E8F5EE] font-medium leading-tight">
-                Data-driven farming
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <Globe className="h-4 w-4 text-[#B7F34A]" />
-            <div>
-              <span className="block text-xs font-extrabold leading-tight text-[#FFFFFF]">
-                Sustainable Future
-              </span>
-              <span className="block text-[10px] text-[#E8F5EE] font-medium leading-tight">
-                For a better tomorrow
-              </span>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
 
 export function RegisterPage() {
   const navigate = useNavigate();
+  const { signup } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [location, setLocation] = useState("");
+  const [role, setRole] = useState<"farmer" | "buyer">("farmer");
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const isEmail = (val: string) => /^[^s@]+@[^s@]+.[^s@]+$/.test(val);
+  const isPhone = (val: string) => /^\d{10}$/.test(val);
 
   const isValid = useMemo(() => {
-    return name.length > 2 && /^\d{10}$/.test(phone) && password.length >= 6;
-  }, [name, phone, password]);
+    return (
+      name.trim().length >= 3 &&
+      isEmail(email) &&
+      isPhone(phone) &&
+      password.length >= 6
+    );
+  }, [name, email, phone, password]);
 
   const handleRegisterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isValid) return;
 
     setLoading(true);
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+    setErrorMessage("");
 
-      const session = {
-        id: "u-registered-" + Date.now(),
-        name: name,
-        email: phone + "@purefarm.test",
-        role: "farmer" as const,
-      };
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem("purefarm_session", JSON.stringify(session));
-      }
+    const res = await signup({
+      name,
+      email,
+      phone,
+      password,
+      role, // Strictly restricted to farmer or buyer
+      location,
+    });
 
-      void navigate({ to: "/" });
-    } catch (err) {
+    if (res.success) {
+      const dest = res.role === "buyer" ? "/marketplace" : "/";
+      void navigate({ to: dest as "/" });
+    } else {
+      setErrorMessage(res.error || "Registration failed. Please try again.");
       setLoading(false);
     }
   };
@@ -2319,177 +2439,183 @@ export function RegisterPage() {
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/commons/5/56/Two_farmers_driving_a_tractor_towing_a_raft_loaded_with_green_rice_sheaves_in_a_paddy_field_of_Vang_Vieng_Laos.jpg)' }}
       >
-        {/* 2. PROPER DARK OVERLAY */}
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 35, 25, 0.30)' }} />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 35, 25, 0.35)' }} />
       </div>
 
-      {/* 8. LEFT SIDE DESIGN - PUREFARM BRANDING (Top Left) */}
+      {/* Top Left Branding */}
       <div className="absolute top-6 left-6 lg:top-10 lg:left-12 z-10 flex items-center gap-3">
-        <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-lg">
-          <Leaf className="h-6 w-6" />
-        </span>
-        <div>
-          <span className="block text-2xl font-black tracking-wide leading-none text-white drop-shadow-md">PureFarm</span>
-          <span className="block text-[10px] font-bold text-white uppercase tracking-widest leading-none mt-1.5 drop-shadow-md">
-            Connect â€¢ Grow â€¢ Prosper
+        <Link to="/" className="flex items-center gap-3">
+          <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-lg">
+            <Leaf className="h-6 w-6" />
           </span>
-        </div>
+          <div>
+            <span className="block text-2xl font-black tracking-wide leading-none text-white drop-shadow-md">PureFarm</span>
+            <span className="block text-[10px] font-bold text-white uppercase tracking-widest leading-none mt-1.5 drop-shadow-md">
+              Connect � Grow � Prosper
+            </span>
+          </div>
+        </Link>
       </div>
 
       {/* Main Content Layout */}
       <div className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center justify-between p-6 lg:p-12 mt-20 lg:mt-0">
         
-        {/* 8. LEFT-SIDE CONTENT */}
+        {/* LEFT-SIDE CONTENT */}
         <div className="w-full lg:w-1/2 text-white mb-10 lg:mb-0 lg:pr-12 hidden md:block">
           <h2 className="text-4xl lg:text-6xl font-bold leading-tight drop-shadow-lg mb-6 text-white">
             Join the Digital<br />Agri Revolution
           </h2>
-          <p className="text-lg text-white/90 leading-relaxed max-w-md mb-10 drop-shadow-md" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
-            Register your farmer profile today to unlock crop guidance, Mandi price trackers, government scheme applications, and premium seed/fertiliser listings.
+          <p className="text-lg text-white/90 leading-relaxed max-w-md mb-8 drop-shadow-md">
+            Register your profile to access mandi prices, direct produce sales, certified inputs, and agricultural advisories.
           </p>
           
           <div className="space-y-4">
-            {/* 9. FEATURE CARDS */}
             <div 
               className="flex items-center gap-4 p-4 max-w-sm"
               style={{
-                background: 'rgba(255,255,255,0.10)',
+                background: 'rgba(255,255,255,0.12)',
                 backdropFilter: 'blur(16px)',
-                WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255,255,255,0.25)',
                 borderRadius: '18px',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
               }}
             >
               <div className="p-2"><Leaf className="h-6 w-6 text-white" /></div>
               <div>
-                <h4 className="font-bold text-white text-sm">Smart Farming</h4>
-                <p className="text-white/80 text-xs">Smarter decisions</p>
+                <h4 className="font-bold text-white text-sm">Direct Market Access</h4>
+                <p className="text-white/80 text-xs">Sell harvest at transparent mandi prices</p>
               </div>
             </div>
             
             <div 
               className="flex items-center gap-4 p-4 max-w-sm"
               style={{
-                background: 'rgba(255,255,255,0.10)',
+                background: 'rgba(255,255,255,0.12)',
                 backdropFilter: 'blur(16px)',
-                WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255,255,255,0.25)',
                 borderRadius: '18px',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
               }}
             >
-              <div className="p-2"><svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg></div>
+              <div className="p-2"><ShieldCheck className="h-6 w-6 text-white" /></div>
               <div>
-                <h4 className="font-bold text-white text-sm">Water Efficient</h4>
-                <p className="text-white/80 text-xs">Every drop counts</p>
-              </div>
-            </div>
-            
-            <div 
-              className="flex items-center gap-4 p-4 max-w-sm"
-              style={{
-                background: 'rgba(255,255,255,0.10)',
-                backdropFilter: 'blur(16px)',
-                WebkitBackdropFilter: 'blur(16px)',
-                border: '1px solid rgba(255,255,255,0.25)',
-                borderRadius: '18px',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
-              }}
-            >
-              <div className="p-2"><svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div>
-              <div>
-                <h4 className="font-bold text-white text-sm">Healthy Crop</h4>
-                <p className="text-white/80 text-xs">Better yield</p>
+                <h4 className="font-bold text-white text-sm">Verified Agri Inputs</h4>
+                <p className="text-white/80 text-xs">Quality seeds, fertilizers and equipment</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* 3 & 4. TRUE GLASSMORPHISM CREATE ACCOUNT PANEL */}
+        {/* CREATE ACCOUNT PANEL */}
         <div className="w-full lg:w-[500px] max-w-[90vw] lg:ml-auto">
           <div 
             style={{
-              background: 'rgba(255, 255, 255, 0.12)',
+              background: 'rgba(255, 255, 255, 0.16)',
               backdropFilter: 'blur(25px) saturate(140%)',
-              WebkitBackdropFilter: 'blur(25px) saturate(140%)',
               border: '1px solid rgba(255, 255, 255, 0.45)',
-              boxShadow: '0 25px 60px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35)',
+              boxShadow: '0 25px 60px rgba(0, 0, 0, 0.25)',
               borderRadius: '28px'
             }}
-            className="py-[38px] px-6 sm:px-[42px]"
+            className="py-8 px-6 sm:px-10"
           >
-            
-            {/* 5. MAKE THE CARD CONTENT HIGH CONTRAST */}
-            <div className="mb-8">
-              <div className="flex justify-center mb-4">
-                <span className="flex h-14 w-14 items-center justify-center rounded-[18px] bg-white/30 backdrop-blur-md border border-white/50 text-[#073B2A] shadow-sm">
-                  <Leaf className="h-7 w-7" />
-                </span>
-              </div>
-              <h3 
-                className="text-[28px] text-center leading-tight" 
-                style={{ color: '#073B2A', fontWeight: 800 }}
-              >
-                Create Account ðŸŒ±
+            <div className="mb-6 text-center">
+              <h3 className="text-2xl font-extrabold text-[#073B2A] drop-shadow-sm">
+                Create Account ??
               </h3>
-              <p 
-                className="text-center text-sm mt-2"
-                style={{ color: '#164F3C' }}
-              >
-                Register your farmer profile to get started
+              <p className="text-xs font-semibold text-[#164F3C] mt-1">
+                Choose your role to get started with PureFarm
               </p>
             </div>
 
-            <form onSubmit={handleRegisterSubmit} className="space-y-5">
-              
-              {/* 6. INPUTS MUST ALSO LOOK LIKE GLASS */}
-              <div className="space-y-1.5">
-                <label className="text-[13px] block" style={{ color: '#073B2A', fontWeight: 700 }}>Full Name</label>
+            {/* Role Selector Tabs */}
+            <div className="mb-5 grid grid-cols-2 gap-2 p-1.5 rounded-2xl bg-white/30 border border-white/40">
+              <button
+                type="button"
+                onClick={() => setRole("farmer")}
+                className={`py-2.5 px-3 rounded-xl text-xs font-black transition-all flex items-center justify-center gap-1.5 ${
+                  role === "farmer"
+                    ? "bg-[#087F5B] text-white shadow-md"
+                    : "text-[#073B2A] hover:bg-white/20"
+                }`}
+              >
+                <span>??</span>
+                <span>Farmer / Seller</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setRole("buyer")}
+                className={`py-2.5 px-3 rounded-xl text-xs font-black transition-all flex items-center justify-center gap-1.5 ${
+                  role === "buyer"
+                    ? "bg-[#087F5B] text-white shadow-md"
+                    : "text-[#073B2A] hover:bg-white/20"
+                }`}
+              >
+                <span>??</span>
+                <span>Buyer / Customer</span>
+              </button>
+            </div>
+
+            {errorMessage && (
+              <div className="mb-4 p-3 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-900 text-xs font-bold">
+                {errorMessage}
+              </div>
+            )}
+
+            <form onSubmit={handleRegisterSubmit} className="space-y-3.5">
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-[#073B2A] block">Full Name</label>
                 <input
                   type="text"
                   required
                   disabled={loading}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Enter your full name"
-                  style={{
-                    background: 'rgba(255,255,255,0.35)',
-                    border: '1px solid rgba(255,255,255,0.65)',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
-                    borderRadius: '14px',
-                    height: '52px',
-                    color: '#082F25'
-                  }}
-                  className="w-full px-4 text-[15px] outline-none focus:border-[#087F5B] focus:shadow-[0_0_10px_rgba(8,127,91,0.2)] transition-all placeholder:text-[#082F25]/65"
+                  placeholder="e.g. Ramesh Kumar"
+                  className="w-full h-11 px-3.5 rounded-xl bg-white/40 border border-white/60 text-[#082F25] placeholder:text-[#082F25]/60 text-sm outline-none focus:border-[#087F5B] transition"
                 />
               </div>
 
-              <div className="space-y-1.5">
-                <label className="text-[13px] block" style={{ color: '#073B2A', fontWeight: 700 }}>Mobile Number</label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-[#073B2A] block">Email Address</label>
+                  <input
+                    type="email"
+                    required
+                    disabled={loading}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="ramesh@example.com"
+                    className="w-full h-11 px-3.5 rounded-xl bg-white/40 border border-white/60 text-[#082F25] placeholder:text-[#082F25]/60 text-sm outline-none focus:border-[#087F5B] transition"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-[#073B2A] block">Mobile Number</label>
+                  <input
+                    type="tel"
+                    required
+                    maxLength={10}
+                    disabled={loading}
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="10-digit number"
+                    className="w-full h-11 px-3.5 rounded-xl bg-white/40 border border-white/60 text-[#082F25] placeholder:text-[#082F25]/60 text-sm outline-none focus:border-[#087F5B] transition"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-[#073B2A] block">Location (City, State)</label>
                 <input
-                  type="tel"
-                  required
+                  type="text"
                   disabled={loading}
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="Enter 10-digit mobile number"
-                  style={{
-                    background: 'rgba(255,255,255,0.35)',
-                    border: '1px solid rgba(255,255,255,0.65)',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
-                    borderRadius: '14px',
-                    height: '52px',
-                    color: '#082F25'
-                  }}
-                  className="w-full px-4 text-[15px] outline-none focus:border-[#087F5B] focus:shadow-[0_0_10px_rgba(8,127,91,0.2)] transition-all placeholder:text-[#082F25]/65"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  placeholder="e.g. Rajahmundry, Andhra Pradesh"
+                  className="w-full h-11 px-3.5 rounded-xl bg-white/40 border border-white/60 text-[#082F25] placeholder:text-[#082F25]/60 text-sm outline-none focus:border-[#087F5B] transition"
                 />
               </div>
 
-              <div className="space-y-1.5">
-                <label className="text-[13px] block" style={{ color: '#073B2A', fontWeight: 700 }}>Password</label>
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-[#073B2A] block">Password</label>
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
@@ -2497,76 +2623,31 @@ export function RegisterPage() {
                     disabled={loading}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Create a password (min. 6 chars)"
-                    style={{
-                      background: 'rgba(255,255,255,0.35)',
-                      border: '1px solid rgba(255,255,255,0.65)',
-                      backdropFilter: 'blur(10px)',
-                      WebkitBackdropFilter: 'blur(10px)',
-                      borderRadius: '14px',
-                      height: '52px',
-                      color: '#082F25'
-                    }}
-                    className="w-full pl-4 pr-14 text-[15px] outline-none focus:border-[#087F5B] focus:shadow-[0_0_10px_rgba(8,127,91,0.2)] transition-all placeholder:text-[#082F25]/65"
+                    placeholder="Min. 6 characters"
+                    className="w-full h-11 pl-3.5 pr-14 rounded-xl bg-white/40 border border-white/60 text-[#082F25] placeholder:text-[#082F25]/60 text-sm outline-none focus:border-[#087F5B] transition"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-4 text-xs font-bold text-[#087F5B] hover:text-[#073B2A] transition-colors"
+                    className="absolute right-3.5 top-3 text-xs font-bold text-[#087F5B] hover:text-[#073B2A]"
                   >
                     {showPassword ? "Hide" : "Show"}
                   </button>
                 </div>
               </div>
 
-              {!isValid && (name.length > 0 || phone.length > 0 || password.length > 0) && (
-                <p className="text-[11px] font-semibold leading-relaxed text-[#087F5B] bg-white/30 backdrop-blur-sm p-3 rounded-xl border border-white/40">
-                  â€¢ Name should be at least 3 characters.<br />
-                  â€¢ Mobile number must be exactly 10 digits.<br />
-                  â€¢ Password must be at least 6 characters.
-                </p>
-              )}
-
-              {/* 7. CREATE ACCOUNT BUTTON */}
               <button
                 type="submit"
                 disabled={!isValid || loading}
-                className="group relative w-full mt-4 flex items-center justify-center gap-2 overflow-hidden transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-[2px] hover:shadow-[0_12px_25px_rgba(0,90,65,0.35)]"
-                style={{
-                  background: 'linear-gradient(135deg, #087F5B, #0B6B4F)',
-                  color: 'white',
-                  fontWeight: 700,
-                  height: '52px',
-                  borderRadius: '14px',
-                  boxShadow: '0 8px 20px rgba(0, 90, 65, 0.25)'
-                }}
+                className="w-full h-12 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-4"
               >
-                {loading ? (
-                  <>
-                    <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                    </svg>
-                    <span>Creating Account...</span>
-                  </>
-                ) : (
-                  <>
-                    <span>Create Account</span>
-                    <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </>
-                )}
+                {loading ? "Creating Profile..." : "Complete Registration"}
+                <ArrowRight className="h-4 w-4" />
               </button>
             </form>
-
-            <div className="text-center text-sm font-semibold mt-6">
-              <span style={{ color: '#082F25' }}>Already have an account? </span>
-              <Link
-                to="/login"
-                className="hover:underline transition-colors"
-                style={{ color: '#087F5B', fontWeight: 700 }}
-              >
+            <div className="text-center text-xs font-bold mt-5 text-[#082F25]">
+              Already have an account?{" "}
+              <Link to="/login" className="text-[#087F5B] hover:underline font-extrabold">
                 Sign In
               </Link>
             </div>
@@ -2578,256 +2659,799 @@ export function RegisterPage() {
 }
 
 export function SellerPage() {
+  const { user } = useAuth();
   const navigate = useNavigate();
-  const { user, loading } = useAuth();
 
-  // Authentication check for Route Protection
-  useEffect(() => {
-    if (!loading && (!user || (user.role !== "seller" && user.role !== "admin"))) {
-      void navigate({ to: "/login" });
+  const [products, setProducts] = useState<DbProduct[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingProduct, setEditingProduct] = useState<DbProduct | null>(null);
+  const [deletingProduct, setDeletingProduct] = useState<DbProduct | null>(null);
+  const [activeTab, setActiveTab] = useState<"products" | "orders">("products");
+  const [farmerOrders, setFarmerOrders] = useState<OrderWithItems[]>([]);
+  const [loadingOrders, setLoadingOrders] = useState(false);
+
+  // Form State
+  const [formData, setFormData] = useState({
+    title: "",
+    category: "grains" as ProductCategory,
+    price: "",
+    quantity: "",
+    available_quantity: "",
+    unit: "kg",
+    location: user?.location || "Andhra Pradesh, India",
+    harvest_date: "",
+    image_url: "",
+    description: "",
+    status: "available" as ProductStatus,
+  });
+
+  const [submitting, setSubmitting] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
+  const [formSuccess, setFormSuccess] = useState<string | null>(null);
+
+  const fetchFarmerProducts = async () => {
+    if (!user) return;
+    setLoading(true);
+    try {
+      const data = await getFarmerProducts(user.id);
+      setProducts(data);
+      setError(null);
+    } catch (err: any) {
+      console.error("Failed to load products:", err);
+      setError(err.message || "Failed to load seller products.");
+    } finally {
+      setLoading(false);
     }
-  }, [user, loading, navigate]);
+  };
 
-  if (loading) {
+  const fetchFarmerOrders = async () => {
+    if (!user) return;
+    setLoadingOrders(true);
+    try {
+      const data = await getOrdersByFarmer(user.id);
+      setFarmerOrders(data);
+    } catch (err: any) {
+      console.error("Failed to load farmer orders:", err);
+    } finally {
+      setLoadingOrders(false);
+    }
+  };
+
+  useEffect(() => {
+    if (user && user.role === "farmer") {
+      fetchFarmerProducts();
+      fetchFarmerOrders();
+    } else {
+      setLoading(false);
+    }
+  }, [user]);
+
+  const openAddModal = () => {
+    setEditingProduct(null);
+    setFormData({
+      title: "",
+      category: "grains",
+      price: "",
+      quantity: "",
+      available_quantity: "",
+      unit: "kg",
+      location: (user?.location || "Andhra Pradesh, India") as string,
+      harvest_date: (new Date().toISOString().split("T")[0] || "") as string,
+      image_url: "",
+      description: "",
+      status: "available",
+    });
+    setFormError(null);
+    setFormSuccess(null);
+    setIsModalOpen(true);
+  };
+
+  const openEditModal = (product: DbProduct) => {
+    setEditingProduct(product);
+    setFormData({
+      title: product.name || (product as any).title || "",
+      category: product.category,
+      price: String(product.price),
+      quantity: String(product.quantity),
+      available_quantity: String(product.available_quantity),
+      unit: product.unit || "kg",
+      location: (product.location || "") as string,
+      harvest_date: (product.harvest_date ? product.harvest_date.split("T")[0] || "" : "") as string,
+      image_url: product.image_url || "",
+      description: product.description || "",
+      status: product.status || "available",
+    });
+    setFormError(null);
+    setFormSuccess(null);
+    setIsModalOpen(true);
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormError(null);
+    setFormSuccess(null);
+
+    if (!user) {
+      setFormError("You must be logged in as a farmer to save products.");
+      return;
+    }
+
+    // Validation
+    const title = formData.title.trim();
+    if (!title) {
+      setFormError("Product title is required.");
+      return;
+    }
+
+    const priceNum = Number(formData.price);
+    if (isNaN(priceNum) || priceNum <= 0) {
+      setFormError("Price per unit must be greater than 0.");
+      return;
+    }
+
+    const totalQtyNum = Number(formData.quantity);
+    if (isNaN(totalQtyNum) || totalQtyNum <= 0) {
+      setFormError("Total quantity must be greater than 0.");
+      return;
+    }
+
+    const availQtyNum = Number(formData.available_quantity || formData.quantity);
+    if (isNaN(availQtyNum) || availQtyNum < 0) {
+      setFormError("Available quantity cannot be negative.");
+      return;
+    }
+
+    if (availQtyNum > totalQtyNum) {
+      setFormError("Available quantity cannot exceed total quantity.");
+      return;
+    }
+
+    const locationStr = formData.location.trim();
+    if (!locationStr) {
+      setFormError("Location is required.");
+      return;
+    }
+
+    setSubmitting(true);
+
+    try {
+      const payload = {
+        name: title,
+        category: formData.category,
+        price: priceNum,
+        quantity: totalQtyNum,
+        available_quantity: availQtyNum,
+        unit: formData.unit || "kg",
+        location: locationStr,
+        harvest_date: formData.harvest_date ? new Date(formData.harvest_date).toISOString() : null,
+        image_url: formData.image_url.trim() || null,
+        description: formData.description.trim() || null,
+        status: formData.status,
+      };
+
+      if (editingProduct) {
+        await updateProduct(editingProduct.id, payload);
+        setFormSuccess("Product updated successfully!");
+      } else {
+        await createProduct({
+          ...payload,
+          farmer_id: user.id,
+        });
+        setFormSuccess("Product created successfully!");
+      }
+
+      await fetchFarmerProducts();
+      setTimeout(() => {
+        setIsModalOpen(false);
+        setSubmitting(false);
+      }, 500);
+    } catch (err: any) {
+      console.error("Save product error:", err);
+      setFormError(err.message || "Failed to save product.");
+      setSubmitting(false);
+    }
+  };
+
+  const handleDeleteConfirm = async () => {
+    if (!deletingProduct) return;
+    setSubmitting(true);
+    try {
+      await deleteProduct(deletingProduct.id);
+      setDeletingProduct(null);
+      await fetchFarmerProducts();
+    } catch (err: any) {
+      console.error("Delete product error:", err);
+      alert(err.message || "Failed to delete product.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleToggleStatus = async (product: DbProduct) => {
+    try {
+      const newStatus: ProductStatus = product.status === "available" ? "inactive" : "available";
+      await updateProduct(product.id, { status: newStatus });
+      await fetchFarmerProducts();
+    } catch (err: any) {
+      alert("Failed to change product status: " + err.message);
+    }
+  };
+
+  if (!user) {
     return (
-      <div className="flex h-64 items-center justify-center">
-        <p className="text-sm text-muted-foreground">Checking authorization...</p>
-      </div>
+      <PageShell eyebrow="Seller Portal" title="Farmer Product Management">
+        <div className="rounded-2xl border bg-card p-8 text-center shadow-sm max-w-xl mx-auto my-12">
+          <Leaf className="h-12 w-12 text-[#087F5B] mx-auto mb-4" />
+          <h2 className="text-xl font-bold text-foreground mb-2">Farmer Authentication Required</h2>
+          <p className="text-muted-foreground text-sm mb-6">
+            Please log in with your Farmer account to manage product listings, inventory, and sales.
+          </p>
+          <Link
+            to="/login"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] text-white font-bold hover:bg-[#073B2A] transition"
+          >
+            Sign In to Seller Portal <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </PageShell>
     );
   }
 
-  if (!user || (user.role !== "seller" && user.role !== "admin")) {
-    return <AccessDenied requiredRoles={["seller", "admin"]} />;
+  if (user && user.role !== "farmer") {
+    return (
+      <PageShell eyebrow="Seller Portal" title="Farmer Access Only">
+        <div className="rounded-2xl border bg-card p-8 text-center shadow-sm max-w-xl mx-auto my-12">
+          <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+            !
+          </div>
+          <h2 className="text-xl font-bold text-foreground mb-2">Account Role Notice</h2>
+          <p className="text-muted-foreground text-sm mb-6">
+            You are currently logged in as <strong>{user.role.toUpperCase()}</strong>. Access to this product management interface is strictly restricted to registered Farmers.
+          </p>
+          <Link
+            to="/marketplace"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] text-white font-bold hover:bg-[#073B2A] transition"
+          >
+            Go to Marketplace <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </PageShell>
+    );
   }
-
-  // Get a few mock products for Kiran's inventory
-  const sellerProducts = PRODUCTS.slice(5, 10);
 
   return (
     <PageShell
-      eyebrow="Seller Hub"
-      title="Seller Dashboard"
-      intro="Manage your farm produce listings, update inventory levels, and process customer orders."
+      eyebrow="Farmer Console"
+      title="My Products & Inventory"
+      intro="Manage your farm produce listings, update stock levels, and publish products to buyers across India."
     >
-      {/* Seller KPI Statistics */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
-        {[
-          {
-            label: "Total Sales",
-            value: "â‚¹1,42,800",
-            delta: "+12.4% this week",
-            color: "text-[#2d6a4f]",
-          },
-          {
-            label: "Active Listings",
-            value: "18 Products",
-            delta: "Synced live",
-            color: "text-[#1b4332]",
-          },
-          {
-            label: "Pending Orders",
-            value: "5 Orders",
-            delta: "Requires dispatch",
-            color: "text-amber-600",
-          },
-          {
-            label: "Seller Rating",
-            value: "4.8 â˜…",
-            delta: "From 120 reviews",
-            color: "text-amber-500",
-          },
-        ].map((stat, idx) => (
-          <div key={idx} className="rounded-2xl border border-border bg-card p-5 shadow-soft">
-            <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
-              {stat.label}
-            </p>
-            <p className={`mt-2 text-2xl font-black ${stat.color}`}>{stat.value}</p>
-            <p className="mt-1 text-[10px] font-bold text-muted-foreground">{stat.delta}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Grid: Listings + Orders */}
-      <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-        {/* Inventory Column */}
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-base font-black text-[#1b4332]">Product Inventory</h3>
-            <button
-              onClick={() => alert("Add Product mock action clicked!")}
-              className="rounded-lg bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-3 py-1.5 text-xs font-bold transition shadow-sm"
-            >
-              + Add Product
-            </button>
-          </div>
-
-          <div className="overflow-x-auto no-scrollbar">
-            <table className="w-full text-left border-collapse text-xs">
-              <thead>
-                <tr className="border-b border-border text-muted-foreground font-bold">
-                  <th className="pb-3">Product Name</th>
-                  <th className="pb-3">Price</th>
-                  <th className="pb-3">Stock Level</th>
-                  <th className="pb-3 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border/60">
-                {sellerProducts.map((p) => (
-                  <tr key={p.id} className="hover:bg-muted/10 transition-colors">
-                    <td className="py-3 font-bold text-[#1b4332]">{p.name}</td>
-                    <td className="py-3">
-                      â‚¹{p.price} / {p.unit}
-                    </td>
-                    <td className="py-3">
-                      <span
-                        className={`font-semibold ${p.stock > 10 ? "text-emerald-600" : "text-rose-500"}`}
-                      >
-                        {p.stock} units
-                      </span>
-                    </td>
-                    <td className="py-3 text-right space-x-2">
-                      <button
-                        onClick={() => alert(`Edit mock action for: ${p.name}`)}
-                        className="text-xs font-bold text-[#2d6a4f] hover:underline"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => alert(`Restock mock action for: ${p.name}`)}
-                        className="text-xs font-bold text-amber-500 hover:underline"
-                      >
-                        Restock
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+      {/* Tabs & Header Actions */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+        <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-muted border w-full sm:w-auto">
+          <button
+            onClick={() => setActiveTab("products")}
+            className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black transition ${
+              activeTab === "products"
+                ? "bg-[#087F5B] text-white shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            My Products ({products.length})
+          </button>
+          <button
+            onClick={() => {
+              setActiveTab("orders");
+              fetchFarmerOrders();
+            }}
+            className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-black transition ${
+              activeTab === "orders"
+                ? "bg-[#087F5B] text-white shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            Received Orders ({farmerOrders.length})
+          </button>
         </div>
 
-        {/* Orders Column */}
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-4">
-          <h3 className="text-base font-black text-[#1b4332]">Recent Orders</h3>
+        {activeTab === "products" && (
+          <button
+            onClick={openAddModal}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-xs shadow-md transition"
+          >
+            <Plus className="h-4 w-4" /> List New Produce
+          </button>
+        )}
+      </div>
 
-          <div className="space-y-3.5">
-            {[
-              {
-                id: "PF-2049",
-                customer: "Suresh Rao",
-                items: "Certified Seed Potatoes",
-                total: "â‚¹4,500",
-                status: "Pending",
-                date: "10 mins ago",
-              },
-              {
-                id: "PF-2048",
-                customer: "M. Naidu",
-                items: "Organic Vermicompost",
-                total: "â‚¹2,250",
-                status: "Processing",
-                date: "2 hrs ago",
-              },
-              {
-                id: "PF-2047",
-                customer: "V. Reddy",
-                items: "Premium NPK Blend",
-                total: "â‚¹8,100",
-                status: "Dispatched",
-                date: "Yesterday",
-              },
-            ].map((o, idx) => (
-              <div
-                key={idx}
-                className="border-b border-border/50 pb-3 last:border-0 last:pb-0 flex items-center justify-between text-xs"
-              >
-                <div>
-                  <p className="font-bold text-[#1b4332]">{o.items}</p>
-                  <p className="text-[10px] text-muted-foreground mt-0.5">
-                    Order {o.id} Â· Customer: {o.customer} Â· {o.date}
-                  </p>
+      {error && (
+        <div className="mb-6 p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm font-semibold">
+          {error}
+        </div>
+      )}
+
+      {activeTab === "orders" ? (
+        /* Farmer Received Orders Tab */
+        <div>
+          {loadingOrders ? (
+            <div className="space-y-4">
+              {[1, 2].map((n) => (
+                <div key={n} className="rounded-2xl border p-6 bg-card animate-pulse space-y-3">
+                  <div className="h-5 bg-muted rounded w-1/4" />
+                  <div className="h-4 bg-muted rounded w-1/2" />
                 </div>
-                <div className="text-right">
-                  <p className="font-bold text-foreground">{o.total}</p>
-                  <span
-                    className={`inline-block mt-1 px-2 py-0.5 rounded text-[9px] font-bold ${
-                      o.status === "Pending"
-                        ? "bg-amber-50 text-amber-700 border border-amber-100"
-                        : o.status === "Processing"
-                          ? "bg-blue-50 text-blue-700 border border-blue-100"
-                          : "bg-emerald-50 text-emerald-700 border border-emerald-100"
-                    }`}
-                  >
-                    {o.status}
+              ))}
+            </div>
+          ) : farmerOrders.length === 0 ? (
+            <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/50 p-12 text-center max-w-xl mx-auto my-8 space-y-3">
+              <div className="w-14 h-14 rounded-full bg-emerald-100 text-[#087F5B] flex items-center justify-center mx-auto mb-2 font-bold text-xl">
+                📦
+              </div>
+              <h3 className="text-xl font-bold text-[#073B2A]">No received orders yet.</h3>
+              <p className="text-xs text-emerald-800/80 leading-relaxed">
+                When buyers purchase your listed produce, orders will automatically appear here.
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {farmerOrders.map((order) => (
+                <div key={order.id} className="rounded-2xl border bg-card p-6 shadow-sm space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b pb-4">
+                    <div>
+                      <div className="flex items-center gap-3">
+                        <span className="font-black text-lg text-foreground">
+                          Order #PF-{order.id.substring(0, 8).toUpperCase()}
+                        </span>
+                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 uppercase">
+                          {order.status}
+                        </span>
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Received on {new Date(order.created_at).toLocaleDateString("en-IN", { dateStyle: "medium" })}
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-xs text-muted-foreground block font-medium">Order Total</span>
+                      <span className="text-xl font-black text-[#087F5B]">{formatRupees(order.total_amount)}</span>
+                    </div>
+                  </div>
+
+                  {/* Order Items */}
+                  <div className="space-y-3">
+                    {order.order_items?.map((item) => (
+                      <div key={item.id} className="flex items-center justify-between text-sm py-1">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-emerald-100 text-[#087F5B] flex items-center justify-center font-bold text-xs">
+                            🌾
+                          </div>
+                          <div>
+                            <p className="font-bold text-foreground">{item.products?.name || "Farm Produce"}</p>
+                            <p className="text-xs text-muted-foreground">
+                              {item.quantity} {item.products?.unit || "units"} × {formatRupees(item.unit_price)}
+                            </p>
+                          </div>
+                        </div>
+                        <span className="font-bold text-foreground">{formatRupees(item.subtotal)}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Delivery Location */}
+                  <div className="pt-3 border-t flex items-center justify-between text-xs text-muted-foreground">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-3.5 w-3.5 text-[#087F5B]" />
+                      <span>Delivery Destination: <strong>{order.delivery_location}</strong></span>
+                    </div>
+                    <span className="font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-100">
+                      Payment: {order.payment_method?.toUpperCase() || "COD"} ({order.payment_status || "Pending"})
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ) : null}
+
+      {activeTab === "products" && (
+        <>
+
+      {loading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[1, 2, 3].map((n) => (
+            <div key={n} className="rounded-2xl border p-6 bg-card animate-pulse space-y-4">
+              <div className="h-40 bg-muted rounded-xl" />
+              <div className="h-4 bg-muted rounded w-3/4" />
+              <div className="h-4 bg-muted rounded w-1/2" />
+            </div>
+          ))}
+        </div>
+      ) : products.length === 0 ? (
+        /* Empty State */
+        <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/50 p-12 text-center max-w-xl mx-auto my-8">
+          <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#087F5B] flex items-center justify-center mx-auto mb-4">
+            <Sprout className="h-8 w-8" />
+          </div>
+          <h3 className="text-xl font-bold text-[#073B2A] mb-2">No products listed yet.</h3>
+          <p className="text-sm text-emerald-800/80 mb-6 leading-relaxed">
+            You haven't listed any farm produce for sale yet. Start selling directly to verified buyers across India with zero middleman fees.
+          </p>
+          <button
+            onClick={openAddModal}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-lg transition"
+          >
+            <Plus className="h-4 w-4" /> List Your First Product
+          </button>
+        </div>
+      ) : (
+        /* Product Grid */
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {products.map((product) => (
+            <div key={product.id} className="rounded-2xl border bg-card overflow-hidden shadow-sm flex flex-col justify-between hover:shadow-md transition">
+              <div>
+                <div className="relative h-44 bg-muted overflow-hidden">
+                  <img
+                    src={product.image_url || NEUTRAL_PRODUCT_FALLBACK}
+                    alt={product.name || (product as any).title}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = NEUTRAL_PRODUCT_FALLBACK;
+                    }}
+                    className="w-full h-full object-cover"
+                  />
+                  <span className={`absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-bold ${product.status === "available" ? "bg-emerald-500 text-white" : "bg-gray-500 text-white"}`}>
+                    {(product.status || "available").toUpperCase()}
+                  </span>
+                  <span className="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg text-xs font-bold bg-black/60 text-white backdrop-blur-sm">
+                    {product.category.toUpperCase()}
                   </span>
                 </div>
+
+                <div className="p-5 space-y-3">
+                  <h3 className="font-bold text-lg text-foreground line-clamp-1">{product.name || (product as any).title}</h3>
+
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-2xl font-black text-[#087F5B]">{formatRupees(product.price)}</span>
+                    <span className="text-xs text-muted-foreground font-semibold">/ {product.unit}</span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 pt-2 border-t text-xs">
+                    <div>
+                      <span className="text-muted-foreground block font-medium">Available Stock</span>
+                      <span className="font-bold text-foreground">{product.available_quantity} {product.unit}</span>
+                    </div>
+                    <div>
+                      <span className="text-muted-foreground block font-medium">Total Quantity</span>
+                      <span className="font-bold text-foreground">{product.quantity} {product.unit}</span>
+                    </div>
+                  </div>
+
+                  {product.location && (
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <MapPin className="h-3.5 w-3.5 text-[#087F5B]" />
+                      <span className="truncate">{product.location}</span>
+                    </div>
+                  )}
+                </div>
               </div>
-            ))}
+
+              {/* Card Actions */}
+              <div className="p-4 bg-muted/40 border-t flex items-center justify-between gap-2">
+                <button
+                  onClick={() => handleToggleStatus(product)}
+                  className="px-3 py-1.5 rounded-lg border text-xs font-bold transition hover:bg-muted"
+                >
+                  {product.status === "available" ? "Deactivate" : "Activate"}
+                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => openEditModal(product)}
+                    className="px-3 py-1.5 rounded-lg bg-emerald-100 text-[#087F5B] hover:bg-emerald-200 text-xs font-bold transition"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => setDeletingProduct(product)}
+                    className="px-3 py-1.5 rounded-lg bg-rose-100 text-rose-700 hover:bg-rose-200 text-xs font-bold transition"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+        </>
+      )}
+
+      {/* Add / Edit Product Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm overflow-y-auto">
+          <div className="bg-card border rounded-3xl p-6 md:p-8 max-w-xl w-full shadow-2xl relative my-8">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
+                <Sprout className="h-5 w-5 text-[#087F5B]" />
+                {editingProduct ? "Edit Product Listing" : "Add New Crop Listing"}
+              </h2>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="text-muted-foreground hover:text-foreground text-lg font-bold"
+              >
+                ✕
+              </button>
+            </div>
+
+            {formError && (
+              <div className="mb-4 p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-bold">
+                {formError}
+              </div>
+            )}
+
+            {formSuccess && (
+              <div className="mb-4 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-[#087F5B] text-xs font-bold">
+                {formSuccess}
+              </div>
+            )}
+
+            <form onSubmit={handleFormSubmit} className="space-y-4">
+              <div>
+                <label className="text-xs font-bold text-foreground block mb-1">
+                  Product Title / Crop Name *
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.title}
+                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  placeholder="e.g. Organic Sonora Wheat Grain (50 kg)"
+                  className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold text-foreground block mb-1">Category *</label>
+                  <select
+                    value={formData.category}
+                    onChange={(e) => setFormData({ ...formData, category: e.target.value as ProductCategory })}
+                    className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                  >
+                    <option value="grains">Grains & Cereals</option>
+                    <option value="vegetables">Fresh Vegetables</option>
+                    <option value="fruits">Fresh Fruits</option>
+                    <option value="pulses">Pulses & Dal</option>
+                    <option value="spices">Spices & Herbs</option>
+                    <option value="seeds">Seeds & Planting</option>
+                    <option value="inputs">Farm Inputs & Fertilizers</option>
+                    <option value="equipment">Tools & Equipment</option>
+                    <option value="oilseeds">Oilseeds</option>
+                    <option value="other">Other Agriculture</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-foreground block mb-1">Unit of Measure *</label>
+                  <select
+                    value={formData.unit}
+                    onChange={(e) => setFormData({ ...formData, unit: e.target.value })}
+                    className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                  >
+                    <option value="kg">Kilogram (kg)</option>
+                    <option value="quintal">Quintal (100 kg)</option>
+                    <option value="ton">Metric Ton</option>
+                    <option value="bag">Bag / Packet</option>
+                    <option value="box">Box / Crate</option>
+                    <option value="piece">Piece / Unit</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label className="text-xs font-bold text-foreground block mb-1">Price per {formData.unit} (₹) *</label>
+                  <input
+                    type="number"
+                    min="1"
+                    step="any"
+                    required
+                    value={formData.price}
+                    onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                    placeholder="e.g. 2400"
+                    className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-foreground block mb-1">Total Quantity *</label>
+                  <input
+                    type="number"
+                    min="1"
+                    step="any"
+                    required
+                    value={formData.quantity}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setFormData((prev) => ({
+                        ...prev,
+                        quantity: val,
+                        available_quantity: prev.available_quantity ? prev.available_quantity : val,
+                      }));
+                    }}
+                    placeholder="e.g. 100"
+                    className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-foreground block mb-1">Available Quantity *</label>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    required
+                    value={formData.available_quantity}
+                    onChange={(e) => setFormData({ ...formData, available_quantity: e.target.value })}
+                    placeholder="e.g. 100"
+                    className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold text-foreground block mb-1">Location / Farm Address *</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.location}
+                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                    placeholder="e.g. Guntur, Andhra Pradesh"
+                    className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-foreground block mb-1">Harvest Date</label>
+                  <input
+                    type="date"
+                    value={formData.harvest_date}
+                    onChange={(e) => setFormData({ ...formData, harvest_date: e.target.value })}
+                    className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-bold text-foreground block mb-1">Image URL (Optional)</label>
+                <input
+                  type="url"
+                  value={formData.image_url}
+                  onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
+                  placeholder="https://images.unsplash.com/... or leave blank for default image"
+                  className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                />
+              </div>
+
+              <div>
+                <label className="text-xs font-bold text-foreground block mb-1">Description (Optional)</label>
+                <textarea
+                  rows={3}
+                  value={formData.description}
+                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  placeholder="Describe your harvest quality, moisture content, organic certification, packaging..."
+                  className="w-full p-3 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                />
+              </div>
+
+              <div>
+                <label className="text-xs font-bold text-foreground block mb-1">Status</label>
+                <select
+                  value={formData.status}
+                  onChange={(e) => setFormData({ ...formData, status: e.target.value as ProductStatus })}
+                  className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+                >
+                  <option value="available">Active (Visible on Marketplace)</option>
+                  <option value="inactive">Inactive (Hidden from Marketplace)</option>
+                </select>
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-4 border-t">
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(false)}
+                  disabled={submitting}
+                  className="px-5 py-2.5 rounded-xl border text-xs font-bold hover:bg-muted transition"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="px-6 py-2.5 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-xs shadow-md transition disabled:opacity-50 flex items-center gap-2"
+                >
+                  {submitting ? "Saving..." : editingProduct ? "Update Product" : "Publish Product"}
+                </button>
+              </div>
+            </form>
           </div>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {deletingProduct && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="bg-card border rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4">
+            <h3 className="text-lg font-bold text-foreground">Confirm Delete Product</h3>
+            <p className="text-sm text-muted-foreground">
+              Are you sure you want to remove <strong>"{deletingProduct.name || (deletingProduct as any).title}"</strong> from your catalog? This action cannot be undone.
+            </p>
+            <div className="flex items-center justify-end gap-3 pt-4">
+              <button
+                onClick={() => setDeletingProduct(null)}
+                disabled={submitting}
+                className="px-4 py-2 rounded-xl border text-xs font-bold hover:bg-muted"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDeleteConfirm}
+                disabled={submitting}
+                className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-sm disabled:opacity-50"
+              >
+                {submitting ? "Deleting..." : "Delete Permanently"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </PageShell>
+  );
+}
+
+export function AdminPage() {
+  const { user } = useAuth();
+
+  return (
+    <PageShell
+      eyebrow="System Administration"
+      title="PureFarm Control Panel"
+      intro="Monitor database health, oversee user profiles, and manage system operations."
+    >
+      <div className="grid gap-6 md:grid-cols-3 mb-8">
+        <div className="rounded-2xl border bg-card p-6 shadow-sm">
+          <p className="text-sm text-muted-foreground font-semibold">User Role</p>
+          <p className="text-2xl font-black text-[#087F5B] mt-1">{user?.role?.toUpperCase() || "ADMIN"}</p>
+        </div>
+        <div className="rounded-2xl border bg-card p-6 shadow-sm">
+          <p className="text-sm text-muted-foreground font-semibold">Supabase Connection</p>
+          <p className="text-2xl font-black text-emerald-600 mt-1">CONNECTED</p>
+        </div>
+        <div className="rounded-2xl border bg-card p-6 shadow-sm">
+          <p className="text-sm text-muted-foreground font-semibold">Environment</p>
+          <p className="text-2xl font-black text-indigo-600 mt-1">PRODUCTION</p>
         </div>
       </div>
     </PageShell>
   );
 }
 
-export function AdminPage() {
-  return (
-    <RoleGuard allowedRoles={["admin"]}>
-      <PageShell
-        eyebrow="Admin"
-        title="Operations dashboard"
-        intro="Mock management view for products, orders, farmers, and support workload."
-      >
-        <div className="grid gap-4 md:grid-cols-4">
-          {ADMIN_STATS.map((stat) => (
-            <div key={stat.label} className={cardClass}>
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
-              <p className="mt-2 text-3xl font-black">{stat.value}</p>
-              <p className="mt-1 text-sm font-bold text-primary">{stat.delta}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1fr]">
-          <div className={cardClass}>
-            <p className="font-black">Recent orders</p>
-            {[
-              "PF-2048 Â· Drip kit Â· Pending",
-              "PF-2047 Â· Wheat seed Â· Dispatched",
-              "PF-2046 Â· Vermicompost Â· Delivered",
-            ].map((row) => (
-              <p key={row} className="mt-3 rounded-lg bg-muted p-3 text-sm">
-                {row}
-              </p>
-            ))}
-          </div>
-          <div className={cardClass}>
-            <p className="font-black">Catalogue health</p>
-            {CATEGORIES.filter((c) => c.id !== "all").map((cat) => (
-              <p key={cat.id} className="mt-3 rounded-lg bg-muted p-3 text-sm">
-                {cat.label}: {PRODUCTS.filter((p) => p.category === cat.id).length} active listings
-              </p>
-            ))}
-          </div>
-        </div>
-      </PageShell>
-    </RoleGuard>
-  );
-}
-
-function CardGridPage({
+export function CardGridPage({
   eyebrow,
   title,
   intro,
-  query,
   setQuery,
+  query,
   bgImage,
   items,
 }: {
   eyebrow: string;
   title: string;
   intro: string;
+  setQuery?: (q: string) => void;
   query?: string;
-  setQuery?: (value: string) => void;
   bgImage?: string;
   items: {
     title: string;
@@ -2840,13 +3464,13 @@ function CardGridPage({
 }) {
   const currentCardClass = bgImage ? glassCardClass : cardClass;
   return (
-    <PageShell eyebrow={eyebrow} title={title} intro={intro} bgImage={bgImage}>
+    <PageShell eyebrow={eyebrow} title={title} intro={intro} {...(bgImage ? { bgImage } : {})}>
       {setQuery ? (
         <input
           value={query || ""}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search..."
-          className={`mb-5 h-12 w-full max-w-xl rounded-xl border px-4 shadow-sm outline-none transition-all ${bgImage ? 'bg-white/80 border-white/50 backdrop-blur-md focus:bg-white focus:ring-2 focus:ring-white' : 'border-input bg-card'}`}
+          className={`mb-5 h-12 w-full max-w-xl rounded-xl border px-4 shadow-sm outline-none transition-all ${bgImage ? "bg-white/80 border-white/50 backdrop-blur-md focus:bg-white focus:ring-2 focus:ring-white" : "border-input bg-card"}`}
         />
       ) : null}
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -2883,3 +3507,310 @@ function CardGridPage({
   );
 }
 
+
+// ============================================================================
+// COLD STORAGE FINDER PAGE
+// ============================================================================
+
+export function ColdStoragePage() {
+  const { user } = useAuth();
+  const [facilities, setFacilities] = useState<ColdStorageFacility[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Filters & Location
+  const [search, setSearch] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [sortOrder, setSortOrder] = useState<"nearest" | "farthest" | "capacity_high" | "capacity_low">("nearest");
+  const [userLat, setUserLat] = useState<number | null>(null);
+  const [userLng, setUserLng] = useState<number | null>(null);
+  const [locationLoading, setLocationLoading] = useState(false);
+  const [locationStatus, setLocationStatus] = useState<string | null>(null);
+
+  // Expanded Facility Details state
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const fetchFacilities = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const data = await getColdStorageFacilities({
+        search,
+        statusFilter,
+        userLat,
+        userLng,
+        sortOrder,
+      });
+      setFacilities(data);
+    } catch (err: any) {
+      console.error("Failed to load cold storage facilities:", err);
+      setError(err.message || "Unable to load cold storage facilities.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchFacilities();
+  }, [search, statusFilter, sortOrder, userLat, userLng]);
+
+  const handleUseMyLocation = () => {
+    if (!navigator.geolocation) {
+      setLocationStatus("Geolocation is not supported by your browser.");
+      return;
+    }
+
+    setLocationLoading(true);
+    setLocationStatus("Detecting location...");
+
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setUserLat(pos.coords.latitude);
+        setUserLng(pos.coords.longitude);
+        setLocationLoading(false);
+        setLocationStatus("Location set: Coordinates (" + pos.coords.latitude.toFixed(2) + ", " + pos.coords.longitude.toFixed(2) + ")");
+      },
+      (err) => {
+        console.warn("Geolocation permission error:", err.message);
+        setLocationLoading(false);
+        setLocationStatus("Location permission denied. Showing facilities by default regional distance.");
+      },
+      { timeout: 10000 }
+    );
+  };
+
+  const toggleExpand = (id: string) => {
+    setExpandedId((prev) => (prev === id ? null : id));
+  };
+
+  return (
+    <RoleGuard allowedRoles={["farmer", "buyer", "admin"]}>
+      <PageShell
+        eyebrow="Produce Preservation & Logistics"
+        title="Cold Storage Finder"
+        intro="Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation."
+        bgImage="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop"
+      >
+        <div className="mb-8 p-6 rounded-2xl border border-white/50 bg-white/85 backdrop-blur-md shadow-md space-y-4">
+          <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4">
+            <div className="relative flex-1">
+              <Search className="absolute left-3.5 top-3.5 h-4 w-4 text-muted-foreground" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search by facility name or address..."
+                className="w-full h-11 pl-10 pr-4 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
+              />
+            </div>
+
+            <button
+              onClick={handleUseMyLocation}
+              disabled={locationLoading}
+              className="h-11 px-5 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-sm transition flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-50"
+            >
+              <Navigation className={`h-4 w-4 ${locationLoading ? "animate-spin" : ""}`} />
+              {locationLoading ? "Detecting..." : "Use My Location"}
+            </button>
+          </div>
+
+          {locationStatus && (
+            <div className="text-xs font-semibold text-emerald-800 bg-emerald-50/80 p-2.5 rounded-lg border border-emerald-200/60 flex items-center gap-2">
+              <MapPin className="h-3.5 w-3.5 text-[#087F5B]" />
+              <span>{locationStatus}</span>
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2 border-t border-border/60">
+            <div>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Status</label>
+              <select
+                value={statusFilter}
+                onChange={(e) => setStatusFilter(e.target.value)}
+                className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
+              >
+                <option value="all">All Statuses</option>
+                <option value="available">🟢 Available</option>
+                <option value="full">🔴 Full</option>
+                <option value="maintenance">🟠 Maintenance</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Sort By</label>
+              <select
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value as any)}
+                className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
+              >
+                <option value="nearest">Nearest Distance First</option>
+                <option value="farthest">Farthest First</option>
+                <option value="capacity_high">Capacity: High to Low</option>
+                <option value="capacity_low">Capacity: Low to High</option>
+              </select>
+            </div>
+
+            <div className="sm:col-span-2 lg:col-span-2 flex items-end justify-between sm:justify-end gap-3 pb-1 text-xs font-bold text-muted-foreground">
+              <span>Showing {facilities.length} facility(ies)</span>
+              <button
+                onClick={fetchFacilities}
+                className="inline-flex items-center gap-1.5 text-[#087F5B] hover:underline"
+              >
+                <RefreshCw className="h-3.5 w-3.5" /> Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {loading ? (
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {[1, 2, 3].map((n) => (
+              <div key={n} className="h-64 rounded-2xl border bg-card p-6 animate-pulse space-y-4">
+                <div className="h-6 w-3/4 bg-muted rounded"></div>
+                <div className="h-4 w-1/2 bg-muted rounded"></div>
+                <div className="h-12 w-full bg-muted rounded-xl"></div>
+              </div>
+            ))}
+          </div>
+        ) : error ? (
+          <div className="rounded-2xl border border-rose-200 bg-rose-50/80 p-8 text-center max-w-xl mx-auto my-8 space-y-4">
+            <AlertTriangle className="h-12 w-12 text-rose-600 mx-auto" />
+            <h3 className="text-lg font-bold text-rose-900">Unable to load cold storage facilities</h3>
+            <p className="text-xs text-rose-700">{error}</p>
+            <button
+              onClick={fetchFacilities}
+              className="px-6 py-2.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs shadow-md transition"
+            >
+              Retry Loading
+            </button>
+          </div>
+        ) : facilities.length === 0 ? (
+          <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/60 p-12 text-center max-w-xl mx-auto my-8 space-y-4">
+            <Snowflake className="h-12 w-12 text-[#087F5B] mx-auto mb-2 opacity-80" />
+            <h3 className="text-xl font-bold text-[#073B2A]">No cold storage facilities found</h3>
+            <p className="text-sm text-emerald-800/80">Try changing your location or search filters.</p>
+            <button
+              onClick={() => {
+                setSearch("");
+                setStatusFilter("all");
+              }}
+              className="px-5 py-2.5 rounded-xl bg-[#087F5B] text-white font-bold text-xs shadow-md"
+            >
+              Reset Filters
+            </button>
+          </div>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {facilities.map((facility) => {
+              const displayDistance = facility.calculatedDistance ?? facility.distance ?? null;
+              const isFull = facility.status.toLowerCase() === "full" || facility.available_capacity === 0;
+              const isMaintenance = facility.status.toLowerCase() === "maintenance";
+              const percentAvailable = facility.capacity > 0
+                ? Math.round((facility.available_capacity / facility.capacity) * 100)
+                : 0;
+
+              return (
+                <div
+                  key={facility.id}
+                  className="rounded-2xl border border-white/60 bg-card/95 backdrop-blur-md p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                >
+                  <div className="space-y-4">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex items-center gap-2.5">
+                        <span className="p-2 rounded-xl bg-emerald-100/80 text-[#087F5B]">
+                          <Snowflake className="h-5 w-5" />
+                        </span>
+                        <div>
+                          <h3 className="font-bold text-foreground text-base leading-snug">{facility.name}</h3>
+                          {displayDistance !== null && (
+                            <span className="text-xs font-bold text-emerald-800 flex items-center gap-1 mt-0.5">
+                              <MapPin className="h-3 w-3" /> {displayDistance} km away
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <span
+                        className={`px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap shadow-2xs ${
+                          isFull
+                            ? "bg-rose-100 text-rose-800 border border-rose-200"
+                            : isMaintenance
+                            ? "bg-amber-100 text-amber-800 border border-amber-200"
+                            : "bg-emerald-100 text-emerald-800 border border-emerald-200"
+                        }`}
+                      >
+                        {isFull ? "🔴 Full" : isMaintenance ? "🟠 Maintenance" : "🟢 Available"}
+                      </span>
+                    </div>
+
+                    <p className="text-xs text-muted-foreground leading-relaxed flex items-start gap-1.5">
+                      <Building2 className="h-4 w-4 shrink-0 text-muted-foreground/70 mt-0.5" />
+                      <span>{facility.address}</span>
+                    </p>
+
+                    <div className="p-4 rounded-xl bg-muted/60 border space-y-2">
+                      <div className="flex items-center justify-between text-xs font-bold">
+                        <span className="text-foreground">Available Capacity</span>
+                        <span className="text-[#087F5B]">
+                          {facility.available_capacity.toLocaleString()} MT / {facility.capacity.toLocaleString()} MT
+                        </span>
+                      </div>
+
+                      <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
+                        <div
+                          className={`h-full rounded-full transition-all ${
+                            isFull ? "bg-rose-500" : isMaintenance ? "bg-amber-500" : "bg-[#087F5B]"
+                          }`}
+                          style={{ width: `${Math.min(100, Math.max(0, percentAvailable))}%` }}
+                        />
+                      </div>
+
+                      <div className="flex items-center justify-between text-[11px] text-muted-foreground font-semibold">
+                        <span>{percentAvailable}% available space</span>
+                        <span>Total: {facility.capacity.toLocaleString()} MT</span>
+                      </div>
+                    </div>
+
+                    {expandedId === facility.id && (
+                      <div className="pt-3 border-t text-xs space-y-2 text-muted-foreground">
+                        <p className="font-bold text-foreground">Facility Specifications:</p>
+                        <ul className="space-y-1 list-disc list-inside">
+                          <li>Temperature range: -2°C to +8°C (Multi-commodity)</li>
+                          <li>Humidity control: Automated 85%-95% RH</li>
+                          <li>Coordinates: {facility.latitude ?? "N/A"}, {facility.longitude ?? "N/A"}</li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="pt-5 border-t mt-4 flex items-center justify-between gap-3">
+                    {facility.contact_number ? (
+                      <a
+                        href={`tel:${facility.contact_number.replace(/\s+/g, "")}`}
+                        className="flex-1 h-10 px-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-1.5"
+                      >
+                        <Phone className="h-3.5 w-3.5" /> Call ({facility.contact_number})
+                      </a>
+                    ) : (
+                      <span className="text-xs font-bold text-muted-foreground py-2">
+                        Contact unavailable
+                      </span>
+                    )}
+
+                    <button
+                      onClick={() => toggleExpand(facility.id)}
+                      className="h-10 px-3.5 rounded-xl border bg-background hover:bg-muted font-bold text-xs text-foreground transition flex items-center gap-1"
+                    >
+                      {expandedId === facility.id ? "Hide Details" : "Details"}
+                      {expandedId === facility.id ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </PageShell>
+    </RoleGuard>
+  );
+}
