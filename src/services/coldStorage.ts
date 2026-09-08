@@ -156,9 +156,14 @@ export async function getColdStorageFacilities(options?: {
   }
 
   if (options?.statusFilter && options.statusFilter !== "all") {
-    facilities = facilities.filter(
-      (f) => f.status.toLowerCase() === options.statusFilter!.toLowerCase()
-    );
+    const sf = options.statusFilter.toLowerCase();
+    facilities = facilities.filter((f) => {
+      const st = f.status.toLowerCase();
+      if (sf === "available") {
+        return st === "available" || st === "operational";
+      }
+      return st === sf;
+    });
   }
 
   facilities.sort((a, b) => {
