@@ -9,6 +9,8 @@ import {
   Clock,
   LineChart,
   CheckCircle2,
+  Cloud,
+  CloudRain,
   CloudSun,
   Filter,
   GraduationCap,
@@ -201,7 +203,7 @@ export function HomePage() {
         secLinkTo: "/marketplace",
       },
       {
-        badge: "HEALTHY SOIL â€¢ HEALTHY CROPS",
+        badge: "HEALTHY SOIL • HEALTHY CROPS",
         title: "Nourish Your Soil, Grow Better",
         subtitle:
           "Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests.",
@@ -240,7 +242,7 @@ export function HomePage() {
         badge: "FROM FIELD TO FUTURE",
         title: "Grow More. Harvest Better.",
         subtitle:
-          "Everything farmers need â€” from quality farm inputs and equipment to fresh agricultural products.",
+          "Everything farmers need — from quality farm inputs and equipment to fresh agricultural products.",
         img: "/hero-harvest.jpg",
         badgeColor: "bg-amber-500/20 text-amber-300",
         linkText: "Shop Marketplace",
@@ -400,7 +402,7 @@ export function HomePage() {
       const dbItem = weatherData[i + 1];
       return {
         day: d,
-        temp: dbItem ? `${dbItem.high}Â°/${dbItem.low}Â°` : `${29 + i}Â°/${22 + (i % 2)}Â°`,
+        temp: dbItem ? `${dbItem.high}°/${dbItem.low}°` : `${29 + i}°/${22 + (i % 2)}°`,
         condition: dbItem ? dbItem.condition : "Sunny",
       };
     });
@@ -549,14 +551,14 @@ export function HomePage() {
                 onClick={prevSlide}
                 className="absolute left-2.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-black/20 text-white hover:bg-black/50 flex items-center justify-center transition text-sm font-bold shadow-sm"
               >
-                â€¹
+                ‹
               </button>
               <button
                 type="button"
                 onClick={nextSlide}
                 className="absolute right-2.5 top-1/2 -translate-y-1/2 z-30 h-7 w-7 rounded-full bg-black/20 text-white hover:bg-black/50 flex items-center justify-center transition text-sm font-bold shadow-sm"
               >
-                â€º
+                ›
               </button>
 
               {/* Pagination Dots */}
@@ -640,15 +642,15 @@ export function HomePage() {
                 ))}
               </div>
             </div>
-            {/* Product Section â€” Premium Animated Product Marquee */}
+            {/* Product Section — Premium Animated Product Marquee */}
             <div className="space-y-4">
               {/* Header Container */}
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-border/40 pb-3 select-none">
                 <div>
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                    <h2 className="text-xl font-black text-[#1b4332]">Best Deals for You ðŸ”¥</h2>
+                    <h2 className="text-xl font-black text-[#1b4332]">Best Deals for You 🔥</h2>
                     <span className="inline-flex items-center gap-1 rounded-full bg-red-50 text-red-600 px-2 py-0.5 text-[10px] font-black border border-red-100/50 animate-pulse">
-                      ðŸ”¥ Deals ending soon Â· {countdownTime.hours}h {countdownTime.mins}m
+                      🔥 Deals ending soon · {countdownTime.hours}h {countdownTime.mins}m
                     </span>
                   </div>
                   <p className="text-xs text-muted-foreground mt-0.5">
@@ -661,7 +663,7 @@ export function HomePage() {
                 >
                   View All{" "}
                   <span className="group-hover/viewall:translate-x-0.5 transition-transform duration-200">
-                    â†’
+                    →
                   </span>
                 </Link>
               </div>
@@ -725,7 +727,7 @@ export function HomePage() {
               <div className="mt-3">
                 <p className="text-sm font-black text-[#1b4332]">Rajahmundry, AP</p>
                 <div className="mt-2 flex items-baseline gap-2">
-                  <span className="text-4xl font-black text-[#1b4332]">28Â°C</span>
+                  <span className="text-4xl font-black text-[#1b4332]">28°C</span>
                   <span className="text-sm font-bold text-muted-foreground">Sunny</span>
                 </div>
 
@@ -746,15 +748,33 @@ export function HomePage() {
 
                 {/* 4-Day Forecast */}
                 <div className="mt-4 space-y-2.5">
-                  {weatherForecast.map((fc, i) => (
-                    <div key={i} className="flex items-center justify-between text-xs">
-                      <span className="font-semibold text-muted-foreground w-10">{fc.day}</span>
-                      <span className="text-foreground/80 font-medium text-center flex-1">
-                        {fc.condition}
-                      </span>
-                      <span className="font-bold text-[#1b4332] w-12 text-right">{fc.temp}</span>
-                    </div>
-                  ))}
+                  {weatherForecast.map((fc, i) => {
+                    const cond = fc.condition.toLowerCase();
+                    let IconComponent = Sun;
+                    let iconColor = "text-amber-500";
+                    if (cond.includes("rain") || cond.includes("shower")) {
+                      IconComponent = CloudRain;
+                      iconColor = "text-blue-500";
+                    } else if (cond.includes("partly")) {
+                      IconComponent = CloudSun;
+                      iconColor = "text-amber-500";
+                    } else if (cond.includes("cloud") || cond.includes("interval")) {
+                      IconComponent = Cloud;
+                      iconColor = "text-slate-400";
+                    }
+                    return (
+                      <div key={i} className="flex items-center justify-between text-xs">
+                        <span className="font-semibold text-muted-foreground w-10">{fc.day}</span>
+                        <div className="flex items-center justify-center gap-1.5 flex-1">
+                          <IconComponent className={`h-3.5 w-3.5 ${iconColor}`} />
+                          <span className="text-foreground/80 font-medium">
+                            {fc.condition}
+                          </span>
+                        </div>
+                        <span className="font-bold text-[#1b4332] w-12 text-right">{fc.temp}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -789,7 +809,7 @@ export function HomePage() {
                         <p className="text-[10px] text-muted-foreground mt-0.5">Local Area Hub</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-xs font-black text-[#1b4332]">â‚¹{p.price} / kg</p>
+                        <p className="text-xs font-black text-[#1b4332]">₹{p.price} / kg</p>
                         <p
                           className={`mt-0.5 text-[10px] font-bold flex items-center justify-end gap-0.5 ${isPositive ? "text-emerald-600" : "text-rose-500"}`}
                         >
@@ -1066,7 +1086,7 @@ export function ProductDetailPage({ id }: { id: string }) {
                 </span>
               ) : null}
               <span className="rounded-lg bg-accent px-2.5 py-1 text-xs font-bold text-accent-foreground">
-                {product.rating} â˜… rating
+                {product.rating} ★ rating
               </span>
             </div>
             <p className="text-4xl font-black text-[#1b4332]">
@@ -1898,8 +1918,8 @@ export function MarketPage() {
                 <div className="space-y-4">
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#087F5B]">
-                        🌾 {item.crop_name}
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#087F5B] flex items-center gap-1">
+                        <Sprout className="h-3.5 w-3.5" /> {item.crop_name}
                       </span>
                       <h3 className="text-lg font-extrabold text-foreground mt-0.5">
                         {item.market_name}
@@ -1972,9 +1992,9 @@ export function SchemesPage() {
         setQuery={setQuery}
         items={rows.map((s) => ({
           title: s.name,
-          meta: `${s.issuer} Â· ${s.category}`,
+          meta: `${s.issuer} · ${s.category}`,
           body: s.description,
-          footer: `${s.deadline} Â· ${s.eligibility}`,
+          footer: `${s.deadline} · ${s.eligibility}`,
           url: s.url,
         }))}
       />
@@ -1992,7 +2012,7 @@ export function InsurancePage() {
         intro="Compare crop, weather, and allied farming insurance options."
         items={INSURANCE_SCHEMES.map((s) => ({
           title: s.name,
-          meta: `${s.type} Â· ${s.premium}`,
+          meta: `${s.type} · ${s.premium}`,
           body: s.description,
           footer: `${s.coverage || ""} Crops: ${(s.crops || []).join(", ")}`,
         }))}
@@ -2017,7 +2037,7 @@ export function WeatherPage() {
               <p className="mt-3 font-black">{day.day}</p>
               <p className="text-sm text-muted-foreground">{day.condition}</p>
               <p className="mt-3 text-2xl font-black">
-                {day.high}Â° / {day.low}Â°
+                {day.high}° / {day.low}°
               </p>
               <p className="mt-1 text-sm font-bold text-primary">{day.rain}% rain</p>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">{day.advisory}</p>
@@ -2056,7 +2076,7 @@ export function CropCalendarPage() {
           {crop ? (
             <div className={glassCardClass}>
               <p className="text-2xl font-black">
-                {crop.name} Â· {crop.season}
+                {crop.name} · {crop.season}
               </p>
               <div className="mt-5 grid gap-3 sm:grid-cols-4">
                 {[
@@ -2104,9 +2124,9 @@ export function LearnPage() {
         setQuery={setQuery}
         items={rows.map((c) => ({
           title: c.title,
-          meta: `${c.level} Â· ${c.hours} hrs Â· ${c.lessons} lessons`,
+          meta: `${c.level} · ${c.hours} hrs · ${c.lessons} lessons`,
           body: c.description || "",
-          footer: `${c.instructor} Â· ${c.progress}% progress`,
+          footer: `${c.instructor} · ${c.progress}% progress`,
           icon: <GraduationCap className="h-5 w-5" />,
         }))}
       />
@@ -2124,9 +2144,9 @@ export function InternshipsPage() {
         intro="Field, operations, content, and lab roles for agriculture learners."
         items={INTERNSHIPS.map((i) => ({
           title: i.org,
-          meta: `${i.title} Â· ${i.location} Â· ${i.type}`,
+          meta: `${i.title} · ${i.location} · ${i.type}`,
           body: i.description || "",
-          footer: `${i.stipend} Â· Apply by ${i.deadline} Â· ${i.skills.join(", ")}`,
+          footer: `${i.stipend} · Apply by ${i.deadline} · ${i.skills.join(", ")}`,
         }))}
       />
     </RoleGuard>
@@ -2573,7 +2593,7 @@ export function RegisterPage() {
           <div>
             <span className="block text-2xl font-black tracking-wide leading-none text-white drop-shadow-md">PureFarm</span>
             <span className="block text-[10px] font-bold text-white uppercase tracking-widest leading-none mt-1.5 drop-shadow-md">
-              Connect � Grow � Prosper
+              Connect • Grow • Prosper
             </span>
           </div>
         </Link>
