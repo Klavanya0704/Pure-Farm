@@ -154,17 +154,6 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
         </Link>
 
-        {/* User Role Badge in Sidebar */}
-        {user ? (
-          <div className="mx-2 p-2.5 rounded-xl bg-[#2d6a4f]/10 border border-[#2d6a4f]/20">
-            <p className="text-xs font-bold text-[#1b4332] truncate">{user.name}</p>
-            <div className="mt-1">
-              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-[#2d6a4f] text-white">
-                {user.role}
-              </span>
-            </div>
-          </div>
-        ) : null}
 
         {/* Navigation Groups */}
         <div className="space-y-5 overflow-y-auto no-scrollbar max-h-[calc(100vh-18rem)] pr-1">
