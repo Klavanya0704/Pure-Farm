@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { getColdStorageFacilities, type ColdStorageFacility } from "@/services/coldStorage";
-import { getMarketPrices } from "@/services/marketPrices";
+import { getMarketPrices, syncLiveMarketPrices, type SyncResult } from "@/services/marketPrices";
 import type { MarketPrice } from "@/types/database";
 import {
   ArrowRight,
@@ -1670,6 +1670,8 @@ export function MarketPage() {
   const [records, setRecords] = useState<MarketPrice[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [syncing, setSyncing] = useState(false);
+  const [syncMessage, setSyncMessage] = useState<string | null>(null);
 
   // Filters & Search
   const [search, setSearch] = useState("");
@@ -1700,6 +1702,24 @@ export function MarketPage() {
       setError(err.message || "Unable to load market prices.");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleSyncLive = async () => {
+    setSyncing(true);
+    setSyncMessage(null);
+    try {
+      const res: SyncResult = await syncLiveMarketPrices();
+      if (res.success) {
+        setSyncMessage(`✅ ${res.message}`);
+        await fetchPrices();
+      } else {
+        setSyncMessage(`ℹ️ ${res.message}`);
+      }
+    } catch (err: any) {
+      setSyncMessage(`⚠️ Sync failed: ${err?.message || "Server error"}`);
+    } finally {
+      setSyncing(false);
     }
   };
 
@@ -1743,7 +1763,21 @@ export function MarketPage() {
                 className="w-full h-11 pl-10 pr-4 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
               />
             </div>
+            <button
+              onClick={handleSyncLive}
+              disabled={syncing}
+              className="h-11 px-5 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white text-xs font-bold transition shadow-sm disabled:opacity-50 flex items-center justify-center gap-2 shrink-0 cursor-pointer"
+            >
+              <RefreshCw className={`h-4 w-4 ${syncing ? "animate-spin" : ""}`} />
+              {syncing ? "Syncing Mandi API..." : "Sync Live Mandi Data"}
+            </button>
           </div>
+
+          {syncMessage && (
+            <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs font-semibold">
+              {syncMessage}
+            </div>
+          )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2 border-t border-border/60">
             <div>
@@ -1808,7 +1842,7 @@ export function MarketPage() {
               onClick={fetchPrices}
               className="inline-flex items-center gap-1.5 text-[#087F5B] hover:underline cursor-pointer"
             >
-              <RefreshCw className="h-3.5 w-3.5" /> Refresh Prices
+              <RefreshCw className="h-3.5 w-3.5" /> Refresh View
             </button>
           </div>
         </div>

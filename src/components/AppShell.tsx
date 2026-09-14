@@ -158,18 +158,10 @@ export function AppShell({ children }: { children: ReactNode }) {
         {user ? (
           <div className="mx-2 p-2.5 rounded-xl bg-[#2d6a4f]/10 border border-[#2d6a4f]/20">
             <p className="text-xs font-bold text-[#1b4332] truncate">{user.name}</p>
-            <div className="flex items-center justify-between mt-1">
+            <div className="mt-1">
               <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-[#2d6a4f] text-white">
                 {user.role}
               </span>
-              <button
-                type="button"
-                onClick={logout}
-                className="text-[11px] font-semibold text-rose-600 hover:underline flex items-center gap-1"
-              >
-                <LogOut className="h-3 w-3" />
-                Sign Out
-              </button>
             </div>
           </div>
         ) : null}
