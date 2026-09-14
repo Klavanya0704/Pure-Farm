@@ -139,10 +139,10 @@ export function AppShell({ children }: { children: ReactNode }) {
   }
 
   const sidebarContent = (
-    <div className="flex h-full flex-col justify-between">
-      <div className="space-y-6">
+    <div className="flex h-full flex-col justify-between min-h-0">
+      <div className="flex flex-1 flex-col space-y-5 min-h-0 overflow-hidden">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 px-2">
+        <Link to="/" className="flex items-center gap-3 px-2 shrink-0">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#2d6a4f] text-white shadow-sm">
             <Leaf className="h-5 w-5" aria-hidden="true" />
           </span>
@@ -154,9 +154,8 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
         </Link>
 
-
         {/* Navigation Groups */}
-        <div className="space-y-5 overflow-y-auto no-scrollbar max-h-[calc(100vh-18rem)] pr-1">
+        <div className="space-y-5 flex-1 min-h-0 overflow-y-auto no-scrollbar pr-1">
           <div>
             <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
               {user?.role === "admin" ? "Management" : "Main Navigation"}
