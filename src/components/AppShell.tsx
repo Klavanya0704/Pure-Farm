@@ -24,7 +24,10 @@ import {
   Info,
   Phone,
   Search,
-  LogOut
+  LogOut,
+  BookOpen,
+  FileText,
+  Award,
 } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { SITE, waLink } from "@/data/site";
@@ -52,7 +55,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         { to: "/admin", label: "Admin Console", icon: ShieldCheck },
         { to: "/marketplace", label: "Marketplace", icon: Store },
         { to: "/market", label: "Market Prices", icon: TrendingUp },
-      { to: "/cold-storage", label: "Cold Storage", icon: Snowflake },
+        { to: "/cold-storage", label: "Cold Storage", icon: Snowflake },
         { to: "/schemes", label: "Schemes", icon: Shield },
         { to: "/weather", label: "Weather", icon: CloudSun },
         { to: "/crop-calendar", label: "Crop Calendar", icon: CalendarDays },
@@ -64,10 +67,15 @@ export function AppShell({ children }: { children: ReactNode }) {
       return [
         { to: "/", label: "Home", icon: Home },
         { to: "/marketplace", label: "Marketplace", icon: Store },
-        { to: "/market", label: "Market Prices", icon: TrendingUp },
-      { to: "/cold-storage", label: "Cold Storage", icon: Snowflake },
+      ];
+    }
+
+    if (user?.role === "student") {
+      return [
+        { to: "/", label: "Home", icon: Home },
         { to: "/learn", label: "Learn", icon: GraduationCap },
-        { to: "/notifications", label: "Notifications", icon: Bell },
+        { to: "/courses", label: "Courses", icon: BookOpen },
+        { to: "/internships", label: "Internships", icon: Briefcase },
       ];
     }
 
@@ -101,6 +109,16 @@ export function AppShell({ children }: { children: ReactNode }) {
         { to: "/order", label: "My Orders", icon: ShoppingBag },
         { to: "/cart", label: "My Cart", icon: ShoppingCart },
         { to: "/marketplace", label: "Browse Catalog", icon: Store },
+        { to: "/notifications", label: "Notifications", icon: Bell },
+      ];
+    }
+
+    if (user?.role === "student") {
+      return [
+        { to: "/my-courses", label: "My Courses", icon: BookOpen },
+        { to: "/my-applications", label: "My Applications", icon: FileText },
+        { to: "/certificates", label: "Certificates", icon: Award },
+        { to: "/notifications", label: "Notifications", icon: Bell },
       ];
     }
 
@@ -169,7 +187,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
           <div>
             <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-              Account & Activity
+              {user?.role === "buyer" ? "Account & Shopping" : user?.role === "student" ? "Career" : "Account & Activity"}
             </p>
             <nav className="mt-2 flex flex-col gap-0.5">
               {accountNav.map((item) => (

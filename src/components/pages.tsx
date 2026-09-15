@@ -14,6 +14,9 @@ import {
   CloudSun,
   Filter,
   GraduationCap,
+  Briefcase,
+  BookOpen,
+  FileText,
   Minus,
   Plus,
   Search,
@@ -185,6 +188,295 @@ export function RoleGuard({
 }
 
 export function HomePage() {
+  const { user } = useAuth();
+
+  if (user?.role === "buyer") {
+    return <BuyerHomePage />;
+  }
+
+  if (user?.role === "student") {
+    return <StudentHomePage />;
+  }
+
+  return <FarmerHomePage />;
+}
+
+export function BuyerHomePage() {
+  const categoriesList = [
+    { name: "Fruits", img: "/categories/fruits.jpg" },
+    { name: "Vegetables", img: "/categories/vegetables.jpg" },
+    { name: "Seeds", img: "/categories/seeds.jpg" },
+    { name: "Fertilizers", img: "/categories/fertilizers.jpg" },
+    { name: "Pesticides", img: "/categories/pesticides.jpg" },
+    { name: "Farm Tools", img: "/categories/farm-tools.jpg" },
+    { name: "Equipment", img: "/categories/equipment.jpg" },
+  ];
+
+  const featuredProducts = useMemo(() => PRODUCTS.slice(0, 8), []);
+
+  return (
+    <RoleGuard allowedRoles={["buyer", "admin"]}>
+      <div className="px-4 py-6 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
+        {/* Buyer Hero Banner */}
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#1b4332] to-[#2d6a4f] text-white p-8 sm:p-12 shadow-soft">
+          <div className="max-w-xl space-y-4 relative z-10">
+            <span className="inline-flex rounded-full bg-amber-500/20 text-amber-300 px-3 py-1 text-xs font-black uppercase tracking-wider">
+              PUREFARM MARKETPLACE
+            </span>
+            <h1 className="text-3xl sm:text-4xl font-black leading-tight text-white">
+              Fresh Produce & Quality Agri Products Delivered
+            </h1>
+            <p className="text-sm text-emerald-100/90 leading-relaxed font-medium">
+              Browse directly from verified local farmers and certified suppliers. High quality, fair prices, direct sourcing.
+            </p>
+            <div className="pt-2 flex flex-wrap gap-3">
+              <Link
+                to="/marketplace"
+                className="inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 transition px-5 py-3 text-xs font-black text-white shadow-md"
+              >
+                Browse Marketplace <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/order"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 hover:bg-white/20 transition px-5 py-3 text-xs font-black text-white"
+              >
+                My Orders <ShoppingBag className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Feature Highlights */}
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          {[
+            { title: "100% Fresh", desc: "Handpicked Produce", icon: Leaf },
+            { title: "Direct Sourcing", desc: "Direct from Farmers", icon: Scale },
+            { title: "Best Quality", desc: "Certified Products", icon: Award },
+            { title: "Fast Delivery", desc: "Express Door Delivery", icon: Truck },
+            { title: "Secure Payments", desc: "100% Safe & Secure", icon: Lock },
+          ].map((f, i) => {
+            const Icon = f.icon;
+            return (
+              <div
+                key={i}
+                className="rounded-2xl border border-border bg-card p-4 text-center shadow-soft transition-all duration-200 hover:scale-[1.02] hover:shadow-card-lg"
+              >
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sidebar-primary text-sidebar-primary-foreground mb-3">
+                  <Icon className="h-5 w-5 text-[#2d6a4f]" />
+                </span>
+                <p className="text-xs font-black text-[#1b4332]">{f.title}</p>
+                <p className="mt-1 text-[10px] text-muted-foreground leading-normal">{f.desc}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Categories */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-xl font-black text-[#1b4332]">Explore Categories</h2>
+              <p className="text-xs text-muted-foreground">Find fresh crops, fruits, seeds, and equipment</p>
+            </div>
+            <Link to="/marketplace" className="text-xs font-bold text-[#2d6a4f] hover:underline">
+              View Catalog →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-3 sm:gap-4">
+            {categoriesList.map((cat, idx) => (
+              <Link
+                key={idx}
+                to="/marketplace"
+                className="flex flex-col rounded-xl border border-border bg-white p-2.5 shadow-sm hover:shadow-md transition-all duration-200 text-center hover:scale-[1.02] aspect-square justify-between"
+              >
+                <div className="h-[65%] w-full rounded-lg overflow-hidden bg-muted flex items-center justify-center">
+                  <img src={cat.img} alt={cat.name} className="h-full w-full object-cover hover:scale-105 transition duration-300" />
+                </div>
+                <span className="text-xs font-black text-[#1b4332] tracking-tight block py-1 line-clamp-1">{cat.name}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Featured Products Grid */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-xl font-black text-[#1b4332]">Featured Products</h2>
+              <p className="text-xs text-muted-foreground">Top quality products available for order</p>
+            </div>
+            <Link to="/marketplace" className="text-xs font-bold text-[#2d6a4f] hover:underline">
+              See All Products →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {featuredProducts.map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </RoleGuard>
+  );
+}
+
+export function StudentHomePage() {
+  const { user } = useAuth();
+
+  return (
+    <RoleGuard allowedRoles={["student", "admin"]}>
+      <div className="px-4 py-6 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
+        {/* Student Welcome Banner */}
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#0d1e16] via-[#1b4332] to-[#2d6a4f] text-white p-8 sm:p-10 shadow-soft">
+          <div className="max-w-2xl space-y-3 relative z-10">
+            <span className="inline-flex rounded-full bg-emerald-400/20 text-emerald-300 px-3 py-1 text-xs font-black uppercase tracking-wider">
+              STUDENT DASHBOARD
+            </span>
+            <h1 className="text-2xl sm:text-3xl font-black leading-tight text-white">
+              Welcome Back, {user?.name || "Student"} 👋
+            </h1>
+            <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-medium">
+              Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.
+            </p>
+            <div className="pt-2 flex flex-wrap gap-3">
+              <Link
+                to="/courses"
+                className="inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 transition px-4 py-2.5 text-xs font-black text-white shadow-sm"
+              >
+                Browse All Courses <GraduationCap className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/internships"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 hover:bg-white/20 transition px-4 py-2.5 text-xs font-black text-white"
+              >
+                View Internships <Briefcase className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Stats Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
+            <p className="text-2xl font-black text-[#1b4332]">6</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">Enrolled Courses</p>
+          </div>
+          <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
+            <p className="text-2xl font-black text-[#1b4332]">2</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">Active Applications</p>
+          </div>
+          <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
+            <p className="text-2xl font-black text-[#1b4332]">2</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">Certificates Earned</p>
+          </div>
+          <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
+            <p className="text-2xl font-black text-[#1b4332]">35 hrs</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">Learning Time</p>
+          </div>
+        </div>
+
+        {/* 6 Sample Courses Section */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-xl font-black text-[#1b4332]">My Learning Courses</h2>
+              <p className="text-xs text-muted-foreground">Continue learning your active tech & AgriTech modules</p>
+            </div>
+            <Link to="/courses" className="text-xs font-bold text-[#2d6a4f] hover:underline">
+              Explore All Courses →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {COURSES.map((c) => (
+              <div key={c.id} className="rounded-2xl border border-border bg-card p-5 shadow-soft flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
+                      {c.level}
+                    </span>
+                    <span className="text-[11px] font-semibold text-muted-foreground">
+                      {c.hours} hrs · {c.lessons} lessons
+                    </span>
+                  </div>
+                  <h3 className="text-base font-black text-[#1b4332] leading-snug">{c.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{c.description}</p>
+                </div>
+
+                <div className="space-y-3 pt-2 border-t border-border/60">
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-[11px] font-bold">
+                      <span className="text-muted-foreground">Progress</span>
+                      <span className="text-[#2d6a4f]">{c.progress}%</span>
+                    </div>
+                    <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
+                      <div className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300" style={{ width: `${c.progress}%` }} />
+                    </div>
+                  </div>
+
+                  <Link
+                    to="/courses"
+                    className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] py-2 text-xs font-black text-white transition shadow-sm"
+                  >
+                    {c.progress > 0 ? "Continue Learning" : "Start Course"} <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Featured Internship Listings Preview */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-xl font-black text-[#1b4332]">Featured Internship Opportunities</h2>
+              <p className="text-xs text-muted-foreground">Apply for tech and research internships</p>
+            </div>
+            <Link to="/internships" className="text-xs font-bold text-[#2d6a4f] hover:underline">
+              View All Listings →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {INTERNSHIPS.slice(0, 4).map((i) => (
+              <div key={i.id} className="rounded-2xl border border-border bg-card p-5 shadow-soft space-y-3">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="text-base font-black text-[#1b4332]">{i.title}</h3>
+                    <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">{i.org} · {i.type} ({i.location})</p>
+                  </div>
+                  <span className="shrink-0 rounded-full bg-amber-50 text-amber-700 px-2.5 py-1 text-[10px] font-extrabold border border-amber-200">
+                    {i.stipend}
+                  </span>
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{i.description}</p>
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {i.skills.map((skill) => (
+                    <span key={skill} className="rounded-md bg-muted px-2 py-0.5 text-[10px] font-bold text-foreground/80">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+                <div className="pt-2 flex items-center justify-between border-t border-border/50">
+                  <span className="text-[10px] text-muted-foreground font-medium">Apply by {i.deadline}</span>
+                  <Link
+                    to="/internships"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332]"
+                  >
+                    Apply Now →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </RoleGuard>
+  );
+}
+
+export function FarmerHomePage() {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -727,7 +1019,7 @@ export function HomePage() {
               <div className="mt-3">
                 <p className="text-sm font-black text-[#1b4332]">Rajahmundry, AP</p>
                 <div className="mt-2 flex items-baseline gap-2">
-                  <span className="text-4xl font-black text-[#1b4332]">28°C</span>
+                  <span className="text-4xl font-black text-[#1b4332]">28{"\u00B0"}C</span>
                   <span className="text-sm font-bold text-muted-foreground">Sunny</span>
                 </div>
 
@@ -2114,12 +2406,12 @@ export function LearnPage() {
     `${c.title} ${c.topic} ${c.level}`.toLowerCase().includes(query.toLowerCase()),
   );
   return (
-    <RoleGuard allowedRoles={["farmer", "admin"]}>
+    <RoleGuard allowedRoles={["student", "farmer", "admin"]}>
       <CardGridPage
         bgImage="https://upload.wikimedia.org/wikipedia/commons/f/fc/Farmer_working_in_the_field_with_their_tractor.jpg"
         eyebrow="Learning"
-        title="Farmer learning hub"
-        intro="Short, practical modules for field operations and farm business."
+        title="Learning Hub"
+        intro="Short, practical modules for software development, computing, and agriculture."
         query={query}
         setQuery={setQuery}
         items={rows.map((c) => ({
@@ -2134,21 +2426,198 @@ export function LearnPage() {
   );
 }
 
-export function InternshipsPage() {
+export function CoursesPage() {
+  const [query, setQuery] = useState("");
+  const filtered = COURSES.filter((c) =>
+    `${c.title} ${c.topic} ${c.level}`.toLowerCase().includes(query.toLowerCase())
+  );
+
   return (
-    <RoleGuard allowedRoles={["farmer", "admin"]}>
-      <CardGridPage
+    <RoleGuard allowedRoles={["student", "farmer", "admin"]}>
+      <PageShell eyebrow="Education" title="Student Courses Catalog" intro="Explore software development, Python, AI/ML, cloud, and modern tech courses.">
+        <div className="mb-6 flex max-w-md items-center rounded-xl border border-border bg-card px-3.5 py-2.5 shadow-sm">
+          <Search className="h-4 w-4 text-muted-foreground mr-2" />
+          <input
+            type="text"
+            placeholder="Search courses..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="w-full bg-transparent text-sm outline-none"
+          />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filtered.map((c) => (
+            <div key={c.id} className="rounded-2xl border border-border bg-card p-5 shadow-soft flex flex-col justify-between space-y-4">
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
+                    {c.level}
+                  </span>
+                  <span className="text-xs text-muted-foreground font-semibold">{c.hours} hrs · {c.lessons} lessons</span>
+                </div>
+                <h3 className="text-lg font-black text-[#1b4332] leading-snug">{c.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{c.description}</p>
+              </div>
+
+              <div className="space-y-3 pt-3 border-t border-border/60">
+                <div className="flex justify-between text-xs font-bold">
+                  <span className="text-muted-foreground">{c.instructor}</span>
+                  <span className="text-[#2d6a4f]">{c.progress}% completed</span>
+                </div>
+                <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
+                  <div className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300" style={{ width: `${c.progress}%` }} />
+                </div>
+                <button
+                  type="button"
+                  className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm"
+                >
+                  {c.progress > 0 ? "Continue Learning" : "Start Course"}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </PageShell>
+    </RoleGuard>
+  );
+}
+
+export function MyCoursesPage() {
+  return (
+    <RoleGuard allowedRoles={["student", "admin"]}>
+      <PageShell eyebrow="Dashboard" title="My Enrolled Courses" intro="Track ongoing learning progress across active tech and engineering courses.">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {COURSES.map((c) => (
+            <div key={c.id} className="rounded-2xl border border-border bg-card p-5 shadow-soft space-y-4">
+              <div className="flex justify-between items-start">
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">{c.topic}</span>
+                  <h3 className="text-lg font-black text-[#1b4332]">{c.title}</h3>
+                  <p className="text-xs text-muted-foreground mt-0.5">{c.instructor} · {c.hours} hrs</p>
+                </div>
+                <span className="text-xs font-bold text-[#2d6a4f] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                  {c.progress}% Complete
+                </span>
+              </div>
+              <div className="h-2.5 w-full rounded-full bg-muted overflow-hidden">
+                <div className="h-full bg-[#2d6a4f] rounded-full" style={{ width: `${c.progress}%` }} />
+              </div>
+              <button type="button" className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm">
+                Continue Module →
+              </button>
+            </div>
+          ))}
+        </div>
+      </PageShell>
+    </RoleGuard>
+  );
+}
+
+export function MyApplicationsPage() {
+  const sampleApps = [
+    { title: "Frontend Development Intern", org: "PureFarm Tech", location: "Remote", stipend: "Rs. 15,000/month", status: "In Review", date: "Applied 2 days ago" },
+    { title: "Python Development Intern", org: "AgriTech Solutions", location: "Hybrid", stipend: "Rs. 12,000/month", status: "Shortlisted", date: "Applied 1 week ago" },
+  ];
+
+  return (
+    <RoleGuard allowedRoles={["student", "admin"]}>
+      <PageShell eyebrow="Career" title="My Internship Applications" intro="Review status and progress of your submitted internship applications.">
+        <div className="space-y-4">
+          {sampleApps.map((app, idx) => (
+            <div key={idx} className="rounded-2xl border border-border bg-card p-5 shadow-soft flex items-center justify-between">
+              <div>
+                <h3 className="text-base font-black text-[#1b4332]">{app.title}</h3>
+                <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">{app.org} · {app.location} · {app.stipend}</p>
+                <p className="text-[11px] text-muted-foreground mt-1">{app.date}</p>
+              </div>
+              <span className={`px-3 py-1 rounded-full text-xs font-bold border ${app.status === "Shortlisted" ? "bg-emerald-50 text-emerald-800 border-emerald-200" : "bg-amber-50 text-amber-800 border-amber-200"}`}>
+                {app.status}
+              </span>
+            </div>
+          ))}
+        </div>
+      </PageShell>
+    </RoleGuard>
+  );
+}
+
+export function CertificatesPage() {
+  const sampleCertificates = [
+    { title: "Web Development Fundamentals", date: "Issued Aug 2026", id: "CERT-9042" },
+    { title: "Python Programming Foundations", date: "Issued Jul 2026", id: "CERT-8104" },
+  ];
+
+  return (
+    <RoleGuard allowedRoles={["student", "admin"]}>
+      <PageShell eyebrow="Achievements" title="My Certificates" intro="View and download verified completion certificates.">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {sampleCertificates.map((cert, idx) => (
+            <div key={idx} className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-3">
+              <div className="flex items-center gap-3">
+                <Award className="h-8 w-8 text-amber-500 shrink-0" />
+                <div>
+                  <h3 className="text-base font-black text-[#1b4332]">{cert.title}</h3>
+                  <p className="text-xs text-muted-foreground">{cert.date} · {cert.id}</p>
+                </div>
+              </div>
+              <button type="button" className="w-full h-9 rounded-xl border border-border bg-muted/30 hover:bg-muted text-xs font-bold text-[#1b4332] transition">
+                Download Certificate (PDF)
+              </button>
+            </div>
+          ))}
+        </div>
+      </PageShell>
+    </RoleGuard>
+  );
+}
+
+export function InternshipsPage() {
+  const [appliedId, setAppliedId] = useState<string | null>(null);
+
+  return (
+    <RoleGuard allowedRoles={["student", "farmer", "admin"]}>
+      <PageShell
         bgImage="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=2000"
         eyebrow="Internships"
-        title="Agri internships"
-        intro="Field, operations, content, and lab roles for agriculture learners."
-        items={INTERNSHIPS.map((i) => ({
-          title: i.org,
-          meta: `${i.title} · ${i.location} · ${i.type}`,
-          body: i.description || "",
-          footer: `${i.stipend} · Apply by ${i.deadline} · ${i.skills.join(", ")}`,
-        }))}
-      />
+        title="Student Internship Hub"
+        intro="Apply for frontend, python, AI/ML, full-stack, and data science internships."
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {INTERNSHIPS.map((i) => (
+            <div key={i.id} className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-4">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <h3 className="text-lg font-black text-[#1b4332]">{i.title}</h3>
+                  <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">{i.org} · {i.type} ({i.location})</p>
+                </div>
+                <span className="rounded-full bg-amber-50 text-amber-700 px-3 py-1 text-xs font-black border border-amber-200">
+                  {i.stipend}
+                </span>
+              </div>
+              <p className="text-xs text-muted-foreground leading-relaxed">{i.description}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {i.skills.map((skill) => (
+                  <span key={skill} className="rounded-md bg-muted px-2.5 py-1 text-[11px] font-bold text-foreground/80">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+              <div className="pt-3 flex items-center justify-between border-t border-border/60">
+                <span className="text-xs text-muted-foreground font-medium">Deadline: {i.deadline}</span>
+                <button
+                  type="button"
+                  onClick={() => setAppliedId(i.id)}
+                  disabled={appliedId === i.id}
+                  className="rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-4 py-2 text-xs font-black transition shadow-sm disabled:bg-emerald-800"
+                >
+                  {appliedId === i.id ? "Application Submitted ✓" : "Apply Now"}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </PageShell>
     </RoleGuard>
   );
 }
@@ -2346,7 +2815,6 @@ export function LoginPage() {
     if (res.success) {
       let dest = "/";
       if (res.role === "admin") dest = "/admin";
-      else if (res.role === "buyer") dest = "/marketplace";
       else if (res.role === "seller") dest = "/seller";
       else dest = "/";
 
@@ -2454,7 +2922,7 @@ export function LoginPage() {
                       required
                       value={phoneOrEmail}
                       onChange={(e) => setPhoneOrEmail(e.target.value)}
-                      placeholder="farmer@purefarm.test or your email"
+                      placeholder="farmer@purefarm.test, buyer@purefarm.test, or student@purefarm.test"
                       className="w-full h-11 pl-10 pr-4 rounded-xl bg-white/20 border border-white/30 text-white placeholder:text-white/60 text-sm outline-none focus:border-[#19C37D] transition"
                     />
                     <User className="h-4 w-4 text-white/70 absolute left-3.5 top-3.5" />
@@ -2493,7 +2961,35 @@ export function LoginPage() {
                 </button>
               </form>
 
-              <div className="mt-6 pt-4 border-t border-white/20 text-center">
+              {/* Demo Credentials Quick Fill */}
+              <div className="mt-5 pt-3 border-t border-white/20">
+                <p className="text-[11px] font-semibold text-white/70 text-center mb-2">Quick Demo Accounts:</p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  <button
+                    type="button"
+                    onClick={() => handleDemoFill("farmer@purefarm.test")}
+                    className="px-2.5 py-1 rounded-lg bg-white/20 hover:bg-white/30 text-white text-[11px] font-bold transition"
+                  >
+                    Farmer Demo
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleDemoFill("buyer@purefarm.test")}
+                    className="px-2.5 py-1 rounded-lg bg-white/20 hover:bg-white/30 text-white text-[11px] font-bold transition"
+                  >
+                    Buyer Demo
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleDemoFill("student@purefarm.test")}
+                    className="px-2.5 py-1 rounded-lg bg-white/20 hover:bg-white/30 text-white text-[11px] font-bold transition"
+                  >
+                    Student Demo
+                  </button>
+                </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-white/10 text-center">
                 <p className="text-xs text-white/80">
                   Don't have an account?{" "}
                   <Link to="/register" className="font-bold text-[#19C37D] hover:underline">
@@ -2533,7 +3029,7 @@ export function RegisterPage() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [location, setLocation] = useState("");
-  const [role, setRole] = useState<"farmer" | "buyer">("farmer");
+  const [role, setRole] = useState<"farmer" | "buyer" | "student">("farmer");
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -2561,13 +3057,12 @@ export function RegisterPage() {
       email,
       phone,
       password,
-      role, // Strictly restricted to farmer or buyer
+      role,
       location,
     });
 
     if (res.success) {
-      const dest = res.role === "buyer" ? "/marketplace" : "/";
-      void navigate({ to: dest as "/" });
+      void navigate({ to: "/" });
     } else {
       setErrorMessage(res.error || "Registration failed. Please try again.");
       setLoading(false);
@@ -2608,7 +3103,7 @@ export function RegisterPage() {
             Join the Digital<br />Agri Revolution
           </h2>
           <p className="text-lg text-white/90 leading-relaxed max-w-md mb-8 drop-shadow-md">
-            Register your profile to access mandi prices, direct produce sales, certified inputs, and agricultural advisories.
+            Register your profile to access mandi prices, direct produce sales, certified inputs, courses, and internships.
           </p>
           
           <div className="space-y-4">
@@ -2660,38 +3155,50 @@ export function RegisterPage() {
           >
             <div className="mb-6 text-center">
               <h3 className="text-2xl font-extrabold text-[#073B2A] drop-shadow-sm">
-                Create Account ??
+                Create Account
               </h3>
               <p className="text-xs font-semibold text-[#164F3C] mt-1">
                 Choose your role to get started with PureFarm
               </p>
             </div>
 
-            {/* Role Selector Tabs */}
-            <div className="mb-5 grid grid-cols-2 gap-2 p-1.5 rounded-2xl bg-white/30 border border-white/40">
+            {/* 3-Way Role Selector Tabs */}
+            <div className="mb-5 grid grid-cols-3 gap-1.5 p-1.5 rounded-2xl bg-white/30 border border-white/40">
               <button
                 type="button"
                 onClick={() => setRole("farmer")}
-                className={`py-2.5 px-3 rounded-xl text-xs font-black transition-all flex items-center justify-center gap-1.5 ${
+                className={`py-2 px-2 rounded-xl text-[11px] font-black transition-all flex items-center justify-center gap-1 ${
                   role === "farmer"
                     ? "bg-[#087F5B] text-white shadow-md"
                     : "text-[#073B2A] hover:bg-white/20"
                 }`}
               >
-                <span>??</span>
-                <span>Farmer / Seller</span>
+                <Sprout className="h-3.5 w-3.5" />
+                <span>Farmer</span>
               </button>
               <button
                 type="button"
                 onClick={() => setRole("buyer")}
-                className={`py-2.5 px-3 rounded-xl text-xs font-black transition-all flex items-center justify-center gap-1.5 ${
+                className={`py-2 px-2 rounded-xl text-[11px] font-black transition-all flex items-center justify-center gap-1 ${
                   role === "buyer"
                     ? "bg-[#087F5B] text-white shadow-md"
                     : "text-[#073B2A] hover:bg-white/20"
                 }`}
               >
-                <span>??</span>
-                <span>Buyer / Customer</span>
+                <ShoppingBag className="h-3.5 w-3.5" />
+                <span>Buyer</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setRole("student")}
+                className={`py-2 px-2 rounded-xl text-[11px] font-black transition-all flex items-center justify-center gap-1 ${
+                  role === "student"
+                    ? "bg-[#087F5B] text-white shadow-md"
+                    : "text-[#073B2A] hover:bg-white/20"
+                }`}
+              >
+                <GraduationCap className="h-3.5 w-3.5" />
+                <span>Student</span>
               </button>
             </div>
 

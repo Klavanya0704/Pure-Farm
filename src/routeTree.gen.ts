@@ -13,8 +13,10 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as CartRouteImport } from './routes/cart'
+import { Route as CertificatesRouteImport } from './routes/certificates'
 import { Route as ColdStorageRouteImport } from './routes/cold-storage'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as CropCalendarRouteImport } from './routes/crop-calendar'
 import { Route as CropInsuranceRouteImport } from './routes/crop-insurance'
 import { Route as InternshipsRouteImport } from './routes/internships'
@@ -22,6 +24,8 @@ import { Route as LearnRouteImport } from './routes/learn'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as MarketRouteImport } from './routes/market'
 import { Route as MarketplaceRouteImport } from './routes/marketplace'
+import { Route as MyApplicationsRouteImport } from './routes/my-applications'
+import { Route as MyCoursesRouteImport } from './routes/my-courses'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as OrderRouteImport } from './routes/order'
 import { Route as RegisterRouteImport } from './routes/register'
@@ -51,6 +55,11 @@ const CartRoute = CartRouteImport.update({
   path: '/cart',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CertificatesRoute = CertificatesRouteImport.update({
+  id: '/certificates',
+  path: '/certificates',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ColdStorageRoute = ColdStorageRouteImport.update({
   id: '/cold-storage',
   path: '/cold-storage',
@@ -59,6 +68,11 @@ const ColdStorageRoute = ColdStorageRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesRoute = CoursesRouteImport.update({
+  id: '/courses',
+  path: '/courses',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CropCalendarRoute = CropCalendarRouteImport.update({
@@ -94,6 +108,16 @@ const MarketRoute = MarketRouteImport.update({
 const MarketplaceRoute = MarketplaceRouteImport.update({
   id: '/marketplace',
   path: '/marketplace',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyApplicationsRoute = MyApplicationsRouteImport.update({
+  id: '/my-applications',
+  path: '/my-applications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyCoursesRoute = MyCoursesRouteImport.update({
+  id: '/my-courses',
+  path: '/my-courses',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotificationsRoute = NotificationsRouteImport.update({
@@ -142,8 +166,10 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
   '/cart': typeof CartRoute
+  '/certificates': typeof CertificatesRoute
   '/cold-storage': typeof ColdStorageRoute
   '/contact': typeof ContactRoute
+  '/courses': typeof CoursesRoute
   '/crop-calendar': typeof CropCalendarRoute
   '/crop-insurance': typeof CropInsuranceRoute
   '/internships': typeof InternshipsRoute
@@ -151,6 +177,8 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/market': typeof MarketRoute
   '/marketplace': typeof MarketplaceRoute
+  '/my-applications': typeof MyApplicationsRoute
+  '/my-courses': typeof MyCoursesRoute
   '/notifications': typeof NotificationsRoute
   '/order': typeof OrderRoute
   '/register': typeof RegisterRoute
@@ -165,8 +193,10 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
   '/cart': typeof CartRoute
+  '/certificates': typeof CertificatesRoute
   '/cold-storage': typeof ColdStorageRoute
   '/contact': typeof ContactRoute
+  '/courses': typeof CoursesRoute
   '/crop-calendar': typeof CropCalendarRoute
   '/crop-insurance': typeof CropInsuranceRoute
   '/internships': typeof InternshipsRoute
@@ -174,6 +204,8 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/market': typeof MarketRoute
   '/marketplace': typeof MarketplaceRoute
+  '/my-applications': typeof MyApplicationsRoute
+  '/my-courses': typeof MyCoursesRoute
   '/notifications': typeof NotificationsRoute
   '/order': typeof OrderRoute
   '/register': typeof RegisterRoute
@@ -189,8 +221,10 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
   '/cart': typeof CartRoute
+  '/certificates': typeof CertificatesRoute
   '/cold-storage': typeof ColdStorageRoute
   '/contact': typeof ContactRoute
+  '/courses': typeof CoursesRoute
   '/crop-calendar': typeof CropCalendarRoute
   '/crop-insurance': typeof CropInsuranceRoute
   '/internships': typeof InternshipsRoute
@@ -198,6 +232,8 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/market': typeof MarketRoute
   '/marketplace': typeof MarketplaceRoute
+  '/my-applications': typeof MyApplicationsRoute
+  '/my-courses': typeof MyCoursesRoute
   '/notifications': typeof NotificationsRoute
   '/order': typeof OrderRoute
   '/register': typeof RegisterRoute
@@ -214,8 +250,10 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/cart'
+    | '/certificates'
     | '/cold-storage'
     | '/contact'
+    | '/courses'
     | '/crop-calendar'
     | '/crop-insurance'
     | '/internships'
@@ -223,6 +261,8 @@ export interface FileRouteTypes {
     | '/login'
     | '/market'
     | '/marketplace'
+    | '/my-applications'
+    | '/my-courses'
     | '/notifications'
     | '/order'
     | '/register'
@@ -237,8 +277,10 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/cart'
+    | '/certificates'
     | '/cold-storage'
     | '/contact'
+    | '/courses'
     | '/crop-calendar'
     | '/crop-insurance'
     | '/internships'
@@ -246,6 +288,8 @@ export interface FileRouteTypes {
     | '/login'
     | '/market'
     | '/marketplace'
+    | '/my-applications'
+    | '/my-courses'
     | '/notifications'
     | '/order'
     | '/register'
@@ -260,8 +304,10 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/cart'
+    | '/certificates'
     | '/cold-storage'
     | '/contact'
+    | '/courses'
     | '/crop-calendar'
     | '/crop-insurance'
     | '/internships'
@@ -269,6 +315,8 @@ export interface FileRouteTypes {
     | '/login'
     | '/market'
     | '/marketplace'
+    | '/my-applications'
+    | '/my-courses'
     | '/notifications'
     | '/order'
     | '/register'
@@ -284,8 +332,10 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRoute
   CartRoute: typeof CartRoute
+  CertificatesRoute: typeof CertificatesRoute
   ColdStorageRoute: typeof ColdStorageRoute
   ContactRoute: typeof ContactRoute
+  CoursesRoute: typeof CoursesRoute
   CropCalendarRoute: typeof CropCalendarRoute
   CropInsuranceRoute: typeof CropInsuranceRoute
   InternshipsRoute: typeof InternshipsRoute
@@ -293,6 +343,8 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   MarketRoute: typeof MarketRoute
   MarketplaceRoute: typeof MarketplaceRoute
+  MyApplicationsRoute: typeof MyApplicationsRoute
+  MyCoursesRoute: typeof MyCoursesRoute
   NotificationsRoute: typeof NotificationsRoute
   OrderRoute: typeof OrderRoute
   RegisterRoute: typeof RegisterRoute
@@ -333,6 +385,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CartRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/certificates': {
+      id: '/certificates'
+      path: '/certificates'
+      fullPath: '/certificates'
+      preLoaderRoute: typeof CertificatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cold-storage': {
       id: '/cold-storage'
       path: '/cold-storage'
@@ -345,6 +404,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses': {
+      id: '/courses'
+      path: '/courses'
+      fullPath: '/courses'
+      preLoaderRoute: typeof CoursesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/crop-calendar': {
@@ -394,6 +460,20 @@ declare module '@tanstack/react-router' {
       path: '/marketplace'
       fullPath: '/marketplace'
       preLoaderRoute: typeof MarketplaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-applications': {
+      id: '/my-applications'
+      path: '/my-applications'
+      fullPath: '/my-applications'
+      preLoaderRoute: typeof MyApplicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-courses': {
+      id: '/my-courses'
+      path: '/my-courses'
+      fullPath: '/my-courses'
+      preLoaderRoute: typeof MyCoursesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notifications': {
@@ -460,8 +540,10 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AdminRoute: AdminRoute,
   CartRoute: CartRoute,
+  CertificatesRoute: CertificatesRoute,
   ColdStorageRoute: ColdStorageRoute,
   ContactRoute: ContactRoute,
+  CoursesRoute: CoursesRoute,
   CropCalendarRoute: CropCalendarRoute,
   CropInsuranceRoute: CropInsuranceRoute,
   InternshipsRoute: InternshipsRoute,
@@ -469,6 +551,8 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   MarketRoute: MarketRoute,
   MarketplaceRoute: MarketplaceRoute,
+  MyApplicationsRoute: MyApplicationsRoute,
+  MyCoursesRoute: MyCoursesRoute,
   NotificationsRoute: NotificationsRoute,
   OrderRoute: OrderRoute,
   RegisterRoute: RegisterRoute,

@@ -20,7 +20,7 @@ export interface SignupInput {
   email: string;
   phone: string;
   password: string;
-  role: "farmer" | "buyer";
+  role: "farmer" | "buyer" | "student";
   location?: string;
 }
 
@@ -57,7 +57,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       // If profile is missing in profiles table, create it from auth metadata
       if (!profile && isSupabaseConfigured) {
         const metadataRole = authMetadata?.["role"];
-        const safeRole: UserRole = (metadataRole === "buyer" || metadataRole === "admin" || metadataRole === "seller") ? metadataRole : "farmer";
+        const safeRole: UserRole = (metadataRole === "buyer" || metadataRole === "student" || metadataRole === "admin" || metadataRole === "seller") ? metadataRole : "farmer";
         
         profile = await upsertProfile({
           id: authUserId,
@@ -183,8 +183,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signup = async (input: SignupInput): Promise<AuthResponse> => {
     const { name, email, phone, password, role, location } = input;
 
-    // Security check: Force public signups to only be farmer or buyer
-    const safeRole: "farmer" | "buyer" = role === "buyer" ? "buyer" : "farmer";
+    // Security check: Force public signups to be farmer, buyer, or student
+    const safeRole: "farmer" | "buyer" | "student" = (role === "buyer" || role === "student") ? role : "farmer";
 
     if (!email || !password || password.length < 6) {
       return { success: false, error: "Password must be at least 6 characters long." };
@@ -303,6 +303,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       // Local development fallback
       let fallbackRole: UserRole = "farmer";
       if (normalizedEmail.includes("buyer")) fallbackRole = "buyer";
+      else if (normalizedEmail.includes("student")) fallbackRole = "student";
       else if (normalizedEmail.includes("admin")) fallbackRole = "admin";
       else if (normalizedEmail.includes("seller")) fallbackRole = "seller";
 
