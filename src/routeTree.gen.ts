@@ -23,6 +23,7 @@ import { Route as InternshipsRouteImport } from './routes/internships'
 import { Route as LearnRouteImport } from './routes/learn'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as MarketRouteImport } from './routes/market'
+import { Route as MarketPricesRouteImport } from './routes/market-prices'
 import { Route as MarketplaceRouteImport } from './routes/marketplace'
 import { Route as MyApplicationsRouteImport } from './routes/my-applications'
 import { Route as MyCoursesRouteImport } from './routes/my-courses'
@@ -105,6 +106,11 @@ const MarketRoute = MarketRouteImport.update({
   path: '/market',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MarketPricesRoute = MarketPricesRouteImport.update({
+  id: '/market-prices',
+  path: '/market-prices',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MarketplaceRoute = MarketplaceRouteImport.update({
   id: '/marketplace',
   path: '/marketplace',
@@ -176,6 +182,7 @@ export interface FileRoutesByFullPath {
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
   '/market': typeof MarketRoute
+  '/market-prices': typeof MarketPricesRoute
   '/marketplace': typeof MarketplaceRoute
   '/my-applications': typeof MyApplicationsRoute
   '/my-courses': typeof MyCoursesRoute
@@ -203,6 +210,7 @@ export interface FileRoutesByTo {
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
   '/market': typeof MarketRoute
+  '/market-prices': typeof MarketPricesRoute
   '/marketplace': typeof MarketplaceRoute
   '/my-applications': typeof MyApplicationsRoute
   '/my-courses': typeof MyCoursesRoute
@@ -231,6 +239,7 @@ export interface FileRoutesById {
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
   '/market': typeof MarketRoute
+  '/market-prices': typeof MarketPricesRoute
   '/marketplace': typeof MarketplaceRoute
   '/my-applications': typeof MyApplicationsRoute
   '/my-courses': typeof MyCoursesRoute
@@ -260,6 +269,7 @@ export interface FileRouteTypes {
     | '/learn'
     | '/login'
     | '/market'
+    | '/market-prices'
     | '/marketplace'
     | '/my-applications'
     | '/my-courses'
@@ -287,6 +297,7 @@ export interface FileRouteTypes {
     | '/learn'
     | '/login'
     | '/market'
+    | '/market-prices'
     | '/marketplace'
     | '/my-applications'
     | '/my-courses'
@@ -314,6 +325,7 @@ export interface FileRouteTypes {
     | '/learn'
     | '/login'
     | '/market'
+    | '/market-prices'
     | '/marketplace'
     | '/my-applications'
     | '/my-courses'
@@ -342,6 +354,7 @@ export interface RootRouteChildren {
   LearnRoute: typeof LearnRoute
   LoginRoute: typeof LoginRoute
   MarketRoute: typeof MarketRoute
+  MarketPricesRoute: typeof MarketPricesRoute
   MarketplaceRoute: typeof MarketplaceRoute
   MyApplicationsRoute: typeof MyApplicationsRoute
   MyCoursesRoute: typeof MyCoursesRoute
@@ -455,6 +468,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MarketRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/market-prices': {
+      id: '/market-prices'
+      path: '/market-prices'
+      fullPath: '/market-prices'
+      preLoaderRoute: typeof MarketPricesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/marketplace': {
       id: '/marketplace'
       path: '/marketplace'
@@ -550,6 +570,7 @@ const rootRouteChildren: RootRouteChildren = {
   LearnRoute: LearnRoute,
   LoginRoute: LoginRoute,
   MarketRoute: MarketRoute,
+  MarketPricesRoute: MarketPricesRoute,
   MarketplaceRoute: MarketplaceRoute,
   MyApplicationsRoute: MyApplicationsRoute,
   MyCoursesRoute: MyCoursesRoute,

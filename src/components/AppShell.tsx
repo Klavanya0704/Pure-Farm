@@ -54,7 +54,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       return [
         { to: "/admin", label: "Admin Console", icon: ShieldCheck },
         { to: "/marketplace", label: "Marketplace", icon: Store },
-        { to: "/market", label: "Market Prices", icon: TrendingUp },
+        { to: "/market-prices", label: "Market Prices", icon: TrendingUp },
         { to: "/cold-storage", label: "Cold Storage", icon: Snowflake },
         { to: "/schemes", label: "Schemes", icon: Shield },
         { to: "/weather", label: "Weather", icon: CloudSun },
@@ -83,7 +83,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     return [
       { to: "/", label: "Home", icon: Home },
       { to: "/marketplace", label: "Marketplace", icon: Store },
-      { to: "/market", label: "Market Prices", icon: TrendingUp },
+      { to: "/market-prices", label: "Market Prices", icon: TrendingUp },
       { to: "/cold-storage", label: "Cold Storage", icon: Snowflake },
       { to: "/schemes", label: "Schemes", icon: ShieldCheck },
       { to: "/crop-insurance", label: "Crop Insurance", icon: Shield },
@@ -127,7 +127,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       { to: "/seller", label: "My Products (Sell)", icon: Store },
       { to: "/order", label: "My Orders", icon: ShoppingBag },
       { to: "/cart", label: "My Cart", icon: ShoppingCart },
-      { to: "/admin", label: "Farmer Profile", icon: User },
+      { to: "/marketplace", label: "Browse Catalog", icon: Store },
     ];
   };
 
