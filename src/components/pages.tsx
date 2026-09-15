@@ -158,19 +158,25 @@ export function AccessDenied({ requiredRoles }: { requiredRoles: string[] }) {
 
 export function RoleGuard({
   allowedRoles,
+  allowGuest = false,
   children,
 }: {
   allowedRoles: UserRole[];
+  allowGuest?: boolean;
   children: React.ReactNode;
 }) {
   const navigate = useNavigate();
   const { user, loading } = useAuth();
 
   useEffect(() => {
-    if (!loading && (!user || !allowedRoles.includes(user.role))) {
-      void navigate({ to: "/login" });
+    if (!loading) {
+      if (!user && !allowGuest) {
+        void navigate({ to: "/login" });
+      } else if (user && !allowedRoles.includes(user.role)) {
+        void navigate({ to: "/login" });
+      }
     }
-  }, [user, loading, navigate, allowedRoles]);
+  }, [user, loading, navigate, allowedRoles, allowGuest]);
 
   if (loading) {
     return (
@@ -180,7 +186,11 @@ export function RoleGuard({
     );
   }
 
-  if (!user || !allowedRoles.includes(user.role)) {
+  if (user && !allowedRoles.includes(user.role)) {
+    return <AccessDenied requiredRoles={allowedRoles} />;
+  }
+
+  if (!user && !allowGuest) {
     return <AccessDenied requiredRoles={allowedRoles} />;
   }
 
@@ -2274,7 +2284,7 @@ export function SchemesPage() {
     `${s.name} ${s.category} ${s.eligibility}`.toLowerCase().includes(query.toLowerCase()),
   );
   return (
-    <RoleGuard allowedRoles={["farmer", "admin"]}>
+    <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <CardGridPage
         bgImage="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=2000"
         eyebrow="Schemes"
@@ -2296,7 +2306,7 @@ export function SchemesPage() {
 
 export function InsurancePage() {
   return (
-    <RoleGuard allowedRoles={["farmer", "admin"]}>
+    <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <CardGridPage
         bgImage="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=2000"
         eyebrow="Insurance"
@@ -2315,7 +2325,7 @@ export function InsurancePage() {
 
 export function WeatherPage() {
   return (
-    <RoleGuard allowedRoles={["farmer", "admin"]}>
+    <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         bgImage="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=2000"
         eyebrow="Weather"
@@ -2345,7 +2355,7 @@ export function CropCalendarPage() {
   const [selected, setSelected] = useState(CROPS[0]?.name || "");
   const crop = CROPS.find((item) => item.name === selected) || CROPS[0];
   return (
-    <RoleGuard allowedRoles={["farmer", "admin"]}>
+    <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         bgImage="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=2000"
         eyebrow="Crop calendar"
@@ -2406,7 +2416,7 @@ export function LearnPage() {
     `${c.title} ${c.topic} ${c.level}`.toLowerCase().includes(query.toLowerCase()),
   );
   return (
-    <RoleGuard allowedRoles={["student", "farmer", "admin"]}>
+    <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <CardGridPage
         bgImage="https://upload.wikimedia.org/wikipedia/commons/f/fc/Farmer_working_in_the_field_with_their_tractor.jpg"
         eyebrow="Learning"
@@ -2433,7 +2443,7 @@ export function CoursesPage() {
   );
 
   return (
-    <RoleGuard allowedRoles={["student", "farmer", "admin"]}>
+    <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell eyebrow="Education" title="Student Courses Catalog" intro="Explore software development, Python, AI/ML, cloud, and modern tech courses.">
         <div className="mb-6 flex max-w-md items-center rounded-xl border border-border bg-card px-3.5 py-2.5 shadow-sm">
           <Search className="h-4 w-4 text-muted-foreground mr-2" />
@@ -2576,7 +2586,7 @@ export function InternshipsPage() {
   const [appliedId, setAppliedId] = useState<string | null>(null);
 
   return (
-    <RoleGuard allowedRoles={["student", "farmer", "admin"]}>
+    <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         bgImage="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=2000"
         eyebrow="Internships"
@@ -2626,7 +2636,7 @@ export function NotificationsPage() {
   const [items, setItems] = useState(NOTIFICATIONS);
   const unread = items.filter((n) => !n.read).length;
   return (
-    <RoleGuard allowedRoles={["buyer", "farmer", "seller", "admin"]}>
+    <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         bgImage="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000"
         eyebrow="Notifications"
