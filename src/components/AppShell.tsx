@@ -34,6 +34,33 @@ import { SITE, waLink } from "@/data/site";
 import { useCart } from "./CartContext";
 import { useAuth } from "./AuthContext";
 
+function NavLinkItem({
+  to,
+  label,
+  icon: Icon,
+  onClick,
+}: {
+  to: string;
+  label: string;
+  icon: any;
+  onClick?: (() => void) | undefined;
+}) {
+  return (
+    <Link
+      to={to as any}
+      onClick={onClick}
+      className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium text-foreground/80 hover:bg-sidebar-accent hover:text-foreground transition-all duration-200 cursor-pointer"
+      activeProps={{
+        className:
+          "flex items-center gap-3 rounded-xl bg-sidebar-primary px-3 py-2 text-sm font-bold text-sidebar-primary-foreground shadow-sm transition-all duration-200 cursor-pointer",
+      }}
+    >
+      <Icon className="h-4.5 w-4.5 text-[#2d6a4f]" aria-hidden="true" />
+      <span>{label}</span>
+    </Link>
+  );
+}
+
 export function AppShell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -140,27 +167,11 @@ export function AppShell({ children }: { children: ReactNode }) {
     { to: "/contact", label: "Contact Us", icon: Phone },
   ] as const;
 
-  function NavLinkItem({ to, label, icon: Icon }: { to: string; label: string; icon: any }) {
-    return (
-      <Link
-        to={to}
-        className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium text-foreground/80 hover:bg-sidebar-accent hover:text-foreground transition-all duration-200"
-        activeProps={{
-          className:
-            "flex items-center gap-3 rounded-xl bg-sidebar-primary px-3 py-2 text-sm font-bold text-sidebar-primary-foreground shadow-sm transition-all duration-200",
-        }}
-      >
-        <Icon className="h-4.5 w-4.5 text-[#2d6a4f]" aria-hidden="true" />
-        <span>{label}</span>
-      </Link>
-    );
-  }
-
-  const sidebarContent = (
+  const renderSidebarContent = (onItemClick?: () => void) => (
     <div className="flex h-full flex-col justify-between min-h-0">
       <div className="flex flex-1 flex-col space-y-5 min-h-0 overflow-hidden">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 px-2 shrink-0">
+        <Link to="/" onClick={onItemClick} className="flex items-center gap-3 px-2 shrink-0">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#2d6a4f] text-white shadow-sm">
             <Leaf className="h-5 w-5" aria-hidden="true" />
           </span>
@@ -180,7 +191,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             </p>
             <nav className="mt-2 flex flex-col gap-0.5">
               {mainNav.map((item) => (
-                <NavLinkItem key={item.to} {...item} />
+                <NavLinkItem key={item.to} {...item} onClick={onItemClick} />
               ))}
             </nav>
           </div>
@@ -191,7 +202,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             </p>
             <nav className="mt-2 flex flex-col gap-0.5">
               {accountNav.map((item) => (
-                <NavLinkItem key={item.to} {...item} />
+                <NavLinkItem key={item.to} {...item} onClick={onItemClick} />
               ))}
             </nav>
           </div>
@@ -202,7 +213,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             </p>
             <nav className="mt-2 flex flex-col gap-0.5">
               {moreNav.map((item) => (
-                <NavLinkItem key={item.to} {...item} />
+                <NavLinkItem key={item.to} {...item} onClick={onItemClick} />
               ))}
             </nav>
           </div>
@@ -221,6 +232,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </p>
           <Link
             to="/register"
+            onClick={onItemClick}
             className="mt-3 inline-flex w-full items-center justify-center rounded-xl bg-[#2d6a4f] py-2 text-xs font-bold text-white transition hover:bg-[#1b4332] shadow-sm"
           >
             Farmer Registration
@@ -234,7 +246,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div className="min-h-screen bg-background text-foreground font-sans">
       {/* Sidebar Desktop */}
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-[230px] flex-col border-r border-border bg-sidebar p-5 text-sidebar-foreground lg:flex">
-        {sidebarContent}
+        {renderSidebarContent()}
       </aside>
 
       {/* Main Container */}
@@ -398,7 +410,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                 <X className="h-5 w-5 text-foreground" />
               </button>
             </div>
-            <div onClick={() => setOpen(false)}>{sidebarContent}</div>
+            <div>{renderSidebarContent(() => setOpen(false))}</div>
           </div>
         </div>
       ) : null}
