@@ -212,25 +212,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           },
         });
 
-        // Resilient fallback: If database constraint on profiles prevents primary role 'student' signup
-        if (authResult.error && safeRole === "student" && (authResult.error.message.includes("Database error") || authResult.error.message.includes("profiles_role_check") || authResult.error.message.includes("check constraint"))) {
-          console.warn("Primary student role check constraint fallback triggered. Retrying with secondary role assignment...");
-          authResult = await supabase.auth.signUp({
-            email: email.trim().toLowerCase(),
-            password,
-            options: {
-              data: {
-                full_name: name.trim(),
-                phone: phone.trim(),
-                role: "buyer",
-                app_role: "student",
-                user_role: "student",
-                location: location?.trim() || "",
-              },
-            },
-          });
-        }
-
         if (authResult.error) {
           console.error("Supabase Auth signUp error:", authResult.error);
           return { success: false, error: authResult.error.message || "Database error saving new user." };
