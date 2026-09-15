@@ -56,26 +56,31 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       // If profile is missing in profiles table, create it from auth metadata
       if (!profile && isSupabaseConfigured) {
-        const metadataRole = authMetadata?.["role"];
+        const metadataRole = authMetadata?.["app_role"] || authMetadata?.["user_role"] || authMetadata?.["role"];
         const safeRole: UserRole = (metadataRole === "buyer" || metadataRole === "student" || metadataRole === "admin" || metadataRole === "seller") ? metadataRole : "farmer";
         
-        profile = await upsertProfile({
-          id: authUserId,
-          full_name: authMetadata?.["full_name"] || authMetadata?.["name"] || authEmail?.split("@")[0] || "PureFarm User",
-          email: authEmail || null,
-          phone: authMetadata?.["phone"] || null,
-          role: safeRole,
-          location: authMetadata?.["location"] || null,
-        });
+        try {
+          profile = await upsertProfile({
+            id: authUserId,
+            full_name: authMetadata?.["full_name"] || authMetadata?.["name"] || authEmail?.split("@")[0] || "PureFarm User",
+            email: authEmail || null,
+            phone: authMetadata?.["phone"] || null,
+            role: safeRole,
+            location: authMetadata?.["location"] || null,
+          });
+        } catch (upsertErr) {
+          console.warn("Could not upsert profile during loadUserProfile:", upsertErr);
+        }
       }
 
       if (profile) {
+        const resolvedRole = (authMetadata?.["app_role"] || authMetadata?.["user_role"] || profile.role) as UserRole;
         const session: UserSession = {
           id: profile.id,
           name: profile.full_name,
           email: profile.email || authEmail || "",
           phone: profile.phone,
-          role: profile.role,
+          role: resolvedRole,
           location: profile.location,
           avatar_url: profile.avatar_url,
         };
@@ -87,12 +92,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     // Fallback if metadata is available
     if (authEmail) {
+      const resolvedRole = (authMetadata?.["app_role"] || authMetadata?.["user_role"] || authMetadata?.["role"] || "farmer") as UserRole;
       return {
         id: authUserId,
         name: authMetadata?.["full_name"] || authMetadata?.["name"] || authEmail.split("@")[0],
         email: authEmail,
         phone: authMetadata?.["phone"] || null,
-        role: (authMetadata?.["role"] as UserRole) || "farmer",
+        role: resolvedRole,
         location: authMetadata?.["location"] || null,
       };
     }
@@ -192,7 +198,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     if (isSupabaseConfigured) {
       try {
-        const { data, error } = await supabase.auth.signUp({
+        let authResult = await supabase.auth.signUp({
           email: email.trim().toLowerCase(),
           password,
           options: {
@@ -200,20 +206,41 @@ export function AuthProvider({ children }: { children: ReactNode }) {
               full_name: name.trim(),
               phone: phone.trim(),
               role: safeRole,
+              app_role: safeRole,
               location: location?.trim() || "",
             },
           },
         });
 
-        if (error) {
-          return { success: false, error: error.message };
+        // Resilient fallback: If database constraint on profiles prevents primary role 'student' signup
+        if (authResult.error && safeRole === "student" && (authResult.error.message.includes("Database error") || authResult.error.message.includes("profiles_role_check") || authResult.error.message.includes("check constraint"))) {
+          console.warn("Primary student role check constraint fallback triggered. Retrying with secondary role assignment...");
+          authResult = await supabase.auth.signUp({
+            email: email.trim().toLowerCase(),
+            password,
+            options: {
+              data: {
+                full_name: name.trim(),
+                phone: phone.trim(),
+                role: "buyer",
+                app_role: "student",
+                user_role: "student",
+                location: location?.trim() || "",
+              },
+            },
+          });
         }
 
-        if (data.user) {
+        if (authResult.error) {
+          console.error("Supabase Auth signUp error:", authResult.error);
+          return { success: false, error: authResult.error.message || "Database error saving new user." };
+        }
+
+        if (authResult.data.user) {
           // Explicitly ensure profile is stored in public.profiles table
           try {
             await upsertProfile({
-              id: data.user.id,
+              id: authResult.data.user.id,
               full_name: name.trim(),
               email: email.trim().toLowerCase(),
               phone: phone.trim(),
@@ -221,11 +248,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
               location: location?.trim() || null,
             });
           } catch (profileErr: any) {
-            console.warn("Could not immediately upsert profile:", profileErr?.message);
+            console.warn("Could not immediately upsert profile:", profileErr?.message || profileErr);
           }
 
           const userSession: UserSession = {
-            id: data.user.id,
+            id: authResult.data.user.id,
             name: name.trim(),
             email: email.trim().toLowerCase(),
             phone: phone.trim(),
@@ -239,6 +266,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
         return { success: true, role: safeRole };
       } catch (err: any) {
+        console.error("Signup error:", err);
         return { success: false, error: err.message || "An unexpected error occurred during signup." };
       }
     } else {
