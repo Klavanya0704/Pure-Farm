@@ -170,7 +170,7 @@ export const INSURANCE_SCHEMES: InsuranceScheme[] = [
     type: "Allied farming",
     crops: ["Dairy", "Goatery", "Sheep"],
     coverage: "Market value of insured animal after veterinary certification.",
-    url: "https://dahd.nic.in/",
+    url: "https://www.myscheme.gov.in/",
   },
 ];
 
