@@ -20,11 +20,9 @@ import {
   GraduationCap,
   Briefcase,
   ShoppingBag,
-  User,
   Info,
   Phone,
   Search,
-  LogOut,
   BookOpen,
   FileText,
   Award,
@@ -33,6 +31,25 @@ import { useState, type ReactNode } from "react";
 import { SITE, waLink } from "@/data/site";
 import { useCart } from "./CartContext";
 import { useAuth } from "./AuthContext";
+import { useTranslation } from "@/i18n/LanguageContext";
+
+function LanguageSelector() {
+  const { language, setLanguage } = useTranslation();
+
+  return (
+    <div className="relative inline-flex items-center">
+      <select
+        value={language}
+        onChange={(e) => setLanguage(e.target.value as any)}
+        className="h-9 rounded-xl border border-border bg-card px-2.5 text-xs font-bold text-foreground hover:bg-muted/50 transition cursor-pointer outline-none focus:ring-1 focus:ring-[#2d6a4f]"
+        aria-label="Select Language"
+      >
+        <option value="en">🌐 English</option>
+        <option value="te">🌐 తెలుగు</option>
+      </select>
+    </div>
+  );
+}
 
 function NavLinkItem({
   to,
@@ -66,6 +83,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const [searchQuery, setSearchQuery] = useState("");
   const { count } = useCart();
   const { user, logout } = useAuth();
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
@@ -79,82 +97,82 @@ export function AppShell({ children }: { children: ReactNode }) {
   const getMainNav = () => {
     if (user?.role === "admin") {
       return [
-        { to: "/admin", label: "Admin Console", icon: ShieldCheck },
-        { to: "/marketplace", label: "Marketplace", icon: Store },
-        { to: "/market-prices", label: "Market Prices", icon: TrendingUp },
-        { to: "/cold-storage", label: "Cold Storage", icon: Snowflake },
-        { to: "/schemes", label: "Schemes", icon: Shield },
-        { to: "/weather", label: "Weather", icon: CloudSun },
-        { to: "/crop-calendar", label: "Crop Calendar", icon: CalendarDays },
-        { to: "/notifications", label: "Notifications", icon: Bell },
+        { to: "/admin", label: t("Admin Console"), icon: ShieldCheck },
+        { to: "/marketplace", label: t("Marketplace"), icon: Store },
+        { to: "/market-prices", label: t("Market Prices"), icon: TrendingUp },
+        { to: "/cold-storage", label: t("Cold Storage"), icon: Snowflake },
+        { to: "/schemes", label: t("Schemes"), icon: Shield },
+        { to: "/weather", label: t("Weather"), icon: CloudSun },
+        { to: "/crop-calendar", label: t("Crop Calendar"), icon: CalendarDays },
+        { to: "/notifications", label: t("Notifications"), icon: Bell },
       ];
     }
 
     if (user?.role === "buyer") {
       return [
-        { to: "/", label: "Home", icon: Home },
-        { to: "/marketplace", label: "Marketplace", icon: Store },
+        { to: "/", label: t("Home"), icon: Home },
+        { to: "/marketplace", label: t("Marketplace"), icon: Store },
       ];
     }
 
     if (user?.role === "student") {
       return [
-        { to: "/", label: "Home", icon: Home },
-        { to: "/learn", label: "Learn", icon: GraduationCap },
-        { to: "/courses", label: "Courses", icon: BookOpen },
-        { to: "/internships", label: "Internships", icon: Briefcase },
+        { to: "/", label: t("Home"), icon: Home },
+        { to: "/learn", label: t("Learn"), icon: GraduationCap },
+        { to: "/courses", label: t("Courses"), icon: BookOpen },
+        { to: "/internships", label: t("Internships"), icon: Briefcase },
       ];
     }
 
     // Default / Farmer
     return [
-      { to: "/", label: "Home", icon: Home },
-      { to: "/marketplace", label: "Marketplace", icon: Store },
-      { to: "/market-prices", label: "Market Prices", icon: TrendingUp },
-      { to: "/cold-storage", label: "Cold Storage", icon: Snowflake },
-      { to: "/schemes", label: "Schemes", icon: ShieldCheck },
-      { to: "/crop-insurance", label: "Crop Insurance", icon: Shield },
-      { to: "/weather", label: "Weather", icon: CloudSun },
-      { to: "/learn", label: "Learn", icon: GraduationCap },
-      { to: "/internships", label: "Internships", icon: Briefcase },
-      { to: "/crop-calendar", label: "Crop Calendar", icon: CalendarDays },
-      { to: "/notifications", label: "Notifications", icon: Bell },
+      { to: "/", label: t("Home"), icon: Home },
+      { to: "/marketplace", label: t("Marketplace"), icon: Store },
+      { to: "/market-prices", label: t("Market Prices"), icon: TrendingUp },
+      { to: "/cold-storage", label: t("Cold Storage"), icon: Snowflake },
+      { to: "/schemes", label: t("Schemes"), icon: ShieldCheck },
+      { to: "/crop-insurance", label: t("Crop Insurance"), icon: Shield },
+      { to: "/weather", label: t("Weather"), icon: CloudSun },
+      { to: "/learn", label: t("Learn"), icon: GraduationCap },
+      { to: "/internships", label: t("Internships"), icon: Briefcase },
+      { to: "/crop-calendar", label: t("Crop Calendar"), icon: CalendarDays },
+      { to: "/notifications", label: t("Notifications"), icon: Bell },
     ];
   };
 
   const getAccountNav = () => {
     if (user?.role === "admin") {
       return [
-        { to: "/admin", label: "Admin Overview", icon: ShieldCheck },
-        { to: "/seller", label: "Manage Products", icon: Store },
-        { to: "/order", label: "All Orders", icon: ShoppingBag },
+        { to: "/admin", label: t("Admin Overview"), icon: ShieldCheck },
+        { to: "/seller", label: t("Manage Products"), icon: Store },
+        { to: "/order", label: t("All Orders"), icon: ShoppingBag },
       ];
     }
 
     if (user?.role === "buyer") {
       return [
-        { to: "/order", label: "My Orders", icon: ShoppingBag },
-        { to: "/cart", label: "My Cart", icon: ShoppingCart },
-        { to: "/marketplace", label: "Browse Catalog", icon: Store },
-        { to: "/notifications", label: "Notifications", icon: Bell },
+        { to: "/order", label: t("My Orders"), icon: ShoppingBag },
+        { to: "/cart", label: t("My Cart"), icon: ShoppingCart },
+        { to: "/marketplace", label: t("Browse Catalog"), icon: Store },
+        { to: "/notifications", label: t("Notifications"), icon: Bell },
       ];
     }
 
     if (user?.role === "student") {
       return [
-        { to: "/my-courses", label: "My Courses", icon: BookOpen },
-        { to: "/my-applications", label: "My Applications", icon: FileText },
-        { to: "/certificates", label: "Certificates", icon: Award },
-        { to: "/notifications", label: "Notifications", icon: Bell },
+        { to: "/my-courses", label: t("My Courses"), icon: BookOpen },
+        { to: "/my-applications", label: t("My Applications"), icon: FileText },
+        { to: "/certificates", label: t("Certificates"), icon: Award },
+        { to: "/notifications", label: t("Notifications"), icon: Bell },
       ];
     }
 
     // Farmer
     return [
-      { to: "/seller", label: "My Products (Sell)", icon: Store },
-      { to: "/order", label: "My Orders", icon: ShoppingBag },
-      { to: "/cart", label: "My Cart", icon: ShoppingCart },
-      { to: "/marketplace", label: "Browse Catalog", icon: Store },
+      { to: "/seller", label: t("My Products (Sell)"), icon: Store },
+      { to: "/order", label: t("My Orders"), icon: ShoppingBag },
+      { to: "/cart", label: t("My Cart"), icon: ShoppingCart },
+      { to: "/marketplace", label: t("Browse Catalog"), icon: Store },
     ];
   };
 
@@ -162,10 +180,10 @@ export function AppShell({ children }: { children: ReactNode }) {
   const accountNav = getAccountNav();
 
   const moreNav = [
-    { to: "/about", label: "About Us", icon: Info },
-    { to: "/support", label: "Support", icon: LifeBuoy },
-    { to: "/contact", label: "Contact Us", icon: Phone },
-  ] as const;
+    { to: "/about", label: t("About Us"), icon: Info },
+    { to: "/support", label: t("Support"), icon: LifeBuoy },
+    { to: "/contact", label: t("Contact Us"), icon: Phone },
+  ];
 
   const renderSidebarContent = (onItemClick?: () => void) => (
     <div className="flex h-full flex-col justify-between min-h-0">
@@ -178,7 +196,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div>
             <span className="block text-lg font-black text-[#1b4332]">PureFarm</span>
             <span className="block text-[10px] font-semibold text-[#2d6a4f]/70 uppercase tracking-wider">
-              Connect - Grow - Prosper
+              {t("Connect - Grow - Prosper")}
             </span>
           </div>
         </Link>
@@ -187,7 +205,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="space-y-5 flex-1 min-h-0 overflow-y-auto no-scrollbar pr-1">
           <div>
             <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-              {user?.role === "admin" ? "Management" : "Main Navigation"}
+              {user?.role === "admin" ? t("Management") : t("Main Navigation")}
             </p>
             <nav className="mt-2 flex flex-col gap-0.5">
               {mainNav.map((item) => (
@@ -198,7 +216,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
           <div>
             <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-              {user?.role === "buyer" ? "Account & Shopping" : user?.role === "student" ? "Career" : "Account & Activity"}
+              {user?.role === "buyer" ? t("Account & Shopping") : user?.role === "student" ? t("Career") : t("Account & Activity")}
             </p>
             <nav className="mt-2 flex flex-col gap-0.5">
               {accountNav.map((item) => (
@@ -209,7 +227,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
           <div>
             <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-              More Information
+              {t("More Information")}
             </p>
             <nav className="mt-2 flex flex-col gap-0.5">
               {moreNav.map((item) => (
@@ -226,16 +244,16 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div className="absolute -right-6 -bottom-6 opacity-[0.03]">
             <Leaf className="h-24 w-24 text-primary" />
           </div>
-          <p className="text-sm font-bold text-[#1b4332]">Sell Your Produce</p>
+          <p className="text-sm font-bold text-[#1b4332]">{t("Sell Your Produce")}</p>
           <p className="mt-1 text-xs leading-normal text-[#2d6a4f]">
-            Register as a Farmer to sell your harvest directly.
+            {t("Register as a Farmer to sell your harvest directly.")}
           </p>
           <Link
             to="/register"
             onClick={onItemClick}
             className="mt-3 inline-flex w-full items-center justify-center rounded-xl bg-[#2d6a4f] py-2 text-xs font-bold text-white transition hover:bg-[#1b4332] shadow-sm"
           >
-            Farmer Registration
+            {t("Farmer Registration")}
           </Link>
         </div>
       ) : null}
@@ -268,7 +286,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               <form onSubmit={handleSearch} className="hidden md:flex flex-1 max-w-md relative">
                 <input
                   type="text"
-                  placeholder="Search for products, crops, tools, seeds..."
+                  placeholder={t("Search for products, crops, tools, seeds...")}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full h-10 rounded-l-xl border border-r-0 border-border bg-background pl-4 pr-10 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
@@ -293,7 +311,12 @@ export function AppShell({ children }: { children: ReactNode }) {
               {/* Weather */}
               <div className="hidden sm:flex items-center gap-1 text-xs font-semibold text-foreground/80 border-l border-border pl-3">
                 <Sun className="h-3.5 w-3.5 text-amber-500 fill-amber-100" />
-                <span>28 deg C, Sunny</span>
+                <span>28°C, Sunny</span>
+              </div>
+
+              {/* Language Selector */}
+              <div className="border-l border-border pl-3">
+                <LanguageSelector />
               </div>
 
               {/* Notifications */}
@@ -330,7 +353,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                     <div className="hidden sm:block text-left">
                       <p className="text-xs font-bold leading-none text-foreground">{user.name}</p>
                       <p className="mt-1 text-[10px] font-semibold leading-none uppercase text-[#2d6a4f]">
-                        {user.role}
+                        {t(user.role ? user.role.charAt(0).toUpperCase() + user.role.slice(1) : "Farmer")}
                       </p>
                     </div>
                   </div>
@@ -339,7 +362,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                     onClick={logout}
                     className="inline-flex h-8 items-center justify-center rounded-lg border border-border bg-card px-2.5 text-[10px] font-bold text-destructive hover:bg-muted/50 transition"
                   >
-                    Logout
+                    {t("Logout")}
                   </button>
                 </div>
               ) : (
@@ -348,13 +371,13 @@ export function AppShell({ children }: { children: ReactNode }) {
                     to="/login"
                     className="inline-flex h-9 items-center justify-center rounded-xl border border-border bg-card hover:bg-muted/50 px-3 text-xs font-bold transition"
                   >
-                    Sign In
+                    {t("Sign In")}
                   </Link>
                   <Link
                     to="/register"
                     className="inline-flex h-9 items-center justify-center rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-3.5 text-xs font-bold shadow-sm transition"
                   >
-                    Register
+                    {t("Register")}
                   </Link>
                 </div>
               )}
@@ -371,12 +394,11 @@ export function AppShell({ children }: { children: ReactNode }) {
             <div>
               <p className="text-lg font-black text-[#1b4332]">{SITE.name}</p>
               <p className="mt-2 max-w-xl text-sm text-muted-foreground leading-relaxed">
-                {SITE.tagline} for farm inputs, mandi prices, crop advisories, schemes, and local
-                support.
+                {t("Digital Agriculture Platform")} for farm inputs, mandi prices, crop advisories, schemes, and local support.
               </p>
             </div>
             <div className="text-sm">
-              <p className="font-bold text-[#1b4332]">Contact</p>
+              <p className="font-bold text-[#1b4332]">{t("Contact Us")}</p>
               <p className="mt-2 text-muted-foreground">{SITE.phone}</p>
               <p className="text-muted-foreground">{SITE.email}</p>
             </div>
@@ -440,19 +462,24 @@ export function PageShell({
   bgImage?: string;
   children: ReactNode;
 }) {
+  const { t } = useTranslation();
+  const translatedTitle = t(title);
+  const translatedEyebrow = eyebrow ? t(eyebrow) : undefined;
+  const translatedIntro = intro ? t(intro) : undefined;
+
   if (bgImage) {
     return (
       <section className="relative min-h-[calc(100vh-4rem)] bg-cover bg-center bg-fixed" style={{ backgroundImage: "url(" + bgImage + ")" }}>
         <div className="absolute inset-0 bg-[#052d20]/35" />
         <div className="relative z-10 px-4 py-8 sm:px-6 lg:px-8 lg:py-10 mx-auto max-w-7xl">
           <div className="mb-7 max-w-3xl">
-            {eyebrow ? (
-              <p className="text-sm font-black uppercase tracking-wider text-[#a7f3d0] drop-shadow-md">{eyebrow}</p>
+            {translatedEyebrow ? (
+              <p className="text-sm font-black uppercase tracking-wider text-[#a7f3d0] drop-shadow-md">{translatedEyebrow}</p>
             ) : null}
             <h1 className="mt-2 text-3xl font-black tracking-normal text-white sm:text-4xl drop-shadow-lg">
-              {title}
+              {translatedTitle}
             </h1>
-            {intro ? <p className="mt-3 text-base leading-7 text-white/95 drop-shadow-md font-medium">{intro}</p> : null}
+            {translatedIntro ? <p className="mt-3 text-base leading-7 text-white/95 drop-shadow-md font-medium">{translatedIntro}</p> : null}
           </div>
           {children}
         </div>
@@ -464,13 +491,13 @@ export function PageShell({
     <section className="px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
       <div className="mx-auto max-w-7xl">
         <div className="mb-7 max-w-3xl">
-          {eyebrow ? (
-            <p className="text-sm font-black uppercase tracking-wider text-primary">{eyebrow}</p>
+          {translatedEyebrow ? (
+            <p className="text-sm font-black uppercase tracking-wider text-primary">{translatedEyebrow}</p>
           ) : null}
           <h1 className="mt-2 text-3xl font-black tracking-normal text-foreground sm:text-4xl">
-            {title}
+            {translatedTitle}
           </h1>
-          {intro ? <p className="mt-3 text-base leading-7 text-muted-foreground">{intro}</p> : null}
+          {translatedIntro ? <p className="mt-3 text-base leading-7 text-muted-foreground">{translatedIntro}</p> : null}
         </div>
         {children}
       </div>

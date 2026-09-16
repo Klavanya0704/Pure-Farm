@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "@tanstack/react-router";
+import { useTranslation } from "@/i18n/LanguageContext";
 import { getColdStorageFacilities, type ColdStorageFacility } from "@/services/coldStorage";
 import { getMarketPrices, syncLiveMarketPrices, type SyncResult } from "@/services/marketPrices";
 import type { MarketPrice } from "@/types/database";
@@ -4357,6 +4358,7 @@ export function CardGridPage({
     icon?: React.ReactNode;
   }[];
 }) {
+  const { t } = useTranslation();
   const currentCardClass = bgImage ? glassCardClass : cardClass;
   return (
     <PageShell eyebrow={eyebrow} title={title} intro={intro} {...(bgImage ? { bgImage } : {})}>
@@ -4364,7 +4366,7 @@ export function CardGridPage({
         <input
           value={query || ""}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search..."
+          placeholder={t("Search...")}
           className={`mb-5 h-12 w-full max-w-xl rounded-xl border px-4 shadow-sm outline-none transition-all ${bgImage ? "bg-white/80 border-white/50 backdrop-blur-md focus:bg-white focus:ring-2 focus:ring-white" : "border-input bg-card"}`}
         />
       ) : null}
@@ -4376,12 +4378,12 @@ export function CardGridPage({
               <div className="flex items-start gap-3">
                 {item.icon}
                 <div>
-                  <p className="text-lg font-black">{item.title}</p>
-                  <p className="mt-1 text-sm font-bold text-primary">{item.meta}</p>
+                  <p className="text-lg font-black">{t(item.title)}</p>
+                  <p className="mt-1 text-sm font-bold text-primary">{t(item.meta)}</p>
                 </div>
               </div>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.body}</p>
-              <p className="mt-4 text-xs font-bold text-muted-foreground">{item.footer}</p>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">{t(item.body)}</p>
+              <p className="mt-4 text-xs font-bold text-muted-foreground">{t(item.footer)}</p>
             </div>
           );
           if (item.internalUrl) {

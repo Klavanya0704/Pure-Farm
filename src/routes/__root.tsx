@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AppShell } from "../components/AppShell";
 import { CartProvider } from "../components/CartContext";
 import { AuthProvider } from "../components/AuthContext";
+import { LanguageProvider } from "../i18n/LanguageContext";
 
 function NotFoundComponent() {
   return (
@@ -130,7 +131,6 @@ function RootShell({ children }: { children: ReactNode }) {
     </html>
   );
 }
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const router = useRouter();
@@ -140,18 +140,20 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <CartProvider>
-          {isAuthRoute ? (
-            <Outlet />
-          ) : (
-            <AppShell>
-              {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <LanguageProvider>
+        <AuthProvider>
+          <CartProvider>
+            {isAuthRoute ? (
               <Outlet />
-            </AppShell>
-          )}
-        </CartProvider>
-      </AuthProvider>
+            ) : (
+              <AppShell>
+                {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+                <Outlet />
+              </AppShell>
+            )}
+          </CartProvider>
+        </AuthProvider>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }

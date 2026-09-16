@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { IndianRupee, ShoppingCart, Star } from "lucide-react";
 import type { Product } from "@/data/types";
 import { useCart } from "./CartContext";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export function formatRupees(value: number) {
   return new Intl.NumberFormat("en-IN", {
@@ -16,6 +17,7 @@ export const NEUTRAL_PRODUCT_FALLBACK = "data:image/svg+xml;utf8,<svg xmlns='htt
 
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
+  const { t } = useTranslation();
   const [imageError, setImageError] = useState(false);
 
   // Compute deterministic discount, old price, and review count based on product ID/price, or use custom overrides
@@ -61,7 +63,7 @@ export function ProductCard({ product }: { product: Product }) {
               badgeText.toLowerCase().includes("hot") ? "bg-red-500 animate-pulse" : "bg-amber-500"
             }`}
           >
-            {badgeText}
+            {t(badgeText)}
           </span>
         ) : null}
 
@@ -79,7 +81,7 @@ export function ProductCard({ product }: { product: Product }) {
       {/* Lower Half: Product Details */}
       <div className="flex flex-1 flex-col p-4 bg-[#FFFFFF]">
         <span className="text-[10px] uppercase font-bold text-muted-foreground/80 tracking-wide mb-1.5">
-          {product.category}
+          {t(product.category)}
         </span>
         
         <Link
@@ -130,7 +132,7 @@ export function ProductCard({ product }: { product: Product }) {
             aria-label={`Add ${product.name} to cart`}
           >
             <ShoppingCart className="h-4 w-4" />
-            {product.stock <= 0 ? "Out of Stock" : "Add to Cart"}
+            {product.stock <= 0 ? t("Out of Stock") : t("Add to Cart")}
           </button>
         </div>
       </div>
