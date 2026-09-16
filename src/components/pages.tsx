@@ -2158,7 +2158,7 @@ export function MarketPage() {
     },
   ];
 
-  // Combine DB records with default records if DB records exist, ensuring default crops are included
+  // Combine DB records with default records, ensuring reference order is strictly preserved (Wheat, Paddy, Maize, Cotton, Mustard, Onion, Tomato, Potato)
   const allRows = useMemo(() => {
     if (!dbRecords || dbRecords.length === 0) return defaultRows;
     const formattedDb = dbRecords.map((r) => ({
@@ -2175,13 +2175,22 @@ export function MarketPage() {
       source: r.source || "Supabase DB",
       recorded_at: r.recorded_at || "2026-09-05",
     }));
-    const combined = [...formattedDb];
+
+    const dbMap = new Map(formattedDb.map((item) => [item.crop_name.toLowerCase(), item]));
+    const list = [];
     for (const d of defaultRows) {
-      if (!combined.some((item) => item.crop_name.toLowerCase() === d.crop_name.toLowerCase())) {
-        combined.push(d);
+      const key = d.crop_name.toLowerCase();
+      if (dbMap.has(key)) {
+        list.push({ ...d, ...dbMap.get(key) });
+        dbMap.delete(key);
+      } else {
+        list.push(d);
       }
     }
-    return combined;
+    for (const extra of dbMap.values()) {
+      list.push(extra);
+    }
+    return list;
   }, [dbRecords]);
 
   // Derived filter options
@@ -2363,7 +2372,7 @@ export function MarketPage() {
                         <td className="text-right whitespace-nowrap">
                           <button
                             onClick={() => setSelectedDetailItem(row)}
-                            className="px-4 py-1.5 rounded-full bg-[#E7F4EA] hover:bg-[#CDE5D3] text-[#176B3A] text-xs font-bold transition-colors border border-[#CDE5D3] cursor-pointer"
+                            className="btn-view-details-agri"
                           >
                             View Details
                           </button>

@@ -333,31 +333,41 @@
   width: 100%;
   border-collapse: separate !important;
   border-spacing: 0 !important;
-  border: 1.5px solid #D9E2DD !important;
+  border: 1px solid #D9E2DD !important;
   border-radius: 18px !important;
   overflow: hidden !important;
   background: #FFFFFF !important;
 }
 
+.market-price-table th:nth-child(1), .market-price-table td:nth-child(1) { width: 20%; }
+.market-price-table th:nth-child(2), .market-price-table td:nth-child(2) { width: 20%; }
+.market-price-table th:nth-child(3), .market-price-table td:nth-child(3) { width: 18%; }
+.market-price-table th:nth-child(4), .market-price-table td:nth-child(4) { width: 18%; }
+.market-price-table th:nth-child(5), .market-price-table td:nth-child(5) { width: 14%; }
+.market-price-table th:nth-child(6), .market-price-table td:nth-child(6) { width: 10%; text-align: right; }
+
 .market-price-table thead tr {
   background-color: #E8F5EA !important;
+  height: 48px !important;
 }
 
 .market-price-table thead th {
   background-color: #E8F5EA !important;
-  border-bottom: 1.5px solid #D9E2DD !important;
-  padding: 14px 18px !important;
+  border-bottom: 1px solid #D9E2DD !important;
+  padding: 12px 18px !important;
   color: #176B3A !important;
   font-weight: 700 !important;
+  font-size: 13px !important;
 }
 
 .market-price-table tbody tr {
   background-color: #FFFFFF !important;
+  height: 63px !important;
 }
 
 .market-price-table tbody tr td {
-  border-bottom: 1.5px solid #D9E2DD !important;
-  padding: 14px 18px !important;
+  border-bottom: 1px solid #D9E2DD !important;
+  padding: 12px 18px !important;
   vertical-align: middle !important;
 }
 
@@ -367,6 +377,22 @@
 
 .market-price-table tbody tr:hover {
   background-color: #F7FCF8 !important;
+}
+
+.btn-view-details-agri {
+  background-color: #E7F3EA !important;
+  border: 1px solid #D0E7D6 !important;
+  color: #176B3A !important;
+  border-radius: 18px !important;
+  padding: 6px 14px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  transition: all 150ms ease !important;
+  cursor: pointer !important;
+}
+
+.btn-view-details-agri:hover {
+  background-color: #D8ECE0 !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
