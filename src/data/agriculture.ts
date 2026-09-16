@@ -157,7 +157,7 @@ export const INSURANCE_SCHEMES: InsuranceScheme[] = [
     type: "Weather index",
     crops: ["Horticulture", "Cotton", "Groundnut", "Chilli"],
     coverage: "Payout triggered by notified weather station readings.",
-    url: "https://www.myscheme.gov.in/schemes/rwbcis",
+    url: "https://www.india.gov.in/category/agriculture-rural-environment/subcategory/agricultural-produce/details/weather-based-crop-insurance-scheme-wbcis",
   },
   {
     code: "livestock",
@@ -170,7 +170,7 @@ export const INSURANCE_SCHEMES: InsuranceScheme[] = [
     type: "Allied farming",
     crops: ["Dairy", "Goatery", "Sheep"],
     coverage: "Market value of insured animal after veterinary certification.",
-    url: "https://www.myscheme.gov.in/",
+    url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2114716&lang=1&reg=48",
   },
 ];
 
