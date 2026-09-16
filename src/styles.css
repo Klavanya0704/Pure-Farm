@@ -328,6 +328,47 @@
   border-top: 1px solid rgba(255, 255, 255, 0.30);
 }
 
+/* Market Price Table Exact Specifications */
+.market-price-table {
+  width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border: 1.5px solid #D9E2DD !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  background: #FFFFFF !important;
+}
+
+.market-price-table thead tr {
+  background-color: #E8F5EA !important;
+}
+
+.market-price-table thead th {
+  background-color: #E8F5EA !important;
+  border-bottom: 1.5px solid #D9E2DD !important;
+  padding: 14px 18px !important;
+  color: #176B3A !important;
+  font-weight: 700 !important;
+}
+
+.market-price-table tbody tr {
+  background-color: #FFFFFF !important;
+}
+
+.market-price-table tbody tr td {
+  border-bottom: 1.5px solid #D9E2DD !important;
+  padding: 14px 18px !important;
+  vertical-align: middle !important;
+}
+
+.market-price-table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.market-price-table tbody tr:hover {
+  background-color: #F7FCF8 !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-subtle-float-1,
   .animate-subtle-float-2,
