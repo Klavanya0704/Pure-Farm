@@ -2305,20 +2305,265 @@ export function SchemesPage() {
 }
 
 export function InsurancePage() {
+  const getSchemeUrl = (code: string) => {
+    if (code === "pmfby") return "/crop-insurance/pmfby";
+    if (code === "weather") return "/crop-insurance/weather-based";
+    if (code === "livestock") return "/crop-insurance/livestock";
+    return undefined;
+  };
+
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <CardGridPage
         bgImage="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=2000"
         eyebrow="Insurance"
         title="Crop insurance"
-        intro="Compare crop, weather, and allied farming insurance options."
-        items={INSURANCE_SCHEMES.map((s) => ({
-          title: s.name,
-          meta: `${s.type} · ${s.premium}`,
-          body: s.description,
-          footer: `${s.coverage || ""} Crops: ${(s.crops || []).join(", ")}`,
-        }))}
+        intro="Compare crop, weather, and allied farming insurance options. Click any card for scheme details."
+        items={INSURANCE_SCHEMES.map((s) => {
+          const url = getSchemeUrl(s.code);
+          return {
+            title: s.name,
+            meta: `${s.type} · ${s.premium}`,
+            body: s.description,
+            footer: `${s.coverage || ""} Crops: ${(s.crops || []).join(", ")}`,
+            ...(url ? { internalUrl: url } : {}),
+          };
+        })}
       />
+    </RoleGuard>
+  );
+}
+
+export function PmfbyDetailPage() {
+  return (
+    <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
+      <PageShell
+        bgImage="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=2000"
+        eyebrow="Crop Insurance Scheme"
+        title="Pradhan Mantri Fasal Bima Yojana (PMFBY)"
+        intro="Comprehensive crop insurance scheme providing financial support to farmers suffering crop loss or damage arising out of non-preventable natural risks."
+      >
+        <div className="mb-6">
+          <Link
+            to="/crop-insurance"
+            className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"
+          >
+            ← Back to Crop Insurance
+          </Link>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className={glassCardClass}>
+            <ShieldCheck className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Premium Rates</h3>
+            <p className="mt-1 text-sm font-bold text-primary">Kharif: 2.0% | Rabi: 1.5% | Commercial: 5.0%</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Uniform premium rate payable by farmers. The balance actuarial premium is shared equally (50:50) by the Central and State Governments.
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <CheckCircle2 className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Coverage Stages</h3>
+            <p className="mt-1 text-sm font-bold text-primary">Sowing to Post-Harvest</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Covers Prevented Sowing / Planting Risk, Standing Crop (Yield Losses due to drought, flood, pests, diseases), Localised Calamities (hailstorm, landslide, inundation), and Post-Harvest Losses (up to 14 days).
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <Leaf className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Eligible Crops</h3>
+            <p className="mt-1 text-sm font-bold text-primary">Food, Oilseeds & Annual Crops</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Notified crops including Paddy, Wheat, Cotton, Maize, Mustard, Pulses, Commercial, and Horticultural crops notified by state governments.
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <Scale className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Sum Insured</h3>
+            <p className="mt-1 text-sm font-bold text-primary">District Scale of Finance</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Sum insured per hectare is equal to the Scale of Finance (SoF) as decided by District Level Technical Committee (DLTC) multiplied by crop area.
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <Users className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Management & Implementation</h3>
+            <p className="mt-1 text-sm font-bold text-primary">Empanelled Insurers & State Govts</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Administered through empanelled public and private general insurance companies under oversight of State Agriculture Departments.
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <Award className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Claim Settlement</h3>
+            <p className="mt-1 text-sm font-bold text-primary">Direct Bank Transfer (DBT)</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Claim payouts are calculated based on Crop Cutting Experiments (CCE) data or weather triggers and directly credited to farmers' Aadhaar-seeded bank accounts.
+            </p>
+          </div>
+        </div>
+      </PageShell>
+    </RoleGuard>
+  );
+}
+
+export function WeatherBasedDetailPage() {
+  return (
+    <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
+      <PageShell
+        bgImage="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=2000"
+        eyebrow="Weather Index Insurance"
+        title="Weather Based Crop Insurance"
+        intro="Index-based weather parametric protection compensating farmers against quantifiable financial loss caused by adverse weather conditions."
+      >
+        <div className="mb-6">
+          <Link
+            to="/crop-insurance"
+            className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"
+          >
+            ← Back to Crop Insurance
+          </Link>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className={glassCardClass}>
+            <CloudRain className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Weather Index Trigger</h3>
+            <p className="mt-1 text-sm font-bold text-primary">Automated Weather Station Data</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Payouts are triggered automatically based on deviations in weather parameters recorded at notified Reference Weather Stations (RWS).
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <Wind className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Parameters Covered</h3>
+            <p className="mt-1 text-sm font-bold text-primary">Rainfall, Temp, Humidity, Wind</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Covers rainfall deficit/excess, unseasonal rainfall, high/low temperature spikes, humidity fluctuations, and wind speed deviations.
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <Leaf className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Targeted Crops</h3>
+            <p className="mt-1 text-sm font-bold text-primary">Horticulture & Cash Crops</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Specifically suited for perennial horticulture crops (Mango, Citrus, Banana), Spices (Chilli, Turmeric), Cotton, and Groundnut.
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <Shield className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Premium & Subsidy</h3>
+            <p className="mt-1 text-sm font-bold text-primary">District & Crop Notified</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Actuarial premium varies by crop and district historical risk profiles, with government premium subsidies available.
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <MapPin className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Coverage Unit</h3>
+            <p className="mt-1 text-sm font-bold text-primary">Reference Weather Station Unit</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Defined reference unit area tied to localized IMD or private automated weather station network data.
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <CheckCircle2 className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Rapid Claim Processing</h3>
+            <p className="mt-1 text-sm font-bold text-primary">No Individual Loss Assessment</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Since claims depend on objective weather station data, payouts are processed rapidly without field loss verification delays.
+            </p>
+          </div>
+        </div>
+      </PageShell>
+    </RoleGuard>
+  );
+}
+
+export function LivestockDetailPage() {
+  return (
+    <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
+      <PageShell
+        bgImage="https://images.unsplash.com/photo-1546445317-29f4545f9d52?auto=format&fit=crop&w=2000"
+        eyebrow="Allied Farming Protection"
+        title="Livestock Insurance Support"
+        intro="Financial protection for cattle, buffaloes, sheep, and goats against death due to natural accidents, disease, or surgical complications."
+      >
+        <div className="mb-6">
+          <Link
+            to="/crop-insurance"
+            className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"
+          >
+            ← Back to Crop Insurance
+          </Link>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className={glassCardClass}>
+            <ShieldCheck className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Covered Animals</h3>
+            <p className="mt-1 text-sm font-bold text-primary">Dairy Cattle, Buffalo, Goat & Sheep</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Protection for crossbred and indigenous milch cows, buffaloes, breeding bulls, and small ruminants (sheep & goats).
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <Heart className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Scope of Protection</h3>
+            <p className="mt-1 text-sm font-bold text-primary">Accident & Disease Risk</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Covers death due to accident, lightning, flood, disease outbreaks, calving complications, surgical procedures, and permanent total disability.
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <Scale className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Animal Valuation</h3>
+            <p className="mt-1 text-sm font-bold text-primary">Veterinary Officer Valuation</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Market value of animal evaluated and certified by a registered Veterinary Assistant Surgeon at the time of insurance policy issuance.
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <Award className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Identification & Tagging</h3>
+            <p className="mt-1 text-sm font-bold text-primary">Ear-Tagging / Microchip Identification</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Animals are tagged with tamper-proof ear tags or RFID microchips recorded in animal health databases for seamless claim verification.
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <Users className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Subsidies & Management</h3>
+            <p className="mt-1 text-sm font-bold text-primary">State Animal Husbandry Dept</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Supported under National Livestock Mission (NLM) with up to 50% - 70% premium subsidy provided by state governments for eligible farmers.
+            </p>
+          </div>
+
+          <div className={glassCardClass}>
+            <CheckCircle2 className="h-7 w-7 text-primary" />
+            <h3 className="mt-3 text-lg font-black">Claim Process</h3>
+            <p className="mt-1 text-sm font-bold text-primary">Veterinary Certification & Payout</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Claims submitted along with post-mortem examination report and ear-tag verification by veterinary officers for quick payout release.
+            </p>
+          </div>
+        </div>
+      </PageShell>
     </RoleGuard>
   );
 }
@@ -4118,6 +4363,7 @@ export function CardGridPage({
     body: string;
     footer: string;
     url?: string;
+    internalUrl?: string;
     icon?: React.ReactNode;
   }[];
 }) {
@@ -4134,8 +4380,9 @@ export function CardGridPage({
       ) : null}
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {items.map((item) => {
+          const isClickable = Boolean(item.url || item.internalUrl);
           const content = (
-            <div className={`${currentCardClass} h-full`}>
+            <div className={`${currentCardClass} h-full ${isClickable ? "hover:border-primary/50 hover:shadow-md transition cursor-pointer" : ""}`}>
               <div className="flex items-start gap-3">
                 {item.icon}
                 <div>
@@ -4147,13 +4394,24 @@ export function CardGridPage({
               <p className="mt-4 text-xs font-bold text-muted-foreground">{item.footer}</p>
             </div>
           );
+          if (item.internalUrl) {
+            return (
+              <Link
+                key={item.title}
+                to={item.internalUrl}
+                className="block transition hover:-translate-y-0.5 cursor-pointer"
+              >
+                {content}
+              </Link>
+            );
+          }
           return item.url ? (
             <a
               key={item.title}
               href={item.url}
               target="_blank"
               rel="noreferrer"
-              className="block transition hover:-translate-y-0.5"
+              className="block transition hover:-translate-y-0.5 cursor-pointer"
             >
               {content}
             </a>

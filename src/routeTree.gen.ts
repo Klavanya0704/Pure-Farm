@@ -34,6 +34,9 @@ import { Route as SchemesRouteImport } from './routes/schemes'
 import { Route as SellerRouteImport } from './routes/seller'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as WeatherRouteImport } from './routes/weather'
+import { Route as CropInsuranceLivestockRouteImport } from './routes/crop-insurance.livestock'
+import { Route as CropInsurancePmfbyRouteImport } from './routes/crop-insurance.pmfby'
+import { Route as CropInsuranceWeatherBasedRouteImport } from './routes/crop-insurance.weather-based'
 import { Route as ProductIdRouteImport } from './routes/product/$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -161,6 +164,22 @@ const WeatherRoute = WeatherRouteImport.update({
   path: '/weather',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CropInsuranceLivestockRoute = CropInsuranceLivestockRouteImport.update({
+  id: '/livestock',
+  path: '/livestock',
+  getParentRoute: () => CropInsuranceRoute,
+} as any)
+const CropInsurancePmfbyRoute = CropInsurancePmfbyRouteImport.update({
+  id: '/pmfby',
+  path: '/pmfby',
+  getParentRoute: () => CropInsuranceRoute,
+} as any)
+const CropInsuranceWeatherBasedRoute =
+  CropInsuranceWeatherBasedRouteImport.update({
+    id: '/weather-based',
+    path: '/weather-based',
+    getParentRoute: () => CropInsuranceRoute,
+  } as any)
 const ProductIdRoute = ProductIdRouteImport.update({
   id: '/product/$id',
   path: '/product/$id',
@@ -177,7 +196,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRoute
   '/crop-calendar': typeof CropCalendarRoute
-  '/crop-insurance': typeof CropInsuranceRoute
+  '/crop-insurance': typeof CropInsuranceRouteWithChildren
   '/internships': typeof InternshipsRoute
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
@@ -193,6 +212,9 @@ export interface FileRoutesByFullPath {
   '/seller': typeof SellerRoute
   '/support': typeof SupportRoute
   '/weather': typeof WeatherRoute
+  '/crop-insurance/livestock': typeof CropInsuranceLivestockRoute
+  '/crop-insurance/pmfby': typeof CropInsurancePmfbyRoute
+  '/crop-insurance/weather-based': typeof CropInsuranceWeatherBasedRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRoutesByTo {
@@ -205,7 +227,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRoute
   '/crop-calendar': typeof CropCalendarRoute
-  '/crop-insurance': typeof CropInsuranceRoute
+  '/crop-insurance': typeof CropInsuranceRouteWithChildren
   '/internships': typeof InternshipsRoute
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
@@ -221,6 +243,9 @@ export interface FileRoutesByTo {
   '/seller': typeof SellerRoute
   '/support': typeof SupportRoute
   '/weather': typeof WeatherRoute
+  '/crop-insurance/livestock': typeof CropInsuranceLivestockRoute
+  '/crop-insurance/pmfby': typeof CropInsurancePmfbyRoute
+  '/crop-insurance/weather-based': typeof CropInsuranceWeatherBasedRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRoutesById {
@@ -234,7 +259,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRoute
   '/crop-calendar': typeof CropCalendarRoute
-  '/crop-insurance': typeof CropInsuranceRoute
+  '/crop-insurance': typeof CropInsuranceRouteWithChildren
   '/internships': typeof InternshipsRoute
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
@@ -250,6 +275,9 @@ export interface FileRoutesById {
   '/seller': typeof SellerRoute
   '/support': typeof SupportRoute
   '/weather': typeof WeatherRoute
+  '/crop-insurance/livestock': typeof CropInsuranceLivestockRoute
+  '/crop-insurance/pmfby': typeof CropInsurancePmfbyRoute
+  '/crop-insurance/weather-based': typeof CropInsuranceWeatherBasedRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRouteTypes {
@@ -280,6 +308,9 @@ export interface FileRouteTypes {
     | '/seller'
     | '/support'
     | '/weather'
+    | '/crop-insurance/livestock'
+    | '/crop-insurance/pmfby'
+    | '/crop-insurance/weather-based'
     | '/product/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -308,6 +339,9 @@ export interface FileRouteTypes {
     | '/seller'
     | '/support'
     | '/weather'
+    | '/crop-insurance/livestock'
+    | '/crop-insurance/pmfby'
+    | '/crop-insurance/weather-based'
     | '/product/$id'
   id:
     | '__root__'
@@ -336,6 +370,9 @@ export interface FileRouteTypes {
     | '/seller'
     | '/support'
     | '/weather'
+    | '/crop-insurance/livestock'
+    | '/crop-insurance/pmfby'
+    | '/crop-insurance/weather-based'
     | '/product/$id'
   fileRoutesById: FileRoutesById
 }
@@ -349,7 +386,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CoursesRoute: typeof CoursesRoute
   CropCalendarRoute: typeof CropCalendarRoute
-  CropInsuranceRoute: typeof CropInsuranceRoute
+  CropInsuranceRoute: typeof CropInsuranceRouteWithChildren
   InternshipsRoute: typeof InternshipsRoute
   LearnRoute: typeof LearnRoute
   LoginRoute: typeof LoginRoute
@@ -545,6 +582,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WeatherRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/crop-insurance/livestock': {
+      id: '/crop-insurance/livestock'
+      path: '/livestock'
+      fullPath: '/crop-insurance/livestock'
+      preLoaderRoute: typeof CropInsuranceLivestockRouteImport
+      parentRoute: typeof CropInsuranceRoute
+    }
+    '/crop-insurance/pmfby': {
+      id: '/crop-insurance/pmfby'
+      path: '/pmfby'
+      fullPath: '/crop-insurance/pmfby'
+      preLoaderRoute: typeof CropInsurancePmfbyRouteImport
+      parentRoute: typeof CropInsuranceRoute
+    }
+    '/crop-insurance/weather-based': {
+      id: '/crop-insurance/weather-based'
+      path: '/weather-based'
+      fullPath: '/crop-insurance/weather-based'
+      preLoaderRoute: typeof CropInsuranceWeatherBasedRouteImport
+      parentRoute: typeof CropInsuranceRoute
+    }
     '/product/$id': {
       id: '/product/$id'
       path: '/product/$id'
@@ -554,6 +612,22 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface CropInsuranceRouteChildren {
+  CropInsuranceLivestockRoute: typeof CropInsuranceLivestockRoute
+  CropInsurancePmfbyRoute: typeof CropInsurancePmfbyRoute
+  CropInsuranceWeatherBasedRoute: typeof CropInsuranceWeatherBasedRoute
+}
+
+const CropInsuranceRouteChildren: CropInsuranceRouteChildren = {
+  CropInsuranceLivestockRoute: CropInsuranceLivestockRoute,
+  CropInsurancePmfbyRoute: CropInsurancePmfbyRoute,
+  CropInsuranceWeatherBasedRoute: CropInsuranceWeatherBasedRoute,
+}
+
+const CropInsuranceRouteWithChildren = CropInsuranceRoute._addFileChildren(
+  CropInsuranceRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -565,7 +639,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CoursesRoute: CoursesRoute,
   CropCalendarRoute: CropCalendarRoute,
-  CropInsuranceRoute: CropInsuranceRoute,
+  CropInsuranceRoute: CropInsuranceRouteWithChildren,
   InternshipsRoute: InternshipsRoute,
   LearnRoute: LearnRoute,
   LoginRoute: LoginRoute,
