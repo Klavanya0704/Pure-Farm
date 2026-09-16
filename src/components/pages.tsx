@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useTranslation } from "@/i18n/LanguageContext";
+import { LanguageSelector } from "./AppShell";
 import { getColdStorageFacilities, type ColdStorageFacility } from "@/services/coldStorage";
 import { getMarketPrices, syncLiveMarketPrices, type SyncResult } from "@/services/marketPrices";
 import type { MarketPrice } from "@/types/database";
@@ -3033,6 +3034,7 @@ function FormPage({
 export function LoginPage() {
   const navigate = useNavigate();
   const { login } = useAuth();
+  const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
   const [phoneOrEmail, setPhoneOrEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -3106,13 +3108,16 @@ export function LoginPage() {
           </div>
         </Link>
 
-        <Link
-          to="/"
-          className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full glass-btn-google-white text-[#FFFFFF] text-xs font-extrabold transition shadow-sm hover:scale-105"
-        >
-          <span>Explore Marketplace</span>
-          <ArrowRight className="h-3.5 w-3.5 text-[#B7F34A]" />
-        </Link>
+        <div className="flex items-center gap-3">
+          <LanguageSelector />
+          <Link
+            to="/"
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full glass-btn-google-white text-[#FFFFFF] text-xs font-extrabold transition shadow-sm hover:scale-105"
+          >
+            <span>{t("Explore Marketplace")}</span>
+            <ArrowRight className="h-3.5 w-3.5 text-[#B7F34A]" />
+          </Link>
+        </div>
       </header>
 
       {/* Main Center Area with Translucent Glassmorphism Login Card */}

@@ -33,7 +33,7 @@ import { useCart } from "./CartContext";
 import { useAuth } from "./AuthContext";
 import { useTranslation } from "@/i18n/LanguageContext";
 
-function LanguageSelector() {
+export function LanguageSelector() {
   const { language, setLanguage } = useTranslation();
 
   return (
