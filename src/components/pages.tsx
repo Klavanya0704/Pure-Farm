@@ -2317,42 +2317,43 @@ export function MarketPage() {
             </div>
 
             {/* TABLE CONTAINER */}
-            <div className="overflow-x-auto rounded-2xl border border-emerald-100 bg-white">
-              <table className="w-full text-left border-collapse">
+            <div className="overflow-x-auto rounded-2xl border border-[#E1E8E3] bg-white shadow-xs">
+              <table className="w-full text-left border-collapse" style={{ borderCollapse: "collapse" }}>
                 <thead>
-                  <tr className="bg-[#e8f5e9] text-[#1b5e20] text-xs font-bold uppercase tracking-wider">
-                    <th className="py-3.5 px-5 font-semibold">🌱 Crop</th>
-                    <th className="py-3.5 px-5 font-semibold">📍 Mandi</th>
-                    <th className="py-3.5 px-5 font-semibold">📥 Arrival</th>
-                    <th className="py-3.5 px-5 font-semibold">💰 Price</th>
-                    <th className="py-3.5 px-5 font-semibold">📈 Trend</th>
-                    <th className="py-3.5 px-5 text-right font-semibold">Action</th>
+                  <tr className="bg-[#E8F5EA] text-[#1b5e20] text-xs font-bold uppercase tracking-wider" style={{ borderBottom: "1px solid #DDE5E0" }}>
+                    <th className="py-3.5 px-5 font-semibold" style={{ borderBottom: "1px solid #DDE5E0" }}>🌱 Crop</th>
+                    <th className="py-3.5 px-5 font-semibold" style={{ borderBottom: "1px solid #DDE5E0" }}>📍 Mandi</th>
+                    <th className="py-3.5 px-5 font-semibold" style={{ borderBottom: "1px solid #DDE5E0" }}>📥 Arrival</th>
+                    <th className="py-3.5 px-5 font-semibold" style={{ borderBottom: "1px solid #DDE5E0" }}>💰 Price</th>
+                    <th className="py-3.5 px-5 font-semibold" style={{ borderBottom: "1px solid #DDE5E0" }}>📈 Trend</th>
+                    <th className="py-3.5 px-5 text-right font-semibold" style={{ borderBottom: "1px solid #DDE5E0" }}>Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
+                <tbody>
                   {filteredRows.map((row) => {
                     const isPositive = row.change_pct >= 0;
                     return (
                       <tr
                         key={row.id}
-                        className="border-b border-gray-200 hover:bg-emerald-50/50 transition-colors"
+                        className="hover:bg-green-50/40 transition-colors"
+                        style={{ borderBottom: "1px solid #DDE5E0" }}
                       >
-                        <td className="py-4 px-5 text-sm font-bold text-gray-900 whitespace-nowrap">
+                        <td className="py-4 px-5 text-sm font-bold text-gray-900 whitespace-nowrap" style={{ borderBottom: "1px solid #DDE5E0" }}>
                           <span className="inline-flex items-center gap-2">
                             <span className="text-lg">{row.icon || getCropIcon(row.crop_name)}</span>
                             <span>{row.crop_name}</span>
                           </span>
                         </td>
-                        <td className="py-4 px-5 text-sm font-medium text-gray-700 whitespace-nowrap">
+                        <td className="py-4 px-5 text-sm font-medium text-gray-700 whitespace-nowrap" style={{ borderBottom: "1px solid #DDE5E0" }}>
                           {row.location}
                         </td>
-                        <td className="py-4 px-5 text-sm font-medium text-gray-600 whitespace-nowrap">
+                        <td className="py-4 px-5 text-sm font-medium text-gray-600 whitespace-nowrap" style={{ borderBottom: "1px solid #DDE5E0" }}>
                           {row.arrival}
                         </td>
-                        <td className="py-4 px-5 text-sm font-extrabold text-gray-900 whitespace-nowrap">
+                        <td className="py-4 px-5 text-sm font-extrabold text-gray-900 whitespace-nowrap" style={{ borderBottom: "1px solid #DDE5E0" }}>
                           ₹{Number(row.price).toLocaleString()}/{row.unit || "qtl"}
                         </td>
-                        <td className="py-4 px-5 text-sm font-bold whitespace-nowrap">
+                        <td className="py-4 px-5 text-sm font-bold whitespace-nowrap" style={{ borderBottom: "1px solid #DDE5E0" }}>
                           {isPositive ? (
                             <span className="text-emerald-600 inline-flex items-center gap-1">
                               <TrendingUp className="w-4 h-4" /> +{row.change_pct}%
@@ -2363,7 +2364,7 @@ export function MarketPage() {
                             </span>
                           )}
                         </td>
-                        <td className="py-4 px-5 text-right whitespace-nowrap">
+                        <td className="py-4 px-5 text-right whitespace-nowrap" style={{ borderBottom: "1px solid #DDE5E0" }}>
                           <button
                             onClick={() => setSelectedDetailItem(row)}
                             className="px-4 py-1.5 rounded-full bg-[#e8f5e9] hover:bg-[#c8e6c9] text-[#1b5e20] text-xs font-bold transition-colors border border-emerald-200/60 cursor-pointer"
