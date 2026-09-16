@@ -157,7 +157,7 @@ export const INSURANCE_SCHEMES: InsuranceScheme[] = [
     type: "Weather index",
     crops: ["Horticulture", "Cotton", "Groundnut", "Chilli"],
     coverage: "Payout triggered by notified weather station readings.",
-    url: "https://pmfby.gov.in/",
+    url: "https://www.myscheme.gov.in/schemes/rwbcis",
   },
   {
     code: "livestock",
