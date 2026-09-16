@@ -145,6 +145,7 @@ export const INSURANCE_SCHEMES: InsuranceScheme[] = [
     type: "Seasonal crop insurance",
     crops: ["Paddy", "Wheat", "Cotton", "Maize", "Mustard"],
     coverage: "Sum insured based on district crop notification and scale of finance.",
+    url: "https://pmfby.gov.in/",
   },
   {
     code: "weather",
@@ -156,6 +157,7 @@ export const INSURANCE_SCHEMES: InsuranceScheme[] = [
     type: "Weather index",
     crops: ["Horticulture", "Cotton", "Groundnut", "Chilli"],
     coverage: "Payout triggered by notified weather station readings.",
+    url: "https://pmfby.gov.in/",
   },
   {
     code: "livestock",
@@ -168,6 +170,7 @@ export const INSURANCE_SCHEMES: InsuranceScheme[] = [
     type: "Allied farming",
     crops: ["Dairy", "Goatery", "Sheep"],
     coverage: "Market value of insured animal after veterinary certification.",
+    url: "https://dahd.nic.in/",
   },
 ];
 

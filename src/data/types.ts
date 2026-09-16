@@ -68,6 +68,7 @@ export interface InsuranceScheme {
   type: string;
   crops?: string[];
   coverage?: string;
+  url: string;
 }
 
 export interface Course {

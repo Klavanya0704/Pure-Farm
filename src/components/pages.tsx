@@ -2305,30 +2305,20 @@ export function SchemesPage() {
 }
 
 export function InsurancePage() {
-  const getSchemeUrl = (code: string) => {
-    if (code === "pmfby") return "/crop-insurance/pmfby";
-    if (code === "weather") return "/crop-insurance/weather-based";
-    if (code === "livestock") return "/crop-insurance/livestock";
-    return undefined;
-  };
-
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <CardGridPage
         bgImage="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=2000"
         eyebrow="Insurance"
         title="Crop insurance"
-        intro="Compare crop, weather, and allied farming insurance options. Click any card for scheme details."
-        items={INSURANCE_SCHEMES.map((s) => {
-          const url = getSchemeUrl(s.code);
-          return {
-            title: s.name,
-            meta: `${s.type} · ${s.premium}`,
-            body: s.description,
-            footer: `${s.coverage || ""} Crops: ${(s.crops || []).join(", ")}`,
-            ...(url ? { internalUrl: url } : {}),
-          };
-        })}
+        intro="Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website."
+        items={INSURANCE_SCHEMES.map((s) => ({
+          title: s.name,
+          meta: `${s.type} · ${s.premium}`,
+          body: s.description,
+          footer: `${s.coverage || ""} Crops: ${(s.crops || []).join(", ")}`,
+          url: s.url,
+        }))}
       />
     </RoleGuard>
   );
