@@ -2519,9 +2519,9 @@ export function SchemesPage() {
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <CardGridPage
         bgImage="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=2000"
-        eyebrow="Schemes"
-        title="Government schemes"
-        intro="Find farmer support programmes, eligibility, and official application links."
+        eyebrow={t("Schemes")}
+        title={t("Government schemes")}
+        intro={t("Find farmer support programmes, eligibility, and official application links.")}
         query={query}
         setQuery={setQuery}
         items={rows.map((s) => ({
@@ -2542,9 +2542,9 @@ export function InsurancePage() {
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <CardGridPage
         bgImage="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=2000"
-        eyebrow="Insurance"
-        title="Crop insurance"
-        intro="Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website."
+        eyebrow={t("Insurance")}
+        title={t("Crop insurance")}
+        intro={t("Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website.")}
         items={INSURANCE_SCHEMES.map((s) => ({
           title: t(s.name),
           meta: `${t(s.type)} · ${t(s.premium)}`,
@@ -2871,9 +2871,9 @@ export function LearnPage() {
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <CardGridPage
         bgImage="https://upload.wikimedia.org/wikipedia/commons/f/fc/Farmer_working_in_the_field_with_their_tractor.jpg"
-        eyebrow="Learning"
-        title="Learning Hub"
-        intro="Short, practical modules for software development, computing, and agriculture."
+        eyebrow={t("Learning")}
+        title={t("Learning Hub")}
+        intro={t("Short, practical modules for software development, computing, and agriculture.")}
         query={query}
         setQuery={setQuery}
         items={rows.map((c) => ({
@@ -2897,7 +2897,7 @@ export function CoursesPage() {
 
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
-      <PageShell eyebrow="Education" title="Student Courses Catalog" intro="Explore software development, Python, AI/ML, cloud, and modern tech courses.">
+      <PageShell eyebrow={t("Education")} title={t("Student Courses Catalog")} intro={t("Explore software development, Python, AI/ML, cloud, and modern tech courses.")}>
         <div className="mb-6 flex max-w-md items-center rounded-xl border border-border bg-card px-3.5 py-2.5 shadow-sm">
           <Search className="h-4 w-4 text-muted-foreground mr-2" />
           <input
@@ -3044,9 +3044,9 @@ export function InternshipsPage() {
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         bgImage="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=2000"
-        eyebrow="Internships"
-        title="Student Internship Hub"
-        intro="Apply for frontend, python, AI/ML, full-stack, and data science internships."
+        eyebrow={t("Internships")}
+        title={t("Student Internship Hub")}
+        intro={t("Apply for frontend, python, AI/ML, full-stack, and data science internships.")}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {INTERNSHIPS.map((i) => (
