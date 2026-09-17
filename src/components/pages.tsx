@@ -2778,21 +2778,21 @@ export function WeatherPage() {
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         bgImage="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=2000"
-        eyebrow="Weather"
-        title="Farm weather advisory"
-        intro="Five-day local forecast with field action notes."
+        eyebrow={t("Weather")}
+        title={t("Farm weather advisory")}
+        intro={t("Five-day local forecast with field action notes.")}
       >
         <div className="grid gap-4 md:grid-cols-5">
           {WEATHER.map((day) => (
             <div key={day.day} className={glassCardClass}>
               <CloudSun className="h-8 w-8 text-primary" />
-              <p className="mt-3 font-black">{day.day}</p>
-              <p className="text-sm text-muted-foreground">{day.condition}</p>
+              <p className="mt-3 font-black">{t(day.day)}</p>
+              <p className="text-sm text-muted-foreground">{t(day.condition)}</p>
               <p className="mt-3 text-2xl font-black">
                 {day.high}° / {day.low}°
               </p>
-              <p className="mt-1 text-sm font-bold text-primary">{day.rain}% rain</p>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">{day.advisory}</p>
+              <p className="mt-1 text-sm font-bold text-primary">{day.rain}% {t("rain")}</p>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">{t(day.advisory)}</p>
             </div>
           ))}
         </div>
@@ -2839,8 +2839,8 @@ export function CropCalendarPage() {
                   ["Water", crop.water],
                 ].map(([a, b]) => (
                   <div key={a} className="rounded-lg bg-muted p-3">
-                    <p className="text-xs font-bold uppercase text-muted-foreground">{t(a)}</p>
-                    <p className="font-black">{t(b)}</p>
+                    <p className="text-xs font-bold uppercase text-muted-foreground">{t(a ?? "")}</p>
+                    <p className="font-black">{t(b ?? "")}</p>
                   </div>
                 ))}
               </div>
@@ -2920,7 +2920,7 @@ export function CoursesPage() {
                   <span className="text-xs text-muted-foreground font-semibold">{c.hours} {t("hrs")} · {c.lessons} {t("lessons")}</span>
                 </div>
                 <h3 className="text-lg font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{t(c.description)}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{t(c.description ?? "")}</p>
               </div>
 
               <div className="space-y-3 pt-3 border-t border-border/60">
@@ -3060,7 +3060,7 @@ export function InternshipsPage() {
                   {t(i.stipend)}
                 </span>
               </div>
-              <p className="text-xs text-muted-foreground leading-relaxed">{t(i.description)}</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">{t(i.description ?? "")}</p>
               <div className="flex flex-wrap gap-1.5">
                 {i.skills.map((skill) => (
                   <span key={skill} className="rounded-md bg-muted px-2.5 py-1 text-[11px] font-bold text-foreground/80">
@@ -3069,7 +3069,7 @@ export function InternshipsPage() {
                 ))}
               </div>
               <div className="pt-3 flex items-center justify-between border-t border-border/60">
-                <span className="text-xs text-muted-foreground font-medium">{t("Deadline")}: {t(i.deadline)}</span>
+                <span className="text-xs text-muted-foreground font-medium">{t("Deadline")}: {t(i.deadline ?? "")}</span>
                 <button
                   type="button"
                   onClick={() => setAppliedId(i.id)}
