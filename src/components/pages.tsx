@@ -2919,7 +2919,7 @@ export function LearnPage() {
       if (courseLessons.length > 0) {
         const courseCompleted = completedLessons[courseId] || [];
         const uncompleted = courseLessons.find((l) => !courseCompleted.includes(l.id));
-        setSelectedLessonId(uncompleted ? uncompleted.id : courseLessons[0].id);
+        setSelectedLessonId(uncompleted ? uncompleted.id : (courseLessons[0]?.id ?? null));
       } else {
         setSelectedLessonId(null);
       }
@@ -3144,7 +3144,10 @@ export function LearnPage() {
                       <button
                         type="button"
                         disabled={activeLessonIndex <= 0}
-                        onClick={() => setSelectedLessonId(courseLessons[activeLessonIndex - 1].id)}
+                        onClick={() => {
+                          const prevLesson = courseLessons[activeLessonIndex - 1];
+                          if (prevLesson) setSelectedLessonId(prevLesson.id);
+                        }}
                         className={`w-full sm:w-auto h-10 px-4 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 border cursor-pointer ${
                           activeLessonIndex <= 0
                             ? "bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed"
@@ -3171,7 +3174,10 @@ export function LearnPage() {
                       <button
                         type="button"
                         disabled={activeLessonIndex >= courseLessons.length - 1}
-                        onClick={() => setSelectedLessonId(courseLessons[activeLessonIndex + 1].id)}
+                        onClick={() => {
+                          const nextLesson = courseLessons[activeLessonIndex + 1];
+                          if (nextLesson) setSelectedLessonId(nextLesson.id);
+                        }}
                         className={`w-full sm:w-auto h-10 px-4 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 border cursor-pointer ${
                           activeLessonIndex >= courseLessons.length - 1
                             ? "bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed"
@@ -3380,23 +3386,23 @@ export function MyCoursesPage() {
 export function MyApplicationsPage() {
   const { t } = useTranslation();
   const sampleApps = [
-    { title: "Frontend Development Intern", org: "PureFarm Tech", location: "Remote", stipend: "Rs. 15,000/month", status: "In Review", date: "Applied 2 days ago" },
-    { title: "Python Development Intern", org: "AgriTech Solutions", location: "Hybrid", stipend: "Rs. 12,000/month", status: "Shortlisted", date: "Applied 1 week ago" },
+    { title: "AgriTech Field Operations Intern", org: "PureFarm Agri Services", location: "Rajahmundry", stipend: "₹10,000/month", status: "In Review", date: "Applied 2 days ago" },
+    { title: "Smart Farming & Drone Intern", org: "AgriTech Innovations", location: "Hyderabad", stipend: "₹15,000/month", status: "Shortlisted", date: "Applied 1 week ago" },
   ];
 
   return (
-    <RoleGuard allowedRoles={["student", "admin"]}>
-      <PageShell eyebrow="Career" title="My Internship Applications" intro="Review status and progress of your submitted internship applications.">
+    <RoleGuard allowedRoles={["student", "farmer", "buyer", "seller", "admin"]} allowGuest={true}>
+      <PageShell eyebrow={t("Career")} title={t("My Internship Applications")} intro={t("Review status and progress of your submitted internship applications.")}>
         <div className="space-y-4">
           {sampleApps.map((app, idx) => (
             <div key={idx} className="rounded-2xl border border-border bg-card p-5 shadow-soft flex items-center justify-between">
               <div>
-                <h3 className="text-base font-black text-[#1b4332]">{app.title}</h3>
-                <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">{app.org} · {app.location} · {app.stipend}</p>
-                <p className="text-[11px] text-muted-foreground mt-1">{app.date}</p>
+                <h3 className="text-base font-black text-[#1b4332]">{t(app.title)}</h3>
+                <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">{t(app.org)} · {t(app.location)} · {t(app.stipend)}</p>
+                <p className="text-[11px] text-muted-foreground mt-1">{t(app.date)}</p>
               </div>
               <span className={`px-3 py-1 rounded-full text-xs font-bold border ${app.status === "Shortlisted" ? "bg-emerald-50 text-emerald-800 border-emerald-200" : "bg-amber-50 text-amber-800 border-amber-200"}`}>
-                {app.status}
+                {t(app.status)}
               </span>
             </div>
           ))}
@@ -3409,24 +3415,24 @@ export function MyApplicationsPage() {
 export function CertificatesPage() {
   const { t } = useTranslation();
   const sampleCertificates = [
-    { title: "Web Development Fundamentals", date: "Issued Aug 2026", id: "CERT-9042" },
-    { title: "Python Programming Foundations", date: "Issued Jul 2026", id: "CERT-8104" },
+    { title: "Modern Farming & Soil Fertility", date: "Issued Aug 2026", id: "CERT-9042" },
+    { title: "Precision AgriTech & Drone Spraying", date: "Issued Jul 2026", id: "CERT-8104" },
   ];
 
   return (
-    <RoleGuard allowedRoles={["student", "admin"]}>
-      <PageShell eyebrow="Achievements" title="My Certificates" intro="View and download verified completion certificates.">
+    <RoleGuard allowedRoles={["student", "farmer", "buyer", "seller", "admin"]} allowGuest={true}>
+      <PageShell eyebrow={t("Achievements")} title={t("My Certificates")} intro={t("View and download verified completion certificates.")}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {sampleCertificates.map((cert, idx) => (
             <div key={idx} className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-3">
               <div className="flex items-center gap-3">
                 <Award className="h-8 w-8 text-amber-500 shrink-0" />
                 <div>
-                  <h3 className="text-base font-black text-[#1b4332]">{cert.title}</h3>
-                  <p className="text-xs text-muted-foreground">{cert.date} · {cert.id}</p>
+                  <h3 className="text-base font-black text-[#1b4332]">{t(cert.title)}</h3>
+                  <p className="text-xs text-muted-foreground">{t(cert.date)} · {cert.id}</p>
                 </div>
               </div>
-              <button type="button" className="w-full h-9 rounded-xl border border-border bg-muted/30 hover:bg-muted text-xs font-bold text-[#1b4332] transition">{t("Download Certificate (PDF)")}</button>
+              <button type="button" className="w-full h-9 rounded-xl border border-border bg-muted/30 hover:bg-muted text-xs font-bold text-[#1b4332] transition cursor-pointer">{t("Download Certificate (PDF)")}</button>
             </div>
           ))}
         </div>
@@ -3437,49 +3443,420 @@ export function CertificatesPage() {
 
 export function InternshipsPage() {
   const { t } = useTranslation();
-  const [appliedId, setAppliedId] = useState<string | null>(null);
+  const [query, setQuery] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("All Internships");
+
+  const [selectedInternshipId, setSelectedInternshipId] = useState<string | null>(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("internshipId");
+    }
+    return null;
+  });
+
+  const [appliedIds, setAppliedIds] = useState<string[]>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem("purefarm_applied_internships");
+        if (saved) return JSON.parse(saved);
+      } catch (e) {
+        console.error("Failed to load applied internships", e);
+      }
+    }
+    return [];
+  });
+
+  const [showApplyModal, setShowApplyModal] = useState(false);
+  const [applyForm, setApplyForm] = useState({ name: "", phone: "", notes: "" });
+  const [submittedMessage, setSubmittedMessage] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.setItem("purefarm_applied_internships", JSON.stringify(appliedIds));
+      } catch (e) {
+        console.error("Failed to save applied internships", e);
+      }
+    }
+  }, [appliedIds]);
+
+  const handleSelectInternship = (id: string | null) => {
+    setSelectedInternshipId(id);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      if (id) {
+        url.searchParams.set("internshipId", id);
+      } else {
+        url.searchParams.delete("internshipId");
+      }
+      window.history.pushState({}, "", url.toString());
+    }
+  };
+
+  const handleApplySubmit = (e: React.FormEvent, internshipId: string) => {
+    e.preventDefault();
+    if (!appliedIds.includes(internshipId)) {
+      setAppliedIds((prev) => [...prev, internshipId]);
+    }
+    setSubmittedMessage(true);
+    setTimeout(() => {
+      setShowApplyModal(false);
+      setSubmittedMessage(false);
+      setApplyForm({ name: "", phone: "", notes: "" });
+    }, 1800);
+  };
+
+  if (selectedInternshipId !== null) {
+    const internship = INTERNSHIPS.find((item) => item.id === selectedInternshipId);
+
+    if (!internship) {
+      return (
+        <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
+          <PageShell
+            eyebrow={t("Internships")}
+            title={t("Internship Not Found")}
+            intro={t("The requested internship could not be found.")}
+          >
+            <div className="rounded-2xl border border-amber-200 bg-amber-50/80 p-8 text-center space-y-4 max-w-lg mx-auto">
+              <AlertTriangle className="h-12 w-12 text-amber-600 mx-auto" />
+              <h2 className="text-xl font-black text-amber-900">{t("Internship Not Found")}</h2>
+              <p className="text-sm text-amber-800">{t("The requested internship could not be found.")}</p>
+              <button
+                type="button"
+                onClick={() => handleSelectInternship(null)}
+                className="inline-flex items-center gap-2 h-11 px-6 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-sm font-bold transition shadow-md cursor-pointer"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                {t("Back to Internships")}
+              </button>
+            </div>
+          </PageShell>
+        </RoleGuard>
+      );
+    }
+
+    const isApplied = appliedIds.includes(internship.id);
+
+    return (
+      <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
+        <PageShell
+          bgImage="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=2000"
+          eyebrow={t("Internships")}
+          title={t(internship.title)}
+          intro={`${t(internship.org)} · ${t(internship.location)}`}
+        >
+          <div className="space-y-6 max-w-4xl mx-auto">
+            <div className="flex items-center justify-between">
+              <button
+                type="button"
+                onClick={() => handleSelectInternship(null)}
+                className="inline-flex items-center gap-2 h-10 px-4 rounded-xl bg-white/80 border border-white/60 text-[#1b4332] text-xs font-black hover:bg-white transition shadow-sm cursor-pointer"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                {t("Back to Internships")}
+              </button>
+
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-[#1b4332] text-xs font-bold border border-emerald-300">
+                <Briefcase className="h-4 w-4 text-emerald-700" />
+                {t(internship.category ?? "Field Work")}
+              </span>
+            </div>
+
+            <div className="rounded-2xl border border-white/60 bg-white/90 backdrop-blur-md p-6 shadow-soft space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-border/60 pb-4">
+                <div className="space-y-1">
+                  <h1 className="text-2xl font-black text-[#1b4332]">{t(internship.title)}</h1>
+                  <p className="text-sm font-bold text-[#2d6a4f]">
+                    {t(internship.org)} · {t(internship.type)}
+                  </p>
+                  <p className="text-xs text-muted-foreground font-semibold flex items-center gap-1 mt-1">
+                    <MapPin className="h-3.5 w-3.5 text-emerald-700 shrink-0" />
+                    {t(internship.location)}
+                  </p>
+                </div>
+                <div className="text-left sm:text-right shrink-0">
+                  <span className="inline-block rounded-full bg-amber-50 text-amber-800 px-4 py-1.5 text-sm font-black border border-amber-200 shadow-2xs">
+                    {t(internship.stipend)}
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs bg-emerald-50/50 p-4 rounded-xl border border-emerald-100">
+                <div>
+                  <span className="text-muted-foreground font-semibold block">{t("Duration")}</span>
+                  <span className="font-bold text-[#1b4332]">{t(internship.duration ?? "3 Months")}</span>
+                </div>
+                <div>
+                  <span className="text-muted-foreground font-semibold block">{t("Posted")}</span>
+                  <span className="font-bold text-[#1b4332]">{t(internship.posted)}</span>
+                </div>
+                <div>
+                  <span className="text-muted-foreground font-semibold block">{t("Deadline")}</span>
+                  <span className="font-bold text-amber-700">{t(internship.deadline ?? "")}</span>
+                </div>
+                <div>
+                  <span className="text-muted-foreground font-semibold block">{t("Location")}</span>
+                  <span className="font-bold text-[#1b4332]">{t(internship.location)}</span>
+                </div>
+              </div>
+
+              <div className="space-y-2 pt-2">
+                <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
+                  <FileText className="h-4 w-4 text-emerald-600" />
+                  {t("Overview & Role Description")}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-white/80 p-4 rounded-xl border border-slate-200/80 shadow-2xs">
+                  {t(internship.description ?? "")}
+                </p>
+              </div>
+
+              {internship.responsibilities && internship.responsibilities.length > 0 ? (
+                <div className="space-y-2.5 pt-2">
+                  <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                    {t("Key Responsibilities")}
+                  </h3>
+                  <ul className="space-y-2">
+                    {internship.responsibilities.map((resp, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-xs text-slate-800 bg-white/70 p-3 rounded-xl border border-slate-200/60">
+                        <span className="h-2 w-2 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
+                        <span className="font-semibold leading-relaxed">{t(resp)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+
+              {internship.eligibility ? (
+                <div className="space-y-2 pt-2">
+                  <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
+                    <ShieldCheck className="h-4 w-4 text-emerald-600" />
+                    {t("Eligibility & Requirements")}
+                  </h3>
+                  <p className="text-xs text-slate-800 font-semibold bg-emerald-50/60 p-3.5 rounded-xl border border-emerald-100">
+                    {t(internship.eligibility)}
+                  </p>
+                </div>
+              ) : null}
+
+              <div className="space-y-2 pt-2">
+                <h3 className="text-sm font-black text-[#1b4332]">{t("Required Skills")}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {internship.skills.map((skill) => (
+                    <span key={skill} className="rounded-lg bg-emerald-100/80 text-[#1b4332] px-3 py-1 text-xs font-bold border border-emerald-200">
+                      {t(skill)}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-6 border-t border-border/60 flex items-center justify-between gap-4">
+                <span className="text-xs text-muted-foreground font-semibold">
+                  {t("Deadline")}: <strong className="text-slate-800">{t(internship.deadline ?? "")}</strong>
+                </span>
+
+                <button
+                  type="button"
+                  onClick={() => setShowApplyModal(true)}
+                  disabled={isApplied}
+                  className={`h-11 px-6 rounded-xl text-xs font-black transition shadow-md flex items-center gap-2 cursor-pointer ${
+                    isApplied
+                      ? "bg-emerald-700 text-white cursor-not-allowed"
+                      : "bg-[#2d6a4f] hover:bg-[#1b4332] text-white"
+                  }`}
+                >
+                  <CheckCircle2 className="h-4 w-4" />
+                  {isApplied ? t("Application Submitted ✓") : t("Apply Now")}
+                </button>
+              </div>
+            </div>
+
+            {showApplyModal ? (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4">
+                <div className="bg-white rounded-2xl border border-white/60 max-w-md w-full p-6 shadow-xl space-y-4">
+                  <div className="flex items-center justify-between border-b border-border/60 pb-3">
+                    <h3 className="text-lg font-black text-[#1b4332]">{t("Application Form")}</h3>
+                    <button
+                      type="button"
+                      onClick={() => setShowApplyModal(false)}
+                      className="text-muted-foreground hover:text-slate-900 text-sm font-bold cursor-pointer"
+                    >
+                      ✕
+                    </button>
+                  </div>
+
+                  {submittedMessage ? (
+                    <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-center space-y-2">
+                      <CheckCircle2 className="h-8 w-8 text-emerald-600 mx-auto" />
+                      <p className="text-xs font-black text-emerald-900">
+                        {t("Your application has been submitted successfully!")}
+                      </p>
+                    </div>
+                  ) : (
+                    <form onSubmit={(e) => handleApplySubmit(e, internship.id)} className="space-y-4">
+                      <div>
+                        <label className="text-xs font-bold text-slate-700 block mb-1">{t("Full Name")}</label>
+                        <input
+                          type="text"
+                          required
+                          placeholder={t("Full Name")}
+                          value={applyForm.name}
+                          onChange={(e) => setApplyForm({ ...applyForm, name: e.target.value })}
+                          className="w-full h-10 px-3 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs font-bold text-slate-700 block mb-1">{t("Mobile Number")}</label>
+                        <input
+                          type="tel"
+                          required
+                          placeholder={t("Mobile Number")}
+                          value={applyForm.phone}
+                          onChange={(e) => setApplyForm({ ...applyForm, phone: e.target.value })}
+                          className="w-full h-10 px-3 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs font-bold text-slate-700 block mb-1">{t("Brief Introduction / Cover Note")}</label>
+                        <textarea
+                          rows={3}
+                          placeholder={t("Brief Introduction / Cover Note")}
+                          value={applyForm.notes}
+                          onChange={(e) => setApplyForm({ ...applyForm, notes: e.target.value })}
+                          className="w-full p-3 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
+                        />
+                      </div>
+
+                      <div className="pt-2 flex justify-end gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setShowApplyModal(false)}
+                          className="h-10 px-4 rounded-xl border border-slate-300 text-xs font-bold hover:bg-slate-50 cursor-pointer"
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="submit"
+                          className="h-10 px-6 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black shadow-sm cursor-pointer"
+                        >
+                          {t("Submit My Application")}
+                        </button>
+                      </div>
+                    </form>
+                  )}
+                </div>
+              </div>
+            ) : null}
+          </div>
+        </PageShell>
+      </RoleGuard>
+    );
+  }
+
+  const filterCategories = [
+    "All Internships",
+    "Field Work",
+    "Research",
+    "Agritech",
+    "Horticulture",
+    "Livestock",
+    "Food Processing",
+    "Organic Farming",
+  ];
+
+  const filtered = INTERNSHIPS.filter((i) => {
+    const matchesQuery = `${t(i.title)} ${t(i.org)} ${t(i.location)} ${t(i.description ?? "")} ${i.skills.join(" ")}`
+      .toLowerCase()
+      .includes(query.toLowerCase());
+
+    const matchesCategory =
+      categoryFilter === "All Internships" || i.category === categoryFilter;
+
+    return matchesQuery && matchesCategory;
+  });
 
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         bgImage="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=2000"
         eyebrow={t("Internships")}
-        title={t("Student Internship Hub")}
-        intro={t("Apply for frontend, python, AI/ML, full-stack, and data science internships.")}
+        title={t("Agriculture Internship Hub")}
+        intro={t("Explore internships in agriculture, agritech, farming, horticulture, livestock, food processing, and rural development.")}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {INTERNSHIPS.map((i) => (
-            <div key={i.id} className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-4">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <h3 className="text-lg font-black text-[#1b4332]">{t(i.title)}</h3>
-                  <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">{t(i.org)} · {t(i.type)} ({t(i.location)})</p>
-                </div>
-                <span className="rounded-full bg-amber-50 text-amber-700 px-3 py-1 text-xs font-black border border-amber-200">
-                  {t(i.stipend)}
-                </span>
-              </div>
-              <p className="text-xs text-muted-foreground leading-relaxed">{t(i.description ?? "")}</p>
-              <div className="flex flex-wrap gap-1.5">
-                {i.skills.map((skill) => (
-                  <span key={skill} className="rounded-md bg-muted px-2.5 py-1 text-[11px] font-bold text-foreground/80">
-                    {t(skill)}
-                  </span>
-                ))}
-              </div>
-              <div className="pt-3 flex items-center justify-between border-t border-border/60">
-                <span className="text-xs text-muted-foreground font-medium">{t("Deadline")}: {t(i.deadline ?? "")}</span>
-                <button
-                  type="button"
-                  onClick={() => setAppliedId(i.id)}
-                  disabled={appliedId === i.id}
-                  className="rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-4 py-2 text-xs font-black transition shadow-sm disabled:bg-emerald-800"
-                >
-                  {appliedId === i.id ? t("Application Submitted ✓") : t("Apply Now")}
-                </button>
-              </div>
+        <div className="mb-6 space-y-4">
+          <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
+            <div className="relative flex-1 max-w-md">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <input
+                type="text"
+                placeholder={t("Search internships...")}
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                className="w-full h-11 pl-10 pr-4 rounded-xl border border-white/50 bg-white/80 backdrop-blur-md shadow-sm text-sm outline-none focus:bg-white focus:ring-2 focus:ring-emerald-600"
+              />
             </div>
-          ))}
+            <div className="flex flex-wrap gap-2">
+              {filterCategories.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setCategoryFilter(cat)}
+                  className={`h-10 px-4 rounded-xl text-xs font-bold transition shadow-xs cursor-pointer ${
+                    categoryFilter === cat
+                      ? "bg-[#1b4332] text-white"
+                      : "bg-white/80 border border-white/60 text-[#1b4332] hover:bg-white"
+                  }`}
+                >
+                  {t(cat)}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {filtered.map((i) => {
+            const isApplied = appliedIds.includes(i.id);
+
+            return (
+              <div key={i.id} className="rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-6 shadow-soft space-y-4 hover:shadow-md transition flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h3 className="text-lg font-black text-[#1b4332] leading-snug">{t(i.title)}</h3>
+                      <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">{t(i.org)} · {t(i.type)} ({t(i.location)})</p>
+                    </div>
+                    <span className="shrink-0 rounded-full bg-amber-50 text-amber-800 px-3 py-1 text-xs font-black border border-amber-200 shadow-2xs">
+                      {t(i.stipend)}
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{t(i.description ?? "")}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {i.skills.map((skill) => (
+                      <span key={skill} className="rounded-md bg-emerald-50 text-[#1b4332] px-2.5 py-1 text-[11px] font-bold border border-emerald-200">
+                        {t(skill)}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-3 flex items-center justify-between border-t border-border/60 mt-2">
+                  <span className="text-xs text-muted-foreground font-medium">{t("Deadline")}: {t(i.deadline ?? "")}</span>
+                  <button
+                    type="button"
+                    onClick={() => handleSelectInternship(i.id)}
+                    className={`rounded-xl px-4 py-2 text-xs font-black transition shadow-sm cursor-pointer ${
+                      isApplied
+                        ? "bg-emerald-700 text-white hover:bg-emerald-800"
+                        : "bg-[#2d6a4f] hover:bg-[#1b4332] text-white"
+                    }`}
+                  >
+                    {isApplied ? t("Application Submitted ✓") : t("Apply Now")}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </PageShell>
     </RoleGuard>

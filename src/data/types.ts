@@ -105,8 +105,12 @@ export interface Internship {
   stipend: string;
   posted: string;
   skills: string[];
+  category?: string;
   deadline?: string;
   description?: string;
+  duration?: string;
+  eligibility?: string;
+  responsibilities?: string[];
 }
 
 export interface Crop {
