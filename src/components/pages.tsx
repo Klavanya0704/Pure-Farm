@@ -6,6 +6,9 @@ import { getMarketPrices, syncLiveMarketPrices, type SyncResult } from "@/servic
 import type { MarketPrice } from "@/types/database";
 import {
   ArrowRight,
+  ArrowLeft,
+  ChevronLeft,
+  ChevronRight,
   BarChart2,
   Bell,
   CalendarDays,
@@ -75,6 +78,7 @@ import {
   SCHEMES,
   WEATHER,
 } from "@/data/agriculture";
+import { AGRICULTURE_LESSONS } from "@/data/lessons";
 import { CATEGORIES, getProduct, PRODUCTS } from "@/data/products";
 import { SITE, waLink } from "@/data/site";
 import type { Category, NotificationItem, Product } from "@/data/types";
@@ -2866,6 +2870,332 @@ export function LearnPage() {
   const [query, setQuery] = useState("");
   const [levelFilter, setLevelFilter] = useState("All Courses");
 
+  const [selectedCourseId, setSelectedCourseId] = useState<string | null>(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("courseId");
+    }
+    return null;
+  });
+
+  const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null);
+
+  const [completedLessons, setCompletedLessons] = useState<Record<string, string[]>>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem("purefarm_course_progress");
+        if (saved) return JSON.parse(saved);
+      } catch (e) {
+        console.error("Failed to load course progress", e);
+      }
+    }
+    return {};
+  });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.setItem("purefarm_course_progress", JSON.stringify(completedLessons));
+      } catch (e) {
+        console.error("Failed to save course progress", e);
+      }
+    }
+  }, [completedLessons]);
+
+  const handleSelectCourse = (courseId: string | null) => {
+    setSelectedCourseId(courseId);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      if (courseId) {
+        url.searchParams.set("courseId", courseId);
+      } else {
+        url.searchParams.delete("courseId");
+      }
+      window.history.pushState({}, "", url.toString());
+    }
+
+    if (courseId) {
+      const courseLessons = AGRICULTURE_LESSONS.filter((l) => l.courseId === courseId);
+      if (courseLessons.length > 0) {
+        const courseCompleted = completedLessons[courseId] || [];
+        const uncompleted = courseLessons.find((l) => !courseCompleted.includes(l.id));
+        setSelectedLessonId(uncompleted ? uncompleted.id : courseLessons[0].id);
+      } else {
+        setSelectedLessonId(null);
+      }
+    } else {
+      setSelectedLessonId(null);
+    }
+  };
+
+  const isLessonCompleted = (courseId: string, lessonId: string) => {
+    return (completedLessons[courseId] || []).includes(lessonId);
+  };
+
+  const toggleLessonCompleted = (courseId: string, lessonId: string) => {
+    setCompletedLessons((prev) => {
+      const list = prev[courseId] || [];
+      const updatedList = list.includes(lessonId)
+        ? list.filter((id) => id !== lessonId)
+        : [...list, lessonId];
+      return { ...prev, [courseId]: updatedList };
+    });
+  };
+
+  const getCourseProgressPct = (courseId: string) => {
+    const courseLessons = AGRICULTURE_LESSONS.filter((l) => l.courseId === courseId);
+    if (courseLessons.length === 0) return 0;
+    const completedCount = (completedLessons[courseId] || []).length;
+    return Math.round((completedCount / courseLessons.length) * 100);
+  };
+
+  if (selectedCourseId !== null) {
+    const course = COURSES.find((c) => c.id === selectedCourseId);
+
+    if (!course) {
+      return (
+        <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
+          <PageShell
+            eyebrow={t("Learning")}
+            title={t("Course Not Found")}
+            intro={t("The requested course could not be found or does not exist.")}
+          >
+            <div className="rounded-2xl border border-amber-200 bg-amber-50/80 p-8 text-center space-y-4 max-w-lg mx-auto">
+              <AlertTriangle className="h-12 w-12 text-amber-600 mx-auto" />
+              <h2 className="text-xl font-black text-amber-900">{t("Course Not Found")}</h2>
+              <p className="text-sm text-amber-800">{t("The requested course could not be found or does not exist.")}</p>
+              <button
+                type="button"
+                onClick={() => handleSelectCourse(null)}
+                className="inline-flex items-center gap-2 h-11 px-6 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-sm font-bold transition shadow-md cursor-pointer"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                {t("Back to Learning")}
+              </button>
+            </div>
+          </PageShell>
+        </RoleGuard>
+      );
+    }
+
+    const courseLessons = AGRICULTURE_LESSONS.filter((l) => l.courseId === course.id);
+    const activeLessonIndex = courseLessons.findIndex((l) => l.id === selectedLessonId);
+    const currentLesson = activeLessonIndex >= 0 ? courseLessons[activeLessonIndex] : courseLessons[0];
+    const progressPct = getCourseProgressPct(course.id);
+
+    return (
+      <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
+        <PageShell
+          bgImage="https://upload.wikimedia.org/wikipedia/commons/f/fc/Farmer_working_in_the_field_with_their_tractor.jpg"
+          eyebrow={t("Learning")}
+          title={t(course.title)}
+          intro={t(course.description ?? "")}
+        >
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <button
+                type="button"
+                onClick={() => handleSelectCourse(null)}
+                className="inline-flex items-center gap-2 h-10 px-4 rounded-xl bg-white/80 border border-white/60 text-[#1b4332] text-xs font-black hover:bg-white transition shadow-sm cursor-pointer"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                {t("Back to Learning Hub")}
+              </button>
+
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-[#1b4332] text-xs font-bold border border-emerald-300">
+                <GraduationCap className="h-4 w-4" />
+                {t(course.topic)} · {t(course.level)}
+              </span>
+            </div>
+
+            <div className="rounded-2xl border border-white/60 bg-white/90 backdrop-blur-md p-6 shadow-soft space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/60 pb-4">
+                <div>
+                  <h1 className="text-2xl font-black text-[#1b4332]">{t(course.title)}</h1>
+                  <p className="text-xs text-muted-foreground font-semibold mt-1">
+                    {t(course.instructor)} · {course.hours} {t("hrs")} · {courseLessons.length} {t("lessons")}
+                  </p>
+                </div>
+                <div className="text-left sm:text-right">
+                  <span className="text-xs text-muted-foreground font-bold">{t("Overall Course Progress")}</span>
+                  <div className="text-xl font-black text-[#2d6a4f]">{progressPct}%</div>
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <div className="h-2.5 w-full rounded-full bg-emerald-100 overflow-hidden">
+                  <div
+                    className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
+                    style={{ width: `${progressPct}%` }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+              <div className="lg:col-span-4 rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-4 shadow-soft space-y-3">
+                <h3 className="text-sm font-black text-[#1b4332] px-2 flex items-center gap-2">
+                  <BookOpen className="h-4 w-4 text-emerald-600" />
+                  {t("Course Details & Lessons")}
+                </h3>
+                <div className="space-y-2">
+                  {courseLessons.map((l) => {
+                    const completed = isLessonCompleted(course.id, l.id);
+                    const isActive = currentLesson && currentLesson.id === l.id;
+
+                    return (
+                      <button
+                        key={l.id}
+                        type="button"
+                        onClick={() => setSelectedLessonId(l.id)}
+                        className={`w-full text-left p-3.5 rounded-xl transition flex items-start gap-3 border cursor-pointer ${
+                          isActive
+                            ? "bg-emerald-50/90 border-emerald-500 shadow-sm ring-1 ring-emerald-500/30"
+                            : completed
+                            ? "bg-emerald-50/30 border-emerald-200/60 hover:bg-emerald-50/60 text-slate-700"
+                            : "bg-white/60 border-transparent hover:bg-white/90 text-slate-700"
+                        }`}
+                      >
+                        <div className="mt-0.5 shrink-0">
+                          {completed ? (
+                            <CheckCircle2 className="h-5 w-5 text-emerald-600 fill-emerald-100" />
+                          ) : isActive ? (
+                            <div className="h-5 w-5 rounded-full border-2 border-emerald-600 bg-emerald-600 flex items-center justify-center text-[10px] font-bold text-white">
+                              {l.lessonNumber}
+                            </div>
+                          ) : (
+                            <div className="h-5 w-5 rounded-full border border-slate-300 bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-500">
+                              {l.lessonNumber}
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="flex-1 min-w-0 space-y-0.5">
+                          <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                            {t("Lesson")} {l.lessonNumber} · {t(l.duration)}
+                          </p>
+                          <h4 className={`text-xs font-black leading-snug ${isActive ? "text-[#1b4332]" : "text-slate-800"}`}>
+                            {t(l.title)}
+                          </h4>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="lg:col-span-8 rounded-2xl border border-white/60 bg-white/90 backdrop-blur-md p-6 shadow-soft space-y-6">
+                {currentLesson ? (
+                  <>
+                    <div className="space-y-2 border-b border-border/60 pb-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                          {t("Lesson")} {currentLesson.lessonNumber} of {courseLessons.length}
+                        </span>
+                        <span className="text-xs text-muted-foreground font-semibold flex items-center gap-1">
+                          <Clock className="h-3.5 w-3.5 text-muted-foreground" />
+                          {t(currentLesson.duration)}
+                        </span>
+                      </div>
+                      <h2 className="text-xl font-black text-[#1b4332] leading-tight">
+                        {t(currentLesson.title)}
+                      </h2>
+                      <p className="text-xs font-medium text-muted-foreground italic bg-slate-50 p-3 rounded-xl border border-slate-200/60">
+                        {t(currentLesson.summary)}
+                      </p>
+                    </div>
+
+                    <div className="space-y-4">
+                      <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
+                        <FileText className="h-4 w-4 text-emerald-600" />
+                        {t("Overview & Guidance")}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-white/80 p-4 rounded-xl border border-slate-200/80 shadow-2xs">
+                        {t(currentLesson.content)}
+                      </p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                        {t("Key Field Takeaways")}
+                      </h3>
+                      <ul className="space-y-2">
+                        {currentLesson.keyPoints.map((pt, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5 text-xs text-slate-800 bg-emerald-50/40 p-3 rounded-xl border border-emerald-100">
+                            <span className="h-2 w-2 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
+                            <span className="font-semibold leading-relaxed">{t(pt)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="rounded-xl border border-emerald-300 bg-emerald-50/90 p-4 space-y-2 shadow-2xs">
+                      <div className="flex items-center gap-2 text-xs font-black text-[#1b4332]">
+                        <Leaf className="h-4 w-4 text-emerald-600 fill-emerald-200" />
+                        {t("Farming Tip & Practical Action")}
+                      </div>
+                      <p className="text-xs text-[#1b4332] font-semibold leading-relaxed">
+                        {t(currentLesson.farmingTip)}
+                      </p>
+                    </div>
+
+                    <div className="pt-4 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3">
+                      <button
+                        type="button"
+                        disabled={activeLessonIndex <= 0}
+                        onClick={() => setSelectedLessonId(courseLessons[activeLessonIndex - 1].id)}
+                        className={`w-full sm:w-auto h-10 px-4 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 border cursor-pointer ${
+                          activeLessonIndex <= 0
+                            ? "bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed"
+                            : "bg-white text-[#1b4332] border-slate-300 hover:bg-slate-50 shadow-2xs"
+                        }`}
+                      >
+                        <ChevronLeft className="h-4 w-4" />
+                        {t("Previous Lesson")}
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => toggleLessonCompleted(course.id, currentLesson.id)}
+                        className={`w-full sm:w-auto h-10 px-6 rounded-xl text-xs font-black transition shadow-sm flex items-center justify-center gap-2 cursor-pointer ${
+                          isLessonCompleted(course.id, currentLesson.id)
+                            ? "bg-emerald-700 text-white hover:bg-emerald-800"
+                            : "bg-[#2d6a4f] text-white hover:bg-[#1b4332]"
+                        }`}
+                      >
+                        <CheckCircle2 className="h-4 w-4" />
+                        {isLessonCompleted(course.id, currentLesson.id) ? t("Completed ✓") : t("Mark as Complete")}
+                      </button>
+
+                      <button
+                        type="button"
+                        disabled={activeLessonIndex >= courseLessons.length - 1}
+                        onClick={() => setSelectedLessonId(courseLessons[activeLessonIndex + 1].id)}
+                        className={`w-full sm:w-auto h-10 px-4 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 border cursor-pointer ${
+                          activeLessonIndex >= courseLessons.length - 1
+                            ? "bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed"
+                            : "bg-white text-[#1b4332] border-slate-300 hover:bg-slate-50 shadow-2xs"
+                        }`}
+                      >
+                        {t("Next Lesson")}
+                        <ChevronRight className="h-4 w-4" />
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <div className="p-8 text-center text-muted-foreground text-xs font-semibold">
+                    {t("Select a lesson to begin learning")}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </PageShell>
+      </RoleGuard>
+    );
+  }
+
   const filtered = COURSES.filter((c) => {
     const matchesQuery = `${t(c.title)} ${t(c.topic)} ${t(c.level)} ${t(c.description ?? "")}`
       .toLowerCase()
@@ -2900,7 +3230,7 @@ export function LearnPage() {
                   key={lvl}
                   type="button"
                   onClick={() => setLevelFilter(lvl)}
-                  className={`h-10 px-4 rounded-xl text-xs font-bold transition shadow-xs ${
+                  className={`h-10 px-4 rounded-xl text-xs font-bold transition shadow-xs cursor-pointer ${
                     levelFilter === lvl
                       ? "bg-[#1b4332] text-white"
                       : "bg-white/80 border border-white/60 text-[#1b4332] hover:bg-white"
@@ -2914,36 +3244,43 @@ export function LearnPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((c) => (
-            <div key={c.id} className="rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-5 shadow-soft flex flex-col justify-between space-y-4 hover:shadow-md transition">
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
-                    {t(c.level)}
-                  </span>
-                  <span className="text-xs text-muted-foreground font-semibold">{c.hours} {t("hrs")} · {c.lessons} {t("lessons")}</span>
-                </div>
-                <h3 className="text-lg font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{t(c.description ?? "")}</p>
-              </div>
+          {filtered.map((c) => {
+            const courseLessons = AGRICULTURE_LESSONS.filter((l) => l.courseId === c.id);
+            const totalLessons = courseLessons.length > 0 ? courseLessons.length : c.lessons;
+            const progressPct = getCourseProgressPct(c.id);
 
-              <div className="space-y-3 pt-3 border-t border-border/60">
-                <div className="flex justify-between text-xs font-bold">
-                  <span className="text-muted-foreground">{t(c.instructor)}</span>
-                  <span className="text-[#2d6a4f]">{c.progress}% {t("completed")}</span>
+            return (
+              <div key={c.id} className="rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-5 shadow-soft flex flex-col justify-between space-y-4 hover:shadow-md transition">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
+                      {t(c.level)}
+                    </span>
+                    <span className="text-xs text-muted-foreground font-semibold">{c.hours} {t("hrs")} · {totalLessons} {t("lessons")}</span>
+                  </div>
+                  <h3 className="text-lg font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{t(c.description ?? "")}</p>
                 </div>
-                <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
-                  <div className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300" style={{ width: `${c.progress}%` }} />
+
+                <div className="space-y-3 pt-3 border-t border-border/60">
+                  <div className="flex justify-between text-xs font-bold">
+                    <span className="text-muted-foreground">{t(c.instructor)}</span>
+                    <span className="text-[#2d6a4f]">{progressPct}% {t("completed")}</span>
+                  </div>
+                  <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
+                    <div className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300" style={{ width: `${progressPct}%` }} />
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleSelectCourse(c.id)}
+                    className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm cursor-pointer"
+                  >
+                    {progressPct > 0 ? t("Continue Learning") : t("Start Learning")}
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm"
-                >
-                  {c.progress > 0 ? t("Continue Learning") : t("Start Learning")}
-                </button>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </PageShell>
     </RoleGuard>

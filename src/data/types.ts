@@ -84,6 +84,18 @@ export interface Course {
   format?: string;
 }
 
+export interface CourseLesson {
+  id: string;
+  courseId: string;
+  lessonNumber: number;
+  title: string;
+  duration: string;
+  summary: string;
+  content: string;
+  keyPoints: string[];
+  farmingTip: string;
+}
+
 export interface Internship {
   id: string;
   title: string;
