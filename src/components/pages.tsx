@@ -2864,26 +2864,88 @@ export function CropCalendarPage() {
 export function LearnPage() {
   const { t } = useTranslation();
   const [query, setQuery] = useState("");
-  const rows = COURSES.filter((c) =>
-    `${c.title} ${c.topic} ${c.level}`.toLowerCase().includes(query.toLowerCase()),
-  );
+  const [levelFilter, setLevelFilter] = useState("All Courses");
+
+  const filtered = COURSES.filter((c) => {
+    const matchesQuery = `${t(c.title)} ${t(c.topic)} ${t(c.level)} ${t(c.description ?? "")}`
+      .toLowerCase()
+      .includes(query.toLowerCase());
+    const matchesLevel = levelFilter === "All Courses" || c.level === levelFilter;
+    return matchesQuery && matchesLevel;
+  });
+
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
-      <CardGridPage
+      <PageShell
         bgImage="https://upload.wikimedia.org/wikipedia/commons/f/fc/Farmer_working_in_the_field_with_their_tractor.jpg"
         eyebrow={t("Learning")}
-        title={t("Learning Hub")}
-        intro={t("Short, practical modules for software development, computing, and agriculture.")}
-        query={query}
-        setQuery={setQuery}
-        items={rows.map((c) => ({
-          title: t(c.title),
-          meta: `${t(c.level)} · ${c.hours} ${t("hrs")} · ${c.lessons} ${t("lessons")}`,
-          body: t(c.description || ""),
-          footer: `${t(c.instructor)} · ${c.progress}% ${t("progress")}`,
-          icon: <GraduationCap className="h-5 w-5" />,
-        }))}
-      />
+        title={t("Agriculture Learning Hub")}
+        intro={t("Learn practical farming skills, modern agricultural technologies, crop management, and sustainable farming practices.")}
+      >
+        <div className="mb-6 space-y-4">
+          <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
+            <div className="relative flex-1 max-w-md">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <input
+                type="text"
+                placeholder={t("Search courses...")}
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                className="w-full h-11 pl-10 pr-4 rounded-xl border border-white/50 bg-white/80 backdrop-blur-md shadow-sm text-sm outline-none focus:bg-white focus:ring-2 focus:ring-emerald-600"
+              />
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {["All Courses", "Beginner", "Intermediate", "Advanced"].map((lvl) => (
+                <button
+                  key={lvl}
+                  type="button"
+                  onClick={() => setLevelFilter(lvl)}
+                  className={`h-10 px-4 rounded-xl text-xs font-bold transition shadow-xs ${
+                    levelFilter === lvl
+                      ? "bg-[#1b4332] text-white"
+                      : "bg-white/80 border border-white/60 text-[#1b4332] hover:bg-white"
+                  }`}
+                >
+                  {t(lvl)}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filtered.map((c) => (
+            <div key={c.id} className="rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-5 shadow-soft flex flex-col justify-between space-y-4 hover:shadow-md transition">
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
+                    {t(c.level)}
+                  </span>
+                  <span className="text-xs text-muted-foreground font-semibold">{c.hours} {t("hrs")} · {c.lessons} {t("lessons")}</span>
+                </div>
+                <h3 className="text-lg font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{t(c.description ?? "")}</p>
+              </div>
+
+              <div className="space-y-3 pt-3 border-t border-border/60">
+                <div className="flex justify-between text-xs font-bold">
+                  <span className="text-muted-foreground">{t(c.instructor)}</span>
+                  <span className="text-[#2d6a4f]">{c.progress}% {t("completed")}</span>
+                </div>
+                <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
+                  <div className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300" style={{ width: `${c.progress}%` }} />
+                </div>
+                <button
+                  type="button"
+                  className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm"
+                >
+                  {c.progress > 0 ? t("Continue Learning") : t("Start Learning")}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </PageShell>
     </RoleGuard>
   );
 }
