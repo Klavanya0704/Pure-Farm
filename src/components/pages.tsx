@@ -3864,29 +3864,147 @@ export function InternshipsPage() {
 }
 
 export function NotificationsPage() {
-  const { t } = useTranslation();
+  const { language, t } = useTranslation();
+  const isTelugu = language === "te";
   const [items, setItems] = useState(NOTIFICATIONS);
-  const unread = items.filter((n) => !n.read).length;
+  const [filter, setFilter] = useState<"all" | "unread" | "read">("all");
+  const [categoryFilter, setCategoryFilter] = useState<string>("all");
+
+  const unreadCount = items.filter((n) => !n.read).length;
+
+  const filteredItems = items.filter((item) => {
+    if (filter === "unread" && item.read) return false;
+    if (filter === "read" && !item.read) return false;
+    if (categoryFilter !== "all" && item.category !== categoryFilter) return false;
+    return true;
+  });
+
+  const toggleAllRead = () => {
+    const hasUnread = items.some((n) => !n.read);
+    setItems((current) => current.map((n) => ({ ...n, read: hasUnread })));
+  };
+
+  const categories = ["all", "Market", "Weather", "Schemes", "Orders", "Advisory"];
+
+  const introText = isTelugu
+    ? `మార్కెట్, వాతావరణం, పథకాలు మరియు ఆర్డర్లకు సంబంధించిన ${unreadCount} చదవని హెచ్చరికలు.`
+    : `${unreadCount} unread advisories across market, weather, schemes, and orders.`;
+
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         bgImage="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000"
+        darkOverlay={true}
         eyebrow="Notifications"
-        title="Farm alerts"
-        intro={`${unread} unread advisories across market, weather, schemes, and orders.`}
+        title="Agricultural Advisories"
+        intro={introText}
       >
-        <div className="space-y-3">
-          {items.map((item) => (
-            <NotificationRow
-              key={item.id}
-              item={item}
-              onToggle={() =>
-                setItems((current) =>
-                  current.map((n) => (n.id === item.id ? { ...n, read: !n.read } : n)),
-                )
-              }
-            />
-          ))}
+        <div className="mx-auto max-w-4xl space-y-6">
+          {/* Header Controls & Filter Bar */}
+          <div className="flex flex-col gap-4 rounded-2xl border border-emerald-500/20 bg-[#0E271F]/90 p-4 sm:p-5 shadow-lg backdrop-blur-md">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-emerald-800/40 pb-3.5">
+              {/* Filter Tabs: All, Unread, Read */}
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setFilter("all")}
+                  className={`rounded-xl px-4 py-2 text-sm font-semibold transition-all ${
+                    filter === "all"
+                      ? "bg-[#10B981] text-white shadow-md shadow-emerald-950/40"
+                      : "bg-emerald-950/60 text-emerald-200/80 hover:bg-emerald-900/60 hover:text-white"
+                  }`}
+                >
+                  {isTelugu ? "అన్నీ" : "All"} ({items.length})
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setFilter("unread")}
+                  className={`relative rounded-xl px-4 py-2 text-sm font-semibold transition-all ${
+                    filter === "unread"
+                      ? "bg-[#10B981] text-white shadow-md shadow-emerald-950/40"
+                      : "bg-emerald-950/60 text-emerald-200/80 hover:bg-emerald-900/60 hover:text-white"
+                  }`}
+                >
+                  {isTelugu ? "చదవనివి" : "Unread"}
+                  {unreadCount > 0 && (
+                    <span className="ml-2 rounded-full bg-emerald-400 px-2 py-0.5 text-xs font-bold text-slate-950">
+                      {unreadCount}
+                    </span>
+                  )}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setFilter("read")}
+                  className={`rounded-xl px-4 py-2 text-sm font-semibold transition-all ${
+                    filter === "read"
+                      ? "bg-[#10B981] text-white shadow-md shadow-emerald-950/40"
+                      : "bg-emerald-950/60 text-emerald-200/80 hover:bg-emerald-900/60 hover:text-white"
+                  }`}
+                >
+                  {isTelugu ? "చదివినవి" : "Read"} ({items.length - unreadCount})
+                </button>
+              </div>
+
+              {/* Mark All Action Button */}
+              <button
+                type="button"
+                onClick={toggleAllRead}
+                className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-500/30 bg-emerald-900/40 px-3.5 py-1.5 text-xs sm:text-sm font-medium text-emerald-300 transition-all hover:bg-emerald-800/60 hover:text-white"
+              >
+                {unreadCount > 0
+                  ? isTelugu ? "అన్నీ చదివినట్లుగా గుర్తించండి" : "Mark all as read"
+                  : isTelugu ? "అన్నీ చదవనట్లుగా గుర్తించండి" : "Mark all as unread"}
+              </button>
+            </div>
+
+            {/* Category Filter Pills */}
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400/80 mr-1">
+                {isTelugu ? "వర్గాలు:" : "Categories:"}
+              </span>
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setCategoryFilter(cat)}
+                  className={`rounded-lg px-3 py-1 text-xs font-medium transition-all ${
+                    categoryFilter === cat
+                      ? "bg-emerald-600/40 border border-emerald-400/50 text-emerald-200"
+                      : "bg-emerald-950/40 border border-emerald-900/40 text-emerald-300/70 hover:bg-emerald-900/40 hover:text-emerald-200"
+                  }`}
+                >
+                  {cat === "all" ? (isTelugu ? "అన్నీ" : "All") : t(cat)}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Notifications List */}
+          {filteredItems.length === 0 ? (
+            <div className="rounded-2xl border border-emerald-500/20 bg-[#0E271F]/80 p-8 text-center shadow-lg">
+              <Bell className="mx-auto h-12 w-12 text-emerald-500/40" />
+              <p className="mt-3 text-lg font-bold text-emerald-200">
+                {isTelugu ? "నోటిఫికేషన్లు ఏవీ లేవు" : "No notifications found"}
+              </p>
+              <p className="mt-1 text-sm text-emerald-300/70">
+                {isTelugu ? "ఎంచుకున్న ఫిల్టర్‌కు సంబంధించిన హెచ్చరికలు లేవు." : "There are no notifications matching your selected filter."}
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-4 sm:space-y-5">
+              {filteredItems.map((item) => (
+                <NotificationRow
+                  key={item.id}
+                  item={item}
+                  onToggle={() =>
+                    setItems((current) =>
+                      current.map((n) => (n.id === item.id ? { ...n, read: !n.read } : n)),
+                    )
+                  }
+                />
+              ))}
+            </div>
+          )}
         </div>
       </PageShell>
     </RoleGuard>
@@ -3894,25 +4012,123 @@ export function NotificationsPage() {
 }
 
 function NotificationRow({ item, onToggle }: { item: NotificationItem; onToggle: () => void }) {
-  const { t } = useTranslation();
+  const { language, t } = useTranslation();
+  const isTelugu = language === "te";
+
+  // Category specific accent colors for badge
+  const categoryBadgeClass =
+    item.category === "Market"
+      ? "bg-amber-500/20 text-amber-300 border-amber-500/40"
+      : item.category === "Weather"
+      ? "bg-sky-500/20 text-sky-300 border-sky-500/40"
+      : item.category === "Schemes"
+      ? "bg-purple-500/20 text-purple-300 border-purple-500/40"
+      : item.category === "Orders"
+      ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
+      : "bg-teal-500/20 text-teal-300 border-teal-500/40";
+
   return (
-    <button
-      type="button"
+    <div
       onClick={onToggle}
-      className={`block w-full rounded-xl border p-4 text-left shadow-card ${item.read ? "border-border bg-card" : "border-primary/35 bg-accent"}`}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          onToggle();
+        }
+      }}
+      className={`group relative block w-full rounded-2xl border text-left transition-all duration-200 cursor-pointer ${
+        isTelugu ? "p-6 sm:p-7" : "p-5 sm:p-6"
+      } ${
+        item.read
+          ? "bg-[#0E271F] border-emerald-900/40 border-l-4 border-l-emerald-800/40 hover:bg-[#123329]"
+          : "bg-[#143B2F] border-emerald-500/30 border-l-4 border-l-[#10B981] shadow-lg shadow-emerald-950/60 hover:bg-[#194739]"
+      }`}
     >
-      <div className="flex items-start gap-3">
-        <Bell className="mt-1 h-5 w-5 text-primary" />
+      <div className="flex items-start gap-4 sm:gap-5">
+        {/* Bell Icon Container */}
+        <div
+          className={`mt-0.5 flex-shrink-0 rounded-full p-3 transition-colors ${
+            item.read
+              ? "bg-emerald-950/70 border border-emerald-800/40 text-emerald-500/60"
+              : "bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] group-hover:bg-[#10B981]/30 shadow-sm shadow-emerald-900/30"
+          }`}
+        >
+          <Bell className="h-5 w-5 sm:h-6 sm:w-6" />
+        </div>
+
+        {/* Content Container */}
         <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center gap-2">
-            <p className="font-black">{t(item.title)}</p>
-            <Pill>{t(item.category || item.tone)}</Pill>
-            <span className="text-xs text-muted-foreground">{t(item.time)}</span>
+          {/* Header Row */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3">
+            <div className="flex flex-wrap items-center gap-2.5 min-w-0">
+              <h3
+                className={`font-bold transition-colors ${
+                  item.read ? "text-emerald-100/90" : "text-white"
+                } ${
+                  isTelugu
+                    ? "text-lg sm:text-[21px] leading-[1.5]"
+                    : "text-base sm:text-[18px] leading-snug"
+                }`}
+              >
+                {t(item.title)}
+              </h3>
+              {!item.read && (
+                <span className="inline-block h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
+              )}
+            </div>
+
+            <div className="flex items-center gap-2.5 flex-shrink-0">
+              <span
+                className={`inline-flex items-center rounded-full font-semibold border ${categoryBadgeClass} ${
+                  isTelugu ? "px-3 py-1 text-[13.5px]" : "px-2.5 py-0.5 text-xs"
+                }`}
+              >
+                {t(item.category || item.tone)}
+              </span>
+              <span
+                className={`text-emerald-300/70 font-medium ${
+                  isTelugu ? "text-[13px]" : "text-xs"
+                }`}
+              >
+                {t(item.time)}
+              </span>
+            </div>
           </div>
-          <p className="mt-1 text-sm text-muted-foreground">{t(item.body)}</p>
+
+          {/* Description Body */}
+          <p
+            className={`mt-2.5 transition-colors ${
+              item.read ? "text-emerald-300/70" : "text-emerald-100/95"
+            } ${
+              isTelugu
+                ? "text-base sm:text-[17px] leading-[1.65]"
+                : "text-sm sm:text-[15px] leading-relaxed"
+            }`}
+          >
+            {t(item.body)}
+          </p>
+
+          {/* Bottom Card Footer Status */}
+          <div className="mt-3.5 flex items-center justify-between border-t border-emerald-800/30 pt-2.5">
+            <span
+              className={`text-xs font-semibold ${
+                item.read ? "text-emerald-400/60" : "text-[#10B981]"
+              }`}
+            >
+              {item.read
+                ? isTelugu ? "✓ చదివినది" : "✓ Read"
+                : isTelugu ? "● క్రొత్త హెచ్చరిక" : "● New Advisory"}
+            </span>
+            <span className="text-xs text-emerald-400/70 transition-colors group-hover:text-emerald-300 group-hover:underline underline-offset-2">
+              {item.read
+                ? isTelugu ? "చదవనట్లుగా మార్చండి" : "Mark as unread"
+                : isTelugu ? "చదివినట్లుగా మార్చండి" : "Mark as read"}
+            </span>
+          </div>
         </div>
       </div>
-    </button>
+    </div>
   );
 }
 

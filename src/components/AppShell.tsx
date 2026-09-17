@@ -454,12 +454,14 @@ export function PageShell({
   title,
   intro,
   bgImage,
+  darkOverlay,
   children,
 }: {
   eyebrow?: string;
   title: string;
   intro?: string;
   bgImage?: string;
+  darkOverlay?: boolean;
   children: ReactNode;
 }) {
   const { t } = useTranslation();
@@ -469,8 +471,8 @@ export function PageShell({
 
   if (bgImage) {
     return (
-      <section className="relative min-h-[calc(100vh-4rem)] bg-cover bg-center bg-fixed" style={{ backgroundImage: "url(" + bgImage + ")" }}>
-        <div className="absolute inset-0 bg-[#052d20]/35" />
+      <section className="relative min-h-[calc(100vh-4rem)] bg-cover bg-center bg-fixed bg-[#071F18]" style={{ backgroundImage: "url(" + bgImage + ")" }}>
+        <div className={`absolute inset-0 ${darkOverlay ? "bg-gradient-to-b from-[#041C15]/85 via-[#071F18]/92 to-[#041C15]/96" : "bg-[#052d20]/35"}`} />
         <div className="relative z-10 px-4 py-8 sm:px-6 lg:px-8 lg:py-10 mx-auto max-w-7xl">
           <div className="mb-7 max-w-3xl">
             {translatedEyebrow ? (
@@ -479,7 +481,7 @@ export function PageShell({
             <h1 className="mt-2 text-3xl font-black tracking-normal text-white sm:text-4xl drop-shadow-lg">
               {translatedTitle}
             </h1>
-            {translatedIntro ? <p className="mt-3 text-base leading-7 text-white/95 drop-shadow-md font-medium">{translatedIntro}</p> : null}
+            {translatedIntro ? <p className="mt-3 text-base leading-7 text-[#A3D9C9] drop-shadow-md font-medium">{translatedIntro}</p> : null}
           </div>
           {children}
         </div>
