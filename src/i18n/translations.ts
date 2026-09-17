@@ -61,7 +61,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "Logout": "Logout",
     "Language": "Language",
 
-    // Dashboards
+    // Dashboards & Home Hero
     "Farmer Dashboard": "Farmer Dashboard",
     "Buyer Dashboard": "Buyer Dashboard",
     "Student Dashboard": "Student Dashboard",
@@ -70,6 +70,65 @@ export const translations: Record<Language, Record<string, string>> = {
     "Compare mandi prices, cold storage, schemes, weather, and sell your produce directly.": "Compare mandi prices, cold storage, schemes, weather, and sell your produce directly.",
     "Browse fresh produce directly from verified local farmers.": "Browse fresh produce directly from verified local farmers.",
     "Access agricultural courses, internships, and skill training.": "Access agricultural courses, internships, and skill training.",
+
+    // Hero Carousel
+    "SMART FARMING": "SMART FARMING",
+    "Powering Every Acre": "Powering Every Acre",
+    "Modern farm machinery helps farmers work smarter, faster and more efficiently.": "Modern farm machinery helps farmers work smarter, faster and more efficiently.",
+    "Explore Farm Equipment": "Explore Farm Equipment",
+    "Shop Marketplace": "Shop Marketplace",
+    "HEALTHY SOIL • HEALTHY CROPS": "HEALTHY SOIL • HEALTHY CROPS",
+    "Nourish Your Soil, Grow Better": "Nourish Your Soil, Grow Better",
+    "Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests.": "Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests.",
+    "Shop Fertilizers": "Shop Fertilizers",
+    "Explore Products": "Explore Products",
+    "NEXT-GEN AGRICULTURE": "NEXT-GEN AGRICULTURE",
+    "Technology Taking Farming Higher": "Technology Taking Farming Higher",
+    "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.": "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.",
+    "Explore Agri Technology": "Explore Agri Technology",
+    "Learn More": "Learn More",
+    "SMART WATER MANAGEMENT": "SMART WATER MANAGEMENT",
+    "Every Drop Counts": "Every Drop Counts",
+    "Efficient irrigation helps conserve water while keeping crops healthy and productive.": "Efficient irrigation helps conserve water while keeping crops healthy and productive.",
+    "Explore Irrigation": "Explore Irrigation",
+    "View Farm Tools": "View Farm Tools",
+    "FROM FIELD TO FUTURE": "FROM FIELD TO FUTURE",
+    "Grow More. Harvest Better.": "Grow More. Harvest Better.",
+    "Everything farmers need — from quality farm inputs and equipment to fresh agricultural products.": "Everything farmers need — from quality farm inputs and equipment to fresh agricultural products.",
+    "Explore Farm Inputs": "Explore Farm Inputs",
+
+    // Feature Cards
+    "100% Organic": "100% Organic",
+    "Healthy & Chemical Free": "Healthy & Chemical Free",
+    "Best Quality": "Best Quality",
+    "Carefully Handpicked": "Carefully Handpicked",
+    "Fair Prices": "Fair Prices",
+    "Direct from Farmers": "Direct from Farmers",
+    "Fast Delivery": "Fast Delivery",
+    "Across India": "Across India",
+    "Secure Payments": "Secure Payments",
+    "100% Safe & Secure": "100% Safe & Secure",
+
+    // Categories & Deals
+    "Shop by Category": "Shop by Category",
+    "Certified products and inputs for your crops": "Certified products and inputs for your crops",
+    "View All": "View All",
+    "Fruits": "Fruits",
+    "Vegetables": "Vegetables",
+    "Seeds": "Seeds",
+    "Fertilizers": "Fertilizers",
+    "Pesticides": "Pesticides",
+    "Farm Tools": "Farm Tools",
+    "Equipment": "Equipment",
+    "Best Deals for You 🔥": "Best Deals for You 🔥",
+    "Deals ending soon": "Deals ending soon",
+    "Handpicked products & inputs on discount": "Handpicked products & inputs on discount",
+    "HOT": "HOT",
+    "BEST SELLER": "BEST SELLER",
+
+    // App Download Banner
+    "Stay Updated, Stay Ahead!": "Stay Updated, Stay Ahead!",
+    "Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.": "Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.",
 
     // Dashboard Cards / Quick Actions
     "Quick Actions": "Quick Actions",
@@ -120,7 +179,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "Cancelled": "Cancelled",
     "Order Date": "Order Date",
 
-    // Mandi Prices
+    // Mandi Prices Widget & Page
     "Live Mandi Prices": "Live Mandi Prices",
     "Commodity": "Commodity",
     "Mandi / Market": "Mandi / Market",
@@ -129,6 +188,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "Modal Price": "Modal Price",
     "Arrivals": "Arrivals",
     "State": "State",
+    "Today's Mandi Feeds": "Today's Mandi Feeds",
+    "Tomato": "Tomato",
+    "Potato": "Potato",
+    "Onion": "Onion",
+    "Green Chilli": "Green Chilli",
+    "Brinjal": "Brinjal",
 
     // Cold Storage
     "Cold Storage Facilities": "Cold Storage Facilities",
@@ -145,6 +210,15 @@ export const translations: Record<Language, Record<string, string>> = {
     "Eligibility": "Eligibility",
     "Deadline": "Deadline",
     "Open Enrollment": "Open Enrollment",
+    "Govt Schemes": "Govt Schemes",
+    "Active Schemes": "Active Schemes",
+    "Claim subsidies, direct transfers, and support.": "Claim subsidies, direct transfers, and support.",
+    "View Schemes": "View Schemes",
+
+    // Support / Help Widget
+    "Need Help?": "Need Help?",
+    "Chat Now": "Chat Now",
+    "Online Now": "Online Now",
 
     // Crop Insurance
     "Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website.": "Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website.",
@@ -155,11 +229,25 @@ export const translations: Record<Language, Record<string, string>> = {
     // Weather
     "Weather Forecast & Advisory": "Weather Forecast & Advisory",
     "Current Weather": "Current Weather",
+    "Weather Update": "Weather Update",
+    "Sunny": "Sunny",
+    "Cloudy intervals": "Cloudy intervals",
+    "Light showers": "Light showers",
+    "Partly cloudy": "Partly cloudy",
     "Humidity": "Humidity",
     "Wind Speed": "Wind Speed",
+    "Wind": "Wind",
     "Temperature": "Temperature",
     "Rainfall": "Rainfall",
+    "Rain": "Rain",
     "Farming Advisory": "Farming Advisory",
+    "Sat": "Sat",
+    "Sun": "Sun",
+    "Mon": "Mon",
+    "Tue": "Tue",
+    "Wed": "Wed",
+    "Thu": "Thu",
+    "Fri": "Fri",
 
     // Crop Calendar
     "Seasonal Crop Calendar": "Seasonal Crop Calendar",
@@ -202,7 +290,29 @@ export const translations: Record<Language, Record<string, string>> = {
     "Previous": "Previous",
     "Confirm": "Confirm",
     "Loading...": "Loading...",
-    "Checking authorization...": "Checking authorization..."
+    "Checking authorization...": "Checking authorization...",
+    "Address": "Address",
+    "Rajahmundry, AP": "Rajahmundry, AP",
+    "Local Area Hub": "Local Area Hub",
+    "SEEDS": "SEEDS",
+    "Fresh Tomatoes": "Fresh Tomatoes",
+    "Cucumber": "Cucumber",
+    "Potatoes": "Potatoes",
+    "Red Onions": "Red Onions",
+    "Green Chillies": "Green Chillies",
+    "Oranges": "Oranges",
+    "PM-KISAN Income Support": "PM-KISAN Income Support",
+    "Income assistance for eligible landholding farmer families through direct bank transfer.": "Income assistance for eligible landholding farmer families through direct bank transfer.",
+    "Soil Health Card": "Soil Health Card",
+    "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use.": "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use.",
+    "Kisan Credit Card": "Kisan Credit Card",
+    "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied activities.": "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied activities.",
+    "Crop Insurance Scheme": "Crop Insurance Scheme",
+    "Comprehensive crop insurance against weather, pest, disease, prevented sowing, and post-harvest losses.": "Comprehensive crop insurance against weather, pest, disease, prevented sowing, and post-harvest losses.",
+    "Digital Agriculture Platform for farm inputs, mandi prices, crop advisories, schemes, and local support.": "Digital Agriculture Platform for farm inputs, mandi prices, crop advisories, schemes, and local support.",
+    "PureFarm Agri Services, Amritsar, Punjab 143001, India": "PureFarm Agri Services, Amritsar, Punjab 143001, India",
+    "Chat with our support team on WhatsApp for quick farm consulting.": "Chat with our support team on WhatsApp for quick farm consulting.",
+    "Advisor Pooja": "Advisor Pooja"
   },
 
   te: {
@@ -265,7 +375,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "Logout": "లాగ్ అవుట్",
     "Language": "భాష",
 
-    // Dashboards
+    // Dashboards & Home Hero
     "Farmer Dashboard": "రైతు డాష్బోర్డ్",
     "Buyer Dashboard": "కొనుగోలుదారు డాష్బోర్డ్",
     "Student Dashboard": "విద్యార్థి డాష్బోర్డ్",
@@ -274,6 +384,65 @@ export const translations: Record<Language, Record<string, string>> = {
     "Compare mandi prices, cold storage, schemes, weather, and sell your produce directly.": "మండీ ధరలు, కోల్డ్ స్టోరేజ్, పథకాలు, వాతావరణాన్ని పరిశీలించండి మరియు మీ ఉత్పత్తులను నేరుగా అమ్మండి.",
     "Browse fresh produce directly from verified local farmers.": "స్థానిక రైతుల నుండి నేరుగా తాజా వ్యవసాయ ఉత్పత్తులను కొనండి.",
     "Access agricultural courses, internships, and skill training.": "వ్యవసాయ కోర్సులు, ఇంటర్న్‌షిప్‌లు మరియు నైపుణ్య శిక్షణ పొందండి.",
+
+    // Hero Carousel
+    "SMART FARMING": "స్మార్ట్ వ్యవసాయం",
+    "Powering Every Acre": "ప్రతి ఎకరాకు శక్తిని అందిస్తోంది",
+    "Modern farm machinery helps farmers work smarter, faster and more efficiently.": "ఆధునిక వ్యవసాయ పరికరాలు రైతులు మరింత తెలివిగా, వేగంగా మరియు సమర్థవంతంగా పనిచేయడానికి సహాయపడతాయి.",
+    "Explore Farm Equipment": "పరికరాలను చూడండి",
+    "Shop Marketplace": "మార్కెట్ప్లేస్ కొనుగోలు",
+    "HEALTHY SOIL • HEALTHY CROPS": "ఆరోగ్యకరమైన నేల • ఆరోగ్యకరమైన పంటలు",
+    "Nourish Your Soil, Grow Better": "నేలను పోషించండి, మెరుగైన దిగుబడి పొందండి",
+    "Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests.": "ఆరోగ్యకరమైన నేల మరియు ఉత్తమ దిగుబడి కోసం నాణ్యమైన ఎరువులు మరియు పోషకాలను కనుగొనండి.",
+    "Shop Fertilizers": "ఎరువులు కొనండి",
+    "Explore Products": "ఉత్పత్తులను చూడండి",
+    "NEXT-GEN AGRICULTURE": "తరువాత తరం వ్యవసాయం",
+    "Technology Taking Farming Higher": "సాంకేతికతతో ఉన్నత స్థాయికి వ్యవసాయం",
+    "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.": "రైతులు తమ పంటలను సమర్థవంతంగా పర్యవేక్షించడానికి, సంరక్షించడానికి మరియు నిర్వహించడానికి సహాయపడే ఆధునిక వ్యవసాయ సాంకేతికతను కనుగొనండి.",
+    "Explore Agri Technology": "సాంకేతికతను చూడండి",
+    "Learn More": "మరింత తెలుసుకోండి",
+    "SMART WATER MANAGEMENT": "స్మార్ట్ నీటి నిర్వహణ",
+    "Every Drop Counts": "ప్రతి నీటి బొట్టు విలువైనది",
+    "Efficient irrigation helps conserve water while keeping crops healthy and productive.": "సమర్థవంతమైన నీటిపారుదల నీటిని ఆదా చేస్తూ పంటలను ఆరోగ్యంగా మరియు ఉత్పాదకంగా ఉంచడంలో సహాయపడుతుంది.",
+    "Explore Irrigation": "నీటిపారుదల పరికరాలు",
+    "View Farm Tools": "పరికరాలు చూడండి",
+    "FROM FIELD TO FUTURE": "పొలం నుండి భవిష్యత్తు వైపు",
+    "Grow More. Harvest Better.": "ఎక్కువ పండించండి. మెరుగ్గా కోత కోయండి.",
+    "Everything farmers need — from quality farm inputs and equipment to fresh agricultural products.": "నాణ్యమైన ఎరువులు, పరికరాల నుండి తాజా వ్యవసాయ ఉత్పత్తుల వరకు రైతులకు కావలసినవన్నీ.",
+    "Explore Farm Inputs": "దిగుబడులను చూడండి",
+
+    // Feature Cards
+    "100% Organic": "100% ఆర్గానిక్",
+    "Healthy & Chemical Free": "ఆరోగ్యకరమైన & రసాయన రహిత",
+    "Best Quality": "ఉత్తమ నాణ్యత",
+    "Carefully Handpicked": "జాగ్రత్తగా ఎంపిక చేసినవి",
+    "Fair Prices": "సమంజసమైన ధరలు",
+    "Direct from Farmers": "రైతుల నుండి నేరుగా",
+    "Fast Delivery": "వేగవంతమైన డెలివరీ",
+    "Across India": "భారతదేశమంతటా",
+    "Secure Payments": "సురక్షితమైన చెల్లింపులు",
+    "100% Safe & Secure": "100% సురక్షితం & భద్రం",
+
+    // Categories & Deals
+    "Shop by Category": "వర్గాల వారీగా కొనండి",
+    "Certified products and inputs for your crops": "మీ పంటల కోసం ప్రామాణీకరించబడిన ఉత్పత్తులు మరియు ఎరువులు",
+    "View All": "అన్నీ చూడండి",
+    "Fruits": "పండ్లు",
+    "Vegetables": "కూరగాయలు",
+    "Seeds": "విత్తనాలు",
+    "Fertilizers": "ఎరువులు",
+    "Pesticides": "పురుగుమందులు",
+    "Farm Tools": "వ్యవసాయ పరికరాలు",
+    "Equipment": "యంత్రాలు",
+    "Best Deals for You 🔥": "మీ కోసం ఉత్తమ ఆఫర్లు 🔥",
+    "Deals ending soon": "ఆఫర్లు త్వరలో ముగుస్తాయి",
+    "Handpicked products & inputs on discount": "డిస్కౌంట్‌లో ఎంపిక చేసిన ఉత్పత్తులు",
+    "HOT": "హాట్",
+    "BEST SELLER": "బెస్ట్ సెల్లర్",
+
+    // App Download Banner
+    "Stay Updated, Stay Ahead!": "అప్‌డేట్‌గా ఉండండి, ముందుండండి!",
+    "Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.": "తాజా వ్యవసాయ వార్తలు, మార్కెట్ ధరలు, వాతావరణ సమాచారం మరియు నిపుణుల సూచనలను మీ మొబైల్‌లో నేరుగా పొందండి.",
 
     // Dashboard Cards / Quick Actions
     "Quick Actions": "శీఘ్ర చర్యలు",
@@ -324,7 +493,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "Cancelled": "రద్దయింది",
     "Order Date": "ఆర్డర్ తేదీ",
 
-    // Mandi Prices
+    // Mandi Prices Widget & Page
     "Live Mandi Prices": "లైవ్ మండీ ధరలు",
     "Commodity": "పంట / సరుకు",
     "Mandi / Market": "మండీ / మార్కెట్",
@@ -333,6 +502,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "Modal Price": "సగటు ధర",
     "Arrivals": "వచ్చిన పరిమాణం",
     "State": "రాష్ట్రం",
+    "Today's Mandi Feeds": "నేటి మండీ వివరాలు",
+    "Tomato": "టమాటో",
+    "Potato": "బంగాళాదుంప",
+    "Onion": "ఉల్లిపాయ",
+    "Green Chilli": "పచ్చిమిర్చి",
+    "Brinjal": "వంకాయ",
 
     // Cold Storage
     "Cold Storage Facilities": "కోల్డ్ స్టోరేజ్ కేంద్రాలు",
@@ -349,6 +524,15 @@ export const translations: Record<Language, Record<string, string>> = {
     "Eligibility": "అర్హత",
     "Deadline": "గడువు తేదీ",
     "Open Enrollment": "ఎప్పుడైనా దరఖాస్తు చేయవచ్చు",
+    "Govt Schemes": "ప్రభుత్వ పథకాలు",
+    "Active Schemes": "అందుబాటులో ఉన్న పథకాలు",
+    "Claim subsidies, direct transfers, and support.": "సబ్సిడీలు, ఆర్థిక సాయం మరియు మద్దతు పొందండి.",
+    "View Schemes": "పథకాలు చూడండి",
+
+    // Support / Help Widget
+    "Need Help?": "సహాయం కావాలా?",
+    "Chat Now": "ఇప్పుడే చాట్ చేయండి",
+    "Online Now": "ఆన్‌లైన్‌లో ఉన్నారు",
 
     // Crop Insurance
     "Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website.": "పంట బీమా, వాతావరణ బీమా మరియు పశుసంపద బీమా పథకాలను పరిశీలించి దరఖాస్తు చేయండి.",
@@ -359,11 +543,25 @@ export const translations: Record<Language, Record<string, string>> = {
     // Weather
     "Weather Forecast & Advisory": "వాతావరణ సమాచారం & సూచనలు",
     "Current Weather": "ప్రస్తుత వాతావరణం",
+    "Weather Update": "వాతావరణ సమాచారం",
+    "Sunny": "ఎండగా ఉంది",
+    "Cloudy intervals": "మబ్బులతో కూడిన వాతావరణం",
+    "Light showers": "తేలికపాటి జల్లులు",
+    "Partly cloudy": "పాక్షికంగా మబ్బులు",
     "Humidity": "తేమ",
     "Wind Speed": "గాలి వేగం",
+    "Wind": "గాలి",
     "Temperature": "ఉష్ణోగ్రత",
     "Rainfall": "వర్షపాతం",
+    "Rain": "వర్షం",
     "Farming Advisory": "వ్యవసాయ సూచనలు",
+    "Sat": "శని",
+    "Sun": "ఆది",
+    "Mon": "సోమ",
+    "Tue": "మంగళ",
+    "Wed": "బుధ",
+    "Thu": "గురు",
+    "Fri": "శుక్ర",
 
     // Crop Calendar
     "Seasonal Crop Calendar": "కాలాల వారీ పంటల క్యాలెండర్",
@@ -406,6 +604,28 @@ export const translations: Record<Language, Record<string, string>> = {
     "Previous": "మునుపటి",
     "Confirm": "నిర్ధారించండి",
     "Loading...": "లోడ్ అవుతోంది...",
-    "Checking authorization...": "అధికారాన్ని తనిఖీ చేస్తోంది..."
+    "Checking authorization...": "అధికారాన్ని తనిఖీ చేస్తోంది...",
+    "Address": "చిరునామా",
+    "Rajahmundry, AP": "రాజమండ్రి, ఏపీ",
+    "Local Area Hub": "స్థానిక మార్కెట్ కేంద్రం",
+    "SEEDS": "విత్తనాలు",
+    "Fresh Tomatoes": "తాజా టమాటాలు",
+    "Cucumber": "కీరదోస",
+    "Potatoes": "బంగాళాదుంపలు",
+    "Red Onions": "ఎర్ర ఉల్లిపాయలు",
+    "Green Chillies": "పచ్చిమిర్చి",
+    "Oranges": "నారింజ పండ్లు",
+    "PM-KISAN Income Support": "పీఎం-కిసాన్ ఆదాయ మద్దతు",
+    "Income assistance for eligible landholding farmer families through direct bank transfer.": "రైతు కుటుంబాలకు నేరుగా బ్యాంక్ బదిలీ ద్వారా ఆదాయ సహాయం.",
+    "Soil Health Card": "సాయిల్ హెల్త్ కార్డ్",
+    "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use.": "సమతుల్య పోషకాల కోసం మట్టి పరీక్ష మరియు పంటల వారీగా ఎరువుల సిఫార్సులు.",
+    "Kisan Credit Card": "కిసాన్ క్రెడిట్ కార్డ్",
+    "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied activities.": "విత్తనాలు, ఎరువులు మరియు పరికరాల కోసం స్వల్పకాలిక పంట రుణం.",
+    "Crop Insurance Scheme": "పంట బీమా పథకం",
+    "Comprehensive crop insurance against weather, pest, disease, prevented sowing, and post-harvest losses.": "వాతావరణం, తెగుళ్లు మరియు పంట నష్టాల నుండి సమగ్ర బీమా రక్షణ.",
+    "Digital Agriculture Platform for farm inputs, mandi prices, crop advisories, schemes, and local support.": "వ్యవసాయ పరికరాలు, మార్కెట్ ధరలు, పంట సలహాలు, పథకాలు మరియు స్థానిక సహాయం కోసం డిజిటల్ వ్యవసాయ వేదిక.",
+    "PureFarm Agri Services, Amritsar, Punjab 143001, India": "ప్యూర్ఫామ్ అగ్రి సర్వీసెస్, అమృత్సర్, పంజాబ్ 143001, ఇండియా",
+    "Chat with our support team on WhatsApp for quick farm consulting.": "తక్షణ సంప్రదింపుల కోసం వాట్సాప్‌లో మా మద్దతు బృందంతో చాట్ చేయండి.",
+    "Advisor Pooja": "అడ్వైజర్ పూజ"
   },
 };

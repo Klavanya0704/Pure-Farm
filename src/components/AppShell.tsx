@@ -305,13 +305,13 @@ export function AppShell({ children }: { children: ReactNode }) {
               {/* Location */}
               <div className="hidden sm:flex items-center gap-1 text-xs font-semibold text-foreground/80">
                 <MapPin className="h-3.5 w-3.5 text-[#2d6a4f]" />
-                <span>{user?.location || "Rajahmundry, AP"}</span>
+                <span>{t(user?.location || "Rajahmundry, AP")}</span>
               </div>
 
               {/* Weather */}
               <div className="hidden sm:flex items-center gap-1 text-xs font-semibold text-foreground/80 border-l border-border pl-3">
                 <Sun className="h-3.5 w-3.5 text-amber-500 fill-amber-100" />
-                <span>28°C, Sunny</span>
+                <span>28°C, {t("Sunny")}</span>
               </div>
 
               {/* Language Selector */}
@@ -394,7 +394,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <div>
               <p className="text-lg font-black text-[#1b4332]">{SITE.name}</p>
               <p className="mt-2 max-w-xl text-sm text-muted-foreground leading-relaxed">
-                {t("Digital Agriculture Platform")} for farm inputs, mandi prices, crop advisories, schemes, and local support.
+                {t("Digital Agriculture Platform for farm inputs, mandi prices, crop advisories, schemes, and local support.")}
               </p>
             </div>
             <div className="text-sm">
@@ -403,8 +403,8 @@ export function AppShell({ children }: { children: ReactNode }) {
               <p className="text-muted-foreground">{SITE.email}</p>
             </div>
             <div className="text-sm">
-              <p className="font-bold text-[#1b4332]">Address</p>
-              <p className="mt-2 text-muted-foreground leading-relaxed">{SITE.address}</p>
+              <p className="font-bold text-[#1b4332]">{t("Address")}</p>
+              <p className="mt-2 text-muted-foreground leading-relaxed">{t(SITE.address)}</p>
             </div>
           </div>
         </footer>

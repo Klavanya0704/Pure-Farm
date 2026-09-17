@@ -490,6 +490,7 @@ export function StudentHomePage() {
 }
 
 export function FarmerHomePage() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -497,66 +498,66 @@ export function FarmerHomePage() {
   const HERO_SLIDES = useMemo(
     () => [
       {
-        badge: "SMART FARMING",
-        title: "Powering Every Acre",
-        subtitle: "Modern farm machinery helps farmers work smarter, faster and more efficiently.",
+        badge: t("SMART FARMING"),
+        title: t("Powering Every Acre"),
+        subtitle: t("Modern farm machinery helps farmers work smarter, faster and more efficiently."),
         img: "/hero-tractor.jpg",
         badgeColor: "bg-amber-500/20 text-amber-300",
-        linkText: "Explore Farm Equipment",
+        linkText: t("Explore Farm Equipment"),
         linkTo: "/marketplace",
-        secLinkText: "Shop Marketplace",
+        secLinkText: t("Shop Marketplace"),
         secLinkTo: "/marketplace",
       },
       {
-        badge: "HEALTHY SOIL • HEALTHY CROPS",
-        title: "Nourish Your Soil, Grow Better",
+        badge: t("HEALTHY SOIL • HEALTHY CROPS"),
+        title: t("Nourish Your Soil, Grow Better"),
         subtitle:
-          "Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests.",
+          t("Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests."),
         img: "/hero-fertilizer.jpg",
         badgeColor: "bg-emerald-500/20 text-emerald-300",
-        linkText: "Shop Fertilizers",
+        linkText: t("Shop Fertilizers"),
         linkTo: "/marketplace",
-        secLinkText: "Explore Products",
+        secLinkText: t("Explore Products"),
         secLinkTo: "/marketplace",
       },
       {
-        badge: "NEXT-GEN AGRICULTURE",
-        title: "Technology Taking Farming Higher",
+        badge: t("NEXT-GEN AGRICULTURE"),
+        title: t("Technology Taking Farming Higher"),
         subtitle:
-          "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.",
+          t("Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently."),
         img: "/hero-drone.jpg",
         badgeColor: "bg-teal-500/20 text-teal-300",
-        linkText: "Explore Agri Technology",
+        linkText: t("Explore Agri Technology"),
         linkTo: "/marketplace",
-        secLinkText: "Learn More",
+        secLinkText: t("Learn More"),
         secLinkTo: "/learn",
       },
       {
-        badge: "SMART WATER MANAGEMENT",
-        title: "Every Drop Counts",
+        badge: t("SMART WATER MANAGEMENT"),
+        title: t("Every Drop Counts"),
         subtitle:
-          "Efficient irrigation helps conserve water while keeping crops healthy and productive.",
+          t("Efficient irrigation helps conserve water while keeping crops healthy and productive."),
         img: "/hero-irrigation.jpg",
         badgeColor: "bg-blue-500/20 text-blue-300",
-        linkText: "Explore Irrigation",
+        linkText: t("Explore Irrigation"),
         linkTo: "/marketplace",
-        secLinkText: "View Farm Tools",
+        secLinkText: t("View Farm Tools"),
         secLinkTo: "/marketplace",
       },
       {
-        badge: "FROM FIELD TO FUTURE",
-        title: "Grow More. Harvest Better.",
+        badge: t("FROM FIELD TO FUTURE"),
+        title: t("Grow More. Harvest Better."),
         subtitle:
-          "Everything farmers need — from quality farm inputs and equipment to fresh agricultural products.",
+          t("Everything farmers need — from quality farm inputs and equipment to fresh agricultural products."),
         img: "/hero-harvest.jpg",
         badgeColor: "bg-amber-500/20 text-amber-300",
-        linkText: "Shop Marketplace",
+        linkText: t("Shop Marketplace"),
         linkTo: "/marketplace",
-        secLinkText: "Explore Farm Inputs",
+        secLinkText: t("Explore Farm Inputs"),
         secLinkTo: "/marketplace",
       },
     ],
-    [],
+    [t],
   );
 
   useEffect(() => {
@@ -884,11 +885,11 @@ export function FarmerHomePage() {
             {/* Feature Cards */}
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
               {[
-                { title: "100% Organic", desc: "Healthy & Chemical Free", icon: Leaf },
-                { title: "Best Quality", desc: "Carefully Handpicked", icon: Award },
-                { title: "Fair Prices", desc: "Direct from Farmers", icon: Scale },
-                { title: "Fast Delivery", desc: "Across India", icon: Truck },
-                { title: "Secure Payments", desc: "100% Safe & Secure", icon: Lock },
+                { title: t("100% Organic"), desc: t("Healthy & Chemical Free"), icon: Leaf },
+                { title: t("Best Quality"), desc: t("Carefully Handpicked"), icon: Award },
+                { title: t("Fair Prices"), desc: t("Direct from Farmers"), icon: Scale },
+                { title: t("Fast Delivery"), desc: t("Across India"), icon: Truck },
+                { title: t("Secure Payments"), desc: t("100% Safe & Secure"), icon: Lock },
               ].map((f, i) => {
                 const Icon = f.icon;
                 return (
@@ -912,16 +913,16 @@ export function FarmerHomePage() {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="text-xl font-black text-[#1b4332]">Shop by Category</h2>
+                  <h2 className="text-xl font-black text-[#1b4332]">{t("Shop by Category")}</h2>
                   <p className="text-xs text-muted-foreground">
-                    Certified products and inputs for your crops
+                    {t("Certified products and inputs for your crops")}
                   </p>
                 </div>
                 <Link
                   to="/marketplace"
                   className="inline-flex items-center gap-1 text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition"
                 >
-                  View All <ArrowRight className="h-3 w-3" />
+                  {t("View All")} <ArrowRight className="h-3 w-3" />
                 </Link>
               </div>
 
@@ -941,7 +942,7 @@ export function FarmerHomePage() {
                       />
                     </div>
                     <span className="text-xs font-black text-[#1b4332] tracking-tight block py-1 line-clamp-1">
-                      {cat.name}
+                      {t(cat.name)}
                     </span>
                   </Link>
                 ))}
@@ -953,20 +954,20 @@ export function FarmerHomePage() {
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-border/40 pb-3 select-none">
                 <div>
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                    <h2 className="text-xl font-black text-[#1b4332]">Best Deals for You 🔥</h2>
+                    <h2 className="text-xl font-black text-[#1b4332]">{t("Best Deals for You 🔥")}</h2>
                     <span className="inline-flex items-center gap-1 rounded-full bg-red-50 text-red-600 px-2 py-0.5 text-[10px] font-black border border-red-100/50 animate-pulse">
-                      🔥 Deals ending soon · {countdownTime.hours}h {countdownTime.mins}m
+                      🔥 {t("Deals ending soon")} · {countdownTime.hours}h {countdownTime.mins}m
                     </span>
                   </div>
                   <p className="text-xs text-muted-foreground mt-0.5">
-                    Handpicked products & inputs on discount
+                    {t("Handpicked products & inputs on discount")}
                   </p>
                 </div>
                 <Link
                   to="/marketplace"
                   className="inline-flex items-center gap-1 text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition group/viewall"
                 >
-                  View All{" "}
+                  {t("View All")}{" "}
                   <span className="group-hover/viewall:translate-x-0.5 transition-transform duration-200">
                     →
                   </span>
@@ -994,10 +995,9 @@ export function FarmerHomePage() {
                 <Leaf className="h-48 w-48 text-white rotate-45 transform translate-x-12 translate-y-4" />
               </div>
               <div className="space-y-2 max-w-md">
-                <h3 className="text-xl font-black">Stay Updated, Stay Ahead!</h3>
+                <h3 className="text-xl font-black">{t("Stay Updated, Stay Ahead!")}</h3>
                 <p className="text-xs text-emerald-100 leading-relaxed">
-                  Get the latest agriculture news, market updates, weather forecasts and expert tips
-                  directly on your mobile device.
+                  {t("Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.")}
                 </p>
                 <div className="pt-2 flex flex-wrap gap-2.5">
                   <button className="h-9 px-3.5 rounded-lg bg-white text-[#1b4332] hover:bg-emerald-50 transition text-xs font-bold flex items-center gap-2">
@@ -1025,28 +1025,28 @@ export function FarmerHomePage() {
             <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
               <div className="flex items-center justify-between">
                 <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                  Weather Update
+                  {t("Weather Update")}
                 </p>
                 <Sun className="h-5 w-5 text-amber-500 fill-amber-100" />
               </div>
               <div className="mt-3">
-                <p className="text-sm font-black text-[#1b4332]">Rajahmundry, AP</p>
+                <p className="text-sm font-black text-[#1b4332]">{t("Rajahmundry, AP")}</p>
                 <div className="mt-2 flex items-baseline gap-2">
                   <span className="text-4xl font-black text-[#1b4332]">28{"\u00B0"}C</span>
-                  <span className="text-sm font-bold text-muted-foreground">Sunny</span>
+                  <span className="text-sm font-bold text-muted-foreground">{t("Sunny")}</span>
                 </div>
 
                 <div className="mt-4 grid grid-cols-3 gap-2 border-t border-b border-border/60 py-3 text-center">
                   <div>
-                    <p className="text-[10px] text-muted-foreground font-semibold">Humidity</p>
+                    <p className="text-[10px] text-muted-foreground font-semibold">{t("Humidity")}</p>
                     <p className="text-xs font-black text-[#1b4332] mt-0.5">62%</p>
                   </div>
                   <div>
-                    <p className="text-[10px] text-muted-foreground font-semibold">Wind</p>
+                    <p className="text-[10px] text-muted-foreground font-semibold">{t("Wind")}</p>
                     <p className="text-xs font-black text-[#1b4332] mt-0.5">12 km/h</p>
                   </div>
                   <div>
-                    <p className="text-[10px] text-muted-foreground font-semibold">Rain</p>
+                    <p className="text-[10px] text-muted-foreground font-semibold">{t("Rain")}</p>
                     <p className="text-xs font-black text-[#1b4332] mt-0.5">10%</p>
                   </div>
                 </div>
@@ -1069,11 +1069,11 @@ export function FarmerHomePage() {
                     }
                     return (
                       <div key={i} className="flex items-center justify-between text-xs">
-                        <span className="font-semibold text-muted-foreground w-10">{fc.day}</span>
+                        <span className="font-semibold text-muted-foreground w-10">{t(fc.day)}</span>
                         <div className="flex items-center justify-center gap-1.5 flex-1">
                           <IconComponent className={`h-3.5 w-3.5 ${iconColor}`} />
                           <span className="text-foreground/80 font-medium">
-                            {fc.condition}
+                            {t(fc.condition)}
                           </span>
                         </div>
                         <span className="font-bold text-[#1b4332] w-12 text-right">{fc.temp}</span>
@@ -1089,15 +1089,15 @@ export function FarmerHomePage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                    Market Prices
+                    {t("Market Prices")}
                   </p>
-                  <p className="text-[10px] text-muted-foreground mt-0.5">Today's Mandi Feeds</p>
+                  <p className="text-[10px] text-muted-foreground mt-0.5">{t("Today's Mandi Feeds")}</p>
                 </div>
                 <Link
-                  to="/market"
+                  to="/market-prices"
                   className="text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition"
                 >
-                  View All
+                  {t("View All")}
                 </Link>
               </div>
 
@@ -1110,8 +1110,8 @@ export function FarmerHomePage() {
                       className="flex items-center justify-between border-b border-border/50 pb-2.5 last:border-0 last:pb-0"
                     >
                       <div>
-                        <p className="text-xs font-black text-[#1b4332]">{p.crop}</p>
-                        <p className="text-[10px] text-muted-foreground mt-0.5">Local Area Hub</p>
+                        <p className="text-xs font-black text-[#1b4332]">{t(p.crop)}</p>
+                        <p className="text-[10px] text-muted-foreground mt-0.5">{t("Local Area Hub")}</p>
                       </div>
                       <div className="text-right">
                         <p className="text-xs font-black text-[#1b4332]">₹{p.price} / kg</p>
@@ -1136,13 +1136,13 @@ export function FarmerHomePage() {
             <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
               <div className="flex items-center justify-between">
                 <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                  Govt Schemes
+                  {t("Govt Schemes")}
                 </p>
                 <Link
                   to="/schemes"
                   className="text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332] transition"
                 >
-                  View All
+                  {t("View All")}
                 </Link>
               </div>
 
@@ -1154,10 +1154,10 @@ export function FarmerHomePage() {
                     </span>
                     <div>
                       <h4 className="text-xs font-black text-[#1b4332] line-clamp-1 leading-snug">
-                        {s.name}
+                        {t(s.name)}
                       </h4>
                       <p className="text-[10px] text-muted-foreground leading-normal mt-0.5 line-clamp-2">
-                        {s.desc}
+                        {t(s.desc)}
                       </p>
                     </div>
                   </div>
@@ -1167,9 +1167,9 @@ export function FarmerHomePage() {
 
             {/* Help Card / Support */}
             <div className="rounded-2xl border border-border bg-card p-5 shadow-soft relative overflow-hidden">
-              <p className="text-sm font-black text-[#1b4332]">Need Help?</p>
+              <p className="text-sm font-black text-[#1b4332]">{t("Need Help?")}</p>
               <p className="mt-1 text-xs text-muted-foreground leading-normal">
-                Chat with our support team on WhatsApp for quick farm consulting.
+                {t("Chat with our support team on WhatsApp for quick farm consulting.")}
               </p>
               <div className="mt-4 flex items-center gap-3">
                 <img
@@ -1179,14 +1179,14 @@ export function FarmerHomePage() {
                 />
                 <div>
                   <p className="text-xs font-bold text-foreground">Advisor Pooja</p>
-                  <p className="text-[10px] text-emerald-600 font-bold">Online Now</p>
+                  <p className="text-[10px] text-emerald-600 font-bold">{t("Online Now")}</p>
                 </div>
               </div>
               <a
                 href={waLink("Hello PureFarm, I need help with my farm.")}
                 className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-[#25d366] hover:bg-[#1ebd55] text-white py-2.5 text-xs font-black shadow-sm transition hover:scale-105 duration-200"
               >
-                <MessageCircle className="mr-1.5 h-4 w-4" /> Chat Now
+                <MessageCircle className="mr-1.5 h-4 w-4" /> {t("Chat Now")}
               </a>
             </div>
           </div>

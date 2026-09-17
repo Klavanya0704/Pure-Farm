@@ -89,7 +89,7 @@ export function ProductCard({ product }: { product: Product }) {
           params={{ id: product.id }}
           className="line-clamp-2 text-[16px] md:text-[18px] font-[700] leading-tight text-[#123D2F] hover:text-[#145A43] transition-colors mb-1.5"
         >
-          {product.name}
+          {t(product.name)}
         </Link>
 
         {/* Rating */}
