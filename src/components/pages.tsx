@@ -2525,10 +2525,10 @@ export function SchemesPage() {
         query={query}
         setQuery={setQuery}
         items={rows.map((s) => ({
-          title: s.name,
-          meta: `${s.issuer} · ${s.category}`,
-          body: s.description,
-          footer: `${s.deadline} · ${s.eligibility}`,
+          title: t(s.name),
+          meta: `${t(s.issuer)} · ${t(s.category)}`,
+          body: t(s.description),
+          footer: `${t(s.deadline)} · ${t(s.eligibility)}`,
           url: s.url,
         }))}
       />
@@ -2546,10 +2546,10 @@ export function InsurancePage() {
         title="Crop insurance"
         intro="Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website."
         items={INSURANCE_SCHEMES.map((s) => ({
-          title: s.name,
-          meta: `${s.type} · ${s.premium}`,
-          body: s.description,
-          footer: `${s.coverage || ""} Crops: ${(s.crops || []).join(", ")}`,
+          title: t(s.name),
+          meta: `${t(s.type)} · ${t(s.premium)}`,
+          body: t(s.description),
+          footer: `${s.coverage ? t(s.coverage) + " · " : ""}${t("Crops")}: ${(s.crops || []).map((c) => t(c)).join(", ")}`,
           url: s.url,
         }))}
       />
@@ -2822,14 +2822,14 @@ export function CropCalendarPage() {
                 onClick={() => setSelected(item.name)}
                 className={`mb-2 block w-full rounded-lg px-3 py-2 text-left font-bold ${selected === item.name ? "bg-primary text-primary-foreground" : "bg-muted"}`}
               >
-                {item.name}
+                {t(item.name)}
               </button>
             ))}
           </div>
           {crop ? (
             <div className={glassCardClass}>
               <p className="text-2xl font-black">
-                {t(crop.name)} · {crop.season}
+                {t(crop.name)} · {t(crop.season)}
               </p>
               <div className="mt-5 grid gap-3 sm:grid-cols-4">
                 {[
@@ -2839,17 +2839,17 @@ export function CropCalendarPage() {
                   ["Water", crop.water],
                 ].map(([a, b]) => (
                   <div key={a} className="rounded-lg bg-muted p-3">
-                    <p className="text-xs font-bold uppercase text-muted-foreground">{a}</p>
-                    <p className="font-black">{b}</p>
+                    <p className="text-xs font-bold uppercase text-muted-foreground">{t(a)}</p>
+                    <p className="font-black">{t(b)}</p>
                   </div>
                 ))}
               </div>
-              <p className="mt-5 text-muted-foreground">{crop.tip}</p>
+              <p className="mt-5 text-muted-foreground">{t(crop.tip)}</p>
               <div className="mt-6 grid gap-2 sm:grid-cols-5">
                 {(crop.tasks || []).map((task, index) => (
                   <div key={task} className="rounded-lg border border-border p-3">
-                    <p className="text-xs font-bold text-primary">Step {index + 1}</p>
-                    <p className="font-bold">{task}</p>
+                    <p className="text-xs font-bold text-primary">{t("Step")} {index + 1}</p>
+                    <p className="font-bold">{t(task)}</p>
                   </div>
                 ))}
               </div>
@@ -2877,10 +2877,10 @@ export function LearnPage() {
         query={query}
         setQuery={setQuery}
         items={rows.map((c) => ({
-          title: c.title,
-          meta: `${c.level} · ${c.hours} hrs · ${c.lessons} lessons`,
-          body: c.description || "",
-          footer: `${c.instructor} · ${c.progress}% progress`,
+          title: t(c.title),
+          meta: `${t(c.level)} · ${c.hours} ${t("hrs")} · ${c.lessons} ${t("lessons")}`,
+          body: t(c.description || ""),
+          footer: `${t(c.instructor)} · ${c.progress}% ${t("progress")}`,
           icon: <GraduationCap className="h-5 w-5" />,
         }))}
       />
@@ -2902,7 +2902,7 @@ export function CoursesPage() {
           <Search className="h-4 w-4 text-muted-foreground mr-2" />
           <input
             type="text"
-            placeholder="Search courses..."
+            placeholder={t("Search courses...")}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="w-full bg-transparent text-sm outline-none"
@@ -2915,18 +2915,18 @@ export function CoursesPage() {
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
-                    {c.level}
+                    {t(c.level)}
                   </span>
-                  <span className="text-xs text-muted-foreground font-semibold">{c.hours} hrs · {c.lessons} lessons</span>
+                  <span className="text-xs text-muted-foreground font-semibold">{c.hours} {t("hrs")} · {c.lessons} {t("lessons")}</span>
                 </div>
-                <h3 className="text-lg font-black text-[#1b4332] leading-snug">{c.title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{c.description}</p>
+                <h3 className="text-lg font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{t(c.description)}</p>
               </div>
 
               <div className="space-y-3 pt-3 border-t border-border/60">
                 <div className="flex justify-between text-xs font-bold">
-                  <span className="text-muted-foreground">{c.instructor}</span>
-                  <span className="text-[#2d6a4f]">{c.progress}% completed</span>
+                  <span className="text-muted-foreground">{t(c.instructor)}</span>
+                  <span className="text-[#2d6a4f]">{c.progress}% {t("completed")}</span>
                 </div>
                 <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
                   <div className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300" style={{ width: `${c.progress}%` }} />
@@ -2935,7 +2935,7 @@ export function CoursesPage() {
                   type="button"
                   className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm"
                 >
-                  {c.progress > 0 ? "Continue Learning" : "Start Course"}
+                  {c.progress > 0 ? t("Continue Learning") : t("Start Course")}
                 </button>
               </div>
             </div>
@@ -3053,30 +3053,30 @@ export function InternshipsPage() {
             <div key={i.id} className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-4">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <h3 className="text-lg font-black text-[#1b4332]">{i.title}</h3>
-                  <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">{i.org} · {i.type} ({i.location})</p>
+                  <h3 className="text-lg font-black text-[#1b4332]">{t(i.title)}</h3>
+                  <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">{t(i.org)} · {t(i.type)} ({t(i.location)})</p>
                 </div>
                 <span className="rounded-full bg-amber-50 text-amber-700 px-3 py-1 text-xs font-black border border-amber-200">
-                  {i.stipend}
+                  {t(i.stipend)}
                 </span>
               </div>
-              <p className="text-xs text-muted-foreground leading-relaxed">{i.description}</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">{t(i.description)}</p>
               <div className="flex flex-wrap gap-1.5">
                 {i.skills.map((skill) => (
                   <span key={skill} className="rounded-md bg-muted px-2.5 py-1 text-[11px] font-bold text-foreground/80">
-                    {skill}
+                    {t(skill)}
                   </span>
                 ))}
               </div>
               <div className="pt-3 flex items-center justify-between border-t border-border/60">
-                <span className="text-xs text-muted-foreground font-medium">Deadline: {i.deadline}</span>
+                <span className="text-xs text-muted-foreground font-medium">{t("Deadline")}: {t(i.deadline)}</span>
                 <button
                   type="button"
                   onClick={() => setAppliedId(i.id)}
                   disabled={appliedId === i.id}
                   className="rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-4 py-2 text-xs font-black transition shadow-sm disabled:bg-emerald-800"
                 >
-                  {appliedId === i.id ? "Application Submitted ✓" : "Apply Now"}
+                  {appliedId === i.id ? t("Application Submitted ✓") : t("Apply Now")}
                 </button>
               </div>
             </div>
@@ -3130,10 +3130,10 @@ function NotificationRow({ item, onToggle }: { item: NotificationItem; onToggle:
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <p className="font-black">{t(item.title)}</p>
-            <Pill>{item.category || item.tone}</Pill>
-            <span className="text-xs text-muted-foreground">{item.time}</span>
+            <Pill>{t(item.category || item.tone)}</Pill>
+            <span className="text-xs text-muted-foreground">{t(item.time)}</span>
           </div>
-          <p className="mt-1 text-sm text-muted-foreground">{item.body}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{t(item.body)}</p>
         </div>
       </div>
     </button>
