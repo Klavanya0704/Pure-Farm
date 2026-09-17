@@ -87,10 +87,11 @@ import { createRealBuyerOrder, getOrdersByBuyer, getOrdersByFarmer, type OrderWi
 import type { DbProduct, ProductCategory, ProductStatus } from "@/types/database";
 
 function Stat({ label, value }: { label: string; value: string }) {
+  const { t } = useTranslation();
   return (
     <div className="rounded-xl border border-white/20 bg-white/12 p-4 text-white backdrop-blur">
       <p className="text-2xl font-black">{value}</p>
-      <p className="text-sm text-white/78">{label}</p>
+      <p className="text-sm text-white/78">{t(label)}</p>
     </div>
   );
 }
@@ -124,6 +125,7 @@ function EmptyState({
 export function AccessDenied({ requiredRoles }: { requiredRoles: string[] }) {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { t } = useTranslation();
 
   const getDashboardDestination = () => {
     if (!user) return "/login";
@@ -141,7 +143,7 @@ export function AccessDenied({ requiredRoles }: { requiredRoles: string[] }) {
           <Shield className="h-7 w-7" />
         </div>
         <div className="space-y-2">
-          <h2 className="text-xl font-black text-foreground">Access Restricted</h2>
+          <h2 className="text-xl font-black text-foreground">{t("Access Restricted")}</h2>
           <p className="text-xs leading-relaxed text-muted-foreground">
             You don't have permission to access this page. This area is restricted to{" "}
             <span className="font-bold text-[#1b4332]">{requiredRoles.join(", ")}</span> users.
@@ -151,9 +153,7 @@ export function AccessDenied({ requiredRoles }: { requiredRoles: string[] }) {
           type="button"
           onClick={() => void navigate({ to: getDashboardDestination() as "/" })}
           className="w-full h-11 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white font-black text-xs shadow-sm transition hover:scale-[1.01]"
-        >
-          Go to Dashboard
-        </button>
+        >{t("Go to Dashboard")}</button>
       </div>
     </PageShell>
   );
@@ -170,6 +170,7 @@ export function RoleGuard({
 }) {
   const navigate = useNavigate();
   const { user, loading } = useAuth();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!loading) {
@@ -184,7 +185,7 @@ export function RoleGuard({
   if (loading) {
     return (
       <div className="flex h-64 items-center justify-center">
-        <p className="text-sm text-muted-foreground font-semibold">Checking authorization...</p>
+        <p className="text-sm text-muted-foreground font-semibold">{t("Checking authorization...")}</p>
       </div>
     );
   }
@@ -201,6 +202,7 @@ export function RoleGuard({
 }
 
 export function HomePage() {
+  const { t } = useTranslation();
   const { user } = useAuth();
 
   if (user?.role === "buyer") {
@@ -215,6 +217,7 @@ export function HomePage() {
 }
 
 export function BuyerHomePage() {
+  const { t } = useTranslation();
   const categoriesList = [
     { name: "Fruits", img: "/categories/fruits.jpg" },
     { name: "Vegetables", img: "/categories/vegetables.jpg" },
@@ -334,6 +337,7 @@ export function BuyerHomePage() {
 }
 
 export function StudentHomePage() {
+  const { t } = useTranslation();
   const { user } = useAuth();
 
   return (
@@ -348,15 +352,12 @@ export function StudentHomePage() {
             <h1 className="text-2xl sm:text-3xl font-black leading-tight text-white">
               Welcome Back, {user?.name || "Student"} 👋
             </h1>
-            <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-medium">
-              Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.
-            </p>
+            <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-medium">{t("Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.")}</p>
             <div className="pt-2 flex flex-wrap gap-3">
               <Link
                 to="/courses"
                 className="inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 transition px-4 py-2.5 text-xs font-black text-white shadow-sm"
-              >
-                Browse All Courses <GraduationCap className="h-4 w-4" />
+              >{t("Browse All Courses")}<GraduationCap className="h-4 w-4" />
               </Link>
               <Link
                 to="/internships"
@@ -372,19 +373,19 @@ export function StudentHomePage() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
             <p className="text-2xl font-black text-[#1b4332]">6</p>
-            <p className="text-xs font-semibold text-muted-foreground mt-0.5">Enrolled Courses</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">{t("Enrolled Courses")}</p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
             <p className="text-2xl font-black text-[#1b4332]">2</p>
-            <p className="text-xs font-semibold text-muted-foreground mt-0.5">Active Applications</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">{t("Active Applications")}</p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
             <p className="text-2xl font-black text-[#1b4332]">2</p>
-            <p className="text-xs font-semibold text-muted-foreground mt-0.5">Certificates Earned</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">{t("Certificates Earned")}</p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
-            <p className="text-2xl font-black text-[#1b4332]">35 hrs</p>
-            <p className="text-xs font-semibold text-muted-foreground mt-0.5">Learning Time</p>
+            <p className="text-2xl font-black text-[#1b4332]">{t("35 hrs")}</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">{t("Learning Time")}</p>
           </div>
         </div>
 
@@ -393,7 +394,7 @@ export function StudentHomePage() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-xl font-black text-[#1b4332]">My Learning Courses</h2>
-              <p className="text-xs text-muted-foreground">Continue learning your active tech & AgriTech modules</p>
+              <p className="text-xs text-muted-foreground">{t("Continue learning your active tech & AgriTech modules")}</p>
             </div>
             <Link to="/courses" className="text-xs font-bold text-[#2d6a4f] hover:underline">
               Explore All Courses →
@@ -443,8 +444,8 @@ export function StudentHomePage() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-xl font-black text-[#1b4332]">Featured Internship Opportunities</h2>
-              <p className="text-xs text-muted-foreground">Apply for tech and research internships</p>
+              <h2 className="text-xl font-black text-[#1b4332]">{t("Featured Internship Opportunities")}</h2>
+              <p className="text-xs text-muted-foreground">{t("Apply for tech and research internships")}</p>
             </div>
             <Link to="/internships" className="text-xs font-bold text-[#2d6a4f] hover:underline">
               View All Listings →
@@ -1043,7 +1044,7 @@ export function FarmerHomePage() {
                   </div>
                   <div>
                     <p className="text-[10px] text-muted-foreground font-semibold">{t("Wind")}</p>
-                    <p className="text-xs font-black text-[#1b4332] mt-0.5">12 km/h</p>
+                    <p className="text-xs font-black text-[#1b4332] mt-0.5">{t("12 km/h")}</p>
                   </div>
                   <div>
                     <p className="text-[10px] text-muted-foreground font-semibold">{t("Rain")}</p>
@@ -1197,6 +1198,7 @@ export function FarmerHomePage() {
 }
 
 export function MarketplacePage() {
+  const { t } = useTranslation();
   // Read search query from URL search parameters on initialization
   const initialQuery = useMemo(() => {
     if (typeof window === "undefined") return "";
@@ -1269,9 +1271,9 @@ export function MarketplacePage() {
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
       <PageShell
-        eyebrow="Marketplace"
-        title="Farm input marketplace"
-        intro="Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart."
+        eyebrow={t("Marketplace")}
+        title={t("Farm input marketplace")}
+        intro={t("Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart.")}
       >
         <div className="mb-6 grid gap-3 rounded-2xl border border-border bg-card p-4 shadow-soft lg:grid-cols-[1fr_12rem_12rem_14rem]">
           <label className="relative block">
@@ -1279,7 +1281,7 @@ export function MarketplacePage() {
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search seeds, fertiliser, tools..."
+              placeholder={t("Search seeds, fertiliser, tools...")}
               className="h-10 w-full rounded-xl border border-input bg-background pl-9 pr-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
             />
           </label>
@@ -1290,7 +1292,7 @@ export function MarketplacePage() {
           >
             {CATEGORIES.map((cat) => (
               <option key={cat.id} value={cat.id}>
-                {cat.label}
+                {t(cat.label)}
               </option>
             ))}
           </select>
@@ -1299,14 +1301,14 @@ export function MarketplacePage() {
             onChange={(e) => setSort(e.target.value)}
             className="h-10 rounded-xl border border-input bg-background px-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
           >
-            <option value="featured">Featured first</option>
-            <option value="rating">Top rated</option>
-            <option value="price-low">Price low to high</option>
-            <option value="price-high">Price high to low</option>
+            <option value="featured">{t("Featured first")}</option>
+            <option value="rating">{t("Top rated")}</option>
+            <option value="price-low">{t("Price low to high")}</option>
+            <option value="price-high">{t("Price high to low")}</option>
           </select>
           <label className="flex items-center gap-3 text-sm">
             <Filter className="h-4 w-4 text-primary" />
-            <span className="shrink-0">Max</span>
+            <span className="shrink-0">{t("Max")}</span>
             <input
               type="range"
               min="500"
@@ -1319,7 +1321,7 @@ export function MarketplacePage() {
             <span className="w-16 text-right font-bold">{formatRupees(maxPrice)}</span>
           </label>
         </div>
-        <p className="mb-4 text-sm text-muted-foreground">{filtered.length} products found</p>
+        <p className="mb-4 text-sm text-muted-foreground">{filtered.length} {t("products found")}</p>
         {filtered.length ? (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
             {filtered.map((product) => (
@@ -1328,8 +1330,8 @@ export function MarketplacePage() {
           </div>
         ) : (
           <EmptyState
-            title="No matching products"
-            body="Try another crop input, category, or raise the max price filter."
+            title={t("No matching products")}
+            body={t("Try another crop input, category, or raise the max price filter.")}
           />
         )}
       </PageShell>
@@ -1338,6 +1340,7 @@ export function MarketplacePage() {
 }
 
 export function ProductDetailPage({ id }: { id: string }) {
+  const { t } = useTranslation();
   const product = getProduct(id);
   const [qty, setQty] = useState(1);
   const { addItem } = useCart();
@@ -1347,18 +1350,18 @@ export function ProductDetailPage({ id }: { id: string }) {
     return (
       <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
         <PageShell
-          title="Product not found"
-          intro="This product ID does not match the current PureFarm catalogue."
+          title={t("Product not found")}
+          intro={t("This product ID does not match the current PureFarm catalogue.")}
         >
           <EmptyState
-            title="Invalid product"
-            body="Return to the marketplace to find active products."
+            title={t("Invalid product")}
+            body={t("Return to the marketplace to find active products.")}
             action={
               <Link
                 to="/marketplace"
                 className="rounded-lg bg-primary px-4 py-2 font-bold text-primary-foreground"
               >
-                Browse marketplace
+                {t("Browse Marketplace")}
               </Link>
             }
           />
@@ -1373,7 +1376,7 @@ export function ProductDetailPage({ id }: { id: string }) {
 
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
-      <PageShell eyebrow={product.category} title={product.name} intro={product.description}>
+      <PageShell eyebrow={t(product.category)} title={t(product.name)} intro={t(product.description)}>
         <div className="grid gap-7 lg:grid-cols-[0.9fr_1.1fr]">
           <img
             src={product.image}
@@ -1383,15 +1386,15 @@ export function ProductDetailPage({ id }: { id: string }) {
           <div className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-6">
             <div className="flex flex-wrap items-center gap-2">
               <span className="rounded-lg bg-emerald-50 border border-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-800">
-                {product.brand}
+                {t(product.brand)}
               </span>
               {product.badge ? (
                 <span className="rounded-lg bg-amber-50 border border-amber-100 px-2.5 py-1 text-xs font-bold text-amber-800">
-                  {product.badge}
+                  {t(product.badge)}
                 </span>
               ) : null}
               <span className="rounded-lg bg-accent px-2.5 py-1 text-xs font-bold text-accent-foreground">
-                {product.rating} ★ rating
+                {product.rating} ★ {t("rating")}
               </span>
             </div>
             <p className="text-4xl font-black text-[#1b4332]">
@@ -1401,12 +1404,12 @@ export function ProductDetailPage({ id }: { id: string }) {
             <div className="grid gap-3 sm:grid-cols-2">
               {[
                 [
-                  "Availability",
-                  product.stock > 0 ? `${product.stock} units ready` : "Out of stock",
+                  t("Availability"),
+                  product.stock > 0 ? `${product.stock} ${t("units ready")}` : t("Out of Stock"),
                 ],
-                ["Seller", product.brand],
-                ["Category", product.category],
-                ["Delivery", "Local hub dispatch in 1-3 days"],
+                [t("Seller"), t(product.brand)],
+                [t("Category"), t(product.category)],
+                [t("Delivery"), t("Local hub dispatch in 1-3 days")],
               ].map(([label, value]) => (
                 <div
                   key={label}
@@ -1444,7 +1447,7 @@ export function ProductDetailPage({ id }: { id: string }) {
                 onClick={() => addItem(product.id, qty)}
                 className="rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-6 py-3 font-black text-sm shadow-sm transition hover:scale-105 duration-200"
               >
-                Add to cart
+                {t("Add to Cart")}
               </button>
               <button
                 type="button"
@@ -1454,12 +1457,12 @@ export function ProductDetailPage({ id }: { id: string }) {
                 }}
                 className="rounded-xl bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 font-black text-sm shadow-sm transition hover:scale-105 duration-200"
               >
-                Buy now
+                {t("Buy now")}
               </button>
             </div>
           </div>
         </div>
-        <h2 className="mt-12 text-2xl font-black">Related products</h2>
+        <h2 className="mt-12 text-2xl font-black">{t("Related products")}</h2>
         <div className="mt-5 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {related.map((item) => (
             <ProductCard key={item.id} product={item} />
@@ -1471,6 +1474,7 @@ export function ProductDetailPage({ id }: { id: string }) {
 }
 
 export function CartPage() {
+  const { t } = useTranslation();
   const { items, subtotal, updateQty, removeItem, syncCartWithDatabase } = useCart();
   const rows = getCartProducts(items);
   const [stockWarning, setStockWarning] = useState<string | null>(null);
@@ -1504,14 +1508,14 @@ export function CartPage() {
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
       <PageShell
-        eyebrow="Shopping Cart"
-        title="Your Cart & Produce Items"
-        intro="Review your items and selected quantities before proceeding to checkout."
+        eyebrow={t("Shopping Cart")}
+        title={t("Your Cart & Produce Items")}
+        intro={t("Review your items and selected quantities before proceeding to checkout.")}
       >
         {stockWarning && (
           <div className="mb-6 p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm font-semibold flex items-center justify-between">
             <span>⚠️ {stockWarning}</span>
-            <button onClick={() => setStockWarning(null)} className="text-xs font-bold text-amber-900 underline">Dismiss</button>
+            <button onClick={() => setStockWarning(null)} className="text-xs font-bold text-amber-900 underline">{t("Dismiss")}</button>
           </div>
         )}
 
@@ -1536,13 +1540,13 @@ export function CartPage() {
                       className="h-24 w-full rounded-xl object-cover bg-muted"
                     />
                     <div>
-                      <h3 className="font-bold text-lg text-foreground">{product.name}</h3>
+                      <h3 className="font-bold text-lg text-foreground">{t(product.name)}</h3>
                       <p className="mt-1 text-xs font-semibold text-muted-foreground">
                         {formatRupees(unitPrice)} / {product.unit}
                       </p>
                       {availStock !== undefined && (
                         <p className="mt-1 text-xs font-medium text-emerald-700">
-                          Stock Available: {availStock} {product.unit}
+                          {t("Stock Available")}: {availStock} {product.unit}
                         </p>
                       )}
                       <button
@@ -1550,7 +1554,7 @@ export function CartPage() {
                         onClick={() => removeItem(product.id)}
                         className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 hover:text-rose-800 transition"
                       >
-                        <Trash2 className="h-3.5 w-3.5" /> Remove Item
+                        <Trash2 className="h-3.5 w-3.5" /> {t("Remove Item")}
                       </button>
                     </div>
                     <div className="flex items-center justify-between gap-4 sm:flex-col sm:items-end">
@@ -1584,25 +1588,25 @@ export function CartPage() {
 
             {/* Summary Box */}
             <div className="rounded-2xl border bg-card p-6 shadow-sm h-fit space-y-4">
-              <h3 className="text-lg font-bold text-foreground">Order Summary</h3>
+              <h3 className="text-lg font-bold text-foreground">{t("Order Summary")}</h3>
               <div className="space-y-3 text-sm border-t pt-4">
                 <div className="flex justify-between text-muted-foreground font-medium">
-                  <span>Subtotal ({items.reduce((s, i) => s + i.qty, 0)} items)</span>
+                  <span>{t("Subtotal")} ({items.reduce((s, i) => s + i.qty, 0)} items)</span>
                   <span className="font-bold text-foreground">{formatRupees(subtotal)}</span>
                 </div>
                 <div className="flex justify-between text-muted-foreground font-medium">
-                  <span>Delivery Fee</span>
-                  <span className="font-bold text-emerald-600">FREE</span>
+                  <span>{t("Delivery Fee")}</span>
+                  <span className="font-bold text-emerald-600">{t("FREE")}</span>
                 </div>
                 <div className="border-t pt-3 flex justify-between text-lg font-black text-foreground">
-                  <span>Total Amount</span>
+                  <span>{t("Total Amount")}</span>
                   <span className="text-[#087F5B]">{formatRupees(subtotal)}</span>
                 </div>
               </div>
 
               {hasSoldOutItem ? (
                 <div className="w-full mt-4 p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-bold text-center">
-                  Some items in your cart are sold out. Remove them to proceed.
+                  {t("Some items in your cart are sold out. Remove them to proceed.")}
                 </div>
               ) : null}
 
@@ -1617,7 +1621,7 @@ export function CartPage() {
                     : "bg-[#087F5B] hover:bg-[#073B2A]"
                 }`}
               >
-                Proceed to Checkout <ArrowRight className="h-4 w-4" />
+                {t("Proceed to Checkout")} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -1627,15 +1631,15 @@ export function CartPage() {
             <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#087F5B] flex items-center justify-center mx-auto mb-2">
               <ShoppingBag className="h-8 w-8" />
             </div>
-            <h3 className="text-xl font-bold text-[#073B2A]">Your cart is empty.</h3>
+            <h3 className="text-xl font-bold text-[#073B2A]">{t("Your cart is empty.")}</h3>
             <p className="text-sm text-emerald-800/80 leading-relaxed">
-              Add farm produce from the marketplace to get started with direct purchasing.
+              {t("Add farm produce from the marketplace to get started with direct purchasing.")}
             </p>
             <Link
               to="/marketplace"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-md transition"
             >
-              Browse Marketplace <ArrowRight className="h-4 w-4" />
+              {t("Browse Marketplace")} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         )}
@@ -1645,6 +1649,7 @@ export function CartPage() {
 }
 
 export function OrderPage() {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const { items, subtotal, clearCart, syncCartWithDatabase } = useCart();
   const rows = getCartProducts(items);
@@ -1786,22 +1791,21 @@ export function OrderPage() {
               <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/50 p-12 text-center max-w-xl mx-auto my-8 space-y-4">
                 <ShoppingBag className="h-12 w-12 text-[#087F5B] mx-auto mb-2" />
                 <h3 className="text-xl font-bold text-[#073B2A]">Your cart is empty.</h3>
-                <p className="text-sm text-emerald-800/80">Add products to the cart before checking out.</p>
+                <p className="text-sm text-emerald-800/80">{t("Add products to the cart before checking out.")}</p>
                 <Link
                   to="/marketplace"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] text-white font-bold text-sm shadow-md"
-                >
-                  Start Shopping <ArrowRight className="h-4 w-4" />
+                >{t("Start Shopping")}<ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             ) : (
               <div className="grid gap-6 lg:grid-cols-[1fr_24rem]">
                 {/* Delivery & Contact Details Form */}
                 <form onSubmit={handlePlaceOrderSubmit} className="rounded-2xl border bg-card p-6 shadow-sm space-y-4">
-                  <h3 className="text-lg font-bold text-foreground">Delivery & Contact Information</h3>
+                  <h3 className="text-lg font-bold text-foreground">{t("Delivery & Contact Information")}</h3>
 
                   <div>
-                    <label className="text-xs font-bold text-foreground block mb-1">Full Name</label>
+                    <label className="text-xs font-bold text-foreground block mb-1">{t("Full Name")}</label>
                     <input
                       type="text"
                       required
@@ -1825,7 +1829,7 @@ export function OrderPage() {
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-foreground block mb-1">Delivery Location / Address *</label>
+                    <label className="text-xs font-bold text-foreground block mb-1">{t("Delivery Location / Address *")}</label>
                     <textarea
                       rows={3}
                       required
@@ -1837,7 +1841,7 @@ export function OrderPage() {
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-foreground block mb-1">Order Notes (Optional)</label>
+                    <label className="text-xs font-bold text-foreground block mb-1">{t("Order Notes (Optional)")}</label>
                     <input
                       type="text"
                       value={notes}
@@ -1849,9 +1853,9 @@ export function OrderPage() {
 
                   {/* Payment Disclaimer */}
                   <div className="p-4 rounded-xl bg-muted border text-xs text-muted-foreground space-y-1">
-                    <p className="font-bold text-foreground">Payment Method</p>
+                    <p className="font-bold text-foreground">{t("Payment Method")}</p>
                     <p>💳 <strong>Payment integration coming soon (Cash on Delivery)</strong></p>
-                    <p className="text-xs">No online payment is processed today. Pay cash or UPI upon crop inspection & delivery.</p>
+                    <p className="text-xs">{t("No online payment is processed today. Pay cash or UPI upon crop inspection & delivery.")}</p>
                   </div>
 
                   <button
@@ -1886,12 +1890,12 @@ export function OrderPage() {
 
                   <div className="border-t pt-4 space-y-2 text-sm">
                     <div className="flex justify-between text-muted-foreground font-medium">
-                      <span>Subtotal</span>
+                      <span>{t("Subtotal")}</span>
                       <span className="font-bold text-foreground">{formatRupees(subtotal)}</span>
                     </div>
                     <div className="flex justify-between text-muted-foreground font-medium">
                       <span>Delivery</span>
-                      <span className="font-bold text-emerald-600">FREE</span>
+                      <span className="font-bold text-emerald-600">{t("FREE")}</span>
                     </div>
                     <div className="border-t pt-3 flex justify-between text-lg font-black text-foreground">
                       <span>Total</span>
@@ -1920,15 +1924,14 @@ export function OrderPage() {
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#087F5B] flex items-center justify-center mx-auto mb-2">
                   <Package className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-bold text-[#073B2A]">You haven't placed any orders yet.</h3>
+                <h3 className="text-xl font-bold text-[#073B2A]">{t("You haven't placed any orders yet.")}</h3>
                 <p className="text-sm text-emerald-800/80 leading-relaxed">
                   Explore fresh produce from local farmers across India and place your first direct order.
                 </p>
                 <Link
                   to="/marketplace"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-md transition"
-                >
-                  Start Shopping <ArrowRight className="h-4 w-4" />
+                >{t("Start Shopping")}<ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             ) : (
@@ -1951,7 +1954,7 @@ export function OrderPage() {
                         </p>
                       </div>
                       <div className="text-right">
-                        <span className="text-xs text-muted-foreground block font-medium">Total Amount</span>
+                        <span className="text-xs text-muted-foreground block font-medium">{t("Total Amount")}</span>
                         <span className="text-xl font-black text-[#087F5B]">{formatRupees(order.total_amount)}</span>
                       </div>
                     </div>
@@ -1979,7 +1982,7 @@ export function OrderPage() {
                     {/* Delivery Location */}
                     <div className="pt-3 border-t flex items-center gap-2 text-xs text-muted-foreground">
                       <MapPin className="h-3.5 w-3.5 text-[#087F5B]" />
-                      <span>Delivery Location: <strong>{order.delivery_location}</strong></span>
+                      <span>{t("Delivery Location:")}<strong>{order.delivery_location}</strong></span>
                     </div>
                   </div>
                 ))}
@@ -2245,10 +2248,10 @@ export function MarketPage() {
             <div className="relative flex items-center gap-4 z-10 shrink-0">
               <div className="text-right hidden sm:block">
                 <span className="block text-base font-extrabold text-[#15803d] italic tracking-wide drop-shadow-xs">
-                  Better Prices
+                  {t("Better Prices")}
                 </span>
                 <span className="block text-sm font-bold text-[#047857] italic">
-                  Brighter Futures
+                  {t("Brighter Futures")}
                 </span>
               </div>
               <div className="w-24 h-16 sm:w-32 sm:h-20 rounded-2xl overflow-hidden shadow-md border-2 border-white/80 shrink-0 relative bg-emerald-800">
@@ -2288,7 +2291,7 @@ export function MarketPage() {
                   <option value="all">{t("All Crops")}</option>
                   {cropsList.filter((c) => c !== "all").map((c) => (
                     <option key={c} value={c}>
-                      {c}
+                      {t(c)}
                     </option>
                   ))}
                 </select>
@@ -2306,7 +2309,7 @@ export function MarketPage() {
                   <option value="all">{t("All States")}</option>
                   {statesList.filter((s) => s !== "all").map((s) => (
                     <option key={s} value={s}>
-                      {s}
+                      {t(s)}
                     </option>
                   ))}
                 </select>
@@ -2330,12 +2333,12 @@ export function MarketPage() {
               <table className="market-price-table">
                 <thead>
                   <tr>
-                    <th>🌱 Crop</th>
-                    <th>📍 Mandi</th>
-                    <th>📥 Arrival</th>
-                    <th>💰 Price</th>
-                    <th>📈 Trend</th>
-                    <th className="text-right">Action</th>
+                    <th>🌱 {t("Crop")}</th>
+                    <th>📍 {t("Mandi")}</th>
+                    <th>📥 {t("Arrival")}</th>
+                    <th>💰 {t("Price")}</th>
+                    <th>📈 {t("Trend")}</th>
+                    <th className="text-right">{t("Action")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -2346,11 +2349,11 @@ export function MarketPage() {
                         <td className="text-sm font-bold text-gray-900 whitespace-nowrap">
                           <span className="inline-flex items-center gap-2">
                             <span className="text-lg">{row.icon || getCropIcon(row.crop_name)}</span>
-                            <span>{row.crop_name}</span>
+                            <span>{t(row.crop_name)}</span>
                           </span>
                         </td>
                         <td className="text-sm font-medium text-gray-700 whitespace-nowrap">
-                          {row.location}
+                          {t(row.location)}
                         </td>
                         <td className="text-sm font-medium text-gray-600 whitespace-nowrap">
                           {row.arrival}
@@ -2374,7 +2377,7 @@ export function MarketPage() {
                             onClick={() => setSelectedDetailItem(row)}
                             className="btn-view-details-agri"
                           >
-                            View Details
+                            {t("View Details")}
                           </button>
                         </td>
                       </tr>
@@ -2383,7 +2386,7 @@ export function MarketPage() {
                   {filteredRows.length === 0 && (
                     <tr>
                       <td colSpan={6} className="py-12 text-center text-gray-500 text-sm">
-                        No matching market prices found. Try adjusting your search or filters.
+                        {t("No matching market prices found. Try adjusting your search or filters.")}
                       </td>
                     </tr>
                   )}
@@ -2398,8 +2401,8 @@ export function MarketPage() {
                   <Sprout className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-gray-900">Real-time Prices</h4>
-                  <p className="text-[11px] text-gray-500">Updated from authentic sources</p>
+                  <h4 className="text-xs font-bold text-gray-900">{t("Real-time Prices")}</h4>
+                  <p className="text-[11px] text-gray-500">{t("Updated from authentic sources")}</p>
                 </div>
               </div>
 
@@ -2408,8 +2411,8 @@ export function MarketPage() {
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-gray-900">Trusted Information</h4>
-                  <p className="text-[11px] text-gray-500">Verified mandi data</p>
+                  <h4 className="text-xs font-bold text-gray-900">{t("Trusted Information")}</h4>
+                  <p className="text-[11px] text-gray-500">{t("Verified mandi data")}</p>
                 </div>
               </div>
 
@@ -2418,8 +2421,8 @@ export function MarketPage() {
                   <BarChart2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-gray-900">Better Decisions</h4>
-                  <p className="text-[11px] text-gray-500">Plan your sell with confidence</p>
+                  <h4 className="text-xs font-bold text-gray-900">{t("Better Decisions")}</h4>
+                  <p className="text-[11px] text-gray-500">{t("Plan your sell with confidence")}</p>
                 </div>
               </div>
 
@@ -2428,8 +2431,8 @@ export function MarketPage() {
                   <Users className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-gray-900">Stronger Farmers</h4>
-                  <p className="text-[11px] text-gray-500">Together for a prosperous future</p>
+                  <h4 className="text-xs font-bold text-gray-900">{t("Stronger Farmers")}</h4>
+                  <p className="text-[11px] text-gray-500">{t("Together for a prosperous future")}</p>
                 </div>
               </div>
             </div>
@@ -2438,7 +2441,7 @@ export function MarketPage() {
           {/* BOTTOM FOOTER RIBBON */}
           <div className="py-4 text-center text-xs font-bold text-emerald-800 tracking-wide flex items-center justify-center gap-2">
             <span>🌱</span>
-            <span>Farming Today for a Greener Tomorrow</span>
+            <span>{t("Farming Today for a Greener Tomorrow")}</span>
             <span>🌱</span>
           </div>
         </div>
@@ -2451,8 +2454,8 @@ export function MarketPage() {
                 <div className="flex items-center gap-2.5">
                   <span className="text-2xl">{selectedDetailItem.icon || getCropIcon(selectedDetailItem.crop_name)}</span>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900">{selectedDetailItem.crop_name}</h3>
-                    <p className="text-xs text-gray-500">{selectedDetailItem.location}</p>
+                    <h3 className="text-lg font-bold text-gray-900">{t(selectedDetailItem.crop_name)}</h3>
+                    <p className="text-xs text-gray-500">{t(selectedDetailItem.location)}</p>
                   </div>
                 </div>
                 <button
@@ -2465,29 +2468,29 @@ export function MarketPage() {
 
               <div className="space-y-3 py-2 text-sm">
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
-                  <span className="text-gray-500 font-medium">Mandi / Market</span>
-                  <span className="font-bold text-gray-900">{selectedDetailItem.market_name}</span>
+                  <span className="text-gray-500 font-medium">{t("Mandi / Market")}</span>
+                  <span className="font-bold text-gray-900">{t(selectedDetailItem.market_name)}</span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
-                  <span className="text-gray-500 font-medium">State</span>
-                  <span className="font-bold text-gray-900">{selectedDetailItem.state}</span>
+                  <span className="text-gray-500 font-medium">{t("State")}</span>
+                  <span className="font-bold text-gray-900">{t(selectedDetailItem.state)}</span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
-                  <span className="text-gray-500 font-medium">Daily Arrival</span>
+                  <span className="text-gray-500 font-medium">{t("Daily Arrival")}</span>
                   <span className="font-bold text-gray-900">{selectedDetailItem.arrival}</span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
-                  <span className="text-gray-500 font-medium">Current Price</span>
+                  <span className="text-gray-500 font-medium">{t("Current Price")}</span>
                   <span className="font-extrabold text-emerald-700 text-base">₹{Number(selectedDetailItem.price).toLocaleString()}/{selectedDetailItem.unit || "qtl"}</span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
-                  <span className="text-gray-500 font-medium">24h Trend</span>
+                  <span className="text-gray-500 font-medium">{t("24h Trend")}</span>
                   <span className={`font-bold ${selectedDetailItem.change_pct >= 0 ? "text-emerald-600" : "text-rose-600"}`}>
                     {selectedDetailItem.change_pct >= 0 ? `↗ +${selectedDetailItem.change_pct}%` : `↘ ${selectedDetailItem.change_pct}%`}
                   </span>
                 </div>
                 <div className="flex justify-between items-center py-1.5">
-                  <span className="text-gray-500 font-medium">Data Source</span>
+                  <span className="text-gray-500 font-medium">{t("Data Source")}</span>
                   <span className="font-semibold text-gray-700 text-xs">{selectedDetailItem.source || "Government AGMARKNET"}</span>
                 </div>
               </div>
@@ -2496,7 +2499,7 @@ export function MarketPage() {
                 onClick={() => setSelectedDetailItem(null)}
                 className="w-full py-2.5 rounded-full bg-[#15803d] hover:bg-[#166534] text-white font-bold text-sm transition-colors shadow-sm cursor-pointer"
               >
-                Close Details
+                {t("Close Details")}
               </button>
             </div>
           </div>
@@ -2507,6 +2510,7 @@ export function MarketPage() {
 }
 
 export function SchemesPage() {
+  const { t } = useTranslation();
   const [query, setQuery] = useState("");
   const rows = SCHEMES.filter((s) =>
     `${s.name} ${s.category} ${s.eligibility}`.toLowerCase().includes(query.toLowerCase()),
@@ -2533,6 +2537,7 @@ export function SchemesPage() {
 }
 
 export function InsurancePage() {
+  const { t } = useTranslation();
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <CardGridPage
@@ -2553,6 +2558,7 @@ export function InsurancePage() {
 }
 
 export function PmfbyDetailPage() {
+  const { t } = useTranslation();
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
@@ -2584,18 +2590,14 @@ export function PmfbyDetailPage() {
             <CheckCircle2 className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Coverage Stages</h3>
             <p className="mt-1 text-sm font-bold text-primary">Sowing to Post-Harvest</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Covers Prevented Sowing / Planting Risk, Standing Crop (Yield Losses due to drought, flood, pests, diseases), Localised Calamities (hailstorm, landslide, inundation), and Post-Harvest Losses (up to 14 days).
-            </p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Covers Prevented Sowing / Planting Risk, Standing Crop (Yield Losses due to drought, flood, pests, diseases), Localised Calamities (hailstorm, landslide, inundation), and Post-Harvest Losses (up to 14 days).")}</p>
           </div>
 
           <div className={glassCardClass}>
             <Leaf className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Eligible Crops</h3>
             <p className="mt-1 text-sm font-bold text-primary">Food, Oilseeds & Annual Crops</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Notified crops including Paddy, Wheat, Cotton, Maize, Mustard, Pulses, Commercial, and Horticultural crops notified by state governments.
-            </p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Notified crops including Paddy, Wheat, Cotton, Maize, Mustard, Pulses, Commercial, and Horticultural crops notified by state governments.")}</p>
           </div>
 
           <div className={glassCardClass}>
@@ -2611,18 +2613,14 @@ export function PmfbyDetailPage() {
             <Users className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Management & Implementation</h3>
             <p className="mt-1 text-sm font-bold text-primary">Empanelled Insurers & State Govts</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Administered through empanelled public and private general insurance companies under oversight of State Agriculture Departments.
-            </p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Administered through empanelled public and private general insurance companies under oversight of State Agriculture Departments.")}</p>
           </div>
 
           <div className={glassCardClass}>
             <Award className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Claim Settlement</h3>
             <p className="mt-1 text-sm font-bold text-primary">Direct Bank Transfer (DBT)</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Claim payouts are calculated based on Crop Cutting Experiments (CCE) data or weather triggers and directly credited to farmers' Aadhaar-seeded bank accounts.
-            </p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Claim payouts are calculated based on Crop Cutting Experiments (CCE) data or weather triggers and directly credited to farmers' Aadhaar-seeded bank accounts.")}</p>
           </div>
         </div>
       </PageShell>
@@ -2631,6 +2629,7 @@ export function PmfbyDetailPage() {
 }
 
 export function WeatherBasedDetailPage() {
+  const { t } = useTranslation();
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
@@ -2662,9 +2661,7 @@ export function WeatherBasedDetailPage() {
             <Wind className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Parameters Covered</h3>
             <p className="mt-1 text-sm font-bold text-primary">Rainfall, Temp, Humidity, Wind</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Covers rainfall deficit/excess, unseasonal rainfall, high/low temperature spikes, humidity fluctuations, and wind speed deviations.
-            </p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Covers rainfall deficit/excess, unseasonal rainfall, high/low temperature spikes, humidity fluctuations, and wind speed deviations.")}</p>
           </div>
 
           <div className={glassCardClass}>
@@ -2680,18 +2677,14 @@ export function WeatherBasedDetailPage() {
             <Shield className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Premium & Subsidy</h3>
             <p className="mt-1 text-sm font-bold text-primary">District & Crop Notified</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Actuarial premium varies by crop and district historical risk profiles, with government premium subsidies available.
-            </p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Actuarial premium varies by crop and district historical risk profiles, with government premium subsidies available.")}</p>
           </div>
 
           <div className={glassCardClass}>
             <MapPin className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Coverage Unit</h3>
             <p className="mt-1 text-sm font-bold text-primary">Reference Weather Station Unit</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Defined reference unit area tied to localized IMD or private automated weather station network data.
-            </p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Defined reference unit area tied to localized IMD or private automated weather station network data.")}</p>
           </div>
 
           <div className={glassCardClass}>
@@ -2709,6 +2702,7 @@ export function WeatherBasedDetailPage() {
 }
 
 export function LivestockDetailPage() {
+  const { t } = useTranslation();
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
@@ -2730,7 +2724,7 @@ export function LivestockDetailPage() {
           <div className={glassCardClass}>
             <ShieldCheck className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Covered Animals</h3>
-            <p className="mt-1 text-sm font-bold text-primary">Dairy Cattle, Buffalo, Goat & Sheep</p>
+            <p className="mt-1 text-sm font-bold text-primary">{t("Dairy Cattle, Buffalo, Goat & Sheep")}</p>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
               Protection for crossbred and indigenous milch cows, buffaloes, breeding bulls, and small ruminants (sheep & goats).
             </p>
@@ -2740,27 +2734,21 @@ export function LivestockDetailPage() {
             <Heart className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Scope of Protection</h3>
             <p className="mt-1 text-sm font-bold text-primary">Accident & Disease Risk</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Covers death due to accident, lightning, flood, disease outbreaks, calving complications, surgical procedures, and permanent total disability.
-            </p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Covers death due to accident, lightning, flood, disease outbreaks, calving complications, surgical procedures, and permanent total disability.")}</p>
           </div>
 
           <div className={glassCardClass}>
             <Scale className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Animal Valuation</h3>
             <p className="mt-1 text-sm font-bold text-primary">Veterinary Officer Valuation</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Market value of animal evaluated and certified by a registered Veterinary Assistant Surgeon at the time of insurance policy issuance.
-            </p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Market value of animal evaluated and certified by a registered Veterinary Assistant Surgeon at the time of insurance policy issuance.")}</p>
           </div>
 
           <div className={glassCardClass}>
             <Award className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Identification & Tagging</h3>
             <p className="mt-1 text-sm font-bold text-primary">Ear-Tagging / Microchip Identification</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Animals are tagged with tamper-proof ear tags or RFID microchips recorded in animal health databases for seamless claim verification.
-            </p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Animals are tagged with tamper-proof ear tags or RFID microchips recorded in animal health databases for seamless claim verification.")}</p>
           </div>
 
           <div className={glassCardClass}>
@@ -2776,9 +2764,7 @@ export function LivestockDetailPage() {
             <CheckCircle2 className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Claim Process</h3>
             <p className="mt-1 text-sm font-bold text-primary">Veterinary Certification & Payout</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Claims submitted along with post-mortem examination report and ear-tag verification by veterinary officers for quick payout release.
-            </p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Claims submitted along with post-mortem examination report and ear-tag verification by veterinary officers for quick payout release.")}</p>
           </div>
         </div>
       </PageShell>
@@ -2787,6 +2773,7 @@ export function LivestockDetailPage() {
 }
 
 export function WeatherPage() {
+  const { t } = useTranslation();
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
@@ -2815,6 +2802,7 @@ export function WeatherPage() {
 }
 
 export function CropCalendarPage() {
+  const { t } = useTranslation();
   const [selected, setSelected] = useState(CROPS[0]?.name || "");
   const crop = CROPS.find((item) => item.name === selected) || CROPS[0];
   return (
@@ -2841,7 +2829,7 @@ export function CropCalendarPage() {
           {crop ? (
             <div className={glassCardClass}>
               <p className="text-2xl font-black">
-                {crop.name} · {crop.season}
+                {t(crop.name)} · {crop.season}
               </p>
               <div className="mt-5 grid gap-3 sm:grid-cols-4">
                 {[
@@ -2874,6 +2862,7 @@ export function CropCalendarPage() {
 }
 
 export function LearnPage() {
+  const { t } = useTranslation();
   const [query, setQuery] = useState("");
   const rows = COURSES.filter((c) =>
     `${c.title} ${c.topic} ${c.level}`.toLowerCase().includes(query.toLowerCase()),
@@ -2900,6 +2889,7 @@ export function LearnPage() {
 }
 
 export function CoursesPage() {
+  const { t } = useTranslation();
   const [query, setQuery] = useState("");
   const filtered = COURSES.filter((c) =>
     `${c.title} ${c.topic} ${c.level}`.toLowerCase().includes(query.toLowerCase())
@@ -2957,6 +2947,7 @@ export function CoursesPage() {
 }
 
 export function MyCoursesPage() {
+  const { t } = useTranslation();
   return (
     <RoleGuard allowedRoles={["student", "admin"]}>
       <PageShell eyebrow="Dashboard" title="My Enrolled Courses" intro="Track ongoing learning progress across active tech and engineering courses.">
@@ -2988,6 +2979,7 @@ export function MyCoursesPage() {
 }
 
 export function MyApplicationsPage() {
+  const { t } = useTranslation();
   const sampleApps = [
     { title: "Frontend Development Intern", org: "PureFarm Tech", location: "Remote", stipend: "Rs. 15,000/month", status: "In Review", date: "Applied 2 days ago" },
     { title: "Python Development Intern", org: "AgriTech Solutions", location: "Hybrid", stipend: "Rs. 12,000/month", status: "Shortlisted", date: "Applied 1 week ago" },
@@ -3016,6 +3008,7 @@ export function MyApplicationsPage() {
 }
 
 export function CertificatesPage() {
+  const { t } = useTranslation();
   const sampleCertificates = [
     { title: "Web Development Fundamentals", date: "Issued Aug 2026", id: "CERT-9042" },
     { title: "Python Programming Foundations", date: "Issued Jul 2026", id: "CERT-8104" },
@@ -3034,9 +3027,7 @@ export function CertificatesPage() {
                   <p className="text-xs text-muted-foreground">{cert.date} · {cert.id}</p>
                 </div>
               </div>
-              <button type="button" className="w-full h-9 rounded-xl border border-border bg-muted/30 hover:bg-muted text-xs font-bold text-[#1b4332] transition">
-                Download Certificate (PDF)
-              </button>
+              <button type="button" className="w-full h-9 rounded-xl border border-border bg-muted/30 hover:bg-muted text-xs font-bold text-[#1b4332] transition">{t("Download Certificate (PDF)")}</button>
             </div>
           ))}
         </div>
@@ -3046,6 +3037,7 @@ export function CertificatesPage() {
 }
 
 export function InternshipsPage() {
+  const { t } = useTranslation();
   const [appliedId, setAppliedId] = useState<string | null>(null);
 
   return (
@@ -3096,6 +3088,7 @@ export function InternshipsPage() {
 }
 
 export function NotificationsPage() {
+  const { t } = useTranslation();
   const [items, setItems] = useState(NOTIFICATIONS);
   const unread = items.filter((n) => !n.read).length;
   return (
@@ -3125,6 +3118,7 @@ export function NotificationsPage() {
 }
 
 function NotificationRow({ item, onToggle }: { item: NotificationItem; onToggle: () => void }) {
+  const { t } = useTranslation();
   return (
     <button
       type="button"
@@ -3135,7 +3129,7 @@ function NotificationRow({ item, onToggle }: { item: NotificationItem; onToggle:
         <Bell className="mt-1 h-5 w-5 text-primary" />
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
-            <p className="font-black">{item.title}</p>
+            <p className="font-black">{t(item.title)}</p>
             <Pill>{item.category || item.tone}</Pill>
             <span className="text-xs text-muted-foreground">{item.time}</span>
           </div>
@@ -3147,6 +3141,7 @@ function NotificationRow({ item, onToggle }: { item: NotificationItem; onToggle:
 }
 
 export function AboutPage() {
+  const { t } = useTranslation();
   return (
     <PageShell
       eyebrow="About"
@@ -3158,9 +3153,7 @@ export function AboutPage() {
           <div key={title} className={cardClass}>
             <Users className="h-7 w-7 text-primary" />
             <p className="mt-3 text-xl font-black">{title}</p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              A cohesive experience for ordering, planning, learning, and contacting advisors.
-            </p>
+            <p className="mt-2 text-sm text-muted-foreground">{t("A cohesive experience for ordering, planning, learning, and contacting advisors.")}</p>
           </div>
         ))}
       </div>
@@ -3169,6 +3162,7 @@ export function AboutPage() {
 }
 
 export function SupportPage() {
+  const { t } = useTranslation();
   return (
     <FormPage
       eyebrow="Support"
@@ -3180,6 +3174,7 @@ export function SupportPage() {
 }
 
 export function ContactPage() {
+  const { t } = useTranslation();
   return (
     <FormPage
       eyebrow="Contact"
@@ -3328,9 +3323,7 @@ export function LoginPage() {
             <span className="block text-lg font-extrabold text-[#FFFFFF] drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] leading-none">
               Pure Farm
             </span>
-            <span className="block text-[9px] font-bold text-[#E8F5EE] tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] mt-1">
-              Agri Portal
-            </span>
+            <span className="block text-[9px] font-bold text-[#E8F5EE] tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] mt-1">{t("Agri Portal")}</span>
           </div>
         </Link>
 
@@ -3370,7 +3363,7 @@ export function LoginPage() {
                 </span>
                 <div>
                   <h4 className="text-sm font-extrabold text-[#FFFFFF]">Water Efficient</h4>
-                  <p className="text-xs font-medium text-[#E8F5EE]">Every drop counts</p>
+                  <p className="text-xs font-medium text-[#E8F5EE]">{t("Every drop counts")}</p>
                 </div>
               </div>
             </div>
@@ -3381,7 +3374,7 @@ export function LoginPage() {
             <div className="w-full max-w-md glass-card-dark p-6 sm:p-8 rounded-3xl border border-white/30 shadow-2xl">
               <div className="text-center mb-6">
                 <h2 className="text-2xl sm:text-3xl font-black text-white">Sign In to PureFarm</h2>
-                <p className="text-xs text-white/80 mt-1.5">Enter your account credentials to access your dashboard</p>
+                <p className="text-xs text-white/80 mt-1.5">{t("Enter your account credentials to access your dashboard")}</p>
               </div>
 
               {errorMessage && (
@@ -3453,16 +3446,12 @@ export function LoginPage() {
                     type="button"
                     onClick={() => handleDemoFill("buyer@purefarm.test")}
                     className="px-2.5 py-1 rounded-lg bg-white/20 hover:bg-white/30 text-white text-[11px] font-bold transition"
-                  >
-                    Buyer Demo
-                  </button>
+                  >{t("Buyer Demo")}</button>
                   <button
                     type="button"
                     onClick={() => handleDemoFill("student@purefarm.test")}
                     className="px-2.5 py-1 rounded-lg bg-white/20 hover:bg-white/30 text-white text-[11px] font-bold transition"
-                  >
-                    Student Demo
-                  </button>
+                  >{t("Student Demo")}</button>
                 </div>
               </div>
 
@@ -3486,7 +3475,7 @@ export function LoginPage() {
                 </span>
                 <div>
                   <h4 className="text-sm font-extrabold text-[#FFFFFF]">Verified Quality</h4>
-                  <p className="text-xs font-medium text-[#E8F5EE]">100% Certified</p>
+                  <p className="text-xs font-medium text-[#E8F5EE]">{t("100% Certified")}</p>
                 </div>
               </div>
             </div>
@@ -3498,6 +3487,7 @@ export function LoginPage() {
 }
 
 export function RegisterPage() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { signup } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
@@ -3595,7 +3585,7 @@ export function RegisterPage() {
             >
               <div className="p-2"><Leaf className="h-6 w-6 text-white" /></div>
               <div>
-                <h4 className="font-bold text-white text-sm">Direct Market Access</h4>
+                <h4 className="font-bold text-white text-sm">{t("Direct Market Access")}</h4>
                 <p className="text-white/80 text-xs">Sell harvest at transparent mandi prices</p>
               </div>
             </div>
@@ -3634,9 +3624,7 @@ export function RegisterPage() {
               <h3 className="text-2xl font-extrabold text-[#073B2A] drop-shadow-sm">
                 Create Account
               </h3>
-              <p className="text-xs font-semibold text-[#164F3C] mt-1">
-                Choose your role to get started with PureFarm
-              </p>
+              <p className="text-xs font-semibold text-[#164F3C] mt-1">{t("Choose your role to get started with PureFarm")}</p>
             </div>
 
             {/* 3-Way Role Selector Tabs */}
@@ -3687,7 +3675,7 @@ export function RegisterPage() {
 
             <form onSubmit={handleRegisterSubmit} className="space-y-3.5">
               <div className="space-y-1">
-                <label className="text-xs font-bold text-[#073B2A] block">Full Name</label>
+                <label className="text-xs font-bold text-[#073B2A] block">{t("Full Name")}</label>
                 <input
                   type="text"
                   required
@@ -3785,6 +3773,7 @@ export function RegisterPage() {
 }
 
 export function SellerPage() {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -4011,7 +4000,7 @@ export function SellerPage() {
       <PageShell eyebrow="Seller Portal" title="Farmer Product Management">
         <div className="rounded-2xl border bg-card p-8 text-center shadow-sm max-w-xl mx-auto my-12">
           <Leaf className="h-12 w-12 text-[#087F5B] mx-auto mb-4" />
-          <h2 className="text-xl font-bold text-foreground mb-2">Farmer Authentication Required</h2>
+          <h2 className="text-xl font-bold text-foreground mb-2">{t("Farmer Authentication Required")}</h2>
           <p className="text-muted-foreground text-sm mb-6">
             Please log in with your Farmer account to manage product listings, inventory, and sales.
           </p>
@@ -4033,15 +4022,13 @@ export function SellerPage() {
           <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto mb-4 font-bold text-xl">
             !
           </div>
-          <h2 className="text-xl font-bold text-foreground mb-2">Account Role Notice</h2>
+          <h2 className="text-xl font-bold text-foreground mb-2">{t("Account Role Notice")}</h2>
           <p className="text-muted-foreground text-sm mb-6">
-            You are currently logged in as <strong>{user.role.toUpperCase()}</strong>. Access to this product management interface is strictly restricted to registered Farmers.
-          </p>
+            You are currently logged in as <strong>{user.role.toUpperCase()}</strong>{t(". Access to this product management interface is strictly restricted to registered Farmers.")}</p>
           <Link
             to="/marketplace"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] text-white font-bold hover:bg-[#073B2A] transition"
-          >
-            Go to Marketplace <ArrowRight className="h-4 w-4" />
+          >{t("Go to Marketplace")}<ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </PageShell>
@@ -4087,8 +4074,7 @@ export function SellerPage() {
             onClick={openAddModal}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-xs shadow-md transition"
           >
-            <Plus className="h-4 w-4" /> List New Produce
-          </button>
+            <Plus className="h-4 w-4" />{t("List New Produce")}</button>
         )}
       </div>
 
@@ -4115,7 +4101,7 @@ export function SellerPage() {
               <div className="w-14 h-14 rounded-full bg-emerald-100 text-[#087F5B] flex items-center justify-center mx-auto mb-2 font-bold text-xl">
                 📦
               </div>
-              <h3 className="text-xl font-bold text-[#073B2A]">No received orders yet.</h3>
+              <h3 className="text-xl font-bold text-[#073B2A]">{t("No received orders yet.")}</h3>
               <p className="text-xs text-emerald-800/80 leading-relaxed">
                 When buyers purchase your listed produce, orders will automatically appear here.
               </p>
@@ -4139,7 +4125,7 @@ export function SellerPage() {
                       </p>
                     </div>
                     <div className="text-right">
-                      <span className="text-xs text-muted-foreground block font-medium">Order Total</span>
+                      <span className="text-xs text-muted-foreground block font-medium">{t("Order Total")}</span>
                       <span className="text-xl font-black text-[#087F5B]">{formatRupees(order.total_amount)}</span>
                     </div>
                   </div>
@@ -4168,7 +4154,7 @@ export function SellerPage() {
                   <div className="pt-3 border-t flex items-center justify-between text-xs text-muted-foreground">
                     <div className="flex items-center gap-2">
                       <MapPin className="h-3.5 w-3.5 text-[#087F5B]" />
-                      <span>Delivery Destination: <strong>{order.delivery_location}</strong></span>
+                      <span>{t("Delivery Destination:")}<strong>{order.delivery_location}</strong></span>
                     </div>
                     <span className="font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-100">
                       Payment: {order.payment_method?.toUpperCase() || "COD"} ({order.payment_status || "Pending"})
@@ -4200,7 +4186,7 @@ export function SellerPage() {
           <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#087F5B] flex items-center justify-center mx-auto mb-4">
             <Sprout className="h-8 w-8" />
           </div>
-          <h3 className="text-xl font-bold text-[#073B2A] mb-2">No products listed yet.</h3>
+          <h3 className="text-xl font-bold text-[#073B2A] mb-2">{t("No products listed yet.")}</h3>
           <p className="text-sm text-emerald-800/80 mb-6 leading-relaxed">
             You haven't listed any farm produce for sale yet. Start selling directly to verified buyers across India with zero middleman fees.
           </p>
@@ -4208,8 +4194,7 @@ export function SellerPage() {
             onClick={openAddModal}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-lg transition"
           >
-            <Plus className="h-4 w-4" /> List Your First Product
-          </button>
+            <Plus className="h-4 w-4" />{t("List Your First Product")}</button>
         </div>
       ) : (
         /* Product Grid */
@@ -4274,15 +4259,11 @@ export function SellerPage() {
                   <button
                     onClick={() => openEditModal(product)}
                     className="px-3 py-1.5 rounded-lg bg-emerald-100 text-[#087F5B] hover:bg-emerald-200 text-xs font-bold transition"
-                  >
-                    Edit
-                  </button>
+                  >{t("Edit")}</button>
                   <button
                     onClick={() => setDeletingProduct(product)}
                     className="px-3 py-1.5 rounded-lg bg-rose-100 text-rose-700 hover:bg-rose-200 text-xs font-bold transition"
-                  >
-                    Delete
-                  </button>
+                  >{t("Delete")}</button>
                 </div>
               </div>
             </div>
@@ -4451,7 +4432,7 @@ export function SellerPage() {
               </div>
 
               <div>
-                <label className="text-xs font-bold text-foreground block mb-1">Image URL (Optional)</label>
+                <label className="text-xs font-bold text-foreground block mb-1">{t("Image URL (Optional)")}</label>
                 <input
                   type="url"
                   value={formData.image_url}
@@ -4462,7 +4443,7 @@ export function SellerPage() {
               </div>
 
               <div>
-                <label className="text-xs font-bold text-foreground block mb-1">Description (Optional)</label>
+                <label className="text-xs font-bold text-foreground block mb-1">{t("Description (Optional)")}</label>
                 <textarea
                   rows={3}
                   value={formData.description}
@@ -4479,8 +4460,8 @@ export function SellerPage() {
                   onChange={(e) => setFormData({ ...formData, status: e.target.value as ProductStatus })}
                   className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
                 >
-                  <option value="available">Active (Visible on Marketplace)</option>
-                  <option value="inactive">Inactive (Hidden from Marketplace)</option>
+                  <option value="available">{t("Active (Visible on Marketplace)")}</option>
+                  <option value="inactive">{t("Inactive (Hidden from Marketplace)")}</option>
                 </select>
               </div>
 
@@ -4490,9 +4471,7 @@ export function SellerPage() {
                   onClick={() => setIsModalOpen(false)}
                   disabled={submitting}
                   className="px-5 py-2.5 rounded-xl border text-xs font-bold hover:bg-muted transition"
-                >
-                  Cancel
-                </button>
+                >{t("Cancel")}</button>
                 <button
                   type="submit"
                   disabled={submitting}
@@ -4510,18 +4489,15 @@ export function SellerPage() {
       {deletingProduct && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="bg-card border rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4">
-            <h3 className="text-lg font-bold text-foreground">Confirm Delete Product</h3>
-            <p className="text-sm text-muted-foreground">
-              Are you sure you want to remove <strong>"{deletingProduct.name || (deletingProduct as any).title}"</strong> from your catalog? This action cannot be undone.
+            <h3 className="text-lg font-bold text-foreground">{t("Confirm Delete Product")}</h3>
+            <p className="text-sm text-muted-foreground">{t("Are you sure you want to remove")}<strong>"{deletingProduct.name || (deletingProduct as any).title}"</strong> from your catalog? This action cannot be undone.
             </p>
             <div className="flex items-center justify-end gap-3 pt-4">
               <button
                 onClick={() => setDeletingProduct(null)}
                 disabled={submitting}
                 className="px-4 py-2 rounded-xl border text-xs font-bold hover:bg-muted"
-              >
-                Cancel
-              </button>
+              >{t("Cancel")}</button>
               <button
                 onClick={handleDeleteConfirm}
                 disabled={submitting}
@@ -4538,6 +4514,7 @@ export function SellerPage() {
 }
 
 export function AdminPage() {
+  const { t } = useTranslation();
   const { user } = useAuth();
 
   return (
@@ -4620,7 +4597,7 @@ export function CardGridPage({
           if (item.internalUrl) {
             return (
               <Link
-                key={item.title}
+                key={t(item.title)}
                 to={item.internalUrl}
                 className="block transition hover:-translate-y-0.5 cursor-pointer"
               >
@@ -4630,7 +4607,7 @@ export function CardGridPage({
           }
           return item.url ? (
             <a
-              key={item.title}
+              key={t(item.title)}
               href={item.url}
               target="_blank"
               rel="noreferrer"
@@ -4639,7 +4616,7 @@ export function CardGridPage({
               {content}
             </a>
           ) : (
-            <div key={item.title}>{content}</div>
+            <div key={t(item.title)}>{content}</div>
           );
         })}
       </div>
@@ -4654,6 +4631,7 @@ export function CardGridPage({
 
 export function ColdStoragePage() {
   const { user } = useAuth();
+  const { t } = useTranslation();
   const [facilities, setFacilities] = useState<ColdStorageFacility[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -4726,9 +4704,9 @@ export function ColdStoragePage() {
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "admin"]}>
       <PageShell
-        eyebrow="Produce Preservation & Logistics"
-        title="Cold Storage Finder"
-        intro="Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation."
+        eyebrow={t("Produce Preservation & Logistics")}
+        title={t("Cold Storage Finder")}
+        intro={t("Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation.")}
         bgImage="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop"
       >
         <div className="mb-8 p-6 rounded-2xl border border-white/50 bg-white/85 backdrop-blur-md shadow-md space-y-4">
@@ -4739,7 +4717,7 @@ export function ColdStoragePage() {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search by facility name or address..."
+                placeholder={t("Search by facility name or address...")}
                 className="w-full h-11 pl-10 pr-4 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
               />
             </div>
@@ -4750,53 +4728,53 @@ export function ColdStoragePage() {
               className="h-11 px-5 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-sm transition flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-50"
             >
               <Navigation className={`h-4 w-4 ${locationLoading ? "animate-spin" : ""}`} />
-              {locationLoading ? "Detecting..." : "Use My Location"}
+              {locationLoading ? t("Detecting...") : t("Use My Location")}
             </button>
           </div>
 
           {locationStatus && (
             <div className="text-xs font-semibold text-emerald-800 bg-emerald-50/80 p-2.5 rounded-lg border border-emerald-200/60 flex items-center gap-2">
               <MapPin className="h-3.5 w-3.5 text-[#087F5B]" />
-              <span>{locationStatus}</span>
+              <span>{t(locationStatus)}</span>
             </div>
           )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2 border-t border-border/60">
             <div>
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Status</label>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">{t("Status")}</label>
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
                 className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
               >
-                <option value="all">All Statuses</option>
-                <option value="available">🟢 Available</option>
-                <option value="full">🔴 Full</option>
-                <option value="maintenance">🟠 Maintenance</option>
+                <option value="all">{t("All Statuses")}</option>
+                <option value="available">🟢 {t("Available")}</option>
+                <option value="full">🔴 {t("Full")}</option>
+                <option value="maintenance">🟠 {t("Maintenance")}</option>
               </select>
             </div>
 
             <div>
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Sort By</label>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">{t("Sort By")}</label>
               <select
                 value={sortOrder}
                 onChange={(e) => setSortOrder(e.target.value as any)}
                 className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
               >
-                <option value="nearest">Nearest Distance First</option>
-                <option value="farthest">Farthest First</option>
-                <option value="capacity_high">Capacity: High to Low</option>
-                <option value="capacity_low">Capacity: Low to High</option>
+                <option value="nearest">{t("Nearest Distance First")}</option>
+                <option value="farthest">{t("Farthest First")}</option>
+                <option value="capacity_high">{t("Capacity: High to Low")}</option>
+                <option value="capacity_low">{t("Capacity: Low to High")}</option>
               </select>
             </div>
 
             <div className="sm:col-span-2 lg:col-span-2 flex items-end justify-between sm:justify-end gap-3 pb-1 text-xs font-bold text-muted-foreground">
-              <span>Showing {facilities.length} facility(ies)</span>
+              <span>{t("Showing")} {facilities.length} {t("facilities")}</span>
               <button
                 onClick={fetchFacilities}
                 className="inline-flex items-center gap-1.5 text-[#087F5B] hover:underline"
               >
-                <RefreshCw className="h-3.5 w-3.5" /> Refresh
+                <RefreshCw className="h-3.5 w-3.5" /> {t("Refresh")}
               </button>
             </div>
           </div>
@@ -4815,20 +4793,20 @@ export function ColdStoragePage() {
         ) : error ? (
           <div className="rounded-2xl border border-rose-200 bg-rose-50/80 p-8 text-center max-w-xl mx-auto my-8 space-y-4">
             <AlertTriangle className="h-12 w-12 text-rose-600 mx-auto" />
-            <h3 className="text-lg font-bold text-rose-900">Unable to load cold storage facilities</h3>
+            <h3 className="text-lg font-bold text-rose-900">{t("Unable to load cold storage facilities")}</h3>
             <p className="text-xs text-rose-700">{error}</p>
             <button
               onClick={fetchFacilities}
               className="px-6 py-2.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs shadow-md transition"
             >
-              Retry Loading
+              {t("Retry Loading")}
             </button>
           </div>
         ) : facilities.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/60 p-12 text-center max-w-xl mx-auto my-8 space-y-4">
             <Snowflake className="h-12 w-12 text-[#087F5B] mx-auto mb-2 opacity-80" />
-            <h3 className="text-xl font-bold text-[#073B2A]">No cold storage facilities found</h3>
-            <p className="text-sm text-emerald-800/80">Try changing your location or search filters.</p>
+            <h3 className="text-xl font-bold text-[#073B2A]">{t("No cold storage facilities found")}</h3>
+            <p className="text-sm text-emerald-800/80">{t("Try changing your location or search filters.")}</p>
             <button
               onClick={() => {
                 setSearch("");
@@ -4836,7 +4814,7 @@ export function ColdStoragePage() {
               }}
               className="px-5 py-2.5 rounded-xl bg-[#087F5B] text-white font-bold text-xs shadow-md"
             >
-              Reset Filters
+              {t("Reset Filters")}
             </button>
           </div>
         ) : (
@@ -4861,10 +4839,10 @@ export function ColdStoragePage() {
                           <Snowflake className="h-5 w-5" />
                         </span>
                         <div>
-                          <h3 className="font-bold text-foreground text-base leading-snug">{facility.name}</h3>
+                          <h3 className="font-bold text-foreground text-base leading-snug">{t(facility.name)}</h3>
                           {displayDistance !== null && (
                             <span className="text-xs font-bold text-emerald-800 flex items-center gap-1 mt-0.5">
-                              <MapPin className="h-3 w-3" /> {displayDistance} km away
+                              <MapPin className="h-3 w-3" /> {displayDistance} {t("km away")}
                             </span>
                           )}
                         </div>
@@ -4879,18 +4857,18 @@ export function ColdStoragePage() {
                             : "bg-emerald-100 text-emerald-800 border border-emerald-200"
                         }`}
                       >
-                        {isFull ? "🔴 Full" : isMaintenance ? "🟠 Maintenance" : "🟢 Available"}
+                        {isFull ? `🔴 ${t("Full")}` : isMaintenance ? `🟠 ${t("Maintenance")}` : `🟢 ${t("Available")}`}
                       </span>
                     </div>
 
                     <p className="text-xs text-muted-foreground leading-relaxed flex items-start gap-1.5">
                       <Building2 className="h-4 w-4 shrink-0 text-muted-foreground/70 mt-0.5" />
-                      <span>{facility.address}</span>
+                      <span>{t(facility.address)}</span>
                     </p>
 
                     <div className="p-4 rounded-xl bg-muted/60 border space-y-2">
                       <div className="flex items-center justify-between text-xs font-bold">
-                        <span className="text-foreground">Available Capacity</span>
+                        <span className="text-foreground">{t("Available Capacity")}</span>
                         <span className="text-[#087F5B]">
                           {facility.available_capacity.toLocaleString()} MT / {facility.capacity.toLocaleString()} MT
                         </span>
@@ -4906,18 +4884,18 @@ export function ColdStoragePage() {
                       </div>
 
                       <div className="flex items-center justify-between text-[11px] text-muted-foreground font-semibold">
-                        <span>{percentAvailable}% available space</span>
-                        <span>Total: {facility.capacity.toLocaleString()} MT</span>
+                        <span>{percentAvailable}% {t("available space")}</span>
+                        <span>{t("Total")}: {facility.capacity.toLocaleString()} MT</span>
                       </div>
                     </div>
 
                     {expandedId === facility.id && (
                       <div className="pt-3 border-t text-xs space-y-2 text-muted-foreground">
-                        <p className="font-bold text-foreground">Facility Specifications:</p>
+                        <p className="font-bold text-foreground">{t("Facility Specifications:")}</p>
                         <ul className="space-y-1 list-disc list-inside">
-                          <li>Temperature range: -2°C to +8°C (Multi-commodity)</li>
-                          <li>Humidity control: Automated 85%-95% RH</li>
-                          <li>Coordinates: {facility.latitude ?? "N/A"}, {facility.longitude ?? "N/A"}</li>
+                          <li>{t("Temperature range: -2°C to +8°C (Multi-commodity)")}</li>
+                          <li>{t("Humidity control: Automated 85%-95% RH")}</li>
+                          <li>{t("Coordinates:")} {facility.latitude ?? "N/A"}, {facility.longitude ?? "N/A"}</li>
                         </ul>
                       </div>
                     )}
@@ -4929,11 +4907,11 @@ export function ColdStoragePage() {
                         href={`tel:${facility.contact_number.replace(/\s+/g, "")}`}
                         className="flex-1 h-10 px-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-1.5"
                       >
-                        <Phone className="h-3.5 w-3.5" /> Call ({facility.contact_number})
+                        <Phone className="h-3.5 w-3.5" /> {t("Call")} ({facility.contact_number})
                       </a>
                     ) : (
                       <span className="text-xs font-bold text-muted-foreground py-2">
-                        Contact unavailable
+                        {t("Contact unavailable")}
                       </span>
                     )}
 
@@ -4941,7 +4919,7 @@ export function ColdStoragePage() {
                       onClick={() => toggleExpand(facility.id)}
                       className="h-10 px-3.5 rounded-xl border bg-background hover:bg-muted font-bold text-xs text-foreground transition flex items-center gap-1"
                     >
-                      {expandedId === facility.id ? "Hide Details" : "Details"}
+                      {expandedId === facility.id ? t("Hide Details") : t("Details")}
                       {expandedId === facility.id ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
                     </button>
                   </div>

@@ -128,7 +128,11 @@ export async function getColdStorageFacilities(options?: {
       facilities = [];
     }
   } else {
-    facilities = [];
+    facilities = [...DEFAULT_COLD_STORAGE_FACILITIES];
+  }
+
+  if (facilities.length === 0) {
+    facilities = [...DEFAULT_COLD_STORAGE_FACILITIES];
   }
 
   if (options?.userLat && options?.userLng) {
