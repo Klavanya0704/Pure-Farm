@@ -2856,7 +2856,7 @@ function SchemeCard({ scheme, isTelugu }: { scheme: Scheme; isTelugu: boolean })
         <h3
           className={`font-bold transition-colors ${
             scheme.id === "pm-kisan"
-              ? "text-white bg-[#0A2E20] px-3 py-1 rounded-xl shadow-sm inline-block group-hover:text-white"
+              ? "text-[#FFFFFF] group-hover:text-[#FFFFFF]"
               : "text-[#0F382A] group-hover:text-[#10B981]"
           } ${
             isTelugu
