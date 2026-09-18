@@ -2666,9 +2666,9 @@ function SchemeCard({ scheme, isTelugu }: { scheme: Scheme; isTelugu: boolean })
           {t(scheme.name)}
         </h3>
 
-        {/* Description: DARK CLEAR TELUGU TEXT */}
+        {/* Description: DARK CLEAR BOLD TELUGU TEXT */}
         <p
-          className={`mt-2.5 text-[#1C4837] font-medium transition-colors ${
+          className={`mt-2.5 text-[#0A2E20] font-bold transition-colors ${
             isTelugu
               ? "text-base sm:text-[17px] leading-[1.65]"
               : "text-sm sm:text-[15px] leading-relaxed"
