@@ -87,8 +87,19 @@ import { cardClass, glassCardClass, PageShell } from "./AppShell";
 import { getCartProducts, useCart } from "./CartContext";
 import { useAuth, type UserRole } from "./AuthContext";
 import { formatRupees, ProductCard, NEUTRAL_PRODUCT_FALLBACK } from "./ProductCard";
-import { getProducts, getFarmerProducts, createProduct, updateProduct, deleteProduct } from "@/services/products";
-import { createRealBuyerOrder, getOrdersByBuyer, getOrdersByFarmer, type OrderWithItems } from "@/services/orders";
+import {
+  getProducts,
+  getFarmerProducts,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+} from "@/services/products";
+import {
+  createRealBuyerOrder,
+  getOrdersByBuyer,
+  getOrdersByFarmer,
+  type OrderWithItems,
+} from "@/services/orders";
 import type { DbProduct, ProductCategory, ProductStatus } from "@/types/database";
 
 function Stat({ label, value }: { label: string; value: string }) {
@@ -158,7 +169,9 @@ export function AccessDenied({ requiredRoles }: { requiredRoles: string[] }) {
           type="button"
           onClick={() => void navigate({ to: getDashboardDestination() as "/" })}
           className="w-full h-11 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white font-black text-xs shadow-sm transition hover:scale-[1.01]"
-        >{t("Go to Dashboard")}</button>
+        >
+          {t("Go to Dashboard")}
+        </button>
       </div>
     </PageShell>
   );
@@ -190,7 +203,9 @@ export function RoleGuard({
   if (loading) {
     return (
       <div className="flex h-64 items-center justify-center">
-        <p className="text-sm text-muted-foreground font-semibold">{t("Checking authorization...")}</p>
+        <p className="text-sm text-muted-foreground font-semibold">
+          {t("Checking authorization...")}
+        </p>
       </div>
     );
   }
@@ -248,7 +263,8 @@ export function BuyerHomePage() {
               Fresh Produce & Quality Agri Products Delivered
             </h1>
             <p className="text-sm text-emerald-100/90 leading-relaxed font-medium">
-              Browse directly from verified local farmers and certified suppliers. High quality, fair prices, direct sourcing.
+              Browse directly from verified local farmers and certified suppliers. High quality,
+              fair prices, direct sourcing.
             </p>
             <div className="pt-2 flex flex-wrap gap-3">
               <Link
@@ -297,7 +313,9 @@ export function BuyerHomePage() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-xl font-black text-[#1b4332]">Explore Categories</h2>
-              <p className="text-xs text-muted-foreground">Find fresh crops, fruits, seeds, and equipment</p>
+              <p className="text-xs text-muted-foreground">
+                Find fresh crops, fruits, seeds, and equipment
+              </p>
             </div>
             <Link to="/marketplace" className="text-xs font-bold text-[#2d6a4f] hover:underline">
               View Catalog →
@@ -311,9 +329,15 @@ export function BuyerHomePage() {
                 className="flex flex-col rounded-xl border border-border bg-white p-2.5 shadow-sm hover:shadow-md transition-all duration-200 text-center hover:scale-[1.02] aspect-square justify-between"
               >
                 <div className="h-[65%] w-full rounded-lg overflow-hidden bg-muted flex items-center justify-center">
-                  <img src={cat.img} alt={cat.name} className="h-full w-full object-cover hover:scale-105 transition duration-300" />
+                  <img
+                    src={cat.img}
+                    alt={cat.name}
+                    className="h-full w-full object-cover hover:scale-105 transition duration-300"
+                  />
                 </div>
-                <span className="text-xs font-black text-[#1b4332] tracking-tight block py-1 line-clamp-1">{cat.name}</span>
+                <span className="text-xs font-black text-[#1b4332] tracking-tight block py-1 line-clamp-1">
+                  {cat.name}
+                </span>
               </Link>
             ))}
           </div>
@@ -324,7 +348,9 @@ export function BuyerHomePage() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-xl font-black text-[#1b4332]">Featured Products</h2>
-              <p className="text-xs text-muted-foreground">Top quality products available for order</p>
+              <p className="text-xs text-muted-foreground">
+                Top quality products available for order
+              </p>
             </div>
             <Link to="/marketplace" className="text-xs font-bold text-[#2d6a4f] hover:underline">
               See All Products →
@@ -357,12 +383,18 @@ export function StudentHomePage() {
             <h1 className="text-2xl sm:text-3xl font-black leading-tight text-white">
               Welcome Back, {user?.name || "Student"} 👋
             </h1>
-            <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-medium">{t("Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.")}</p>
+            <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-medium">
+              {t(
+                "Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.",
+              )}
+            </p>
             <div className="pt-2 flex flex-wrap gap-3">
               <Link
                 to="/courses"
                 className="inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 transition px-4 py-2.5 text-xs font-black text-white shadow-sm"
-              >{t("Browse All Courses")}<GraduationCap className="h-4 w-4" />
+              >
+                {t("Browse All Courses")}
+                <GraduationCap className="h-4 w-4" />
               </Link>
               <Link
                 to="/internships"
@@ -378,19 +410,27 @@ export function StudentHomePage() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
             <p className="text-2xl font-black text-[#1b4332]">6</p>
-            <p className="text-xs font-semibold text-muted-foreground mt-0.5">{t("Enrolled Courses")}</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">
+              {t("Enrolled Courses")}
+            </p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
             <p className="text-2xl font-black text-[#1b4332]">2</p>
-            <p className="text-xs font-semibold text-muted-foreground mt-0.5">{t("Active Applications")}</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">
+              {t("Active Applications")}
+            </p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
             <p className="text-2xl font-black text-[#1b4332]">2</p>
-            <p className="text-xs font-semibold text-muted-foreground mt-0.5">{t("Certificates Earned")}</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">
+              {t("Certificates Earned")}
+            </p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
             <p className="text-2xl font-black text-[#1b4332]">{t("35 hrs")}</p>
-            <p className="text-xs font-semibold text-muted-foreground mt-0.5">{t("Learning Time")}</p>
+            <p className="text-xs font-semibold text-muted-foreground mt-0.5">
+              {t("Learning Time")}
+            </p>
           </div>
         </div>
 
@@ -399,7 +439,9 @@ export function StudentHomePage() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-xl font-black text-[#1b4332]">My Learning Courses</h2>
-              <p className="text-xs text-muted-foreground">{t("Continue learning your active tech & AgriTech modules")}</p>
+              <p className="text-xs text-muted-foreground">
+                {t("Continue learning your active tech & AgriTech modules")}
+              </p>
             </div>
             <Link to="/courses" className="text-xs font-bold text-[#2d6a4f] hover:underline">
               Explore All Courses →
@@ -408,7 +450,10 @@ export function StudentHomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {COURSES.map((c) => (
-              <div key={c.id} className="rounded-2xl border border-border bg-card p-5 shadow-soft flex flex-col justify-between space-y-4">
+              <div
+                key={c.id}
+                className="rounded-2xl border border-border bg-card p-5 shadow-soft flex flex-col justify-between space-y-4"
+              >
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
@@ -419,7 +464,9 @@ export function StudentHomePage() {
                     </span>
                   </div>
                   <h3 className="text-base font-black text-[#1b4332] leading-snug">{c.title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{c.description}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                    {c.description}
+                  </p>
                 </div>
 
                 <div className="space-y-3 pt-2 border-t border-border/60">
@@ -429,7 +476,10 @@ export function StudentHomePage() {
                       <span className="text-[#2d6a4f]">{c.progress}%</span>
                     </div>
                     <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
-                      <div className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300" style={{ width: `${c.progress}%` }} />
+                      <div
+                        className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
+                        style={{ width: `${c.progress}%` }}
+                      />
                     </div>
                   </div>
 
@@ -437,7 +487,8 @@ export function StudentHomePage() {
                     to="/courses"
                     className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] py-2 text-xs font-black text-white transition shadow-sm"
                   >
-                    {c.progress > 0 ? "Continue Learning" : "Start Course"} <ArrowRight className="h-3.5 w-3.5" />
+                    {c.progress > 0 ? "Continue Learning" : "Start Course"}{" "}
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
               </div>
@@ -449,8 +500,12 @@ export function StudentHomePage() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-xl font-black text-[#1b4332]">{t("Featured Internship Opportunities")}</h2>
-              <p className="text-xs text-muted-foreground">{t("Apply for tech and research internships")}</p>
+              <h2 className="text-xl font-black text-[#1b4332]">
+                {t("Featured Internship Opportunities")}
+              </h2>
+              <p className="text-xs text-muted-foreground">
+                {t("Apply for tech and research internships")}
+              </p>
             </div>
             <Link to="/internships" className="text-xs font-bold text-[#2d6a4f] hover:underline">
               View All Listings →
@@ -459,11 +514,16 @@ export function StudentHomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {INTERNSHIPS.slice(0, 4).map((i) => (
-              <div key={i.id} className="rounded-2xl border border-border bg-card p-5 shadow-soft space-y-3">
+              <div
+                key={i.id}
+                className="rounded-2xl border border-border bg-card p-5 shadow-soft space-y-3"
+              >
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <h3 className="text-base font-black text-[#1b4332]">{i.title}</h3>
-                    <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">{i.org} · {i.type} ({i.location})</p>
+                    <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">
+                      {i.org} · {i.type} ({i.location})
+                    </p>
                   </div>
                   <span className="shrink-0 rounded-full bg-amber-50 text-amber-700 px-2.5 py-1 text-[10px] font-extrabold border border-amber-200">
                     {i.stipend}
@@ -472,13 +532,18 @@ export function StudentHomePage() {
                 <p className="text-xs text-muted-foreground leading-relaxed">{i.description}</p>
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {i.skills.map((skill) => (
-                    <span key={skill} className="rounded-md bg-muted px-2 py-0.5 text-[10px] font-bold text-foreground/80">
+                    <span
+                      key={skill}
+                      className="rounded-md bg-muted px-2 py-0.5 text-[10px] font-bold text-foreground/80"
+                    >
                       {skill}
                     </span>
                   ))}
                 </div>
                 <div className="pt-2 flex items-center justify-between border-t border-border/50">
-                  <span className="text-[10px] text-muted-foreground font-medium">Apply by {i.deadline}</span>
+                  <span className="text-[10px] text-muted-foreground font-medium">
+                    Apply by {i.deadline}
+                  </span>
                   <Link
                     to="/internships"
                     className="inline-flex items-center gap-1 text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332]"
@@ -506,7 +571,9 @@ export function FarmerHomePage() {
       {
         badge: t("SMART FARMING"),
         title: t("Powering Every Acre"),
-        subtitle: t("Modern farm machinery helps farmers work smarter, faster and more efficiently."),
+        subtitle: t(
+          "Modern farm machinery helps farmers work smarter, faster and more efficiently.",
+        ),
         img: "/hero-tractor.jpg",
         badgeColor: "bg-amber-500/20 text-amber-300",
         linkText: t("Explore Farm Equipment"),
@@ -517,8 +584,9 @@ export function FarmerHomePage() {
       {
         badge: t("HEALTHY SOIL • HEALTHY CROPS"),
         title: t("Nourish Your Soil, Grow Better"),
-        subtitle:
-          t("Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests."),
+        subtitle: t(
+          "Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests.",
+        ),
         img: "/hero-fertilizer.jpg",
         badgeColor: "bg-emerald-500/20 text-emerald-300",
         linkText: t("Shop Fertilizers"),
@@ -529,8 +597,9 @@ export function FarmerHomePage() {
       {
         badge: t("NEXT-GEN AGRICULTURE"),
         title: t("Technology Taking Farming Higher"),
-        subtitle:
-          t("Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently."),
+        subtitle: t(
+          "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.",
+        ),
         img: "/hero-drone.jpg",
         badgeColor: "bg-teal-500/20 text-teal-300",
         linkText: t("Explore Agri Technology"),
@@ -541,8 +610,9 @@ export function FarmerHomePage() {
       {
         badge: t("SMART WATER MANAGEMENT"),
         title: t("Every Drop Counts"),
-        subtitle:
-          t("Efficient irrigation helps conserve water while keeping crops healthy and productive."),
+        subtitle: t(
+          "Efficient irrigation helps conserve water while keeping crops healthy and productive.",
+        ),
         img: "/hero-irrigation.jpg",
         badgeColor: "bg-blue-500/20 text-blue-300",
         linkText: t("Explore Irrigation"),
@@ -553,8 +623,9 @@ export function FarmerHomePage() {
       {
         badge: t("FROM FIELD TO FUTURE"),
         title: t("Grow More. Harvest Better."),
-        subtitle:
-          t("Everything farmers need — from quality farm inputs and equipment to fresh agricultural products."),
+        subtitle: t(
+          "Everything farmers need — from quality farm inputs and equipment to fresh agricultural products.",
+        ),
         img: "/hero-harvest.jpg",
         badgeColor: "bg-amber-500/20 text-amber-300",
         linkText: t("Shop Marketplace"),
@@ -960,7 +1031,9 @@ export function FarmerHomePage() {
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-border/40 pb-3 select-none">
                 <div>
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                    <h2 className="text-xl font-black text-[#1b4332]">{t("Best Deals for You 🔥")}</h2>
+                    <h2 className="text-xl font-black text-[#1b4332]">
+                      {t("Best Deals for You 🔥")}
+                    </h2>
                     <span className="inline-flex items-center gap-1 rounded-full bg-red-50 text-red-600 px-2 py-0.5 text-[10px] font-black border border-red-100/50 animate-pulse">
                       🔥 {t("Deals ending soon")} · {countdownTime.hours}h {countdownTime.mins}m
                     </span>
@@ -1003,7 +1076,9 @@ export function FarmerHomePage() {
               <div className="space-y-2 max-w-md">
                 <h3 className="text-xl font-black">{t("Stay Updated, Stay Ahead!")}</h3>
                 <p className="text-xs text-emerald-100 leading-relaxed">
-                  {t("Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.")}
+                  {t(
+                    "Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.",
+                  )}
                 </p>
                 <div className="pt-2 flex flex-wrap gap-2.5">
                   <button className="h-9 px-3.5 rounded-lg bg-white text-[#1b4332] hover:bg-emerald-50 transition text-xs font-bold flex items-center gap-2">
@@ -1044,7 +1119,9 @@ export function FarmerHomePage() {
 
                 <div className="mt-4 grid grid-cols-3 gap-2 border-t border-b border-border/60 py-3 text-center">
                   <div>
-                    <p className="text-[10px] text-muted-foreground font-semibold">{t("Humidity")}</p>
+                    <p className="text-[10px] text-muted-foreground font-semibold">
+                      {t("Humidity")}
+                    </p>
                     <p className="text-xs font-black text-[#1b4332] mt-0.5">62%</p>
                   </div>
                   <div>
@@ -1075,12 +1152,12 @@ export function FarmerHomePage() {
                     }
                     return (
                       <div key={i} className="flex items-center justify-between text-xs">
-                        <span className="font-semibold text-muted-foreground w-10">{t(fc.day)}</span>
+                        <span className="font-semibold text-muted-foreground w-10">
+                          {t(fc.day)}
+                        </span>
                         <div className="flex items-center justify-center gap-1.5 flex-1">
                           <IconComponent className={`h-3.5 w-3.5 ${iconColor}`} />
-                          <span className="text-foreground/80 font-medium">
-                            {t(fc.condition)}
-                          </span>
+                          <span className="text-foreground/80 font-medium">{t(fc.condition)}</span>
                         </div>
                         <span className="font-bold text-[#1b4332] w-12 text-right">{fc.temp}</span>
                       </div>
@@ -1097,7 +1174,9 @@ export function FarmerHomePage() {
                   <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                     {t("Market Prices")}
                   </p>
-                  <p className="text-[10px] text-muted-foreground mt-0.5">{t("Today's Mandi Feeds")}</p>
+                  <p className="text-[10px] text-muted-foreground mt-0.5">
+                    {t("Today's Mandi Feeds")}
+                  </p>
                 </div>
                 <Link
                   to="/market-prices"
@@ -1117,7 +1196,9 @@ export function FarmerHomePage() {
                     >
                       <div>
                         <p className="text-xs font-black text-[#1b4332]">{t(p.crop)}</p>
-                        <p className="text-[10px] text-muted-foreground mt-0.5">{t("Local Area Hub")}</p>
+                        <p className="text-[10px] text-muted-foreground mt-0.5">
+                          {t("Local Area Hub")}
+                        </p>
                       </div>
                       <div className="text-right">
                         <p className="text-xs font-black text-[#1b4332]">₹{p.price} / kg</p>
@@ -1237,7 +1318,9 @@ export function MarketplacePage() {
           price: p.price,
           unit: p.unit,
           stock: p.available_quantity,
-          image: p.image_url || "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=600",
+          image:
+            p.image_url ||
+            "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=600",
           rating: p.rating || 4.5,
           brand: p.location ? `Farmer (${p.location})` : "PureFarm Direct",
           ...(p.badge ? { badge: p.badge as any } : {}),
@@ -1278,7 +1361,9 @@ export function MarketplacePage() {
       <PageShell
         eyebrow={t("Marketplace")}
         title={t("Farm input marketplace")}
-        intro={t("Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart.")}
+        intro={t(
+          "Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart.",
+        )}
       >
         <div className="mb-6 grid gap-3 rounded-2xl border border-border bg-card p-4 shadow-soft lg:grid-cols-[1fr_12rem_12rem_14rem]">
           <label className="relative block">
@@ -1326,7 +1411,9 @@ export function MarketplacePage() {
             <span className="w-16 text-right font-bold">{formatRupees(maxPrice)}</span>
           </label>
         </div>
-        <p className="mb-4 text-sm text-muted-foreground">{filtered.length} {t("products found")}</p>
+        <p className="mb-4 text-sm text-muted-foreground">
+          {filtered.length} {t("products found")}
+        </p>
         {filtered.length ? (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
             {filtered.map((product) => (
@@ -1381,7 +1468,11 @@ export function ProductDetailPage({ id }: { id: string }) {
 
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
-      <PageShell eyebrow={t(product.category)} title={t(product.name)} intro={t(product.description)}>
+      <PageShell
+        eyebrow={t(product.category)}
+        title={t(product.name)}
+        intro={t(product.description)}
+      >
         <div className="grid gap-7 lg:grid-cols-[0.9fr_1.1fr]">
           <img
             src={product.image}
@@ -1498,10 +1589,17 @@ export function CartPage() {
   }, []);
 
   const hasSoldOutItem = useMemo(() => {
-    return items.some((i) => i.isSoldOut || (i.availableQuantity !== undefined && i.availableQuantity <= 0));
+    return items.some(
+      (i) => i.isSoldOut || (i.availableQuantity !== undefined && i.availableQuantity <= 0),
+    );
   }, [items]);
 
-  const handleQtyChange = (productId: string, currentQty: number, delta: number, availStock?: number) => {
+  const handleQtyChange = (
+    productId: string,
+    currentQty: number,
+    delta: number,
+    availStock?: number,
+  ) => {
     setStockWarning(null);
     const newQty = currentQty + delta;
     const res = updateQty(productId, newQty, availStock);
@@ -1520,7 +1618,12 @@ export function CartPage() {
         {stockWarning && (
           <div className="mb-6 p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm font-semibold flex items-center justify-between">
             <span>⚠️ {stockWarning}</span>
-            <button onClick={() => setStockWarning(null)} className="text-xs font-bold text-amber-900 underline">{t("Dismiss")}</button>
+            <button
+              onClick={() => setStockWarning(null)}
+              className="text-xs font-bold text-amber-900 underline"
+            >
+              {t("Dismiss")}
+            </button>
           </div>
         )}
 
@@ -1596,7 +1699,9 @@ export function CartPage() {
               <h3 className="text-lg font-bold text-foreground">{t("Order Summary")}</h3>
               <div className="space-y-3 text-sm border-t pt-4">
                 <div className="flex justify-between text-muted-foreground font-medium">
-                  <span>{t("Subtotal")} ({items.reduce((s, i) => s + i.qty, 0)} items)</span>
+                  <span>
+                    {t("Subtotal")} ({items.reduce((s, i) => s + i.qty, 0)} items)
+                  </span>
                   <span className="font-bold text-foreground">{formatRupees(subtotal)}</span>
                 </div>
                 <div className="flex justify-between text-muted-foreground font-medium">
@@ -1659,7 +1764,9 @@ export function OrderPage() {
   const { items, subtotal, clearCart, syncCartWithDatabase } = useCart();
   const rows = getCartProducts(items);
 
-  const [activeTab, setActiveTab] = useState<"checkout" | "my_orders">(items.length > 0 ? "checkout" : "my_orders");
+  const [activeTab, setActiveTab] = useState<"checkout" | "my_orders">(
+    items.length > 0 ? "checkout" : "my_orders",
+  );
   const [submitting, setSubmitting] = useState(false);
   const [orderError, setOrderError] = useState<string | null>(null);
   const [orderSuccess, setOrderSuccess] = useState<boolean>(false);
@@ -1667,7 +1774,9 @@ export function OrderPage() {
   // Buyer Form State
   const [buyerName, setBuyerName] = useState(user?.name || "");
   const [phone, setPhone] = useState(user?.phone || "");
-  const [deliveryLocation, setDeliveryLocation] = useState(user?.location || "Rajahmundry, Andhra Pradesh");
+  const [deliveryLocation, setDeliveryLocation] = useState(
+    user?.location || "Rajahmundry, Andhra Pradesh",
+  );
   const [notes, setNotes] = useState("");
 
   // My Orders State
@@ -1722,7 +1831,9 @@ export function OrderPage() {
         return;
       }
 
-      const hasSoldOut = items.some((i) => i.isSoldOut || (i.availableQuantity !== undefined && i.availableQuantity <= 0));
+      const hasSoldOut = items.some(
+        (i) => i.isSoldOut || (i.availableQuantity !== undefined && i.availableQuantity <= 0),
+      );
       if (hasSoldOut) {
         setOrderError("One or more items in your cart are sold out or unavailable.");
         setSubmitting(false);
@@ -1769,7 +1880,9 @@ export function OrderPage() {
           <button
             onClick={() => setActiveTab("checkout")}
             className={`px-4 py-2 rounded-xl font-bold text-sm transition ${
-              activeTab === "checkout" ? "bg-[#087F5B] text-white shadow-sm" : "bg-muted text-muted-foreground hover:text-foreground"
+              activeTab === "checkout"
+                ? "bg-[#087F5B] text-white shadow-sm"
+                : "bg-muted text-muted-foreground hover:text-foreground"
             }`}
           >
             Checkout ({rows.length})
@@ -1777,7 +1890,9 @@ export function OrderPage() {
           <button
             onClick={() => setActiveTab("my_orders")}
             className={`px-4 py-2 rounded-xl font-bold text-sm transition ${
-              activeTab === "my_orders" ? "bg-[#087F5B] text-white shadow-sm" : "bg-muted text-muted-foreground hover:text-foreground"
+              activeTab === "my_orders"
+                ? "bg-[#087F5B] text-white shadow-sm"
+                : "bg-muted text-muted-foreground hover:text-foreground"
             }`}
           >
             My Orders ({buyerOrders.length})
@@ -1796,21 +1911,32 @@ export function OrderPage() {
               <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/50 p-12 text-center max-w-xl mx-auto my-8 space-y-4">
                 <ShoppingBag className="h-12 w-12 text-[#087F5B] mx-auto mb-2" />
                 <h3 className="text-xl font-bold text-[#073B2A]">Your cart is empty.</h3>
-                <p className="text-sm text-emerald-800/80">{t("Add products to the cart before checking out.")}</p>
+                <p className="text-sm text-emerald-800/80">
+                  {t("Add products to the cart before checking out.")}
+                </p>
                 <Link
                   to="/marketplace"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] text-white font-bold text-sm shadow-md"
-                >{t("Start Shopping")}<ArrowRight className="h-4 w-4" />
+                >
+                  {t("Start Shopping")}
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             ) : (
               <div className="grid gap-6 lg:grid-cols-[1fr_24rem]">
                 {/* Delivery & Contact Details Form */}
-                <form onSubmit={handlePlaceOrderSubmit} className="rounded-2xl border bg-card p-6 shadow-sm space-y-4">
-                  <h3 className="text-lg font-bold text-foreground">{t("Delivery & Contact Information")}</h3>
+                <form
+                  onSubmit={handlePlaceOrderSubmit}
+                  className="rounded-2xl border bg-card p-6 shadow-sm space-y-4"
+                >
+                  <h3 className="text-lg font-bold text-foreground">
+                    {t("Delivery & Contact Information")}
+                  </h3>
 
                   <div>
-                    <label className="text-xs font-bold text-foreground block mb-1">{t("Full Name")}</label>
+                    <label className="text-xs font-bold text-foreground block mb-1">
+                      {t("Full Name")}
+                    </label>
                     <input
                       type="text"
                       required
@@ -1822,7 +1948,9 @@ export function OrderPage() {
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-foreground block mb-1">Phone Number</label>
+                    <label className="text-xs font-bold text-foreground block mb-1">
+                      Phone Number
+                    </label>
                     <input
                       type="tel"
                       required
@@ -1834,7 +1962,9 @@ export function OrderPage() {
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-foreground block mb-1">{t("Delivery Location / Address *")}</label>
+                    <label className="text-xs font-bold text-foreground block mb-1">
+                      {t("Delivery Location / Address *")}
+                    </label>
                     <textarea
                       rows={3}
                       required
@@ -1846,7 +1976,9 @@ export function OrderPage() {
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-foreground block mb-1">{t("Order Notes (Optional)")}</label>
+                    <label className="text-xs font-bold text-foreground block mb-1">
+                      {t("Order Notes (Optional)")}
+                    </label>
                     <input
                       type="text"
                       value={notes}
@@ -1859,8 +1991,14 @@ export function OrderPage() {
                   {/* Payment Disclaimer */}
                   <div className="p-4 rounded-xl bg-muted border text-xs text-muted-foreground space-y-1">
                     <p className="font-bold text-foreground">{t("Payment Method")}</p>
-                    <p>💳 <strong>Payment integration coming soon (Cash on Delivery)</strong></p>
-                    <p className="text-xs">{t("No online payment is processed today. Pay cash or UPI upon crop inspection & delivery.")}</p>
+                    <p>
+                      💳 <strong>Payment integration coming soon (Cash on Delivery)</strong>
+                    </p>
+                    <p className="text-xs">
+                      {t(
+                        "No online payment is processed today. Pay cash or UPI upon crop inspection & delivery.",
+                      )}
+                    </p>
                   </div>
 
                   <button
@@ -1880,14 +2018,19 @@ export function OrderPage() {
                     {rows.map(({ product, qty, cartItem }) => {
                       const price = cartItem?.price ?? product.price;
                       return (
-                        <div key={product.id} className="pt-3 first:pt-0 flex items-center justify-between text-sm">
+                        <div
+                          key={product.id}
+                          className="pt-3 first:pt-0 flex items-center justify-between text-sm"
+                        >
                           <div>
                             <p className="font-bold text-foreground">{product.name}</p>
                             <p className="text-xs text-muted-foreground">
                               {qty} {product.unit} × {formatRupees(price)}
                             </p>
                           </div>
-                          <span className="font-bold text-foreground">{formatRupees(price * qty)}</span>
+                          <span className="font-bold text-foreground">
+                            {formatRupees(price * qty)}
+                          </span>
                         </div>
                       );
                     })}
@@ -1929,21 +2072,29 @@ export function OrderPage() {
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#087F5B] flex items-center justify-center mx-auto mb-2">
                   <Package className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-bold text-[#073B2A]">{t("You haven't placed any orders yet.")}</h3>
+                <h3 className="text-xl font-bold text-[#073B2A]">
+                  {t("You haven't placed any orders yet.")}
+                </h3>
                 <p className="text-sm text-emerald-800/80 leading-relaxed">
-                  Explore fresh produce from local farmers across India and place your first direct order.
+                  Explore fresh produce from local farmers across India and place your first direct
+                  order.
                 </p>
                 <Link
                   to="/marketplace"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-md transition"
-                >{t("Start Shopping")}<ArrowRight className="h-4 w-4" />
+                >
+                  {t("Start Shopping")}
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             ) : (
               /* Orders List */
               <div className="space-y-6">
                 {buyerOrders.map((order) => (
-                  <div key={order.id} className="rounded-2xl border bg-card p-6 shadow-sm space-y-4">
+                  <div
+                    key={order.id}
+                    className="rounded-2xl border bg-card p-6 shadow-sm space-y-4"
+                  >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b pb-4">
                       <div>
                         <div className="flex items-center gap-3">
@@ -1955,31 +2106,46 @@ export function OrderPage() {
                           </span>
                         </div>
                         <p className="text-xs text-muted-foreground mt-1">
-                          Placed on {new Date(order.created_at).toLocaleDateString("en-IN", { dateStyle: "medium" })}
+                          Placed on{" "}
+                          {new Date(order.created_at).toLocaleDateString("en-IN", {
+                            dateStyle: "medium",
+                          })}
                         </p>
                       </div>
                       <div className="text-right">
-                        <span className="text-xs text-muted-foreground block font-medium">{t("Total Amount")}</span>
-                        <span className="text-xl font-black text-[#087F5B]">{formatRupees(order.total_amount)}</span>
+                        <span className="text-xs text-muted-foreground block font-medium">
+                          {t("Total Amount")}
+                        </span>
+                        <span className="text-xl font-black text-[#087F5B]">
+                          {formatRupees(order.total_amount)}
+                        </span>
                       </div>
                     </div>
 
                     {/* Order Items */}
                     <div className="space-y-3">
                       {order.order_items?.map((item) => (
-                        <div key={item.id} className="flex items-center justify-between text-sm py-1">
+                        <div
+                          key={item.id}
+                          className="flex items-center justify-between text-sm py-1"
+                        >
                           <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-lg bg-emerald-100 text-[#087F5B] flex items-center justify-center font-bold text-xs">
                               📦
                             </div>
                             <div>
-                              <p className="font-bold text-foreground">{item.products?.name || "Farm Produce"}</p>
+                              <p className="font-bold text-foreground">
+                                {item.products?.name || "Farm Produce"}
+                              </p>
                               <p className="text-xs text-muted-foreground">
-                                {item.quantity} {item.products?.unit || "units"} × {formatRupees(item.unit_price)}
+                                {item.quantity} {item.products?.unit || "units"} ×{" "}
+                                {formatRupees(item.unit_price)}
                               </p>
                             </div>
                           </div>
-                          <span className="font-bold text-foreground">{formatRupees(item.subtotal)}</span>
+                          <span className="font-bold text-foreground">
+                            {formatRupees(item.subtotal)}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -1987,7 +2153,10 @@ export function OrderPage() {
                     {/* Delivery Location */}
                     <div className="pt-3 border-t flex items-center gap-2 text-xs text-muted-foreground">
                       <MapPin className="h-3.5 w-3.5 text-[#087F5B]" />
-                      <span>{t("Delivery Location:")}<strong>{order.delivery_location}</strong></span>
+                      <span>
+                        {t("Delivery Location:")}
+                        <strong>{order.delivery_location}</strong>
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -2221,8 +2390,10 @@ export function MarketPage() {
         r.market_name.toLowerCase().includes(q) ||
         r.state.toLowerCase().includes(q);
 
-      const matchCrop = cropFilter === "all" || r.crop_name.toLowerCase() === cropFilter.toLowerCase();
-      const matchState = stateFilter === "all" || r.state.toLowerCase() === stateFilter.toLowerCase();
+      const matchCrop =
+        cropFilter === "all" || r.crop_name.toLowerCase() === cropFilter.toLowerCase();
+      const matchState =
+        stateFilter === "all" || r.state.toLowerCase() === stateFilter.toLowerCase();
 
       return matchSearch && matchCrop && matchState;
     });
@@ -2294,11 +2465,13 @@ export function MarketPage() {
                   className="w-full pl-10 pr-9 py-2.5 rounded-full border border-[#D9E2DD] text-sm font-medium bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent appearance-none cursor-pointer"
                 >
                   <option value="all">{t("All Crops")}</option>
-                  {cropsList.filter((c) => c !== "all").map((c) => (
-                    <option key={c} value={c}>
-                      {t(c)}
-                    </option>
-                  ))}
+                  {cropsList
+                    .filter((c) => c !== "all")
+                    .map((c) => (
+                      <option key={c} value={c}>
+                        {t(c)}
+                      </option>
+                    ))}
                 </select>
                 <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-3.5 pointer-events-none" />
               </div>
@@ -2312,11 +2485,13 @@ export function MarketPage() {
                   className="w-full pl-10 pr-9 py-2.5 rounded-full border border-[#D9E2DD] text-sm font-medium bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent appearance-none cursor-pointer"
                 >
                   <option value="all">{t("All States")}</option>
-                  {statesList.filter((s) => s !== "all").map((s) => (
-                    <option key={s} value={s}>
-                      {t(s)}
-                    </option>
-                  ))}
+                  {statesList
+                    .filter((s) => s !== "all")
+                    .map((s) => (
+                      <option key={s} value={s}>
+                        {t(s)}
+                      </option>
+                    ))}
                 </select>
                 <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-3.5 pointer-events-none" />
               </div>
@@ -2353,7 +2528,9 @@ export function MarketPage() {
                       <tr key={row.id}>
                         <td className="text-sm font-bold text-gray-900 whitespace-nowrap">
                           <span className="inline-flex items-center gap-2">
-                            <span className="text-lg">{row.icon || getCropIcon(row.crop_name)}</span>
+                            <span className="text-lg">
+                              {row.icon || getCropIcon(row.crop_name)}
+                            </span>
                             <span>{t(row.crop_name)}</span>
                           </span>
                         </td>
@@ -2391,7 +2568,9 @@ export function MarketPage() {
                   {filteredRows.length === 0 && (
                     <tr>
                       <td colSpan={6} className="py-12 text-center text-gray-500 text-sm">
-                        {t("No matching market prices found. Try adjusting your search or filters.")}
+                        {t(
+                          "No matching market prices found. Try adjusting your search or filters.",
+                        )}
                       </td>
                     </tr>
                   )}
@@ -2437,7 +2616,9 @@ export function MarketPage() {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-gray-900">{t("Stronger Farmers")}</h4>
-                  <p className="text-[11px] text-gray-500">{t("Together for a prosperous future")}</p>
+                  <p className="text-[11px] text-gray-500">
+                    {t("Together for a prosperous future")}
+                  </p>
                 </div>
               </div>
             </div>
@@ -2457,9 +2638,13 @@ export function MarketPage() {
             <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-xl border border-emerald-100 space-y-4 relative animate-in fade-in zoom-in-95 duration-150">
               <div className="flex items-center justify-between pb-3 border-b border-gray-100">
                 <div className="flex items-center gap-2.5">
-                  <span className="text-2xl">{selectedDetailItem.icon || getCropIcon(selectedDetailItem.crop_name)}</span>
+                  <span className="text-2xl">
+                    {selectedDetailItem.icon || getCropIcon(selectedDetailItem.crop_name)}
+                  </span>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900">{t(selectedDetailItem.crop_name)}</h3>
+                    <h3 className="text-lg font-bold text-gray-900">
+                      {t(selectedDetailItem.crop_name)}
+                    </h3>
                     <p className="text-xs text-gray-500">{t(selectedDetailItem.location)}</p>
                   </div>
                 </div>
@@ -2474,7 +2659,9 @@ export function MarketPage() {
               <div className="space-y-3 py-2 text-sm">
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
                   <span className="text-gray-500 font-medium">{t("Mandi / Market")}</span>
-                  <span className="font-bold text-gray-900">{t(selectedDetailItem.market_name)}</span>
+                  <span className="font-bold text-gray-900">
+                    {t(selectedDetailItem.market_name)}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
                   <span className="text-gray-500 font-medium">{t("State")}</span>
@@ -2486,17 +2673,26 @@ export function MarketPage() {
                 </div>
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
                   <span className="text-gray-500 font-medium">{t("Current Price")}</span>
-                  <span className="font-extrabold text-emerald-700 text-base">₹{Number(selectedDetailItem.price).toLocaleString()}/{selectedDetailItem.unit || "qtl"}</span>
+                  <span className="font-extrabold text-emerald-700 text-base">
+                    ₹{Number(selectedDetailItem.price).toLocaleString()}/
+                    {selectedDetailItem.unit || "qtl"}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
                   <span className="text-gray-500 font-medium">{t("24h Trend")}</span>
-                  <span className={`font-bold ${selectedDetailItem.change_pct >= 0 ? "text-emerald-600" : "text-rose-600"}`}>
-                    {selectedDetailItem.change_pct >= 0 ? `↗ +${selectedDetailItem.change_pct}%` : `↘ ${selectedDetailItem.change_pct}%`}
+                  <span
+                    className={`font-bold ${selectedDetailItem.change_pct >= 0 ? "text-emerald-600" : "text-rose-600"}`}
+                  >
+                    {selectedDetailItem.change_pct >= 0
+                      ? `↗ +${selectedDetailItem.change_pct}%`
+                      : `↘ ${selectedDetailItem.change_pct}%`}
                   </span>
                 </div>
                 <div className="flex justify-between items-center py-1.5">
                   <span className="text-gray-500 font-medium">{t("Data Source")}</span>
-                  <span className="font-semibold text-gray-700 text-xs">{selectedDetailItem.source || "Government AGMARKNET"}</span>
+                  <span className="font-semibold text-gray-700 text-xs">
+                    {selectedDetailItem.source || "Government AGMARKNET"}
+                  </span>
                 </div>
               </div>
 
@@ -2533,9 +2729,10 @@ export function SchemesPage() {
   ];
 
   const filteredSchemes = SCHEMES.filter((s) => {
-    const matchesQuery = `${s.name} ${s.category} ${s.eligibility} ${s.description} ${s.benefit || ""}`
-      .toLowerCase()
-      .includes(query.toLowerCase());
+    const matchesQuery =
+      `${s.name} ${s.category} ${s.eligibility} ${s.description} ${s.benefit || ""}`
+        .toLowerCase()
+        .includes(query.toLowerCase());
     const matchesCategory = categoryFilter === "all" || s.category === categoryFilter;
     return matchesQuery && matchesCategory;
   });
@@ -2657,7 +2854,11 @@ function SchemeCard({ scheme, isTelugu }: { scheme: Scheme; isTelugu: boolean })
 
         {/* Scheme Name: BOLDER, LARGER DARK TELUGU TEXT */}
         <h3
-          className={`font-bold text-[#0F382A] transition-colors group-hover:text-[#10B981] ${
+          className={`font-bold transition-colors ${
+            scheme.id === "pm-kisan"
+              ? "text-white bg-[#0A2E20] px-3 py-1 rounded-xl shadow-sm inline-block group-hover:text-white"
+              : "text-[#0F382A] group-hover:text-[#10B981]"
+          } ${
             isTelugu
               ? "text-xl sm:text-[22px] leading-snug mt-3.5"
               : "text-lg sm:text-xl leading-snug mt-3.5"
@@ -2691,7 +2892,9 @@ function SchemeCard({ scheme, isTelugu }: { scheme: Scheme; isTelugu: boolean })
           </div>
           <p
             className={`text-[#0F382A] font-semibold ${
-              isTelugu ? "text-sm sm:text-[15px] leading-relaxed" : "text-xs sm:text-sm leading-normal"
+              isTelugu
+                ? "text-sm sm:text-[15px] leading-relaxed"
+                : "text-xs sm:text-sm leading-normal"
             }`}
           >
             {t(scheme.eligibility)}
@@ -2726,7 +2929,9 @@ export function InsurancePage() {
         bgImage="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=2000"
         eyebrow={t("Insurance")}
         title={t("Crop insurance")}
-        intro={t("Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website.")}
+        intro={t(
+          "Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website.",
+        )}
         items={INSURANCE_SCHEMES.map((s) => ({
           title: t(s.name),
           meta: `${t(s.type)} · ${t(s.premium)}`,
@@ -2762,9 +2967,12 @@ export function PmfbyDetailPage() {
           <div className={glassCardClass}>
             <ShieldCheck className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Premium Rates</h3>
-            <p className="mt-1 text-sm font-bold text-primary">Kharif: 2.0% | Rabi: 1.5% | Commercial: 5.0%</p>
+            <p className="mt-1 text-sm font-bold text-primary">
+              Kharif: 2.0% | Rabi: 1.5% | Commercial: 5.0%
+            </p>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Uniform premium rate payable by farmers. The balance actuarial premium is shared equally (50:50) by the Central and State Governments.
+              Uniform premium rate payable by farmers. The balance actuarial premium is shared
+              equally (50:50) by the Central and State Governments.
             </p>
           </div>
 
@@ -2772,14 +2980,22 @@ export function PmfbyDetailPage() {
             <CheckCircle2 className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Coverage Stages</h3>
             <p className="mt-1 text-sm font-bold text-primary">Sowing to Post-Harvest</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Covers Prevented Sowing / Planting Risk, Standing Crop (Yield Losses due to drought, flood, pests, diseases), Localised Calamities (hailstorm, landslide, inundation), and Post-Harvest Losses (up to 14 days).")}</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              {t(
+                "Covers Prevented Sowing / Planting Risk, Standing Crop (Yield Losses due to drought, flood, pests, diseases), Localised Calamities (hailstorm, landslide, inundation), and Post-Harvest Losses (up to 14 days).",
+              )}
+            </p>
           </div>
 
           <div className={glassCardClass}>
             <Leaf className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Eligible Crops</h3>
             <p className="mt-1 text-sm font-bold text-primary">Food, Oilseeds & Annual Crops</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Notified crops including Paddy, Wheat, Cotton, Maize, Mustard, Pulses, Commercial, and Horticultural crops notified by state governments.")}</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              {t(
+                "Notified crops including Paddy, Wheat, Cotton, Maize, Mustard, Pulses, Commercial, and Horticultural crops notified by state governments.",
+              )}
+            </p>
           </div>
 
           <div className={glassCardClass}>
@@ -2787,7 +3003,8 @@ export function PmfbyDetailPage() {
             <h3 className="mt-3 text-lg font-black">Sum Insured</h3>
             <p className="mt-1 text-sm font-bold text-primary">District Scale of Finance</p>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Sum insured per hectare is equal to the Scale of Finance (SoF) as decided by District Level Technical Committee (DLTC) multiplied by crop area.
+              Sum insured per hectare is equal to the Scale of Finance (SoF) as decided by District
+              Level Technical Committee (DLTC) multiplied by crop area.
             </p>
           </div>
 
@@ -2795,14 +3012,22 @@ export function PmfbyDetailPage() {
             <Users className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Management & Implementation</h3>
             <p className="mt-1 text-sm font-bold text-primary">Empanelled Insurers & State Govts</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Administered through empanelled public and private general insurance companies under oversight of State Agriculture Departments.")}</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              {t(
+                "Administered through empanelled public and private general insurance companies under oversight of State Agriculture Departments.",
+              )}
+            </p>
           </div>
 
           <div className={glassCardClass}>
             <Award className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Claim Settlement</h3>
             <p className="mt-1 text-sm font-bold text-primary">Direct Bank Transfer (DBT)</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Claim payouts are calculated based on Crop Cutting Experiments (CCE) data or weather triggers and directly credited to farmers' Aadhaar-seeded bank accounts.")}</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              {t(
+                "Claim payouts are calculated based on Crop Cutting Experiments (CCE) data or weather triggers and directly credited to farmers' Aadhaar-seeded bank accounts.",
+              )}
+            </p>
           </div>
         </div>
       </PageShell>
@@ -2835,7 +3060,8 @@ export function WeatherBasedDetailPage() {
             <h3 className="mt-3 text-lg font-black">Weather Index Trigger</h3>
             <p className="mt-1 text-sm font-bold text-primary">Automated Weather Station Data</p>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Payouts are triggered automatically based on deviations in weather parameters recorded at notified Reference Weather Stations (RWS).
+              Payouts are triggered automatically based on deviations in weather parameters recorded
+              at notified Reference Weather Stations (RWS).
             </p>
           </div>
 
@@ -2843,7 +3069,11 @@ export function WeatherBasedDetailPage() {
             <Wind className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Parameters Covered</h3>
             <p className="mt-1 text-sm font-bold text-primary">Rainfall, Temp, Humidity, Wind</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Covers rainfall deficit/excess, unseasonal rainfall, high/low temperature spikes, humidity fluctuations, and wind speed deviations.")}</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              {t(
+                "Covers rainfall deficit/excess, unseasonal rainfall, high/low temperature spikes, humidity fluctuations, and wind speed deviations.",
+              )}
+            </p>
           </div>
 
           <div className={glassCardClass}>
@@ -2851,7 +3081,8 @@ export function WeatherBasedDetailPage() {
             <h3 className="mt-3 text-lg font-black">Targeted Crops</h3>
             <p className="mt-1 text-sm font-bold text-primary">Horticulture & Cash Crops</p>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Specifically suited for perennial horticulture crops (Mango, Citrus, Banana), Spices (Chilli, Turmeric), Cotton, and Groundnut.
+              Specifically suited for perennial horticulture crops (Mango, Citrus, Banana), Spices
+              (Chilli, Turmeric), Cotton, and Groundnut.
             </p>
           </div>
 
@@ -2859,14 +3090,22 @@ export function WeatherBasedDetailPage() {
             <Shield className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Premium & Subsidy</h3>
             <p className="mt-1 text-sm font-bold text-primary">District & Crop Notified</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Actuarial premium varies by crop and district historical risk profiles, with government premium subsidies available.")}</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              {t(
+                "Actuarial premium varies by crop and district historical risk profiles, with government premium subsidies available.",
+              )}
+            </p>
           </div>
 
           <div className={glassCardClass}>
             <MapPin className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Coverage Unit</h3>
             <p className="mt-1 text-sm font-bold text-primary">Reference Weather Station Unit</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Defined reference unit area tied to localized IMD or private automated weather station network data.")}</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              {t(
+                "Defined reference unit area tied to localized IMD or private automated weather station network data.",
+              )}
+            </p>
           </div>
 
           <div className={glassCardClass}>
@@ -2874,7 +3113,8 @@ export function WeatherBasedDetailPage() {
             <h3 className="mt-3 text-lg font-black">Rapid Claim Processing</h3>
             <p className="mt-1 text-sm font-bold text-primary">No Individual Loss Assessment</p>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Since claims depend on objective weather station data, payouts are processed rapidly without field loss verification delays.
+              Since claims depend on objective weather station data, payouts are processed rapidly
+              without field loss verification delays.
             </p>
           </div>
         </div>
@@ -2906,9 +3146,12 @@ export function LivestockDetailPage() {
           <div className={glassCardClass}>
             <ShieldCheck className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Covered Animals</h3>
-            <p className="mt-1 text-sm font-bold text-primary">{t("Dairy Cattle, Buffalo, Goat & Sheep")}</p>
+            <p className="mt-1 text-sm font-bold text-primary">
+              {t("Dairy Cattle, Buffalo, Goat & Sheep")}
+            </p>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Protection for crossbred and indigenous milch cows, buffaloes, breeding bulls, and small ruminants (sheep & goats).
+              Protection for crossbred and indigenous milch cows, buffaloes, breeding bulls, and
+              small ruminants (sheep & goats).
             </p>
           </div>
 
@@ -2916,21 +3159,35 @@ export function LivestockDetailPage() {
             <Heart className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Scope of Protection</h3>
             <p className="mt-1 text-sm font-bold text-primary">Accident & Disease Risk</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Covers death due to accident, lightning, flood, disease outbreaks, calving complications, surgical procedures, and permanent total disability.")}</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              {t(
+                "Covers death due to accident, lightning, flood, disease outbreaks, calving complications, surgical procedures, and permanent total disability.",
+              )}
+            </p>
           </div>
 
           <div className={glassCardClass}>
             <Scale className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Animal Valuation</h3>
             <p className="mt-1 text-sm font-bold text-primary">Veterinary Officer Valuation</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Market value of animal evaluated and certified by a registered Veterinary Assistant Surgeon at the time of insurance policy issuance.")}</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              {t(
+                "Market value of animal evaluated and certified by a registered Veterinary Assistant Surgeon at the time of insurance policy issuance.",
+              )}
+            </p>
           </div>
 
           <div className={glassCardClass}>
             <Award className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Identification & Tagging</h3>
-            <p className="mt-1 text-sm font-bold text-primary">Ear-Tagging / Microchip Identification</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Animals are tagged with tamper-proof ear tags or RFID microchips recorded in animal health databases for seamless claim verification.")}</p>
+            <p className="mt-1 text-sm font-bold text-primary">
+              Ear-Tagging / Microchip Identification
+            </p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              {t(
+                "Animals are tagged with tamper-proof ear tags or RFID microchips recorded in animal health databases for seamless claim verification.",
+              )}
+            </p>
           </div>
 
           <div className={glassCardClass}>
@@ -2938,7 +3195,8 @@ export function LivestockDetailPage() {
             <h3 className="mt-3 text-lg font-black">Subsidies & Management</h3>
             <p className="mt-1 text-sm font-bold text-primary">State Animal Husbandry Dept</p>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Supported under National Livestock Mission (NLM) with up to 50% - 70% premium subsidy provided by state governments for eligible farmers.
+              Supported under National Livestock Mission (NLM) with up to 50% - 70% premium subsidy
+              provided by state governments for eligible farmers.
             </p>
           </div>
 
@@ -2946,7 +3204,11 @@ export function LivestockDetailPage() {
             <CheckCircle2 className="h-7 w-7 text-primary" />
             <h3 className="mt-3 text-lg font-black">Claim Process</h3>
             <p className="mt-1 text-sm font-bold text-primary">Veterinary Certification & Payout</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">{t("Claims submitted along with post-mortem examination report and ear-tag verification by veterinary officers for quick payout release.")}</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              {t(
+                "Claims submitted along with post-mortem examination report and ear-tag verification by veterinary officers for quick payout release.",
+              )}
+            </p>
           </div>
         </div>
       </PageShell>
@@ -2973,7 +3235,9 @@ export function WeatherPage() {
               <p className="mt-3 text-2xl font-black">
                 {day.high}° / {day.low}°
               </p>
-              <p className="mt-1 text-sm font-bold text-primary">{day.rain}% {t("rain")}</p>
+              <p className="mt-1 text-sm font-bold text-primary">
+                {day.rain}% {t("rain")}
+              </p>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">{t(day.advisory)}</p>
             </div>
           ))}
@@ -3021,7 +3285,9 @@ export function CropCalendarPage() {
                   ["Water", crop.water],
                 ].map(([a, b]) => (
                   <div key={a} className="rounded-lg bg-muted p-3">
-                    <p className="text-xs font-bold uppercase text-muted-foreground">{t(a ?? "")}</p>
+                    <p className="text-xs font-bold uppercase text-muted-foreground">
+                      {t(a ?? "")}
+                    </p>
                     <p className="font-black">{t(b ?? "")}</p>
                   </div>
                 ))}
@@ -3030,7 +3296,9 @@ export function CropCalendarPage() {
               <div className="mt-6 grid gap-2 sm:grid-cols-5">
                 {(crop.tasks || []).map((task, index) => (
                   <div key={task} className="rounded-lg border border-border p-3">
-                    <p className="text-xs font-bold text-primary">{t("Step")} {index + 1}</p>
+                    <p className="text-xs font-bold text-primary">
+                      {t("Step")} {index + 1}
+                    </p>
                     <p className="font-bold">{t(task)}</p>
                   </div>
                 ))}
@@ -3132,7 +3400,10 @@ export function LearnPage() {
 
     if (!course) {
       return (
-        <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
+        <RoleGuard
+          allowedRoles={["farmer", "buyer", "student", "seller", "admin"]}
+          allowGuest={true}
+        >
           <PageShell
             eyebrow={t("Learning")}
             title={t("Course Not Found")}
@@ -3141,7 +3412,9 @@ export function LearnPage() {
             <div className="rounded-2xl border border-amber-200 bg-amber-50/80 p-8 text-center space-y-4 max-w-lg mx-auto">
               <AlertTriangle className="h-12 w-12 text-amber-600 mx-auto" />
               <h2 className="text-xl font-black text-amber-900">{t("Course Not Found")}</h2>
-              <p className="text-sm text-amber-800">{t("The requested course could not be found or does not exist.")}</p>
+              <p className="text-sm text-amber-800">
+                {t("The requested course could not be found or does not exist.")}
+              </p>
               <button
                 type="button"
                 onClick={() => handleSelectCourse(null)}
@@ -3158,7 +3431,8 @@ export function LearnPage() {
 
     const courseLessons = AGRICULTURE_LESSONS.filter((l) => l.courseId === course.id);
     const activeLessonIndex = courseLessons.findIndex((l) => l.id === selectedLessonId);
-    const currentLesson = activeLessonIndex >= 0 ? courseLessons[activeLessonIndex] : courseLessons[0];
+    const currentLesson =
+      activeLessonIndex >= 0 ? courseLessons[activeLessonIndex] : courseLessons[0];
     const progressPct = getCourseProgressPct(course.id);
 
     return (
@@ -3191,11 +3465,14 @@ export function LearnPage() {
                 <div>
                   <h1 className="text-2xl font-black text-[#1b4332]">{t(course.title)}</h1>
                   <p className="text-xs text-muted-foreground font-semibold mt-1">
-                    {t(course.instructor)} · {course.hours} {t("hrs")} · {courseLessons.length} {t("lessons")}
+                    {t(course.instructor)} · {course.hours} {t("hrs")} · {courseLessons.length}{" "}
+                    {t("lessons")}
                   </p>
                 </div>
                 <div className="text-left sm:text-right">
-                  <span className="text-xs text-muted-foreground font-bold">{t("Overall Course Progress")}</span>
+                  <span className="text-xs text-muted-foreground font-bold">
+                    {t("Overall Course Progress")}
+                  </span>
                   <div className="text-xl font-black text-[#2d6a4f]">{progressPct}%</div>
                 </div>
               </div>
@@ -3230,8 +3507,8 @@ export function LearnPage() {
                           isActive
                             ? "bg-emerald-50/90 border-emerald-500 shadow-sm ring-1 ring-emerald-500/30"
                             : completed
-                            ? "bg-emerald-50/30 border-emerald-200/60 hover:bg-emerald-50/60 text-slate-700"
-                            : "bg-white/60 border-transparent hover:bg-white/90 text-slate-700"
+                              ? "bg-emerald-50/30 border-emerald-200/60 hover:bg-emerald-50/60 text-slate-700"
+                              : "bg-white/60 border-transparent hover:bg-white/90 text-slate-700"
                         }`}
                       >
                         <div className="mt-0.5 shrink-0">
@@ -3252,7 +3529,9 @@ export function LearnPage() {
                           <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
                             {t("Lesson")} {l.lessonNumber} · {t(l.duration)}
                           </p>
-                          <h4 className={`text-xs font-black leading-snug ${isActive ? "text-[#1b4332]" : "text-slate-800"}`}>
+                          <h4
+                            className={`text-xs font-black leading-snug ${isActive ? "text-[#1b4332]" : "text-slate-800"}`}
+                          >
                             {t(l.title)}
                           </h4>
                         </div>
@@ -3300,7 +3579,10 @@ export function LearnPage() {
                       </h3>
                       <ul className="space-y-2">
                         {currentLesson.keyPoints.map((pt, idx) => (
-                          <li key={idx} className="flex items-start gap-2.5 text-xs text-slate-800 bg-emerald-50/40 p-3 rounded-xl border border-emerald-100">
+                          <li
+                            key={idx}
+                            className="flex items-start gap-2.5 text-xs text-slate-800 bg-emerald-50/40 p-3 rounded-xl border border-emerald-100"
+                          >
                             <span className="h-2 w-2 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
                             <span className="font-semibold leading-relaxed">{t(pt)}</span>
                           </li>
@@ -3346,7 +3628,9 @@ export function LearnPage() {
                         }`}
                       >
                         <CheckCircle2 className="h-4 w-4" />
-                        {isLessonCompleted(course.id, currentLesson.id) ? t("Completed ✓") : t("Mark as Complete")}
+                        {isLessonCompleted(course.id, currentLesson.id)
+                          ? t("Completed ✓")
+                          : t("Mark as Complete")}
                       </button>
 
                       <button
@@ -3394,7 +3678,9 @@ export function LearnPage() {
         bgImage="https://upload.wikimedia.org/wikipedia/commons/f/fc/Farmer_working_in_the_field_with_their_tractor.jpg"
         eyebrow={t("Learning")}
         title={t("Agriculture Learning Hub")}
-        intro={t("Learn practical farming skills, modern agricultural technologies, crop management, and sustainable farming practices.")}
+        intro={t(
+          "Learn practical farming skills, modern agricultural technologies, crop management, and sustainable farming practices.",
+        )}
       >
         <div className="mb-6 space-y-4">
           <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
@@ -3434,25 +3720,37 @@ export function LearnPage() {
             const progressPct = getCourseProgressPct(c.id);
 
             return (
-              <div key={c.id} className="rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-5 shadow-soft flex flex-col justify-between space-y-4 hover:shadow-md transition">
+              <div
+                key={c.id}
+                className="rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-5 shadow-soft flex flex-col justify-between space-y-4 hover:shadow-md transition"
+              >
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
                       {t(c.level)}
                     </span>
-                    <span className="text-xs text-muted-foreground font-semibold">{c.hours} {t("hrs")} · {totalLessons} {t("lessons")}</span>
+                    <span className="text-xs text-muted-foreground font-semibold">
+                      {c.hours} {t("hrs")} · {totalLessons} {t("lessons")}
+                    </span>
                   </div>
                   <h3 className="text-lg font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{t(c.description ?? "")}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {t(c.description ?? "")}
+                  </p>
                 </div>
 
                 <div className="space-y-3 pt-3 border-t border-border/60">
                   <div className="flex justify-between text-xs font-bold">
                     <span className="text-muted-foreground">{t(c.instructor)}</span>
-                    <span className="text-[#2d6a4f]">{progressPct}% {t("completed")}</span>
+                    <span className="text-[#2d6a4f]">
+                      {progressPct}% {t("completed")}
+                    </span>
                   </div>
                   <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
-                    <div className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300" style={{ width: `${progressPct}%` }} />
+                    <div
+                      className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
+                      style={{ width: `${progressPct}%` }}
+                    />
                   </div>
                   <button
                     type="button"
@@ -3475,12 +3773,16 @@ export function CoursesPage() {
   const { t } = useTranslation();
   const [query, setQuery] = useState("");
   const filtered = COURSES.filter((c) =>
-    `${c.title} ${c.topic} ${c.level}`.toLowerCase().includes(query.toLowerCase())
+    `${c.title} ${c.topic} ${c.level}`.toLowerCase().includes(query.toLowerCase()),
   );
 
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
-      <PageShell eyebrow={t("Education")} title={t("Student Courses Catalog")} intro={t("Explore software development, Python, AI/ML, cloud, and modern tech courses.")}>
+      <PageShell
+        eyebrow={t("Education")}
+        title={t("Student Courses Catalog")}
+        intro={t("Explore software development, Python, AI/ML, cloud, and modern tech courses.")}
+      >
         <div className="mb-6 flex max-w-md items-center rounded-xl border border-border bg-card px-3.5 py-2.5 shadow-sm">
           <Search className="h-4 w-4 text-muted-foreground mr-2" />
           <input
@@ -3494,25 +3796,37 @@ export function CoursesPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((c) => (
-            <div key={c.id} className="rounded-2xl border border-border bg-card p-5 shadow-soft flex flex-col justify-between space-y-4">
+            <div
+              key={c.id}
+              className="rounded-2xl border border-border bg-card p-5 shadow-soft flex flex-col justify-between space-y-4"
+            >
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
                     {t(c.level)}
                   </span>
-                  <span className="text-xs text-muted-foreground font-semibold">{c.hours} {t("hrs")} · {c.lessons} {t("lessons")}</span>
+                  <span className="text-xs text-muted-foreground font-semibold">
+                    {c.hours} {t("hrs")} · {c.lessons} {t("lessons")}
+                  </span>
                 </div>
                 <h3 className="text-lg font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{t(c.description ?? "")}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {t(c.description ?? "")}
+                </p>
               </div>
 
               <div className="space-y-3 pt-3 border-t border-border/60">
                 <div className="flex justify-between text-xs font-bold">
                   <span className="text-muted-foreground">{t(c.instructor)}</span>
-                  <span className="text-[#2d6a4f]">{c.progress}% {t("completed")}</span>
+                  <span className="text-[#2d6a4f]">
+                    {c.progress}% {t("completed")}
+                  </span>
                 </div>
                 <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
-                  <div className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300" style={{ width: `${c.progress}%` }} />
+                  <div
+                    className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
+                    style={{ width: `${c.progress}%` }}
+                  />
                 </div>
                 <button
                   type="button"
@@ -3533,24 +3847,41 @@ export function MyCoursesPage() {
   const { t } = useTranslation();
   return (
     <RoleGuard allowedRoles={["student", "admin"]}>
-      <PageShell eyebrow="Dashboard" title="My Enrolled Courses" intro="Track ongoing learning progress across active tech and engineering courses.">
+      <PageShell
+        eyebrow="Dashboard"
+        title="My Enrolled Courses"
+        intro="Track ongoing learning progress across active tech and engineering courses."
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {COURSES.map((c) => (
-            <div key={c.id} className="rounded-2xl border border-border bg-card p-5 shadow-soft space-y-4">
+            <div
+              key={c.id}
+              className="rounded-2xl border border-border bg-card p-5 shadow-soft space-y-4"
+            >
               <div className="flex justify-between items-start">
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">{c.topic}</span>
+                  <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">
+                    {c.topic}
+                  </span>
                   <h3 className="text-lg font-black text-[#1b4332]">{c.title}</h3>
-                  <p className="text-xs text-muted-foreground mt-0.5">{c.instructor} · {c.hours} hrs</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    {c.instructor} · {c.hours} hrs
+                  </p>
                 </div>
                 <span className="text-xs font-bold text-[#2d6a4f] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
                   {c.progress}% Complete
                 </span>
               </div>
               <div className="h-2.5 w-full rounded-full bg-muted overflow-hidden">
-                <div className="h-full bg-[#2d6a4f] rounded-full" style={{ width: `${c.progress}%` }} />
+                <div
+                  className="h-full bg-[#2d6a4f] rounded-full"
+                  style={{ width: `${c.progress}%` }}
+                />
               </div>
-              <button type="button" className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm">
+              <button
+                type="button"
+                className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm"
+              >
                 Continue Module →
               </button>
             </div>
@@ -3564,22 +3895,47 @@ export function MyCoursesPage() {
 export function MyApplicationsPage() {
   const { t } = useTranslation();
   const sampleApps = [
-    { title: "AgriTech Field Operations Intern", org: "PureFarm Agri Services", location: "Rajahmundry", stipend: "₹10,000/month", status: "In Review", date: "Applied 2 days ago" },
-    { title: "Smart Farming & Drone Intern", org: "AgriTech Innovations", location: "Hyderabad", stipend: "₹15,000/month", status: "Shortlisted", date: "Applied 1 week ago" },
+    {
+      title: "AgriTech Field Operations Intern",
+      org: "PureFarm Agri Services",
+      location: "Rajahmundry",
+      stipend: "₹10,000/month",
+      status: "In Review",
+      date: "Applied 2 days ago",
+    },
+    {
+      title: "Smart Farming & Drone Intern",
+      org: "AgriTech Innovations",
+      location: "Hyderabad",
+      stipend: "₹15,000/month",
+      status: "Shortlisted",
+      date: "Applied 1 week ago",
+    },
   ];
 
   return (
     <RoleGuard allowedRoles={["student", "farmer", "buyer", "seller", "admin"]} allowGuest={true}>
-      <PageShell eyebrow={t("Career")} title={t("My Internship Applications")} intro={t("Review status and progress of your submitted internship applications.")}>
+      <PageShell
+        eyebrow={t("Career")}
+        title={t("My Internship Applications")}
+        intro={t("Review status and progress of your submitted internship applications.")}
+      >
         <div className="space-y-4">
           {sampleApps.map((app, idx) => (
-            <div key={idx} className="rounded-2xl border border-border bg-card p-5 shadow-soft flex items-center justify-between">
+            <div
+              key={idx}
+              className="rounded-2xl border border-border bg-card p-5 shadow-soft flex items-center justify-between"
+            >
               <div>
                 <h3 className="text-base font-black text-[#1b4332]">{t(app.title)}</h3>
-                <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">{t(app.org)} · {t(app.location)} · {t(app.stipend)}</p>
+                <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">
+                  {t(app.org)} · {t(app.location)} · {t(app.stipend)}
+                </p>
                 <p className="text-[11px] text-muted-foreground mt-1">{t(app.date)}</p>
               </div>
-              <span className={`px-3 py-1 rounded-full text-xs font-bold border ${app.status === "Shortlisted" ? "bg-emerald-50 text-emerald-800 border-emerald-200" : "bg-amber-50 text-amber-800 border-amber-200"}`}>
+              <span
+                className={`px-3 py-1 rounded-full text-xs font-bold border ${app.status === "Shortlisted" ? "bg-emerald-50 text-emerald-800 border-emerald-200" : "bg-amber-50 text-amber-800 border-amber-200"}`}
+              >
                 {t(app.status)}
               </span>
             </div>
@@ -3599,18 +3955,32 @@ export function CertificatesPage() {
 
   return (
     <RoleGuard allowedRoles={["student", "farmer", "buyer", "seller", "admin"]} allowGuest={true}>
-      <PageShell eyebrow={t("Achievements")} title={t("My Certificates")} intro={t("View and download verified completion certificates.")}>
+      <PageShell
+        eyebrow={t("Achievements")}
+        title={t("My Certificates")}
+        intro={t("View and download verified completion certificates.")}
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {sampleCertificates.map((cert, idx) => (
-            <div key={idx} className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-3">
+            <div
+              key={idx}
+              className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-3"
+            >
               <div className="flex items-center gap-3">
                 <Award className="h-8 w-8 text-amber-500 shrink-0" />
                 <div>
                   <h3 className="text-base font-black text-[#1b4332]">{t(cert.title)}</h3>
-                  <p className="text-xs text-muted-foreground">{t(cert.date)} · {cert.id}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {t(cert.date)} · {cert.id}
+                  </p>
                 </div>
               </div>
-              <button type="button" className="w-full h-9 rounded-xl border border-border bg-muted/30 hover:bg-muted text-xs font-bold text-[#1b4332] transition cursor-pointer">{t("Download Certificate (PDF)")}</button>
+              <button
+                type="button"
+                className="w-full h-9 rounded-xl border border-border bg-muted/30 hover:bg-muted text-xs font-bold text-[#1b4332] transition cursor-pointer"
+              >
+                {t("Download Certificate (PDF)")}
+              </button>
             </div>
           ))}
         </div>
@@ -3689,7 +4059,10 @@ export function InternshipsPage() {
 
     if (!internship) {
       return (
-        <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
+        <RoleGuard
+          allowedRoles={["farmer", "buyer", "student", "seller", "admin"]}
+          allowGuest={true}
+        >
           <PageShell
             eyebrow={t("Internships")}
             title={t("Internship Not Found")}
@@ -3698,7 +4071,9 @@ export function InternshipsPage() {
             <div className="rounded-2xl border border-amber-200 bg-amber-50/80 p-8 text-center space-y-4 max-w-lg mx-auto">
               <AlertTriangle className="h-12 w-12 text-amber-600 mx-auto" />
               <h2 className="text-xl font-black text-amber-900">{t("Internship Not Found")}</h2>
-              <p className="text-sm text-amber-800">{t("The requested internship could not be found.")}</p>
+              <p className="text-sm text-amber-800">
+                {t("The requested internship could not be found.")}
+              </p>
               <button
                 type="button"
                 onClick={() => handleSelectInternship(null)}
@@ -3762,7 +4137,9 @@ export function InternshipsPage() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs bg-emerald-50/50 p-4 rounded-xl border border-emerald-100">
                 <div>
                   <span className="text-muted-foreground font-semibold block">{t("Duration")}</span>
-                  <span className="font-bold text-[#1b4332]">{t(internship.duration ?? "3 Months")}</span>
+                  <span className="font-bold text-[#1b4332]">
+                    {t(internship.duration ?? "3 Months")}
+                  </span>
                 </div>
                 <div>
                   <span className="text-muted-foreground font-semibold block">{t("Posted")}</span>
@@ -3796,7 +4173,10 @@ export function InternshipsPage() {
                   </h3>
                   <ul className="space-y-2">
                     {internship.responsibilities.map((resp, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs text-slate-800 bg-white/70 p-3 rounded-xl border border-slate-200/60">
+                      <li
+                        key={idx}
+                        className="flex items-start gap-2.5 text-xs text-slate-800 bg-white/70 p-3 rounded-xl border border-slate-200/60"
+                      >
                         <span className="h-2 w-2 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
                         <span className="font-semibold leading-relaxed">{t(resp)}</span>
                       </li>
@@ -3821,7 +4201,10 @@ export function InternshipsPage() {
                 <h3 className="text-sm font-black text-[#1b4332]">{t("Required Skills")}</h3>
                 <div className="flex flex-wrap gap-2">
                   {internship.skills.map((skill) => (
-                    <span key={skill} className="rounded-lg bg-emerald-100/80 text-[#1b4332] px-3 py-1 text-xs font-bold border border-emerald-200">
+                    <span
+                      key={skill}
+                      className="rounded-lg bg-emerald-100/80 text-[#1b4332] px-3 py-1 text-xs font-bold border border-emerald-200"
+                    >
                       {t(skill)}
                     </span>
                   ))}
@@ -3830,7 +4213,8 @@ export function InternshipsPage() {
 
               <div className="pt-6 border-t border-border/60 flex items-center justify-between gap-4">
                 <span className="text-xs text-muted-foreground font-semibold">
-                  {t("Deadline")}: <strong className="text-slate-800">{t(internship.deadline ?? "")}</strong>
+                  {t("Deadline")}:{" "}
+                  <strong className="text-slate-800">{t(internship.deadline ?? "")}</strong>
                 </span>
 
                 <button
@@ -3871,9 +4255,14 @@ export function InternshipsPage() {
                       </p>
                     </div>
                   ) : (
-                    <form onSubmit={(e) => handleApplySubmit(e, internship.id)} className="space-y-4">
+                    <form
+                      onSubmit={(e) => handleApplySubmit(e, internship.id)}
+                      className="space-y-4"
+                    >
                       <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">{t("Full Name")}</label>
+                        <label className="text-xs font-bold text-slate-700 block mb-1">
+                          {t("Full Name")}
+                        </label>
                         <input
                           type="text"
                           required
@@ -3884,7 +4273,9 @@ export function InternshipsPage() {
                         />
                       </div>
                       <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">{t("Mobile Number")}</label>
+                        <label className="text-xs font-bold text-slate-700 block mb-1">
+                          {t("Mobile Number")}
+                        </label>
                         <input
                           type="tel"
                           required
@@ -3895,7 +4286,9 @@ export function InternshipsPage() {
                         />
                       </div>
                       <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">{t("Brief Introduction / Cover Note")}</label>
+                        <label className="text-xs font-bold text-slate-700 block mb-1">
+                          {t("Brief Introduction / Cover Note")}
+                        </label>
                         <textarea
                           rows={3}
                           placeholder={t("Brief Introduction / Cover Note")}
@@ -3943,12 +4336,12 @@ export function InternshipsPage() {
   ];
 
   const filtered = INTERNSHIPS.filter((i) => {
-    const matchesQuery = `${t(i.title)} ${t(i.org)} ${t(i.location)} ${t(i.description ?? "")} ${i.skills.join(" ")}`
-      .toLowerCase()
-      .includes(query.toLowerCase());
+    const matchesQuery =
+      `${t(i.title)} ${t(i.org)} ${t(i.location)} ${t(i.description ?? "")} ${i.skills.join(" ")}`
+        .toLowerCase()
+        .includes(query.toLowerCase());
 
-    const matchesCategory =
-      categoryFilter === "All Internships" || i.category === categoryFilter;
+    const matchesCategory = categoryFilter === "All Internships" || i.category === categoryFilter;
 
     return matchesQuery && matchesCategory;
   });
@@ -3959,7 +4352,9 @@ export function InternshipsPage() {
         bgImage="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=2000"
         eyebrow={t("Internships")}
         title={t("Agriculture Internship Hub")}
-        intro={t("Explore internships in agriculture, agritech, farming, horticulture, livestock, food processing, and rural development.")}
+        intro={t(
+          "Explore internships in agriculture, agritech, farming, horticulture, livestock, food processing, and rural development.",
+        )}
       >
         <div className="mb-6 space-y-4">
           <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
@@ -3997,21 +4392,33 @@ export function InternshipsPage() {
             const isApplied = appliedIds.includes(i.id);
 
             return (
-              <div key={i.id} className="rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-6 shadow-soft space-y-4 hover:shadow-md transition flex flex-col justify-between">
+              <div
+                key={i.id}
+                className="rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-6 shadow-soft space-y-4 hover:shadow-md transition flex flex-col justify-between"
+              >
                 <div className="space-y-3">
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <h3 className="text-lg font-black text-[#1b4332] leading-snug">{t(i.title)}</h3>
-                      <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">{t(i.org)} · {t(i.type)} ({t(i.location)})</p>
+                      <h3 className="text-lg font-black text-[#1b4332] leading-snug">
+                        {t(i.title)}
+                      </h3>
+                      <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">
+                        {t(i.org)} · {t(i.type)} ({t(i.location)})
+                      </p>
                     </div>
                     <span className="shrink-0 rounded-full bg-amber-50 text-amber-800 px-3 py-1 text-xs font-black border border-amber-200 shadow-2xs">
                       {t(i.stipend)}
                     </span>
                   </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{t(i.description ?? "")}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {t(i.description ?? "")}
+                  </p>
                   <div className="flex flex-wrap gap-1.5">
                     {i.skills.map((skill) => (
-                      <span key={skill} className="rounded-md bg-emerald-50 text-[#1b4332] px-2.5 py-1 text-[11px] font-bold border border-emerald-200">
+                      <span
+                        key={skill}
+                        className="rounded-md bg-emerald-50 text-[#1b4332] px-2.5 py-1 text-[11px] font-bold border border-emerald-200"
+                      >
                         {t(skill)}
                       </span>
                     ))}
@@ -4019,7 +4426,9 @@ export function InternshipsPage() {
                 </div>
 
                 <div className="pt-3 flex items-center justify-between border-t border-border/60 mt-2">
-                  <span className="text-xs text-muted-foreground font-medium">{t("Deadline")}: {t(i.deadline ?? "")}</span>
+                  <span className="text-xs text-muted-foreground font-medium">
+                    {t("Deadline")}: {t(i.deadline ?? "")}
+                  </span>
                   <button
                     type="button"
                     onClick={() => handleSelectInternship(i.id)}
@@ -4130,8 +4539,12 @@ export function NotificationsPage() {
                 className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-500/30 bg-emerald-900/40 px-3.5 py-1.5 text-xs sm:text-sm font-medium text-emerald-300 transition-all hover:bg-emerald-800/60 hover:text-white"
               >
                 {unreadCount > 0
-                  ? isTelugu ? "అన్నీ చదివినట్లుగా గుర్తించండి" : "Mark all as read"
-                  : isTelugu ? "అన్నీ చదవనట్లుగా గుర్తించండి" : "Mark all as unread"}
+                  ? isTelugu
+                    ? "అన్నీ చదివినట్లుగా గుర్తించండి"
+                    : "Mark all as read"
+                  : isTelugu
+                    ? "అన్నీ చదవనట్లుగా గుర్తించండి"
+                    : "Mark all as unread"}
               </button>
             </div>
 
@@ -4165,7 +4578,9 @@ export function NotificationsPage() {
                 {isTelugu ? "నోటిఫికేషన్లు ఏవీ లేవు" : "No notifications found"}
               </p>
               <p className="mt-1 text-sm text-emerald-300/70">
-                {isTelugu ? "ఎంచుకున్న ఫిల్టర్‌కు సంబంధించిన హెచ్చరికలు లేవు." : "There are no notifications matching your selected filter."}
+                {isTelugu
+                  ? "ఎంచుకున్న ఫిల్టర్‌కు సంబంధించిన హెచ్చరికలు లేవు."
+                  : "There are no notifications matching your selected filter."}
               </p>
             </div>
           ) : (
@@ -4198,12 +4613,12 @@ function NotificationRow({ item, onToggle }: { item: NotificationItem; onToggle:
     item.category === "Market"
       ? "bg-amber-500/20 text-amber-300 border-amber-500/40"
       : item.category === "Weather"
-      ? "bg-sky-500/20 text-sky-300 border-sky-500/40"
-      : item.category === "Schemes"
-      ? "bg-purple-500/20 text-purple-300 border-purple-500/40"
-      : item.category === "Orders"
-      ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
-      : "bg-teal-500/20 text-teal-300 border-teal-500/40";
+        ? "bg-sky-500/20 text-sky-300 border-sky-500/40"
+        : item.category === "Schemes"
+          ? "bg-purple-500/20 text-purple-300 border-purple-500/40"
+          : item.category === "Orders"
+            ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
+            : "bg-teal-500/20 text-teal-300 border-teal-500/40";
 
   return (
     <div
@@ -4295,13 +4710,21 @@ function NotificationRow({ item, onToggle }: { item: NotificationItem; onToggle:
               }`}
             >
               {item.read
-                ? isTelugu ? "✓ చదివినది" : "✓ Read"
-                : isTelugu ? "● క్రొత్త హెచ్చరిక" : "● New Advisory"}
+                ? isTelugu
+                  ? "✓ చదివినది"
+                  : "✓ Read"
+                : isTelugu
+                  ? "● క్రొత్త హెచ్చరిక"
+                  : "● New Advisory"}
             </span>
             <span className="text-xs text-emerald-400/70 transition-colors group-hover:text-emerald-300 group-hover:underline underline-offset-2">
               {item.read
-                ? isTelugu ? "చదవనట్లుగా మార్చండి" : "Mark as unread"
-                : isTelugu ? "చదివినట్లుగా మార్చండి" : "Mark as read"}
+                ? isTelugu
+                  ? "చదవనట్లుగా మార్చండి"
+                  : "Mark as unread"
+                : isTelugu
+                  ? "చదివినట్లుగా మార్చండి"
+                  : "Mark as read"}
             </span>
           </div>
         </div>
@@ -4323,7 +4746,11 @@ export function AboutPage() {
           <div key={title} className={cardClass}>
             <Users className="h-7 w-7 text-primary" />
             <p className="mt-3 text-xl font-black">{title}</p>
-            <p className="mt-2 text-sm text-muted-foreground">{t("A cohesive experience for ordering, planning, learning, and contacting advisors.")}</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {t(
+                "A cohesive experience for ordering, planning, learning, and contacting advisors.",
+              )}
+            </p>
           </div>
         ))}
       </div>
@@ -4493,7 +4920,9 @@ export function LoginPage() {
             <span className="block text-lg font-extrabold text-[#FFFFFF] drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] leading-none">
               Pure Farm
             </span>
-            <span className="block text-[9px] font-bold text-[#E8F5EE] tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] mt-1">{t("Agri Portal")}</span>
+            <span className="block text-[9px] font-bold text-[#E8F5EE] tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] mt-1">
+              {t("Agri Portal")}
+            </span>
           </div>
         </Link>
 
@@ -4544,7 +4973,9 @@ export function LoginPage() {
             <div className="w-full max-w-md glass-card-dark p-6 sm:p-8 rounded-3xl border border-white/30 shadow-2xl">
               <div className="text-center mb-6">
                 <h2 className="text-2xl sm:text-3xl font-black text-white">Sign In to PureFarm</h2>
-                <p className="text-xs text-white/80 mt-1.5">{t("Enter your account credentials to access your dashboard")}</p>
+                <p className="text-xs text-white/80 mt-1.5">
+                  {t("Enter your account credentials to access your dashboard")}
+                </p>
               </div>
 
               {errorMessage && (
@@ -4603,7 +5034,9 @@ export function LoginPage() {
 
               {/* Demo Credentials Quick Fill */}
               <div className="mt-5 pt-3 border-t border-white/20">
-                <p className="text-[11px] font-semibold text-white/70 text-center mb-2">Quick Demo Accounts:</p>
+                <p className="text-[11px] font-semibold text-white/70 text-center mb-2">
+                  Quick Demo Accounts:
+                </p>
                 <div className="flex flex-wrap gap-2 justify-center">
                   <button
                     type="button"
@@ -4616,12 +5049,16 @@ export function LoginPage() {
                     type="button"
                     onClick={() => handleDemoFill("buyer@purefarm.test")}
                     className="px-2.5 py-1 rounded-lg bg-white/20 hover:bg-white/30 text-white text-[11px] font-bold transition"
-                  >{t("Buyer Demo")}</button>
+                  >
+                    {t("Buyer Demo")}
+                  </button>
                   <button
                     type="button"
                     onClick={() => handleDemoFill("student@purefarm.test")}
                     className="px-2.5 py-1 rounded-lg bg-white/20 hover:bg-white/30 text-white text-[11px] font-bold transition"
-                  >{t("Student Demo")}</button>
+                  >
+                    {t("Student Demo")}
+                  </button>
                 </div>
               </div>
 
@@ -4674,12 +5111,7 @@ export function RegisterPage() {
   const isPhone = (val: string) => /^\d{10}$/.test(val);
 
   const isValid = useMemo(() => {
-    return (
-      name.trim().length >= 3 &&
-      isEmail(email) &&
-      isPhone(phone) &&
-      password.length >= 6
-    );
+    return name.trim().length >= 3 && isEmail(email) && isPhone(phone) && password.length >= 6;
   }, [name, email, phone, password]);
 
   const handleRegisterSubmit = async (e: React.FormEvent) => {
@@ -4709,11 +5141,14 @@ export function RegisterPage() {
   return (
     <div className="relative min-h-screen w-full flex items-center overflow-hidden font-sans">
       {/* 1. FULL-SCREEN AGRICULTURE BACKGROUND */}
-      <div 
+      <div
         className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/commons/5/56/Two_farmers_driving_a_tractor_towing_a_raft_loaded_with_green_rice_sheaves_in_a_paddy_field_of_Vang_Vieng_Laos.jpg)' }}
+        style={{
+          backgroundImage:
+            "url(https://upload.wikimedia.org/wikipedia/commons/5/56/Two_farmers_driving_a_tractor_towing_a_raft_loaded_with_green_rice_sheaves_in_a_paddy_field_of_Vang_Vieng_Laos.jpg)",
+        }}
       >
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 35, 25, 0.35)' }} />
+        <div className="absolute inset-0" style={{ backgroundColor: "rgba(0, 35, 25, 0.35)" }} />
       </div>
 
       {/* Top Left Branding */}
@@ -4723,7 +5158,9 @@ export function RegisterPage() {
             <Leaf className="h-6 w-6" />
           </span>
           <div>
-            <span className="block text-2xl font-black tracking-wide leading-none text-white drop-shadow-md">PureFarm</span>
+            <span className="block text-2xl font-black tracking-wide leading-none text-white drop-shadow-md">
+              PureFarm
+            </span>
             <span className="block text-[10px] font-bold text-white uppercase tracking-widest leading-none mt-1.5 drop-shadow-md">
               Connect • Grow • Prosper
             </span>
@@ -4733,43 +5170,49 @@ export function RegisterPage() {
 
       {/* Main Content Layout */}
       <div className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center justify-between p-6 lg:p-12 mt-20 lg:mt-0">
-        
         {/* LEFT-SIDE CONTENT */}
         <div className="w-full lg:w-1/2 text-white mb-10 lg:mb-0 lg:pr-12 hidden md:block">
           <h2 className="text-4xl lg:text-6xl font-bold leading-tight drop-shadow-lg mb-6 text-white">
-            Join the Digital<br />Agri Revolution
+            Join the Digital
+            <br />
+            Agri Revolution
           </h2>
           <p className="text-lg text-white/90 leading-relaxed max-w-md mb-8 drop-shadow-md">
-            Register your profile to access mandi prices, direct produce sales, certified inputs, courses, and internships.
+            Register your profile to access mandi prices, direct produce sales, certified inputs,
+            courses, and internships.
           </p>
-          
+
           <div className="space-y-4">
-            <div 
+            <div
               className="flex items-center gap-4 p-4 max-w-sm"
               style={{
-                background: 'rgba(255,255,255,0.12)',
-                backdropFilter: 'blur(16px)',
-                border: '1px solid rgba(255,255,255,0.25)',
-                borderRadius: '18px',
+                background: "rgba(255,255,255,0.12)",
+                backdropFilter: "blur(16px)",
+                border: "1px solid rgba(255,255,255,0.25)",
+                borderRadius: "18px",
               }}
             >
-              <div className="p-2"><Leaf className="h-6 w-6 text-white" /></div>
+              <div className="p-2">
+                <Leaf className="h-6 w-6 text-white" />
+              </div>
               <div>
                 <h4 className="font-bold text-white text-sm">{t("Direct Market Access")}</h4>
                 <p className="text-white/80 text-xs">Sell harvest at transparent mandi prices</p>
               </div>
             </div>
-            
-            <div 
+
+            <div
               className="flex items-center gap-4 p-4 max-w-sm"
               style={{
-                background: 'rgba(255,255,255,0.12)',
-                backdropFilter: 'blur(16px)',
-                border: '1px solid rgba(255,255,255,0.25)',
-                borderRadius: '18px',
+                background: "rgba(255,255,255,0.12)",
+                backdropFilter: "blur(16px)",
+                border: "1px solid rgba(255,255,255,0.25)",
+                borderRadius: "18px",
               }}
             >
-              <div className="p-2"><ShieldCheck className="h-6 w-6 text-white" /></div>
+              <div className="p-2">
+                <ShieldCheck className="h-6 w-6 text-white" />
+              </div>
               <div>
                 <h4 className="font-bold text-white text-sm">Verified Agri Inputs</h4>
                 <p className="text-white/80 text-xs">Quality seeds, fertilizers and equipment</p>
@@ -4780,13 +5223,13 @@ export function RegisterPage() {
 
         {/* CREATE ACCOUNT PANEL */}
         <div className="w-full lg:w-[500px] max-w-[90vw] lg:ml-auto">
-          <div 
+          <div
             style={{
-              background: 'rgba(255, 255, 255, 0.16)',
-              backdropFilter: 'blur(25px) saturate(140%)',
-              border: '1px solid rgba(255, 255, 255, 0.45)',
-              boxShadow: '0 25px 60px rgba(0, 0, 0, 0.25)',
-              borderRadius: '28px'
+              background: "rgba(255, 255, 255, 0.16)",
+              backdropFilter: "blur(25px) saturate(140%)",
+              border: "1px solid rgba(255, 255, 255, 0.45)",
+              boxShadow: "0 25px 60px rgba(0, 0, 0, 0.25)",
+              borderRadius: "28px",
             }}
             className="py-8 px-6 sm:px-10"
           >
@@ -4794,7 +5237,9 @@ export function RegisterPage() {
               <h3 className="text-2xl font-extrabold text-[#073B2A] drop-shadow-sm">
                 Create Account
               </h3>
-              <p className="text-xs font-semibold text-[#164F3C] mt-1">{t("Choose your role to get started with PureFarm")}</p>
+              <p className="text-xs font-semibold text-[#164F3C] mt-1">
+                {t("Choose your role to get started with PureFarm")}
+              </p>
             </div>
 
             {/* 3-Way Role Selector Tabs */}
@@ -4887,7 +5332,9 @@ export function RegisterPage() {
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold text-[#073B2A] block">Location (City, State)</label>
+                <label className="text-xs font-bold text-[#073B2A] block">
+                  Location (City, State)
+                </label>
                 <input
                   type="text"
                   disabled={loading}
@@ -5044,7 +5491,9 @@ export function SellerPage() {
       available_quantity: String(product.available_quantity),
       unit: product.unit || "kg",
       location: (product.location || "") as string,
-      harvest_date: (product.harvest_date ? product.harvest_date.split("T")[0] || "" : "") as string,
+      harvest_date: (product.harvest_date
+        ? product.harvest_date.split("T")[0] || ""
+        : "") as string,
       image_url: product.image_url || "",
       description: product.description || "",
       status: product.status || "available",
@@ -5170,7 +5619,9 @@ export function SellerPage() {
       <PageShell eyebrow="Seller Portal" title="Farmer Product Management">
         <div className="rounded-2xl border bg-card p-8 text-center shadow-sm max-w-xl mx-auto my-12">
           <Leaf className="h-12 w-12 text-[#087F5B] mx-auto mb-4" />
-          <h2 className="text-xl font-bold text-foreground mb-2">{t("Farmer Authentication Required")}</h2>
+          <h2 className="text-xl font-bold text-foreground mb-2">
+            {t("Farmer Authentication Required")}
+          </h2>
           <p className="text-muted-foreground text-sm mb-6">
             Please log in with your Farmer account to manage product listings, inventory, and sales.
           </p>
@@ -5194,11 +5645,17 @@ export function SellerPage() {
           </div>
           <h2 className="text-xl font-bold text-foreground mb-2">{t("Account Role Notice")}</h2>
           <p className="text-muted-foreground text-sm mb-6">
-            You are currently logged in as <strong>{user.role.toUpperCase()}</strong>{t(". Access to this product management interface is strictly restricted to registered Farmers.")}</p>
+            You are currently logged in as <strong>{user.role.toUpperCase()}</strong>
+            {t(
+              ". Access to this product management interface is strictly restricted to registered Farmers.",
+            )}
+          </p>
           <Link
             to="/marketplace"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] text-white font-bold hover:bg-[#073B2A] transition"
-          >{t("Go to Marketplace")}<ArrowRight className="h-4 w-4" />
+          >
+            {t("Go to Marketplace")}
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </PageShell>
@@ -5244,7 +5701,9 @@ export function SellerPage() {
             onClick={openAddModal}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-xs shadow-md transition"
           >
-            <Plus className="h-4 w-4" />{t("List New Produce")}</button>
+            <Plus className="h-4 w-4" />
+            {t("List New Produce")}
+          </button>
         )}
       </div>
 
@@ -5291,12 +5750,19 @@ export function SellerPage() {
                         </span>
                       </div>
                       <p className="text-xs text-muted-foreground mt-1">
-                        Received on {new Date(order.created_at).toLocaleDateString("en-IN", { dateStyle: "medium" })}
+                        Received on{" "}
+                        {new Date(order.created_at).toLocaleDateString("en-IN", {
+                          dateStyle: "medium",
+                        })}
                       </p>
                     </div>
                     <div className="text-right">
-                      <span className="text-xs text-muted-foreground block font-medium">{t("Order Total")}</span>
-                      <span className="text-xl font-black text-[#087F5B]">{formatRupees(order.total_amount)}</span>
+                      <span className="text-xs text-muted-foreground block font-medium">
+                        {t("Order Total")}
+                      </span>
+                      <span className="text-xl font-black text-[#087F5B]">
+                        {formatRupees(order.total_amount)}
+                      </span>
                     </div>
                   </div>
 
@@ -5309,13 +5775,18 @@ export function SellerPage() {
                             🌾
                           </div>
                           <div>
-                            <p className="font-bold text-foreground">{item.products?.name || "Farm Produce"}</p>
+                            <p className="font-bold text-foreground">
+                              {item.products?.name || "Farm Produce"}
+                            </p>
                             <p className="text-xs text-muted-foreground">
-                              {item.quantity} {item.products?.unit || "units"} × {formatRupees(item.unit_price)}
+                              {item.quantity} {item.products?.unit || "units"} ×{" "}
+                              {formatRupees(item.unit_price)}
                             </p>
                           </div>
                         </div>
-                        <span className="font-bold text-foreground">{formatRupees(item.subtotal)}</span>
+                        <span className="font-bold text-foreground">
+                          {formatRupees(item.subtotal)}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -5324,10 +5795,14 @@ export function SellerPage() {
                   <div className="pt-3 border-t flex items-center justify-between text-xs text-muted-foreground">
                     <div className="flex items-center gap-2">
                       <MapPin className="h-3.5 w-3.5 text-[#087F5B]" />
-                      <span>{t("Delivery Destination:")}<strong>{order.delivery_location}</strong></span>
+                      <span>
+                        {t("Delivery Destination:")}
+                        <strong>{order.delivery_location}</strong>
+                      </span>
                     </div>
                     <span className="font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-100">
-                      Payment: {order.payment_method?.toUpperCase() || "COD"} ({order.payment_status || "Pending"})
+                      Payment: {order.payment_method?.toUpperCase() || "COD"} (
+                      {order.payment_status || "Pending"})
                     </span>
                   </div>
                 </div>
@@ -5339,108 +5814,134 @@ export function SellerPage() {
 
       {activeTab === "products" && (
         <>
-
-      {loading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[1, 2, 3].map((n) => (
-            <div key={n} className="rounded-2xl border p-6 bg-card animate-pulse space-y-4">
-              <div className="h-40 bg-muted rounded-xl" />
-              <div className="h-4 bg-muted rounded w-3/4" />
-              <div className="h-4 bg-muted rounded w-1/2" />
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3].map((n) => (
+                <div key={n} className="rounded-2xl border p-6 bg-card animate-pulse space-y-4">
+                  <div className="h-40 bg-muted rounded-xl" />
+                  <div className="h-4 bg-muted rounded w-3/4" />
+                  <div className="h-4 bg-muted rounded w-1/2" />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      ) : products.length === 0 ? (
-        /* Empty State */
-        <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/50 p-12 text-center max-w-xl mx-auto my-8">
-          <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#087F5B] flex items-center justify-center mx-auto mb-4">
-            <Sprout className="h-8 w-8" />
-          </div>
-          <h3 className="text-xl font-bold text-[#073B2A] mb-2">{t("No products listed yet.")}</h3>
-          <p className="text-sm text-emerald-800/80 mb-6 leading-relaxed">
-            You haven't listed any farm produce for sale yet. Start selling directly to verified buyers across India with zero middleman fees.
-          </p>
-          <button
-            onClick={openAddModal}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-lg transition"
-          >
-            <Plus className="h-4 w-4" />{t("List Your First Product")}</button>
-        </div>
-      ) : (
-        /* Product Grid */
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product) => (
-            <div key={product.id} className="rounded-2xl border bg-card overflow-hidden shadow-sm flex flex-col justify-between hover:shadow-md transition">
-              <div>
-                <div className="relative h-44 bg-muted overflow-hidden">
-                  <img
-                    src={product.image_url || NEUTRAL_PRODUCT_FALLBACK}
-                    alt={product.name || (product as any).title}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = NEUTRAL_PRODUCT_FALLBACK;
-                    }}
-                    className="w-full h-full object-cover"
-                  />
-                  <span className={`absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-bold ${product.status === "available" ? "bg-emerald-500 text-white" : "bg-gray-500 text-white"}`}>
-                    {(product.status || "available").toUpperCase()}
-                  </span>
-                  <span className="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg text-xs font-bold bg-black/60 text-white backdrop-blur-sm">
-                    {product.category.toUpperCase()}
-                  </span>
-                </div>
-
-                <div className="p-5 space-y-3">
-                  <h3 className="font-bold text-lg text-foreground line-clamp-1">{product.name || (product as any).title}</h3>
-
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-2xl font-black text-[#087F5B]">{formatRupees(product.price)}</span>
-                    <span className="text-xs text-muted-foreground font-semibold">/ {product.unit}</span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2 pt-2 border-t text-xs">
-                    <div>
-                      <span className="text-muted-foreground block font-medium">Available Stock</span>
-                      <span className="font-bold text-foreground">{product.available_quantity} {product.unit}</span>
-                    </div>
-                    <div>
-                      <span className="text-muted-foreground block font-medium">Total Quantity</span>
-                      <span className="font-bold text-foreground">{product.quantity} {product.unit}</span>
-                    </div>
-                  </div>
-
-                  {product.location && (
-                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                      <MapPin className="h-3.5 w-3.5 text-[#087F5B]" />
-                      <span className="truncate">{product.location}</span>
-                    </div>
-                  )}
-                </div>
+          ) : products.length === 0 ? (
+            /* Empty State */
+            <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/50 p-12 text-center max-w-xl mx-auto my-8">
+              <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#087F5B] flex items-center justify-center mx-auto mb-4">
+                <Sprout className="h-8 w-8" />
               </div>
-
-              {/* Card Actions */}
-              <div className="p-4 bg-muted/40 border-t flex items-center justify-between gap-2">
-                <button
-                  onClick={() => handleToggleStatus(product)}
-                  className="px-3 py-1.5 rounded-lg border text-xs font-bold transition hover:bg-muted"
+              <h3 className="text-xl font-bold text-[#073B2A] mb-2">
+                {t("No products listed yet.")}
+              </h3>
+              <p className="text-sm text-emerald-800/80 mb-6 leading-relaxed">
+                You haven't listed any farm produce for sale yet. Start selling directly to verified
+                buyers across India with zero middleman fees.
+              </p>
+              <button
+                onClick={openAddModal}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-lg transition"
+              >
+                <Plus className="h-4 w-4" />
+                {t("List Your First Product")}
+              </button>
+            </div>
+          ) : (
+            /* Product Grid */
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {products.map((product) => (
+                <div
+                  key={product.id}
+                  className="rounded-2xl border bg-card overflow-hidden shadow-sm flex flex-col justify-between hover:shadow-md transition"
                 >
-                  {product.status === "available" ? "Deactivate" : "Activate"}
-                </button>
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => openEditModal(product)}
-                    className="px-3 py-1.5 rounded-lg bg-emerald-100 text-[#087F5B] hover:bg-emerald-200 text-xs font-bold transition"
-                  >{t("Edit")}</button>
-                  <button
-                    onClick={() => setDeletingProduct(product)}
-                    className="px-3 py-1.5 rounded-lg bg-rose-100 text-rose-700 hover:bg-rose-200 text-xs font-bold transition"
-                  >{t("Delete")}</button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+                  <div>
+                    <div className="relative h-44 bg-muted overflow-hidden">
+                      <img
+                        src={product.image_url || NEUTRAL_PRODUCT_FALLBACK}
+                        alt={product.name || (product as any).title}
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = NEUTRAL_PRODUCT_FALLBACK;
+                        }}
+                        className="w-full h-full object-cover"
+                      />
+                      <span
+                        className={`absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-bold ${product.status === "available" ? "bg-emerald-500 text-white" : "bg-gray-500 text-white"}`}
+                      >
+                        {(product.status || "available").toUpperCase()}
+                      </span>
+                      <span className="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg text-xs font-bold bg-black/60 text-white backdrop-blur-sm">
+                        {product.category.toUpperCase()}
+                      </span>
+                    </div>
 
+                    <div className="p-5 space-y-3">
+                      <h3 className="font-bold text-lg text-foreground line-clamp-1">
+                        {product.name || (product as any).title}
+                      </h3>
+
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-2xl font-black text-[#087F5B]">
+                          {formatRupees(product.price)}
+                        </span>
+                        <span className="text-xs text-muted-foreground font-semibold">
+                          / {product.unit}
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2 pt-2 border-t text-xs">
+                        <div>
+                          <span className="text-muted-foreground block font-medium">
+                            Available Stock
+                          </span>
+                          <span className="font-bold text-foreground">
+                            {product.available_quantity} {product.unit}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground block font-medium">
+                            Total Quantity
+                          </span>
+                          <span className="font-bold text-foreground">
+                            {product.quantity} {product.unit}
+                          </span>
+                        </div>
+                      </div>
+
+                      {product.location && (
+                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                          <MapPin className="h-3.5 w-3.5 text-[#087F5B]" />
+                          <span className="truncate">{product.location}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Card Actions */}
+                  <div className="p-4 bg-muted/40 border-t flex items-center justify-between gap-2">
+                    <button
+                      onClick={() => handleToggleStatus(product)}
+                      className="px-3 py-1.5 rounded-lg border text-xs font-bold transition hover:bg-muted"
+                    >
+                      {product.status === "available" ? "Deactivate" : "Activate"}
+                    </button>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => openEditModal(product)}
+                        className="px-3 py-1.5 rounded-lg bg-emerald-100 text-[#087F5B] hover:bg-emerald-200 text-xs font-bold transition"
+                      >
+                        {t("Edit")}
+                      </button>
+                      <button
+                        onClick={() => setDeletingProduct(product)}
+                        className="px-3 py-1.5 rounded-lg bg-rose-100 text-rose-700 hover:bg-rose-200 text-xs font-bold transition"
+                      >
+                        {t("Delete")}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </>
       )}
 
@@ -5493,7 +5994,9 @@ export function SellerPage() {
                   <label className="text-xs font-bold text-foreground block mb-1">Category *</label>
                   <select
                     value={formData.category}
-                    onChange={(e) => setFormData({ ...formData, category: e.target.value as ProductCategory })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, category: e.target.value as ProductCategory })
+                    }
                     className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
                   >
                     <option value="grains">Grains & Cereals</option>
@@ -5510,7 +6013,9 @@ export function SellerPage() {
                 </div>
 
                 <div>
-                  <label className="text-xs font-bold text-foreground block mb-1">Unit of Measure *</label>
+                  <label className="text-xs font-bold text-foreground block mb-1">
+                    Unit of Measure *
+                  </label>
                   <select
                     value={formData.unit}
                     onChange={(e) => setFormData({ ...formData, unit: e.target.value })}
@@ -5528,7 +6033,9 @@ export function SellerPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                  <label className="text-xs font-bold text-foreground block mb-1">Price per {formData.unit} (₹) *</label>
+                  <label className="text-xs font-bold text-foreground block mb-1">
+                    Price per {formData.unit} (₹) *
+                  </label>
                   <input
                     type="number"
                     min="1"
@@ -5542,7 +6049,9 @@ export function SellerPage() {
                 </div>
 
                 <div>
-                  <label className="text-xs font-bold text-foreground block mb-1">Total Quantity *</label>
+                  <label className="text-xs font-bold text-foreground block mb-1">
+                    Total Quantity *
+                  </label>
                   <input
                     type="number"
                     min="1"
@@ -5563,14 +6072,18 @@ export function SellerPage() {
                 </div>
 
                 <div>
-                  <label className="text-xs font-bold text-foreground block mb-1">Available Quantity *</label>
+                  <label className="text-xs font-bold text-foreground block mb-1">
+                    Available Quantity *
+                  </label>
                   <input
                     type="number"
                     min="0"
                     step="any"
                     required
                     value={formData.available_quantity}
-                    onChange={(e) => setFormData({ ...formData, available_quantity: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, available_quantity: e.target.value })
+                    }
                     placeholder="e.g. 100"
                     className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
                   />
@@ -5579,7 +6092,9 @@ export function SellerPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-xs font-bold text-foreground block mb-1">Location / Farm Address *</label>
+                  <label className="text-xs font-bold text-foreground block mb-1">
+                    Location / Farm Address *
+                  </label>
                   <input
                     type="text"
                     required
@@ -5591,7 +6106,9 @@ export function SellerPage() {
                 </div>
 
                 <div>
-                  <label className="text-xs font-bold text-foreground block mb-1">Harvest Date</label>
+                  <label className="text-xs font-bold text-foreground block mb-1">
+                    Harvest Date
+                  </label>
                   <input
                     type="date"
                     value={formData.harvest_date}
@@ -5602,7 +6119,9 @@ export function SellerPage() {
               </div>
 
               <div>
-                <label className="text-xs font-bold text-foreground block mb-1">{t("Image URL (Optional)")}</label>
+                <label className="text-xs font-bold text-foreground block mb-1">
+                  {t("Image URL (Optional)")}
+                </label>
                 <input
                   type="url"
                   value={formData.image_url}
@@ -5613,7 +6132,9 @@ export function SellerPage() {
               </div>
 
               <div>
-                <label className="text-xs font-bold text-foreground block mb-1">{t("Description (Optional)")}</label>
+                <label className="text-xs font-bold text-foreground block mb-1">
+                  {t("Description (Optional)")}
+                </label>
                 <textarea
                   rows={3}
                   value={formData.description}
@@ -5627,7 +6148,9 @@ export function SellerPage() {
                 <label className="text-xs font-bold text-foreground block mb-1">Status</label>
                 <select
                   value={formData.status}
-                  onChange={(e) => setFormData({ ...formData, status: e.target.value as ProductStatus })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, status: e.target.value as ProductStatus })
+                  }
                   className="w-full h-11 px-3.5 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
                 >
                   <option value="available">{t("Active (Visible on Marketplace)")}</option>
@@ -5641,7 +6164,9 @@ export function SellerPage() {
                   onClick={() => setIsModalOpen(false)}
                   disabled={submitting}
                   className="px-5 py-2.5 rounded-xl border text-xs font-bold hover:bg-muted transition"
-                >{t("Cancel")}</button>
+                >
+                  {t("Cancel")}
+                </button>
                 <button
                   type="submit"
                   disabled={submitting}
@@ -5660,14 +6185,19 @@ export function SellerPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="bg-card border rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4">
             <h3 className="text-lg font-bold text-foreground">{t("Confirm Delete Product")}</h3>
-            <p className="text-sm text-muted-foreground">{t("Are you sure you want to remove")}<strong>"{deletingProduct.name || (deletingProduct as any).title}"</strong> from your catalog? This action cannot be undone.
+            <p className="text-sm text-muted-foreground">
+              {t("Are you sure you want to remove")}
+              <strong>"{deletingProduct.name || (deletingProduct as any).title}"</strong> from your
+              catalog? This action cannot be undone.
             </p>
             <div className="flex items-center justify-end gap-3 pt-4">
               <button
                 onClick={() => setDeletingProduct(null)}
                 disabled={submitting}
                 className="px-4 py-2 rounded-xl border text-xs font-bold hover:bg-muted"
-              >{t("Cancel")}</button>
+              >
+                {t("Cancel")}
+              </button>
               <button
                 onClick={handleDeleteConfirm}
                 disabled={submitting}
@@ -5696,7 +6226,9 @@ export function AdminPage() {
       <div className="grid gap-6 md:grid-cols-3 mb-8">
         <div className="rounded-2xl border bg-card p-6 shadow-sm">
           <p className="text-sm text-muted-foreground font-semibold">User Role</p>
-          <p className="text-2xl font-black text-[#087F5B] mt-1">{user?.role?.toUpperCase() || "ADMIN"}</p>
+          <p className="text-2xl font-black text-[#087F5B] mt-1">
+            {user?.role?.toUpperCase() || "ADMIN"}
+          </p>
         </div>
         <div className="rounded-2xl border bg-card p-6 shadow-sm">
           <p className="text-sm text-muted-foreground font-semibold">Supabase Connection</p>
@@ -5752,7 +6284,9 @@ export function CardGridPage({
         {items.map((item) => {
           const isClickable = Boolean(item.url || item.internalUrl);
           const content = (
-            <div className={`${currentCardClass} h-full ${isClickable ? "hover:border-primary/50 hover:shadow-md transition cursor-pointer" : ""}`}>
+            <div
+              className={`${currentCardClass} h-full ${isClickable ? "hover:border-primary/50 hover:shadow-md transition cursor-pointer" : ""}`}
+            >
               <div className="flex items-start gap-3">
                 {item.icon}
                 <div>
@@ -5794,7 +6328,6 @@ export function CardGridPage({
   );
 }
 
-
 // ============================================================================
 // COLD STORAGE FINDER PAGE
 // ============================================================================
@@ -5809,7 +6342,9 @@ export function ColdStoragePage() {
   // Filters & Location
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
-  const [sortOrder, setSortOrder] = useState<"nearest" | "farthest" | "capacity_high" | "capacity_low">("nearest");
+  const [sortOrder, setSortOrder] = useState<
+    "nearest" | "farthest" | "capacity_high" | "capacity_low"
+  >("nearest");
   const [userLat, setUserLat] = useState<number | null>(null);
   const [userLng, setUserLng] = useState<number | null>(null);
   const [locationLoading, setLocationLoading] = useState(false);
@@ -5856,14 +6391,22 @@ export function ColdStoragePage() {
         setUserLat(pos.coords.latitude);
         setUserLng(pos.coords.longitude);
         setLocationLoading(false);
-        setLocationStatus("Location set: Coordinates (" + pos.coords.latitude.toFixed(2) + ", " + pos.coords.longitude.toFixed(2) + ")");
+        setLocationStatus(
+          "Location set: Coordinates (" +
+            pos.coords.latitude.toFixed(2) +
+            ", " +
+            pos.coords.longitude.toFixed(2) +
+            ")",
+        );
       },
       (err) => {
         console.warn("Geolocation permission error:", err.message);
         setLocationLoading(false);
-        setLocationStatus("Location permission denied. Showing facilities by default regional distance.");
+        setLocationStatus(
+          "Location permission denied. Showing facilities by default regional distance.",
+        );
       },
-      { timeout: 10000 }
+      { timeout: 10000 },
     );
   };
 
@@ -5876,7 +6419,9 @@ export function ColdStoragePage() {
       <PageShell
         eyebrow={t("Produce Preservation & Logistics")}
         title={t("Cold Storage Finder")}
-        intro={t("Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation.")}
+        intro={t(
+          "Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation.",
+        )}
         bgImage="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop"
       >
         <div className="mb-8 p-6 rounded-2xl border border-white/50 bg-white/85 backdrop-blur-md shadow-md space-y-4">
@@ -5911,7 +6456,9 @@ export function ColdStoragePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2 border-t border-border/60">
             <div>
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">{t("Status")}</label>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                {t("Status")}
+              </label>
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
@@ -5925,7 +6472,9 @@ export function ColdStoragePage() {
             </div>
 
             <div>
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">{t("Sort By")}</label>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                {t("Sort By")}
+              </label>
               <select
                 value={sortOrder}
                 onChange={(e) => setSortOrder(e.target.value as any)}
@@ -5939,7 +6488,9 @@ export function ColdStoragePage() {
             </div>
 
             <div className="sm:col-span-2 lg:col-span-2 flex items-end justify-between sm:justify-end gap-3 pb-1 text-xs font-bold text-muted-foreground">
-              <span>{t("Showing")} {facilities.length} {t("facilities")}</span>
+              <span>
+                {t("Showing")} {facilities.length} {t("facilities")}
+              </span>
               <button
                 onClick={fetchFacilities}
                 className="inline-flex items-center gap-1.5 text-[#087F5B] hover:underline"
@@ -5963,7 +6514,9 @@ export function ColdStoragePage() {
         ) : error ? (
           <div className="rounded-2xl border border-rose-200 bg-rose-50/80 p-8 text-center max-w-xl mx-auto my-8 space-y-4">
             <AlertTriangle className="h-12 w-12 text-rose-600 mx-auto" />
-            <h3 className="text-lg font-bold text-rose-900">{t("Unable to load cold storage facilities")}</h3>
+            <h3 className="text-lg font-bold text-rose-900">
+              {t("Unable to load cold storage facilities")}
+            </h3>
             <p className="text-xs text-rose-700">{error}</p>
             <button
               onClick={fetchFacilities}
@@ -5975,8 +6528,12 @@ export function ColdStoragePage() {
         ) : facilities.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/60 p-12 text-center max-w-xl mx-auto my-8 space-y-4">
             <Snowflake className="h-12 w-12 text-[#087F5B] mx-auto mb-2 opacity-80" />
-            <h3 className="text-xl font-bold text-[#073B2A]">{t("No cold storage facilities found")}</h3>
-            <p className="text-sm text-emerald-800/80">{t("Try changing your location or search filters.")}</p>
+            <h3 className="text-xl font-bold text-[#073B2A]">
+              {t("No cold storage facilities found")}
+            </h3>
+            <p className="text-sm text-emerald-800/80">
+              {t("Try changing your location or search filters.")}
+            </p>
             <button
               onClick={() => {
                 setSearch("");
@@ -5991,11 +6548,13 @@ export function ColdStoragePage() {
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {facilities.map((facility) => {
               const displayDistance = facility.calculatedDistance ?? facility.distance ?? null;
-              const isFull = facility.status.toLowerCase() === "full" || facility.available_capacity === 0;
+              const isFull =
+                facility.status.toLowerCase() === "full" || facility.available_capacity === 0;
               const isMaintenance = facility.status.toLowerCase() === "maintenance";
-              const percentAvailable = facility.capacity > 0
-                ? Math.round((facility.available_capacity / facility.capacity) * 100)
-                : 0;
+              const percentAvailable =
+                facility.capacity > 0
+                  ? Math.round((facility.available_capacity / facility.capacity) * 100)
+                  : 0;
 
               return (
                 <div
@@ -6009,7 +6568,9 @@ export function ColdStoragePage() {
                           <Snowflake className="h-5 w-5" />
                         </span>
                         <div>
-                          <h3 className="font-bold text-foreground text-base leading-snug">{t(facility.name)}</h3>
+                          <h3 className="font-bold text-foreground text-base leading-snug">
+                            {t(facility.name)}
+                          </h3>
                           {displayDistance !== null && (
                             <span className="text-xs font-bold text-emerald-800 flex items-center gap-1 mt-0.5">
                               <MapPin className="h-3 w-3" /> {displayDistance} {t("km away")}
@@ -6023,11 +6584,15 @@ export function ColdStoragePage() {
                           isFull
                             ? "bg-rose-100 text-rose-800 border border-rose-200"
                             : isMaintenance
-                            ? "bg-amber-100 text-amber-800 border border-amber-200"
-                            : "bg-emerald-100 text-emerald-800 border border-emerald-200"
+                              ? "bg-amber-100 text-amber-800 border border-amber-200"
+                              : "bg-emerald-100 text-emerald-800 border border-emerald-200"
                         }`}
                       >
-                        {isFull ? `🔴 ${t("Full")}` : isMaintenance ? `🟠 ${t("Maintenance")}` : `🟢 ${t("Available")}`}
+                        {isFull
+                          ? `🔴 ${t("Full")}`
+                          : isMaintenance
+                            ? `🟠 ${t("Maintenance")}`
+                            : `🟢 ${t("Available")}`}
                       </span>
                     </div>
 
@@ -6040,7 +6605,8 @@ export function ColdStoragePage() {
                       <div className="flex items-center justify-between text-xs font-bold">
                         <span className="text-foreground">{t("Available Capacity")}</span>
                         <span className="text-[#087F5B]">
-                          {facility.available_capacity.toLocaleString()} MT / {facility.capacity.toLocaleString()} MT
+                          {facility.available_capacity.toLocaleString()} MT /{" "}
+                          {facility.capacity.toLocaleString()} MT
                         </span>
                       </div>
 
@@ -6054,8 +6620,12 @@ export function ColdStoragePage() {
                       </div>
 
                       <div className="flex items-center justify-between text-[11px] text-muted-foreground font-semibold">
-                        <span>{percentAvailable}% {t("available space")}</span>
-                        <span>{t("Total")}: {facility.capacity.toLocaleString()} MT</span>
+                        <span>
+                          {percentAvailable}% {t("available space")}
+                        </span>
+                        <span>
+                          {t("Total")}: {facility.capacity.toLocaleString()} MT
+                        </span>
                       </div>
                     </div>
 
@@ -6065,7 +6635,10 @@ export function ColdStoragePage() {
                         <ul className="space-y-1 list-disc list-inside">
                           <li>{t("Temperature range: -2°C to +8°C (Multi-commodity)")}</li>
                           <li>{t("Humidity control: Automated 85%-95% RH")}</li>
-                          <li>{t("Coordinates:")} {facility.latitude ?? "N/A"}, {facility.longitude ?? "N/A"}</li>
+                          <li>
+                            {t("Coordinates:")} {facility.latitude ?? "N/A"},{" "}
+                            {facility.longitude ?? "N/A"}
+                          </li>
                         </ul>
                       </div>
                     )}
@@ -6090,7 +6663,11 @@ export function ColdStoragePage() {
                       className="h-10 px-3.5 rounded-xl border bg-background hover:bg-muted font-bold text-xs text-foreground transition flex items-center gap-1"
                     >
                       {expandedId === facility.id ? t("Hide Details") : t("Details")}
-                      {expandedId === facility.id ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
+                      {expandedId === facility.id ? (
+                        <ChevronUp className="h-3.5 w-3.5" />
+                      ) : (
+                        <ChevronDown className="h-3.5 w-3.5" />
+                      )}
                     </button>
                   </div>
                 </div>
