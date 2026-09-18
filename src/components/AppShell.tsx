@@ -455,6 +455,7 @@ export function PageShell({
   intro,
   bgImage,
   darkOverlay,
+  lightTheme,
   children,
 }: {
   eyebrow?: string;
@@ -462,6 +463,7 @@ export function PageShell({
   intro?: string;
   bgImage?: string;
   darkOverlay?: boolean;
+  lightTheme?: boolean;
   children: ReactNode;
 }) {
   const { t } = useTranslation();
@@ -471,17 +473,29 @@ export function PageShell({
 
   if (bgImage) {
     return (
-      <section className="relative min-h-[calc(100vh-4rem)] bg-cover bg-center bg-fixed bg-[#071F18]" style={{ backgroundImage: "url(" + bgImage + ")" }}>
-        <div className={`absolute inset-0 ${darkOverlay ? "bg-gradient-to-b from-[#041C15]/85 via-[#071F18]/92 to-[#041C15]/96" : "bg-[#052d20]/35"}`} />
+      <section className="relative min-h-[calc(100vh-4rem)] bg-cover bg-center bg-fixed bg-emerald-50" style={{ backgroundImage: "url(" + bgImage + ")" }}>
+        <div className={`absolute inset-0 ${
+          lightTheme
+            ? "bg-[#F4FBF7]/55 backdrop-blur-[2px]"
+            : darkOverlay
+            ? "bg-gradient-to-b from-[#041C15]/85 via-[#071F18]/92 to-[#041C15]/96"
+            : "bg-[#052d20]/35"
+        }`} />
         <div className="relative z-10 px-4 py-8 sm:px-6 lg:px-8 lg:py-10 mx-auto max-w-7xl">
           <div className="mb-7 max-w-3xl">
             {translatedEyebrow ? (
-              <p className="text-sm font-black uppercase tracking-wider text-[#a7f3d0] drop-shadow-md">{translatedEyebrow}</p>
+              <p className={`text-sm font-black uppercase tracking-wider ${lightTheme ? "text-[#0D6E48]" : "text-[#a7f3d0] drop-shadow-md"}`}>
+                {translatedEyebrow}
+              </p>
             ) : null}
-            <h1 className="mt-2 text-3xl font-black tracking-normal text-white sm:text-4xl drop-shadow-lg">
+            <h1 className={`mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-[44px] ${lightTheme ? "text-[#0F382A]" : "text-white drop-shadow-lg"}`}>
               {translatedTitle}
             </h1>
-            {translatedIntro ? <p className="mt-3 text-base leading-7 text-[#A3D9C9] drop-shadow-md font-medium">{translatedIntro}</p> : null}
+            {translatedIntro ? (
+              <p className={`mt-3 text-base leading-7 sm:text-[18px] font-semibold ${lightTheme ? "text-[#1C4837]" : "text-[#A3D9C9] drop-shadow-md"}`}>
+                {translatedIntro}
+              </p>
+            ) : null}
           </div>
           {children}
         </div>
