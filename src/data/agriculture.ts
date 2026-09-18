@@ -92,21 +92,27 @@ export const SCHEMES: Scheme[] = [
     issuer: "Government of India",
     category: "Direct Benefit",
     description:
-      "Income assistance for eligible landholding farmer families through direct bank transfer.",
+      "Income assistance of ₹6,000 per year for eligible landholding farmer families through direct bank transfer in three equal installments.",
     deadline: "Open enrollment",
     eligibility:
       "Small and marginal farmers with verified land records and Aadhaar-linked bank accounts.",
     url: "https://pmkisan.gov.in/",
+    icon: "🌾",
+    benefit: "₹6,000 / year financial support",
   },
   {
     id: "soil-health",
     name: "Soil Health Card",
     issuer: "Department of Agriculture",
     category: "Soil Advisory",
-    description: "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use.",
+    description:
+      "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use and soil fertility enhancement.",
     deadline: "District camp calendar",
-    eligibility: "All registered cultivators can apply through local agriculture offices.",
+    eligibility:
+      "All registered cultivators can apply through local agriculture offices or Village Revenue Officers.",
     url: "https://soilhealth.dac.gov.in/",
+    icon: "📜",
+    benefit: "Free soil testing & recommendations",
   },
   {
     id: "kcc",
@@ -114,11 +120,13 @@ export const SCHEMES: Scheme[] = [
     issuer: "NABARD and Banks",
     category: "Credit",
     description:
-      "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied activities.",
+      "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied agricultural activities at subsidized interest rates.",
     deadline: "Open through banks",
     eligibility:
-      "Farmers, tenant cultivators, SHGs, and joint liability groups with farming activity.",
+      "Farmers, tenant cultivators, SHGs, and joint liability groups with active farming activity.",
     url: "https://www.nabard.org/",
+    icon: "💳",
+    benefit: "Low-interest credit up to ₹3 Lakhs",
   },
   {
     id: "micro-irrigation",
@@ -126,10 +134,69 @@ export const SCHEMES: Scheme[] = [
     issuer: "Ministry of Agriculture",
     category: "Irrigation",
     description:
-      "Support for drip and sprinkler irrigation systems to improve water-use efficiency.",
+      "Financial assistance for drip and sprinkler irrigation systems to improve water-use efficiency and crop yield.",
     deadline: "State-wise annual targets",
-    eligibility: "Farmers adopting approved micro-irrigation systems through empanelled vendors.",
+    eligibility:
+      "Farmers adopting approved micro-irrigation systems through empanelled vendors in target districts.",
     url: "https://pmksy.gov.in/",
+    icon: "💧",
+    benefit: "55% subsidy on micro-irrigation",
+  },
+  {
+    id: "pmfby",
+    name: "Pradhan Mantri Fasal Bima Yojana",
+    issuer: "Ministry of Agriculture & Farmers Welfare",
+    category: "Insurance",
+    description:
+      "Comprehensive crop insurance protection against drought, flood, pests, diseases, and post-harvest losses at minimal premium.",
+    deadline: "Seasonal crop notification dates",
+    eligibility:
+      "All farmers growing notified crops in notified areas including tenant farmers.",
+    url: "https://pmfby.gov.in/",
+    icon: "🛡️",
+    benefit: "100% crop loss risk protection",
+  },
+  {
+    id: "smam",
+    name: "Sub-Mission on Agricultural Mechanization",
+    issuer: "Ministry of Agriculture",
+    category: "Mechanization",
+    description:
+      "Subsidy up to 40-50% for purchasing tractors, power tillers, harvesters, and modern farm machinery.",
+    deadline: "Annual state portal window",
+    eligibility:
+      "Individual farmers, SHGs, FPOs, and custom hiring centres in rural areas.",
+    url: "https://agrimachinery.nic.in/",
+    icon: "🚜",
+    benefit: "40-50% farm machinery subsidy",
+  },
+  {
+    id: "pkvy",
+    name: "Paramparagat Krishi Vikas Yojana",
+    issuer: "Department of Agriculture",
+    category: "Organic Farming",
+    description:
+      "Financial assistance and certification support for organic cluster farming, vermicomposting, and bio-inputs.",
+    deadline: "Cluster formation drives",
+    eligibility:
+      "Farmers forming organic clusters (minimum 50 acres) through local agriculture extension officers.",
+    url: "https://pgsindia-ncof.gov.in/",
+    icon: "🌱",
+    benefit: "₹31,000 / hectare organic support",
+  },
+  {
+    id: "aif",
+    name: "Agri Infrastructure Fund",
+    issuer: "Ministry of Agriculture",
+    category: "Infrastructure",
+    description:
+      "Long-term debt financing facility for post-harvest management infrastructure and community farming assets.",
+    deadline: "Scheme duration up to 2032",
+    eligibility:
+      "Primary Agricultural Credit Societies (PACS), FPOs, Agri-entrepreneurs, and Startups.",
+    url: "https://agriinfra.dac.gov.in/",
+    icon: "🏛️",
+    benefit: "3% interest subvention on credit",
   },
 ];
 

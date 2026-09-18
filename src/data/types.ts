@@ -56,6 +56,8 @@ export interface Scheme {
   deadline: string;
   eligibility: string;
   url: string;
+  icon?: string;
+  benefit?: string;
 }
 
 export interface InsuranceScheme {

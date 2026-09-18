@@ -48,6 +48,7 @@ import {
   Leaf,
   User,
   Eye,
+  ExternalLink,
   EyeOff,
   LogIn,
   Sparkles,
@@ -2514,29 +2515,206 @@ export function MarketPage() {
 }
 
 export function SchemesPage() {
-  const { t } = useTranslation();
+  const { language, t } = useTranslation();
+  const isTelugu = language === "te";
   const [query, setQuery] = useState("");
-  const rows = SCHEMES.filter((s) =>
-    `${s.name} ${s.category} ${s.eligibility}`.toLowerCase().includes(query.toLowerCase()),
-  );
+  const [categoryFilter, setCategoryFilter] = useState("all");
+
+  const categories = [
+    "all",
+    "Direct Benefit",
+    "Soil Advisory",
+    "Credit",
+    "Irrigation",
+    "Insurance",
+    "Mechanization",
+    "Organic Farming",
+    "Infrastructure",
+  ];
+
+  const filteredSchemes = SCHEMES.filter((s) => {
+    const matchesQuery = `${s.name} ${s.category} ${s.eligibility} ${s.description} ${s.benefit || ""}`
+      .toLowerCase()
+      .includes(query.toLowerCase());
+    const matchesCategory = categoryFilter === "all" || s.category === categoryFilter;
+    return matchesQuery && matchesCategory;
+  });
+
+  const pageSubtitle = isTelugu
+    ? "రైతులకు సహాయపడే ప్రభుత్వ పథకాలు, అర్హతలు మరియు అధికారిక వివరాలను తెలుసుకోండి."
+    : "Find farmer support programmes, eligibility, and official application links.";
+  const searchPlaceholder = isTelugu
+    ? "పథకాలను వెతకండి..."
+    : "Search schemes by name, category, or eligibility...";
+
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
-      <CardGridPage
+      <PageShell
         bgImage="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=2000"
-        eyebrow={t("Schemes")}
-        title={t("Government schemes")}
-        intro={t("Find farmer support programmes, eligibility, and official application links.")}
-        query={query}
-        setQuery={setQuery}
-        items={rows.map((s) => ({
-          title: t(s.name),
-          meta: `${t(s.issuer)} · ${t(s.category)}`,
-          body: t(s.description),
-          footer: `${t(s.deadline)} · ${t(s.eligibility)}`,
-          url: s.url,
-        }))}
-      />
+        darkOverlay={true}
+        eyebrow="Government Schemes"
+        title="Government Schemes"
+        intro={pageSubtitle}
+      >
+        <div className="mx-auto max-w-6xl space-y-7">
+          {/* Search Bar & Category Filter Controls */}
+          <div className="flex flex-col gap-4 rounded-3xl border border-emerald-500/25 bg-[#0E271F]/90 p-5 sm:p-6 shadow-xl backdrop-blur-md">
+            {/* Search Input */}
+            <div className="relative w-full">
+              <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#10B981]" />
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder={searchPlaceholder}
+                className="w-full rounded-2xl border border-emerald-500/30 bg-[#071F18] py-3.5 pl-12 pr-4 text-base font-medium text-white placeholder-emerald-300/60 transition-all focus:border-[#10B981] focus:outline-none focus:ring-2 focus:ring-[#10B981]/30"
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-emerald-400 hover:text-white"
+                >
+                  {isTelugu ? "స్పష్టంచేయి" : "Clear"}
+                </button>
+              )}
+            </div>
+
+            {/* Category Filter Badges */}
+            <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-emerald-800/40">
+              <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400/80 mr-1">
+                {isTelugu ? "వర్గాలు:" : "Categories:"}
+              </span>
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setCategoryFilter(cat)}
+                  className={`rounded-xl px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-all ${
+                    categoryFilter === cat
+                      ? "bg-[#10B981] text-white shadow-md shadow-emerald-950/50"
+                      : "bg-emerald-950/60 border border-emerald-900/50 text-emerald-200/80 hover:bg-emerald-900/60 hover:text-white"
+                  }`}
+                >
+                  {cat === "all" ? (isTelugu ? "అన్నీ" : "All") : t(cat)}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Scheme Cards Grid */}
+          {filteredSchemes.length === 0 ? (
+            <div className="rounded-3xl border border-emerald-500/20 bg-[#0E271F]/80 p-10 text-center shadow-xl">
+              <Search className="mx-auto h-12 w-12 text-emerald-500/40" />
+              <p className="mt-3 text-lg font-bold text-emerald-200">
+                {isTelugu ? "పథకాలు ఏవీ కనుగొనబడలేదు" : "No schemes found"}
+              </p>
+              <p className="mt-1 text-sm text-emerald-300/70">
+                {isTelugu
+                  ? "మీ సెర్చ్‌కి సరిపోలే ప్రభుత్వ పథకాలు ఏవీ లేవు. దయచేసి మరొక పదాన్ని ప్రయత్నించండి."
+                  : "No government schemes matched your search query. Try resetting your search filter."}
+              </p>
+            </div>
+          ) : (
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+              {filteredSchemes.map((scheme) => (
+                <SchemeCard key={scheme.id} scheme={scheme} isTelugu={isTelugu} />
+              ))}
+            </div>
+          )}
+        </div>
+      </PageShell>
     </RoleGuard>
+  );
+}
+
+function SchemeCard({ scheme, isTelugu }: { scheme: Scheme; isTelugu: boolean }) {
+  const { t } = useTranslation();
+
+  return (
+    <div
+      className={`group relative flex flex-col justify-between rounded-3xl border transition-all duration-300 ${
+        isTelugu ? "p-6 sm:p-7" : "p-6 sm:p-7"
+      } bg-[#0E271F]/95 border-emerald-500/25 shadow-xl shadow-emerald-950/60 hover:bg-[#12352A] hover:border-emerald-400/45 hover:-translate-y-1`}
+    >
+      <div>
+        {/* Header Row: Icon, Category Badge & Issuer */}
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#10B981]/30 bg-[#10B981]/15 text-2xl shadow-inner flex-shrink-0">
+              {scheme.icon || "🌾"}
+            </span>
+            <div className="min-w-0">
+              <span className="inline-flex items-center rounded-full border border-emerald-500/40 bg-emerald-500/20 px-3 py-1 font-semibold text-[#34D399] text-xs sm:text-[13.5px]">
+                {t(scheme.category)}
+              </span>
+              <p className="mt-1 text-xs sm:text-sm font-medium text-emerald-300/80 truncate">
+                {t(scheme.issuer)}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Scheme Name */}
+        <h3
+          className={`font-bold text-white transition-colors group-hover:text-emerald-300 ${
+            isTelugu
+              ? "text-xl sm:text-[22px] leading-snug mt-3.5"
+              : "text-lg sm:text-xl leading-snug mt-3.5"
+          }`}
+        >
+          {t(scheme.name)}
+        </h3>
+
+        {/* Short Description */}
+        <p
+          className={`mt-2.5 text-emerald-100/90 transition-colors ${
+            isTelugu
+              ? "text-base sm:text-[17px] leading-[1.65]"
+              : "text-sm sm:text-[15px] leading-relaxed"
+          }`}
+        >
+          {t(scheme.description)}
+        </p>
+
+        {/* Eligibility & Benefit Highlight Box */}
+        <div className="mt-4 rounded-2xl border border-emerald-800/40 bg-[#071F18]/80 p-4 space-y-2">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#10B981]">
+              {isTelugu ? "అర్హత & ప్రయోజనాలు" : "Eligibility & Benefit"}
+            </span>
+            {scheme.benefit && (
+              <span className="inline-flex items-center rounded-md bg-[#10B981]/20 px-2.5 py-0.5 text-xs font-bold text-[#34D399]">
+                {t(scheme.benefit)}
+              </span>
+            )}
+          </div>
+          <p
+            className={`text-emerald-100/90 ${
+              isTelugu ? "text-sm sm:text-[15px] leading-relaxed" : "text-xs sm:text-sm leading-normal"
+            }`}
+          >
+            {t(scheme.eligibility)}
+          </p>
+        </div>
+      </div>
+
+      {/* Footer & Action Button */}
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-emerald-800/30 pt-4">
+        <span className="text-xs font-medium text-emerald-300/70">
+          {t(scheme.deadline)}
+        </span>
+        <a
+          href={scheme.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#10B981] px-5 py-2.5 text-sm sm:text-[15px] font-bold text-white shadow-md transition-all hover:bg-[#0D9668] hover:shadow-lg hover:shadow-emerald-900/50"
+        >
+          <span>{isTelugu ? "మరింత తెలుసుకోండి" : "Learn More"}</span>
+          <ExternalLink className="h-4 w-4" />
+        </a>
+      </div>
+    </div>
   );
 }
 
