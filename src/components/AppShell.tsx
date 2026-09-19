@@ -216,7 +216,11 @@ export function AppShell({ children }: { children: ReactNode }) {
 
           <div>
             <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-              {user?.role === "buyer" ? t("Account & Shopping") : user?.role === "student" ? t("Career") : t("Account & Activity")}
+              {user?.role === "buyer"
+                ? t("Account & Shopping")
+                : user?.role === "student"
+                  ? t("Career")
+                  : t("Account & Activity")}
             </p>
             <nav className="mt-2 flex flex-col gap-0.5">
               {accountNav.map((item) => (
@@ -239,7 +243,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       </div>
 
       {/* Seller callout card for non-sellers/buyers */}
-      {(!user || user.role === "buyer") ? (
+      {!user || user.role === "buyer" ? (
         <div className="mt-4 rounded-2xl border border-border bg-[#f4f9f6] p-4 relative overflow-hidden">
           <div className="absolute -right-6 -bottom-6 opacity-[0.03]">
             <Leaf className="h-24 w-24 text-primary" />
@@ -353,7 +357,11 @@ export function AppShell({ children }: { children: ReactNode }) {
                     <div className="hidden sm:block text-left">
                       <p className="text-xs font-bold leading-none text-foreground">{user.name}</p>
                       <p className="mt-1 text-[10px] font-semibold leading-none uppercase text-[#2d6a4f]">
-                        {t(user.role ? user.role.charAt(0).toUpperCase() + user.role.slice(1) : "Farmer")}
+                        {t(
+                          user.role
+                            ? user.role.charAt(0).toUpperCase() + user.role.slice(1)
+                            : "Farmer",
+                        )}
                       </p>
                     </div>
                   </div>
@@ -394,7 +402,9 @@ export function AppShell({ children }: { children: ReactNode }) {
             <div>
               <p className="text-lg font-black text-[#1b4332]">{SITE.name}</p>
               <p className="mt-2 max-w-xl text-sm text-muted-foreground leading-relaxed">
-                {t("Digital Agriculture Platform for farm inputs, mandi prices, crop advisories, schemes, and local support.")}
+                {t(
+                  "Digital Agriculture Platform for farm inputs, mandi prices, crop advisories, schemes, and local support.",
+                )}
               </p>
             </div>
             <div className="text-sm">
@@ -473,26 +483,37 @@ export function PageShell({
 
   if (bgImage) {
     return (
-      <section className="relative min-h-[calc(100vh-4rem)] bg-cover bg-center bg-fixed bg-emerald-50" style={{ backgroundImage: "url(" + bgImage + ")" }}>
-        <div className={`absolute inset-0 ${
-          lightTheme
-            ? "bg-[#F4FBF7]/55 backdrop-blur-[2px]"
-            : darkOverlay
-            ? "bg-gradient-to-b from-[#041C15]/85 via-[#071F18]/92 to-[#041C15]/96"
-            : "bg-[#052d20]/35"
-        }`} />
+      <section
+        className="relative min-h-[calc(100vh-4rem)] bg-cover bg-center bg-fixed bg-emerald-50"
+        style={{ backgroundImage: "url(" + bgImage + ")" }}
+      >
+        <div
+          className={`absolute inset-0 ${
+            lightTheme
+              ? "bg-[#F4FBF7]/65 backdrop-blur-[2px]"
+              : darkOverlay
+                ? "bg-gradient-to-b from-[#041C15]/90 via-[#071F18]/92 to-[#041C15]/96"
+                : "bg-[#052d20]/45"
+          }`}
+        />
         <div className="relative z-10 px-4 py-8 sm:px-6 lg:px-8 lg:py-10 mx-auto max-w-7xl">
           <div className="mb-7 max-w-3xl">
             {translatedEyebrow ? (
-              <p className={`text-sm font-black uppercase tracking-wider ${lightTheme ? "text-[#0D6E48]" : "text-[#a7f3d0] drop-shadow-md"}`}>
+              <p
+                className={`text-sm font-black uppercase tracking-wider ${lightTheme ? "text-[#0D6E48]" : "text-[#a7f3d0] drop-shadow-md"}`}
+              >
                 {translatedEyebrow}
               </p>
             ) : null}
-            <h1 className={`mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-[44px] ${lightTheme ? "text-[#0F382A]" : "text-white drop-shadow-lg"}`}>
+            <h1
+              className={`mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-[44px] ${lightTheme ? "text-[#123F2D]" : "text-white drop-shadow-lg"}`}
+            >
               {translatedTitle}
             </h1>
             {translatedIntro ? (
-              <p className={`mt-3 text-base leading-7 sm:text-[18px] font-semibold ${lightTheme ? "text-[#1C4837]" : "text-[#A3D9C9] drop-shadow-md"}`}>
+              <p
+                className={`mt-3 text-base leading-7 sm:text-[18px] font-semibold ${lightTheme ? "text-[#315A49]" : "text-[#A3D9C9] drop-shadow-md"}`}
+              >
                 {translatedIntro}
               </p>
             ) : null}
@@ -508,12 +529,16 @@ export function PageShell({
       <div className="mx-auto max-w-7xl">
         <div className="mb-7 max-w-3xl">
           {translatedEyebrow ? (
-            <p className="text-sm font-black uppercase tracking-wider text-primary">{translatedEyebrow}</p>
+            <p className="text-sm font-black uppercase tracking-wider text-primary">
+              {translatedEyebrow}
+            </p>
           ) : null}
           <h1 className="mt-2 text-3xl font-black tracking-normal text-foreground sm:text-4xl">
             {translatedTitle}
           </h1>
-          {translatedIntro ? <p className="mt-3 text-base leading-7 text-muted-foreground">{translatedIntro}</p> : null}
+          {translatedIntro ? (
+            <p className="mt-3 text-base leading-7 text-muted-foreground">{translatedIntro}</p>
+          ) : null}
         </div>
         {children}
       </div>
@@ -521,5 +546,7 @@ export function PageShell({
   );
 }
 
-export const glassCardClass = "rounded-[20px] border border-white/45 bg-white/75 p-5 shadow-[0_10px_35px_rgba(0,0,0,0.10)] backdrop-blur-[16px] transition-all duration-200 hover:bg-white/85 text-foreground";
-export const cardClass = "rounded-2xl border border-border bg-card p-5 shadow-card transition-all duration-200 hover:shadow-card-lg";
+export const glassCardClass =
+  "rounded-[20px] border border-white/45 bg-white/75 p-5 shadow-[0_10px_35px_rgba(0,0,0,0.10)] backdrop-blur-[16px] transition-all duration-200 hover:bg-white/85 text-foreground";
+export const cardClass =
+  "rounded-2xl border border-border bg-card p-5 shadow-card transition-all duration-200 hover:shadow-card-lg";

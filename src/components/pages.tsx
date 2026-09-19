@@ -2754,8 +2754,8 @@ export function SchemesPage() {
         intro={pageSubtitle}
       >
         <div className="mx-auto max-w-6xl space-y-7">
-          {/* Search Bar & Category Filter Controls (Clean Light Glass Card) */}
-          <div className="flex flex-col gap-4 rounded-3xl border border-emerald-700/20 bg-white/95 p-5 sm:p-6 shadow-xl backdrop-blur-md">
+          {/* Search Bar & Category Filter Controls (High-Opacity Light Card) */}
+          <div className="flex flex-col gap-4 rounded-3xl border border-[#1E6446]/20 bg-white/96 p-5 sm:p-6 shadow-xl shadow-emerald-950/5 backdrop-blur-md">
             {/* Search Input */}
             <div className="relative w-full">
               <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#10B981]" />
@@ -2764,13 +2764,13 @@ export function SchemesPage() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={searchPlaceholder}
-                className="w-full rounded-2xl border border-emerald-700/25 bg-slate-50/90 py-3.5 pl-12 pr-4 text-base font-semibold text-[#0F382A] placeholder-emerald-900/40 transition-all focus:border-[#10B981] focus:outline-none focus:ring-2 focus:ring-[#10B981]/20"
+                className="w-full rounded-2xl border border-[#1E6446]/25 bg-slate-50/90 py-3.5 pl-12 pr-4 text-base font-semibold text-[#123F2D] placeholder-[#527064] transition-all focus:border-[#10B981] focus:outline-none focus:ring-2 focus:ring-[#10B981]/20"
               />
               {query && (
                 <button
                   type="button"
                   onClick={() => setQuery("")}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-emerald-700 hover:text-[#10B981]"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-[#0D6E48] hover:text-[#10B981]"
                 >
                   {isTelugu ? "స్పష్టంచేయి" : "Clear"}
                 </button>
@@ -2778,7 +2778,7 @@ export function SchemesPage() {
             </div>
 
             {/* Category Filter Badges */}
-            <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-emerald-900/10">
+            <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-[#1E6446]/10">
               <span className="text-xs font-bold uppercase tracking-wider text-[#0D6E48] mr-1">
                 {isTelugu ? "వర్గాలు:" : "Categories:"}
               </span>
@@ -2789,8 +2789,8 @@ export function SchemesPage() {
                   onClick={() => setCategoryFilter(cat)}
                   className={`rounded-xl px-3.5 py-1.5 text-xs sm:text-sm transition-all ${
                     categoryFilter === cat
-                      ? "bg-[#10B981] text-white font-bold shadow-md shadow-emerald-900/20"
-                      : "bg-white/90 border border-emerald-800/20 text-[#0F382A] font-semibold hover:bg-emerald-50 hover:text-[#10B981]"
+                      ? "bg-[#123F2D] text-white font-bold shadow-md shadow-emerald-950/20"
+                      : "bg-white/95 border border-[#1E6446]/20 text-[#123F2D] font-semibold hover:bg-emerald-50 hover:text-[#10B981]"
                   }`}
                 >
                   {cat === "all" ? (isTelugu ? "అన్నీ" : "All") : t(cat)}
@@ -2801,12 +2801,12 @@ export function SchemesPage() {
 
           {/* Scheme Cards Grid */}
           {filteredSchemes.length === 0 ? (
-            <div className="rounded-3xl border border-emerald-700/20 bg-white/95 p-10 text-center shadow-xl">
+            <div className="rounded-3xl border border-[#1E6446]/20 bg-white/96 p-10 text-center shadow-xl">
               <Search className="mx-auto h-12 w-12 text-emerald-600/40" />
-              <p className="mt-3 text-lg font-bold text-[#0F382A]">
+              <p className="mt-3 text-lg font-bold text-[#123F2D]">
                 {isTelugu ? "పథకాలు ఏవీ కనుగొనబడలేదు" : "No schemes found"}
               </p>
-              <p className="mt-1 text-sm font-medium text-[#1C4837]">
+              <p className="mt-1 text-sm font-medium text-[#315A49]">
                 {isTelugu
                   ? "మీ సెర్చ్‌కి సరిపోలే ప్రభుత్వ పథకాలు ఏవీ లేవు. దయచేసి మరొక పదాన్ని ప్రయత్నించండి."
                   : "No government schemes matched your search query. Try resetting your search filter."}
@@ -2832,33 +2832,29 @@ function SchemeCard({ scheme, isTelugu }: { scheme: Scheme; isTelugu: boolean })
     <div
       className={`group relative flex flex-col justify-between rounded-3xl border transition-all duration-300 ${
         isTelugu ? "p-6 sm:p-7" : "p-6 sm:p-7"
-      } bg-white/95 border-emerald-700/20 shadow-xl shadow-emerald-950/5 hover:bg-white hover:border-emerald-500/40 hover:-translate-y-1`}
+      } bg-white/96 border-[#1E6446]/20 shadow-xl shadow-emerald-950/5 hover:bg-white hover:border-[#1E6446]/40 hover:-translate-y-1`}
     >
       <div>
         {/* Header Row: Icon, Category Badge & Issuer */}
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3 min-w-0">
-            <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-500/30 bg-[#F0FDF4] text-2xl shadow-sm flex-shrink-0">
+            <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#1E6446]/30 bg-[#F0FDF4] text-2xl shadow-sm flex-shrink-0">
               {scheme.icon || "🌾"}
             </span>
             <div className="min-w-0">
-              <span className="inline-flex items-center rounded-full border border-emerald-600/30 bg-[#E6F4ED] px-3 py-1 font-bold text-[#0D6E48] text-xs sm:text-[14px]">
+              <span className="inline-flex items-center rounded-full border border-[#1E6446]/30 bg-[#E6F4ED] px-3 py-1 font-bold text-[#0D6E48] text-xs sm:text-[14px]">
                 {t(scheme.category)}
               </span>
-              <p className="mt-1 text-xs sm:text-sm font-semibold text-emerald-900/70 truncate">
+              <p className="mt-1 text-xs sm:text-sm font-semibold text-[#527064] truncate">
                 {t(scheme.issuer)}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Scheme Name: BOLDER, LARGER DARK TELUGU TEXT */}
+        {/* Scheme Name: BOLDER, HIGH-CONTRAST DARK GREEN TITLE */}
         <h3
-          className={`font-bold transition-colors ${
-            scheme.id === "pm-kisan"
-              ? "text-[#FFFFFF] group-hover:text-[#FFFFFF]"
-              : "text-[#0F382A] group-hover:text-[#10B981]"
-          } ${
+          className={`font-bold text-[#123F2D] transition-colors group-hover:text-[#0D6E48] ${
             isTelugu
               ? "text-xl sm:text-[22px] leading-snug mt-3.5"
               : "text-lg sm:text-xl leading-snug mt-3.5"
@@ -2867,9 +2863,9 @@ function SchemeCard({ scheme, isTelugu }: { scheme: Scheme; isTelugu: boolean })
           {t(scheme.name)}
         </h3>
 
-        {/* Description: DARK CLEAR BOLD TELUGU TEXT */}
+        {/* Description: CLEAR BOLD DARK GREEN/GRAY TELUGU TEXT */}
         <p
-          className={`mt-2.5 text-[#0A2E20] font-bold transition-colors ${
+          className={`mt-2.5 text-[#315A49] font-bold transition-colors ${
             isTelugu
               ? "text-base sm:text-[17px] leading-[1.65]"
               : "text-sm sm:text-[15px] leading-relaxed"
@@ -2891,7 +2887,7 @@ function SchemeCard({ scheme, isTelugu }: { scheme: Scheme; isTelugu: boolean })
             )}
           </div>
           <p
-            className={`text-[#0F382A] font-semibold ${
+            className={`text-[#123F2D] font-semibold ${
               isTelugu
                 ? "text-sm sm:text-[15px] leading-relaxed"
                 : "text-xs sm:text-sm leading-normal"
@@ -2903,8 +2899,8 @@ function SchemeCard({ scheme, isTelugu }: { scheme: Scheme; isTelugu: boolean })
       </div>
 
       {/* Footer & Action Button */}
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-emerald-900/10 pt-4">
-        <span className="text-xs sm:text-sm font-semibold text-emerald-800/70">
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-[#1E6446]/10 pt-4">
+        <span className="text-xs sm:text-sm font-semibold text-[#527064]">
           {t(scheme.deadline)}
         </span>
         <a
