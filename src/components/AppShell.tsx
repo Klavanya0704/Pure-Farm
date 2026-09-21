@@ -66,10 +66,10 @@ function NavLinkItem({
     <Link
       to={to as any}
       onClick={onClick}
-      className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium text-foreground/80 hover:bg-sidebar-accent hover:text-foreground transition-all duration-200 cursor-pointer"
+      className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-bold text-[#1b4332] hover:bg-sidebar-accent hover:text-[#0b1d16] transition-all duration-200 cursor-pointer"
       activeProps={{
         className:
-          "flex items-center gap-3 rounded-xl bg-sidebar-primary px-3 py-2 text-sm font-bold text-sidebar-primary-foreground shadow-sm transition-all duration-200 cursor-pointer",
+          "flex items-center gap-3 rounded-xl bg-sidebar-primary px-3 py-2 text-sm font-bold text-[#1b4332] shadow-sm transition-all duration-200 cursor-pointer",
       }}
     >
       <Icon className="h-4.5 w-4.5 text-[#2d6a4f]" aria-hidden="true" />
@@ -204,7 +204,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         {/* Navigation Groups */}
         <div className="space-y-5 flex-1 min-h-0 overflow-y-auto no-scrollbar pr-1">
           <div>
-            <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+            <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-[#2d6a4f]">
               {user?.role === "admin" ? t("Management") : t("Main Navigation")}
             </p>
             <nav className="mt-2 flex flex-col gap-0.5">
@@ -215,7 +215,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
 
           <div>
-            <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+            <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-[#2d6a4f]">
               {user?.role === "buyer"
                 ? t("Account & Shopping")
                 : user?.role === "student"
@@ -230,7 +230,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
 
           <div>
-            <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+            <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-[#2d6a4f]">
               {t("More Information")}
             </p>
             <nav className="mt-2 flex flex-col gap-0.5">
