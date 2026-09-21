@@ -1,12 +1,12 @@
-import { createClient } from '@supabase/supabase-js';
-import fs from 'fs';
+import { createClient } from "@supabase/supabase-js";
+import fs from "fs";
 
-const envText = fs.readFileSync('.env.local', 'utf8');
+const envText = fs.readFileSync(".env.local", "utf8");
 const env = {};
-envText.split('\n').forEach(line => {
-  const parts = line.split('=');
+envText.split("\n").forEach((line) => {
+  const parts = line.split("=");
   if (parts.length >= 2) {
-    env[parts[0].trim()] = parts.slice(1).join('=').trim();
+    env[parts[0].trim()] = parts.slice(1).join("=").trim();
   }
 });
 
@@ -25,8 +25,8 @@ async function runConcurrencyTest() {
   try {
     // 1. Authenticate Farmer & Buyers
     let { data: fAuth, error: fErr } = await farmerClient.auth.signInWithPassword({
-      email: 'farmer_step4@purefarm.com',
-      password: 'Password123!',
+      email: "farmer_step4@purefarm.com",
+      password: "Password123!",
     });
 
     if (fErr || !fAuth?.user) {
@@ -38,8 +38,8 @@ async function runConcurrencyTest() {
     const farmerId = fAuth.user.id;
 
     let { data: bAuth1 } = await buyerClient1.auth.signInWithPassword({
-      email: 'buyer_step4_v2@purefarm.com',
-      password: 'Password123!',
+      email: "buyer_step4_v2@purefarm.com",
+      password: "Password123!",
     });
 
     if (!bAuth1?.user) {
@@ -51,7 +51,7 @@ async function runConcurrencyTest() {
     // 2. Create Product with 10 kg initial stock
     console.log("1. Creating product 'Concurrency Tomato' with initial stock = 10 kg...");
     const { data: product, error: createErr } = await farmerClient
-      .from('products')
+      .from("products")
       .insert({
         farmer_id: farmerId,
         name: "Concurrency Tomato",
@@ -78,15 +78,15 @@ async function runConcurrencyTest() {
 
       // Atomic UPDATE with conditional WHERE clause enforcing available_quantity >= requestedQty
       const newAvail = product.available_quantity - requestedQty; // Target calculation if stock >= requestedQty
-      
+
       // We first query latest stock or perform atomic check-and-update
       // PostgreSQL atomic update:
       // UPDATE products SET available_quantity = available_quantity - requestedQty WHERE id = productId AND available_quantity >= requestedQty
-      
+
       const { data: currentProd, error: fetchErr } = await client
-        .from('products')
-        .select('available_quantity, name, status')
-        .eq('id', product.id)
+        .from("products")
+        .select("available_quantity, name, status")
+        .eq("id", product.id)
         .single();
 
       if (fetchErr || !currentProd) {
@@ -94,21 +94,23 @@ async function runConcurrencyTest() {
       }
 
       if (currentProd.available_quantity < requestedQty) {
-        throw new Error(`Only ${currentProd.available_quantity} units of "${currentProd.name}" are currently available.`);
+        throw new Error(
+          `Only ${currentProd.available_quantity} units of "${currentProd.name}" are currently available.`,
+        );
       }
 
       const updatedStock = currentProd.available_quantity - requestedQty;
-      const updatedStatus = updatedStock <= 0 ? 'sold_out' : 'available';
+      const updatedStatus = updatedStock <= 0 ? "sold_out" : "available";
 
       // ATOMIC CONDITIONAL UPDATE: enforce eq('id', product.id) AND gte('available_quantity', requestedQty)
       const { data: updatedRows, error: updateErr } = await client
-        .from('products')
+        .from("products")
         .update({
           available_quantity: updatedStock,
           status: updatedStatus,
         })
-        .eq('id', product.id)
-        .gte('available_quantity', requestedQty)
+        .eq("id", product.id)
+        .gte("available_quantity", requestedQty)
         .select();
 
       if (updateErr) {
@@ -116,7 +118,9 @@ async function runConcurrencyTest() {
       }
 
       if (!updatedRows || updatedRows.length === 0) {
-        throw new Error(`Concurrent purchase conflict: Stock was modified by another buyer during transaction.`);
+        throw new Error(
+          `Concurrent purchase conflict: Stock was modified by another buyer during transaction.`,
+        );
       }
 
       return updatedRows[0];
@@ -132,8 +136,10 @@ async function runConcurrencyTest() {
 
     console.log("\n--- SIMULTANEOUS TRANSACTION RESULTS ---");
     outcomes.forEach((res, idx) => {
-      if (res.status === 'fulfilled') {
-        console.log(`✔ Buyer ${idx + 1} Transaction: SUCCESS -> Remaining Stock: ${res.value.available_quantity} kg, Status: ${res.value.status}`);
+      if (res.status === "fulfilled") {
+        console.log(
+          `✔ Buyer ${idx + 1} Transaction: SUCCESS -> Remaining Stock: ${res.value.available_quantity} kg, Status: ${res.value.status}`,
+        );
       } else {
         console.log(`❌ Buyer ${idx + 1} Transaction: BLOCKED -> Reason: "${res.reason.message}"`);
       }
@@ -141,9 +147,9 @@ async function runConcurrencyTest() {
 
     // 5. Verify final stock in Supabase Database
     const { data: finalProduct } = await farmerClient
-      .from('products')
-      .select('*')
-      .eq('id', product.id)
+      .from("products")
+      .select("*")
+      .eq("id", product.id)
       .single();
 
     console.log(`\n3. Final Supabase Database Verification:`);
@@ -152,8 +158,8 @@ async function runConcurrencyTest() {
     console.log(`- Product Status:     "${finalProduct.status}"`);
 
     // 6. Assertions
-    const fulfilledCount = outcomes.filter(o => o.status === 'fulfilled').length;
-    const rejectedCount = outcomes.filter(o => o.status === 'rejected').length;
+    const fulfilledCount = outcomes.filter((o) => o.status === "fulfilled").length;
+    const rejectedCount = outcomes.filter((o) => o.status === "rejected").length;
 
     if (fulfilledCount === 1 && rejectedCount === 1 && finalProduct.available_quantity === 2) {
       console.log("\n✅ ATOMIC CONCURRENCY VERIFICATION: PASSED!");
@@ -166,9 +172,8 @@ async function runConcurrencyTest() {
     }
 
     // 7. Cleanup
-    await farmerClient.from('products').delete().eq('id', product.id);
+    await farmerClient.from("products").delete().eq("id", product.id);
     console.log("\n✔ Test cleanup completed.");
-
   } catch (err) {
     console.error("Test execution error:", err.message);
   }

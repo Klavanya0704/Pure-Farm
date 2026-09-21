@@ -2,31 +2,25 @@
  * PureFarm Supabase Database Type Definitions
  */
 
-export type Json =
-  | string
-  | number
-  | boolean
-  | null
-  | { [key: string]: Json | undefined }
-  | Json[];
+export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
 
-export type UserRole = 'farmer' | 'buyer' | 'student' | 'admin' | 'seller';
-export type ProductStatus = 'available' | 'sold_out' | 'inactive';
+export type UserRole = "farmer" | "buyer" | "student" | "admin" | "seller";
+export type ProductStatus = "available" | "sold_out" | "inactive";
 export type ProductCategory =
-  | 'seeds'
-  | 'fertilizers'
-  | 'tools'
-  | 'grains'
-  | 'fruits'
-  | 'vegetables'
-  | 'pulses'
-  | 'oilseeds'
-  | 'spices'
-  | 'other';
-export type OrderStatus = 'pending' | 'confirmed' | 'shipped' | 'delivered' | 'cancelled';
-export type PaymentMethod = 'cod' | 'online' | 'upi' | 'bank_transfer';
-export type PaymentStatus = 'pending' | 'completed' | 'failed' | 'refunded';
-export type ColdStorageStatus = 'operational' | 'maintenance' | 'full' | 'closed';
+  | "seeds"
+  | "fertilizers"
+  | "tools"
+  | "grains"
+  | "fruits"
+  | "vegetables"
+  | "pulses"
+  | "oilseeds"
+  | "spices"
+  | "other";
+export type OrderStatus = "pending" | "confirmed" | "shipped" | "delivered" | "cancelled";
+export type PaymentMethod = "cod" | "online" | "upi" | "bank_transfer";
+export type PaymentStatus = "pending" | "completed" | "failed" | "refunded";
+export type ColdStorageStatus = "operational" | "maintenance" | "full" | "closed";
 
 export interface Profile {
   id: string;
@@ -119,55 +113,55 @@ export interface Database {
     Tables: {
       profiles: {
         Row: Profile;
-        Insert: Omit<Profile, 'created_at' | 'updated_at'> & {
+        Insert: Omit<Profile, "created_at" | "updated_at"> & {
           created_at?: string;
           updated_at?: string;
         };
-        Update: Partial<Omit<Profile, 'id'>>;
+        Update: Partial<Omit<Profile, "id">>;
       };
       products: {
         Row: DbProduct;
-        Insert: Omit<DbProduct, 'id' | 'created_at' | 'updated_at'> & {
+        Insert: Omit<DbProduct, "id" | "created_at" | "updated_at"> & {
           id?: string;
           created_at?: string;
           updated_at?: string;
         };
-        Update: Partial<Omit<DbProduct, 'id'>>;
+        Update: Partial<Omit<DbProduct, "id">>;
       };
       orders: {
         Row: Order;
-        Insert: Omit<Order, 'id' | 'created_at' | 'updated_at'> & {
+        Insert: Omit<Order, "id" | "created_at" | "updated_at"> & {
           id?: string;
           created_at?: string;
           updated_at?: string;
         };
-        Update: Partial<Omit<Order, 'id'>>;
+        Update: Partial<Omit<Order, "id">>;
       };
       order_items: {
         Row: OrderItem;
-        Insert: Omit<OrderItem, 'id' | 'created_at'> & {
+        Insert: Omit<OrderItem, "id" | "created_at"> & {
           id?: string;
           created_at?: string;
         };
-        Update: Partial<Omit<OrderItem, 'id'>>;
+        Update: Partial<Omit<OrderItem, "id">>;
       };
       market_prices: {
         Row: MarketPrice;
-        Insert: Omit<MarketPrice, 'id' | 'created_at' | 'updated_at'> & {
+        Insert: Omit<MarketPrice, "id" | "created_at" | "updated_at"> & {
           id?: string;
           created_at?: string;
           updated_at?: string;
         };
-        Update: Partial<Omit<MarketPrice, 'id'>>;
+        Update: Partial<Omit<MarketPrice, "id">>;
       };
       cold_storage: {
         Row: ColdStorage;
-        Insert: Omit<ColdStorage, 'id' | 'created_at' | 'updated_at'> & {
+        Insert: Omit<ColdStorage, "id" | "created_at" | "updated_at"> & {
           id?: string;
           created_at?: string;
           updated_at?: string;
         };
-        Update: Partial<Omit<ColdStorage, 'id'>>;
+        Update: Partial<Omit<ColdStorage, "id">>;
       };
     };
     Views: Record<string, never>;

@@ -1,8 +1,9 @@
-export type Language = 'en' | 'te';
+export type Language = "en" | "te";
 
 export const translations: Record<Language, Record<string, string>> = {
   en: {
-    ". Access to this product management interface is strictly restricted to registered Farmers.": ". Access to this product management interface is strictly restricted to registered Farmers.",
+    ". Access to this product management interface is strictly restricted to registered Farmers.":
+      ". Access to this product management interface is strictly restricted to registered Farmers.",
     "10-digit mobile number": "10-digit mobile number",
     "10-digit number": "10-digit number",
     "100% Certified": "100% Certified",
@@ -11,43 +12,54 @@ export const translations: Record<Language, Record<string, string>> = {
     "12 km/h": "12 km/h",
     "120 products found": "120 products found",
     "35 hrs": "35 hrs",
-    "A cohesive experience for ordering, planning, learning, and contacting advisors.": "A cohesive experience for ordering, planning, learning, and contacting advisors.",
+    "A cohesive experience for ordering, planning, learning, and contacting advisors.":
+      "A cohesive experience for ordering, planning, learning, and contacting advisors.",
     "AI / Data Science": "AI / Data Science",
     "AI Research Lab": "AI Research Lab",
     "AI/ML Intern": "AI/ML Intern",
-    "ALL": "ALL",
+    ALL: "ALL",
     "Abohar Mandi": "Abohar Mandi",
     "Abohar, Punjab": "Abohar, Punjab",
     "About Us": "About Us",
     "Access Restricted": "Access Restricted",
-    "Access agricultural courses, internships, and skill training.": "Access agricultural courses, internships, and skill training.",
-    "Accessing market prices, weather alerts, and expert advice via phone.": "Accessing market prices, weather alerts, and expert advice via phone.",
+    "Access agricultural courses, internships, and skill training.":
+      "Access agricultural courses, internships, and skill training.",
+    "Accessing market prices, weather alerts, and expert advice via phone.":
+      "Accessing market prices, weather alerts, and expert advice via phone.",
     "Accident & Disease Risk": "Accident & Disease Risk",
     "Account & Activity": "Account & Activity",
     "Account & Shopping": "Account & Shopping",
     "Account Role Notice": "Account Role Notice",
     "Acid Treatment & Maintenance of Drippers": "Acid Treatment & Maintenance of Drippers",
     "Across India": "Across India",
-    "Action": "Action",
+    Action: "Action",
     "Active Applications": "Active Applications",
     "Active Listed Products": "Active Listed Products",
     "Active Schemes": "Active Schemes",
-    "Actuarial premium varies by crop and district historical risk profiles, with government premium subsidies available.": "Actuarial premium varies by crop and district historical risk profiles, with government premium subsidies available.",
-    "Add liquid soap when preparing neem spray to ensure smooth emulsification in water.": "Add liquid soap when preparing neem spray to ensure smooth emulsification in water.",
-    "Add products to the cart before checking out.": "Add products to the cart before checking out.",
+    "Actuarial premium varies by crop and district historical risk profiles, with government premium subsidies available.":
+      "Actuarial premium varies by crop and district historical risk profiles, with government premium subsidies available.",
+    "Add liquid soap when preparing neem spray to ensure smooth emulsification in water.":
+      "Add liquid soap when preparing neem spray to ensure smooth emulsification in water.",
+    "Add products to the cart before checking out.":
+      "Add products to the cart before checking out.",
     "Add to Cart": "Add to Cart",
-    "Address": "Address",
-    "Admin": "Admin",
+    Address: "Address",
+    Admin: "Admin",
     "Admin Console": "Admin Console",
     "Admin Overview": "Admin Overview",
-    "Administered through empanelled public and private general insurance companies under oversight of State Agriculture Departments.": "Administered through empanelled public and private general insurance companies under oversight of State Agriculture Departments.",
-    "Adopt bird perches in fields for natural predator feeding": "Adopt bird perches in fields for natural predator feeding",
-    "Adopt crop rotation to maintain soil microbial balance": "Adopt crop rotation to maintain soil microbial balance",
-    "Adopt short-duration varieties in drought-prone districts": "Adopt short-duration varieties in drought-prone districts",
-    "Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.": "Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.",
-    "Advanced": "Advanced",
+    "Administered through empanelled public and private general insurance companies under oversight of State Agriculture Departments.":
+      "Administered through empanelled public and private general insurance companies under oversight of State Agriculture Departments.",
+    "Adopt bird perches in fields for natural predator feeding":
+      "Adopt bird perches in fields for natural predator feeding",
+    "Adopt crop rotation to maintain soil microbial balance":
+      "Adopt crop rotation to maintain soil microbial balance",
+    "Adopt short-duration varieties in drought-prone districts":
+      "Adopt short-duration varieties in drought-prone districts",
+    "Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.":
+      "Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.",
+    Advanced: "Advanced",
     "Advisor Pooja": "Advisor Pooja",
-    "Advisory": "Advisory",
+    Advisory: "Advisory",
     "Agmarknet Verified": "Agmarknet Verified",
     "Agra Mandi": "Agra Mandi",
     "Agra, Uttar Pradesh": "Agra, Uttar Pradesh",
@@ -63,17 +75,19 @@ export const translations: Record<Language, Record<string, string>> = {
     "Agricultural Courses": "Agricultural Courses",
     "Agricultural Extension": "Agricultural Extension",
     "Agricultural Extension Intern": "Agricultural Extension Intern",
-    "Agricultural drones spray liquid fertilizers and pesticides in 1/10th of the time taken by hand sprayers, using 90% less water and ensuring ultra-uniform chemical coverage across fields.": "Agricultural drones spray liquid fertilizers and pesticides in 1/10th of the time taken by hand sprayers, using 90% less water and ensuring ultra-uniform chemical coverage across fields.",
+    "Agricultural drones spray liquid fertilizers and pesticides in 1/10th of the time taken by hand sprayers, using 90% less water and ensuring ultra-uniform chemical coverage across fields.":
+      "Agricultural drones spray liquid fertilizers and pesticides in 1/10th of the time taken by hand sprayers, using 90% less water and ensuring ultra-uniform chemical coverage across fields.",
     "Agriculture Internship Hub": "Agriculture Internship Hub",
     "Agriculture Learning Hub": "Agriculture Learning Hub",
     "Agriculture Research": "Agriculture Research",
     "Agriculture Tools": "Agriculture Tools",
-    "Agritech": "Agritech",
+    Agritech: "Agritech",
     "Agritech Internship": "Agritech Internship",
     "Agroforestry & Carbon Farming Integration": "Agroforestry & Carbon Farming Integration",
-    "Agroforestry integrates fast-growing trees along field borders. Trees act as windbreaks, yield timber/fruit income, capture carbon, and enrich soil through deep root nutrient cycling.": "Agroforestry integrates fast-growing trees along field borders. Trees act as windbreaks, yield timber/fruit income, capture carbon, and enrich soil through deep root nutrient cycling.",
+    "Agroforestry integrates fast-growing trees along field borders. Trees act as windbreaks, yield timber/fruit income, capture carbon, and enrich soil through deep root nutrient cycling.":
+      "Agroforestry integrates fast-growing trees along field borders. Trees act as windbreaks, yield timber/fruit income, capture carbon, and enrich soil through deep root nutrient cycling.",
     "AlgoExpert Hub": "AlgoExpert Hub",
-    "All": "All",
+    All: "All",
     "All Courses": "All Courses",
     "All Crops": "All Crops",
     "All Internships": "All Internships",
@@ -81,81 +95,116 @@ export const translations: Record<Language, Record<string, string>> = {
     "All Products": "All Products",
     "All States": "All States",
     "All Statuses": "All Statuses",
-    "All registered cultivators can apply through local agriculture offices.": "All registered cultivators can apply through local agriculture offices.",
+    "All registered cultivators can apply through local agriculture offices.":
+      "All registered cultivators can apply through local agriculture offices.",
     "Allied farming": "Allied farming",
     "Already have an account? Sign In": "Already have an account? Sign In",
-    "Alternating cereals with legumes to maintain soil fertility and break pest cycles.": "Alternating cereals with legumes to maintain soil fertility and break pest cycles.",
-    "Always run clean water through drip lines for 15 minutes after fertigation to wash residual chemical salts.": "Always run clean water through drip lines for 15 minutes after fertigation to wash residual chemical salts.",
-    "Always wear gloves, face mask, and eye protection during mixing": "Always wear gloves, face mask, and eye protection during mixing",
+    "Alternating cereals with legumes to maintain soil fertility and break pest cycles.":
+      "Alternating cereals with legumes to maintain soil fertility and break pest cycles.",
+    "Always run clean water through drip lines for 15 minutes after fertigation to wash residual chemical salts.":
+      "Always run clean water through drip lines for 15 minutes after fertigation to wash residual chemical salts.",
+    "Always wear gloves, face mask, and eye protection during mixing":
+      "Always wear gloves, face mask, and eye protection during mixing",
     "Ammonium Sulphate (50 kg)": "Ammonium Sulphate (50 kg)",
     "Amritsar Mandi": "Amritsar Mandi",
     "Amritsar, Punjab": "Amritsar, Punjab",
-    "Analyze agricultural datasets, create visualization dashboards, and build predictive models.": "Analyze agricultural datasets, create visualization dashboards, and build predictive models.",
-    "Analyze pH, N-P-K levels, organic carbon, and electrical conductivity": "Analyze pH, N-P-K levels, organic carbon, and electrical conductivity",
+    "Analyze agricultural datasets, create visualization dashboards, and build predictive models.":
+      "Analyze agricultural datasets, create visualization dashboards, and build predictive models.",
+    "Analyze pH, N-P-K levels, organic carbon, and electrical conductivity":
+      "Analyze pH, N-P-K levels, organic carbon, and electrical conductivity",
     "Animal Nutrition": "Animal Nutrition",
     "Animal Valuation": "Animal Valuation",
-    "Animals are tagged with tamper-proof ear tags or RFID microchips recorded in animal health databases for seamless claim verification.": "Animals are tagged with tamper-proof ear tags or RFID microchips recorded in animal health databases for seamless claim verification.",
-    "Aphids and thrips suck sap from tender top leaves": "Aphids and thrips suck sap from tender top leaves",
+    "Animals are tagged with tamper-proof ear tags or RFID microchips recorded in animal health databases for seamless claim verification.":
+      "Animals are tagged with tamper-proof ear tags or RFID microchips recorded in animal health databases for seamless claim verification.",
+    "Aphids and thrips suck sap from tender top leaves":
+      "Aphids and thrips suck sap from tender top leaves",
     "App Store": "App Store",
     "Application Form": "Application Form",
     "Application Submitted \u2713": "Application Submitted \u2713",
-    "Applied": "Applied",
-    "Apply 200 liters of Jeevamrutha per acre through irrigation water": "Apply 200 liters of Jeevamrutha per acre through irrigation water",
-    "Apply 3-4 inch straw mulch around vegetable crop rows": "Apply 3-4 inch straw mulch around vegetable crop rows",
-    "Apply Nitrogen in 2 to 3 split doses matching growth peaks": "Apply Nitrogen in 2 to 3 split doses matching growth peaks",
+    Applied: "Applied",
+    "Apply 200 liters of Jeevamrutha per acre through irrigation water":
+      "Apply 200 liters of Jeevamrutha per acre through irrigation water",
+    "Apply 3-4 inch straw mulch around vegetable crop rows":
+      "Apply 3-4 inch straw mulch around vegetable crop rows",
+    "Apply Nitrogen in 2 to 3 split doses matching growth peaks":
+      "Apply Nitrogen in 2 to 3 split doses matching growth peaks",
     "Apply Now": "Apply Now",
     "Apply Schemes": "Apply Schemes",
-    "Apply agricultural lime for acidic soils (pH < 6.0)": "Apply agricultural lime for acidic soils (pH < 6.0)",
-    "Apply chemical pesticides only when pest population exceeds ETL limit": "Apply chemical pesticides only when pest population exceeds ETL limit",
-    "Apply for frontend, python, AI/ML, full-stack, and data science internships.": "Apply for frontend, python, AI/ML, full-stack, and data science internships.",
+    "Apply agricultural lime for acidic soils (pH < 6.0)":
+      "Apply agricultural lime for acidic soils (pH < 6.0)",
+    "Apply chemical pesticides only when pest population exceeds ETL limit":
+      "Apply chemical pesticides only when pest population exceeds ETL limit",
+    "Apply for frontend, python, AI/ML, full-stack, and data science internships.":
+      "Apply for frontend, python, AI/ML, full-stack, and data science internships.",
     "Apply for tech and research internships": "Apply for tech and research internships",
-    "Apply full dose of Phosphorus and Potassium at basal sowing stage": "Apply full dose of Phosphorus and Potassium at basal sowing stage",
-    "Apply light surface irrigation before expected night frost or extreme heatwaves to moderate field micro-climate.": "Apply light surface irrigation before expected night frost or extreme heatwaves to moderate field micro-climate.",
-    "Apply preventive copper or bio-fungicide sprays before continuous rains": "Apply preventive copper or bio-fungicide sprays before continuous rains",
-    "Apply well-decomposed Farm Yard Manure (FYM) 3 weeks before sowing": "Apply well-decomposed Farm Yard Manure (FYM) 3 weeks before sowing",
+    "Apply full dose of Phosphorus and Potassium at basal sowing stage":
+      "Apply full dose of Phosphorus and Potassium at basal sowing stage",
+    "Apply light surface irrigation before expected night frost or extreme heatwaves to moderate field micro-climate.":
+      "Apply light surface irrigation before expected night frost or extreme heatwaves to moderate field micro-climate.",
+    "Apply preventive copper or bio-fungicide sprays before continuous rains":
+      "Apply preventive copper or bio-fungicide sprays before continuous rains",
+    "Apply well-decomposed Farm Yard Manure (FYM) 3 weeks before sowing":
+      "Apply well-decomposed Farm Yard Manure (FYM) 3 weeks before sowing",
     "Are you sure you want to remove": "Are you sure you want to remove",
-    "Arrival": "Arrival",
-    "Arrivals": "Arrivals",
+    Arrival: "Arrival",
+    Arrivals: "Arrivals",
     "Artificial Intelligence & Machine Learning": "Artificial Intelligence & Machine Learning",
-    "Assaying quality test reports on e-NAM help farmers command better prices from online buyers.": "Assaying quality test reports on e-NAM help farmers command better prices from online buyers.",
-    "Assist farmers in enrolling for government welfare schemes and PM-KISAN": "Assist farmers in enrolling for government welfare schemes and PM-KISAN",
-    "Assist farmers in using PureFarm mobile apps and digital tools": "Assist farmers in using PureFarm mobile apps and digital tools",
-    "Assist farmers with digital agriculture tools, crop monitoring, field data collection, and farm advisory activities.": "Assist farmers with digital agriculture tools, crop monitoring, field data collection, and farm advisory activities.",
-    "Assist in cattle feed ration calculation and silage preparation": "Assist in cattle feed ration calculation and silage preparation",
-    "Assist in operating agricultural sprayer drones across field trials": "Assist in operating agricultural sprayer drones across field trials",
-    "Assist in training ML models for crop disease identification and yield forecasting.": "Assist in training ML models for crop disease identification and yield forecasting.",
+    "Assaying quality test reports on e-NAM help farmers command better prices from online buyers.":
+      "Assaying quality test reports on e-NAM help farmers command better prices from online buyers.",
+    "Assist farmers in enrolling for government welfare schemes and PM-KISAN":
+      "Assist farmers in enrolling for government welfare schemes and PM-KISAN",
+    "Assist farmers in using PureFarm mobile apps and digital tools":
+      "Assist farmers in using PureFarm mobile apps and digital tools",
+    "Assist farmers with digital agriculture tools, crop monitoring, field data collection, and farm advisory activities.":
+      "Assist farmers with digital agriculture tools, crop monitoring, field data collection, and farm advisory activities.",
+    "Assist in cattle feed ration calculation and silage preparation":
+      "Assist in cattle feed ration calculation and silage preparation",
+    "Assist in operating agricultural sprayer drones across field trials":
+      "Assist in operating agricultural sprayer drones across field trials",
+    "Assist in training ML models for crop disease identification and yield forecasting.":
+      "Assist in training ML models for crop disease identification and yield forecasting.",
     "Automated Weather Station Data": "Automated Weather Station Data",
-    "Automated solenoid valves open and close based on real-time soil moisture thresholds": "Automated solenoid valves open and close based on real-time soil moisture thresholds",
-    "Automatic Weather Stations (AWS) measure localized temperature and humidity": "Automatic Weather Stations (AWS) measure localized temperature and humidity",
-    "Available": "Available",
+    "Automated solenoid valves open and close based on real-time soil moisture thresholds":
+      "Automated solenoid valves open and close based on real-time soil moisture thresholds",
+    "Automatic Weather Stations (AWS) measure localized temperature and humidity":
+      "Automatic Weather Stations (AWS) measure localized temperature and humidity",
+    Available: "Available",
     "Available Capacity": "Available Capacity",
     "Available Space": "Available Space",
     "Available Stock": "Available Stock",
     "Available in participating states": "Available in participating states",
-    "Average arrivals are stable and price improved by 1.8% today.": "Average arrivals are stable and price improved by 1.8% today.",
-    "Avoid excessive Nitrogen spray which attracts sap-sucking pests": "Avoid excessive Nitrogen spray which attracts sap-sucking pests",
-    "Avoid foliar spray for the next 24 hours due to likely showers.": "Avoid foliar spray for the next 24 hours due to likely showers.",
-    "Avoid harvesting right after rain or heavy morning dew": "Avoid harvesting right after rain or heavy morning dew",
-    "Avoid over-fertilizing with Nitrogen, which creates soft foliage vulnerable to fungi": "Avoid over-fertilizing with Nitrogen, which creates soft foliage vulnerable to fungi",
-    "Avoid selling on peak arrival Mondays when mandi supply overflow depresses prices.": "Avoid selling on peak arrival Mondays when mandi supply overflow depresses prices.",
-    "Avoid sowing seeds right before heavy rain to prevent soil crusting": "Avoid sowing seeds right before heavy rain to prevent soil crusting",
+    "Average arrivals are stable and price improved by 1.8% today.":
+      "Average arrivals are stable and price improved by 1.8% today.",
+    "Avoid excessive Nitrogen spray which attracts sap-sucking pests":
+      "Avoid excessive Nitrogen spray which attracts sap-sucking pests",
+    "Avoid foliar spray for the next 24 hours due to likely showers.":
+      "Avoid foliar spray for the next 24 hours due to likely showers.",
+    "Avoid harvesting right after rain or heavy morning dew":
+      "Avoid harvesting right after rain or heavy morning dew",
+    "Avoid over-fertilizing with Nitrogen, which creates soft foliage vulnerable to fungi":
+      "Avoid over-fertilizing with Nitrogen, which creates soft foliage vulnerable to fungi",
+    "Avoid selling on peak arrival Mondays when mandi supply overflow depresses prices.":
+      "Avoid selling on peak arrival Mondays when mandi supply overflow depresses prices.",
+    "Avoid sowing seeds right before heavy rain to prevent soil crusting":
+      "Avoid sowing seeds right before heavy rain to prevent soil crusting",
     "Azadpur Mandi": "Azadpur Mandi",
     "Azadpur, Delhi": "Azadpur, Delhi",
     "Azotobacter Biofertiliser (500 g)": "Azotobacter Biofertiliser (500 g)",
     "B.Sc or M.Sc Agriculture students.": "B.Sc or M.Sc Agriculture students.",
     "BEST SELLER": "BEST SELLER",
     "BT Cotton Seed (450 g)": "BT Cotton Seed (450 g)",
-    "Back": "Back",
+    Back: "Back",
     "Back to Internships": "Back to Internships",
     "Back to Learning": "Back to Learning",
     "Back to Learning Hub": "Back to Learning Hub",
     "Bag / Packet": "Bag / Packet",
-    "Balanced application of Nitrogen, Phosphorus, and Potassium based on crop stage.": "Balanced application of Nitrogen, Phosphorus, and Potassium based on crop stage.",
+    "Balanced application of Nitrogen, Phosphorus, and Potassium based on crop stage.":
+      "Balanced application of Nitrogen, Phosphorus, and Potassium based on crop stage.",
     "Banana Tissue Culture Plant G-9": "Banana Tissue Culture Plant G-9",
-    "Bangalore": "Bangalore",
+    Bangalore: "Bangalore",
     "Barley Seed BH-946 (20 kg)": "Barley Seed BH-946 (20 kg)",
     "Battery Knapsack Sprayer 16 L": "Battery Knapsack Sprayer 16 L",
-    "Beginner": "Beginner",
+    Beginner: "Beginner",
     "Berseem Fodder Seed (10 kg)": "Berseem Fodder Seed (10 kg)",
     "Best Deals for You \ud83d\udd25": "Best Deals for You \ud83d\udd25",
     "Best Quality": "Best Quality",
@@ -166,84 +215,113 @@ export const translations: Record<Language, Record<string, string>> = {
     "Bitter Gourd Seed Hybrid (50 g)": "Bitter Gourd Seed Hybrid (50 g)",
     "Black Gram Seed Pant U-31 (5 kg)": "Black Gram Seed Pant U-31 (5 kg)",
     "Bone Meal Organic (10 kg)": "Bone Meal Organic (10 kg)",
-    "Book certified cold storage spaces early during peak harvest seasons": "Book certified cold storage spaces early during peak harvest seasons",
-    "Border rows of tall Maize or Sorghum act as natural windbreakers for delicate vegetable crops.": "Border rows of tall Maize or Sorghum act as natural windbreakers for delicate vegetable crops.",
+    "Book certified cold storage spaces early during peak harvest seasons":
+      "Book certified cold storage spaces early during peak harvest seasons",
+    "Border rows of tall Maize or Sorghum act as natural windbreakers for delicate vegetable crops.":
+      "Border rows of tall Maize or Sorghum act as natural windbreakers for delicate vegetable crops.",
     "Borer insects damage stems and fruit tissues": "Borer insects damage stems and fruit tissues",
     "Boron 20% Powder (1 kg)": "Boron 20% Powder (1 kg)",
     "Bottle Gourd Seed Pusa Naveen (100 g)": "Bottle Gourd Seed Pusa Naveen (100 g)",
     "Box / Crate": "Box / Crate",
     "Brief Introduction / Cover Note": "Brief Introduction / Cover Note",
     "Brighter Futures": "Brighter Futures",
-    "Brinjal": "Brinjal",
+    Brinjal: "Brinjal",
     "Browse All Courses": "Browse All Courses",
     "Browse Catalog": "Browse Catalog",
     "Browse Marketplace": "Browse Marketplace",
-    "Browse directly from verified local farmers and certified suppliers. High quality, fair prices, direct sourcing.": "Browse directly from verified local farmers and certified suppliers. High quality, fair prices, direct sourcing.",
-    "Browse fresh produce directly from verified local farmers.": "Browse fresh produce directly from verified local farmers.",
+    "Browse directly from verified local farmers and certified suppliers. High quality, fair prices, direct sourcing.":
+      "Browse directly from verified local farmers and certified suppliers. High quality, fair prices, direct sourcing.",
+    "Browse fresh produce directly from verified local farmers.":
+      "Browse fresh produce directly from verified local farmers.",
     "Brush Cutter 2-Stroke 43 CC": "Brush Cutter 2-Stroke 43 CC",
-    "Build complete end-to-end applications using React, Node.js, Express, and SQL databases.": "Build complete end-to-end applications using React, Node.js, Express, and SQL databases.",
-    "Build responsive frontend UI components and collaborate on web platform features.": "Build responsive frontend UI components and collaborate on web platform features.",
-    "Building soil humus, green manuring, and preventing soil erosion.": "Building soil humus, green manuring, and preventing soil erosion.",
+    "Build complete end-to-end applications using React, Node.js, Express, and SQL databases.":
+      "Build complete end-to-end applications using React, Node.js, Express, and SQL databases.",
+    "Build responsive frontend UI components and collaborate on web platform features.":
+      "Build responsive frontend UI components and collaborate on web platform features.",
+    "Building soil humus, green manuring, and preventing soil erosion.":
+      "Building soil humus, green manuring, and preventing soil erosion.",
     "Built around everyday farm decisions": "Built around everyday farm decisions",
-    "Bulk purchasing of inputs lowers seed and fertilizer costs": "Bulk purchasing of inputs lowers seed and fertilizer costs",
+    "Bulk purchasing of inputs lowers seed and fertilizer costs":
+      "Bulk purchasing of inputs lowers seed and fertilizer costs",
     "Buy Now": "Buy Now",
-    "Buyer": "Buyer",
+    Buyer: "Buyer",
     "Buyer Dashboard": "Buyer Dashboard",
     "Buyer Demo": "Buyer Demo",
     "Cabbage Seed Golden Acre (100 g)": "Cabbage Seed Golden Acre (100 g)",
     "Calcium Nitrate (25 kg)": "Calcium Nitrate (25 kg)",
-    "Calculating lateral line spacing, emitter discharge rates, and pressure regulators.": "Calculating lateral line spacing, emitter discharge rates, and pressure regulators.",
-    "Calibrate soil sensors at the start of each season using saturated and field capacity soil samples.": "Calibrate soil sensors at the start of each season using saturated and field capacity soil samples.",
-    "Calibrate sprayer nozzle to ensure uniform chemical droplet coverage": "Calibrate sprayer nozzle to ensure uniform chemical droplet coverage",
-    "Call": "Call",
-    "Cancel": "Cancel",
-    "Cancelled": "Cancelled",
+    "Calculating lateral line spacing, emitter discharge rates, and pressure regulators.":
+      "Calculating lateral line spacing, emitter discharge rates, and pressure regulators.",
+    "Calibrate soil sensors at the start of each season using saturated and field capacity soil samples.":
+      "Calibrate soil sensors at the start of each season using saturated and field capacity soil samples.",
+    "Calibrate sprayer nozzle to ensure uniform chemical droplet coverage":
+      "Calibrate sprayer nozzle to ensure uniform chemical droplet coverage",
+    Call: "Call",
+    Cancel: "Cancel",
+    Cancelled: "Cancelled",
     "Cap Stone Project": "Cap Stone Project",
-    "Capacity": "Capacity",
+    Capacity: "Capacity",
     "Capacity: High to Low": "Capacity: High to Low",
     "Capacity: Low to High": "Capacity: Low to High",
-    "Capturing monsoon runoff water for dry-spell protective irrigation.": "Capturing monsoon runoff water for dry-spell protective irrigation.",
-    "Card specifies status of 12 soil parameters including N, P, K, and micro-nutrients": "Card specifies status of 12 soil parameters including N, P, K, and micro-nutrients",
-    "Career": "Career",
+    "Capturing monsoon runoff water for dry-spell protective irrigation.":
+      "Capturing monsoon runoff water for dry-spell protective irrigation.",
+    "Card specifies status of 12 soil parameters including N, P, K, and micro-nutrients":
+      "Card specifies status of 12 soil parameters including N, P, K, and micro-nutrients",
+    Career: "Career",
     "Carefully Handpicked": "Carefully Handpicked",
     "Carrot Seed Pusa Rudhira (250 g)": "Carrot Seed Pusa Rudhira (250 g)",
     "Castor Seed GCH-7 (5 kg)": "Castor Seed GCH-7 (5 kg)",
-    "Category": "Category",
+    Category: "Category",
     "Cattle Feed Trough Plastic 60 L": "Cattle Feed Trough Plastic 60 L",
     "Cauliflower Seed Snowball-16 (50 g)": "Cauliflower Seed Snowball-16 (50 g)",
-    "Certificates": "Certificates",
+    Certificates: "Certificates",
     "Certificates Earned": "Certificates Earned",
     "Certified products and inputs for your crops": "Certified products and inputs for your crops",
     "Chaff Cutter Electric 2 HP": "Chaff Cutter Electric 2 HP",
     "Chat Now": "Chat Now",
-    "Chat with our support team on WhatsApp for quick farm consulting.": "Chat with our support team on WhatsApp for quick farm consulting.",
-    "Check 5-day local rainfall forecasts before scheduling large-scale sowing operations.": "Check 5-day local rainfall forecasts before scheduling large-scale sowing operations.",
+    "Chat with our support team on WhatsApp for quick farm consulting.":
+      "Chat with our support team on WhatsApp for quick farm consulting.",
+    "Check 5-day local rainfall forecasts before scheduling large-scale sowing operations.":
+      "Check 5-day local rainfall forecasts before scheduling large-scale sowing operations.",
     "Check Mandi Rates": "Check Mandi Rates",
     "Check Weather": "Check Weather",
-    "Check drip emitter flow rate uniformity across field lines monthly": "Check drip emitter flow rate uniformity across field lines monthly",
-    "Check installment payment status on PM-KISAN official portal": "Check installment payment status on PM-KISAN official portal",
-    "Check lower leaf surfaces for early pest egg clusters": "Check lower leaf surfaces for early pest egg clusters",
-    "Check satellite crop health maps weekly to identify underperforming field zones.": "Check satellite crop health maps weekly to identify underperforming field zones.",
+    "Check drip emitter flow rate uniformity across field lines monthly":
+      "Check drip emitter flow rate uniformity across field lines monthly",
+    "Check installment payment status on PM-KISAN official portal":
+      "Check installment payment status on PM-KISAN official portal",
+    "Check lower leaf surfaces for early pest egg clusters":
+      "Check lower leaf surfaces for early pest egg clusters",
+    "Check satellite crop health maps weekly to identify underperforming field zones.":
+      "Check satellite crop health maps weekly to identify underperforming field zones.",
     "Checking authorization...": "Checking authorization...",
-    "Checking grain moisture percentage and crop maturity indicators.": "Checking grain moisture percentage and crop maturity indicators.",
-    "Checking soil moisture at root depth prevents over-watering, which causes root rot and nutrient leaching. Simple tensiometers or soil feel-and-appearance tests help determine exact irrigation needs.": "Checking soil moisture at root depth prevents over-watering, which causes root rot and nutrient leaching. Simple tensiometers or soil feel-and-appearance tests help determine exact irrigation needs.",
-    "Checkout": "Checkout",
+    "Checking grain moisture percentage and crop maturity indicators.":
+      "Checking grain moisture percentage and crop maturity indicators.",
+    "Checking soil moisture at root depth prevents over-watering, which causes root rot and nutrient leaching. Simple tensiometers or soil feel-and-appearance tests help determine exact irrigation needs.":
+      "Checking soil moisture at root depth prevents over-watering, which causes root rot and nutrient leaching. Simple tensiometers or soil feel-and-appearance tests help determine exact irrigation needs.",
+    Checkout: "Checkout",
     "Chickpea Seed JG-11 (10 kg)": "Chickpea Seed JG-11 (10 kg)",
     "Chilli Seed Byadgi Dabbi (50 g)": "Chilli Seed Byadgi Dabbi (50 g)",
-    "Choose your role to get started with PureFarm": "Choose your role to get started with PureFarm",
+    "Choose your role to get started with PureFarm":
+      "Choose your role to get started with PureFarm",
     "Claim Process": "Claim Process",
     "Claim Settlement": "Claim Settlement",
-    "Claim payouts are calculated based on Crop Cutting Experiments (CCE) data or weather triggers and directly credited to farmers' Aadhaar-seeded bank accounts.": "Claim payouts are calculated based on Crop Cutting Experiments (CCE) data or weather triggers and directly credited to farmers' Aadhaar-seeded bank accounts.",
-    "Claim subsidies, direct transfers, and support.": "Claim subsidies, direct transfers, and support.",
-    "Claims submitted along with post-mortem examination report and ear-tag verification by veterinary officers for quick payout release.": "Claims submitted along with post-mortem examination report and ear-tag verification by veterinary officers for quick payout release.",
-    "Clean drip line filters weekly to prevent emitter clogging from sand and algae.": "Clean drip line filters weekly to prevent emitter clogging from sand and algae.",
-    "Cleaning salt deposits and algae from drippers using hydrochloric or phosphoric acid.": "Cleaning salt deposits and algae from drippers using hydrochloric or phosphoric acid.",
+    "Claim payouts are calculated based on Crop Cutting Experiments (CCE) data or weather triggers and directly credited to farmers' Aadhaar-seeded bank accounts.":
+      "Claim payouts are calculated based on Crop Cutting Experiments (CCE) data or weather triggers and directly credited to farmers' Aadhaar-seeded bank accounts.",
+    "Claim subsidies, direct transfers, and support.":
+      "Claim subsidies, direct transfers, and support.",
+    "Claims submitted along with post-mortem examination report and ear-tag verification by veterinary officers for quick payout release.":
+      "Claims submitted along with post-mortem examination report and ear-tag verification by veterinary officers for quick payout release.",
+    "Clean drip line filters weekly to prevent emitter clogging from sand and algae.":
+      "Clean drip line filters weekly to prevent emitter clogging from sand and algae.",
+    "Cleaning salt deposits and algae from drippers using hydrochloric or phosphoric acid.":
+      "Cleaning salt deposits and algae from drippers using hydrochloric or phosphoric acid.",
     "Cleaning, Grading, and Packaging": "Cleaning, Grading, and Packaging",
     "Climate Resilience": "Climate Resilience",
     "Climate Resilience Network": "Climate Resilience Network",
-    "Climate Risk Assessment & Resilient Varieties": "Climate Risk Assessment & Resilient Varieties",
+    "Climate Risk Assessment & Resilient Varieties":
+      "Climate Risk Assessment & Resilient Varieties",
     "Climate-Smart Agriculture": "Climate-Smart Agriculture",
-    "Climate-smart agriculture focuses on building farm resilience against extreme weather events. Planting stress-tolerant seeds like drought-resistant maize or flood-tolerant Sub1 paddy safeguards harvests.": "Climate-smart agriculture focuses on building farm resilience against extreme weather events. Planting stress-tolerant seeds like drought-resistant maize or flood-tolerant Sub1 paddy safeguards harvests.",
+    "Climate-smart agriculture focuses on building farm resilience against extreme weather events. Planting stress-tolerant seeds like drought-resistant maize or flood-tolerant Sub1 paddy safeguards harvests.":
+      "Climate-smart agriculture focuses on building farm resilience against extreme weather events. Planting stress-tolerant seeds like drought-resistant maize or flood-tolerant Sub1 paddy safeguards harvests.",
     "Cloud & DevOps": "Cloud & DevOps",
     "Cloud Computing": "Cloud Computing",
     "Cloud Native Guild": "Cloud Native Guild",
@@ -253,58 +331,79 @@ export const translations: Record<Language, Record<string, string>> = {
     "Cold Storage & Cold Chain Logistics": "Cold Storage & Cold Chain Logistics",
     "Cold Storage Facilities": "Cold Storage Facilities",
     "Cold Storage Finder": "Cold Storage Finder",
-    "Collect and prepare soil lab test samples from various field zones": "Collect and prepare soil lab test samples from various field zones",
-    "Collect crop health data, soil advisory updates, and harvest readiness logs": "Collect crop health data, soil advisory updates, and harvest readiness logs",
-    "Collect soil samples from 5 to 8 zig-zag field locations": "Collect soil samples from 5 to 8 zig-zag field locations",
-    "Combining cultural, biological, mechanical, and chemical pest controls.": "Combining cultural, biological, mechanical, and chemical pest controls.",
-    "Commodity": "Commodity",
-    "Communication": "Communication",
+    "Collect and prepare soil lab test samples from various field zones":
+      "Collect and prepare soil lab test samples from various field zones",
+    "Collect crop health data, soil advisory updates, and harvest readiness logs":
+      "Collect crop health data, soil advisory updates, and harvest readiness logs",
+    "Collect soil samples from 5 to 8 zig-zag field locations":
+      "Collect soil samples from 5 to 8 zig-zag field locations",
+    "Combining cultural, biological, mechanical, and chemical pest controls.":
+      "Combining cultural, biological, mechanical, and chemical pest controls.",
+    Commodity: "Commodity",
+    Communication: "Communication",
     "Community Internship": "Community Internship",
     "Company / Organization": "Company / Organization",
-    "Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website.": "Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website.",
-    "Compare live mandi prices across nearby markets before selling": "Compare live mandi prices across nearby markets before selling",
-    "Compare mandi prices, cold storage, schemes, weather, and sell your produce directly.": "Compare mandi prices, cold storage, schemes, weather, and sell your produce directly.",
-    "Complete 3-year organic conversion period for land certification": "Complete 3-year organic conversion period for land certification",
-    "Completed": "Completed",
+    "Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website.":
+      "Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website.",
+    "Compare live mandi prices across nearby markets before selling":
+      "Compare live mandi prices across nearby markets before selling",
+    "Compare mandi prices, cold storage, schemes, weather, and sell your produce directly.":
+      "Compare mandi prices, cold storage, schemes, weather, and sell your produce directly.",
+    "Complete 3-year organic conversion period for land certification":
+      "Complete 3-year organic conversion period for land certification",
+    Completed: "Completed",
     "Completed \u2713": "Completed \u2713",
-    "Composting": "Composting",
-    "Comprehensive crop insurance against weather, pest, disease, prevented sowing, and post-harvest losses.": "Comprehensive crop insurance against weather, pest, disease, prevented sowing, and post-harvest losses.",
-    "Comprehensive crop insurance scheme providing financial support to farmers suffering crop loss or damage arising out of non-preventable natural risks.": "Comprehensive crop insurance scheme providing financial support to farmers suffering crop loss or damage arising out of non-preventable natural risks.",
+    Composting: "Composting",
+    "Comprehensive crop insurance against weather, pest, disease, prevented sowing, and post-harvest losses.":
+      "Comprehensive crop insurance against weather, pest, disease, prevented sowing, and post-harvest losses.",
+    "Comprehensive crop insurance scheme providing financial support to farmers suffering crop loss or damage arising out of non-preventable natural risks.":
+      "Comprehensive crop insurance scheme providing financial support to farmers suffering crop loss or damage arising out of non-preventable natural risks.",
     "Computer Science": "Computer Science",
-    "Conduct daily field visits to registered farms in Rajahmundry region": "Conduct daily field visits to registered farms in Rajahmundry region",
-    "Confirm": "Confirm",
+    "Conduct daily field visits to registered farms in Rajahmundry region":
+      "Conduct daily field visits to registered farms in Rajahmundry region",
+    Confirm: "Confirm",
     "Confirm Delete Product": "Confirm Delete Product",
     "Connect - Grow - Prosper": "Connect - Grow - Prosper",
-    "Connecting soil moisture and EC sensors to automated irrigation valves.": "Connecting soil moisture and EC sensors to automated irrigation valves.",
-    "Construct farm ponds at the lowest elevation point of the land": "Construct farm ponds at the lowest elevation point of the land",
-    "Construct firm field bunds to prevent soil erosion": "Construct firm field bunds to prevent soil erosion",
+    "Connecting soil moisture and EC sensors to automated irrigation valves.":
+      "Connecting soil moisture and EC sensors to automated irrigation valves.",
+    "Construct farm ponds at the lowest elevation point of the land":
+      "Construct farm ponds at the lowest elevation point of the land",
+    "Construct firm field bunds to prevent soil erosion":
+      "Construct firm field bunds to prevent soil erosion",
     "Contact PureFarm": "Contact PureFarm",
     "Contact Storage": "Contact Storage",
     "Contact Us": "Contact Us",
     "Contact unavailable": "Contact unavailable",
     "Continue Learning": "Continue Learning",
-    "Continue learning your active tech & AgriTech modules": "Continue learning your active tech & AgriTech modules",
+    "Continue learning your active tech & AgriTech modules":
+      "Continue learning your active tech & AgriTech modules",
     "Coordinates:": "Coordinates:",
     "Coriander Seed Local (1 kg)": "Coriander Seed Local (1 kg)",
-    "Cotton": "Cotton",
+    Cotton: "Cotton",
     "Cotton pest threshold alert": "Cotton pest threshold alert",
     "Course Details & Lessons": "Course Details & Lessons",
     "Course Not Found": "Course Not Found",
-    "Courses": "Courses",
-    "Cover farm pond surfaces with shade nets to reduce evaporation loss.": "Cover farm pond surfaces with shade nets to reduce evaporation loss.",
+    Courses: "Courses",
+    "Cover farm pond surfaces with shade nets to reduce evaporation loss.":
+      "Cover farm pond surfaces with shade nets to reduce evaporation loss.",
     "Coverage Stages": "Coverage Stages",
     "Coverage Unit": "Coverage Unit",
     "Covered Animals": "Covered Animals",
-    "Covers Prevented Sowing / Planting Risk, Standing Crop (Yield Losses due to drought, flood, pests, diseases), Localised Calamities (hailstorm, landslide, inundation), and Post-Harvest Losses (up to 14 days).": "Covers Prevented Sowing / Planting Risk, Standing Crop (Yield Losses due to drought, flood, pests, diseases), Localised Calamities (hailstorm, landslide, inundation), and Post-Harvest Losses (up to 14 days).",
-    "Covers crop cultivation, post-harvest expenses, and livestock maintenance": "Covers crop cultivation, post-harvest expenses, and livestock maintenance",
-    "Covers death due to accident, lightning, flood, disease outbreaks, calving complications, surgical procedures, and permanent total disability.": "Covers death due to accident, lightning, flood, disease outbreaks, calving complications, surgical procedures, and permanent total disability.",
-    "Covers prevented sowing, standing crop damage, and localized hailstorm loss": "Covers prevented sowing, standing crop damage, and localized hailstorm loss",
-    "Covers rainfall deficit/excess, unseasonal rainfall, high/low temperature spikes, humidity fluctuations, and wind speed deviations.": "Covers rainfall deficit/excess, unseasonal rainfall, high/low temperature spikes, humidity fluctuations, and wind speed deviations.",
+    "Covers Prevented Sowing / Planting Risk, Standing Crop (Yield Losses due to drought, flood, pests, diseases), Localised Calamities (hailstorm, landslide, inundation), and Post-Harvest Losses (up to 14 days).":
+      "Covers Prevented Sowing / Planting Risk, Standing Crop (Yield Losses due to drought, flood, pests, diseases), Localised Calamities (hailstorm, landslide, inundation), and Post-Harvest Losses (up to 14 days).",
+    "Covers crop cultivation, post-harvest expenses, and livestock maintenance":
+      "Covers crop cultivation, post-harvest expenses, and livestock maintenance",
+    "Covers death due to accident, lightning, flood, disease outbreaks, calving complications, surgical procedures, and permanent total disability.":
+      "Covers death due to accident, lightning, flood, disease outbreaks, calving complications, surgical procedures, and permanent total disability.",
+    "Covers prevented sowing, standing crop damage, and localized hailstorm loss":
+      "Covers prevented sowing, standing crop damage, and localized hailstorm loss",
+    "Covers rainfall deficit/excess, unseasonal rainfall, high/low temperature spikes, humidity fluctuations, and wind speed deviations.":
+      "Covers rainfall deficit/excess, unseasonal rainfall, high/low temperature spikes, humidity fluctuations, and wind speed deviations.",
     "Cow Dung Manure Composted (40 kg)": "Cow Dung Manure Composted (40 kg)",
     "Create Account": "Create Account",
-    "Credit": "Credit",
+    Credit: "Credit",
     "Critical Crop Water Requirement Stages": "Critical Crop Water Requirement Stages",
-    "Crop": "Crop",
+    Crop: "Crop",
     "Crop Calendar": "Crop Calendar",
     "Crop Insurance": "Crop Insurance",
     "Crop Insurance Scheme": "Crop Insurance Scheme",
@@ -318,13 +417,17 @@ export const translations: Record<Language, Record<string, string>> = {
     "Crop Protection Lab": "Crop Protection Lab",
     "Crop Rotation Strategies": "Crop Rotation Strategies",
     "Crop insurance": "Crop insurance",
-    "Crop insurance coverage, low premium rates, crop loss reporting within 72 hours.": "Crop insurance coverage, low premium rates, crop loss reporting within 72 hours.",
-    "Crop rotation breaks life cycles of host-specific pests and weeds": "Crop rotation breaks life cycles of host-specific pests and weeds",
-    "Crops": "Crops",
-    "Crops have specific growth stages where moisture stress causes maximum yield loss, such as flowering, grain filling, and root establishment. Timely watering during these stages is essential.": "Crops have specific growth stages where moisture stress causes maximum yield loss, such as flowering, grain filling, and root establishment. Timely watering during these stages is essential.",
-    "Cucumber": "Cucumber",
+    "Crop insurance coverage, low premium rates, crop loss reporting within 72 hours.":
+      "Crop insurance coverage, low premium rates, crop loss reporting within 72 hours.",
+    "Crop rotation breaks life cycles of host-specific pests and weeds":
+      "Crop rotation breaks life cycles of host-specific pests and weeds",
+    Crops: "Crops",
+    "Crops have specific growth stages where moisture stress causes maximum yield loss, such as flowering, grain filling, and root establishment. Timely watering during these stages is essential.":
+      "Crops have specific growth stages where moisture stress causes maximum yield loss, such as flowering, grain filling, and root establishment. Timely watering during these stages is essential.",
+    Cucumber: "Cucumber",
     "Cucumber Seed Hybrid Malini (25 g)": "Cucumber Seed Hybrid Malini (25 g)",
-    "Cultivating cover crops and organic mulches to enrich soil biology.": "Cultivating cover crops and organic mulches to enrich soil biology.",
+    "Cultivating cover crops and organic mulches to enrich soil biology.":
+      "Cultivating cover crops and organic mulches to enrich soil biology.",
     "Current Weather": "Current Weather",
     "Curry Leaf Plant Sapling": "Curry Leaf Plant Sapling",
     "DAP 18-46-0 (50 kg)": "DAP 18-46-0 (50 kg)",
@@ -333,17 +436,21 @@ export const translations: Record<Language, Record<string, string>> = {
     "Data Collection": "Data Collection",
     "Data Science Intern": "Data Science Intern",
     "Data Structures & Algorithms": "Data Structures & Algorithms",
-    "Deadline": "Deadline",
+    Deadline: "Deadline",
     "Deals ending soon": "Deals ending soon",
     "Decrease quantity": "Decrease quantity",
-    "Deep dive into arrays, linked lists, trees, graphs, sorting, and dynamic programming.": "Deep dive into arrays, linked lists, trees, graphs, sorting, and dynamic programming.",
+    "Deep dive into arrays, linked lists, trees, graphs, sorting, and dynamic programming.":
+      "Deep dive into arrays, linked lists, trees, graphs, sorting, and dynamic programming.",
     "DeepAgri Intelligence": "DeepAgri Intelligence",
-    "Defined reference unit area tied to localized IMD or private automated weather station network data.": "Defined reference unit area tied to localized IMD or private automated weather station network data.",
-    "Degree in Chemistry, Agriculture, or Environmental Science.": "Degree in Chemistry, Agriculture, or Environmental Science.",
-    "Delay pesticide spray until leaf surface dries.": "Delay pesticide spray until leaf surface dries.",
-    "Delete": "Delete",
-    "Delhi": "Delhi",
-    "Delivered": "Delivered",
+    "Defined reference unit area tied to localized IMD or private automated weather station network data.":
+      "Defined reference unit area tied to localized IMD or private automated weather station network data.",
+    "Degree in Chemistry, Agriculture, or Environmental Science.":
+      "Degree in Chemistry, Agriculture, or Environmental Science.",
+    "Delay pesticide spray until leaf surface dries.":
+      "Delay pesticide spray until leaf surface dries.",
+    Delete: "Delete",
+    Delhi: "Delhi",
+    Delivered: "Delivered",
     "Delivery & Contact Information": "Delivery & Contact Information",
     "Delivery Address": "Delivery Address",
     "Delivery Destination:": "Delivery Destination:",
@@ -352,101 +459,141 @@ export const translations: Record<Language, Record<string, string>> = {
     "Delivery Location:": "Delivery Location:",
     "Delta Mega Cold Chain Logistics": "Delta Mega Cold Chain Logistics",
     "Department of Agriculture": "Department of Agriculture",
-    "Describe your harvest quality, moisture content, organic certification, packaging...": "Describe your harvest quality, moisture content, organic certification, packaging...",
+    "Describe your harvest quality, moisture content, organic certification, packaging...":
+      "Describe your harvest quality, moisture content, organic certification, packaging...",
     "Description (Optional)": "Description (Optional)",
     "Designing Micro-Drip Layouts": "Designing Micro-Drip Layouts",
-    "Details": "Details",
+    Details: "Details",
     "Detecting...": "Detecting...",
     "Determining Optimum Harvest Timing": "Determining Optimum Harvest Timing",
-    "Develop Python backend services, data pipelines, and API integrations.": "Develop Python backend services, data pipelines, and API integrations.",
+    "Develop Python backend services, data pipelines, and API integrations.":
+      "Develop Python backend services, data pipelines, and API integrations.",
     "Digital Agriculture Platform": "Digital Agriculture Platform",
-    "Digital Agriculture Platform for farm inputs, mandi prices, crop advisories, schemes, and local support.": "Digital Agriculture Platform for farm inputs, mandi prices, crop advisories, schemes, and local support.",
+    "Digital Agriculture Platform for farm inputs, mandi prices, crop advisories, schemes, and local support.":
+      "Digital Agriculture Platform for farm inputs, mandi prices, crop advisories, schemes, and local support.",
     "Digital Portals and Agri Mobile Apps": "Digital Portals and Agri Mobile Apps",
-    "Digital mobile applications provide farmers with direct access to live mandi rates, weather forecasts, government scheme applications, and AI crop disease diagnosis using smartphone photos.": "Digital mobile applications provide farmers with direct access to live mandi rates, weather forecasts, government scheme applications, and AI crop disease diagnosis using smartphone photos.",
-    "Dilute Panchagavya at 3% concentration for foliar spray": "Dilute Panchagavya at 3% concentration for foliar spray",
+    "Digital mobile applications provide farmers with direct access to live mandi rates, weather forecasts, government scheme applications, and AI crop disease diagnosis using smartphone photos.":
+      "Digital mobile applications provide farmers with direct access to live mandi rates, weather forecasts, government scheme applications, and AI crop disease diagnosis using smartphone photos.",
+    "Dilute Panchagavya at 3% concentration for foliar spray":
+      "Dilute Panchagavya at 3% concentration for foliar spray",
     "Direct Bank Transfer (DBT)": "Direct Bank Transfer (DBT)",
     "Direct Benefit": "Direct Benefit",
     "Direct Market Access": "Direct Market Access",
     "Direct Selling to Retailers & FPOs": "Direct Selling to Retailers & FPOs",
-    "Direct contracts offer pre-agreed fixed price protection": "Direct contracts offer pre-agreed fixed price protection",
+    "Direct contracts offer pre-agreed fixed price protection":
+      "Direct contracts offer pre-agreed fixed price protection",
     "Direct from Farmers": "Direct from Farmers",
-    "Direct sowing with Happy Seeder to conserve soil moisture and lower diesel costs.": "Direct sowing with Happy Seeder to conserve soil moisture and lower diesel costs.",
-    "Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests.": "Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests.",
-    "Distinguishing between sap-sucking insects, chewing caterpillars, and beneficial insects.": "Distinguishing between sap-sucking insects, chewing caterpillars, and beneficial insects.",
-    "Distribute agricultural advisory pamphlets and scheme guides": "Distribute agricultural advisory pamphlets and scheme guides",
+    "Direct sowing with Happy Seeder to conserve soil moisture and lower diesel costs.":
+      "Direct sowing with Happy Seeder to conserve soil moisture and lower diesel costs.",
+    "Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests.":
+      "Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests.",
+    "Distinguishing between sap-sucking insects, chewing caterpillars, and beneficial insects.":
+      "Distinguishing between sap-sucking insects, chewing caterpillars, and beneficial insects.",
+    "Distribute agricultural advisory pamphlets and scheme guides":
+      "Distribute agricultural advisory pamphlets and scheme guides",
     "District & Crop Notified": "District & Crop Notified",
     "District Scale of Finance": "District Scale of Finance",
     "District camp calendar": "District camp calendar",
-    "Diversify crop portfolio with climate-hardy millets (Ragi, Bajra, Jowar)": "Diversify crop portfolio with climate-hardy millets (Ragi, Bajra, Jowar)",
-    "Do not take soil samples directly from field bunds, manure heaps, or tree shadows.": "Do not take soil samples directly from field bunds, manure heaps, or tree shadows.",
-    "Document organic farm compliance records for organic certification": "Document organic farm compliance records for organic certification",
+    "Diversify crop portfolio with climate-hardy millets (Ragi, Bajra, Jowar)":
+      "Diversify crop portfolio with climate-hardy millets (Ragi, Bajra, Jowar)",
+    "Do not take soil samples directly from field bunds, manure heaps, or tree shadows.":
+      "Do not take soil samples directly from field bunds, manure heaps, or tree shadows.",
+    "Document organic farm compliance records for organic certification":
+      "Document organic farm compliance records for organic certification",
     "Don't have an account? Register": "Don't have an account? Register",
     "Download Certificate": "Download Certificate",
     "Download Certificate (PDF)": "Download Certificate (PDF)",
-    "Draft customized Soil Health Cards and fertilizer dose advisories": "Draft customized Soil Health Cards and fertilizer dose advisories",
+    "Draft customized Soil Health Cards and fertilizer dose advisories":
+      "Draft customized Soil Health Cards and fertilizer dose advisories",
     "Drip Irrigation & Precision Farming": "Drip Irrigation & Precision Farming",
     "Drip Irrigation Kit 1 Acre": "Drip Irrigation Kit 1 Acre",
     "Drip and Sprinkler Irrigation Systems": "Drip and Sprinkler Irrigation Systems",
-    "Drip irrigation delivers water directly to plant roots in precise drops, reducing water evaporation and weed growth. Sprinkler systems simulate natural rainfall for closely spaced crops.": "Drip irrigation delivers water directly to plant roots in precise drops, reducing water evaporation and weed growth. Sprinkler systems simulate natural rainfall for closely spaced crops.",
-    "Drip irrigation saves 40-60% water compared to flood irrigation": "Drip irrigation saves 40-60% water compared to flood irrigation",
+    "Drip irrigation delivers water directly to plant roots in precise drops, reducing water evaporation and weed growth. Sprinkler systems simulate natural rainfall for closely spaced crops.":
+      "Drip irrigation delivers water directly to plant roots in precise drops, reducing water evaporation and weed growth. Sprinkler systems simulate natural rainfall for closely spaced crops.",
+    "Drip irrigation saves 40-60% water compared to flood irrigation":
+      "Drip irrigation saves 40-60% water compared to flood irrigation",
     "Drone Technology": "Drone Technology",
     "Drone Technology in Agriculture": "Drone Technology in Agriculture",
-    "Drone spraying for pesticides, fertilizers, and crop surveillance.": "Drone spraying for pesticides, fertilizers, and crop surveillance.",
-    "Drones cover 1 acre field spray in under 10 minutes": "Drones cover 1 acre field spray in under 10 minutes",
+    "Drone spraying for pesticides, fertilizers, and crop surveillance.":
+      "Drone spraying for pesticides, fertilizers, and crop surveillance.",
+    "Drones cover 1 acre field spray in under 10 minutes":
+      "Drones cover 1 acre field spray in under 10 minutes",
     "Drumstick Seed PKM-1 (250 g)": "Drumstick Seed PKM-1 (250 g)",
     "Duggirala Cold Storage": "Duggirala Cold Storage",
-    "Duration": "Duration",
-    "EC sensors monitor root zone salinity and prevent fertilizer burn": "EC sensors monitor root zone salinity and prevent fertilizer burn",
+    Duration: "Duration",
+    "EC sensors monitor root zone salinity and prevent fertilizer burn":
+      "EC sensors monitor root zone salinity and prevent fertilizer burn",
     "Ear-Tagging / Microchip Identification": "Ear-Tagging / Microchip Identification",
-    "Edit": "Edit",
-    "Education": "Education",
-    "Effective pest management begins with correct identification. Sap-sucking insects like aphids and whiteflies cause leaf curling, while caterpillars chew leaf tissue. Ladybugs and spiders are beneficial predators.": "Effective pest management begins with correct identification. Sap-sucking insects like aphids and whiteflies cause leaf curling, while caterpillars chew leaf tissue. Ladybugs and spiders are beneficial predators.",
-    "Efficient irrigation helps conserve water while keeping crops healthy and productive.": "Efficient irrigation helps conserve water while keeping crops healthy and productive.",
-    "Eligibility": "Eligibility",
+    Edit: "Edit",
+    Education: "Education",
+    "Effective pest management begins with correct identification. Sap-sucking insects like aphids and whiteflies cause leaf curling, while caterpillars chew leaf tissue. Ladybugs and spiders are beneficial predators.":
+      "Effective pest management begins with correct identification. Sap-sucking insects like aphids and whiteflies cause leaf curling, while caterpillars chew leaf tissue. Ladybugs and spiders are beneficial predators.",
+    "Efficient irrigation helps conserve water while keeping crops healthy and productive.":
+      "Efficient irrigation helps conserve water while keeping crops healthy and productive.",
+    Eligibility: "Eligibility",
     "Eligibility & Requirements": "Eligibility & Requirements",
-    "Eligibility criteria, enrollment process, Aadhaar seeding, and status tracking.": "Eligibility criteria, enrollment process, Aadhaar seeding, and status tracking.",
+    "Eligibility criteria, enrollment process, Aadhaar seeding, and status tracking.":
+      "Eligibility criteria, enrollment process, Aadhaar seeding, and status tracking.",
     "Eligible Crops": "Eligible Crops",
     "Eluru Cold Storage": "Eluru Cold Storage",
     "Eluru, Andhra Pradesh": "Eluru, Andhra Pradesh",
     "Email Address": "Email Address",
     "Empanelled Insurers & State Govts": "Empanelled Insurers & State Govts",
-    "Empanelled insurers with state agriculture departments": "Empanelled insurers with state agriculture departments",
-    "Enables precise fertigation directly through water drippers": "Enables precise fertigation directly through water drippers",
-    "Engineering, Agritech, or Agriculture students interested in drone technology.": "Engineering, Agritech, or Agriculture students interested in drone technology.",
+    "Empanelled insurers with state agriculture departments":
+      "Empanelled insurers with state agriculture departments",
+    "Enables precise fertigation directly through water drippers":
+      "Enables precise fertigation directly through water drippers",
+    "Engineering, Agritech, or Agriculture students interested in drone technology.":
+      "Engineering, Agritech, or Agriculture students interested in drone technology.",
     "Enroll Now": "Enroll Now",
-    "Enrolled": "Enrolled",
+    Enrolled: "Enrolled",
     "Enrolled Courses": "Enrolled Courses",
-    "Ensure adequate plant spacing for canopy ventilation": "Ensure adequate plant spacing for canopy ventilation",
-    "Ensure field drainage ditches are clear before heavy cyclone warnings": "Ensure field drainage ditches are clear before heavy cyclone warnings",
-    "Ensure proper drainage channels for heavy rain periods": "Ensure proper drainage channels for heavy rain periods",
-    "Ensure soil moisture is adequate at root depth before seed placement": "Ensure soil moisture is adequate at root depth before seed placement",
-    "Ensure your bank account is e-KYC verified and seeded with Aadhaar to receive installments without delay.": "Ensure your bank account is e-KYC verified and seeded with Aadhaar to receive installments without delay.",
-    "Enter your account credentials to access your dashboard": "Enter your account credentials to access your dashboard",
+    "Ensure adequate plant spacing for canopy ventilation":
+      "Ensure adequate plant spacing for canopy ventilation",
+    "Ensure field drainage ditches are clear before heavy cyclone warnings":
+      "Ensure field drainage ditches are clear before heavy cyclone warnings",
+    "Ensure proper drainage channels for heavy rain periods":
+      "Ensure proper drainage channels for heavy rain periods",
+    "Ensure soil moisture is adequate at root depth before seed placement":
+      "Ensure soil moisture is adequate at root depth before seed placement",
+    "Ensure your bank account is e-KYC verified and seeded with Aadhaar to receive installments without delay.":
+      "Ensure your bank account is e-KYC verified and seeded with Aadhaar to receive installments without delay.",
+    "Enter your account credentials to access your dashboard":
+      "Enter your account credentials to access your dashboard",
     "Enter your password": "Enter your password",
-    "Environment": "Environment",
-    "Equipment": "Equipment",
+    Environment: "Environment",
+    Equipment: "Equipment",
     "Every Drop Counts": "Every Drop Counts",
     "Every drop counts": "Every drop counts",
-    "Everything farmers need \u2014 from quality farm inputs and equipment to fresh agricultural products.": "Everything farmers need \u2014 from quality farm inputs and equipment to fresh agricultural products.",
+    "Everything farmers need \u2014 from quality farm inputs and equipment to fresh agricultural products.":
+      "Everything farmers need \u2014 from quality farm inputs and equipment to fresh agricultural products.",
     "Explore Agri Technology": "Explore Agri Technology",
     "Explore Categories": "Explore Categories",
     "Explore Farm Equipment": "Explore Farm Equipment",
     "Explore Farm Inputs": "Explore Farm Inputs",
     "Explore Irrigation": "Explore Irrigation",
     "Explore Products": "Explore Products",
-    "Explore fresh produce from local farmers across India and place your first direct order.": "Explore fresh produce from local farmers across India and place your first direct order.",
-    "Explore internships in agriculture, agritech, farming, horticulture, livestock, food processing, and rural development.": "Explore internships in agriculture, agritech, farming, horticulture, livestock, food processing, and rural development.",
-    "Explore machine learning algorithms, scikit-learn, neural networks, and model deployment.": "Explore machine learning algorithms, scikit-learn, neural networks, and model deployment.",
-    "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.": "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.",
-    "Explore software development, Python, AI/ML, cloud, and modern tech courses.": "Explore software development, Python, AI/ML, cloud, and modern tech courses.",
-    "Extreme Weather Mitigation (Floods & Heatwaves)": "Extreme Weather Mitigation (Floods & Heatwaves)",
-    "FEATURED": "FEATURED",
-    "FERTILIZERS": "FERTILIZERS",
-    "FPOs aggregate small farmer produce into large commercial lots": "FPOs aggregate small farmer produce into large commercial lots",
-    "FREE": "FREE",
+    "Explore fresh produce from local farmers across India and place your first direct order.":
+      "Explore fresh produce from local farmers across India and place your first direct order.",
+    "Explore internships in agriculture, agritech, farming, horticulture, livestock, food processing, and rural development.":
+      "Explore internships in agriculture, agritech, farming, horticulture, livestock, food processing, and rural development.",
+    "Explore machine learning algorithms, scikit-learn, neural networks, and model deployment.":
+      "Explore machine learning algorithms, scikit-learn, neural networks, and model deployment.",
+    "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.":
+      "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.",
+    "Explore software development, Python, AI/ML, cloud, and modern tech courses.":
+      "Explore software development, Python, AI/ML, cloud, and modern tech courses.",
+    "Extreme Weather Mitigation (Floods & Heatwaves)":
+      "Extreme Weather Mitigation (Floods & Heatwaves)",
+    FEATURED: "FEATURED",
+    FERTILIZERS: "FERTILIZERS",
+    "FPOs aggregate small farmer produce into large commercial lots":
+      "FPOs aggregate small farmer produce into large commercial lots",
+    FREE: "FREE",
     "FROM FIELD TO FUTURE": "FROM FIELD TO FUTURE",
     "Facility Specifications:": "Facility Specifications:",
-    "Factors influencing daily mandi prices: arrival volume, quality, and demand.": "Factors influencing daily mandi prices: arrival volume, quality, and demand.",
+    "Factors influencing daily mandi prices: arrival volume, quality, and demand.":
+      "Factors influencing daily mandi prices: arrival volume, quality, and demand.",
     "Fair Prices": "Fair Prices",
     "Farm Inputs & Fertilizers": "Farm Inputs & Fertilizers",
     "Farm Management": "Farm Management",
@@ -454,9 +601,10 @@ export const translations: Record<Language, Record<string, string>> = {
     "Farm Tools": "Farm Tools",
     "Farm alerts": "Farm alerts",
     "Farm input marketplace": "Farm input marketplace",
-    "Farm ponds collect excess rainwater runoff during heavy monsoon rains. Stored water provides emergency protective irrigation during dry spells and recharges groundwater aquifers.": "Farm ponds collect excess rainwater runoff during heavy monsoon rains. Stored water provides emergency protective irrigation during dry spells and recharges groundwater aquifers.",
+    "Farm ponds collect excess rainwater runoff during heavy monsoon rains. Stored water provides emergency protective irrigation during dry spells and recharges groundwater aquifers.":
+      "Farm ponds collect excess rainwater runoff during heavy monsoon rains. Stored water provides emergency protective irrigation during dry spells and recharges groundwater aquifers.",
     "Farm weather advisory": "Farm weather advisory",
-    "Farmer": "Farmer",
+    Farmer: "Farmer",
     "Farmer / Seller": "Farmer / Seller",
     "Farmer Access Only": "Farmer Access Only",
     "Farmer Authentication Required": "Farmer Authentication Required",
@@ -467,77 +615,106 @@ export const translations: Record<Language, Record<string, string>> = {
     "Farmer Registration": "Farmer Registration",
     "Farmer Training": "Farmer Training",
     "Farmer Welfare Cell": "Farmer Welfare Cell",
-    "Farmer premium capped at 2% for Kharif, 1.5% for Rabi, 5% for commercial crops": "Farmer premium capped at 2% for Kharif, 1.5% for Rabi, 5% for commercial crops",
-    "Farmers adopting approved micro-irrigation systems through empanelled vendors.": "Farmers adopting approved micro-irrigation systems through empanelled vendors.",
-    "Farmers, tenant cultivators, SHGs, and joint liability groups with farming activity.": "Farmers, tenant cultivators, SHGs, and joint liability groups with farming activity.",
+    "Farmer premium capped at 2% for Kharif, 1.5% for Rabi, 5% for commercial crops":
+      "Farmer premium capped at 2% for Kharif, 1.5% for Rabi, 5% for commercial crops",
+    "Farmers adopting approved micro-irrigation systems through empanelled vendors.":
+      "Farmers adopting approved micro-irrigation systems through empanelled vendors.",
+    "Farmers, tenant cultivators, SHGs, and joint liability groups with farming activity.":
+      "Farmers, tenant cultivators, SHGs, and joint liability groups with farming activity.",
     "Farming Advisory": "Farming Advisory",
     "Farming Tip & Practical Action": "Farming Tip & Practical Action",
     "Farming Today for a Greener Tomorrow": "Farming Today for a Greener Tomorrow",
     "Farthest First": "Farthest First",
     "Fast Delivery": "Fast Delivery",
-    "Featured": "Featured",
+    Featured: "Featured",
     "Featured Internship Opportunities": "Featured Internship Opportunities",
     "Featured Products": "Featured Products",
     "Featured first": "Featured first",
     "Fenugreek Seed Pusa Early Bunching (1 kg)": "Fenugreek Seed Pusa Early Bunching (1 kg)",
-    "Ferment Jeevamrutha culture for 48-72 hours under shade": "Ferment Jeevamrutha culture for 48-72 hours under shade",
+    "Ferment Jeevamrutha culture for 48-72 hours under shade":
+      "Ferment Jeevamrutha culture for 48-72 hours under shade",
     "Ferrous Sulphate (10 kg)": "Ferrous Sulphate (10 kg)",
-    "Fertigation delivers liquid water-soluble fertilizers directly into root zones via drip lines, raising nutrient efficiency from 40% to 80%.": "Fertigation delivers liquid water-soluble fertilizers directly into root zones via drip lines, raising nutrient efficiency from 40% to 80%.",
-    "Fertigation: Dosing Water-Soluble Fertilizers": "Fertigation: Dosing Water-Soluble Fertilizers",
+    "Fertigation delivers liquid water-soluble fertilizers directly into root zones via drip lines, raising nutrient efficiency from 40% to 80%.":
+      "Fertigation delivers liquid water-soluble fertilizers directly into root zones via drip lines, raising nutrient efficiency from 40% to 80%.",
+    "Fertigation: Dosing Water-Soluble Fertilizers":
+      "Fertigation: Dosing Water-Soluble Fertilizers",
     "Fertilizer Management": "Fertilizer Management",
-    "Fertilizers": "Fertilizers",
+    Fertilizers: "Fertilizers",
     "Field + Research": "Field + Research",
     "Field Data Collection": "Field Data Collection",
     "Field Internship": "Field Internship",
     "Field Pea Seed HFP-4 (10 kg)": "Field Pea Seed HFP-4 (10 kg)",
     "Field Work": "Field Work",
     "Filter by Category": "Filter by Category",
-    "Financial protection for cattle, buffaloes, sheep, and goats against death due to natural accidents, disease, or surgical complications.": "Financial protection for cattle, buffaloes, sheep, and goats against death due to natural accidents, disease, or surgical complications.",
+    "Financial protection for cattle, buffaloes, sheep, and goats against death due to natural accidents, disease, or surgical complications.":
+      "Financial protection for cattle, buffaloes, sheep, and goats against death due to natural accidents, disease, or surgical complications.",
     "Find Cold Storage": "Find Cold Storage",
-    "Find farmer support programmes, eligibility, and official application links.": "Find farmer support programmes, eligibility, and official application links.",
-    "Find fresh crops, fruits, seeds, and equipment": "Find fresh crops, fruits, seeds, and equipment",
-    "Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation.": "Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation.",
+    "Find farmer support programmes, eligibility, and official application links.":
+      "Find farmer support programmes, eligibility, and official application links.",
+    "Find fresh crops, fruits, seeds, and equipment":
+      "Find fresh crops, fruits, seeds, and equipment",
+    "Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation.":
+      "Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation.",
     "Finger Millet Seed GPU-28 (5 kg)": "Finger Millet Seed GPU-28 (5 kg)",
-    "Five-day local forecast with field action notes.": "Five-day local forecast with field action notes.",
-    "Flowering": "Flowering",
-    "Flush drip lines with clean water for 15 minutes after every fertigation session": "Flush drip lines with clean water for 15 minutes after every fertigation session",
-    "Flush lateral ends every 15 days by opening end caps while drip pump is running.": "Flush lateral ends every 15 days by opening end caps while drip pump is running.",
-    "Fly drone sprayers at 2-3 meters height above crop canopy for optimum droplet distribution.": "Fly drone sprayers at 2-3 meters height above crop canopy for optimum droplet distribution.",
+    "Five-day local forecast with field action notes.":
+      "Five-day local forecast with field action notes.",
+    Flowering: "Flowering",
+    "Flush drip lines with clean water for 15 minutes after every fertigation session":
+      "Flush drip lines with clean water for 15 minutes after every fertigation session",
+    "Flush lateral ends every 15 days by opening end caps while drip pump is running.":
+      "Flush lateral ends every 15 days by opening end caps while drip pump is running.",
+    "Fly drone sprayers at 2-3 meters height above crop canopy for optimum droplet distribution.":
+      "Fly drone sprayers at 2-3 meters height above crop canopy for optimum droplet distribution.",
     "Fogger Machine Portable": "Fogger Machine Portable",
-    "Foliar spray of 1% KNO3 (10g/L water) protects crops during sudden heatwaves": "Foliar spray of 1% KNO3 (10g/L water) protects crops during sudden heatwaves",
-    "Foliar sprays of Potassium and Salicylic acid during heat stress.": "Foliar sprays of Potassium and Salicylic acid during heat stress.",
-    "Follow FSSAI safety standards across processing and cold storage lines": "Follow FSSAI safety standards across processing and cold storage lines",
-    "Follow Soil Health Card dosage recommendations to save up to 20% on unnecessary fertilizer expenses.": "Follow Soil Health Card dosage recommendations to save up to 20% on unnecessary fertilizer expenses.",
+    "Foliar spray of 1% KNO3 (10g/L water) protects crops during sudden heatwaves":
+      "Foliar spray of 1% KNO3 (10g/L water) protects crops during sudden heatwaves",
+    "Foliar sprays of Potassium and Salicylic acid during heat stress.":
+      "Foliar sprays of Potassium and Salicylic acid during heat stress.",
+    "Follow FSSAI safety standards across processing and cold storage lines":
+      "Follow FSSAI safety standards across processing and cold storage lines",
+    "Follow Soil Health Card dosage recommendations to save up to 20% on unnecessary fertilizer expenses.":
+      "Follow Soil Health Card dosage recommendations to save up to 20% on unnecessary fertilizer expenses.",
     "Food Processing": "Food Processing",
     "Food Processing & Post-Harvest Intern": "Food Processing & Post-Harvest Intern",
-    "Food Technology, Agri Business, or Food Engineering students.": "Food Technology, Agri Business, or Food Engineering students.",
+    "Food Technology, Agri Business, or Food Engineering students.":
+      "Food Technology, Agri Business, or Food Engineering students.",
     "Food, Oilseeds & Annual Crops": "Food, Oilseeds & Annual Crops",
-    "Forming Farmer Producer Organizations (FPOs) for bulk bargaining power.": "Forming Farmer Producer Organizations (FPOs) for bulk bargaining power.",
-    "Free soil testing conducted by government agriculture laboratories": "Free soil testing conducted by government agriculture laboratories",
+    "Forming Farmer Producer Organizations (FPOs) for bulk bargaining power.":
+      "Forming Farmer Producer Organizations (FPOs) for bulk bargaining power.",
+    "Free soil testing conducted by government agriculture laboratories":
+      "Free soil testing conducted by government agriculture laboratories",
     "Fresh Fruits": "Fresh Fruits",
-    "Fresh Produce & Quality Agri Products Delivered": "Fresh Produce & Quality Agri Products Delivered",
+    "Fresh Produce & Quality Agri Products Delivered":
+      "Fresh Produce & Quality Agri Products Delivered",
     "Fresh Tomatoes": "Fresh Tomatoes",
     "Fresh Vegetables": "Fresh Vegetables",
-    "Fri": "Fri",
+    Fri: "Fri",
     "Frontend & Web": "Frontend & Web",
     "Frontend Development Intern": "Frontend Development Intern",
-    "Fruits": "Fruits",
-    "Full": "Full",
+    Fruits: "Fruits",
+    Full: "Full",
     "Full Name": "Full Name",
     "Full Stack": "Full Stack",
     "Full Stack Development": "Full Stack Development",
     "Full Stack Development Intern": "Full Stack Development Intern",
     "FullStack Academy": "FullStack Academy",
-    "Fungal diseases like leaf spot, blast, and powdery mildew thrive in warm, humid weather. Preventive sprays of copper oxychloride or bio-agents like Trichoderma protect crops before infection spreads.": "Fungal diseases like leaf spot, blast, and powdery mildew thrive in warm, humid weather. Preventive sprays of copper oxychloride or bio-agents like Trichoderma protect crops before infection spreads.",
+    "Fungal diseases like leaf spot, blast, and powdery mildew thrive in warm, humid weather. Preventive sprays of copper oxychloride or bio-agents like Trichoderma protect crops before infection spreads.":
+      "Fungal diseases like leaf spot, blast, and powdery mildew thrive in warm, humid weather. Preventive sprays of copper oxychloride or bio-agents like Trichoderma protect crops before infection spreads.",
     "Fungicides and Disease Prevention": "Fungicides and Disease Prevention",
-    "Gain practical experience in organic cultivation, composting, natural inputs, crop rotation, and sustainable farming.": "Gain practical experience in organic cultivation, composting, natural inputs, crop rotation, and sustainable farming.",
-    "Gain practical experience in vegetable cultivation, fruit crops, nursery management, and protected cultivation.": "Gain practical experience in vegetable cultivation, fruit crops, nursery management, and protected cultivation.",
+    "Gain practical experience in organic cultivation, composting, natural inputs, crop rotation, and sustainable farming.":
+      "Gain practical experience in organic cultivation, composting, natural inputs, crop rotation, and sustainable farming.",
+    "Gain practical experience in vegetable cultivation, fruit crops, nursery management, and protected cultivation.":
+      "Gain practical experience in vegetable cultivation, fruit crops, nursery management, and protected cultivation.",
     "Garden Spade Steel": "Garden Spade Steel",
     "Garlic Seed Bulb G-282 (10 kg)": "Garlic Seed Bulb G-282 (10 kg)",
-    "Generate crop vigor maps (NDVI) for precision fertilizer application": "Generate crop vigor maps (NDVI) for precision fertilizer application",
-    "Generates additional long-term income alongside seasonal food crops": "Generates additional long-term income alongside seasonal food crops",
-    "Get produce quality sampled and tested at e-NAM assaying labs": "Get produce quality sampled and tested at e-NAM assaying labs",
-    "Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.": "Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.",
+    "Generate crop vigor maps (NDVI) for precision fertilizer application":
+      "Generate crop vigor maps (NDVI) for precision fertilizer application",
+    "Generates additional long-term income alongside seasonal food crops":
+      "Generates additional long-term income alongside seasonal food crops",
+    "Get produce quality sampled and tested at e-NAM assaying labs":
+      "Get produce quality sampled and tested at e-NAM assaying labs",
+    "Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.":
+      "Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.",
     "Ginger Rhizome Seed Varada (25 kg)": "Ginger Rhizome Seed Varada (25 kg)",
     "Go to Dashboard": "Go to Dashboard",
     "Go to Marketplace": "Go to Marketplace",
@@ -548,257 +725,359 @@ export const translations: Record<Language, Record<string, string>> = {
     "Government of India": "Government of India",
     "Government schemes": "Government schemes",
     "Govt Schemes": "Govt Schemes",
-    "Grade A produce commands premium prices even during supply gluts": "Grade A produce commands premium prices even during supply gluts",
-    "Grade produce into Grade A, B, and C based on size, color, and texture": "Grade produce into Grade A, B, and C based on size, color, and texture",
+    "Grade A produce commands premium prices even during supply gluts":
+      "Grade A produce commands premium prices even during supply gluts",
+    "Grade produce into Grade A, B, and C based on size, color, and texture":
+      "Grade produce into Grade A, B, and C based on size, color, and texture",
     "Grain Moisture Meter": "Grain Moisture Meter",
     "Grain Storage Silo 1 Tonne": "Grain Storage Silo 1 Tonne",
-    "Grain moisture content should be 18-20% at harvest and dried to 12-14% for storage": "Grain moisture content should be 18-20% at harvest and dried to 12-14% for storage",
-    "Grain storage losses from insect pests reach up to 10%. Using airtight hermetic bags deprives insects of oxygen, killing pests naturally without chemicals.": "Grain storage losses from insect pests reach up to 10%. Using airtight hermetic bags deprives insects of oxygen, killing pests naturally without chemicals.",
+    "Grain moisture content should be 18-20% at harvest and dried to 12-14% for storage":
+      "Grain moisture content should be 18-20% at harvest and dried to 12-14% for storage",
+    "Grain storage losses from insect pests reach up to 10%. Using airtight hermetic bags deprives insects of oxygen, killing pests naturally without chemicals.":
+      "Grain storage losses from insect pests reach up to 10%. Using airtight hermetic bags deprives insects of oxygen, killing pests naturally without chemicals.",
     "Grains & Cereals": "Grains & Cereals",
     "Green Chilli": "Green Chilli",
     "Green Chillies": "Green Chillies",
     "Green Gram Seed IPM-02-3 (5 kg)": "Green Gram Seed IPM-02-3 (5 kg)",
     "Green Manuring and Bio-mulching": "Green Manuring and Bio-mulching",
     "Green Valley Cold Storage": "Green Valley Cold Storage",
-    "Green manuring involves growing fast-growing leguminous plants and ploughing them back into the soil at flowering stage. Organic mulching with straw or leaves conserves moisture and suppresses weeds.": "Green manuring involves growing fast-growing leguminous plants and ploughing them back into the soil at flowering stage. Organic mulching with straw or leaves conserves moisture and suppresses weeds.",
+    "Green manuring involves growing fast-growing leguminous plants and ploughing them back into the soil at flowering stage. Organic mulching with straw or leaves conserves moisture and suppresses weeds.":
+      "Green manuring involves growing fast-growing leguminous plants and ploughing them back into the soil at flowering stage. Organic mulching with straw or leaves conserves moisture and suppresses weeds.",
     "GreenField Agri Research": "GreenField Agri Research",
     "GreenGrow Horticulture": "GreenGrow Horticulture",
     "Groundnut Seed TAG-24 (10 kg)": "Groundnut Seed TAG-24 (10 kg)",
-    "Grow Marigold along field borders as a trap crop for nematodes": "Grow Marigold along field borders as a trap crop for nematodes",
+    "Grow Marigold along field borders as a trap crop for nematodes":
+      "Grow Marigold along field borders as a trap crop for nematodes",
     "Grow More. Harvest Better.": "Grow More. Harvest Better.",
     "Guava Grafted Plant Allahabad Safeda": "Guava Grafted Plant Allahabad Safeda",
-    "Guest": "Guest",
+    Guest: "Guest",
     "Guntur Agri Cold Storage": "Guntur Agri Cold Storage",
-    "Guntur Road, Vijayawada, Andhra Pradesh - 520001": "Guntur Road, Vijayawada, Andhra Pradesh - 520001",
+    "Guntur Road, Vijayawada, Andhra Pradesh - 520001":
+      "Guntur Road, Vijayawada, Andhra Pradesh - 520001",
     "Guntur, Andhra Pradesh": "Guntur, Andhra Pradesh",
     "Gypsum Agricultural Grade (50 kg)": "Gypsum Agricultural Grade (50 kg)",
     "HDPE Mulching Film 25 Micron (400 m)": "HDPE Mulching Film 25 Micron (400 m)",
     "HEALTHY SOIL \u2022 HEALTHY CROPS": "HEALTHY SOIL \u2022 HEALTHY CROPS",
-    "HOT": "HOT",
+    HOT: "HOT",
     "Handpicked products & inputs on discount": "Handpicked products & inputs on discount",
     "Hands-on Labs": "Hands-on Labs",
-    "Happy Seeder sows Wheat directly into standing Paddy stubble without burning": "Happy Seeder sows Wheat directly into standing Paddy stubble without burning",
-    "Hard water and algae cause dripper clogging over time. Periodic acid treatment with dilute Hydrochloric (HCl) or Phosphoric acid dissolves mineral scale and keeps drippers operating at 100% flow rate.": "Hard water and algae cause dripper clogging over time. Periodic acid treatment with dilute Hydrochloric (HCl) or Phosphoric acid dissolves mineral scale and keeps drippers operating at 100% flow rate.",
+    "Happy Seeder sows Wheat directly into standing Paddy stubble without burning":
+      "Happy Seeder sows Wheat directly into standing Paddy stubble without burning",
+    "Hard water and algae cause dripper clogging over time. Periodic acid treatment with dilute Hydrochloric (HCl) or Phosphoric acid dissolves mineral scale and keeps drippers operating at 100% flow rate.":
+      "Hard water and algae cause dripper clogging over time. Periodic acid treatment with dilute Hydrochloric (HCl) or Phosphoric acid dissolves mineral scale and keeps drippers operating at 100% flow rate.",
     "Harvest Date": "Harvest Date",
-    "Harvest crops early in the morning when moisture content is stable to prevent grain loss.": "Harvest crops early in the morning when moisture content is stable to prevent grain loss.",
-    "Harvest grains when moisture content drops to 14-16%": "Harvest grains when moisture content drops to 14-16%",
-    "Harvest paddy when 80-85% grains turn straw golden yellow": "Harvest paddy when 80-85% grains turn straw golden yellow",
-    "Harvesting": "Harvesting",
-    "Harvesting at peak maturity prevents grain shattering in fields and ensures high market value. Grains harvested too early have high moisture and spoil during storage.": "Harvesting at peak maturity prevents grain shattering in fields and ensures high market value. Grains harvested too early have high moisture and spoil during storage.",
-    "Haryana": "Haryana",
+    "Harvest crops early in the morning when moisture content is stable to prevent grain loss.":
+      "Harvest crops early in the morning when moisture content is stable to prevent grain loss.",
+    "Harvest grains when moisture content drops to 14-16%":
+      "Harvest grains when moisture content drops to 14-16%",
+    "Harvest paddy when 80-85% grains turn straw golden yellow":
+      "Harvest paddy when 80-85% grains turn straw golden yellow",
+    Harvesting: "Harvesting",
+    "Harvesting at peak maturity prevents grain shattering in fields and ensures high market value. Grains harvested too early have high moisture and spoil during storage.":
+      "Harvesting at peak maturity prevents grain shattering in fields and ensures high market value. Grains harvested too early have high moisture and spoil during storage.",
+    Haryana: "Haryana",
     "Healthy & Chemical Free": "Healthy & Chemical Free",
     "Hide Details": "Hide Details",
-    "High market arrival volumes lead to temporary price dips": "High market arrival volumes lead to temporary price dips",
+    "High market arrival volumes lead to temporary price dips":
+      "High market arrival volumes lead to temporary price dips",
     "Hisar Mandi": "Hisar Mandi",
     "Hisar, Haryana": "Hisar, Haryana",
-    "Home": "Home",
-    "Horticulture": "Horticulture",
+    Home: "Home",
+    Horticulture: "Horticulture",
     "Horticulture & Cash Crops": "Horticulture & Cash Crops",
     "Horticulture Internship": "Horticulture Internship",
-    "Hot": "Hot",
+    Hot: "Hot",
     "How can PureFarm help?": "How can PureFarm help?",
-    "How to choose high-quality seeds, seed treatment, and optimum seed depth.": "How to choose high-quality seeds, seed treatment, and optimum seed depth.",
-    "How to collect soil samples, understand pH values, and correct acidic or alkaline soil.": "How to collect soil samples, understand pH values, and correct acidic or alkaline soil.",
-    "How to get free soil testing, reading soil card results, and fertilizer recommendations.": "How to get free soil testing, reading soil card results, and fertilizer recommendations.",
+    "How to choose high-quality seeds, seed treatment, and optimum seed depth.":
+      "How to choose high-quality seeds, seed treatment, and optimum seed depth.",
+    "How to collect soil samples, understand pH values, and correct acidic or alkaline soil.":
+      "How to collect soil samples, understand pH values, and correct acidic or alkaline soil.",
+    "How to get free soil testing, reading soil card results, and fertilizer recommendations.":
+      "How to get free soil testing, reading soil card results, and fertilizer recommendations.",
     "Humic Acid Granules (5 kg)": "Humic Acid Granules (5 kg)",
     "Humid sunshine": "Humid sunshine",
-    "Humidity": "Humidity",
+    Humidity: "Humidity",
     "Humidity control: Automated 85%-95% RH": "Humidity control: Automated 85%-95% RH",
-    "Hybrid": "Hybrid",
+    Hybrid: "Hybrid",
     "Hybrid Brinjal Seed (10 g)": "Hybrid Brinjal Seed (10 g)",
     "Hybrid Maize Seed DKC-9108 (5 kg)": "Hybrid Maize Seed DKC-9108 (5 kg)",
     "Hybrid Tomato Seed (10 g)": "Hybrid Tomato Seed (10 g)",
-    "Hyderabad": "Hyderabad",
+    Hyderabad: "Hyderabad",
     "Hyderabad, Telangana": "Hyderabad, Telangana",
-    "IPM combines multiple pest control methods to keep pest populations below Economic Threshold Levels (ETL) without over-relying on chemical sprays, safeguarding human health and ecosystem safety.": "IPM combines multiple pest control methods to keep pest populations below Economic Threshold Levels (ETL) without over-relying on chemical sprays, safeguarding human health and ecosystem safety.",
-    "Ideal soil pH for most crops is between 6.5 and 7.5": "Ideal soil pH for most crops is between 6.5 and 7.5",
+    "IPM combines multiple pest control methods to keep pest populations below Economic Threshold Levels (ETL) without over-relying on chemical sprays, safeguarding human health and ecosystem safety.":
+      "IPM combines multiple pest control methods to keep pest populations below Economic Threshold Levels (ETL) without over-relying on chemical sprays, safeguarding human health and ecosystem safety.",
+    "Ideal soil pH for most crops is between 6.5 and 7.5":
+      "Ideal soil pH for most crops is between 6.5 and 7.5",
     "Identification & Tagging": "Identification & Tagging",
-    "Identify common crop pests and diseases and learn safe and effective methods to manage them.": "Identify common crop pests and diseases and learn safe and effective methods to manage them.",
+    "Identify common crop pests and diseases and learn safe and effective methods to manage them.":
+      "Identify common crop pests and diseases and learn safe and effective methods to manage them.",
     "Identifying Common Crop Pests and Insects": "Identifying Common Crop Pests and Insects",
-    "Identifying critical growth stages when crops must receive irrigation.": "Identifying critical growth stages when crops must receive irrigation.",
+    "Identifying critical growth stages when crops must receive irrigation.":
+      "Identifying critical growth stages when crops must receive irrigation.",
     "Image URL (Optional)": "Image URL (Optional)",
-    "Implement crop rotation and green manuring in organic vegetable beds": "Implement crop rotation and green manuring in organic vegetable beds",
+    "Implement crop rotation and green manuring in organic vegetable beds":
+      "Implement crop rotation and green manuring in organic vegetable beds",
     "In Stock": "In Stock",
-    "In case of hailstorm or localized flooding, inform the insurance company within 72 hours via crop insurance app.": "In case of hailstorm or localized flooding, inform the insurance company within 72 hours via crop insurance app.",
+    "In case of hailstorm or localized flooding, inform the insurance company within 72 hours via crop insurance app.":
+      "In case of hailstorm or localized flooding, inform the insurance company within 72 hours via crop insurance app.",
     "Inactive (Hidden from Marketplace)": "Inactive (Hidden from Marketplace)",
-    "Income assistance for eligible landholding farmer families through direct bank transfer.": "Income assistance for eligible landholding farmer families through direct bank transfer.",
-    "Incorporate crop residues into soil instead of burning": "Incorporate crop residues into soil instead of burning",
-    "Incorporate green manure into soil at 45 to 50 days growth stage": "Incorporate green manure into soil at 45 to 50 days growth stage",
-    "Incorporating 45-day-old Dhaincha into soil adds up to 80 kg Nitrogen per hectare.": "Incorporating 45-day-old Dhaincha into soil adds up to 80 kg Nitrogen per hectare.",
+    "Income assistance for eligible landholding farmer families through direct bank transfer.":
+      "Income assistance for eligible landholding farmer families through direct bank transfer.",
+    "Incorporate crop residues into soil instead of burning":
+      "Incorporate crop residues into soil instead of burning",
+    "Incorporate green manure into soil at 45 to 50 days growth stage":
+      "Incorporate green manure into soil at 45 to 50 days growth stage",
+    "Incorporating 45-day-old Dhaincha into soil adds up to 80 kg Nitrogen per hectare.":
+      "Incorporating 45-day-old Dhaincha into soil adds up to 80 kg Nitrogen per hectare.",
     "Increase quantity": "Increase quantity",
-    "Index-based protection for rainfall, temperature, humidity, and wind deviations.": "Index-based protection for rainfall, temperature, humidity, and wind deviations.",
-    "Index-based weather parametric protection compensating farmers against quantifiable financial loss caused by adverse weather conditions.": "Index-based weather parametric protection compensating farmers against quantifiable financial loss caused by adverse weather conditions.",
-    "India's agricultural calendar is divided into Kharif (monsoon crops like Paddy, Maize, Cotton), Rabi (winter crops like Wheat, Mustard, Gram), and Zaid (summer crops like Watermelon, Cucumber, Pulses).": "India's agricultural calendar is divided into Kharif (monsoon crops like Paddy, Maize, Cotton), Rabi (winter crops like Wheat, Mustard, Gram), and Zaid (summer crops like Watermelon, Cucumber, Pulses).",
+    "Index-based protection for rainfall, temperature, humidity, and wind deviations.":
+      "Index-based protection for rainfall, temperature, humidity, and wind deviations.",
+    "Index-based weather parametric protection compensating farmers against quantifiable financial loss caused by adverse weather conditions.":
+      "Index-based weather parametric protection compensating farmers against quantifiable financial loss caused by adverse weather conditions.",
+    "India's agricultural calendar is divided into Kharif (monsoon crops like Paddy, Maize, Cotton), Rabi (winter crops like Wheat, Mustard, Gram), and Zaid (summer crops like Watermelon, Cucumber, Pulses).":
+      "India's agricultural calendar is divided into Kharif (monsoon crops like Paddy, Maize, Cotton), Rabi (winter crops like Wheat, Mustard, Gram), and Zaid (summer crops like Watermelon, Cucumber, Pulses).",
     "Industry Internship": "Industry Internship",
-    "Inject fertilizers during middle 50% of total irrigation cycle duration": "Inject fertilizers during middle 50% of total irrigation cycle duration",
-    "Inoculate legume seeds with Rhizobium culture": "Inoculate legume seeds with Rhizobium culture",
+    "Inject fertilizers during middle 50% of total irrigation cycle duration":
+      "Inject fertilizers during middle 50% of total irrigation cycle duration",
+    "Inoculate legume seeds with Rhizobium culture":
+      "Inoculate legume seeds with Rhizobium culture",
     "Insect Net 40 Mesh (3 x 50 m)": "Insect Net 40 Mesh (3 x 50 m)",
-    "Inspect crops at least twice a week during critical growth stages": "Inspect crops at least twice a week during critical growth stages",
-    "Install flush valves at lateral ends for periodic sediment flushing": "Install flush valves at lateral ends for periodic sediment flushing",
-    "Install yellow sticky cards in vegetable fields to detect whiteflies and aphids early.": "Install yellow sticky cards in vegetable fields to detect whiteflies and aphids early.",
-    "Instructor": "Instructor",
-    "Insurance": "Insurance",
+    "Inspect crops at least twice a week during critical growth stages":
+      "Inspect crops at least twice a week during critical growth stages",
+    "Install flush valves at lateral ends for periodic sediment flushing":
+      "Install flush valves at lateral ends for periodic sediment flushing",
+    "Install yellow sticky cards in vegetable fields to detect whiteflies and aphids early.":
+      "Install yellow sticky cards in vegetable fields to detect whiteflies and aphids early.",
+    Instructor: "Instructor",
+    Insurance: "Insurance",
     "Integrated Pest Management (IPM) Principles": "Integrated Pest Management (IPM) Principles",
-    "Integrating soil moisture probes and Electrical Conductivity (EC) sensors with automated solenoid valves turns drip systems into smart precision systems that irrigate automatically when soil moisture drops.": "Integrating soil moisture probes and Electrical Conductivity (EC) sensors with automated solenoid valves turns drip systems into smart precision systems that irrigate automatically when soil moisture drops.",
+    "Integrating soil moisture probes and Electrical Conductivity (EC) sensors with automated solenoid valves turns drip systems into smart precision systems that irrigate automatically when soil moisture drops.":
+      "Integrating soil moisture probes and Electrical Conductivity (EC) sensors with automated solenoid valves turns drip systems into smart precision systems that irrigate automatically when soil moisture drops.",
     "Interactive Labs": "Interactive Labs",
-    "Intercrop Maize with Cowpea or Arhar for ground cover": "Intercrop Maize with Cowpea or Arhar for ground cover",
+    "Intercrop Maize with Cowpea or Arhar for ground cover":
+      "Intercrop Maize with Cowpea or Arhar for ground cover",
     "Intercropping and Companion Planting": "Intercropping and Companion Planting",
-    "Intercropping involves cultivating two or more crops simultaneously in the same field in specific row patterns. It reduces risk against total crop failure and optimizes sunlight and water use.": "Intercropping involves cultivating two or more crops simultaneously in the same field in specific row patterns. It reduces risk against total crop failure and optimizes sunlight and water use.",
-    "Interest in organic agriculture, permaculture, or natural farming.": "Interest in organic agriculture, permaculture, or natural farming.",
-    "Intermediate": "Intermediate",
+    "Intercropping involves cultivating two or more crops simultaneously in the same field in specific row patterns. It reduces risk against total crop failure and optimizes sunlight and water use.":
+      "Intercropping involves cultivating two or more crops simultaneously in the same field in specific row patterns. It reduces risk against total crop failure and optimizes sunlight and water use.",
+    "Interest in organic agriculture, permaculture, or natural farming.":
+      "Interest in organic agriculture, permaculture, or natural farming.",
+    Intermediate: "Intermediate",
     "Internship Details": "Internship Details",
     "Internship Not Found": "Internship Not Found",
     "Internship Opportunities": "Internship Opportunities",
-    "Internships": "Internships",
-    "Introduction to Modern Agricultural Practices": "Introduction to Modern Agricultural Practices",
-    "Irrigate crops in early morning or evening to lower evaporation": "Irrigate crops in early morning or evening to lower evaporation",
-    "Irrigate fields during cool evening hours to minimize water loss from solar evaporation.": "Irrigate fields during cool evening hours to minimize water loss from solar evaporation.",
-    "Irrigate vegetables in the evening and avoid urea spray after noon.": "Irrigate vegetables in the evening and avoid urea spray after noon.",
-    "Irrigation": "Irrigation",
+    Internships: "Internships",
+    "Introduction to Modern Agricultural Practices":
+      "Introduction to Modern Agricultural Practices",
+    "Irrigate crops in early morning or evening to lower evaporation":
+      "Irrigate crops in early morning or evening to lower evaporation",
+    "Irrigate fields during cool evening hours to minimize water loss from solar evaporation.":
+      "Irrigate fields during cool evening hours to minimize water loss from solar evaporation.",
+    "Irrigate vegetables in the evening and avoid urea spray after noon.":
+      "Irrigate vegetables in the evening and avoid urea spray after noon.",
+    Irrigation: "Irrigation",
     "Irrigation & Water Management": "Irrigation & Water Management",
     "Issue Date": "Issue Date",
-    "Issuer": "Issuer",
+    Issuer: "Issuer",
     "Item Total": "Item Total",
     "Jeevamrut Concentrate (5 litre)": "Jeevamrut Concentrate (5 litre)",
-    "Jeevamrutha is a fermented bio-culture rich in beneficial microorganisms that revive soil health. Neem oil (10,000 ppm) acts as an effective repellent and growth disruptor for insect pests.": "Jeevamrutha is a fermented bio-culture rich in beneficial microorganisms that revive soil health. Neem oil (10,000 ppm) acts as an effective repellent and growth disruptor for insect pests.",
-    "Join a local FPO to aggregate small crop quantities into bulk lots that attract corporate buyers.": "Join a local FPO to aggregate small crop quantities into bulk lots that attract corporate buyers.",
+    "Jeevamrutha is a fermented bio-culture rich in beneficial microorganisms that revive soil health. Neem oil (10,000 ppm) acts as an effective repellent and growth disruptor for insect pests.":
+      "Jeevamrutha is a fermented bio-culture rich in beneficial microorganisms that revive soil health. Neem oil (10,000 ppm) acts as an effective repellent and growth disruptor for insect pests.",
+    "Join a local FPO to aggregate small crop quantities into bulk lots that attract corporate buyers.":
+      "Join a local FPO to aggregate small crop quantities into bulk lots that attract corporate buyers.",
     "Join the Digital": "Join the Digital",
     "Jute Gunny Bags (Pack of 50)": "Jute Gunny Bags (Pack of 50)",
     "KCC document camp this week": "KCC document camp this week",
-    "Kadiyam, Rajahmundry Rural, Andhra Pradesh - 533126": "Kadiyam, Rajahmundry Rural, Andhra Pradesh - 533126",
+    "Kadiyam, Rajahmundry Rural, Andhra Pradesh - 533126":
+      "Kadiyam, Rajahmundry Rural, Andhra Pradesh - 533126",
     "Karnal Mandi": "Karnal Mandi",
     "Karnal, Haryana": "Karnal, Haryana",
-    "Keep harvested grain covered; good window for transplanting paddy.": "Keep harvested grain covered; good window for transplanting paddy.",
-    "Keep vermicompost beds shaded from direct sunlight and heavy rain": "Keep vermicompost beds shaded from direct sunlight and heavy rain",
+    "Keep harvested grain covered; good window for transplanting paddy.":
+      "Keep harvested grain covered; good window for transplanting paddy.",
+    "Keep vermicompost beds shaded from direct sunlight and heavy rain":
+      "Keep vermicompost beds shaded from direct sunlight and heavy rain",
     "Key Field Takeaways": "Key Field Takeaways",
     "Key Responsibilities": "Key Responsibilities",
     "Kharif 2%, Rabi 1.5%, commercial crops 5%": "Kharif 2%, Rabi 1.5%, commercial crops 5%",
     "Kharif Season": "Kharif Season",
-    "Kharif sowing depends on early monsoon rain arrivals": "Kharif sowing depends on early monsoon rain arrivals",
+    "Kharif sowing depends on early monsoon rain arrivals":
+      "Kharif sowing depends on early monsoon rain arrivals",
     "Kharif, Rabi, and Zaid Crop Cycles": "Kharif, Rabi, and Zaid Crop Cycles",
     "Kilogram (kg)": "Kilogram (kg)",
     "Kisan Credit Card": "Kisan Credit Card",
     "Kisan Credit Card (KCC)": "Kisan Credit Card (KCC)",
     "Kisan Credit Card (KCC) Scheme": "Kisan Credit Card (KCC) Scheme",
-    "Kisan Credit Card gives farmers flexible working capital credit for crop cultivation at concessional 4% interest rates (with prompt repayment interest subvention).": "Kisan Credit Card gives farmers flexible working capital credit for crop cultivation at concessional 4% interest rates (with prompt repayment interest subvention).",
+    "Kisan Credit Card gives farmers flexible working capital credit for crop cultivation at concessional 4% interest rates (with prompt repayment interest subvention).":
+      "Kisan Credit Card gives farmers flexible working capital credit for crop cultivation at concessional 4% interest rates (with prompt repayment interest subvention).",
     "Krishna Agro Cold Preserving Unit": "Krishna Agro Cold Preserving Unit",
     "Kudali / Hoe 1.5 kg": "Kudali / Hoe 1.5 kg",
     "Land Preparation and Field Layout": "Land Preparation and Field Layout",
-    "Language": "Language",
+    Language: "Language",
     "Lasalgaon Mandi": "Lasalgaon Mandi",
     "Lasalgaon, Maharashtra": "Lasalgaon, Maharashtra",
-    "Laser land levelling improves irrigation efficiency": "Laser land levelling improves irrigation efficiency",
-    "Learn": "Learn",
+    "Laser land levelling improves irrigation efficiency":
+      "Laser land levelling improves irrigation efficiency",
+    Learn: "Learn",
     "Learn More": "Learn More",
-    "Learn about important government schemes, financial support, crop insurance, farmer benefits, and eligibility.": "Learn about important government schemes, financial support, crop insurance, farmer benefits, and eligibility.",
-    "Learn efficient irrigation methods, water conservation, drip irrigation, and proper watering schedules.": "Learn efficient irrigation methods, water conservation, drip irrigation, and proper watering schedules.",
-    "Learn farming practices that help farmers adapt to changing weather conditions and reduce climate-related risks.": "Learn farming practices that help farmers adapt to changing weather conditions and reduce climate-related risks.",
-    "Learn harvesting, grading, drying, storage, cold storage, and methods to reduce post-harvest losses.": "Learn harvesting, grading, drying, storage, cold storage, and methods to reduce post-harvest losses.",
-    "Learn how technology, sensors, drones, weather information, and digital tools can improve farm productivity.": "Learn how technology, sensors, drones, weather information, and digital tools can improve farm productivity.",
-    "Learn how to select crops, plan sowing schedules, and choose crops according to seasons and local conditions.": "Learn how to select crops, plan sowing schedules, and choose crops according to seasons and local conditions.",
-    "Learn how to test soil, understand soil nutrients, improve soil fertility, and use fertilizers properly.": "Learn how to test soil, understand soil nutrients, improve soil fertility, and use fertilizers properly.",
-    "Learn how to understand mandi prices, compare markets, choose the right time to sell, and improve selling decisions.": "Learn how to understand mandi prices, compare markets, choose the right time to sell, and improve selling decisions.",
-    "Learn livestock care, dairy management, animal nutrition, farm hygiene, and basic livestock record keeping.": "Learn livestock care, dairy management, animal nutrition, farm hygiene, and basic livestock record keeping.",
-    "Learn modern HTML, CSS, JavaScript, and React to build responsive web apps.": "Learn modern HTML, CSS, JavaScript, and React to build responsive web apps.",
-    "Learn modern farming practices, crop planning, farm management, and efficient use of agricultural resources.": "Learn modern farming practices, crop planning, farm management, and efficient use of agricultural resources.",
-    "Learn modern farming techniques, agribusiness, and tech.": "Learn modern farming techniques, agribusiness, and tech.",
-    "Learn organic farming practices, natural inputs, composting, crop rotation, and sustainable agriculture methods.": "Learn organic farming practices, natural inputs, composting, crop rotation, and sustainable agriculture methods.",
-    "Learn post-harvest handling, grading, packaging, storage, food processing, and value addition.": "Learn post-harvest handling, grading, packaging, storage, food processing, and value addition.",
-    "Learn practical farming skills, modern agricultural technologies, crop management, and sustainable farming practices.": "Learn practical farming skills, modern agricultural technologies, crop management, and sustainable farming practices.",
-    "Learn precision farming techniques, drip irrigation, efficient fertilizer application, and resource management.": "Learn precision farming techniques, drip irrigation, efficient fertilizer application, and resource management.",
-    "Learn soil testing, nutrient analysis, fertilizer recommendations, and soil health management.": "Learn soil testing, nutrient analysis, fertilizer recommendations, and soil health management.",
-    "Learning": "Learning",
+    "Learn about important government schemes, financial support, crop insurance, farmer benefits, and eligibility.":
+      "Learn about important government schemes, financial support, crop insurance, farmer benefits, and eligibility.",
+    "Learn efficient irrigation methods, water conservation, drip irrigation, and proper watering schedules.":
+      "Learn efficient irrigation methods, water conservation, drip irrigation, and proper watering schedules.",
+    "Learn farming practices that help farmers adapt to changing weather conditions and reduce climate-related risks.":
+      "Learn farming practices that help farmers adapt to changing weather conditions and reduce climate-related risks.",
+    "Learn harvesting, grading, drying, storage, cold storage, and methods to reduce post-harvest losses.":
+      "Learn harvesting, grading, drying, storage, cold storage, and methods to reduce post-harvest losses.",
+    "Learn how technology, sensors, drones, weather information, and digital tools can improve farm productivity.":
+      "Learn how technology, sensors, drones, weather information, and digital tools can improve farm productivity.",
+    "Learn how to select crops, plan sowing schedules, and choose crops according to seasons and local conditions.":
+      "Learn how to select crops, plan sowing schedules, and choose crops according to seasons and local conditions.",
+    "Learn how to test soil, understand soil nutrients, improve soil fertility, and use fertilizers properly.":
+      "Learn how to test soil, understand soil nutrients, improve soil fertility, and use fertilizers properly.",
+    "Learn how to understand mandi prices, compare markets, choose the right time to sell, and improve selling decisions.":
+      "Learn how to understand mandi prices, compare markets, choose the right time to sell, and improve selling decisions.",
+    "Learn livestock care, dairy management, animal nutrition, farm hygiene, and basic livestock record keeping.":
+      "Learn livestock care, dairy management, animal nutrition, farm hygiene, and basic livestock record keeping.",
+    "Learn modern HTML, CSS, JavaScript, and React to build responsive web apps.":
+      "Learn modern HTML, CSS, JavaScript, and React to build responsive web apps.",
+    "Learn modern farming practices, crop planning, farm management, and efficient use of agricultural resources.":
+      "Learn modern farming practices, crop planning, farm management, and efficient use of agricultural resources.",
+    "Learn modern farming techniques, agribusiness, and tech.":
+      "Learn modern farming techniques, agribusiness, and tech.",
+    "Learn organic farming practices, natural inputs, composting, crop rotation, and sustainable agriculture methods.":
+      "Learn organic farming practices, natural inputs, composting, crop rotation, and sustainable agriculture methods.",
+    "Learn post-harvest handling, grading, packaging, storage, food processing, and value addition.":
+      "Learn post-harvest handling, grading, packaging, storage, food processing, and value addition.",
+    "Learn practical farming skills, modern agricultural technologies, crop management, and sustainable farming practices.":
+      "Learn practical farming skills, modern agricultural technologies, crop management, and sustainable farming practices.",
+    "Learn precision farming techniques, drip irrigation, efficient fertilizer application, and resource management.":
+      "Learn precision farming techniques, drip irrigation, efficient fertilizer application, and resource management.",
+    "Learn soil testing, nutrient analysis, fertilizer recommendations, and soil health management.":
+      "Learn soil testing, nutrient analysis, fertilizer recommendations, and soil health management.",
+    Learning: "Learning",
     "Learning Hub": "Learning Hub",
     "Learning Time": "Learning Time",
-    "Legumes fix atmospheric nitrogen for subsequent cereal crops": "Legumes fix atmospheric nitrogen for subsequent cereal crops",
+    "Legumes fix atmospheric nitrogen for subsequent cereal crops":
+      "Legumes fix atmospheric nitrogen for subsequent cereal crops",
     "Lentil Seed IPL-406 (5 kg)": "Lentil Seed IPL-406 (5 kg)",
-    "Lesson": "Lesson",
-    "Level": "Level",
-    "Levelling field surfaces reduces seed loss during heavy rain and ensures uniform germination.": "Levelling field surfaces reduces seed loss during heavy rain and ensures uniform germination.",
+    Lesson: "Lesson",
+    Level: "Level",
+    "Levelling field surfaces reduces seed loss during heavy rain and ensures uniform germination.":
+      "Levelling field surfaces reduces seed loss during heavy rain and ensures uniform germination.",
     "Light showers": "Light showers",
-    "Line farm ponds with HDPE sheets to prevent seepage": "Line farm ponds with HDPE sheets to prevent seepage",
+    "Line farm ponds with HDPE sheets to prevent seepage":
+      "Line farm ponds with HDPE sheets to prevent seepage",
     "Liquid Consortia Biofertiliser (1 litre)": "Liquid Consortia Biofertiliser (1 litre)",
     "List New Produce": "List New Produce",
     "List Your First Product": "List Your First Product",
     "Live Mandi Prices": "Live Mandi Prices",
-    "Livestock": "Livestock",
+    Livestock: "Livestock",
     "Livestock & Dairy Management Intern": "Livestock & Dairy Management Intern",
     "Livestock Insurance Support": "Livestock Insurance Support",
     "Livestock Management": "Livestock Management",
     "Loading...": "Loading...",
     "Local Area Hub": "Local Area Hub",
-    "Location": "Location",
+    Location: "Location",
     "Location (City, State)": "Location (City, State)",
-    "Logout": "Logout",
-    "Low-interest crop loans, interest subvention, and application requirements.": "Low-interest crop loans, interest subvention, and application requirements.",
+    Logout: "Logout",
+    "Low-interest crop loans, interest subvention, and application requirements.":
+      "Low-interest crop loans, interest subvention, and application requirements.",
     "Ludhiana Mandi": "Ludhiana Mandi",
     "Ludhiana, Punjab": "Ludhiana, Punjab",
     "MOP Muriate of Potash (50 kg)": "MOP Muriate of Potash (50 kg)",
-    "Maharashtra": "Maharashtra",
+    Maharashtra: "Maharashtra",
     "Main Navigation": "Main Navigation",
-    "Maintain 1 meter gap between bag stacks and warehouse walls": "Maintain 1 meter gap between bag stacks and warehouse walls",
-    "Maintain 60% moisture content in vermicompost pits": "Maintain 60% moisture content in vermicompost pits",
-    "Maintain a 3-meter buffer zone along field borders to prevent chemical drift from neighboring farms.": "Maintain a 3-meter buffer zone along field borders to prevent chemical drift from neighboring farms.",
-    "Maintain animal health logs, ear tagging records, and vaccination schedules": "Maintain animal health logs, ear tagging records, and vaccination schedules",
-    "Maintain detailed farm records of all organic inputs and harvests": "Maintain detailed farm records of all organic inputs and harvests",
-    "Maintain operating pressure at 1.0 to 1.5 kg/cm\u00b2 using pressure regulators": "Maintain operating pressure at 1.0 to 1.5 kg/cm\u00b2 using pressure regulators",
-    "Maintain proper inter-row spacing to prevent light competition": "Maintain proper inter-row spacing to prevent light competition",
-    "Maintain proper seed spacing and depth for crop canopy": "Maintain proper seed spacing and depth for crop canopy",
-    "Maintain relative humidity at 85-95% to prevent fruit shriveling": "Maintain relative humidity at 85-95% to prevent fruit shriveling",
-    "Maintenance": "Maintenance",
-    "Maize": "Maize",
+    "Maintain 1 meter gap between bag stacks and warehouse walls":
+      "Maintain 1 meter gap between bag stacks and warehouse walls",
+    "Maintain 60% moisture content in vermicompost pits":
+      "Maintain 60% moisture content in vermicompost pits",
+    "Maintain a 3-meter buffer zone along field borders to prevent chemical drift from neighboring farms.":
+      "Maintain a 3-meter buffer zone along field borders to prevent chemical drift from neighboring farms.",
+    "Maintain animal health logs, ear tagging records, and vaccination schedules":
+      "Maintain animal health logs, ear tagging records, and vaccination schedules",
+    "Maintain detailed farm records of all organic inputs and harvests":
+      "Maintain detailed farm records of all organic inputs and harvests",
+    "Maintain operating pressure at 1.0 to 1.5 kg/cm\u00b2 using pressure regulators":
+      "Maintain operating pressure at 1.0 to 1.5 kg/cm\u00b2 using pressure regulators",
+    "Maintain proper inter-row spacing to prevent light competition":
+      "Maintain proper inter-row spacing to prevent light competition",
+    "Maintain proper seed spacing and depth for crop canopy":
+      "Maintain proper seed spacing and depth for crop canopy",
+    "Maintain relative humidity at 85-95% to prevent fruit shriveling":
+      "Maintain relative humidity at 85-95% to prevent fruit shriveling",
+    Maintenance: "Maintenance",
+    Maize: "Maize",
     "Making Vermicompost & Panchagavya": "Making Vermicompost & Panchagavya",
     "Manage Products": "Manage Products",
-    "Manage shade net nurseries, seedling germination, and plant grafting": "Manage shade net nurseries, seedling germination, and plant grafting",
-    "Manage your farm produce listings, update stock levels, and publish products to buyers across India.": "Manage your farm produce listings, update stock levels, and publish products to buyers across India.",
-    "Management": "Management",
+    "Manage shade net nurseries, seedling germination, and plant grafting":
+      "Manage shade net nurseries, seedling germination, and plant grafting",
+    "Manage your farm produce listings, update stock levels, and publish products to buyers across India.":
+      "Manage your farm produce listings, update stock levels, and publish products to buyers across India.",
+    Management: "Management",
     "Management & Implementation": "Management & Implementation",
-    "Managing fungal blights, rots, and mildew through preventive sprays.": "Managing fungal blights, rots, and mildew through preventive sprays.",
-    "Mandi": "Mandi",
+    "Managing fungal blights, rots, and mildew through preventive sprays.":
+      "Managing fungal blights, rots, and mildew through preventive sprays.",
+    Mandi: "Mandi",
     "Mandi / Market": "Mandi / Market",
     "Mandi Market Advisory": "Mandi Market Advisory",
-    "Mandi prices fluctuate daily based on total crop arrival volumes, quality grading, buyer competition, and transportation costs. Monitoring arrival trends helps farmers choose the best selling day.": "Mandi prices fluctuate daily based on total crop arrival volumes, quality grading, buyer competition, and transportation costs. Monitoring arrival trends helps farmers choose the best selling day.",
+    "Mandi prices fluctuate daily based on total crop arrival volumes, quality grading, buyer competition, and transportation costs. Monitoring arrival trends helps farmers choose the best selling day.":
+      "Mandi prices fluctuate daily based on total crop arrival volumes, quality grading, buyer competition, and transportation costs. Monitoring arrival trends helps farmers choose the best selling day.",
     "Mango Grafted Plant Dasheri": "Mango Grafted Plant Dasheri",
     "Manual Knapsack Sprayer 16 L": "Manual Knapsack Sprayer 16 L",
-    "Map farm plots using multispectral drone sensors": "Map farm plots using multispectral drone sensors",
+    "Map farm plots using multispectral drone sensors":
+      "Map farm plots using multispectral drone sensors",
     "Marigold Seed African Orange (50 g)": "Marigold Seed African Orange (50 g)",
     "Mark as Complete": "Mark as Complete",
     "Market Advisory": "Market Advisory",
     "Market Prices": "Market Prices",
     "Market Prices & Better Selling": "Market Prices & Better Selling",
-    "Market value of animal evaluated and certified by a registered Veterinary Assistant Surgeon at the time of insurance policy issuance.": "Market value of animal evaluated and certified by a registered Veterinary Assistant Surgeon at the time of insurance policy issuance.",
-    "Market value of insured animal after veterinary certification.": "Market value of insured animal after veterinary certification.",
-    "Marketplace": "Marketplace",
-    "Master Python fundamentals, object-oriented programming, and scripting.": "Master Python fundamentals, object-oriented programming, and scripting.",
-    "Max": "Max",
+    "Market value of animal evaluated and certified by a registered Veterinary Assistant Surgeon at the time of insurance policy issuance.":
+      "Market value of animal evaluated and certified by a registered Veterinary Assistant Surgeon at the time of insurance policy issuance.",
+    "Market value of insured animal after veterinary certification.":
+      "Market value of insured animal after veterinary certification.",
+    Marketplace: "Marketplace",
+    "Master Python fundamentals, object-oriented programming, and scripting.":
+      "Master Python fundamentals, object-oriented programming, and scripting.",
+    Max: "Max",
     "Max Price": "Max Price",
-    "Maximizing land efficiency by growing complementary crops together.": "Maximizing land efficiency by growing complementary crops together.",
+    "Maximizing land efficiency by growing complementary crops together.":
+      "Maximizing land efficiency by growing complementary crops together.",
     "Metric Ton": "Metric Ton",
     "Micronutrient Mixture Grade-II (5 kg)": "Micronutrient Mixture Grade-II (5 kg)",
     "Milking Machine Single Bucket": "Milking Machine Single Bucket",
-    "Millets consume 70% less water than paddy and survive high heat dry spells.": "Millets consume 70% less water than paddy and survive high heat dry spells.",
+    "Millets consume 70% less water than paddy and survive high heat dry spells.":
+      "Millets consume 70% less water than paddy and survive high heat dry spells.",
     "Min Price": "Min Price",
     "Min. 6 characters": "Min. 6 characters",
     "Ministry of Agriculture": "Ministry of Agriculture",
-    "Mix 5 ml neem oil with 1 ml liquid soap per liter of spray water": "Mix 5 ml neem oil with 1 ml liquid soap per liter of spray water",
+    "Mix 5 ml neem oil with 1 ml liquid soap per liter of spray water":
+      "Mix 5 ml neem oil with 1 ml liquid soap per liter of spray water",
     "Mobile Number": "Mobile Number",
     "Modal Price": "Modal Price",
     "Modern Farming Basics": "Modern Farming Basics",
-    "Modern farm machinery helps farmers work smarter, faster and more efficiently.": "Modern farm machinery helps farmers work smarter, faster and more efficiently.",
-    "Modern farming combines traditional agricultural knowledge with scientific techniques such as soil testing, balanced fertilization, and mechanized tillage to maximize crop production while preserving land quality.": "Modern farming combines traditional agricultural knowledge with scientific techniques such as soil testing, balanced fertilization, and mechanized tillage to maximize crop production while preserving land quality.",
-    "Moisture stress during flowering causes severe flower drop": "Moisture stress during flowering causes severe flower drop",
-    "Mon": "Mon",
-    "Monitor database health, oversee user profiles, and manage system operations.": "Monitor database health, oversee user profiles, and manage system operations.",
-    "Monitor drip fertigation schedules for polyhouse vegetable crops": "Monitor drip fertigation schedules for polyhouse vegetable crops",
-    "Monitor milking parlor hygiene, milk testing, and cold storage temperature": "Monitor milking parlor hygiene, milk testing, and cold storage temperature",
-    "Monoculture depletes specific soil nutrients and builds up soil-borne diseases. Rotating heavy-feeding cereal crops with nitrogen-fixing leguminous crops restores soil balance naturally.": "Monoculture depletes specific soil nutrients and builds up soil-borne diseases. Rotating heavy-feeding cereal crops with nitrogen-fixing leguminous crops restores soil balance naturally.",
+    "Modern farm machinery helps farmers work smarter, faster and more efficiently.":
+      "Modern farm machinery helps farmers work smarter, faster and more efficiently.",
+    "Modern farming combines traditional agricultural knowledge with scientific techniques such as soil testing, balanced fertilization, and mechanized tillage to maximize crop production while preserving land quality.":
+      "Modern farming combines traditional agricultural knowledge with scientific techniques such as soil testing, balanced fertilization, and mechanized tillage to maximize crop production while preserving land quality.",
+    "Moisture stress during flowering causes severe flower drop":
+      "Moisture stress during flowering causes severe flower drop",
+    Mon: "Mon",
+    "Monitor database health, oversee user profiles, and manage system operations.":
+      "Monitor database health, oversee user profiles, and manage system operations.",
+    "Monitor drip fertigation schedules for polyhouse vegetable crops":
+      "Monitor drip fertigation schedules for polyhouse vegetable crops",
+    "Monitor milking parlor hygiene, milk testing, and cold storage temperature":
+      "Monitor milking parlor hygiene, milk testing, and cold storage temperature",
+    "Monoculture depletes specific soil nutrients and builds up soil-borne diseases. Rotating heavy-feeding cereal crops with nitrogen-fixing leguminous crops restores soil balance naturally.":
+      "Monoculture depletes specific soil nutrients and builds up soil-borne diseases. Rotating heavy-feeding cereal crops with nitrogen-fixing leguminous crops restores soil balance naturally.",
     "More Information": "More Information",
     "Most Popular": "Most Popular",
-    "Mulch crop rows to conserve soil moisture and suppress weeds": "Mulch crop rows to conserve soil moisture and suppress weeds",
-    "Multispectral drone cameras identify stressed crop patches early": "Multispectral drone cameras identify stressed crop patches early",
+    "Mulch crop rows to conserve soil moisture and suppress weeds":
+      "Mulch crop rows to conserve soil moisture and suppress weeds",
+    "Multispectral drone cameras identify stressed crop patches early":
+      "Multispectral drone cameras identify stressed crop patches early",
     "Muskmelon Seed Hara Madhu (100 g)": "Muskmelon Seed Hara Madhu (100 g)",
-    "Must report crop loss within 72 hours to insurance company or agri officer": "Must report crop loss within 72 hours to insurance company or agri officer",
-    "Mustard": "Mustard",
+    "Must report crop loss within 72 hours to insurance company or agri officer":
+      "Must report crop loss within 72 hours to insurance company or agri officer",
+    Mustard: "Mustard",
     "Mustard Seed Pusa Bold (2 kg)": "Mustard Seed Pusa Bold (2 kg)",
     "My Applications": "My Applications",
     "My Applications Status": "My Applications Status",
@@ -813,48 +1092,62 @@ export const translations: Record<Language, Record<string, string>> = {
     "My Products (Sell)": "My Products (Sell)",
     "Mycorrhiza VAM Granules (4 kg)": "Mycorrhiza VAM Granules (4 kg)",
     "NABARD and Banks": "NABARD and Banks",
-    "NDVI satellite imagery measures green vegetation health from space, helping farmers identify yield variations, nutrient shortages, and irrigation leaks.": "NDVI satellite imagery measures green vegetation health from space, helping farmers identify yield variations, nutrient shortages, and irrigation leaks.",
-    "NDVI values near 0.8 indicate healthy, dense green crop canopy": "NDVI values near 0.8 indicate healthy, dense green crop canopy",
+    "NDVI satellite imagery measures green vegetation health from space, helping farmers identify yield variations, nutrient shortages, and irrigation leaks.":
+      "NDVI satellite imagery measures green vegetation health from space, helping farmers identify yield variations, nutrient shortages, and irrigation leaks.",
+    "NDVI values near 0.8 indicate healthy, dense green crop canopy":
+      "NDVI values near 0.8 indicate healthy, dense green crop canopy",
     "NEXT-GEN AGRICULTURE": "NEXT-GEN AGRICULTURE",
     "NPK 10:26:26 Complex (50 kg)": "NPK 10:26:26 Complex (50 kg)",
     "NPK 20:20:0:13 (50 kg)": "NPK 20:20:0:13 (50 kg)",
     "Nano DAP Liquid (500 ml)": "Nano DAP Liquid (500 ml)",
     "Nano Urea Liquid (500 ml)": "Nano Urea Liquid (500 ml)",
     "Napier Grass Root Slips (100 slips)": "Napier Grass Root Slips (100 slips)",
-    "Natural Pest Control (Jeevamrutha & Neem Oil)": "Natural Pest Control (Jeevamrutha & Neem Oil)",
+    "Natural Pest Control (Jeevamrutha & Neem Oil)":
+      "Natural Pest Control (Jeevamrutha & Neem Oil)",
     "Nearest Distance First": "Nearest Distance First",
     "Need Help?": "Need Help?",
     "Neem Cake Powder (25 kg)": "Neem Cake Powder (25 kg)",
-    "Never miss irrigation during the Crown Root Initiation stage (20-25 days after Wheat sowing).": "Never miss irrigation during the Crown Root Initiation stage (20-25 days after Wheat sowing).",
-    "Never mix damaged or decaying fruits/vegetables with healthy produce during packaging.": "Never mix damaged or decaying fruits/vegetables with healthy produce during packaging.",
-    "Never spray pesticides against wind direction or during hot midday hours": "Never spray pesticides against wind direction or during hot midday hours",
-    "Next": "Next",
+    "Never miss irrigation during the Crown Root Initiation stage (20-25 days after Wheat sowing).":
+      "Never miss irrigation during the Crown Root Initiation stage (20-25 days after Wheat sowing).",
+    "Never mix damaged or decaying fruits/vegetables with healthy produce during packaging.":
+      "Never mix damaged or decaying fruits/vegetables with healthy produce during packaging.",
+    "Never spray pesticides against wind direction or during hot midday hours":
+      "Never spray pesticides against wind direction or during hot midday hours",
+    Next: "Next",
     "Next Lesson": "Next Lesson",
-    "Nitrogen promotes vegetative leaf growth, Phosphorus boosts root development, and Potassium enhances crop disease resistance and grain filling. Split application of Nitrogen reduces leaching losses.": "Nitrogen promotes vegetative leaf growth, Phosphorus boosts root development, and Potassium enhances crop disease resistance and grain filling. Split application of Nitrogen reduces leaching losses.",
+    "Nitrogen promotes vegetative leaf growth, Phosphorus boosts root development, and Potassium enhances crop disease resistance and grain filling. Split application of Nitrogen reduces leaching losses.":
+      "Nitrogen promotes vegetative leaf growth, Phosphorus boosts root development, and Potassium enhances crop disease resistance and grain filling. Split application of Nitrogen reduces leaching losses.",
     "No Individual Loss Assessment": "No Individual Loss Assessment",
-    "No collateral required for crop loans up to Rs. 1.6 Lakh": "No collateral required for crop loans up to Rs. 1.6 Lakh",
-    "No matching market prices found. Try adjusting your search or filters.": "No matching market prices found. Try adjusting your search or filters.",
+    "No collateral required for crop loans up to Rs. 1.6 Lakh":
+      "No collateral required for crop loans up to Rs. 1.6 Lakh",
+    "No matching market prices found. Try adjusting your search or filters.":
+      "No matching market prices found. Try adjusting your search or filters.",
     "No matching products": "No matching products",
-    "No online payment is processed today. Pay cash or UPI upon crop inspection & delivery.": "No online payment is processed today. Pay cash or UPI upon crop inspection & delivery.",
+    "No online payment is processed today. Pay cash or UPI upon crop inspection & delivery.":
+      "No online payment is processed today. Pay cash or UPI upon crop inspection & delivery.",
     "No products listed yet.": "No products listed yet.",
     "No received orders yet.": "No received orders yet.",
-    "Notifications": "Notifications",
-    "Notified crops including Paddy, Wheat, Cotton, Maize, Mustard, Pulses, Commercial, and Horticultural crops notified by state governments.": "Notified crops including Paddy, Wheat, Cotton, Maize, Mustard, Pulses, Commercial, and Horticultural crops notified by state governments.",
+    Notifications: "Notifications",
+    "Notified crops including Paddy, Wheat, Cotton, Maize, Mustard, Pulses, Commercial, and Horticultural crops notified by state governments.":
+      "Notified crops including Paddy, Wheat, Cotton, Maize, Mustard, Pulses, Commercial, and Horticultural crops notified by state governments.",
     "Nourish Your Soil, Grow Better": "Nourish Your Soil, Grow Better",
     "Nursery Management": "Nursery Management",
     "Nutrient Management": "Nutrient Management",
-    "Obtain basic FSSAI registration for selling packaged processed foods": "Obtain basic FSSAI registration for selling packaged processed foods",
-    "Oilseeds": "Oilseeds",
+    "Obtain basic FSSAI registration for selling packaged processed foods":
+      "Obtain basic FSSAI registration for selling packaged processed foods",
+    Oilseeds: "Oilseeds",
     "Okra Seed Arka Anamika (250 g)": "Okra Seed Arka Anamika (250 g)",
-    "Onion": "Onion",
+    Onion: "Onion",
     "Onion Seed Agrifound Dark Red (50 g)": "Onion Seed Agrifound Dark Red (50 g)",
     "Online Now": "Online Now",
     "Open Enrollment": "Open Enrollment",
     "Open enrollment": "Open enrollment",
     "Open through banks": "Open through banks",
-    "Operate drip systems early in the morning to maintain optimal hydraulic pressure across laterals.": "Operate drip systems early in the morning to maintain optimal hydraulic pressure across laterals.",
-    "Operate sorting, grading, and vacuum packaging machinery for produce": "Operate sorting, grading, and vacuum packaging machinery for produce",
-    "Oranges": "Oranges",
+    "Operate drip systems early in the morning to maintain optimal hydraulic pressure across laterals.":
+      "Operate drip systems early in the morning to maintain optimal hydraulic pressure across laterals.",
+    "Operate sorting, grading, and vacuum packaging machinery for produce":
+      "Operate sorting, grading, and vacuum packaging machinery for produce",
+    Oranges: "Oranges",
     "Order Console": "Order Console",
     "Order Date": "Order Date",
     "Order ID": "Order ID",
@@ -867,141 +1160,190 @@ export const translations: Record<Language, Record<string, string>> = {
     "Organic Farming Forum": "Organic Farming Forum",
     "Organic Farming Intern": "Organic Farming Intern",
     "Organic Manures and Bio-fertilizers": "Organic Manures and Bio-fertilizers",
-    "Organic farming avoids synthetic chemical fertilizers and toxic pesticides, relying instead on natural crop rotation, organic manures, and biological pest control to grow healthy, chemical-free food.": "Organic farming avoids synthetic chemical fertilizers and toxic pesticides, relying instead on natural crop rotation, organic manures, and biological pest control to grow healthy, chemical-free food.",
-    "Organic manures increase soil organic carbon, improve water holding capacity, and stimulate beneficial soil microbes. Bio-fertilizers convert atmospheric nitrogen into plant-absorbable forms.": "Organic manures increase soil organic carbon, improve water holding capacity, and stimulate beneficial soil microbes. Bio-fertilizers convert atmospheric nitrogen into plant-absorbable forms.",
-    "Organic residue mulch retains soil moisture during hot winds": "Organic residue mulch retains soil moisture during hot winds",
-    "Organize village-level farmer awareness workshops and training camps": "Organize village-level farmer awareness workshops and training camps",
+    "Organic farming avoids synthetic chemical fertilizers and toxic pesticides, relying instead on natural crop rotation, organic manures, and biological pest control to grow healthy, chemical-free food.":
+      "Organic farming avoids synthetic chemical fertilizers and toxic pesticides, relying instead on natural crop rotation, organic manures, and biological pest control to grow healthy, chemical-free food.",
+    "Organic manures increase soil organic carbon, improve water holding capacity, and stimulate beneficial soil microbes. Bio-fertilizers convert atmospheric nitrogen into plant-absorbable forms.":
+      "Organic manures increase soil organic carbon, improve water holding capacity, and stimulate beneficial soil microbes. Bio-fertilizers convert atmospheric nitrogen into plant-absorbable forms.",
+    "Organic residue mulch retains soil moisture during hot winds":
+      "Organic residue mulch retains soil moisture during hot winds",
+    "Organize village-level farmer awareness workshops and training camps":
+      "Organize village-level farmer awareness workshops and training camps",
     "Other Agriculture": "Other Agriculture",
     "Out of Stock": "Out of Stock",
-    "Over-irrigation leads to oxygen deprivation in plant root zones": "Over-irrigation leads to oxygen deprivation in plant root zones",
+    "Over-irrigation leads to oxygen deprivation in plant root zones":
+      "Over-irrigation leads to oxygen deprivation in plant root zones",
     "Overall Course Progress": "Overall Course Progress",
     "Overcome pest attacks early": "Overcome pest attacks early",
     "Overview & Guidance": "Overview & Guidance",
     "Overview & Role Description": "Overview & Role Description",
-    "Overview of modern machinery, soil preparation, and crop rotation for high yield.": "Overview of modern machinery, soil preparation, and crop rotation for high yield.",
+    "Overview of modern machinery, soil preparation, and crop rotation for high yield.":
+      "Overview of modern machinery, soil preparation, and crop rotation for high yield.",
     "PM-KISAN Income Support": "PM-KISAN Income Support",
     "PM-KISAN Income Support Scheme": "PM-KISAN Income Support Scheme",
     "PM-KISAN Samman Nidhi": "PM-KISAN Samman Nidhi",
-    "PM-KISAN provides Rs. 6,000 per year in three equal installments of Rs. 2,000 directly into the bank accounts of landholding farmer families across India.": "PM-KISAN provides Rs. 6,000 per year in three equal installments of Rs. 2,000 directly into the bank accounts of landholding farmer families across India.",
-    "PMFBY protects farmers against non-preventable crop losses from natural calamities, droughts, floods, and pest attacks. Premium is capped at just 2% for Kharif and 1.5% for Rabi crops.": "PMFBY protects farmers against non-preventable crop losses from natural calamities, droughts, floods, and pest attacks. Premium is capped at just 2% for Kharif and 1.5% for Rabi crops.",
+    "PM-KISAN provides Rs. 6,000 per year in three equal installments of Rs. 2,000 directly into the bank accounts of landholding farmer families across India.":
+      "PM-KISAN provides Rs. 6,000 per year in three equal installments of Rs. 2,000 directly into the bank accounts of landholding farmer families across India.",
+    "PMFBY protects farmers against non-preventable crop losses from natural calamities, droughts, floods, and pest attacks. Premium is capped at just 2% for Kharif and 1.5% for Rabi crops.":
+      "PMFBY protects farmers against non-preventable crop losses from natural calamities, droughts, floods, and pest attacks. Premium is capped at just 2% for Kharif and 1.5% for Rabi crops.",
     "PRODUCE PRESERVATION & LOGISTICS": "PRODUCE PRESERVATION & LOGISTICS",
     "PSB Phosphate Solubilising Bacteria (500 g)": "PSB Phosphate Solubilising Bacteria (500 g)",
-    "Pack produce in clean jute or breathable HDPE bags with weight tags": "Pack produce in clean jute or breathable HDPE bags with weight tags",
-    "Packaging": "Packaging",
-    "Paddy": "Paddy",
+    "Pack produce in clean jute or breathable HDPE bags with weight tags":
+      "Pack produce in clean jute or breathable HDPE bags with weight tags",
+    Packaging: "Packaging",
+    Paddy: "Paddy",
     "Paddy Seed PR-126 (5 kg)": "Paddy Seed PR-126 (5 kg)",
     "Paddy mandi price up in Amritsar": "Paddy mandi price up in Amritsar",
-    "Paddy requires critical water at tillering and panicle initiation": "Paddy requires critical water at tillering and panicle initiation",
+    "Paddy requires critical water at tillering and panicle initiation":
+      "Paddy requires critical water at tillering and panicle initiation",
     "Panchagavya Organic Tonic (5 litre)": "Panchagavya Organic Tonic (5 litre)",
     "Papaya Seed Red Lady (10 g)": "Papaya Seed Red Lady (10 g)",
-    "Participate in post-harvest harvesting, grading, and packing of fruit crops": "Participate in post-harvest harvesting, grading, and packing of fruit crops",
+    "Participate in post-harvest harvesting, grading, and packing of fruit crops":
+      "Participate in post-harvest harvesting, grading, and packing of fruit crops",
     "Partly cloudy": "Partly cloudy",
     "Passcode / Password": "Passcode / Password",
-    "Password": "Password",
+    Password: "Password",
     "Past 30 Days": "Past 30 Days",
-    "Pay cash or UPI on crop inspection at delivery. No advance online payment required.": "Pay cash or UPI on crop inspection at delivery. No advance online payment required.",
+    "Pay cash or UPI on crop inspection at delivery. No advance online payment required.":
+      "Pay cash or UPI on crop inspection at delivery. No advance online payment required.",
     "Payment Details": "Payment Details",
     "Payment Integration Coming Soon": "Payment Integration Coming Soon",
     "Payment Method": "Payment Method",
     "Payout Mechanism": "Payout Mechanism",
-    "Payout triggered by notified weather station readings.": "Payout triggered by notified weather station readings.",
+    "Payout triggered by notified weather station readings.":
+      "Payout triggered by notified weather station readings.",
     "Pearl Millet Seed HHB-67 (5 kg)": "Pearl Millet Seed HHB-67 (5 kg)",
-    "Pending": "Pending",
+    Pending: "Pending",
     "Per Drop More Crop": "Per Drop More Crop",
-    "Perform acid treatment when emitter discharge drops by more than 10%": "Perform acid treatment when emitter discharge drops by more than 10%",
-    "Perform soil testing before every sowing season": "Perform soil testing before every sowing season",
-    "Perishable produce requires cold storage maintenance (2-8\u00b0C) to slow down respiration rates, double shelf life, and enable transport to distant urban markets.": "Perishable produce requires cold storage maintenance (2-8\u00b0C) to slow down respiration rates, double shelf life, and enable transport to distant urban markets.",
+    "Perform acid treatment when emitter discharge drops by more than 10%":
+      "Perform acid treatment when emitter discharge drops by more than 10%",
+    "Perform soil testing before every sowing season":
+      "Perform soil testing before every sowing season",
+    "Perishable produce requires cold storage maintenance (2-8\u00b0C) to slow down respiration rates, double shelf life, and enable transport to distant urban markets.":
+      "Perishable produce requires cold storage maintenance (2-8\u00b0C) to slow down respiration rates, double shelf life, and enable transport to distant urban markets.",
     "Personal Information": "Personal Information",
     "Pest & Disease Management": "Pest & Disease Management",
     "Pest Control": "Pest Control",
     "Pest and disease alerts for wheat crop": "Pest and disease alerts for wheat crop",
     "Pest and disease warnings": "Pest and disease warnings",
-    "Pesticides": "Pesticides",
+    Pesticides: "Pesticides",
     "Pheromone Trap Set (Pack of 10)": "Pheromone Trap Set (Pack of 10)",
     "Phone Number": "Phone Number",
     "Pigeon Pea Seed ICPL-87 (5 kg)": "Pigeon Pea Seed ICPL-87 (5 kg)",
     "Place Cash / UPI Order": "Place Cash / UPI Order",
     "Place Order": "Place Order",
-    "Place dry neem leaves inside storage bags to prevent insect infestation naturally.": "Place dry neem leaves inside storage bags to prevent insect infestation naturally.",
-    "Place soil moisture sensors at both shallow (15 cm) and deep (30 cm) root zone levels.": "Place soil moisture sensors at both shallow (15 cm) and deep (30 cm) root zone levels.",
+    "Place dry neem leaves inside storage bags to prevent insect infestation naturally.":
+      "Place dry neem leaves inside storage bags to prevent insect infestation naturally.",
+    "Place soil moisture sensors at both shallow (15 cm) and deep (30 cm) root zone levels.":
+      "Place soil moisture sensors at both shallow (15 cm) and deep (30 cm) root zone levels.",
     "Plan your sell with confidence": "Plan your sell with confidence",
-    "Planning crops around monsoon timings, winter season, and summer irrigation.": "Planning crops around monsoon timings, winter season, and summer irrigation.",
-    "Plant Poplar, Melia Dubia, or Sandalwood along field boundaries": "Plant Poplar, Melia Dubia, or Sandalwood along field boundaries",
-    "Plant border trees along North-South lines to minimize shade competition with field crops.": "Plant border trees along North-South lines to minimize shade competition with field crops.",
-    "Planting border trees like Teak, Subabul, or Poplar for shade, timber, and carbon credits.": "Planting border trees like Teak, Subabul, or Poplar for shade, timber, and carbon credits.",
-    "Planting summer Moong after Rabi Wheat adds natural nitrogen and extra income.": "Planting summer Moong after Rabi Wheat adds natural nitrogen and extra income.",
-    "Please register or log in as a Farmer to access product management.": "Please register or log in as a Farmer to access product management.",
-    "Plough in green manure 2 weeks before main crop sowing to allow full soil decomposition.": "Plough in green manure 2 weeks before main crop sowing to allow full soil decomposition.",
+    "Planning crops around monsoon timings, winter season, and summer irrigation.":
+      "Planning crops around monsoon timings, winter season, and summer irrigation.",
+    "Plant Poplar, Melia Dubia, or Sandalwood along field boundaries":
+      "Plant Poplar, Melia Dubia, or Sandalwood along field boundaries",
+    "Plant border trees along North-South lines to minimize shade competition with field crops.":
+      "Plant border trees along North-South lines to minimize shade competition with field crops.",
+    "Planting border trees like Teak, Subabul, or Poplar for shade, timber, and carbon credits.":
+      "Planting border trees like Teak, Subabul, or Poplar for shade, timber, and carbon credits.",
+    "Planting summer Moong after Rabi Wheat adds natural nitrogen and extra income.":
+      "Planting summer Moong after Rabi Wheat adds natural nitrogen and extra income.",
+    "Please register or log in as a Farmer to access product management.":
+      "Please register or log in as a Farmer to access product management.",
+    "Plough in green manure 2 weeks before main crop sowing to allow full soil decomposition.":
+      "Plough in green manure 2 weeks before main crop sowing to allow full soil decomposition.",
     "Post Harvest": "Post Harvest",
     "Post-Harvest Management": "Post-Harvest Management",
     "Post-Harvest Management & Storage": "Post-Harvest Management & Storage",
-    "Post-harvest cleaning and grading separates damaged, undersized, or diseased produce from top-quality items. Graded produce commands a 15-20% higher market price in mandis.": "Post-harvest cleaning and grading separates damaged, undersized, or diseased produce from top-quality items. Graded produce commands a 15-20% higher market price in mandis.",
-    "Posted": "Posted",
+    "Post-harvest cleaning and grading separates damaged, undersized, or diseased produce from top-quality items. Graded produce commands a 15-20% higher market price in mandis.":
+      "Post-harvest cleaning and grading separates damaged, undersized, or diseased produce from top-quality items. Graded produce commands a 15-20% higher market price in mandis.",
+    Posted: "Posted",
     "Potassium Humate Shiny Flakes (2 kg)": "Potassium Humate Shiny Flakes (2 kg)",
     "Potassium Schoenite (25 kg)": "Potassium Schoenite (25 kg)",
-    "Potato": "Potato",
+    Potato: "Potato",
     "Potato Seed Tuber Kufri Jyoti (50 kg)": "Potato Seed Tuber Kufri Jyoti (50 kg)",
-    "Potatoes": "Potatoes",
+    Potatoes: "Potatoes",
     "Poultry Automatic Drinker (Pack of 10)": "Poultry Automatic Drinker (Pack of 10)",
     "Power Weeder 5 HP": "Power Weeder 5 HP",
     "Powering Every Acre": "Powering Every Acre",
     "Pradhan Mantri Fasal Bima Yojana": "Pradhan Mantri Fasal Bima Yojana",
     "Pradhan Mantri Fasal Bima Yojana (PMFBY)": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
-    "Pre-cool fruits in shaded packing sheds immediately after picking to remove field heat.": "Pre-cool fruits in shaded packing sheds immediately after picking to remove field heat.",
-    "Pre-cool harvested vegetables within 2 hours of field picking": "Pre-cool harvested vegetables within 2 hours of field picking",
-    "Pre-cooling, temperature control, and humidity management for perishable produce.": "Pre-cooling, temperature control, and humidity management for perishable produce.",
+    "Pre-cool fruits in shaded packing sheds immediately after picking to remove field heat.":
+      "Pre-cool fruits in shaded packing sheds immediately after picking to remove field heat.",
+    "Pre-cool harvested vegetables within 2 hours of field picking":
+      "Pre-cool harvested vegetables within 2 hours of field picking",
+    "Pre-cooling, temperature control, and humidity management for perishable produce.":
+      "Pre-cooling, temperature control, and humidity management for perishable produce.",
     "Precision Agri Institute": "Precision Agri Institute",
     "Precision Agri Tools & IoT Sensors": "Precision Agri Tools & IoT Sensors",
     "Precision Agriculture": "Precision Agriculture",
     "Precision Farming": "Precision Farming",
     "Precision Soil Sensor Integration": "Precision Soil Sensor Integration",
-    "Precision drip systems require correct sizing of mainlines, submains, lateral tubes, and inline drippers based on soil texture, slope, and crop row spacing.": "Precision drip systems require correct sizing of mainlines, submains, lateral tubes, and inline drippers based on soil texture, slope, and crop row spacing.",
-    "Precision nutrient tools calculate exact fertilizer requirement per plot": "Precision nutrient tools calculate exact fertilizer requirement per plot",
-    "Preparation steps for nutrient-rich vermicompost and bio-stimulants.": "Preparation steps for nutrient-rich vermicompost and bio-stimulants.",
-    "Prepare land with deep summer ploughing to expose weed seeds and soil pests to heat.": "Prepare land with deep summer ploughing to expose weed seeds and soil pests to heat.",
-    "Prepare seasonal crop rotation and sowing recommendations for regional crops": "Prepare seasonal crop rotation and sowing recommendations for regional crops",
-    "Prepare vermicompost, Panchagavya, Jeevamrutha, and neem bio-pesticides": "Prepare vermicompost, Panchagavya, Jeevamrutha, and neem bio-pesticides",
+    "Precision drip systems require correct sizing of mainlines, submains, lateral tubes, and inline drippers based on soil texture, slope, and crop row spacing.":
+      "Precision drip systems require correct sizing of mainlines, submains, lateral tubes, and inline drippers based on soil texture, slope, and crop row spacing.",
+    "Precision nutrient tools calculate exact fertilizer requirement per plot":
+      "Precision nutrient tools calculate exact fertilizer requirement per plot",
+    "Preparation steps for nutrient-rich vermicompost and bio-stimulants.":
+      "Preparation steps for nutrient-rich vermicompost and bio-stimulants.",
+    "Prepare land with deep summer ploughing to expose weed seeds and soil pests to heat.":
+      "Prepare land with deep summer ploughing to expose weed seeds and soil pests to heat.",
+    "Prepare seasonal crop rotation and sowing recommendations for regional crops":
+      "Prepare seasonal crop rotation and sowing recommendations for regional crops",
+    "Prepare vermicompost, Panchagavya, Jeevamrutha, and neem bio-pesticides":
+      "Prepare vermicompost, Panchagavya, Jeevamrutha, and neem bio-pesticides",
     "Prepared Soil": "Prepared Soil",
-    "Preparing Jeevamrutha and neem seed kernel extract for field application.": "Preparing Jeevamrutha and neem seed kernel extract for field application.",
-    "Preventing storage pests, weevils, and moisture damage in godowns.": "Preventing storage pests, weevils, and moisture damage in godowns.",
-    "Previous": "Previous",
+    "Preparing Jeevamrutha and neem seed kernel extract for field application.":
+      "Preparing Jeevamrutha and neem seed kernel extract for field application.",
+    "Preventing storage pests, weevils, and moisture damage in godowns.":
+      "Preventing storage pests, weevils, and moisture damage in godowns.",
+    Previous: "Previous",
     "Previous Lesson": "Previous Lesson",
-    "Price": "Price",
+    Price: "Price",
     "Price / Rate (\u20b9)": "Price / Rate (\u20b9)",
     "Price Range (\u20b9)": "Price Range (\u20b9)",
     "Price high to low": "Price high to low",
     "Price low to high": "Price low to high",
     "Primary Goal / Note": "Primary Goal / Note",
     "Primary Nutrients: N, P, K Management": "Primary Nutrients: N, P, K Management",
-    "Primary processing\u2014such as milling mustard into oil, converting paddy to rice, or drying turmeric and chillies\u2014transforms raw agricultural commodities into high-value processed products.": "Primary processing\u2014such as milling mustard into oil, converting paddy to rice, or drying turmeric and chillies\u2014transforms raw agricultural commodities into high-value processed products.",
-    "Principles of Organic Farming & Certification": "Principles of Organic Farming & Certification",
-    "Principles of micro-irrigation, water savings, and root zone delivery.": "Principles of micro-irrigation, water savings, and root zone delivery.",
+    "Primary processing\u2014such as milling mustard into oil, converting paddy to rice, or drying turmeric and chillies\u2014transforms raw agricultural commodities into high-value processed products.":
+      "Primary processing\u2014such as milling mustard into oil, converting paddy to rice, or drying turmeric and chillies\u2014transforms raw agricultural commodities into high-value processed products.",
+    "Principles of Organic Farming & Certification":
+      "Principles of Organic Farming & Certification",
+    "Principles of micro-irrigation, water savings, and root zone delivery.":
+      "Principles of micro-irrigation, water savings, and root zone delivery.",
     "Problem Solving": "Problem Solving",
     "Proceed to Checkout": "Proceed to Checkout",
-    "Processing crops into flour, oil, dried fruits, or spices for higher profit.": "Processing crops into flour, oil, dried fruits, or spices for higher profit.",
+    "Processing crops into flour, oil, dried fruits, or spices for higher profit.":
+      "Processing crops into flour, oil, dried fruits, or spices for higher profit.",
     "Produce Listing Details": "Produce Listing Details",
     "Produce Name": "Produce Name",
     "Produce Preservation & Logistics": "Produce Preservation & Logistics",
     "Product Image": "Product Image",
     "Product Status": "Product Status",
-    "Programming": "Programming",
-    "Progress": "Progress",
+    Programming: "Programming",
+    Progress: "Progress",
     "Project Based": "Project Based",
-    "Proper field levelling, bunding, and channel creation for uniform irrigation.": "Proper field levelling, bunding, and channel creation for uniform irrigation.",
-    "Proper land levelling prevents waterlogging and ensures even moisture distribution across the field. Laser levelling can save up to 20% irrigation water and increase crop yield.": "Proper land levelling prevents waterlogging and ensures even moisture distribution across the field. Laser levelling can save up to 20% irrigation water and increase crop yield.",
-    "Protect natural predators like ladybird beetles and lacewings": "Protect natural predators like ladybird beetles and lacewings",
-    "Protection for dairy animals and small ruminants against death due to accident or disease.": "Protection for dairy animals and small ruminants against death due to accident or disease.",
-    "Provide shade nets or protective sprinkler misting for high-value crops": "Provide shade nets or protective sprinkler misting for high-value crops",
-    "Provides crop-specific fertilizer dosage recommendations": "Provides crop-specific fertilizer dosage recommendations",
-    "Provides short-term crop loans up to Rs. 3 Lakh at 4% effective interest": "Provides short-term crop loans up to Rs. 3 Lakh at 4% effective interest",
+    "Proper field levelling, bunding, and channel creation for uniform irrigation.":
+      "Proper field levelling, bunding, and channel creation for uniform irrigation.",
+    "Proper land levelling prevents waterlogging and ensures even moisture distribution across the field. Laser levelling can save up to 20% irrigation water and increase crop yield.":
+      "Proper land levelling prevents waterlogging and ensures even moisture distribution across the field. Laser levelling can save up to 20% irrigation water and increase crop yield.",
+    "Protect natural predators like ladybird beetles and lacewings":
+      "Protect natural predators like ladybird beetles and lacewings",
+    "Protection for dairy animals and small ruminants against death due to accident or disease.":
+      "Protection for dairy animals and small ruminants against death due to accident or disease.",
+    "Provide shade nets or protective sprinkler misting for high-value crops":
+      "Provide shade nets or protective sprinkler misting for high-value crops",
+    "Provides crop-specific fertilizer dosage recommendations":
+      "Provides crop-specific fertilizer dosage recommendations",
+    "Provides short-term crop loans up to Rs. 3 Lakh at 4% effective interest":
+      "Provides short-term crop loans up to Rs. 3 Lakh at 4% effective interest",
     "Pruning Secateur Bypass": "Pruning Secateur Bypass",
     "Pseudomonas Fluorescens (1 kg)": "Pseudomonas Fluorescens (1 kg)",
     "Publish Produce Listing": "Publish Produce Listing",
-    "Punjab": "Punjab",
-    "PureFarm": "PureFarm",
+    Punjab: "Punjab",
+    PureFarm: "PureFarm",
     "PureFarm Agri Academy": "PureFarm Agri Academy",
     "PureFarm Agri Services": "PureFarm Agri Services",
-    "PureFarm Agri Services, Amritsar, Punjab 143001, India": "PureFarm Agri Services, Amritsar, Punjab 143001, India",
+    "PureFarm Agri Services, Amritsar, Punjab 143001, India":
+      "PureFarm Agri Services, Amritsar, Punjab 143001, India",
     "PureFarm Innovations": "PureFarm Innovations",
     "PureFarm Labs": "PureFarm Labs",
     "PureFarm Learning": "PureFarm Learning",
@@ -1010,83 +1352,107 @@ export const translations: Record<Language, Record<string, string>> = {
     "PureFarm Tech Academy": "PureFarm Tech Academy",
     "Python Development Intern": "Python Development Intern",
     "Python Programming": "Python Programming",
-    "Quantity": "Quantity",
+    Quantity: "Quantity",
     "Quick Actions": "Quick Actions",
     "Quick Support": "Quick Support",
     "Rabi Season": "Rabi Season",
-    "Rabi crops require cool winter temperatures during grain filling": "Rabi crops require cool winter temperatures during grain filling",
-    "Rain": "Rain",
+    "Rabi crops require cool winter temperatures during grain filling":
+      "Rabi crops require cool winter temperatures during grain filling",
+    Rain: "Rain",
     "Rain advisory for Ludhiana belt": "Rain advisory for Ludhiana belt",
-    "Rainfall": "Rainfall",
+    Rainfall: "Rainfall",
     "Rainwater Harvesting & Farm Ponds": "Rainwater Harvesting & Farm Ponds",
     "Rajahmundry, AP": "Rajahmundry, AP",
     "Rajahmundry, Andhra Pradesh": "Rajahmundry, Andhra Pradesh",
-    "Rajahmundry, East Godavari, Andhra Pradesh - 533101": "Rajahmundry, East Godavari, Andhra Pradesh - 533101",
+    "Rajahmundry, East Godavari, Andhra Pradesh - 533101":
+      "Rajahmundry, East Godavari, Andhra Pradesh - 533101",
     "Real-time Prices": "Real-time Prices",
-    "Real-time alerts for weather, market prices, and order updates": "Real-time alerts for weather, market prices, and order updates",
-    "Receive direct online payment into bank account within 24 hours": "Receive direct online payment into bank account within 24 hours",
-    "Receive real-time weather risk alerts via SMS or app notifications": "Receive real-time weather risk alerts via SMS or app notifications",
+    "Real-time alerts for weather, market prices, and order updates":
+      "Real-time alerts for weather, market prices, and order updates",
+    "Receive direct online payment into bank account within 24 hours":
+      "Receive direct online payment into bank account within 24 hours",
+    "Receive real-time weather risk alerts via SMS or app notifications":
+      "Receive real-time weather risk alerts via SMS or app notifications",
     "Recent Orders": "Recent Orders",
     "Recent Orders Received": "Recent Orders Received",
     "Recently Added": "Recently Added",
-    "Recommendations": "Recommendations",
-    "Recommended dosage, safety gear, nozzle selection, and spray timing.": "Recommended dosage, safety gear, nozzle selection, and spray timing.",
-    "Record weed density and pest occurrence in experimental trial plots": "Record weed density and pest occurrence in experimental trial plots",
+    Recommendations: "Recommendations",
+    "Recommended dosage, safety gear, nozzle selection, and spray timing.":
+      "Recommended dosage, safety gear, nozzle selection, and spray timing.",
+    "Record weed density and pest occurrence in experimental trial plots":
+      "Record weed density and pest occurrence in experimental trial plots",
     "Red Onions": "Red Onions",
-    "Reduces direct farmer exposure to chemical pesticides": "Reduces direct farmer exposure to chemical pesticides",
-    "Reduces labor costs and water consumption by an additional 25%": "Reduces labor costs and water consumption by an additional 25%",
+    "Reduces direct farmer exposure to chemical pesticides":
+      "Reduces direct farmer exposure to chemical pesticides",
+    "Reduces labor costs and water consumption by an additional 25%":
+      "Reduces labor costs and water consumption by an additional 25%",
     "Reduces weed emergence in inter-row spaces": "Reduces weed emergence in inter-row spaces",
-    "Refresh": "Refresh",
-    "Register": "Register",
-    "Register as a Farmer to sell your harvest directly.": "Register as a Farmer to sell your harvest directly.",
-    "Register farmer account on e-NAM portal using Aadhaar and bank details": "Register farmer account on e-NAM portal using Aadhaar and bank details",
-    "Registering on e-NAM, online quality testing, and transparent digital bidding.": "Registering on e-NAM, online quality testing, and transparent digital bidding.",
+    Refresh: "Refresh",
+    Register: "Register",
+    "Register as a Farmer to sell your harvest directly.":
+      "Register as a Farmer to sell your harvest directly.",
+    "Register farmer account on e-NAM portal using Aadhaar and bank details":
+      "Register farmer account on e-NAM portal using Aadhaar and bank details",
+    "Registering on e-NAM, online quality testing, and transparent digital bidding.":
+      "Registering on e-NAM, online quality testing, and transparent digital bidding.",
     "Registration Date:": "Registration Date:",
-    "Regular field inspection helps farmers detect pest infestations, nutrient deficiencies, and water stress early. Timely harvesting at physiological maturity minimizes grain shattering and quality loss.": "Regular field inspection helps farmers detect pest infestations, nutrient deficiencies, and water stress early. Timely harvesting at physiological maturity minimizes grain shattering and quality loss.",
-    "Regular field scouting for pests, water stress, and identifying crop maturity.": "Regular field scouting for pests, water stress, and identifying crop maturity.",
+    "Regular field inspection helps farmers detect pest infestations, nutrient deficiencies, and water stress early. Timely harvesting at physiological maturity minimizes grain shattering and quality loss.":
+      "Regular field inspection helps farmers detect pest infestations, nutrient deficiencies, and water stress early. Timely harvesting at physiological maturity minimizes grain shattering and quality loss.",
+    "Regular field scouting for pests, water stress, and identifying crop maturity.":
+      "Regular field scouting for pests, water stress, and identifying crop maturity.",
     "Remember me for 30 days": "Remember me for 30 days",
-    "Remote": "Remote",
+    Remote: "Remote",
     "Remote Sensing": "Remote Sensing",
-    "Remove": "Remove",
-    "Remove and destroy infected plant debris from the field to stop fungal spore spread.": "Remove and destroy infected plant debris from the field to stop fungal spore spread.",
-    "Removing chaff, sorting produce by size and quality for premium prices.": "Removing chaff, sorting produce by size and quality for premium prices.",
+    Remove: "Remove",
+    "Remove and destroy infected plant debris from the field to stop fungal spore spread.":
+      "Remove and destroy infected plant debris from the field to stop fungal spore spread.",
+    "Removing chaff, sorting produce by size and quality for premium prices.":
+      "Removing chaff, sorting produce by size and quality for premium prices.",
     "Rent Rate": "Rent Rate",
-    "Repay KCC loan before due date to claim 3% prompt repayment interest subvention bonus.": "Repay KCC loan before due date to claim 3% prompt repayment interest subvention bonus.",
+    "Repay KCC loan before due date to claim 3% prompt repayment interest subvention bonus.":
+      "Repay KCC loan before due date to claim 3% prompt repayment interest subvention bonus.",
     "Required Skills": "Required Skills",
-    "Requires land ownership records (Khata/Khasra) and Aadhaar linkage": "Requires land ownership records (Khata/Khasra) and Aadhaar linkage",
-    "Research": "Research",
+    "Requires land ownership records (Khata/Khasra) and Aadhaar linkage":
+      "Requires land ownership records (Khata/Khasra) and Aadhaar linkage",
+    Research: "Research",
     "Research Internship": "Research Internship",
-    "Resume interculture in maize and apply mulch to nursery beds.": "Resume interculture in maize and apply mulch to nursery beds.",
+    "Resume interculture in maize and apply mulch to nursery beds.":
+      "Resume interculture in maize and apply mulch to nursery beds.",
     "Rhizobium Biofertiliser (500 g)": "Rhizobium Biofertiliser (500 g)",
-    "Role of FYM, vermicompost, Rhizobium, and Azotobacter in soil health.": "Role of FYM, vermicompost, Rhizobium, and Azotobacter in soil health.",
-    "Rotate Paddy/Wheat with Gram, Moong, or Groundnut": "Rotate Paddy/Wheat with Gram, Moong, or Groundnut",
+    "Role of FYM, vermicompost, Rhizobium, and Azotobacter in soil health.":
+      "Role of FYM, vermicompost, Rhizobium, and Azotobacter in soil health.",
+    "Rotate Paddy/Wheat with Gram, Moong, or Groundnut":
+      "Rotate Paddy/Wheat with Gram, Moong, or Groundnut",
     "Rotavator 5 Feet": "Rotavator 5 Feet",
     "Rs. 12,000/month": "Rs. 12,000/month",
     "Rs. 14,000/month": "Rs. 14,000/month",
     "Rs. 15,000/month": "Rs. 15,000/month",
     "Rs. 16,000/month": "Rs. 16,000/month",
     "Rs. 18,000/month": "Rs. 18,000/month",
-    "Rs. 6,000 annual income support transferred directly via DBT": "Rs. 6,000 annual income support transferred directly via DBT",
+    "Rs. 6,000 annual income support transferred directly via DBT":
+      "Rs. 6,000 annual income support transferred directly via DBT",
     "Ruminants & Allied Livestock": "Ruminants & Allied Livestock",
     "Rural Farmer Support Foundation": "Rural Farmer Support Foundation",
     "Rural Livestock Development Centre": "Rural Livestock Development Centre",
-    "SEEDS": "SEEDS",
+    SEEDS: "SEEDS",
     "SKU / Unit": "SKU / Unit",
     "SMART FARMING": "SMART FARMING",
     "SMART FARMING HUB": "SMART FARMING HUB",
     "SMART WATER MANAGEMENT": "SMART WATER MANAGEMENT",
     "SORT BY": "SORT BY",
-    "SPONSOR": "SPONSOR",
-    "STATUS": "STATUS",
-    "STIPEND": "STIPEND",
+    SPONSOR: "SPONSOR",
+    STATUS: "STATUS",
+    STIPEND: "STIPEND",
     "Safe Pesticide Handling & Spraying": "Safe Pesticide Handling & Spraying",
-    "Sat": "Sat",
+    Sat: "Sat",
     "Satellite Remote Sensing & Crop Mapping": "Satellite Remote Sensing & Crop Mapping",
-    "Satellite maps help optimize field-specific fertilizer application": "Satellite maps help optimize field-specific fertilizer application",
-    "Save": "Save",
-    "Saves Rs. 2,500 to 3,000 per acre in tractor diesel and land preparation costs": "Saves Rs. 2,500 to 3,000 per acre in tractor diesel and land preparation costs",
+    "Satellite maps help optimize field-specific fertilizer application":
+      "Satellite maps help optimize field-specific fertilizer application",
+    Save: "Save",
+    "Saves Rs. 2,500 to 3,000 per acre in tractor diesel and land preparation costs":
+      "Saves Rs. 2,500 to 3,000 per acre in tractor diesel and land preparation costs",
     "Scheme Details": "Scheme Details",
-    "Schemes": "Schemes",
+    Schemes: "Schemes",
     "Scientific Grain Storage & Hermetic Bags": "Scientific Grain Storage & Hermetic Bags",
     "Scout cotton for jassid after humid nights.": "Scout cotton for jassid after humid nights.",
     "Search Courses": "Search Courses",
@@ -1100,7 +1466,8 @@ export const translations: Record<Language, Record<string, string>> = {
     "Search for products, crops, tools, seeds...": "Search for products, crops, tools, seeds...",
     "Search internships...": "Search internships...",
     "Search seeds, fertiliser, tools...": "Search seeds, fertiliser, tools...",
-    "Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart.": "Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart.",
+    "Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart.":
+      "Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart.",
     "Search...": "Search...",
     "Seasonal Crop Calendar": "Seasonal Crop Calendar",
     "Seasonal Crop Insurance": "Seasonal Crop Insurance",
@@ -1110,47 +1477,60 @@ export const translations: Record<Language, Record<string, string>> = {
     "Secure Payments": "Secure Payments",
     "Seed Drill 9 Tyne": "Seed Drill 9 Tyne",
     "Seed Selection and Sowing Techniques": "Seed Selection and Sowing Techniques",
-    "Seeds": "Seeds",
-    "Select 16 mm lateral lines with 2 LPH or 4 LPH pressure-compensating emitters": "Select 16 mm lateral lines with 2 LPH or 4 LPH pressure-compensating emitters",
+    Seeds: "Seeds",
+    "Select 16 mm lateral lines with 2 LPH or 4 LPH pressure-compensating emitters":
+      "Select 16 mm lateral lines with 2 LPH or 4 LPH pressure-compensating emitters",
     "Select Category": "Select Category",
     "Select Role": "Select Role",
     "Select Unit": "Select Unit",
     "Select a lesson to begin learning": "Select a lesson to begin learning",
-    "Select short-duration Kharif varieties if monsoon rainfall is delayed in your region.": "Select short-duration Kharif varieties if monsoon rainfall is delayed in your region.",
+    "Select short-duration Kharif varieties if monsoon rainfall is delayed in your region.":
+      "Select short-duration Kharif varieties if monsoon rainfall is delayed in your region.",
     "Selected Role:": "Selected Role:",
     "Selected districts": "Selected districts",
-    "Selecting disease-resistant hybrid or certified seed varieties suitable for local agro-climatic conditions is the foundation of high productivity. Seed treatment with bio-agents or fungicides protects young roots.": "Selecting disease-resistant hybrid or certified seed varieties suitable for local agro-climatic conditions is the foundation of high productivity. Seed treatment with bio-agents or fungicides protects young roots.",
-    "Selecting drought-tolerant, flood-tolerant, and short-duration crop varieties.": "Selecting drought-tolerant, flood-tolerant, and short-duration crop varieties.",
+    "Selecting disease-resistant hybrid or certified seed varieties suitable for local agro-climatic conditions is the foundation of high productivity. Seed treatment with bio-agents or fungicides protects young roots.":
+      "Selecting disease-resistant hybrid or certified seed varieties suitable for local agro-climatic conditions is the foundation of high productivity. Seed treatment with bio-agents or fungicides protects young roots.",
+    "Selecting drought-tolerant, flood-tolerant, and short-duration crop varieties.":
+      "Selecting drought-tolerant, flood-tolerant, and short-duration crop varieties.",
     "Sell Harvest": "Sell Harvest",
     "Sell Your Produce": "Sell Your Produce",
-    "Seller": "Seller",
+    Seller: "Seller",
     "Seller Demo": "Seller Demo",
-    "Selling through FPOs or direct supply contracts with retail chains bypasses multiple middleman commissions, increasing farmer profit margins by 15-20%.": "Selling through FPOs or direct supply contracts with retail chains bypasses multiple middleman commissions, increasing farmer profit margins by 15-20%.",
+    "Selling through FPOs or direct supply contracts with retail chains bypasses multiple middleman commissions, increasing farmer profit margins by 15-20%.":
+      "Selling through FPOs or direct supply contracts with retail chains bypasses multiple middleman commissions, increasing farmer profit margins by 15-20%.",
     "Send Verification Code": "Send Verification Code",
     "Sesame Seed GT-10 (2 kg)": "Sesame Seed GT-10 (2 kg)",
-    "Set up 5 pheromone traps per acre for early detection of bollworm and stem borer moths.": "Set up 5 pheromone traps per acre for early detection of bollworm and stem borer moths.",
+    "Set up 5 pheromone traps per acre for early detection of bollworm and stem borer moths.":
+      "Set up 5 pheromone traps per acre for early detection of bollworm and stem borer moths.",
     "Shade Net 50% Green (3 x 50 m)": "Shade Net 50% Green (3 x 50 m)",
     "Shipping Address *": "Shipping Address *",
     "Shop Fertilizers": "Shop Fertilizers",
     "Shop Marketplace": "Shop Marketplace",
     "Shop by Category": "Shop by Category",
     "Shopping Cart": "Shopping Cart",
-    "Short, practical modules for software development, computing, and agriculture.": "Short, practical modules for software development, computing, and agriculture.",
-    "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied activities.": "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied activities.",
-    "Showing": "Showing",
+    "Short, practical modules for software development, computing, and agriculture.":
+      "Short, practical modules for software development, computing, and agriculture.",
+    "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied activities.":
+      "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied activities.",
+    Showing: "Showing",
     "Sickle Serrated Steel": "Sickle Serrated Steel",
     "Sign In": "Sign In",
     "Sign in to your account": "Sign in to your account",
-    "Simple field tests to check root-zone moisture before watering.": "Simple field tests to check root-zone moisture before watering.",
-    "Simple milling and packaging doubles profit margins compared to raw grain sales": "Simple milling and packaging doubles profit margins compared to raw grain sales",
+    "Simple field tests to check root-zone moisture before watering.":
+      "Simple field tests to check root-zone moisture before watering.",
+    "Simple milling and packaging doubles profit margins compared to raw grain sales":
+      "Simple milling and packaging doubles profit margins compared to raw grain sales",
     "Single Super Phosphate (50 kg)": "Single Super Phosphate (50 kg)",
     "Small & Marginal Farmers": "Small & Marginal Farmers",
-    "Small and marginal farmers with verified land records and Aadhaar-linked bank accounts.": "Small and marginal farmers with verified land records and Aadhaar-linked bank accounts.",
+    "Small and marginal farmers with verified land records and Aadhaar-linked bank accounts.":
+      "Small and marginal farmers with verified land records and Aadhaar-linked bank accounts.",
     "Smart Farming": "Smart Farming",
     "Smart Farming & Agri Technology": "Smart Farming & Agri Technology",
     "Smart Farming & Drone Intern": "Smart Farming & Drone Intern",
-    "Smart farming utilizes digital tools such as soil sensors, automatic weather stations, and satellite telemetry to monitor crop health, soil moisture, and weather in real time.": "Smart farming utilizes digital tools such as soil sensors, automatic weather stations, and satellite telemetry to monitor crop health, soil moisture, and weather in real time.",
-    "Soak paddy seeds in 1% salt water to remove light, hollow seeds before nursery bed preparation.": "Soak paddy seeds in 1% salt water to remove light, hollow seeds before nursery bed preparation.",
+    "Smart farming utilizes digital tools such as soil sensors, automatic weather stations, and satellite telemetry to monitor crop health, soil moisture, and weather in real time.":
+      "Smart farming utilizes digital tools such as soil sensors, automatic weather stations, and satellite telemetry to monitor crop health, soil moisture, and weather in real time.",
+    "Soak paddy seeds in 1% salt water to remove light, hollow seeds before nursery bed preparation.":
+      "Soak paddy seeds in 1% salt water to remove light, hollow seeds before nursery bed preparation.",
     "Social Accounts": "Social Accounts",
     "Soil & Fertilizer Management Intern": "Soil & Fertilizer Management Intern",
     "Soil & Nutrients": "Soil & Nutrients",
@@ -1165,105 +1545,137 @@ export const translations: Record<Language, Record<string, string>> = {
     "Soil Testing & Recommendations": "Soil Testing & Recommendations",
     "Soil Testing Kit Digital": "Soil Testing Kit Digital",
     "Soil Testing and pH Balance": "Soil Testing and pH Balance",
-    "Soil organic matter is the foundation of soil fertility. Incorporating crop residues, green manure crops like Sunn Hemp or Dhaincha, and practicing zero-tillage builds long-term soil carbon.": "Soil organic matter is the foundation of soil fertility. Incorporating crop residues, green manure crops like Sunn Hemp or Dhaincha, and practicing zero-tillage builds long-term soil carbon.",
-    "Soil sensors send automated moisture alerts to mobile phones": "Soil sensors send automated moisture alerts to mobile phones",
-    "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use.": "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use.",
-    "Soil testing reveals the availability of primary and micronutrients in the field. Soil pH affects nutrient uptake; lime is used for acidic soils while gypsum is recommended for alkaline soils.": "Soil testing reveals the availability of primary and micronutrients in the field. Soil pH affects nutrient uptake; lime is used for acidic soils while gypsum is recommended for alkaline soils.",
+    "Soil organic matter is the foundation of soil fertility. Incorporating crop residues, green manure crops like Sunn Hemp or Dhaincha, and practicing zero-tillage builds long-term soil carbon.":
+      "Soil organic matter is the foundation of soil fertility. Incorporating crop residues, green manure crops like Sunn Hemp or Dhaincha, and practicing zero-tillage builds long-term soil carbon.",
+    "Soil sensors send automated moisture alerts to mobile phones":
+      "Soil sensors send automated moisture alerts to mobile phones",
+    "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use.":
+      "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use.",
+    "Soil testing reveals the availability of primary and micronutrients in the field. Soil pH affects nutrient uptake; lime is used for acidic soils while gypsum is recommended for alkaline soils.":
+      "Soil testing reveals the availability of primary and micronutrients in the field. Soil pH affects nutrient uptake; lime is used for acidic soils while gypsum is recommended for alkaline soils.",
     "Solar Insect Light Trap": "Solar Insect Light Trap",
     "Solar Pump Controller 5 HP": "Solar Pump Controller 5 HP",
-    "Solar drying extends shelf life of perishable chillies and fruits": "Solar drying extends shelf life of perishable chillies and fruits",
-    "Solar drying tomatoes and chillies creates shelf-stable products that sell at 3x raw prices.": "Solar drying tomatoes and chillies creates shelf-stable products that sell at 3x raw prices.",
+    "Solar drying extends shelf life of perishable chillies and fruits":
+      "Solar drying extends shelf life of perishable chillies and fruits",
+    "Solar drying tomatoes and chillies creates shelf-stable products that sell at 3x raw prices.":
+      "Solar drying tomatoes and chillies creates shelf-stable products that sell at 3x raw prices.",
     "Solid State Storage": "Solid State Storage",
     "Sorghum Seed CSH-16 (5 kg)": "Sorghum Seed CSH-16 (5 kg)",
     "Sort By": "Sort By",
-    "Sow Dhaincha or Sunn Hemp at 20-25 kg seed per acre": "Sow Dhaincha or Sunn Hemp at 20-25 kg seed per acre",
-    "Sow climate-resilient crop varieties certified by ICAR / State Agri Universities": "Sow climate-resilient crop varieties certified by ICAR / State Agri Universities",
-    "Sow green manure crops like Dhaincha before Kharif paddy": "Sow green manure crops like Dhaincha before Kharif paddy",
-    "Sowing": "Sowing",
-    "Sowing at the right soil temperature and moisture condition ensures uniform seed emergence. Climate advisory apps provide localized weather alerts to guide sowing dates.": "Sowing at the right soil temperature and moisture condition ensures uniform seed emergence. Climate advisory apps provide localized weather alerts to guide sowing dates.",
+    "Sow Dhaincha or Sunn Hemp at 20-25 kg seed per acre":
+      "Sow Dhaincha or Sunn Hemp at 20-25 kg seed per acre",
+    "Sow climate-resilient crop varieties certified by ICAR / State Agri Universities":
+      "Sow climate-resilient crop varieties certified by ICAR / State Agri Universities",
+    "Sow green manure crops like Dhaincha before Kharif paddy":
+      "Sow green manure crops like Dhaincha before Kharif paddy",
+    Sowing: "Sowing",
+    "Sowing at the right soil temperature and moisture condition ensures uniform seed emergence. Climate advisory apps provide localized weather alerts to guide sowing dates.":
+      "Sowing at the right soil temperature and moisture condition ensures uniform seed emergence. Climate advisory apps provide localized weather alerts to guide sowing dates.",
     "Soybean Seed JS-9560 (20 kg)": "Soybean Seed JS-9560 (20 kg)",
     "Specilised Agri Protection": "Specilised Agri Protection",
     "Spinach Seed All Green (500 g)": "Spinach Seed All Green (500 g)",
-    "Spray insecticides during early morning or late afternoon when honeybees are inactive.": "Spray insecticides during early morning or late afternoon when honeybees are inactive.",
-    "Spraying 3% Panchagavya solution every 15 days increases flower retention and fruit setting.": "Spraying 3% Panchagavya solution every 15 days increases flower retention and fruit setting.",
+    "Spray insecticides during early morning or late afternoon when honeybees are inactive.":
+      "Spray insecticides during early morning or late afternoon when honeybees are inactive.",
+    "Spraying 3% Panchagavya solution every 15 days increases flower retention and fruit setting.":
+      "Spraying 3% Panchagavya solution every 15 days increases flower retention and fruit setting.",
     "Sprinkler Set 1 Acre": "Sprinkler Set 1 Acre",
-    "Squeeze soil sample from 15 cm depth; if it forms a firm ball, irrigation is not needed": "Squeeze soil sample from 15 cm depth; if it forms a firm ball, irrigation is not needed",
+    "Squeeze soil sample from 15 cm depth; if it forms a firm ball, irrigation is not needed":
+      "Squeeze soil sample from 15 cm depth; if it forms a firm ball, irrigation is not needed",
     "Start Course": "Start Course",
     "Start Learning": "Start Learning",
     "Start Shopping": "Start Shopping",
-    "State": "State",
+    State: "State",
     "State animal husbandry departments": "State animal husbandry departments",
     "State-notified insurance companies": "State-notified insurance companies",
     "State-specific": "State-specific",
     "State-wise annual targets": "State-wise annual targets",
-    "Status": "Status",
+    Status: "Status",
     "Status:": "Status:",
     "Stay Updated, Stay Ahead!": "Stay Updated, Stay Ahead!",
-    "Stay updated with the latest mandi prices across India": "Stay updated with the latest mandi prices across India",
-    "Stipend": "Stipend",
+    "Stay updated with the latest mandi prices across India":
+      "Stay updated with the latest mandi prices across India",
+    Stipend: "Stipend",
     "Stock Quantity": "Stock Quantity",
-    "Store FYM in shaded pits covered with soil to retain Nitrogen content.": "Store FYM in shaded pits covered with soil to retain Nitrogen content.",
-    "Store bags on wooden dunnage racks elevated 1 foot off the ground": "Store bags on wooden dunnage racks elevated 1 foot off the ground",
-    "Streamlined process for listing, selling, and delivering farm produce across India.": "Streamlined process for listing, selling, and delivering farm produce across India.",
+    "Store FYM in shaded pits covered with soil to retain Nitrogen content.":
+      "Store FYM in shaded pits covered with soil to retain Nitrogen content.",
+    "Store bags on wooden dunnage racks elevated 1 foot off the ground":
+      "Store bags on wooden dunnage racks elevated 1 foot off the ground",
+    "Streamlined process for listing, selling, and delivering farm produce across India.":
+      "Streamlined process for listing, selling, and delivering farm produce across India.",
     "Stronger Farmers": "Stronger Farmers",
-    "Student": "Student",
+    Student: "Student",
     "Student Courses Catalog": "Student Courses Catalog",
     "Student Dashboard": "Student Dashboard",
     "Student Demo": "Student Demo",
     "Student Internship Hub": "Student Internship Hub",
-    "Students in Horticulture or Agriculture diplomas/degrees.": "Students in Horticulture or Agriculture diplomas/degrees.",
-    "Students in Rural Development, Social Work, or Agriculture.": "Students in Rural Development, Social Work, or Agriculture.",
-    "Students or graduates in Agriculture, Agritech, Diploma, or related field.": "Students or graduates in Agriculture, Agritech, Diploma, or related field.",
+    "Students in Horticulture or Agriculture diplomas/degrees.":
+      "Students in Horticulture or Agriculture diplomas/degrees.",
+    "Students in Rural Development, Social Work, or Agriculture.":
+      "Students in Rural Development, Social Work, or Agriculture.",
+    "Students or graduates in Agriculture, Agritech, Diploma, or related field.":
+      "Students or graduates in Agriculture, Agritech, Diploma, or related field.",
     "Submersible Pump 3 HP": "Submersible Pump 3 HP",
-    "Submit": "Submit",
+    Submit: "Submit",
     "Submit Application": "Submit Application",
     "Submit My Application": "Submit My Application",
     "Subsidised in several states": "Subsidised in several states",
-    "Subtotal": "Subtotal",
-    "Sudden drops in NDVI highlight disease outbreaks or drought stress": "Sudden drops in NDVI highlight disease outbreaks or drought stress",
-    "Sudden heatwaves during grain filling shorten crop maturity and reduce grain weight. Applying foliar sprays of 1% Potassium Nitrate helps plants maintain cell turgor and withstand thermal stress.": "Sudden heatwaves during grain filling shorten crop maturity and reduce grain weight. Applying foliar sprays of 1% Potassium Nitrate helps plants maintain cell turgor and withstand thermal stress.",
+    Subtotal: "Subtotal",
+    "Sudden drops in NDVI highlight disease outbreaks or drought stress":
+      "Sudden drops in NDVI highlight disease outbreaks or drought stress",
+    "Sudden heatwaves during grain filling shorten crop maturity and reduce grain weight. Applying foliar sprays of 1% Potassium Nitrate helps plants maintain cell turgor and withstand thermal stress.":
+      "Sudden heatwaves during grain filling shorten crop maturity and reduce grain weight. Applying foliar sprays of 1% Potassium Nitrate helps plants maintain cell turgor and withstand thermal stress.",
     "Sugarcane Seed Sett Co-0238 (100 setts)": "Sugarcane Seed Sett Co-0238 (100 setts)",
     "Sulphur 90% WDG (5 kg)": "Sulphur 90% WDG (5 kg)",
-    "Sum insured based on district crop notification and scale of finance.": "Sum insured based on district crop notification and scale of finance.",
-    "Sun": "Sun",
-    "Sun-dry harvested grains on tarpaulin sheets to bring moisture content down to 12% before bagging.": "Sun-dry harvested grains on tarpaulin sheets to bring moisture content down to 12% before bagging.",
+    "Sum insured based on district crop notification and scale of finance.":
+      "Sum insured based on district crop notification and scale of finance.",
+    Sun: "Sun",
+    "Sun-dry harvested grains on tarpaulin sheets to bring moisture content down to 12% before bagging.":
+      "Sun-dry harvested grains on tarpaulin sheets to bring moisture content down to 12% before bagging.",
     "Sunflower Seed KBSH-44 (5 kg)": "Sunflower Seed KBSH-44 (5 kg)",
-    "Sunny": "Sunny",
-    "Supplier": "Supplier",
-    "Support": "Support",
-    "Support crop monitoring, crop growth observations, seasonal planning, and farm experiment activities.": "Support crop monitoring, crop growth observations, seasonal planning, and farm experiment activities.",
-    "Support for drip and sprinkler irrigation systems to improve water-use efficiency.": "Support for drip and sprinkler irrigation systems to improve water-use efficiency.",
+    Sunny: "Sunny",
+    Supplier: "Supplier",
+    Support: "Support",
+    "Support crop monitoring, crop growth observations, seasonal planning, and farm experiment activities.":
+      "Support crop monitoring, crop growth observations, seasonal planning, and farm experiment activities.",
+    "Support for drip and sprinkler irrigation systems to improve water-use efficiency.":
+      "Support for drip and sprinkler irrigation systems to improve water-use efficiency.",
     "Sustainable Agriculture": "Sustainable Agriculture",
     "Sustainable Farm Initiative": "Sustainable Farm Initiative",
     "Sync Mandi Prices": "Sync Mandi Prices",
     "System Status": "System Status",
-    "TOOLS": "TOOLS",
+    TOOLS: "TOOLS",
     "TOP RATED": "TOP RATED",
-    "TOPIC": "TOPIC",
-    "Take clear, well-lit photos of diseased leaves showing both top and bottom surfaces for AI diagnosis.": "Take clear, well-lit photos of diseased leaves showing both top and bottom surfaces for AI diagnosis.",
+    TOPIC: "TOPIC",
+    "Take clear, well-lit photos of diseased leaves showing both top and bottom surfaces for AI diagnosis.":
+      "Take clear, well-lit photos of diseased leaves showing both top and bottom surfaces for AI diagnosis.",
     "Target Crops": "Target Crops",
     "Tarpaulin Sheet 200 GSM (18 x 24 ft)": "Tarpaulin Sheet 200 GSM (18 x 24 ft)",
     "Technical Advisor": "Technical Advisor",
-    "Technology": "Technology",
+    Technology: "Technology",
     "Technology Taking Farming Higher": "Technology Taking Farming Higher",
-    "Temperature": "Temperature",
-    "Temperature range: -2\u00b0C to +8\u00b0C (Multi-commodity)": "Temperature range: -2\u00b0C to +8\u00b0C (Multi-commodity)",
+    Temperature: "Temperature",
+    "Temperature range: -2\u00b0C to +8\u00b0C (Multi-commodity)":
+      "Temperature range: -2\u00b0C to +8\u00b0C (Multi-commodity)",
     "Terms of Service": "Terms of Service",
-    "Test moisture content and shelf-life stability of dried fruits & spices": "Test moisture content and shelf-life stability of dried fruits & spices",
-    "Test seed germination percentage before large-scale field planting": "Test seed germination percentage before large-scale field planting",
+    "Test moisture content and shelf-life stability of dried fruits & spices":
+      "Test moisture content and shelf-life stability of dried fruits & spices",
+    "Test seed germination percentage before large-scale field planting":
+      "Test seed germination percentage before large-scale field planting",
     "Thank you for your order.": "Thank you for your order.",
-    "The Soil Health Card scheme provides farmers with customized nutrient advisories every 3 years, guiding balanced fertilizer application to lower cultivation costs.": "The Soil Health Card scheme provides farmers with customized nutrient advisories every 3 years, guiding balanced fertilizer application to lower cultivation costs.",
-    "The requested course could not be found or does not exist.": "The requested course could not be found or does not exist.",
+    "The Soil Health Card scheme provides farmers with customized nutrient advisories every 3 years, guiding balanced fertilizer application to lower cultivation costs.":
+      "The Soil Health Card scheme provides farmers with customized nutrient advisories every 3 years, guiding balanced fertilizer application to lower cultivation costs.",
+    "The requested course could not be found or does not exist.":
+      "The requested course could not be found or does not exist.",
     "The requested internship could not be found.": "The requested internship could not be found.",
-    "Thu": "Thu",
-    "Today": "Today",
+    Thu: "Thu",
+    Today: "Today",
     "Today's Mandi Feeds": "Today's Mandi Feeds",
     "Together for a prosperous future": "Together for a prosperous future",
-    "Tomato": "Tomato",
-    "Tools": "Tools",
+    Tomato: "Tomato",
+    Tools: "Tools",
     "Top Rated": "Top Rated",
     "Top rated": "Top rated",
-    "Total": "Total",
+    Total: "Total",
     "Total Amount": "Total Amount",
     "Total Courses": "Total Courses",
     "Total Earnings": "Total Earnings",
@@ -1272,68 +1684,94 @@ export const translations: Record<Language, Record<string, string>> = {
     "Total Orders": "Total Orders",
     "Total Products": "Total Products",
     "Total Value": "Total Value",
-    "Track crop growth stages, tillering, and leaf phenology in field plots": "Track crop growth stages, tillering, and leaf phenology in field plots",
-    "Track market arrival statistics on Agmarknet or PureFarm portal": "Track market arrival statistics on Agmarknet or PureFarm portal",
+    "Track crop growth stages, tillering, and leaf phenology in field plots":
+      "Track crop growth stages, tillering, and leaf phenology in field plots",
+    "Track market arrival statistics on Agmarknet or PureFarm portal":
+      "Track market arrival statistics on Agmarknet or PureFarm portal",
     "Tracking Code": "Tracking Code",
     "Tractor Trolley Tipping 5 Tonne": "Tractor Trolley Tipping 5 Tonne",
     "Trading Hub": "Trading Hub",
-    "Treat seeds with Trichoderma or fungicide before sowing": "Treat seeds with Trichoderma or fungicide before sowing",
-    "Tree windbreaks reduce wind erosion and crop lodging during storms": "Tree windbreaks reduce wind erosion and crop lodging during storms",
-    "Trend": "Trend",
+    "Treat seeds with Trichoderma or fungicide before sowing":
+      "Treat seeds with Trichoderma or fungicide before sowing",
+    "Tree windbreaks reduce wind erosion and crop lodging during storms":
+      "Tree windbreaks reduce wind erosion and crop lodging during storms",
+    Trend: "Trend",
     "Trichoderma Viride Bio-fungicide (1 kg)": "Trichoderma Viride Bio-fungicide (1 kg)",
     "Trusted Information": "Trusted Information",
-    "Try another crop input, category, or raise the max price filter.": "Try another crop input, category, or raise the max price filter.",
-    "Tue": "Tue",
+    "Try another crop input, category, or raise the max price filter.":
+      "Try another crop input, category, or raise the max price filter.",
+    Tue: "Tue",
     "Turmeric Rhizome Seed Salem (25 kg)": "Turmeric Rhizome Seed Salem (25 kg)",
     "Type:": "Type:",
-    "UNIT": "UNIT",
+    UNIT: "UNIT",
     "UPDATE PRODUCT": "UPDATE PRODUCT",
-    "Understand AWS core services, Docker containers, serverless architectures, and CI/CD.": "Understand AWS core services, Docker containers, serverless architectures, and CI/CD.",
+    "Understand AWS core services, Docker containers, serverless architectures, and CI/CD.":
+      "Understand AWS core services, Docker containers, serverless architectures, and CI/CD.",
     "Understanding Mandi Price Discovery": "Understanding Mandi Price Discovery",
-    "Understanding organic standards, bio-inputs, and conversion period.": "Understanding organic standards, bio-inputs, and conversion period.",
+    "Understanding organic standards, bio-inputs, and conversion period.":
+      "Understanding organic standards, bio-inputs, and conversion period.",
     "Unit Metric": "Unit Metric",
     "Unit of Measurement": "Unit of Measurement",
-    "Unpaid": "Unpaid",
+    Unpaid: "Unpaid",
     "Update Inventory": "Update Inventory",
     "Updated Mandi Rates": "Updated Mandi Rates",
     "Updated from authentic sources": "Updated from authentic sources",
-    "Upload crop leaf photos for instant AI disease identification": "Upload crop leaf photos for instant AI disease identification",
+    "Upload crop leaf photos for instant AI disease identification":
+      "Upload crop leaf photos for instant AI disease identification",
     "Urea 46% N (45 kg)": "Urea 46% N (45 kg)",
-    "Use 0.1% Hydrochloric acid solution and let it sit in laterals for 24 hours before flushing": "Use 0.1% Hydrochloric acid solution and let it sit in laterals for 24 hours before flushing",
-    "Use 100% water-soluble fertilizers to prevent line clogging": "Use 100% water-soluble fertilizers to prevent line clogging",
+    "Use 0.1% Hydrochloric acid solution and let it sit in laterals for 24 hours before flushing":
+      "Use 0.1% Hydrochloric acid solution and let it sit in laterals for 24 hours before flushing",
+    "Use 100% water-soluble fertilizers to prevent line clogging":
+      "Use 100% water-soluble fertilizers to prevent line clogging",
     "Use My Location": "Use My Location",
-    "Use Phosphate Solubilizing Bacteria (PSB) to unlock fixed soil phosphorus": "Use Phosphate Solubilizing Bacteria (PSB) to unlock fixed soil phosphorus",
-    "Use airtight hermetic bags to eliminate storage weevils naturally": "Use airtight hermetic bags to eliminate storage weevils naturally",
-    "Use certified organic seeds or untreated local seeds": "Use certified organic seeds or untreated local seeds",
-    "Use certified seeds with high germination rates": "Use certified seeds with high germination rates",
-    "Use certified weather advisories for localized spray and sowing decisions": "Use certified weather advisories for localized spray and sowing decisions",
-    "Use neem-coated urea to slow down Nitrogen release and improve plant absorption efficiency.": "Use neem-coated urea to slow down Nitrogen release and improve plant absorption efficiency.",
-    "Use pheromone traps for monitoring insect pest populations": "Use pheromone traps for monitoring insect pest populations",
-    "Use pond water for supplemental irrigation during dry spells": "Use pond water for supplemental irrigation during dry spells",
-    "Use winnowers or grain cleaners to remove dust, chaff, and weed seeds": "Use winnowers or grain cleaners to remove dust, chaff, and weed seeds",
+    "Use Phosphate Solubilizing Bacteria (PSB) to unlock fixed soil phosphorus":
+      "Use Phosphate Solubilizing Bacteria (PSB) to unlock fixed soil phosphorus",
+    "Use airtight hermetic bags to eliminate storage weevils naturally":
+      "Use airtight hermetic bags to eliminate storage weevils naturally",
+    "Use certified organic seeds or untreated local seeds":
+      "Use certified organic seeds or untreated local seeds",
+    "Use certified seeds with high germination rates":
+      "Use certified seeds with high germination rates",
+    "Use certified weather advisories for localized spray and sowing decisions":
+      "Use certified weather advisories for localized spray and sowing decisions",
+    "Use neem-coated urea to slow down Nitrogen release and improve plant absorption efficiency.":
+      "Use neem-coated urea to slow down Nitrogen release and improve plant absorption efficiency.",
+    "Use pheromone traps for monitoring insect pest populations":
+      "Use pheromone traps for monitoring insect pest populations",
+    "Use pond water for supplemental irrigation during dry spells":
+      "Use pond water for supplemental irrigation during dry spells",
+    "Use winnowers or grain cleaners to remove dust, chaff, and weed seeds":
+      "Use winnowers or grain cleaners to remove dust, chaff, and weed seeds",
     "User Role Notice": "User Role Notice",
-    "Using NDVI indices to assess crop vigor and water stress.": "Using NDVI indices to assess crop vigor and water stress.",
-    "Using Venturi injectors and fertilizer tanks to feed crops through drippers.": "Using Venturi injectors and fertilizer tanks to feed crops through drippers.",
-    "Using chemical pesticides safely requires wearing protective gloves and masks, calculating precise doses per acre, using hollow-cone nozzles, and spraying during calm wind conditions.": "Using chemical pesticides safely requires wearing protective gloves and masks, calculating precise doses per acre, using hollow-cone nozzles, and spraying during calm wind conditions.",
-    "Using rainfall forecasts and temperature windows for optimal sowing.": "Using rainfall forecasts and temperature windows for optimal sowing.",
-    "Using soil moisture sensors, weather stations, and smart controllers.": "Using soil moisture sensors, weather stations, and smart controllers.",
+    "Using NDVI indices to assess crop vigor and water stress.":
+      "Using NDVI indices to assess crop vigor and water stress.",
+    "Using Venturi injectors and fertilizer tanks to feed crops through drippers.":
+      "Using Venturi injectors and fertilizer tanks to feed crops through drippers.",
+    "Using chemical pesticides safely requires wearing protective gloves and masks, calculating precise doses per acre, using hollow-cone nozzles, and spraying during calm wind conditions.":
+      "Using chemical pesticides safely requires wearing protective gloves and masks, calculating precise doses per acre, using hollow-cone nozzles, and spraying during calm wind conditions.",
+    "Using rainfall forecasts and temperature windows for optimal sowing.":
+      "Using rainfall forecasts and temperature windows for optimal sowing.",
+    "Using soil moisture sensors, weather stations, and smart controllers.":
+      "Using soil moisture sensors, weather stations, and smart controllers.",
     "Uttar Pradesh": "Uttar Pradesh",
     "Value Addition & Primary Processing": "Value Addition & Primary Processing",
     "Varies by crop and district": "Varies by crop and district",
     "Varies by historical risk profile": "Varies by historical risk profile",
     "Vector Logistics": "Vector Logistics",
     "Vegetable Cultivation": "Vegetable Cultivation",
-    "Vegetables": "Vegetables",
-    "Vegetative": "Vegetative",
+    Vegetables: "Vegetables",
+    Vegetative: "Vegetative",
     "Verification Code": "Verification Code",
     "Verification Pending": "Verification Pending",
     "Verified Farmer": "Verified Farmer",
     "Verified mandi data": "Verified mandi data",
     "Verify Mobile": "Verify Mobile",
     "Vermicompost Organic (30 kg)": "Vermicompost Organic (30 kg)",
-    "Vermicompost uses earthworms to convert organic waste into high-grade humic manure. Panchagavya is a natural growth promoter prepared from cow dung, urine, milk, curd, and ghee.": "Vermicompost uses earthworms to convert organic waste into high-grade humic manure. Panchagavya is a natural growth promoter prepared from cow dung, urine, milk, curd, and ghee.",
+    "Vermicompost uses earthworms to convert organic waste into high-grade humic manure. Panchagavya is a natural growth promoter prepared from cow dung, urine, milk, curd, and ghee.":
+      "Vermicompost uses earthworms to convert organic waste into high-grade humic manure. Panchagavya is a natural growth promoter prepared from cow dung, urine, milk, curd, and ghee.",
     "Veterinary Officer Certification": "Veterinary Officer Certification",
-    "Veterinary Science, Dairy Technology, or Animal Husbandry students.": "Veterinary Science, Dairy Technology, or Animal Husbandry students.",
+    "Veterinary Science, Dairy Technology, or Animal Husbandry students.":
+      "Veterinary Science, Dairy Technology, or Animal Husbandry students.",
     "Video & Hands-on": "Video & Hands-on",
     "View All": "View All",
     "View All Courses": "View All Courses",
@@ -1343,15 +1781,17 @@ export const translations: Record<Language, Record<string, string>> = {
     "View Details": "View Details",
     "View Farm Tools": "View Farm Tools",
     "View Schemes": "View Schemes",
-    "Vijayawada Hwy, Eluru, Andhra Pradesh - 534002": "Vijayawada Hwy, Eluru, Andhra Pradesh - 534002",
+    "Vijayawada Hwy, Eluru, Andhra Pradesh - 534002":
+      "Vijayawada Hwy, Eluru, Andhra Pradesh - 534002",
     "Vijayawada, Andhra Pradesh": "Vijayawada, Andhra Pradesh",
-    "Village camps will verify land records and bank details.": "Village camps will verify land records and bank details.",
+    "Village camps will verify land records and bank details.":
+      "Village camps will verify land records and bank details.",
     "Water Conservation Cell": "Water Conservation Cell",
     "Water Pump 5 HP Diesel": "Water Pump 5 HP Diesel",
     "Water Soluble NPK 0:52:34 (1 kg)": "Water Soluble NPK 0:52:34 (1 kg)",
     "Water Soluble NPK 19:19:19 (1 kg)": "Water Soluble NPK 19:19:19 (1 kg)",
     "Watermelon Seed Sugar Baby (100 g)": "Watermelon Seed Sugar Baby (100 g)",
-    "Weather": "Weather",
+    Weather: "Weather",
     "Weather Based Crop Insurance": "Weather Based Crop Insurance",
     "Weather Forecast & Advisory": "Weather Forecast & Advisory",
     "Weather Index": "Weather Index",
@@ -1362,86 +1802,106 @@ export const translations: Record<Language, Record<string, string>> = {
     "Weather index": "Weather index",
     "Weather-Based Sowing Schedules": "Weather-Based Sowing Schedules",
     "Web Development": "Web Development",
-    "Wed": "Wed",
+    Wed: "Wed",
     "Weekly Mandi Update": "Weekly Mandi Update",
     "Weighing Scale Platform 300 kg": "Weighing Scale Platform 300 kg",
     "Weight / Count": "Weight / Count",
-    "Welcome": "Welcome",
+    Welcome: "Welcome",
     "West Godavari, Andhra Pradesh": "West Godavari, Andhra Pradesh",
-    "Wheat": "Wheat",
+    Wheat: "Wheat",
     "Wheat Seed PBW-343 (5 kg)": "Wheat Seed PBW-343 (5 kg)",
-    "Wheat needs guaranteed irrigation at Crown Root Initiation (CRI) stage": "Wheat needs guaranteed irrigation at Crown Root Initiation (CRI) stage",
+    "Wheat needs guaranteed irrigation at Crown Root Initiation (CRI) stage":
+      "Wheat needs guaranteed irrigation at Crown Root Initiation (CRI) stage",
     "Wheelbarrow Steel 100 L": "Wheelbarrow Steel 100 L",
-    "Whitefly counts are rising in nearby blocks. Begin field scouting.": "Whitefly counts are rising in nearby blocks. Begin field scouting.",
-    "Wind": "Wind",
+    "Whitefly counts are rising in nearby blocks. Begin field scouting.":
+      "Whitefly counts are rising in nearby blocks. Begin field scouting.",
+    Wind: "Wind",
     "Wind Speed": "Wind Speed",
-    "Work across the full stack on database schemas, REST APIs, and React interfaces.": "Work across the full stack on database schemas, REST APIs, and React interfaces.",
-    "Work with drones, remote sensing, crop monitoring, farm mapping, and precision agriculture technologies.": "Work with drones, remote sensing, crop monitoring, farm mapping, and precision agriculture technologies.",
-    "Work with farming communities and support farmer awareness programs, training sessions, and agricultural information sharing.": "Work with farming communities and support farmer awareness programs, training sessions, and agricultural information sharing.",
+    "Work across the full stack on database schemas, REST APIs, and React interfaces.":
+      "Work across the full stack on database schemas, REST APIs, and React interfaces.",
+    "Work with drones, remote sensing, crop monitoring, farm mapping, and precision agriculture technologies.":
+      "Work with drones, remote sensing, crop monitoring, farm mapping, and precision agriculture technologies.",
+    "Work with farming communities and support farmer awareness programs, training sessions, and agricultural information sharing.":
+      "Work with farming communities and support farmer awareness programs, training sessions, and agricultural information sharing.",
     "You haven't placed any orders yet.": "You haven't placed any orders yet.",
     "Your Cart": "Your Cart",
     "Your Cart is Empty": "Your Cart is Empty",
     "Your Order History": "Your Order History",
     "Your Orders": "Your Orders",
     "Your Products (Farmer Catalog)": "Your Products (Farmer Catalog)",
-    "Your application has been submitted successfully!": "Your application has been submitted successfully!",
+    "Your application has been submitted successfully!":
+      "Your application has been submitted successfully!",
     "Your cart is empty.": "Your cart is empty.",
-    "Your drip irrigation kit is on the way with expected delivery tomorrow.": "Your drip irrigation kit is on the way with expected delivery tomorrow.",
+    "Your drip irrigation kit is on the way with expected delivery tomorrow.":
+      "Your drip irrigation kit is on the way with expected delivery tomorrow.",
     "Zaid Season": "Zaid Season",
-    "Zaid crops offer quick short-duration income between main seasons": "Zaid crops offer quick short-duration income between main seasons",
+    "Zaid crops offer quick short-duration income between main seasons":
+      "Zaid crops offer quick short-duration income between main seasons",
     "Zero-Tillage & Conservation Agriculture": "Zero-Tillage & Conservation Agriculture",
-    "Zero-tillage involves sowing seeds directly into unploughed fields retaining previous crop residues. Using machines like Happy Seeder saves tractor fuel, preserves soil structure, and reduces soil evaporation.": "Zero-tillage involves sowing seeds directly into unploughed fields retaining previous crop residues. Using machines like Happy Seeder saves tractor fuel, preserves soil structure, and reduces soil evaporation.",
-    "Zero-tillage wheat sowing advances planting date by 7-10 days, preventing terminal heat stress in March.": "Zero-tillage wheat sowing advances planting date by 7-10 days, preventing terminal heat stress in March.",
+    "Zero-tillage involves sowing seeds directly into unploughed fields retaining previous crop residues. Using machines like Happy Seeder saves tractor fuel, preserves soil structure, and reduces soil evaporation.":
+      "Zero-tillage involves sowing seeds directly into unploughed fields retaining previous crop residues. Using machines like Happy Seeder saves tractor fuel, preserves soil structure, and reduces soil evaporation.",
+    "Zero-tillage wheat sowing advances planting date by 7-10 days, preventing terminal heat stress in March.":
+      "Zero-tillage wheat sowing advances planting date by 7-10 days, preventing terminal heat stress in March.",
     "Zinc Sulphate 21% (5 kg)": "Zinc Sulphate 21% (5 kg)",
     "Zip Code": "Zip Code",
     "Zoom In": "Zoom In",
     "Zoom Out": "Zoom Out",
-    "all": "all",
+    all: "all",
     "available space": "available space",
-    "completed": "completed",
-    "e-NAM (Electronic National Agriculture Market)": "e-NAM (Electronic National Agriculture Market)",
-    "e-NAM connects physical mandis across India into a single online trading platform. Farmers can sell produce to distant traders through transparent digital auctions and direct bank payments.": "e-NAM connects physical mandis across India into a single online trading platform. Farmers can sell produce to distant traders through transparent digital auctions and direct bank payments.",
-    "facilities": "facilities",
-    "fertilizers": "fertilizers",
-    "hrs": "hrs",
+    completed: "completed",
+    "e-NAM (Electronic National Agriculture Market)":
+      "e-NAM (Electronic National Agriculture Market)",
+    "e-NAM connects physical mandis across India into a single online trading platform. Farmers can sell produce to distant traders through transparent digital auctions and direct bank payments.":
+      "e-NAM connects physical mandis across India into a single online trading platform. Farmers can sell produce to distant traders through transparent digital auctions and direct bank payments.",
+    facilities: "facilities",
+    fertilizers: "fertilizers",
+    hrs: "hrs",
     "km away": "km away",
-    "lessons": "lessons",
+    lessons: "lessons",
     "products found": "products found",
-    "rain": "rain",
-    "seeds": "seeds",
-    "tools": "tools",
-      "Farm alerts": "Farm alerts",
+    rain: "rain",
+    seeds: "seeds",
+    tools: "tools",
+    "Farm alerts": "Farm alerts",
     "Agricultural Advisories": "Agricultural Advisories",
-    "Notifications": "Notifications",
+    Notifications: "Notifications",
     "Paddy mandi price up in Amritsar": "Paddy mandi price up in Amritsar",
-    "Average arrivals are stable and price improved by 1.8% today.": "Average arrivals are stable and price improved by 1.8% today.",
+    "Average arrivals are stable and price improved by 1.8% today.":
+      "Average arrivals are stable and price improved by 1.8% today.",
     "Rain advisory for Ludhiana belt": "Rain advisory for Ludhiana belt",
-    "Avoid foliar spray for the next 24 hours due to likely showers.": "Avoid foliar spray for the next 24 hours due to likely showers.",
+    "Avoid foliar spray for the next 24 hours due to likely showers.":
+      "Avoid foliar spray for the next 24 hours due to likely showers.",
     "KCC document camp this week": "KCC document camp this week",
-    "Village camps will verify land records and bank details.": "Village camps will verify land records and bank details.",
+    "Village camps will verify land records and bank details.":
+      "Village camps will verify land records and bank details.",
     "Order PF-2048 dispatched": "Order PF-2048 dispatched",
-    "Your drip irrigation kit is on the way with expected delivery tomorrow.": "Your drip irrigation kit is on the way with expected delivery tomorrow.",
+    "Your drip irrigation kit is on the way with expected delivery tomorrow.":
+      "Your drip irrigation kit is on the way with expected delivery tomorrow.",
     "Cotton pest threshold alert": "Cotton pest threshold alert",
-    "Whitefly counts are rising in nearby blocks. Begin field scouting.": "Whitefly counts are rising in nearby blocks. Begin field scouting.",
-    "3 unread advisories across market, weather, schemes, and orders.": "3 unread advisories across market, weather, schemes, and orders.",
+    "Whitefly counts are rising in nearby blocks. Begin field scouting.":
+      "Whitefly counts are rising in nearby blocks. Begin field scouting.",
+    "3 unread advisories across market, weather, schemes, and orders.":
+      "3 unread advisories across market, weather, schemes, and orders.",
     "12 min ago": "12 min ago",
     "1 hr ago": "1 hr ago",
-    "Yesterday": "Yesterday",
+    Yesterday: "Yesterday",
     "2 days ago": "2 days ago",
     "3 days ago": "3 days ago",
-    "Unread": "Unread",
-    "Read": "Read",
+    Unread: "Unread",
+    Read: "Read",
     "All Notifications": "All Notifications",
     "Mark all as read": "Mark all as read",
     "Mark all as unread": "Mark all as unread",
     "Mark as read": "Mark as read",
     "Mark as unread": "Mark as unread",
     "No notifications found": "No notifications found",
-      "Government Schemes": "Government Schemes",
+    "Government Schemes": "Government Schemes",
     "Government schemes": "Government Schemes",
-    "Schemes": "Schemes",
-    "Find farmer support programmes, eligibility, and official application links.": "Find farmer support programmes, eligibility, and official application links.",
-    "Search schemes by name, category, or eligibility...": "Search schemes by name, category, or eligibility...",
+    Schemes: "Schemes",
+    "Find farmer support programmes, eligibility, and official application links.":
+      "Find farmer support programmes, eligibility, and official application links.",
+    "Search schemes by name, category, or eligibility...":
+      "Search schemes by name, category, or eligibility...",
     "Search schemes...": "Search schemes...",
     "Official Portal": "Official Portal",
     "Learn More": "Learn More",
@@ -1464,12 +1924,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "Ministry of Agriculture & Farmers Welfare": "Ministry of Agriculture & Farmers Welfare",
     "Direct Benefit": "Direct Benefit",
     "Soil Advisory": "Soil Advisory",
-    "Credit": "Credit",
-    "Irrigation": "Irrigation",
-    "Insurance": "Insurance",
-    "Mechanization": "Mechanization",
+    Credit: "Credit",
+    Irrigation: "Irrigation",
+    Insurance: "Insurance",
+    Mechanization: "Mechanization",
     "Organic Farming": "Organic Farming",
-    "Infrastructure": "Infrastructure",
+    Infrastructure: "Infrastructure",
     "Open enrollment": "Open enrollment",
     "District camp calendar": "District camp calendar",
     "Open through banks": "Open through banks",
@@ -1486,1453 +1946,2588 @@ export const translations: Record<Language, Record<string, string>> = {
     "40-50% farm machinery subsidy": "40-50% farm machinery subsidy",
     "₹31,000 / hectare organic support": "₹31,000 / hectare organic support",
     "3% interest subvention on credit": "3% interest subvention on credit",
-    "Income assistance of ₹6,000 per year for eligible landholding farmer families through direct bank transfer in three equal installments.": "Income assistance of ₹6,000 per year for eligible landholding farmer families through direct bank transfer in three equal installments.",
-    "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use and soil fertility enhancement.": "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use and soil fertility enhancement.",
-    "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied agricultural activities at subsidized interest rates.": "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied agricultural activities at subsidized interest rates.",
-    "Financial assistance for drip and sprinkler irrigation systems to improve water-use efficiency and crop yield.": "Financial assistance for drip and sprinkler irrigation systems to improve water-use efficiency and crop yield.",
-    "Comprehensive crop insurance protection against drought, flood, pests, diseases, and post-harvest losses at minimal premium.": "Comprehensive crop insurance protection against drought, flood, pests, diseases, and post-harvest losses at minimal premium.",
-    "Subsidy up to 40-50% for purchasing tractors, power tillers, harvesters, and modern farm machinery.": "Subsidy up to 40-50% for purchasing tractors, power tillers, harvesters, and modern farm machinery.",
-    "Financial assistance and certification support for organic cluster farming, vermicomposting, and bio-inputs.": "Financial assistance and certification support for organic cluster farming, vermicomposting, and bio-inputs.",
-    "Long-term debt financing facility for post-harvest management infrastructure and community farming assets.": "Long-term debt financing facility for post-harvest management infrastructure and community farming assets.",
-    "Small and marginal farmers with verified land records and Aadhaar-linked bank accounts.": "Small and marginal farmers with verified land records and Aadhaar-linked bank accounts.",
-    "All registered cultivators can apply through local agriculture offices or Village Revenue Officers.": "All registered cultivators can apply through local agriculture offices or Village Revenue Officers.",
-    "Farmers, tenant cultivators, SHGs, and joint liability groups with active farming activity.": "Farmers, tenant cultivators, SHGs, and joint liability groups with active farming activity.",
-    "Farmers adopting approved micro-irrigation systems through empanelled vendors in target districts.": "Farmers adopting approved micro-irrigation systems through empanelled vendors in target districts.",
-    "All farmers growing notified crops in notified areas including tenant farmers.": "All farmers growing notified crops in notified areas including tenant farmers.",
-    "Individual farmers, SHGs, FPOs, and custom hiring centres in rural areas.": "Individual farmers, SHGs, FPOs, and custom hiring centres in rural areas.",
-    "Farmers forming organic clusters (minimum 50 acres) through local agriculture extension officers.": "Farmers forming organic clusters (minimum 50 acres) through local agriculture extension officers.",
-    "Primary Agricultural Credit Societies (PACS), FPOs, Agri-entrepreneurs, and Startups.": "Primary Agricultural Credit Societies (PACS), FPOs, Agri-entrepreneurs, and Startups.",
+    "Income assistance of ₹6,000 per year for eligible landholding farmer families through direct bank transfer in three equal installments.":
+      "Income assistance of ₹6,000 per year for eligible landholding farmer families through direct bank transfer in three equal installments.",
+    "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use and soil fertility enhancement.":
+      "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use and soil fertility enhancement.",
+    "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied agricultural activities at subsidized interest rates.":
+      "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied agricultural activities at subsidized interest rates.",
+    "Financial assistance for drip and sprinkler irrigation systems to improve water-use efficiency and crop yield.":
+      "Financial assistance for drip and sprinkler irrigation systems to improve water-use efficiency and crop yield.",
+    "Comprehensive crop insurance protection against drought, flood, pests, diseases, and post-harvest losses at minimal premium.":
+      "Comprehensive crop insurance protection against drought, flood, pests, diseases, and post-harvest losses at minimal premium.",
+    "Subsidy up to 40-50% for purchasing tractors, power tillers, harvesters, and modern farm machinery.":
+      "Subsidy up to 40-50% for purchasing tractors, power tillers, harvesters, and modern farm machinery.",
+    "Financial assistance and certification support for organic cluster farming, vermicomposting, and bio-inputs.":
+      "Financial assistance and certification support for organic cluster farming, vermicomposting, and bio-inputs.",
+    "Long-term debt financing facility for post-harvest management infrastructure and community farming assets.":
+      "Long-term debt financing facility for post-harvest management infrastructure and community farming assets.",
+    "Small and marginal farmers with verified land records and Aadhaar-linked bank accounts.":
+      "Small and marginal farmers with verified land records and Aadhaar-linked bank accounts.",
+    "All registered cultivators can apply through local agriculture offices or Village Revenue Officers.":
+      "All registered cultivators can apply through local agriculture offices or Village Revenue Officers.",
+    "Farmers, tenant cultivators, SHGs, and joint liability groups with active farming activity.":
+      "Farmers, tenant cultivators, SHGs, and joint liability groups with active farming activity.",
+    "Farmers adopting approved micro-irrigation systems through empanelled vendors in target districts.":
+      "Farmers adopting approved micro-irrigation systems through empanelled vendors in target districts.",
+    "All farmers growing notified crops in notified areas including tenant farmers.":
+      "All farmers growing notified crops in notified areas including tenant farmers.",
+    "Individual farmers, SHGs, FPOs, and custom hiring centres in rural areas.":
+      "Individual farmers, SHGs, FPOs, and custom hiring centres in rural areas.",
+    "Farmers forming organic clusters (minimum 50 acres) through local agriculture extension officers.":
+      "Farmers forming organic clusters (minimum 50 acres) through local agriculture extension officers.",
+    "Primary Agricultural Credit Societies (PACS), FPOs, Agri-entrepreneurs, and Startups.":
+      "Primary Agricultural Credit Societies (PACS), FPOs, Agri-entrepreneurs, and Startups.",
   },
   te: {
-    ". Access to this product management interface is strictly restricted to registered Farmers.": ". \u0c08 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u200c\u0c2b\u0c47\u0c38\u0c4d\u200c\u0c15\u0c41 \u0c2a\u0c4d\u0c30\u0c35\u0c47\u0c36\u0c02 \u0c15\u0c47\u0c35\u0c32\u0c02 \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c41\u0c28\u0c4d\u0c28 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c2e\u0c3e\u0c24\u0c4d\u0c30\u0c2e\u0c47 \u0c05\u0c28\u0c41\u0c2e\u0c24\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "10-digit mobile number": "10 \u0c05\u0c02\u0c15\u0c46\u0c32 \u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d \u0c38\u0c02\u0c16\u0c4d\u0c2f",
+    ". Access to this product management interface is strictly restricted to registered Farmers.":
+      ". \u0c08 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u200c\u0c2b\u0c47\u0c38\u0c4d\u200c\u0c15\u0c41 \u0c2a\u0c4d\u0c30\u0c35\u0c47\u0c36\u0c02 \u0c15\u0c47\u0c35\u0c32\u0c02 \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c41\u0c28\u0c4d\u0c28 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c2e\u0c3e\u0c24\u0c4d\u0c30\u0c2e\u0c47 \u0c05\u0c28\u0c41\u0c2e\u0c24\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "10-digit mobile number":
+      "10 \u0c05\u0c02\u0c15\u0c46\u0c32 \u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d \u0c38\u0c02\u0c16\u0c4d\u0c2f",
     "10-digit number": "10 \u0c05\u0c02\u0c15\u0c46\u0c32 \u0c38\u0c02\u0c16\u0c4d\u0c2f",
-    "100% Certified": "100% \u0c2a\u0c4d\u0c30\u0c3e\u0c2e\u0c3e\u0c23\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
+    "100% Certified":
+      "100% \u0c2a\u0c4d\u0c30\u0c3e\u0c2e\u0c3e\u0c23\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
     "100% Organic": "100% \u0c06\u0c30\u0c4d\u0c17\u0c3e\u0c28\u0c3f\u0c15\u0c4d",
-    "100% Safe & Secure": "100% \u0c38\u0c41\u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c24\u0c02 & \u0c2d\u0c26\u0c4d\u0c30\u0c02",
+    "100% Safe & Secure":
+      "100% \u0c38\u0c41\u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c24\u0c02 & \u0c2d\u0c26\u0c4d\u0c30\u0c02",
     "12 km/h": "12 \u0c15\u0c3f\u0c2e\u0c40/\u0c17\u0c02",
-    "120 products found": "120 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c4d\u0c21\u0c3e\u0c2f\u0c3f",
+    "120 products found":
+      "120 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c4d\u0c21\u0c3e\u0c2f\u0c3f",
     "35 hrs": "35 \u0c17\u0c02\u0c1f\u0c32\u0c41",
-    "A cohesive experience for ordering, planning, learning, and contacting advisors.": "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c1a\u0c47\u0c2f\u0c21\u0c02, \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15, \u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c32\u0c39\u0c3e\u0c26\u0c3e\u0c30\u0c41\u0c32\u0c28\u0c41 \u0c38\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c38\u0c2e\u0c17\u0c4d\u0c30 \u0c05\u0c28\u0c41\u0c2d\u0c35\u0c02.",
+    "A cohesive experience for ordering, planning, learning, and contacting advisors.":
+      "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c1a\u0c47\u0c2f\u0c21\u0c02, \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15, \u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c32\u0c39\u0c3e\u0c26\u0c3e\u0c30\u0c41\u0c32\u0c28\u0c41 \u0c38\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c38\u0c2e\u0c17\u0c4d\u0c30 \u0c05\u0c28\u0c41\u0c2d\u0c35\u0c02.",
     "AI / Data Science": "AI / \u0c21\u0c47\u0c1f\u0c3e \u0c38\u0c48\u0c28\u0c4d\u0c38\u0c4d",
-    "AI Research Lab": "AI \u0c30\u0c40\u0c38\u0c46\u0c30\u0c4d\u0c1a\u0c4d \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d",
+    "AI Research Lab":
+      "AI \u0c30\u0c40\u0c38\u0c46\u0c30\u0c4d\u0c1a\u0c4d \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d",
     "AI/ML Intern": "AI/ML \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
-    "ALL": "\u0c05\u0c28\u0c4d\u0c28\u0c3f",
+    ALL: "\u0c05\u0c28\u0c4d\u0c28\u0c3f",
     "Abohar Mandi": "\u0c05\u0c2c\u0c4b\u0c39\u0c30\u0c4d \u0c2e\u0c02\u0c21\u0c40",
     "Abohar, Punjab": "\u0c05\u0c2c\u0c4b\u0c39\u0c30\u0c4d, \u0c2a\u0c02\u0c1c\u0c3e\u0c2c\u0c4d",
     "About Us": "\u0c2e\u0c3e \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f",
-    "Access Restricted": "\u0c2a\u0c4d\u0c30\u0c35\u0c47\u0c36\u0c02 \u0c2a\u0c30\u0c3f\u0c2e\u0c3f\u0c24\u0c02 \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
-    "Access agricultural courses, internships, and skill training.": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41, \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d\u200c\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c48\u0c2a\u0c41\u0c23\u0c4d\u0c2f \u0c36\u0c3f\u0c15\u0c4d\u0c37\u0c23 \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f.",
-    "Accessing market prices, weather alerts, and expert advice via phone.": "\u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d \u0c2b\u0c4b\u0c28\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c41, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c28\u0c3f\u0c35\u0c47\u0c26\u0c3f\u0c15\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c3f\u0c2a\u0c41\u0c23\u0c41\u0c32 \u0c38\u0c32\u0c39\u0c3e\u0c32\u0c41 \u0c2a\u0c4a\u0c02\u0c26\u0c21\u0c02.",
-    "Accident & Disease Risk": "\u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26\u0c02 & \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c3f \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26\u0c02",
-    "Account & Activity": "\u0c16\u0c3e\u0c24\u0c3e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c3e\u0c30\u0c4d\u0c2f\u0c15\u0c32\u0c3e\u0c2a\u0c3e\u0c32\u0c41",
-    "Account & Shopping": "\u0c16\u0c3e\u0c24\u0c3e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c37\u0c3e\u0c2a\u0c3f\u0c02\u0c17\u0c4d",
-    "Account Role Notice": "\u0c16\u0c3e\u0c24\u0c3e \u0c2a\u0c3e\u0c24\u0c4d\u0c30 \u0c38\u0c42\u0c1a\u0c28",
-    "Acid Treatment & Maintenance of Drippers": "\u0c2f\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c1f\u0c4d\u0c30\u0c40\u0c1f\u0c4d\u0c2e\u0c46\u0c02\u0c1f\u0c4d & \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d\u0c2a\u0c30\u0c4d\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Access Restricted":
+      "\u0c2a\u0c4d\u0c30\u0c35\u0c47\u0c36\u0c02 \u0c2a\u0c30\u0c3f\u0c2e\u0c3f\u0c24\u0c02 \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
+    "Access agricultural courses, internships, and skill training.":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41, \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d\u200c\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c48\u0c2a\u0c41\u0c23\u0c4d\u0c2f \u0c36\u0c3f\u0c15\u0c4d\u0c37\u0c23 \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f.",
+    "Accessing market prices, weather alerts, and expert advice via phone.":
+      "\u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d \u0c2b\u0c4b\u0c28\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c41, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c28\u0c3f\u0c35\u0c47\u0c26\u0c3f\u0c15\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c3f\u0c2a\u0c41\u0c23\u0c41\u0c32 \u0c38\u0c32\u0c39\u0c3e\u0c32\u0c41 \u0c2a\u0c4a\u0c02\u0c26\u0c21\u0c02.",
+    "Accident & Disease Risk":
+      "\u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26\u0c02 & \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c3f \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26\u0c02",
+    "Account & Activity":
+      "\u0c16\u0c3e\u0c24\u0c3e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c3e\u0c30\u0c4d\u0c2f\u0c15\u0c32\u0c3e\u0c2a\u0c3e\u0c32\u0c41",
+    "Account & Shopping":
+      "\u0c16\u0c3e\u0c24\u0c3e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c37\u0c3e\u0c2a\u0c3f\u0c02\u0c17\u0c4d",
+    "Account Role Notice":
+      "\u0c16\u0c3e\u0c24\u0c3e \u0c2a\u0c3e\u0c24\u0c4d\u0c30 \u0c38\u0c42\u0c1a\u0c28",
+    "Acid Treatment & Maintenance of Drippers":
+      "\u0c2f\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c1f\u0c4d\u0c30\u0c40\u0c1f\u0c4d\u0c2e\u0c46\u0c02\u0c1f\u0c4d & \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d\u0c2a\u0c30\u0c4d\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
     "Across India": "\u0c2d\u0c3e\u0c30\u0c24\u0c26\u0c47\u0c36\u0c2e\u0c02\u0c24\u0c1f\u0c3e",
-    "Action": "\u0c1a\u0c30\u0c4d\u0c2f",
-    "Active Applications": "\u0c38\u0c15\u0c4d\u0c30\u0c3f\u0c2f \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41\u0c32\u0c41",
-    "Active Listed Products": "\u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41",
-    "Active Schemes": "\u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41",
-    "Actuarial premium varies by crop and district historical risk profiles, with government premium subsidies available.": "\u0c2a\u0c02\u0c1f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e \u0c1a\u0c3e\u0c30\u0c3f\u0c24\u0c4d\u0c30\u0c15 \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26\u0c3e\u0c32 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c2a\u0c4d\u0c30\u0c40\u0c2e\u0c3f\u0c2f\u0c02 \u0c2e\u0c3e\u0c30\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f, \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c38\u0c2c\u0c4d\u0c38\u0c3f\u0c21\u0c40\u0c32\u0c41 \u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
-    "Add liquid soap when preparing neem spray to ensure smooth emulsification in water.": "\u0c35\u0c47\u0c2a \u0c28\u0c42\u0c28\u0c46 \u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b \u0c2c\u0c3e\u0c17\u0c3e \u0c15\u0c32\u0c35\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c15\u0c4a\u0c26\u0c4d\u0c26\u0c3f\u0c17\u0c3e \u0c26\u0c4d\u0c30\u0c35 \u0c38\u0c2c\u0c4d\u0c2c\u0c41\u0c28\u0c41 \u0c1c\u0c4b\u0c21\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Add products to the cart before checking out.": "\u0c1a\u0c46\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c1a\u0c47\u0c38\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c2e\u0c40 \u0c15\u0c3e\u0c30\u0c4d\u0c1f\u0c4d\u200c\u0c15\u0c3f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c1c\u0c4b\u0c21\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Add to Cart": "\u0c15\u0c3e\u0c30\u0c4d\u0c1f\u0c4d\u0c15\u0c41 \u0c1c\u0c4b\u0c21\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Address": "\u0c1a\u0c3f\u0c30\u0c41\u0c28\u0c3e\u0c2e\u0c3e",
-    "Admin": "\u0c05\u0c21\u0c4d\u0c2e\u0c3f\u0c28\u0c4d",
-    "Admin Console": "\u0c05\u0c21\u0c4d\u0c2e\u0c3f\u0c28\u0c4d \u0c15\u0c28\u0c4d\u0c38\u0c4b\u0c32\u0c4d",
-    "Admin Overview": "\u0c05\u0c21\u0c4d\u0c2e\u0c3f\u0c28\u0c4d \u0c05\u0c35\u0c32\u0c4b\u0c15\u0c28\u0c02",
-    "Administered through empanelled public and private general insurance companies under oversight of State Agriculture Departments.": "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c36\u0c3e\u0c16\u0c32 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23\u0c32\u0c4b \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4d\u0c30\u0c48\u0c35\u0c47\u0c1f\u0c4d \u0c2c\u0c40\u0c2e\u0c3e \u0c15\u0c02\u0c2a\u0c46\u0c28\u0c40\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Adopt bird perches in fields for natural predator feeding": "\u0c2a\u0c15\u0c4d\u0c37\u0c41\u0c32\u0c41 \u0c35\u0c3e\u0c32\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c4a\u0c32\u0c02\u0c32\u0c4b \u0c2a\u0c15\u0c4d\u0c37\u0c3f \u0c38\u0c4d\u0c25\u0c3e\u0c35\u0c30\u0c3e\u0c32\u0c28\u0c41 (\u0c2c\u0c30\u0c4d\u0c21\u0c4d \u0c2a\u0c30\u0c4d\u0c1a\u0c46\u0c38\u0c4d) \u0c0f\u0c30\u0c4d\u0c2a\u0c3e\u0c1f\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Adopt crop rotation to maintain soil microbial balance": "\u0c28\u0c47\u0c32 \u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e\u0c1c\u0c40\u0c35\u0c41\u0c32 \u0c38\u0c2e\u0c24\u0c41\u0c32\u0c4d\u0c2f\u0c24\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f\u0c28\u0c3f \u0c05\u0c35\u0c32\u0c02\u0c2c\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Adopt short-duration varieties in drought-prone districts": "\u0c15\u0c30\u0c41\u0c35\u0c41 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c3e\u0c32\u0c32\u0c4b \u0c38\u0c4d\u0c35\u0c32\u0c4d\u0c2a\u0c15\u0c3e\u0c32\u0c3f\u0c15 \u0c30\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.": "\u0c35\u0c46\u0c2c\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d, \u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d, AI/ML \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d\u200c\u0c32\u0c32\u0c4b \u0c2e\u0c40 \u0c28\u0c48\u0c2a\u0c41\u0c23\u0c4d\u0c2f\u0c3e\u0c32\u0c28\u0c41 \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c41\u0c2a\u0c30\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Advanced": "\u0c05\u0c27\u0c41\u0c28\u0c3e\u0c24\u0c28 \u0c38\u0c4d\u0c25\u0c3e\u0c2f\u0c3f",
+    Action: "\u0c1a\u0c30\u0c4d\u0c2f",
+    "Active Applications":
+      "\u0c38\u0c15\u0c4d\u0c30\u0c3f\u0c2f \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41\u0c32\u0c41",
+    "Active Listed Products":
+      "\u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41",
+    "Active Schemes":
+      "\u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41",
+    "Actuarial premium varies by crop and district historical risk profiles, with government premium subsidies available.":
+      "\u0c2a\u0c02\u0c1f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e \u0c1a\u0c3e\u0c30\u0c3f\u0c24\u0c4d\u0c30\u0c15 \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26\u0c3e\u0c32 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c2a\u0c4d\u0c30\u0c40\u0c2e\u0c3f\u0c2f\u0c02 \u0c2e\u0c3e\u0c30\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f, \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c38\u0c2c\u0c4d\u0c38\u0c3f\u0c21\u0c40\u0c32\u0c41 \u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
+    "Add liquid soap when preparing neem spray to ensure smooth emulsification in water.":
+      "\u0c35\u0c47\u0c2a \u0c28\u0c42\u0c28\u0c46 \u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b \u0c2c\u0c3e\u0c17\u0c3e \u0c15\u0c32\u0c35\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c15\u0c4a\u0c26\u0c4d\u0c26\u0c3f\u0c17\u0c3e \u0c26\u0c4d\u0c30\u0c35 \u0c38\u0c2c\u0c4d\u0c2c\u0c41\u0c28\u0c41 \u0c1c\u0c4b\u0c21\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Add products to the cart before checking out.":
+      "\u0c1a\u0c46\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c1a\u0c47\u0c38\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c2e\u0c40 \u0c15\u0c3e\u0c30\u0c4d\u0c1f\u0c4d\u200c\u0c15\u0c3f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c1c\u0c4b\u0c21\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Add to Cart":
+      "\u0c15\u0c3e\u0c30\u0c4d\u0c1f\u0c4d\u0c15\u0c41 \u0c1c\u0c4b\u0c21\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    Address: "\u0c1a\u0c3f\u0c30\u0c41\u0c28\u0c3e\u0c2e\u0c3e",
+    Admin: "\u0c05\u0c21\u0c4d\u0c2e\u0c3f\u0c28\u0c4d",
+    "Admin Console":
+      "\u0c05\u0c21\u0c4d\u0c2e\u0c3f\u0c28\u0c4d \u0c15\u0c28\u0c4d\u0c38\u0c4b\u0c32\u0c4d",
+    "Admin Overview":
+      "\u0c05\u0c21\u0c4d\u0c2e\u0c3f\u0c28\u0c4d \u0c05\u0c35\u0c32\u0c4b\u0c15\u0c28\u0c02",
+    "Administered through empanelled public and private general insurance companies under oversight of State Agriculture Departments.":
+      "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c36\u0c3e\u0c16\u0c32 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23\u0c32\u0c4b \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4d\u0c30\u0c48\u0c35\u0c47\u0c1f\u0c4d \u0c2c\u0c40\u0c2e\u0c3e \u0c15\u0c02\u0c2a\u0c46\u0c28\u0c40\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Adopt bird perches in fields for natural predator feeding":
+      "\u0c2a\u0c15\u0c4d\u0c37\u0c41\u0c32\u0c41 \u0c35\u0c3e\u0c32\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c4a\u0c32\u0c02\u0c32\u0c4b \u0c2a\u0c15\u0c4d\u0c37\u0c3f \u0c38\u0c4d\u0c25\u0c3e\u0c35\u0c30\u0c3e\u0c32\u0c28\u0c41 (\u0c2c\u0c30\u0c4d\u0c21\u0c4d \u0c2a\u0c30\u0c4d\u0c1a\u0c46\u0c38\u0c4d) \u0c0f\u0c30\u0c4d\u0c2a\u0c3e\u0c1f\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Adopt crop rotation to maintain soil microbial balance":
+      "\u0c28\u0c47\u0c32 \u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e\u0c1c\u0c40\u0c35\u0c41\u0c32 \u0c38\u0c2e\u0c24\u0c41\u0c32\u0c4d\u0c2f\u0c24\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f\u0c28\u0c3f \u0c05\u0c35\u0c32\u0c02\u0c2c\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Adopt short-duration varieties in drought-prone districts":
+      "\u0c15\u0c30\u0c41\u0c35\u0c41 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c3e\u0c32\u0c32\u0c4b \u0c38\u0c4d\u0c35\u0c32\u0c4d\u0c2a\u0c15\u0c3e\u0c32\u0c3f\u0c15 \u0c30\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.":
+      "\u0c35\u0c46\u0c2c\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d, \u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d, AI/ML \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d\u200c\u0c32\u0c32\u0c4b \u0c2e\u0c40 \u0c28\u0c48\u0c2a\u0c41\u0c23\u0c4d\u0c2f\u0c3e\u0c32\u0c28\u0c41 \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c41\u0c2a\u0c30\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    Advanced: "\u0c05\u0c27\u0c41\u0c28\u0c3e\u0c24\u0c28 \u0c38\u0c4d\u0c25\u0c3e\u0c2f\u0c3f",
     "Advisor Pooja": "\u0c05\u0c21\u0c4d\u0c35\u0c48\u0c1c\u0c30\u0c4d \u0c2a\u0c42\u0c1c",
-    "Advisory": "\u0c38\u0c32\u0c39\u0c3e",
-    "Agmarknet Verified": "\u0c05\u0c17\u0c4d\u200c\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c4d\u200c\u0c28\u0c46\u0c1f\u0c4d \u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
+    Advisory: "\u0c38\u0c32\u0c39\u0c3e",
+    "Agmarknet Verified":
+      "\u0c05\u0c17\u0c4d\u200c\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c4d\u200c\u0c28\u0c46\u0c1f\u0c4d \u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
     "Agra Mandi": "\u0c06\u0c17\u0c4d\u0c30\u0c3e \u0c2e\u0c02\u0c21\u0c40",
-    "Agra, Uttar Pradesh": "\u0c06\u0c17\u0c4d\u0c30\u0c3e, \u0c09\u0c24\u0c4d\u0c24\u0c30 \u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
+    "Agra, Uttar Pradesh":
+      "\u0c06\u0c17\u0c4d\u0c30\u0c3e, \u0c09\u0c24\u0c4d\u0c24\u0c30 \u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
     "Agri Portal": "\u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c2a\u0c4b\u0c30\u0c4d\u0c1f\u0c32\u0c4d",
     "Agri Revolution": "\u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c35\u0c3f\u0c2a\u0c4d\u0c32\u0c35\u0c02",
-    "Agri Storage Hub": "\u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c39\u0c2c\u0c4d",
-    "AgriData Analytics": "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c21\u0c47\u0c1f\u0c3e \u0c05\u0c28\u0c32\u0c3f\u0c1f\u0c3f\u0c15\u0c4d\u0c38\u0c4d",
-    "AgriFood Processing Unit": "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c2b\u0c41\u0c21\u0c4d \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d \u0c2f\u0c42\u0c28\u0c3f\u0c1f\u0c4d",
-    "AgriSoil Research Centre": "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c30\u0c40\u0c38\u0c46\u0c30\u0c4d\u0c1a\u0c4d \u0c38\u0c46\u0c02\u0c1f\u0c30\u0c4d",
-    "AgriTech Field Operations Intern": "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c2b\u0c40\u0c32\u0c4d\u0c21\u0c4d \u0c06\u0c2a\u0c30\u0c47\u0c37\u0c28\u0c4d\u0c38\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
-    "AgriTech Innovations": "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c07\u0c28\u0c4d\u0c28\u0c4b\u0c35\u0c47\u0c37\u0c28\u0c4d\u0c38\u0c4d",
-    "AgriTech Solutions": "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c38\u0c4a\u0c32\u0c4d\u0c2f\u0c42\u0c37\u0c28\u0c4d\u0c38\u0c4d",
-    "Agricultural Courses": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
-    "Agricultural Extension": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c3f\u0c38\u0c4d\u0c24\u0c30\u0c23",
-    "Agricultural Extension Intern": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c3f\u0c38\u0c4d\u0c24\u0c30\u0c23 \u0c38\u0c47\u0c35\u0c32 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
-    "Agricultural drones spray liquid fertilizers and pesticides in 1/10th of the time taken by hand sprayers, using 90% less water and ensuring ultra-uniform chemical coverage across fields.": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u0c32\u0c41 \u0c05\u0c24\u0c3f \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b, \u0c1a\u0c3e\u0c32\u0c3e \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c28\u0c40\u0c1f\u0c3f\u0c24\u0c4b \u0c2a\u0c4a\u0c32\u0c2e\u0c02\u0c24\u0c3e \u0c38\u0c2e\u0c3e\u0c28\u0c02\u0c17\u0c3e \u0c2e\u0c02\u0c26\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
-    "Agriculture Internship Hub": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02",
-    "Agriculture Learning Hub": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02",
-    "Agriculture Research": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c36\u0c4b\u0c27\u0c28",
-    "Agriculture Tools": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41",
-    "Agritech": "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d",
-    "Agritech Internship": "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d",
-    "Agroforestry & Carbon Farming Integration": "\u0c05\u0c17\u0c4d\u0c30\u0c4b\u0c2b\u0c3e\u0c30\u0c46\u0c38\u0c4d\u0c1f\u0c4d\u0c30\u0c40 (\u0c05\u0c1f\u0c35\u0c40 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02) & \u0c15\u0c3e\u0c30\u0c4d\u0c2c\u0c28\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c17\u0c4d",
-    "Agroforestry integrates fast-growing trees along field borders. Trees act as windbreaks, yield timber/fruit income, capture carbon, and enrich soil through deep root nutrient cycling.": "\u0c2a\u0c4a\u0c32\u0c02 \u0c38\u0c30\u0c3f\u0c39\u0c26\u0c4d\u0c26\u0c41\u0c32\u0c4d\u0c32\u0c4b \u0c35\u0c47\u0c17\u0c02\u0c17\u0c3e \u0c2a\u0c46\u0c30\u0c3f\u0c17\u0c47 \u0c1a\u0c46\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c28\u0c3e\u0c1f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c24\u0c41\u0c2b\u0c3e\u0c28\u0c41 \u0c08\u0c26\u0c41\u0c30\u0c41\u0c17\u0c3e\u0c32\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2a\u0c02\u0c1f\u0c15\u0c41 \u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c32\u0c2d\u0c3f\u0c02\u0c1a\u0c21\u0c02\u0c24\u0c4b \u0c2a\u0c3e\u0c1f\u0c41 \u0c05\u0c26\u0c28\u0c2a\u0c41 \u0c06\u0c26\u0c3e\u0c2f\u0c02 \u0c35\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "AlgoExpert Hub": "\u0c06\u0c32\u0c4d\u0c17\u0c4b\u0c0e\u0c15\u0c4d\u0c38\u0c4d\u200c\u0c2a\u0c30\u0c4d\u0c1f\u0c4d \u0c39\u0c2c\u0c4d",
-    "All": "\u0c05\u0c28\u0c4d\u0c28\u0c3f",
-    "All Courses": "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
+    "Agri Storage Hub":
+      "\u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c39\u0c2c\u0c4d",
+    "AgriData Analytics":
+      "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c21\u0c47\u0c1f\u0c3e \u0c05\u0c28\u0c32\u0c3f\u0c1f\u0c3f\u0c15\u0c4d\u0c38\u0c4d",
+    "AgriFood Processing Unit":
+      "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c2b\u0c41\u0c21\u0c4d \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d \u0c2f\u0c42\u0c28\u0c3f\u0c1f\u0c4d",
+    "AgriSoil Research Centre":
+      "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c30\u0c40\u0c38\u0c46\u0c30\u0c4d\u0c1a\u0c4d \u0c38\u0c46\u0c02\u0c1f\u0c30\u0c4d",
+    "AgriTech Field Operations Intern":
+      "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c2b\u0c40\u0c32\u0c4d\u0c21\u0c4d \u0c06\u0c2a\u0c30\u0c47\u0c37\u0c28\u0c4d\u0c38\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
+    "AgriTech Innovations":
+      "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c07\u0c28\u0c4d\u0c28\u0c4b\u0c35\u0c47\u0c37\u0c28\u0c4d\u0c38\u0c4d",
+    "AgriTech Solutions":
+      "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c38\u0c4a\u0c32\u0c4d\u0c2f\u0c42\u0c37\u0c28\u0c4d\u0c38\u0c4d",
+    "Agricultural Courses":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
+    "Agricultural Extension":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c3f\u0c38\u0c4d\u0c24\u0c30\u0c23",
+    "Agricultural Extension Intern":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c3f\u0c38\u0c4d\u0c24\u0c30\u0c23 \u0c38\u0c47\u0c35\u0c32 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
+    "Agricultural drones spray liquid fertilizers and pesticides in 1/10th of the time taken by hand sprayers, using 90% less water and ensuring ultra-uniform chemical coverage across fields.":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u0c32\u0c41 \u0c05\u0c24\u0c3f \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b, \u0c1a\u0c3e\u0c32\u0c3e \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c28\u0c40\u0c1f\u0c3f\u0c24\u0c4b \u0c2a\u0c4a\u0c32\u0c2e\u0c02\u0c24\u0c3e \u0c38\u0c2e\u0c3e\u0c28\u0c02\u0c17\u0c3e \u0c2e\u0c02\u0c26\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
+    "Agriculture Internship Hub":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02",
+    "Agriculture Learning Hub":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02",
+    "Agriculture Research":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c36\u0c4b\u0c27\u0c28",
+    "Agriculture Tools":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41",
+    Agritech: "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d",
+    "Agritech Internship":
+      "\u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d",
+    "Agroforestry & Carbon Farming Integration":
+      "\u0c05\u0c17\u0c4d\u0c30\u0c4b\u0c2b\u0c3e\u0c30\u0c46\u0c38\u0c4d\u0c1f\u0c4d\u0c30\u0c40 (\u0c05\u0c1f\u0c35\u0c40 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02) & \u0c15\u0c3e\u0c30\u0c4d\u0c2c\u0c28\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c17\u0c4d",
+    "Agroforestry integrates fast-growing trees along field borders. Trees act as windbreaks, yield timber/fruit income, capture carbon, and enrich soil through deep root nutrient cycling.":
+      "\u0c2a\u0c4a\u0c32\u0c02 \u0c38\u0c30\u0c3f\u0c39\u0c26\u0c4d\u0c26\u0c41\u0c32\u0c4d\u0c32\u0c4b \u0c35\u0c47\u0c17\u0c02\u0c17\u0c3e \u0c2a\u0c46\u0c30\u0c3f\u0c17\u0c47 \u0c1a\u0c46\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c28\u0c3e\u0c1f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c24\u0c41\u0c2b\u0c3e\u0c28\u0c41 \u0c08\u0c26\u0c41\u0c30\u0c41\u0c17\u0c3e\u0c32\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2a\u0c02\u0c1f\u0c15\u0c41 \u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c32\u0c2d\u0c3f\u0c02\u0c1a\u0c21\u0c02\u0c24\u0c4b \u0c2a\u0c3e\u0c1f\u0c41 \u0c05\u0c26\u0c28\u0c2a\u0c41 \u0c06\u0c26\u0c3e\u0c2f\u0c02 \u0c35\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "AlgoExpert Hub":
+      "\u0c06\u0c32\u0c4d\u0c17\u0c4b\u0c0e\u0c15\u0c4d\u0c38\u0c4d\u200c\u0c2a\u0c30\u0c4d\u0c1f\u0c4d \u0c39\u0c2c\u0c4d",
+    All: "\u0c05\u0c28\u0c4d\u0c28\u0c3f",
+    "All Courses":
+      "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
     "All Crops": "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c02\u0c1f\u0c32\u0c41",
-    "All Internships": "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d\u0c32\u0c41",
+    "All Internships":
+      "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d\u0c32\u0c41",
     "All Orders": "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u0c32\u0c41",
-    "All Products": "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41",
-    "All States": "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c3e\u0c32\u0c41",
-    "All Statuses": "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c41\u0c32\u0c41",
-    "All registered cultivators can apply through local agriculture offices.": "\u0c28\u0c2e\u0c4b\u0c26\u0c3f\u0c24 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c02\u0c26\u0c30\u0c42 \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c15\u0c3e\u0c30\u0c4d\u0c2f\u0c3e\u0c32\u0c2f\u0c3e\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
-    "Allied farming": "\u0c05\u0c28\u0c41\u0c2c\u0c02\u0c27 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
-    "Already have an account? Sign In": "\u0c07\u0c2a\u0c4d\u0c2a\u0c1f\u0c3f\u0c15\u0c47 \u0c16\u0c3e\u0c24\u0c3e \u0c09\u0c02\u0c26\u0c3e? \u0c32\u0c3e\u0c17\u0c3f\u0c28\u0c4d \u0c05\u0c35\u0c4d\u0c35\u0c02\u0c21\u0c3f",
-    "Alternating cereals with legumes to maintain soil fertility and break pest cycles.": "\u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c2a\u0c2a\u0c4d\u0c2a\u0c41\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32 \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c2e\u0c3e\u0c30\u0c4d\u0c1a\u0c3f \u0c35\u0c47\u0c2f\u0c21\u0c02.",
-    "Always run clean water through drip lines for 15 minutes after fertigation to wash residual chemical salts.": "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2a\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c3f\u0c28 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 15 \u0c28\u0c3f\u0c2e\u0c3f\u0c37\u0c3e\u0c32\u0c41 \u0c2e\u0c02\u0c1a\u0c3f \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c2a\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c2a\u0c48\u0c2a\u0c41\u0c32\u0c28\u0c41 \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Always wear gloves, face mask, and eye protection during mixing": "\u0c2e\u0c02\u0c26\u0c41\u0c32\u0c41 \u0c15\u0c32\u0c3f\u0c2a\u0c47\u0c1f\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c2e\u0c3e\u0c38\u0c4d\u0c15\u0c4d, \u0c1a\u0c47\u0c24\u0c3f \u0c24\u0c4a\u0c21\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c24\u0c2a\u0c4d\u0c2a\u0c28\u0c3f\u0c38\u0c30\u0c3f\u0c17\u0c3e \u0c27\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Ammonium Sulphate (50 kg)": "\u0c05\u0c2e\u0c4d\u0c2e\u0c4b\u0c28\u0c3f\u0c2f\u0c02 \u0c38\u0c32\u0c4d\u0c2b\u0c47\u0c1f\u0c4d (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "All Products":
+      "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41",
+    "All States":
+      "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c3e\u0c32\u0c41",
+    "All Statuses":
+      "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c41\u0c32\u0c41",
+    "All registered cultivators can apply through local agriculture offices.":
+      "\u0c28\u0c2e\u0c4b\u0c26\u0c3f\u0c24 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c02\u0c26\u0c30\u0c42 \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c15\u0c3e\u0c30\u0c4d\u0c2f\u0c3e\u0c32\u0c2f\u0c3e\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
+    "Allied farming":
+      "\u0c05\u0c28\u0c41\u0c2c\u0c02\u0c27 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    "Already have an account? Sign In":
+      "\u0c07\u0c2a\u0c4d\u0c2a\u0c1f\u0c3f\u0c15\u0c47 \u0c16\u0c3e\u0c24\u0c3e \u0c09\u0c02\u0c26\u0c3e? \u0c32\u0c3e\u0c17\u0c3f\u0c28\u0c4d \u0c05\u0c35\u0c4d\u0c35\u0c02\u0c21\u0c3f",
+    "Alternating cereals with legumes to maintain soil fertility and break pest cycles.":
+      "\u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c2a\u0c2a\u0c4d\u0c2a\u0c41\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32 \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c2e\u0c3e\u0c30\u0c4d\u0c1a\u0c3f \u0c35\u0c47\u0c2f\u0c21\u0c02.",
+    "Always run clean water through drip lines for 15 minutes after fertigation to wash residual chemical salts.":
+      "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2a\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c3f\u0c28 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 15 \u0c28\u0c3f\u0c2e\u0c3f\u0c37\u0c3e\u0c32\u0c41 \u0c2e\u0c02\u0c1a\u0c3f \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c2a\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c2a\u0c48\u0c2a\u0c41\u0c32\u0c28\u0c41 \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Always wear gloves, face mask, and eye protection during mixing":
+      "\u0c2e\u0c02\u0c26\u0c41\u0c32\u0c41 \u0c15\u0c32\u0c3f\u0c2a\u0c47\u0c1f\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c2e\u0c3e\u0c38\u0c4d\u0c15\u0c4d, \u0c1a\u0c47\u0c24\u0c3f \u0c24\u0c4a\u0c21\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c24\u0c2a\u0c4d\u0c2a\u0c28\u0c3f\u0c38\u0c30\u0c3f\u0c17\u0c3e \u0c27\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Ammonium Sulphate (50 kg)":
+      "\u0c05\u0c2e\u0c4d\u0c2e\u0c4b\u0c28\u0c3f\u0c2f\u0c02 \u0c38\u0c32\u0c4d\u0c2b\u0c47\u0c1f\u0c4d (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Amritsar Mandi": "\u0c05\u0c2e\u0c43\u0c24\u0c4d\u0c38\u0c30\u0c4d \u0c2e\u0c02\u0c21\u0c40",
-    "Amritsar, Punjab": "\u0c05\u0c2e\u0c43\u0c24\u0c4d\u0c38\u0c30\u0c4d, \u0c2a\u0c02\u0c1c\u0c3e\u0c2c\u0c4d",
-    "Analyze agricultural datasets, create visualization dashboards, and build predictive models.": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c21\u0c47\u0c1f\u0c3e\u0c38\u0c46\u0c1f\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c35\u0c3f\u0c36\u0c4d\u0c32\u0c47\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c02\u0c1a\u0c28\u0c3e \u0c2e\u0c4b\u0c21\u0c33\u0c4d\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Analyze pH, N-P-K levels, organic carbon, and electrical conductivity": "pH, N-P-K, \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c15\u0c3e\u0c30\u0c4d\u0c2c\u0c28\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c41\u0c24\u0c4d \u0c35\u0c3e\u0c39\u0c15\u0c24\u0c28\u0c41 \u0c35\u0c3f\u0c36\u0c4d\u0c32\u0c47\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c02",
+    "Amritsar, Punjab":
+      "\u0c05\u0c2e\u0c43\u0c24\u0c4d\u0c38\u0c30\u0c4d, \u0c2a\u0c02\u0c1c\u0c3e\u0c2c\u0c4d",
+    "Analyze agricultural datasets, create visualization dashboards, and build predictive models.":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c21\u0c47\u0c1f\u0c3e\u0c38\u0c46\u0c1f\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c35\u0c3f\u0c36\u0c4d\u0c32\u0c47\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c02\u0c1a\u0c28\u0c3e \u0c2e\u0c4b\u0c21\u0c33\u0c4d\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Analyze pH, N-P-K levels, organic carbon, and electrical conductivity":
+      "pH, N-P-K, \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c15\u0c3e\u0c30\u0c4d\u0c2c\u0c28\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c41\u0c24\u0c4d \u0c35\u0c3e\u0c39\u0c15\u0c24\u0c28\u0c41 \u0c35\u0c3f\u0c36\u0c4d\u0c32\u0c47\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c02",
     "Animal Nutrition": "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c2a\u0c4b\u0c37\u0c23",
-    "Animal Valuation": "\u0c1c\u0c02\u0c24\u0c41\u0c35\u0c41\u0c32 \u0c35\u0c3f\u0c32\u0c41\u0c35 \u0c32\u0c46\u0c15\u0c4d\u0c15\u0c3f\u0c02\u0c2a\u0c41",
-    "Animals are tagged with tamper-proof ear tags or RFID microchips recorded in animal health databases for seamless claim verification.": "\u0c15\u0c4d\u0c32\u0c46\u0c2f\u0c3f\u0c2e\u0c4d \u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c23 \u0c15\u0c4b\u0c38\u0c02 \u0c1c\u0c02\u0c24\u0c41\u0c35\u0c41\u0c32\u0c15\u0c41 RFID \u0c1f\u0c4d\u0c2f\u0c3e\u0c17\u0c4d\u200c\u0c32\u0c41 \u0c05\u0c2e\u0c30\u0c4d\u0c1a\u0c2c\u0c21\u0c24\u0c3e\u0c2f\u0c3f.",
-    "Aphids and thrips suck sap from tender top leaves": "\u0c2a\u0c47\u0c28\u0c41\u0c2c\u0c02\u0c15 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c3e\u0c2e\u0c30 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c32\u0c47\u0c24 \u0c06\u0c15\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c30\u0c38\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c40\u0c32\u0c41\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
+    "Animal Valuation":
+      "\u0c1c\u0c02\u0c24\u0c41\u0c35\u0c41\u0c32 \u0c35\u0c3f\u0c32\u0c41\u0c35 \u0c32\u0c46\u0c15\u0c4d\u0c15\u0c3f\u0c02\u0c2a\u0c41",
+    "Animals are tagged with tamper-proof ear tags or RFID microchips recorded in animal health databases for seamless claim verification.":
+      "\u0c15\u0c4d\u0c32\u0c46\u0c2f\u0c3f\u0c2e\u0c4d \u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c23 \u0c15\u0c4b\u0c38\u0c02 \u0c1c\u0c02\u0c24\u0c41\u0c35\u0c41\u0c32\u0c15\u0c41 RFID \u0c1f\u0c4d\u0c2f\u0c3e\u0c17\u0c4d\u200c\u0c32\u0c41 \u0c05\u0c2e\u0c30\u0c4d\u0c1a\u0c2c\u0c21\u0c24\u0c3e\u0c2f\u0c3f.",
+    "Aphids and thrips suck sap from tender top leaves":
+      "\u0c2a\u0c47\u0c28\u0c41\u0c2c\u0c02\u0c15 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c3e\u0c2e\u0c30 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c32\u0c47\u0c24 \u0c06\u0c15\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c30\u0c38\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c40\u0c32\u0c41\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
     "App Store": "\u0c2f\u0c3e\u0c2a\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c4d",
-    "Application Form": "\u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c2a\u0c24\u0c4d\u0c30\u0c02",
-    "Application Submitted \u2713": "\u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c2a\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f \u2713",
-    "Applied": "\u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c38\u0c3e\u0c30\u0c41",
-    "Apply 200 liters of Jeevamrutha per acre through irrigation water": "\u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c28\u0c40\u0c1f\u0c3f \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c0e\u0c15\u0c30\u0c3e\u0c15\u0c41 200 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32 \u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Apply 3-4 inch straw mulch around vegetable crop rows": "\u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32 \u0c2a\u0c02\u0c1f\u0c32 \u0c35\u0c30\u0c41\u0c38\u0c32 \u0c2e\u0c27\u0c4d\u0c2f \u0c35\u0c30\u0c3f \u0c17\u0c21\u0c4d\u0c21\u0c3f\u0c24\u0c4b 3-4 \u0c05\u0c02\u0c17\u0c41\u0c33\u0c3e\u0c32 \u0c2e\u0c41\u0c32\u0c4d\u0c1a\u0c3f\u0c02\u0c17\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Apply Nitrogen in 2 to 3 split doses matching growth peaks": "\u0c0e\u0c26\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c26\u0c36\u0c32\u0c28\u0c41 \u0c2c\u0c1f\u0c4d\u0c1f\u0c3f \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f\u0c28\u0c3f 2 \u0c28\u0c41\u0c02\u0c21\u0c3f 3 \u0c35\u0c3f\u0c21\u0c24\u0c32\u0c41\u0c17\u0c3e \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Apply Now": "\u0c07\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c47 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Apply Schemes": "\u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c15\u0c41 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Apply agricultural lime for acidic soils (pH < 6.0)": "\u0c06\u0c2e\u0c4d\u0c32 \u0c28\u0c47\u0c32\u0c32\u0c15\u0c41 (pH < 6.0) \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
-    "Apply chemical pesticides only when pest population exceeds ETL limit": "\u0c09\u0c27\u0c43\u0c24\u0c3f \u0c2a\u0c30\u0c3f\u0c2e\u0c3f\u0c24\u0c3f \u0c26\u0c3e\u0c1f\u0c3f\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c2e\u0c3e\u0c24\u0c4d\u0c30\u0c2e\u0c47 \u0c30\u0c38\u0c3e\u0c2f\u0c28 \u0c2e\u0c02\u0c26\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
-    "Apply for frontend, python, AI/ML, full-stack, and data science internships.": "\u0c2b\u0c4d\u0c30\u0c02\u0c1f\u0c46\u0c02\u0c21\u0c4d, \u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d, AI/ML \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2b\u0c41\u0c32\u0c4d-\u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d\u200c\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Apply for tech and research internships": "\u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c4b\u0c27\u0c28 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d\u200c\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Apply full dose of Phosphorus and Potassium at basal sowing stage": "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c2d\u0c3e\u0c38\u0c4d\u0c35\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c3f \u0c2e\u0c4b\u0c24\u0c3e\u0c26\u0c41\u0c28\u0c41 \u0c05\u0c21\u0c41\u0c17\u0c41 \u0c2a\u0c3f\u0c02\u0c21\u0c3f\u0c17\u0c3e \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Apply light surface irrigation before expected night frost or extreme heatwaves to moderate field micro-climate.": "\u0c35\u0c21\u0c17\u0c3e\u0c32\u0c41\u0c32\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c24\u0c40\u0c35\u0c4d\u0c30\u0c2e\u0c48\u0c28 \u0c1a\u0c32\u0c3f \u0c35\u0c1a\u0c4d\u0c1a\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c24\u0c47\u0c32\u0c3f\u0c15\u0c2a\u0c3e\u0c1f\u0c3f \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Apply preventive copper or bio-fungicide sprays before continuous rains": "\u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c32\u0c15\u0c41 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c1c\u0c3e\u0c17\u0c4d\u0c30\u0c24\u0c4d\u0c24\u0c17\u0c3e \u0c2e\u0c41\u0c02\u0c26\u0c38\u0c4d\u0c24\u0c41 \u0c36\u0c3f\u0c32\u0c40\u0c02\u0c27\u0c4d\u0c30 \u0c28\u0c3e\u0c36\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Apply well-decomposed Farm Yard Manure (FYM) 3 weeks before sowing": "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f 3 \u0c35\u0c3e\u0c30\u0c3e\u0c32 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c2c\u0c3e\u0c17\u0c3e \u0c15\u0c41\u0c33\u0c4d\u0c32\u0c3f\u0c28 \u0c2a\u0c36\u0c41\u0c32 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c28\u0c41 \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Are you sure you want to remove": "\u0c2e\u0c40\u0c30\u0c41 \u0c16\u0c1a\u0c4d\u0c1a\u0c3f\u0c24\u0c02\u0c17\u0c3e \u0c24\u0c40\u0c38\u0c3f\u0c35\u0c47\u0c2f\u0c3e\u0c32\u0c28\u0c41\u0c15\u0c41\u0c02\u0c1f\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c30\u0c3e",
-    "Arrival": "\u0c30\u0c3e\u0c15",
-    "Arrivals": "\u0c35\u0c1a\u0c4d\u0c1a\u0c3f\u0c28 \u0c2a\u0c30\u0c3f\u0c2e\u0c3e\u0c23\u0c02",
-    "Artificial Intelligence & Machine Learning": "\u0c06\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c37\u0c3f\u0c2f\u0c32\u0c4d \u0c07\u0c02\u0c1f\u0c46\u0c32\u0c3f\u0c1c\u0c46\u0c28\u0c4d\u0c38\u0c4d & \u0c2e\u0c46\u0c37\u0c3f\u0c28\u0c4d \u0c32\u0c46\u0c30\u0c4d\u0c28\u0c3f\u0c02\u0c17\u0c4d",
-    "Assaying quality test reports on e-NAM help farmers command better prices from online buyers.": "\u0c08-\u0c28\u0c3e\u0c2e\u0c4d \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c28\u0c3f\u0c35\u0c47\u0c26\u0c3f\u0c15 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c06\u0c28\u0c4d\u200c\u0c32\u0c48\u0c28\u0c4d \u0c35\u0c4d\u0c2f\u0c3e\u0c2a\u0c3e\u0c30\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2e\u0c02\u0c1a\u0c3f \u0c27\u0c30 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Assist farmers in enrolling for government welfare schemes and PM-KISAN": "\u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c38\u0c02\u0c15\u0c4d\u0c37\u0c47\u0c2e \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c3f\u0c0e\u0c02-\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c32\u0c4b \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02\u0c32\u0c4b \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
-    "Assist farmers in using PureFarm mobile apps and digital tools": "\u0c2a\u0c4d\u0c2f\u0c42\u0c30\u0c4d \u0c2b\u0c3e\u0c2e\u0c4d \u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d \u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c1f\u0c42\u0c32\u0c4d\u0c38\u0c4d\u200c\u0c28\u0c41 \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c02\u0c32\u0c4b \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
-    "Assist farmers with digital agriculture tools, crop monitoring, field data collection, and farm advisory activities.": "\u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c3e\u0c27\u0c28\u0c3e\u0c32\u0c41, \u0c2a\u0c02\u0c1f\u0c32 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23, \u0c15\u0c4d\u0c37\u0c47\u0c24\u0c4d\u0c30 \u0c21\u0c47\u0c1f\u0c3e \u0c38\u0c47\u0c15\u0c30\u0c23 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c32\u0c39\u0c3e \u0c15\u0c3e\u0c30\u0c4d\u0c2f\u0c15\u0c4d\u0c30\u0c2e\u0c3e\u0c32\u0c4d\u0c32\u0c4b \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Assist in cattle feed ration calculation and silage preparation": "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c47\u0c24 \u0c2e\u0c4b\u0c24\u0c3e\u0c26\u0c41 \u0c32\u0c46\u0c15\u0c4d\u0c15\u0c3f\u0c02\u0c2a\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c48\u0c32\u0c47\u0c1c\u0c4d \u0c24\u0c2f\u0c3e\u0c30\u0c40\u0c32\u0c4b \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c1f\u0c02",
-    "Assist in operating agricultural sprayer drones across field trials": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c47\u0c2f\u0c30\u0c4d \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u0c32\u0c28\u0c41 \u0c28\u0c21\u0c2a\u0c21\u0c02\u0c32\u0c4b \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c1f\u0c02",
-    "Assist in training ML models for crop disease identification and yield forecasting.": "\u0c2a\u0c02\u0c1f \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c3f \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c2a\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c3f \u0c05\u0c02\u0c1a\u0c28\u0c3e \u0c15\u0c4b\u0c38\u0c02 ML \u0c2e\u0c4b\u0c21\u0c33\u0c4d\u0c32\u0c28\u0c41 \u0c36\u0c3f\u0c15\u0c4d\u0c37\u0c23 \u0c07\u0c35\u0c4d\u0c35\u0c21\u0c02\u0c32\u0c4b \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c02\u0c21\u0c3f.",
-    "Automated Weather Station Data": "\u0c38\u0c4d\u0c35\u0c2f\u0c02\u0c1a\u0c3e\u0c32\u0c15 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02 \u0c21\u0c47\u0c1f\u0c3e",
-    "Automated solenoid valves open and close based on real-time soil moisture thresholds": "\u0c24\u0c47\u0c2e \u0c36\u0c3e\u0c24\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2c\u0c1f\u0c4d\u0c1f\u0c3f \u0c06\u0c1f\u0c4b\u0c2e\u0c47\u0c1f\u0c3f\u0c15\u0c4d \u0c35\u0c3e\u0c32\u0c4d\u0c35\u0c4d\u200c\u0c32\u0c41 \u0c24\u0c46\u0c30\u0c41\u0c1a\u0c41\u0c15\u0c41\u0c02\u0c1f\u0c3e\u0c2f\u0c3f",
-    "Automatic Weather Stations (AWS) measure localized temperature and humidity": "\u0c06\u0c1f\u0c4b\u0c2e\u0c47\u0c1f\u0c3f\u0c15\u0c4d \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32\u0c41 \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c47\u0c2e\u0c28\u0c41 \u0c15\u0c4a\u0c32\u0c41\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
-    "Available": "\u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c02\u0c26\u0c3f",
-    "Available Capacity": "\u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c02",
+    "Application Form":
+      "\u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c2a\u0c24\u0c4d\u0c30\u0c02",
+    "Application Submitted \u2713":
+      "\u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c2a\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f \u2713",
+    Applied:
+      "\u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c38\u0c3e\u0c30\u0c41",
+    "Apply 200 liters of Jeevamrutha per acre through irrigation water":
+      "\u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c28\u0c40\u0c1f\u0c3f \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c0e\u0c15\u0c30\u0c3e\u0c15\u0c41 200 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32 \u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Apply 3-4 inch straw mulch around vegetable crop rows":
+      "\u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32 \u0c2a\u0c02\u0c1f\u0c32 \u0c35\u0c30\u0c41\u0c38\u0c32 \u0c2e\u0c27\u0c4d\u0c2f \u0c35\u0c30\u0c3f \u0c17\u0c21\u0c4d\u0c21\u0c3f\u0c24\u0c4b 3-4 \u0c05\u0c02\u0c17\u0c41\u0c33\u0c3e\u0c32 \u0c2e\u0c41\u0c32\u0c4d\u0c1a\u0c3f\u0c02\u0c17\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Apply Nitrogen in 2 to 3 split doses matching growth peaks":
+      "\u0c0e\u0c26\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c26\u0c36\u0c32\u0c28\u0c41 \u0c2c\u0c1f\u0c4d\u0c1f\u0c3f \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f\u0c28\u0c3f 2 \u0c28\u0c41\u0c02\u0c21\u0c3f 3 \u0c35\u0c3f\u0c21\u0c24\u0c32\u0c41\u0c17\u0c3e \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Apply Now":
+      "\u0c07\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c47 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Apply Schemes":
+      "\u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c15\u0c41 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Apply agricultural lime for acidic soils (pH < 6.0)":
+      "\u0c06\u0c2e\u0c4d\u0c32 \u0c28\u0c47\u0c32\u0c32\u0c15\u0c41 (pH < 6.0) \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
+    "Apply chemical pesticides only when pest population exceeds ETL limit":
+      "\u0c09\u0c27\u0c43\u0c24\u0c3f \u0c2a\u0c30\u0c3f\u0c2e\u0c3f\u0c24\u0c3f \u0c26\u0c3e\u0c1f\u0c3f\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c2e\u0c3e\u0c24\u0c4d\u0c30\u0c2e\u0c47 \u0c30\u0c38\u0c3e\u0c2f\u0c28 \u0c2e\u0c02\u0c26\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
+    "Apply for frontend, python, AI/ML, full-stack, and data science internships.":
+      "\u0c2b\u0c4d\u0c30\u0c02\u0c1f\u0c46\u0c02\u0c21\u0c4d, \u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d, AI/ML \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2b\u0c41\u0c32\u0c4d-\u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d\u200c\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Apply for tech and research internships":
+      "\u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c4b\u0c27\u0c28 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d\u200c\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Apply full dose of Phosphorus and Potassium at basal sowing stage":
+      "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c2d\u0c3e\u0c38\u0c4d\u0c35\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c3f \u0c2e\u0c4b\u0c24\u0c3e\u0c26\u0c41\u0c28\u0c41 \u0c05\u0c21\u0c41\u0c17\u0c41 \u0c2a\u0c3f\u0c02\u0c21\u0c3f\u0c17\u0c3e \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Apply light surface irrigation before expected night frost or extreme heatwaves to moderate field micro-climate.":
+      "\u0c35\u0c21\u0c17\u0c3e\u0c32\u0c41\u0c32\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c24\u0c40\u0c35\u0c4d\u0c30\u0c2e\u0c48\u0c28 \u0c1a\u0c32\u0c3f \u0c35\u0c1a\u0c4d\u0c1a\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c24\u0c47\u0c32\u0c3f\u0c15\u0c2a\u0c3e\u0c1f\u0c3f \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Apply preventive copper or bio-fungicide sprays before continuous rains":
+      "\u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c32\u0c15\u0c41 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c1c\u0c3e\u0c17\u0c4d\u0c30\u0c24\u0c4d\u0c24\u0c17\u0c3e \u0c2e\u0c41\u0c02\u0c26\u0c38\u0c4d\u0c24\u0c41 \u0c36\u0c3f\u0c32\u0c40\u0c02\u0c27\u0c4d\u0c30 \u0c28\u0c3e\u0c36\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Apply well-decomposed Farm Yard Manure (FYM) 3 weeks before sowing":
+      "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f 3 \u0c35\u0c3e\u0c30\u0c3e\u0c32 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c2c\u0c3e\u0c17\u0c3e \u0c15\u0c41\u0c33\u0c4d\u0c32\u0c3f\u0c28 \u0c2a\u0c36\u0c41\u0c32 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c28\u0c41 \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Are you sure you want to remove":
+      "\u0c2e\u0c40\u0c30\u0c41 \u0c16\u0c1a\u0c4d\u0c1a\u0c3f\u0c24\u0c02\u0c17\u0c3e \u0c24\u0c40\u0c38\u0c3f\u0c35\u0c47\u0c2f\u0c3e\u0c32\u0c28\u0c41\u0c15\u0c41\u0c02\u0c1f\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c30\u0c3e",
+    Arrival: "\u0c30\u0c3e\u0c15",
+    Arrivals: "\u0c35\u0c1a\u0c4d\u0c1a\u0c3f\u0c28 \u0c2a\u0c30\u0c3f\u0c2e\u0c3e\u0c23\u0c02",
+    "Artificial Intelligence & Machine Learning":
+      "\u0c06\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c37\u0c3f\u0c2f\u0c32\u0c4d \u0c07\u0c02\u0c1f\u0c46\u0c32\u0c3f\u0c1c\u0c46\u0c28\u0c4d\u0c38\u0c4d & \u0c2e\u0c46\u0c37\u0c3f\u0c28\u0c4d \u0c32\u0c46\u0c30\u0c4d\u0c28\u0c3f\u0c02\u0c17\u0c4d",
+    "Assaying quality test reports on e-NAM help farmers command better prices from online buyers.":
+      "\u0c08-\u0c28\u0c3e\u0c2e\u0c4d \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c28\u0c3f\u0c35\u0c47\u0c26\u0c3f\u0c15 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c06\u0c28\u0c4d\u200c\u0c32\u0c48\u0c28\u0c4d \u0c35\u0c4d\u0c2f\u0c3e\u0c2a\u0c3e\u0c30\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2e\u0c02\u0c1a\u0c3f \u0c27\u0c30 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Assist farmers in enrolling for government welfare schemes and PM-KISAN":
+      "\u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c38\u0c02\u0c15\u0c4d\u0c37\u0c47\u0c2e \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c3f\u0c0e\u0c02-\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c32\u0c4b \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02\u0c32\u0c4b \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
+    "Assist farmers in using PureFarm mobile apps and digital tools":
+      "\u0c2a\u0c4d\u0c2f\u0c42\u0c30\u0c4d \u0c2b\u0c3e\u0c2e\u0c4d \u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d \u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c1f\u0c42\u0c32\u0c4d\u0c38\u0c4d\u200c\u0c28\u0c41 \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c02\u0c32\u0c4b \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
+    "Assist farmers with digital agriculture tools, crop monitoring, field data collection, and farm advisory activities.":
+      "\u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c3e\u0c27\u0c28\u0c3e\u0c32\u0c41, \u0c2a\u0c02\u0c1f\u0c32 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23, \u0c15\u0c4d\u0c37\u0c47\u0c24\u0c4d\u0c30 \u0c21\u0c47\u0c1f\u0c3e \u0c38\u0c47\u0c15\u0c30\u0c23 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c32\u0c39\u0c3e \u0c15\u0c3e\u0c30\u0c4d\u0c2f\u0c15\u0c4d\u0c30\u0c2e\u0c3e\u0c32\u0c4d\u0c32\u0c4b \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Assist in cattle feed ration calculation and silage preparation":
+      "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c47\u0c24 \u0c2e\u0c4b\u0c24\u0c3e\u0c26\u0c41 \u0c32\u0c46\u0c15\u0c4d\u0c15\u0c3f\u0c02\u0c2a\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c48\u0c32\u0c47\u0c1c\u0c4d \u0c24\u0c2f\u0c3e\u0c30\u0c40\u0c32\u0c4b \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c1f\u0c02",
+    "Assist in operating agricultural sprayer drones across field trials":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c47\u0c2f\u0c30\u0c4d \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u0c32\u0c28\u0c41 \u0c28\u0c21\u0c2a\u0c21\u0c02\u0c32\u0c4b \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c1f\u0c02",
+    "Assist in training ML models for crop disease identification and yield forecasting.":
+      "\u0c2a\u0c02\u0c1f \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c3f \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c2a\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c3f \u0c05\u0c02\u0c1a\u0c28\u0c3e \u0c15\u0c4b\u0c38\u0c02 ML \u0c2e\u0c4b\u0c21\u0c33\u0c4d\u0c32\u0c28\u0c41 \u0c36\u0c3f\u0c15\u0c4d\u0c37\u0c23 \u0c07\u0c35\u0c4d\u0c35\u0c21\u0c02\u0c32\u0c4b \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c02\u0c21\u0c3f.",
+    "Automated Weather Station Data":
+      "\u0c38\u0c4d\u0c35\u0c2f\u0c02\u0c1a\u0c3e\u0c32\u0c15 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02 \u0c21\u0c47\u0c1f\u0c3e",
+    "Automated solenoid valves open and close based on real-time soil moisture thresholds":
+      "\u0c24\u0c47\u0c2e \u0c36\u0c3e\u0c24\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2c\u0c1f\u0c4d\u0c1f\u0c3f \u0c06\u0c1f\u0c4b\u0c2e\u0c47\u0c1f\u0c3f\u0c15\u0c4d \u0c35\u0c3e\u0c32\u0c4d\u0c35\u0c4d\u200c\u0c32\u0c41 \u0c24\u0c46\u0c30\u0c41\u0c1a\u0c41\u0c15\u0c41\u0c02\u0c1f\u0c3e\u0c2f\u0c3f",
+    "Automatic Weather Stations (AWS) measure localized temperature and humidity":
+      "\u0c06\u0c1f\u0c4b\u0c2e\u0c47\u0c1f\u0c3f\u0c15\u0c4d \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32\u0c41 \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c47\u0c2e\u0c28\u0c41 \u0c15\u0c4a\u0c32\u0c41\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
+    Available:
+      "\u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c02\u0c26\u0c3f",
+    "Available Capacity":
+      "\u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c02",
     "Available Space": "\u0c16\u0c3e\u0c33\u0c40 \u0c38\u0c4d\u0c25\u0c32\u0c02",
-    "Available Stock": "\u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c28\u0c3f\u0c32\u0c4d\u0c35",
-    "Available in participating states": "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c4d\u0c30\u0c2e\u0c41\u0c16 \u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c3e\u0c32\u0c4d\u0c32\u0c4b \u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c02\u0c26\u0c3f",
-    "Average arrivals are stable and price improved by 1.8% today.": "\u0c38\u0c17\u0c1f\u0c41 \u0c30\u0c3e\u0c15\u0c32\u0c41 \u0c38\u0c4d\u0c25\u0c3f\u0c30\u0c02\u0c17\u0c3e \u0c09\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c47\u0c21\u0c41 \u0c27\u0c30 1.8% \u0c2a\u0c46\u0c30\u0c3f\u0c17\u0c3f\u0c02\u0c26\u0c3f.",
-    "Avoid excessive Nitrogen spray which attracts sap-sucking pests": "\u0c30\u0c38\u0c02 \u0c2a\u0c40\u0c32\u0c4d\u0c1a\u0c47 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c28\u0c41 \u0c06\u0c15\u0c30\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c47 \u0c05\u0c27\u0c3f\u0c15 \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c35\u0c3e\u0c21\u0c15\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Avoid foliar spray for the next 24 hours due to likely showers.": "\u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c32\u0c41 \u0c2a\u0c21\u0c47 \u0c05\u0c35\u0c15\u0c3e\u0c36\u0c02 \u0c09\u0c28\u0c4d\u0c28\u0c02\u0c26\u0c41\u0c28 \u0c24\u0c26\u0c41\u0c2a\u0c30\u0c3f 24 \u0c17\u0c02\u0c1f\u0c32 \u0c2a\u0c3e\u0c1f\u0c41 \u0c06\u0c15\u0c41\u0c32\u0c2a\u0c48 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c35\u0c26\u0c4d\u0c26\u0c41.",
-    "Avoid harvesting right after rain or heavy morning dew": "\u0c35\u0c30\u0c4d\u0c37\u0c02 \u0c2a\u0c21\u0c3f\u0c28 \u0c35\u0c46\u0c02\u0c1f\u0c28\u0c47 \u0c32\u0c47\u0c26\u0c3e \u0c2e\u0c02\u0c1a\u0c41 \u0c09\u0c28\u0c4d\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c15\u0c4b\u0c24 \u0c15\u0c4b\u0c2f\u0c35\u0c26\u0c4d\u0c26\u0c41",
-    "Avoid over-fertilizing with Nitrogen, which creates soft foliage vulnerable to fungi": "\u0c05\u0c27\u0c3f\u0c15 \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c35\u0c3e\u0c21\u0c15\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f, \u0c07\u0c26\u0c3f \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32\u0c28\u0c41 \u0c2a\u0c46\u0c02\u0c1a\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Avoid selling on peak arrival Mondays when mandi supply overflow depresses prices.": "\u0c38\u0c30\u0c41\u0c15\u0c41 \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35\u0c17\u0c3e \u0c35\u0c1a\u0c4d\u0c1a\u0c47 \u0c38\u0c4b\u0c2e\u0c35\u0c3e\u0c30\u0c3e\u0c32\u0c4d\u0c32\u0c4b \u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c2e\u0c3f\u0c17\u0c3f\u0c32\u0c3f\u0c28 \u0c30\u0c4b\u0c1c\u0c41\u0c32\u0c4d\u0c32\u0c4b \u0c05\u0c2e\u0c4d\u0c2e\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c4d\u0c30\u0c2f\u0c24\u0c4d\u0c28\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Avoid sowing seeds right before heavy rain to prevent soil crusting": "\u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c2a\u0c46\u0c1a\u0c4d\u0c1a\u0c41\u0c32\u0c41 \u0c15\u0c1f\u0c4d\u0c1f\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c09\u0c02\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2d\u0c3e\u0c30\u0c40 \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c35\u0c26\u0c4d\u0c26\u0c41",
-    "Azadpur Mandi": "\u0c06\u0c1c\u0c3e\u0c26\u0c4d\u200c\u0c2a\u0c42\u0c30\u0c4d \u0c2e\u0c02\u0c21\u0c40",
-    "Azadpur, Delhi": "\u0c06\u0c1c\u0c3e\u0c26\u0c4d\u200c\u0c2a\u0c42\u0c30\u0c4d, \u0c22\u0c3f\u0c32\u0c4d\u0c32\u0c40",
-    "Azotobacter Biofertiliser (500 g)": "\u0c05\u0c1c\u0c1f\u0c4b\u0c2c\u0c3e\u0c15\u0c4d\u0c1f\u0c30\u0c4d \u0c1c\u0c40\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41 (500 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "B.Sc or M.Sc Agriculture students.": "B.Sc \u0c32\u0c47\u0c26\u0c3e M.Sc \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32\u0c41.",
-    "BEST SELLER": "\u0c05\u0c24\u0c4d\u0c2f\u0c27\u0c3f\u0c15\u0c02\u0c17\u0c3e \u0c05\u0c2e\u0c4d\u0c2e\u0c41\u0c21\u0c48\u0c28\u0c26\u0c3f",
-    "BT Cotton Seed (450 g)": "\u0c2c\u0c3f\u0c1f\u0c3f \u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 (450 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Back": "\u0c35\u0c46\u0c28\u0c41\u0c15\u0c15\u0c41",
-    "Back to Internships": "\u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d\u0c32\u0c15\u0c41 \u0c24\u0c3f\u0c30\u0c3f\u0c17\u0c3f \u0c35\u0c46\u0c33\u0c4d\u0c33\u0c02\u0c21\u0c3f",
-    "Back to Learning": "\u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c24\u0c3f\u0c30\u0c3f\u0c17\u0c3f \u0c35\u0c46\u0c33\u0c4d\u0c33\u0c02\u0c21\u0c3f",
-    "Back to Learning Hub": "\u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c24\u0c3f\u0c30\u0c3f\u0c17\u0c3f \u0c35\u0c46\u0c33\u0c4d\u0c33\u0c02\u0c21\u0c3f",
+    "Available Stock":
+      "\u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c28\u0c3f\u0c32\u0c4d\u0c35",
+    "Available in participating states":
+      "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c4d\u0c30\u0c2e\u0c41\u0c16 \u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c3e\u0c32\u0c4d\u0c32\u0c4b \u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c02\u0c26\u0c3f",
+    "Average arrivals are stable and price improved by 1.8% today.":
+      "\u0c38\u0c17\u0c1f\u0c41 \u0c30\u0c3e\u0c15\u0c32\u0c41 \u0c38\u0c4d\u0c25\u0c3f\u0c30\u0c02\u0c17\u0c3e \u0c09\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c47\u0c21\u0c41 \u0c27\u0c30 1.8% \u0c2a\u0c46\u0c30\u0c3f\u0c17\u0c3f\u0c02\u0c26\u0c3f.",
+    "Avoid excessive Nitrogen spray which attracts sap-sucking pests":
+      "\u0c30\u0c38\u0c02 \u0c2a\u0c40\u0c32\u0c4d\u0c1a\u0c47 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c28\u0c41 \u0c06\u0c15\u0c30\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c47 \u0c05\u0c27\u0c3f\u0c15 \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c35\u0c3e\u0c21\u0c15\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Avoid foliar spray for the next 24 hours due to likely showers.":
+      "\u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c32\u0c41 \u0c2a\u0c21\u0c47 \u0c05\u0c35\u0c15\u0c3e\u0c36\u0c02 \u0c09\u0c28\u0c4d\u0c28\u0c02\u0c26\u0c41\u0c28 \u0c24\u0c26\u0c41\u0c2a\u0c30\u0c3f 24 \u0c17\u0c02\u0c1f\u0c32 \u0c2a\u0c3e\u0c1f\u0c41 \u0c06\u0c15\u0c41\u0c32\u0c2a\u0c48 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c35\u0c26\u0c4d\u0c26\u0c41.",
+    "Avoid harvesting right after rain or heavy morning dew":
+      "\u0c35\u0c30\u0c4d\u0c37\u0c02 \u0c2a\u0c21\u0c3f\u0c28 \u0c35\u0c46\u0c02\u0c1f\u0c28\u0c47 \u0c32\u0c47\u0c26\u0c3e \u0c2e\u0c02\u0c1a\u0c41 \u0c09\u0c28\u0c4d\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c15\u0c4b\u0c24 \u0c15\u0c4b\u0c2f\u0c35\u0c26\u0c4d\u0c26\u0c41",
+    "Avoid over-fertilizing with Nitrogen, which creates soft foliage vulnerable to fungi":
+      "\u0c05\u0c27\u0c3f\u0c15 \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c35\u0c3e\u0c21\u0c15\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f, \u0c07\u0c26\u0c3f \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32\u0c28\u0c41 \u0c2a\u0c46\u0c02\u0c1a\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    "Avoid selling on peak arrival Mondays when mandi supply overflow depresses prices.":
+      "\u0c38\u0c30\u0c41\u0c15\u0c41 \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35\u0c17\u0c3e \u0c35\u0c1a\u0c4d\u0c1a\u0c47 \u0c38\u0c4b\u0c2e\u0c35\u0c3e\u0c30\u0c3e\u0c32\u0c4d\u0c32\u0c4b \u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c2e\u0c3f\u0c17\u0c3f\u0c32\u0c3f\u0c28 \u0c30\u0c4b\u0c1c\u0c41\u0c32\u0c4d\u0c32\u0c4b \u0c05\u0c2e\u0c4d\u0c2e\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c4d\u0c30\u0c2f\u0c24\u0c4d\u0c28\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Avoid sowing seeds right before heavy rain to prevent soil crusting":
+      "\u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c2a\u0c46\u0c1a\u0c4d\u0c1a\u0c41\u0c32\u0c41 \u0c15\u0c1f\u0c4d\u0c1f\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c09\u0c02\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2d\u0c3e\u0c30\u0c40 \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c35\u0c26\u0c4d\u0c26\u0c41",
+    "Azadpur Mandi":
+      "\u0c06\u0c1c\u0c3e\u0c26\u0c4d\u200c\u0c2a\u0c42\u0c30\u0c4d \u0c2e\u0c02\u0c21\u0c40",
+    "Azadpur, Delhi":
+      "\u0c06\u0c1c\u0c3e\u0c26\u0c4d\u200c\u0c2a\u0c42\u0c30\u0c4d, \u0c22\u0c3f\u0c32\u0c4d\u0c32\u0c40",
+    "Azotobacter Biofertiliser (500 g)":
+      "\u0c05\u0c1c\u0c1f\u0c4b\u0c2c\u0c3e\u0c15\u0c4d\u0c1f\u0c30\u0c4d \u0c1c\u0c40\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41 (500 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "B.Sc or M.Sc Agriculture students.":
+      "B.Sc \u0c32\u0c47\u0c26\u0c3e M.Sc \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32\u0c41.",
+    "BEST SELLER":
+      "\u0c05\u0c24\u0c4d\u0c2f\u0c27\u0c3f\u0c15\u0c02\u0c17\u0c3e \u0c05\u0c2e\u0c4d\u0c2e\u0c41\u0c21\u0c48\u0c28\u0c26\u0c3f",
+    "BT Cotton Seed (450 g)":
+      "\u0c2c\u0c3f\u0c1f\u0c3f \u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 (450 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    Back: "\u0c35\u0c46\u0c28\u0c41\u0c15\u0c15\u0c41",
+    "Back to Internships":
+      "\u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d\u0c32\u0c15\u0c41 \u0c24\u0c3f\u0c30\u0c3f\u0c17\u0c3f \u0c35\u0c46\u0c33\u0c4d\u0c33\u0c02\u0c21\u0c3f",
+    "Back to Learning":
+      "\u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c24\u0c3f\u0c30\u0c3f\u0c17\u0c3f \u0c35\u0c46\u0c33\u0c4d\u0c33\u0c02\u0c21\u0c3f",
+    "Back to Learning Hub":
+      "\u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c24\u0c3f\u0c30\u0c3f\u0c17\u0c3f \u0c35\u0c46\u0c33\u0c4d\u0c33\u0c02\u0c21\u0c3f",
     "Bag / Packet": "\u0c38\u0c02\u0c1a\u0c3f / \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c46\u0c1f\u0c4d",
-    "Balanced application of Nitrogen, Phosphorus, and Potassium based on crop stage.": "\u0c2a\u0c02\u0c1f \u0c0e\u0c26\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c26\u0c36\u0c28\u0c41 \u0c2c\u0c1f\u0c4d\u0c1f\u0c3f \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f, \u0c2d\u0c3e\u0c38\u0c4d\u0c35\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c38\u0c2e\u0c24\u0c41\u0c32\u0c4d\u0c2f \u0c35\u0c3e\u0c21\u0c15\u0c02.",
-    "Banana Tissue Culture Plant G-9": "\u0c05\u0c30\u0c1f\u0c3f \u0c1f\u0c3f\u0c37\u0c4d\u0c2f\u0c42 \u0c15\u0c32\u0c4d\u0c1a\u0c30\u0c4d \u0c2e\u0c4a\u0c15\u0c4d\u0c15 G-9",
-    "Bangalore": "\u0c2c\u0c46\u0c02\u0c17\u0c33\u0c42\u0c30\u0c41",
-    "Barley Seed BH-946 (20 kg)": "\u0c2c\u0c3e\u0c30\u0c4d\u0c32\u0c40 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 BH-946 (20 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Battery Knapsack Sprayer 16 L": "\u0c2c\u0c4d\u0c2f\u0c3e\u0c1f\u0c30\u0c40 \u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c47\u0c2f\u0c30\u0c4d 16 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41",
-    "Beginner": "\u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d \u0c38\u0c4d\u0c25\u0c3e\u0c2f\u0c3f",
-    "Berseem Fodder Seed (10 kg)": "\u0c2c\u0c46\u0c30\u0c4d\u0c38\u0c40\u0c2e\u0c4d \u0c2e\u0c47\u0c24 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Best Deals for You \ud83d\udd25": "\u0c2e\u0c40 \u0c15\u0c4b\u0c38\u0c02 \u0c09\u0c24\u0c4d\u0c24\u0c2e \u0c06\u0c2b\u0c30\u0c4d\u0c32\u0c41 \ud83d\udd25",
+    "Balanced application of Nitrogen, Phosphorus, and Potassium based on crop stage.":
+      "\u0c2a\u0c02\u0c1f \u0c0e\u0c26\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c26\u0c36\u0c28\u0c41 \u0c2c\u0c1f\u0c4d\u0c1f\u0c3f \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f, \u0c2d\u0c3e\u0c38\u0c4d\u0c35\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c38\u0c2e\u0c24\u0c41\u0c32\u0c4d\u0c2f \u0c35\u0c3e\u0c21\u0c15\u0c02.",
+    "Banana Tissue Culture Plant G-9":
+      "\u0c05\u0c30\u0c1f\u0c3f \u0c1f\u0c3f\u0c37\u0c4d\u0c2f\u0c42 \u0c15\u0c32\u0c4d\u0c1a\u0c30\u0c4d \u0c2e\u0c4a\u0c15\u0c4d\u0c15 G-9",
+    Bangalore: "\u0c2c\u0c46\u0c02\u0c17\u0c33\u0c42\u0c30\u0c41",
+    "Barley Seed BH-946 (20 kg)":
+      "\u0c2c\u0c3e\u0c30\u0c4d\u0c32\u0c40 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 BH-946 (20 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Battery Knapsack Sprayer 16 L":
+      "\u0c2c\u0c4d\u0c2f\u0c3e\u0c1f\u0c30\u0c40 \u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c47\u0c2f\u0c30\u0c4d 16 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41",
+    Beginner: "\u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d \u0c38\u0c4d\u0c25\u0c3e\u0c2f\u0c3f",
+    "Berseem Fodder Seed (10 kg)":
+      "\u0c2c\u0c46\u0c30\u0c4d\u0c38\u0c40\u0c2e\u0c4d \u0c2e\u0c47\u0c24 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Best Deals for You \ud83d\udd25":
+      "\u0c2e\u0c40 \u0c15\u0c4b\u0c38\u0c02 \u0c09\u0c24\u0c4d\u0c24\u0c2e \u0c06\u0c2b\u0c30\u0c4d\u0c32\u0c41 \ud83d\udd25",
     "Best Quality": "\u0c09\u0c24\u0c4d\u0c24\u0c2e \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24",
-    "Best Seller": "\u0c05\u0c24\u0c4d\u0c2f\u0c27\u0c3f\u0c15\u0c02\u0c17\u0c3e \u0c05\u0c2e\u0c4d\u0c2e\u0c41\u0c21\u0c48\u0c28\u0c26\u0c3f",
-    "Better Decisions": "\u0c2e\u0c46\u0c30\u0c41\u0c17\u0c48\u0c28 \u0c28\u0c3f\u0c30\u0c4d\u0c23\u0c2f\u0c3e\u0c32\u0c41",
+    "Best Seller":
+      "\u0c05\u0c24\u0c4d\u0c2f\u0c27\u0c3f\u0c15\u0c02\u0c17\u0c3e \u0c05\u0c2e\u0c4d\u0c2e\u0c41\u0c21\u0c48\u0c28\u0c26\u0c3f",
+    "Better Decisions":
+      "\u0c2e\u0c46\u0c30\u0c41\u0c17\u0c48\u0c28 \u0c28\u0c3f\u0c30\u0c4d\u0c23\u0c2f\u0c3e\u0c32\u0c41",
     "Better Prices": "\u0c2e\u0c46\u0c30\u0c41\u0c17\u0c48\u0c28 \u0c27\u0c30\u0c32\u0c41",
-    "Bhimavaram, Andhra Pradesh": "\u0c2d\u0c40\u0c2e\u0c35\u0c30\u0c02, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
-    "Bitter Gourd Seed Hybrid (50 g)": "\u0c15\u0c3e\u0c15\u0c30\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c39\u0c48\u0c2c\u0c4d\u0c30\u0c3f\u0c21\u0c4d (50 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Black Gram Seed Pant U-31 (5 kg)": "\u0c2e\u0c3f\u0c28\u0c41\u0c2e\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2a\u0c4d\u0c2f\u0c3e\u0c02\u0c1f\u0c4d U-31 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Bone Meal Organic (10 kg)": "\u0c0e\u0c2e\u0c41\u0c15\u0c32 \u0c2a\u0c4a\u0c21\u0c3f \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c0e\u0c30\u0c41\u0c35\u0c41 (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Book certified cold storage spaces early during peak harvest seasons": "\u0c15\u0c4b\u0c24 \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c47 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c38\u0c4d\u0c25\u0c32\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2c\u0c41\u0c15\u0c4d \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Border rows of tall Maize or Sorghum act as natural windbreakers for delicate vegetable crops.": "\u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32 \u0c2a\u0c02\u0c1f\u0c32 \u0c1a\u0c41\u0c1f\u0c4d\u0c1f\u0c42 \u0c2a\u0c4a\u0c21\u0c35\u0c3e\u0c1f\u0c3f \u0c1c\u0c4a\u0c28\u0c4d\u0c28 \u0c32\u0c47\u0c26\u0c3e \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c1c\u0c4a\u0c28\u0c4d\u0c28 \u0c35\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c17\u0c3e\u0c32\u0c3f \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Borer insects damage stems and fruit tissues": "\u0c24\u0c4a\u0c32\u0c41\u0c1a\u0c41 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c15\u0c3e\u0c02\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c3e\u0c2f\u0c32\u0c15\u0c41 \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c15\u0c32\u0c3f\u0c17\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
-    "Boron 20% Powder (1 kg)": "\u0c2c\u0c4b\u0c30\u0c3e\u0c28\u0c4d 20% \u0c2a\u0c4a\u0c21\u0c3f (1 \u0c15\u0c3f\u0c32\u0c4b)",
-    "Bottle Gourd Seed Pusa Naveen (100 g)": "\u0c38\u0c4a\u0c30\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2a\u0c42\u0c38\u0c3e \u0c28\u0c35\u0c40\u0c28\u0c4d (100 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Bhimavaram, Andhra Pradesh":
+      "\u0c2d\u0c40\u0c2e\u0c35\u0c30\u0c02, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
+    "Bitter Gourd Seed Hybrid (50 g)":
+      "\u0c15\u0c3e\u0c15\u0c30\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c39\u0c48\u0c2c\u0c4d\u0c30\u0c3f\u0c21\u0c4d (50 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Black Gram Seed Pant U-31 (5 kg)":
+      "\u0c2e\u0c3f\u0c28\u0c41\u0c2e\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2a\u0c4d\u0c2f\u0c3e\u0c02\u0c1f\u0c4d U-31 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Bone Meal Organic (10 kg)":
+      "\u0c0e\u0c2e\u0c41\u0c15\u0c32 \u0c2a\u0c4a\u0c21\u0c3f \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c0e\u0c30\u0c41\u0c35\u0c41 (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Book certified cold storage spaces early during peak harvest seasons":
+      "\u0c15\u0c4b\u0c24 \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c47 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c38\u0c4d\u0c25\u0c32\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2c\u0c41\u0c15\u0c4d \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Border rows of tall Maize or Sorghum act as natural windbreakers for delicate vegetable crops.":
+      "\u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32 \u0c2a\u0c02\u0c1f\u0c32 \u0c1a\u0c41\u0c1f\u0c4d\u0c1f\u0c42 \u0c2a\u0c4a\u0c21\u0c35\u0c3e\u0c1f\u0c3f \u0c1c\u0c4a\u0c28\u0c4d\u0c28 \u0c32\u0c47\u0c26\u0c3e \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c1c\u0c4a\u0c28\u0c4d\u0c28 \u0c35\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c17\u0c3e\u0c32\u0c3f \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Borer insects damage stems and fruit tissues":
+      "\u0c24\u0c4a\u0c32\u0c41\u0c1a\u0c41 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c15\u0c3e\u0c02\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c3e\u0c2f\u0c32\u0c15\u0c41 \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c15\u0c32\u0c3f\u0c17\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
+    "Boron 20% Powder (1 kg)":
+      "\u0c2c\u0c4b\u0c30\u0c3e\u0c28\u0c4d 20% \u0c2a\u0c4a\u0c21\u0c3f (1 \u0c15\u0c3f\u0c32\u0c4b)",
+    "Bottle Gourd Seed Pusa Naveen (100 g)":
+      "\u0c38\u0c4a\u0c30\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2a\u0c42\u0c38\u0c3e \u0c28\u0c35\u0c40\u0c28\u0c4d (100 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
     "Box / Crate": "\u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c46 / \u0c15\u0c4d\u0c30\u0c47\u0c1f\u0c4d",
-    "Brief Introduction / Cover Note": "\u0c2a\u0c30\u0c3f\u0c1a\u0c2f\u0c02 / \u0c15\u0c35\u0c30\u0c4d \u0c28\u0c4b\u0c1f\u0c4d",
-    "Brighter Futures": "\u0c2a\u0c4d\u0c30\u0c15\u0c3e\u0c36\u0c35\u0c02\u0c24\u0c2e\u0c48\u0c28 \u0c2d\u0c35\u0c3f\u0c37\u0c4d\u0c2f\u0c24\u0c4d\u0c24\u0c41",
-    "Brinjal": "\u0c35\u0c02\u0c15\u0c3e\u0c2f",
-    "Browse All Courses": "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "Browse Catalog": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "Browse Marketplace": "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u200c\u0c2a\u0c4d\u0c32\u0c47\u0c38\u0c4d\u200c\u0c28\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Browse directly from verified local farmers and certified suppliers. High quality, fair prices, direct sourcing.": "\u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c30\u0c48\u0c24\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Browse fresh produce directly from verified local farmers.": "\u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c30\u0c48\u0c24\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c24\u0c3e\u0c1c\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c15\u0c4a\u0c28\u0c02\u0c21\u0c3f.",
-    "Brush Cutter 2-Stroke 43 CC": "\u0c2c\u0c4d\u0c30\u0c37\u0c4d \u0c15\u0c1f\u0c4d\u0c1f\u0c30\u0c4d 2-\u0c38\u0c4d\u0c1f\u0c4d\u0c30\u0c4b\u0c15\u0c4d 43 CC",
-    "Build complete end-to-end applications using React, Node.js, Express, and SQL databases.": "React, Node.js \u0c2e\u0c30\u0c3f\u0c2f\u0c41 SQL \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c3f \u0c05\u0c2a\u0c4d\u0c32\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Build responsive frontend UI components and collaborate on web platform features.": "\u0c2b\u0c4d\u0c30\u0c02\u0c1f\u0c46\u0c02\u0c21\u0c4d UI \u0c15\u0c3e\u0c02\u0c2a\u0c4b\u0c28\u0c46\u0c02\u0c1f\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c46\u0c2c\u0c4d \u0c2b\u0c40\u0c1a\u0c30\u0c4d\u200c\u0c32\u0c32\u0c4b \u0c38\u0c39\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Building soil humus, green manuring, and preventing soil erosion.": "\u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c2a\u0c4a\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c02, \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c15\u0c4b\u0c24 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23.",
-    "Built around everyday farm decisions": "\u0c30\u0c4b\u0c1c\u0c41\u0c35\u0c3e\u0c30\u0c40 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c28\u0c3f\u0c30\u0c4d\u0c23\u0c2f\u0c3e\u0c32 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c30\u0c42\u0c2a\u0c4a\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
-    "Bulk purchasing of inputs lowers seed and fertilizer costs": "\u0c09\u0c2e\u0c4d\u0c2e\u0c21\u0c3f \u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41 \u0c35\u0c32\u0c4d\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41, \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c16\u0c30\u0c40\u0c26\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    "Brief Introduction / Cover Note":
+      "\u0c2a\u0c30\u0c3f\u0c1a\u0c2f\u0c02 / \u0c15\u0c35\u0c30\u0c4d \u0c28\u0c4b\u0c1f\u0c4d",
+    "Brighter Futures":
+      "\u0c2a\u0c4d\u0c30\u0c15\u0c3e\u0c36\u0c35\u0c02\u0c24\u0c2e\u0c48\u0c28 \u0c2d\u0c35\u0c3f\u0c37\u0c4d\u0c2f\u0c24\u0c4d\u0c24\u0c41",
+    Brinjal: "\u0c35\u0c02\u0c15\u0c3e\u0c2f",
+    "Browse All Courses":
+      "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "Browse Catalog":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "Browse Marketplace":
+      "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u200c\u0c2a\u0c4d\u0c32\u0c47\u0c38\u0c4d\u200c\u0c28\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Browse directly from verified local farmers and certified suppliers. High quality, fair prices, direct sourcing.":
+      "\u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c30\u0c48\u0c24\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Browse fresh produce directly from verified local farmers.":
+      "\u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c30\u0c48\u0c24\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c24\u0c3e\u0c1c\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c15\u0c4a\u0c28\u0c02\u0c21\u0c3f.",
+    "Brush Cutter 2-Stroke 43 CC":
+      "\u0c2c\u0c4d\u0c30\u0c37\u0c4d \u0c15\u0c1f\u0c4d\u0c1f\u0c30\u0c4d 2-\u0c38\u0c4d\u0c1f\u0c4d\u0c30\u0c4b\u0c15\u0c4d 43 CC",
+    "Build complete end-to-end applications using React, Node.js, Express, and SQL databases.":
+      "React, Node.js \u0c2e\u0c30\u0c3f\u0c2f\u0c41 SQL \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c3f \u0c05\u0c2a\u0c4d\u0c32\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Build responsive frontend UI components and collaborate on web platform features.":
+      "\u0c2b\u0c4d\u0c30\u0c02\u0c1f\u0c46\u0c02\u0c21\u0c4d UI \u0c15\u0c3e\u0c02\u0c2a\u0c4b\u0c28\u0c46\u0c02\u0c1f\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c46\u0c2c\u0c4d \u0c2b\u0c40\u0c1a\u0c30\u0c4d\u200c\u0c32\u0c32\u0c4b \u0c38\u0c39\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Building soil humus, green manuring, and preventing soil erosion.":
+      "\u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c2a\u0c4a\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c02, \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c15\u0c4b\u0c24 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23.",
+    "Built around everyday farm decisions":
+      "\u0c30\u0c4b\u0c1c\u0c41\u0c35\u0c3e\u0c30\u0c40 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c28\u0c3f\u0c30\u0c4d\u0c23\u0c2f\u0c3e\u0c32 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c30\u0c42\u0c2a\u0c4a\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
+    "Bulk purchasing of inputs lowers seed and fertilizer costs":
+      "\u0c09\u0c2e\u0c4d\u0c2e\u0c21\u0c3f \u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41 \u0c35\u0c32\u0c4d\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41, \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c16\u0c30\u0c40\u0c26\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
     "Buy Now": "\u0c07\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c47 \u0c15\u0c4a\u0c28\u0c02\u0c21\u0c3f",
-    "Buyer": "\u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41\u0c26\u0c3e\u0c30\u0c41",
-    "Buyer Dashboard": "\u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41\u0c26\u0c3e\u0c30\u0c41 \u0c21\u0c3e\u0c37\u0c4d\u0c2c\u0c4b\u0c30\u0c4d\u0c21\u0c4d",
-    "Buyer Demo": "\u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41\u0c26\u0c3e\u0c30\u0c41 \u0c21\u0c46\u0c2e\u0c4b",
-    "Cabbage Seed Golden Acre (100 g)": "\u0c15\u0c4d\u0c2f\u0c3e\u0c2c\u0c47\u0c1c\u0c40 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c17\u0c4b\u0c32\u0c4d\u0c21\u0c46\u0c28\u0c4d \u0c0e\u0c15\u0c30 (100 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Calcium Nitrate (25 kg)": "\u0c15\u0c3e\u0c32\u0c4d\u0c38\u0c3f\u0c2f\u0c02 \u0c28\u0c48\u0c1f\u0c4d\u0c30\u0c47\u0c1f\u0c4d (25 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Calculating lateral line spacing, emitter discharge rates, and pressure regulators.": "\u0c2a\u0c1f\u0c3e\u0c32\u0c41, \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d\u0c2a\u0c30\u0c4d\u0c32 \u0c28\u0c40\u0c1f\u0c3f \u0c2a\u0c4d\u0c30\u0c35\u0c3e\u0c39 \u0c30\u0c47\u0c1f\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4d\u0c30\u0c46\u0c1c\u0c30\u0c4d \u0c30\u0c46\u0c17\u0c4d\u0c2f\u0c41\u0c32\u0c47\u0c1f\u0c30\u0c4d\u0c32 \u0c05\u0c2e\u0c30\u0c3f\u0c15.",
-    "Calibrate soil sensors at the start of each season using saturated and field capacity soil samples.": "\u0c2a\u0c4d\u0c30\u0c24\u0c3f \u0c38\u0c40\u0c1c\u0c28\u0c4d \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c02\u0c32\u0c4b \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32 \u0c2a\u0c28\u0c3f\u0c24\u0c40\u0c30\u0c41\u0c28\u0c41 \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Calibrate sprayer nozzle to ensure uniform chemical droplet coverage": "\u0c2e\u0c02\u0c26\u0c41 \u0c38\u0c2e\u0c3e\u0c28\u0c02\u0c17\u0c3e \u0c2a\u0c21\u0c47\u0c32\u0c3e \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c28\u0c3e\u0c1c\u0c3f\u0c32\u0c4d\u200c\u0c28\u0c41 \u0c38\u0c30\u0c3f\u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Call": "\u0c15\u0c3e\u0c32\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Cancel": "\u0c30\u0c26\u0c4d\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c3f",
-    "Cancelled": "\u0c30\u0c26\u0c4d\u0c26\u0c2f\u0c3f\u0c02\u0c26\u0c3f",
-    "Cap Stone Project": "\u0c15\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c38\u0c4d\u0c1f\u0c4b\u0c28\u0c4d \u0c2a\u0c4d\u0c30\u0c3e\u0c1c\u0c46\u0c15\u0c4d\u0c1f\u0c4d",
-    "Capacity": "\u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c02",
-    "Capacity: High to Low": "\u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c02: \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35",
-    "Capacity: Low to High": "\u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c02: \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35",
-    "Capturing monsoon runoff water for dry-spell protective irrigation.": "\u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c15\u0c3e\u0c32\u0c02\u0c32\u0c4b \u0c35\u0c43\u0c25\u0c3e \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c1a\u0c47\u0c38\u0c3f \u0c15\u0c30\u0c41\u0c35\u0c41 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c30\u0c15\u0c4d\u0c37\u0c15 \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32\u0c17\u0c3e \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c02.",
-    "Card specifies status of 12 soil parameters including N, P, K, and micro-nutrients": "\u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32\u0c4b 12 \u0c30\u0c15\u0c3e\u0c32 \u0c28\u0c47\u0c32 \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41 \u0c09\u0c02\u0c1f\u0c3e\u0c2f\u0c3f",
-    "Career": "\u0c15\u0c46\u0c30\u0c40\u0c30\u0c4d",
-    "Carefully Handpicked": "\u0c1c\u0c3e\u0c17\u0c4d\u0c30\u0c24\u0c4d\u0c24\u0c17\u0c3e \u0c0e\u0c02\u0c2a\u0c3f\u0c15 \u0c1a\u0c47\u0c38\u0c3f\u0c28\u0c35\u0c3f",
-    "Carrot Seed Pusa Rudhira (250 g)": "\u0c15\u0c4d\u0c2f\u0c3e\u0c30\u0c46\u0c1f\u0c4d \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2a\u0c42\u0c38\u0c3e \u0c30\u0c41\u0c27\u0c3f\u0c30 (250 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Castor Seed GCH-7 (5 kg)": "\u0c06\u0c2e\u0c41\u0c26\u0c02 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 GCH-7 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Category": "\u0c35\u0c30\u0c4d\u0c17\u0c02",
-    "Cattle Feed Trough Plastic 60 L": "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c47\u0c24 \u0c2a\u0c4d\u0c32\u0c3e\u0c38\u0c4d\u0c1f\u0c3f\u0c15\u0c4d \u0c24\u0c4a\u0c1f\u0c4d\u0c1f\u0c3f 60 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41",
-    "Cauliflower Seed Snowball-16 (50 g)": "\u0c15\u0c3e\u0c32\u0c40\u0c2b\u0c4d\u0c32\u0c35\u0c30\u0c4d \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c38\u0c4d\u0c28\u0c4b\u0c2c\u0c3e\u0c32\u0c4d-16 (50 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Certificates": "\u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c46\u0c1f\u0c4d\u0c32\u0c41",
-    "Certificates Earned": "\u0c38\u0c02\u0c2a\u0c3e\u0c26\u0c3f\u0c02\u0c1a\u0c3f\u0c28 \u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c1f\u0c4d\u0c32\u0c41",
-    "Certified products and inputs for your crops": "\u0c2e\u0c40 \u0c2a\u0c02\u0c1f\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c2a\u0c4d\u0c30\u0c3e\u0c2e\u0c3e\u0c23\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41",
-    "Chaff Cutter Electric 2 HP": "\u0c0e\u0c32\u0c15\u0c4d\u0c1f\u0c4d\u0c30\u0c3f\u0c15\u0c4d \u0c17\u0c21\u0c4d\u0c21\u0c3f \u0c15\u0c4b\u0c38\u0c47 \u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c02 2 HP",
-    "Chat Now": "\u0c07\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c47 \u0c1a\u0c3e\u0c1f\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Chat with our support team on WhatsApp for quick farm consulting.": "\u0c24\u0c15\u0c4d\u0c37\u0c23 \u0c38\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3f\u0c02\u0c2a\u0c41\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c35\u0c3e\u0c1f\u0c4d\u0c38\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c4b \u0c2e\u0c3e \u0c2e\u0c26\u0c4d\u0c26\u0c24\u0c41 \u0c2c\u0c43\u0c02\u0c26\u0c02\u0c24\u0c4b \u0c1a\u0c3e\u0c1f\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Check 5-day local rainfall forecasts before scheduling large-scale sowing operations.": "\u0c2a\u0c46\u0c26\u0c4d\u0c26 \u0c0e\u0c24\u0c4d\u0c24\u0c41\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c30\u0c3e\u0c2c\u0c4b\u0c2f\u0c47 5 \u0c30\u0c4b\u0c1c\u0c41\u0c32 \u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c3e\u0c24 \u0c05\u0c02\u0c1a\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Check Mandi Rates": "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "Check Weather": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c02 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "Check drip emitter flow rate uniformity across field lines monthly": "\u0c28\u0c46\u0c32\u0c15\u0c4b\u0c38\u0c3e\u0c30\u0c3f \u0c28\u0c40\u0c1f\u0c3f \u0c2a\u0c3e\u0c30\u0c15\u0c02 \u0c38\u0c30\u0c3f\u0c17\u0c4d\u0c17\u0c3e \u0c09\u0c02\u0c26\u0c4b \u0c32\u0c47\u0c26\u0c4b \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Check installment payment status on PM-KISAN official portal": "\u0c2a\u0c3f\u0c0e\u0c02-\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c2a\u0c4b\u0c30\u0c4d\u0c1f\u0c32\u0c4d\u200c\u0c32\u0c4b \u0c2a\u0c47\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c35\u0c1a\u0c4d\u0c1a\u0c41",
-    "Check lower leaf surfaces for early pest egg clusters": "\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c17\u0c4d\u0c30\u0c41\u0c21\u0c4d\u0c32 \u0c38\u0c2e\u0c42\u0c39\u0c3e\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c06\u0c15\u0c41\u0c32 \u0c15\u0c4d\u0c30\u0c3f\u0c02\u0c26\u0c3f \u0c2d\u0c3e\u0c17\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Check satellite crop health maps weekly to identify underperforming field zones.": "\u0c2a\u0c02\u0c1f \u0c38\u0c30\u0c3f\u0c17\u0c4d\u0c17\u0c3e \u0c2a\u0c46\u0c30\u0c17\u0c28\u0c3f \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c3e\u0c32\u0c28\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c35\u0c3e\u0c30\u0c3e\u0c28\u0c3f\u0c15\u0c4b\u0c38\u0c3e\u0c30\u0c3f \u0c36\u0c3e\u0c1f\u0c3f\u0c32\u0c48\u0c1f\u0c4d \u0c2e\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c28\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Checking authorization...": "\u0c05\u0c27\u0c3f\u0c15\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c4b\u0c02\u0c26\u0c3f...",
-    "Checking grain moisture percentage and crop maturity indicators.": "\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c02 \u0c24\u0c47\u0c2e \u0c36\u0c3e\u0c24\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1f \u0c2a\u0c15\u0c4d\u0c35\u0c24 \u0c38\u0c42\u0c1a\u0c3f\u0c15\u0c32 \u0c24\u0c28\u0c3f\u0c16\u0c40.",
-    "Checking soil moisture at root depth prevents over-watering, which causes root rot and nutrient leaching. Simple tensiometers or soil feel-and-appearance tests help determine exact irrigation needs.": "\u0c35\u0c47\u0c30\u0c41 \u0c32\u0c4b\u0c24\u0c41 \u0c35\u0c26\u0c4d\u0c26 \u0c28\u0c47\u0c32 \u0c24\u0c47\u0c2e\u0c28\u0c41 \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c05\u0c27\u0c3f\u0c15 \u0c28\u0c40\u0c1f\u0c3f \u0c35\u0c32\u0c4d\u0c32 \u0c15\u0c32\u0c3f\u0c17\u0c47 \u0c35\u0c47\u0c30\u0c41 \u0c15\u0c41\u0c33\u0c4d\u0c33\u0c41 \u0c24\u0c46\u0c17\u0c41\u0c32\u0c41\u0c28\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
-    "Checkout": "\u0c1a\u0c46\u0c15\u0c4c\u0c1f\u0c4d",
-    "Chickpea Seed JG-11 (10 kg)": "\u0c36\u0c28\u0c17 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 JG-11 (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Chilli Seed Byadgi Dabbi (50 g)": "\u0c2e\u0c3f\u0c30\u0c2a \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2c\u0c4d\u0c2f\u0c3e\u0c21\u0c3f\u0c17\u0c3f \u0c21\u0c2c\u0c4d\u0c2c\u0c3f (50 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Choose your role to get started with PureFarm": "PureFarm\u0c24\u0c4b \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c40 \u0c2a\u0c3e\u0c24\u0c4d\u0c30\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Claim Process": "\u0c15\u0c4d\u0c32\u0c46\u0c2f\u0c3f\u0c2e\u0c4d \u0c2a\u0c4d\u0c30\u0c15\u0c4d\u0c30\u0c3f\u0c2f",
-    "Claim Settlement": "\u0c15\u0c4d\u0c32\u0c46\u0c2f\u0c3f\u0c2e\u0c4d \u0c2a\u0c30\u0c3f\u0c37\u0c4d\u0c15\u0c3e\u0c30\u0c02",
-    "Claim payouts are calculated based on Crop Cutting Experiments (CCE) data or weather triggers and directly credited to farmers' Aadhaar-seeded bank accounts.": "\u0c15\u0c4d\u0c32\u0c46\u0c2f\u0c3f\u0c2e\u0c4d \u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41\u0c32\u0c41 \u0c2a\u0c02\u0c1f \u0c15\u0c4b\u0c24 \u0c2a\u0c4d\u0c30\u0c2f\u0c4b\u0c17\u0c3e\u0c32 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c4d \u0c16\u0c3e\u0c24\u0c3e\u0c32\u0c4d\u0c32\u0c4b \u0c1c\u0c2e \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c24\u0c3e\u0c2f\u0c3f.",
-    "Claim subsidies, direct transfers, and support.": "\u0c38\u0c2c\u0c4d\u0c38\u0c3f\u0c21\u0c40\u0c32\u0c41, \u0c06\u0c30\u0c4d\u0c25\u0c3f\u0c15 \u0c38\u0c3e\u0c2f\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c26\u0c4d\u0c26\u0c24\u0c41 \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f.",
-    "Claims submitted along with post-mortem examination report and ear-tag verification by veterinary officers for quick payout release.": "\u0c35\u0c46\u0c1f\u0c30\u0c4d\u0c28\u0c30\u0c40 \u0c05\u0c27\u0c3f\u0c15\u0c3e\u0c30\u0c41\u0c32 \u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c23 \u0c28\u0c3f\u0c35\u0c47\u0c26\u0c3f\u0c15 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c15\u0c4d\u0c32\u0c46\u0c2f\u0c3f\u0c2e\u0c4d\u200c\u0c32\u0c41 \u0c2a\u0c30\u0c3f\u0c37\u0c4d\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c24\u0c3e\u0c2f\u0c3f.",
-    "Clean drip line filters weekly to prevent emitter clogging from sand and algae.": "\u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d\u0c2a\u0c30\u0c4d\u0c32\u0c41 \u0c2e\u0c42\u0c38\u0c41\u0c15\u0c41\u0c2a\u0c4b\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c35\u0c3e\u0c30\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c12\u0c15\u0c38\u0c3e\u0c30\u0c3f \u0c2b\u0c3f\u0c32\u0c4d\u0c1f\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Cleaning salt deposits and algae from drippers using hydrochloric or phosphoric acid.": "\u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d\u0c2a\u0c30\u0c4d\u0c32\u0c32\u0c4b \u0c2a\u0c47\u0c30\u0c41\u0c15\u0c41\u0c2a\u0c4b\u0c2f\u0c3f\u0c28 \u0c09\u0c2a\u0c4d\u0c2a\u0c41, \u0c06\u0c32\u0c4d\u0c17\u0c47 \u0c30\u0c38\u0c3e\u0c2f\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c2f\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c1f\u0c4d\u0c30\u0c40\u0c1f\u0c4d\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02.",
-    "Cleaning, Grading, and Packaging": "\u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c2a\u0c30\u0c1a\u0c21\u0c02, \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c47\u0c1c\u0c3f\u0c02\u0c17\u0c4d",
-    "Climate Resilience": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f\u0c38\u0c4d\u0c25\u0c3e\u0c2a\u0c15\u0c24",
-    "Climate Resilience Network": "\u0c15\u0c4d\u0c32\u0c48\u0c2e\u0c47\u0c1f\u0c4d \u0c30\u0c46\u0c38\u0c3f\u0c32\u0c3f\u0c2f\u0c46\u0c28\u0c4d\u0c38\u0c4d \u0c28\u0c46\u0c1f\u0c4d\u200c\u0c35\u0c30\u0c4d\u0c15\u0c4d",
-    "Climate Risk Assessment & Resilient Varieties": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26 \u0c05\u0c02\u0c1a\u0c28\u0c3e & \u0c24\u0c1f\u0c4d\u0c1f\u0c41\u0c15\u0c41\u0c28\u0c47 \u0c30\u0c15\u0c3e\u0c32\u0c41",
-    "Climate-Smart Agriculture": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c05\u0c28\u0c41\u0c15\u0c42\u0c32 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
-    "Climate-smart agriculture focuses on building farm resilience against extreme weather events. Planting stress-tolerant seeds like drought-resistant maize or flood-tolerant Sub1 paddy safeguards harvests.": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c41\u0c32\u0c28\u0c41 \u0c24\u0c1f\u0c4d\u0c1f\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c15\u0c30\u0c41\u0c35\u0c41, \u0c2e\u0c41\u0c02\u0c2a\u0c41\u0c28\u0c41 \u0c24\u0c1f\u0c4d\u0c1f\u0c41\u0c15\u0c41\u0c28\u0c47 \u0c35\u0c02\u0c17\u0c21\u0c3e\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c2a\u0c02\u0c1f \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c24\u0c17\u0c4d\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Cloud & DevOps": "\u0c15\u0c4d\u0c32\u0c4c\u0c21\u0c4d & \u0c26\u0c47\u0c35\u0c3e\u0c2a\u0c4d\u0c38\u0c4d",
-    "Cloud Computing": "\u0c15\u0c4d\u0c32\u0c4c\u0c21\u0c4d \u0c15\u0c02\u0c2a\u0c4d\u0c2f\u0c42\u0c1f\u0c3f\u0c02\u0c17\u0c4d",
-    "Cloud Native Guild": "\u0c15\u0c4d\u0c32\u0c4c\u0c21\u0c4d \u0c28\u0c47\u0c1f\u0c3f\u0c35\u0c4d \u0c17\u0c3f\u0c32\u0c4d\u0c21\u0c4d",
-    "Cloudy intervals": "\u0c15\u0c4a\u0c02\u0c24\u0c38\u0c47\u0c2a\u0c41 \u0c2e\u0c47\u0c18\u0c3e\u0c35\u0c43\u0c24\u0c02",
-    "CodeCraft Institute": "\u0c15\u0c4b\u0c21\u0c4d\u200c\u0c15\u0c4d\u0c30\u0c3e\u0c2b\u0c4d\u0c1f\u0c4d \u0c07\u0c28\u0c4d\u0c38\u0c4d\u0c1f\u0c3f\u0c1f\u0c4d\u0c2f\u0c42\u0c1f\u0c4d",
-    "Cold Storage": "\u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d",
-    "Cold Storage & Cold Chain Logistics": "\u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d & \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c1a\u0c48\u0c28\u0c4d \u0c32\u0c3e\u0c1c\u0c3f\u0c38\u0c4d\u0c1f\u0c3f\u0c15\u0c4d\u0c38\u0c4d",
-    "Cold Storage Facilities": "\u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32\u0c41",
-    "Cold Storage Finder": "\u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32 \u0c05\u0c28\u0c4d\u0c35\u0c47\u0c37\u0c23",
-    "Collect and prepare soil lab test samples from various field zones": "\u0c35\u0c3f\u0c35\u0c3f\u0c27 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c3e\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c28\u0c2e\u0c42\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c38\u0c47\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c3f\u0c26\u0c4d\u0c27\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
-    "Collect crop health data, soil advisory updates, and harvest readiness logs": "\u0c2a\u0c02\u0c1f \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f \u0c21\u0c47\u0c1f\u0c3e\u0c28\u0c41 \u0c38\u0c47\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c02, \u0c28\u0c47\u0c32 \u0c38\u0c32\u0c39\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4b\u0c24 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
-    "Collect soil samples from 5 to 8 zig-zag field locations": "\u0c2a\u0c4a\u0c32\u0c02\u0c32\u0c4b 5 \u0c28\u0c41\u0c02\u0c21\u0c3f 8 \u0c35\u0c3f\u0c2d\u0c3f\u0c28\u0c4d\u0c28 \u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c3e\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c1c\u0c3f\u0c17\u0c4d-\u0c1c\u0c3e\u0c17\u0c4d \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c3f\u0c32\u0c4b \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c28\u0c2e\u0c42\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c38\u0c47\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Combining cultural, biological, mechanical, and chemical pest controls.": "\u0c2f\u0c3e\u0c1c\u0c2e\u0c3e\u0c28\u0c4d\u0c2f, \u0c1c\u0c40\u0c35, \u0c2d\u0c4c\u0c24\u0c3f\u0c15 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c30\u0c38\u0c3e\u0c2f\u0c28 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c2e\u0c47\u0c33\u0c35\u0c3f\u0c02\u0c1a\u0c3f \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23.",
-    "Commodity": "\u0c2a\u0c02\u0c1f / \u0c38\u0c30\u0c41\u0c15\u0c41",
-    "Communication": "\u0c15\u0c2e\u0c4d\u0c2f\u0c42\u0c28\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d",
-    "Community Internship": "\u0c15\u0c2e\u0c4d\u0c2f\u0c42\u0c28\u0c3f\u0c1f\u0c40 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d",
+    Buyer: "\u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41\u0c26\u0c3e\u0c30\u0c41",
+    "Buyer Dashboard":
+      "\u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41\u0c26\u0c3e\u0c30\u0c41 \u0c21\u0c3e\u0c37\u0c4d\u0c2c\u0c4b\u0c30\u0c4d\u0c21\u0c4d",
+    "Buyer Demo":
+      "\u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41\u0c26\u0c3e\u0c30\u0c41 \u0c21\u0c46\u0c2e\u0c4b",
+    "Cabbage Seed Golden Acre (100 g)":
+      "\u0c15\u0c4d\u0c2f\u0c3e\u0c2c\u0c47\u0c1c\u0c40 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c17\u0c4b\u0c32\u0c4d\u0c21\u0c46\u0c28\u0c4d \u0c0e\u0c15\u0c30 (100 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Calcium Nitrate (25 kg)":
+      "\u0c15\u0c3e\u0c32\u0c4d\u0c38\u0c3f\u0c2f\u0c02 \u0c28\u0c48\u0c1f\u0c4d\u0c30\u0c47\u0c1f\u0c4d (25 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Calculating lateral line spacing, emitter discharge rates, and pressure regulators.":
+      "\u0c2a\u0c1f\u0c3e\u0c32\u0c41, \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d\u0c2a\u0c30\u0c4d\u0c32 \u0c28\u0c40\u0c1f\u0c3f \u0c2a\u0c4d\u0c30\u0c35\u0c3e\u0c39 \u0c30\u0c47\u0c1f\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4d\u0c30\u0c46\u0c1c\u0c30\u0c4d \u0c30\u0c46\u0c17\u0c4d\u0c2f\u0c41\u0c32\u0c47\u0c1f\u0c30\u0c4d\u0c32 \u0c05\u0c2e\u0c30\u0c3f\u0c15.",
+    "Calibrate soil sensors at the start of each season using saturated and field capacity soil samples.":
+      "\u0c2a\u0c4d\u0c30\u0c24\u0c3f \u0c38\u0c40\u0c1c\u0c28\u0c4d \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c02\u0c32\u0c4b \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32 \u0c2a\u0c28\u0c3f\u0c24\u0c40\u0c30\u0c41\u0c28\u0c41 \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Calibrate sprayer nozzle to ensure uniform chemical droplet coverage":
+      "\u0c2e\u0c02\u0c26\u0c41 \u0c38\u0c2e\u0c3e\u0c28\u0c02\u0c17\u0c3e \u0c2a\u0c21\u0c47\u0c32\u0c3e \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c28\u0c3e\u0c1c\u0c3f\u0c32\u0c4d\u200c\u0c28\u0c41 \u0c38\u0c30\u0c3f\u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    Call: "\u0c15\u0c3e\u0c32\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    Cancel: "\u0c30\u0c26\u0c4d\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c3f",
+    Cancelled: "\u0c30\u0c26\u0c4d\u0c26\u0c2f\u0c3f\u0c02\u0c26\u0c3f",
+    "Cap Stone Project":
+      "\u0c15\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c38\u0c4d\u0c1f\u0c4b\u0c28\u0c4d \u0c2a\u0c4d\u0c30\u0c3e\u0c1c\u0c46\u0c15\u0c4d\u0c1f\u0c4d",
+    Capacity: "\u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c02",
+    "Capacity: High to Low":
+      "\u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c02: \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35",
+    "Capacity: Low to High":
+      "\u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c02: \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35",
+    "Capturing monsoon runoff water for dry-spell protective irrigation.":
+      "\u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c15\u0c3e\u0c32\u0c02\u0c32\u0c4b \u0c35\u0c43\u0c25\u0c3e \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c1a\u0c47\u0c38\u0c3f \u0c15\u0c30\u0c41\u0c35\u0c41 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c30\u0c15\u0c4d\u0c37\u0c15 \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32\u0c17\u0c3e \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c02.",
+    "Card specifies status of 12 soil parameters including N, P, K, and micro-nutrients":
+      "\u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32\u0c4b 12 \u0c30\u0c15\u0c3e\u0c32 \u0c28\u0c47\u0c32 \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41 \u0c09\u0c02\u0c1f\u0c3e\u0c2f\u0c3f",
+    Career: "\u0c15\u0c46\u0c30\u0c40\u0c30\u0c4d",
+    "Carefully Handpicked":
+      "\u0c1c\u0c3e\u0c17\u0c4d\u0c30\u0c24\u0c4d\u0c24\u0c17\u0c3e \u0c0e\u0c02\u0c2a\u0c3f\u0c15 \u0c1a\u0c47\u0c38\u0c3f\u0c28\u0c35\u0c3f",
+    "Carrot Seed Pusa Rudhira (250 g)":
+      "\u0c15\u0c4d\u0c2f\u0c3e\u0c30\u0c46\u0c1f\u0c4d \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2a\u0c42\u0c38\u0c3e \u0c30\u0c41\u0c27\u0c3f\u0c30 (250 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Castor Seed GCH-7 (5 kg)":
+      "\u0c06\u0c2e\u0c41\u0c26\u0c02 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 GCH-7 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    Category: "\u0c35\u0c30\u0c4d\u0c17\u0c02",
+    "Cattle Feed Trough Plastic 60 L":
+      "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c47\u0c24 \u0c2a\u0c4d\u0c32\u0c3e\u0c38\u0c4d\u0c1f\u0c3f\u0c15\u0c4d \u0c24\u0c4a\u0c1f\u0c4d\u0c1f\u0c3f 60 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41",
+    "Cauliflower Seed Snowball-16 (50 g)":
+      "\u0c15\u0c3e\u0c32\u0c40\u0c2b\u0c4d\u0c32\u0c35\u0c30\u0c4d \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c38\u0c4d\u0c28\u0c4b\u0c2c\u0c3e\u0c32\u0c4d-16 (50 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    Certificates: "\u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c46\u0c1f\u0c4d\u0c32\u0c41",
+    "Certificates Earned":
+      "\u0c38\u0c02\u0c2a\u0c3e\u0c26\u0c3f\u0c02\u0c1a\u0c3f\u0c28 \u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c1f\u0c4d\u0c32\u0c41",
+    "Certified products and inputs for your crops":
+      "\u0c2e\u0c40 \u0c2a\u0c02\u0c1f\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c2a\u0c4d\u0c30\u0c3e\u0c2e\u0c3e\u0c23\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41",
+    "Chaff Cutter Electric 2 HP":
+      "\u0c0e\u0c32\u0c15\u0c4d\u0c1f\u0c4d\u0c30\u0c3f\u0c15\u0c4d \u0c17\u0c21\u0c4d\u0c21\u0c3f \u0c15\u0c4b\u0c38\u0c47 \u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c02 2 HP",
+    "Chat Now":
+      "\u0c07\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c47 \u0c1a\u0c3e\u0c1f\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Chat with our support team on WhatsApp for quick farm consulting.":
+      "\u0c24\u0c15\u0c4d\u0c37\u0c23 \u0c38\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3f\u0c02\u0c2a\u0c41\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c35\u0c3e\u0c1f\u0c4d\u0c38\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c4b \u0c2e\u0c3e \u0c2e\u0c26\u0c4d\u0c26\u0c24\u0c41 \u0c2c\u0c43\u0c02\u0c26\u0c02\u0c24\u0c4b \u0c1a\u0c3e\u0c1f\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Check 5-day local rainfall forecasts before scheduling large-scale sowing operations.":
+      "\u0c2a\u0c46\u0c26\u0c4d\u0c26 \u0c0e\u0c24\u0c4d\u0c24\u0c41\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c30\u0c3e\u0c2c\u0c4b\u0c2f\u0c47 5 \u0c30\u0c4b\u0c1c\u0c41\u0c32 \u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c3e\u0c24 \u0c05\u0c02\u0c1a\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Check Mandi Rates":
+      "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "Check Weather":
+      "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c02 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "Check drip emitter flow rate uniformity across field lines monthly":
+      "\u0c28\u0c46\u0c32\u0c15\u0c4b\u0c38\u0c3e\u0c30\u0c3f \u0c28\u0c40\u0c1f\u0c3f \u0c2a\u0c3e\u0c30\u0c15\u0c02 \u0c38\u0c30\u0c3f\u0c17\u0c4d\u0c17\u0c3e \u0c09\u0c02\u0c26\u0c4b \u0c32\u0c47\u0c26\u0c4b \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Check installment payment status on PM-KISAN official portal":
+      "\u0c2a\u0c3f\u0c0e\u0c02-\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c2a\u0c4b\u0c30\u0c4d\u0c1f\u0c32\u0c4d\u200c\u0c32\u0c4b \u0c2a\u0c47\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c35\u0c1a\u0c4d\u0c1a\u0c41",
+    "Check lower leaf surfaces for early pest egg clusters":
+      "\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c17\u0c4d\u0c30\u0c41\u0c21\u0c4d\u0c32 \u0c38\u0c2e\u0c42\u0c39\u0c3e\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c06\u0c15\u0c41\u0c32 \u0c15\u0c4d\u0c30\u0c3f\u0c02\u0c26\u0c3f \u0c2d\u0c3e\u0c17\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Check satellite crop health maps weekly to identify underperforming field zones.":
+      "\u0c2a\u0c02\u0c1f \u0c38\u0c30\u0c3f\u0c17\u0c4d\u0c17\u0c3e \u0c2a\u0c46\u0c30\u0c17\u0c28\u0c3f \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c3e\u0c32\u0c28\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c35\u0c3e\u0c30\u0c3e\u0c28\u0c3f\u0c15\u0c4b\u0c38\u0c3e\u0c30\u0c3f \u0c36\u0c3e\u0c1f\u0c3f\u0c32\u0c48\u0c1f\u0c4d \u0c2e\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c28\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Checking authorization...":
+      "\u0c05\u0c27\u0c3f\u0c15\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c4b\u0c02\u0c26\u0c3f...",
+    "Checking grain moisture percentage and crop maturity indicators.":
+      "\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c02 \u0c24\u0c47\u0c2e \u0c36\u0c3e\u0c24\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1f \u0c2a\u0c15\u0c4d\u0c35\u0c24 \u0c38\u0c42\u0c1a\u0c3f\u0c15\u0c32 \u0c24\u0c28\u0c3f\u0c16\u0c40.",
+    "Checking soil moisture at root depth prevents over-watering, which causes root rot and nutrient leaching. Simple tensiometers or soil feel-and-appearance tests help determine exact irrigation needs.":
+      "\u0c35\u0c47\u0c30\u0c41 \u0c32\u0c4b\u0c24\u0c41 \u0c35\u0c26\u0c4d\u0c26 \u0c28\u0c47\u0c32 \u0c24\u0c47\u0c2e\u0c28\u0c41 \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c05\u0c27\u0c3f\u0c15 \u0c28\u0c40\u0c1f\u0c3f \u0c35\u0c32\u0c4d\u0c32 \u0c15\u0c32\u0c3f\u0c17\u0c47 \u0c35\u0c47\u0c30\u0c41 \u0c15\u0c41\u0c33\u0c4d\u0c33\u0c41 \u0c24\u0c46\u0c17\u0c41\u0c32\u0c41\u0c28\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
+    Checkout: "\u0c1a\u0c46\u0c15\u0c4c\u0c1f\u0c4d",
+    "Chickpea Seed JG-11 (10 kg)":
+      "\u0c36\u0c28\u0c17 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 JG-11 (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Chilli Seed Byadgi Dabbi (50 g)":
+      "\u0c2e\u0c3f\u0c30\u0c2a \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2c\u0c4d\u0c2f\u0c3e\u0c21\u0c3f\u0c17\u0c3f \u0c21\u0c2c\u0c4d\u0c2c\u0c3f (50 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Choose your role to get started with PureFarm":
+      "PureFarm\u0c24\u0c4b \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c40 \u0c2a\u0c3e\u0c24\u0c4d\u0c30\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Claim Process":
+      "\u0c15\u0c4d\u0c32\u0c46\u0c2f\u0c3f\u0c2e\u0c4d \u0c2a\u0c4d\u0c30\u0c15\u0c4d\u0c30\u0c3f\u0c2f",
+    "Claim Settlement":
+      "\u0c15\u0c4d\u0c32\u0c46\u0c2f\u0c3f\u0c2e\u0c4d \u0c2a\u0c30\u0c3f\u0c37\u0c4d\u0c15\u0c3e\u0c30\u0c02",
+    "Claim payouts are calculated based on Crop Cutting Experiments (CCE) data or weather triggers and directly credited to farmers' Aadhaar-seeded bank accounts.":
+      "\u0c15\u0c4d\u0c32\u0c46\u0c2f\u0c3f\u0c2e\u0c4d \u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41\u0c32\u0c41 \u0c2a\u0c02\u0c1f \u0c15\u0c4b\u0c24 \u0c2a\u0c4d\u0c30\u0c2f\u0c4b\u0c17\u0c3e\u0c32 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c4d \u0c16\u0c3e\u0c24\u0c3e\u0c32\u0c4d\u0c32\u0c4b \u0c1c\u0c2e \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c24\u0c3e\u0c2f\u0c3f.",
+    "Claim subsidies, direct transfers, and support.":
+      "\u0c38\u0c2c\u0c4d\u0c38\u0c3f\u0c21\u0c40\u0c32\u0c41, \u0c06\u0c30\u0c4d\u0c25\u0c3f\u0c15 \u0c38\u0c3e\u0c2f\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c26\u0c4d\u0c26\u0c24\u0c41 \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f.",
+    "Claims submitted along with post-mortem examination report and ear-tag verification by veterinary officers for quick payout release.":
+      "\u0c35\u0c46\u0c1f\u0c30\u0c4d\u0c28\u0c30\u0c40 \u0c05\u0c27\u0c3f\u0c15\u0c3e\u0c30\u0c41\u0c32 \u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c23 \u0c28\u0c3f\u0c35\u0c47\u0c26\u0c3f\u0c15 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c15\u0c4d\u0c32\u0c46\u0c2f\u0c3f\u0c2e\u0c4d\u200c\u0c32\u0c41 \u0c2a\u0c30\u0c3f\u0c37\u0c4d\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c24\u0c3e\u0c2f\u0c3f.",
+    "Clean drip line filters weekly to prevent emitter clogging from sand and algae.":
+      "\u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d\u0c2a\u0c30\u0c4d\u0c32\u0c41 \u0c2e\u0c42\u0c38\u0c41\u0c15\u0c41\u0c2a\u0c4b\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c35\u0c3e\u0c30\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c12\u0c15\u0c38\u0c3e\u0c30\u0c3f \u0c2b\u0c3f\u0c32\u0c4d\u0c1f\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Cleaning salt deposits and algae from drippers using hydrochloric or phosphoric acid.":
+      "\u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d\u0c2a\u0c30\u0c4d\u0c32\u0c32\u0c4b \u0c2a\u0c47\u0c30\u0c41\u0c15\u0c41\u0c2a\u0c4b\u0c2f\u0c3f\u0c28 \u0c09\u0c2a\u0c4d\u0c2a\u0c41, \u0c06\u0c32\u0c4d\u0c17\u0c47 \u0c30\u0c38\u0c3e\u0c2f\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c2f\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c1f\u0c4d\u0c30\u0c40\u0c1f\u0c4d\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02.",
+    "Cleaning, Grading, and Packaging":
+      "\u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c2a\u0c30\u0c1a\u0c21\u0c02, \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c47\u0c1c\u0c3f\u0c02\u0c17\u0c4d",
+    "Climate Resilience":
+      "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f\u0c38\u0c4d\u0c25\u0c3e\u0c2a\u0c15\u0c24",
+    "Climate Resilience Network":
+      "\u0c15\u0c4d\u0c32\u0c48\u0c2e\u0c47\u0c1f\u0c4d \u0c30\u0c46\u0c38\u0c3f\u0c32\u0c3f\u0c2f\u0c46\u0c28\u0c4d\u0c38\u0c4d \u0c28\u0c46\u0c1f\u0c4d\u200c\u0c35\u0c30\u0c4d\u0c15\u0c4d",
+    "Climate Risk Assessment & Resilient Varieties":
+      "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26 \u0c05\u0c02\u0c1a\u0c28\u0c3e & \u0c24\u0c1f\u0c4d\u0c1f\u0c41\u0c15\u0c41\u0c28\u0c47 \u0c30\u0c15\u0c3e\u0c32\u0c41",
+    "Climate-Smart Agriculture":
+      "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c05\u0c28\u0c41\u0c15\u0c42\u0c32 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    "Climate-smart agriculture focuses on building farm resilience against extreme weather events. Planting stress-tolerant seeds like drought-resistant maize or flood-tolerant Sub1 paddy safeguards harvests.":
+      "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c41\u0c32\u0c28\u0c41 \u0c24\u0c1f\u0c4d\u0c1f\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c15\u0c30\u0c41\u0c35\u0c41, \u0c2e\u0c41\u0c02\u0c2a\u0c41\u0c28\u0c41 \u0c24\u0c1f\u0c4d\u0c1f\u0c41\u0c15\u0c41\u0c28\u0c47 \u0c35\u0c02\u0c17\u0c21\u0c3e\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c2a\u0c02\u0c1f \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c24\u0c17\u0c4d\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Cloud & DevOps":
+      "\u0c15\u0c4d\u0c32\u0c4c\u0c21\u0c4d & \u0c26\u0c47\u0c35\u0c3e\u0c2a\u0c4d\u0c38\u0c4d",
+    "Cloud Computing":
+      "\u0c15\u0c4d\u0c32\u0c4c\u0c21\u0c4d \u0c15\u0c02\u0c2a\u0c4d\u0c2f\u0c42\u0c1f\u0c3f\u0c02\u0c17\u0c4d",
+    "Cloud Native Guild":
+      "\u0c15\u0c4d\u0c32\u0c4c\u0c21\u0c4d \u0c28\u0c47\u0c1f\u0c3f\u0c35\u0c4d \u0c17\u0c3f\u0c32\u0c4d\u0c21\u0c4d",
+    "Cloudy intervals":
+      "\u0c15\u0c4a\u0c02\u0c24\u0c38\u0c47\u0c2a\u0c41 \u0c2e\u0c47\u0c18\u0c3e\u0c35\u0c43\u0c24\u0c02",
+    "CodeCraft Institute":
+      "\u0c15\u0c4b\u0c21\u0c4d\u200c\u0c15\u0c4d\u0c30\u0c3e\u0c2b\u0c4d\u0c1f\u0c4d \u0c07\u0c28\u0c4d\u0c38\u0c4d\u0c1f\u0c3f\u0c1f\u0c4d\u0c2f\u0c42\u0c1f\u0c4d",
+    "Cold Storage":
+      "\u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d",
+    "Cold Storage & Cold Chain Logistics":
+      "\u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d & \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c1a\u0c48\u0c28\u0c4d \u0c32\u0c3e\u0c1c\u0c3f\u0c38\u0c4d\u0c1f\u0c3f\u0c15\u0c4d\u0c38\u0c4d",
+    "Cold Storage Facilities":
+      "\u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32\u0c41",
+    "Cold Storage Finder":
+      "\u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32 \u0c05\u0c28\u0c4d\u0c35\u0c47\u0c37\u0c23",
+    "Collect and prepare soil lab test samples from various field zones":
+      "\u0c35\u0c3f\u0c35\u0c3f\u0c27 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c3e\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c28\u0c2e\u0c42\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c38\u0c47\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c3f\u0c26\u0c4d\u0c27\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
+    "Collect crop health data, soil advisory updates, and harvest readiness logs":
+      "\u0c2a\u0c02\u0c1f \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f \u0c21\u0c47\u0c1f\u0c3e\u0c28\u0c41 \u0c38\u0c47\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c02, \u0c28\u0c47\u0c32 \u0c38\u0c32\u0c39\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4b\u0c24 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
+    "Collect soil samples from 5 to 8 zig-zag field locations":
+      "\u0c2a\u0c4a\u0c32\u0c02\u0c32\u0c4b 5 \u0c28\u0c41\u0c02\u0c21\u0c3f 8 \u0c35\u0c3f\u0c2d\u0c3f\u0c28\u0c4d\u0c28 \u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c3e\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c1c\u0c3f\u0c17\u0c4d-\u0c1c\u0c3e\u0c17\u0c4d \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c3f\u0c32\u0c4b \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c28\u0c2e\u0c42\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c38\u0c47\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Combining cultural, biological, mechanical, and chemical pest controls.":
+      "\u0c2f\u0c3e\u0c1c\u0c2e\u0c3e\u0c28\u0c4d\u0c2f, \u0c1c\u0c40\u0c35, \u0c2d\u0c4c\u0c24\u0c3f\u0c15 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c30\u0c38\u0c3e\u0c2f\u0c28 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c2e\u0c47\u0c33\u0c35\u0c3f\u0c02\u0c1a\u0c3f \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23.",
+    Commodity: "\u0c2a\u0c02\u0c1f / \u0c38\u0c30\u0c41\u0c15\u0c41",
+    Communication: "\u0c15\u0c2e\u0c4d\u0c2f\u0c42\u0c28\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d",
+    "Community Internship":
+      "\u0c15\u0c2e\u0c4d\u0c2f\u0c42\u0c28\u0c3f\u0c1f\u0c40 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d",
     "Company / Organization": "\u0c38\u0c02\u0c38\u0c4d\u0c25",
-    "Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website.": "\u0c2a\u0c02\u0c1f, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c28\u0c41\u0c2c\u0c02\u0c27 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2c\u0c40\u0c2e\u0c3e \u0c0e\u0c02\u0c2a\u0c3f\u0c15\u0c32\u0c28\u0c41 \u0c2a\u0c4b\u0c32\u0c4d\u0c1a\u0c02\u0c21\u0c3f.",
-    "Compare live mandi prices across nearby markets before selling": "\u0c05\u0c2e\u0c4d\u0c2e\u0c15\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c38\u0c2e\u0c40\u0c2a \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c28\u0c41 \u0c2a\u0c4b\u0c32\u0c4d\u0c1a\u0c3f \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "Compare mandi prices, cold storage, schemes, weather, and sell your produce directly.": "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c41, \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d, \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c40 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c05\u0c2e\u0c4d\u0c2e\u0c02\u0c21\u0c3f.",
-    "Complete 3-year organic conversion period for land certification": "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c23\u0c2a\u0c24\u0c4d\u0c30\u0c02 \u0c15\u0c4b\u0c38\u0c02 3 \u0c38\u0c02\u0c35\u0c24\u0c4d\u0c38\u0c30\u0c3e\u0c32 \u0c2a\u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c24\u0c28 \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c3f \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Completed": "\u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c2f\u0c3f\u0c02\u0c26\u0c3f",
+    "Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website.":
+      "\u0c2a\u0c02\u0c1f, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c28\u0c41\u0c2c\u0c02\u0c27 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2c\u0c40\u0c2e\u0c3e \u0c0e\u0c02\u0c2a\u0c3f\u0c15\u0c32\u0c28\u0c41 \u0c2a\u0c4b\u0c32\u0c4d\u0c1a\u0c02\u0c21\u0c3f.",
+    "Compare live mandi prices across nearby markets before selling":
+      "\u0c05\u0c2e\u0c4d\u0c2e\u0c15\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c38\u0c2e\u0c40\u0c2a \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c28\u0c41 \u0c2a\u0c4b\u0c32\u0c4d\u0c1a\u0c3f \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "Compare mandi prices, cold storage, schemes, weather, and sell your produce directly.":
+      "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c41, \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d, \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c40 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c05\u0c2e\u0c4d\u0c2e\u0c02\u0c21\u0c3f.",
+    "Complete 3-year organic conversion period for land certification":
+      "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c23\u0c2a\u0c24\u0c4d\u0c30\u0c02 \u0c15\u0c4b\u0c38\u0c02 3 \u0c38\u0c02\u0c35\u0c24\u0c4d\u0c38\u0c30\u0c3e\u0c32 \u0c2a\u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c24\u0c28 \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c3f \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    Completed: "\u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c2f\u0c3f\u0c02\u0c26\u0c3f",
     "Completed \u2713": "\u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c2f\u0c3f\u0c02\u0c26\u0c3f \u2713",
-    "Composting": "\u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c3f\u0c02\u0c17\u0c4d",
-    "Comprehensive crop insurance against weather, pest, disease, prevented sowing, and post-harvest losses.": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c02, \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c33\u0c41, \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c38\u0c2e\u0c17\u0c4d\u0c30 \u0c2a\u0c02\u0c1f \u0c2c\u0c40\u0c2e\u0c3e.",
-    "Comprehensive crop insurance scheme providing financial support to farmers suffering crop loss or damage arising out of non-preventable natural risks.": "\u0c2a\u0c4d\u0c30\u0c3e\u0c15\u0c43\u0c24\u0c3f\u0c15 \u0c06\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c35\u0c32\u0c28 \u0c2a\u0c02\u0c1f \u0c28\u0c37\u0c4d\u0c1f\u0c2a\u0c4b\u0c2f\u0c3f\u0c28 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c38\u0c2e\u0c17\u0c4d\u0c30 \u0c06\u0c30\u0c4d\u0c25\u0c3f\u0c15 \u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c47 \u0c2c\u0c40\u0c2e\u0c3e \u0c2a\u0c25\u0c15\u0c02.",
-    "Computer Science": "\u0c15\u0c02\u0c2a\u0c4d\u0c2f\u0c42\u0c1f\u0c30\u0c4d \u0c38\u0c48\u0c28\u0c4d\u0c38\u0c4d",
-    "Conduct daily field visits to registered farms in Rajahmundry region": "\u0c30\u0c3e\u0c1c\u0c2e\u0c02\u0c21\u0c4d\u0c30\u0c3f \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02\u0c32\u0c4b\u0c28\u0c3f \u0c28\u0c2e\u0c4b\u0c26\u0c3f\u0c24 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c15\u0c4d\u0c37\u0c47\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c24\u0c3f\u0c30\u0c4b\u0c1c\u0c42 \u0c38\u0c02\u0c26\u0c30\u0c4d\u0c36\u0c3f\u0c02\u0c1a\u0c21\u0c02",
-    "Confirm": "\u0c28\u0c3f\u0c30\u0c4d\u0c27\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Confirm Delete Product": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c2a\u0c41\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c27\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Connect - Grow - Prosper": "\u0c15\u0c28\u0c46\u0c15\u0c4d\u0c1f\u0c4d - \u0c2a\u0c46\u0c02\u0c1a\u0c02\u0c21\u0c3f - \u0c05\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f \u0c1a\u0c46\u0c02\u0c26\u0c02\u0c21\u0c3f",
-    "Connecting soil moisture and EC sensors to automated irrigation valves.": "\u0c06\u0c1f\u0c4b\u0c2e\u0c47\u0c1f\u0c3f\u0c15\u0c4d \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c28\u0c47\u0c32 \u0c24\u0c47\u0c2e \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c35\u0c3e\u0c32\u0c4d\u0c35\u0c4d\u200c\u0c32\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c38\u0c02\u0c27\u0c3e\u0c28\u0c3f\u0c02\u0c1a\u0c21\u0c02.",
-    "Construct farm ponds at the lowest elevation point of the land": "\u0c2a\u0c4a\u0c32\u0c02\u0c32\u0c4b \u0c05\u0c24\u0c4d\u0c2f\u0c02\u0c24 \u0c2a\u0c32\u0c4d\u0c32\u0c02\u0c17\u0c3e \u0c09\u0c28\u0c4d\u0c28 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02\u0c32\u0c4b \u0c2a\u0c4a\u0c32\u0c02 \u0c15\u0c41\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c24\u0c35\u0c4d\u0c35\u0c02\u0c21\u0c3f",
-    "Construct firm field bunds to prevent soil erosion": "\u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c15\u0c4b\u0c24\u0c28\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2a\u0c4a\u0c32\u0c02 \u0c17\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Contact PureFarm": "PureFarm\u0c28\u0c3f \u0c38\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    Composting: "\u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c3f\u0c02\u0c17\u0c4d",
+    "Comprehensive crop insurance against weather, pest, disease, prevented sowing, and post-harvest losses.":
+      "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c02, \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c33\u0c41, \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c38\u0c2e\u0c17\u0c4d\u0c30 \u0c2a\u0c02\u0c1f \u0c2c\u0c40\u0c2e\u0c3e.",
+    "Comprehensive crop insurance scheme providing financial support to farmers suffering crop loss or damage arising out of non-preventable natural risks.":
+      "\u0c2a\u0c4d\u0c30\u0c3e\u0c15\u0c43\u0c24\u0c3f\u0c15 \u0c06\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c35\u0c32\u0c28 \u0c2a\u0c02\u0c1f \u0c28\u0c37\u0c4d\u0c1f\u0c2a\u0c4b\u0c2f\u0c3f\u0c28 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c38\u0c2e\u0c17\u0c4d\u0c30 \u0c06\u0c30\u0c4d\u0c25\u0c3f\u0c15 \u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c47 \u0c2c\u0c40\u0c2e\u0c3e \u0c2a\u0c25\u0c15\u0c02.",
+    "Computer Science":
+      "\u0c15\u0c02\u0c2a\u0c4d\u0c2f\u0c42\u0c1f\u0c30\u0c4d \u0c38\u0c48\u0c28\u0c4d\u0c38\u0c4d",
+    "Conduct daily field visits to registered farms in Rajahmundry region":
+      "\u0c30\u0c3e\u0c1c\u0c2e\u0c02\u0c21\u0c4d\u0c30\u0c3f \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02\u0c32\u0c4b\u0c28\u0c3f \u0c28\u0c2e\u0c4b\u0c26\u0c3f\u0c24 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c15\u0c4d\u0c37\u0c47\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c24\u0c3f\u0c30\u0c4b\u0c1c\u0c42 \u0c38\u0c02\u0c26\u0c30\u0c4d\u0c36\u0c3f\u0c02\u0c1a\u0c21\u0c02",
+    Confirm: "\u0c28\u0c3f\u0c30\u0c4d\u0c27\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Confirm Delete Product":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c2a\u0c41\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c27\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Connect - Grow - Prosper":
+      "\u0c15\u0c28\u0c46\u0c15\u0c4d\u0c1f\u0c4d - \u0c2a\u0c46\u0c02\u0c1a\u0c02\u0c21\u0c3f - \u0c05\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f \u0c1a\u0c46\u0c02\u0c26\u0c02\u0c21\u0c3f",
+    "Connecting soil moisture and EC sensors to automated irrigation valves.":
+      "\u0c06\u0c1f\u0c4b\u0c2e\u0c47\u0c1f\u0c3f\u0c15\u0c4d \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c28\u0c47\u0c32 \u0c24\u0c47\u0c2e \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c35\u0c3e\u0c32\u0c4d\u0c35\u0c4d\u200c\u0c32\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c38\u0c02\u0c27\u0c3e\u0c28\u0c3f\u0c02\u0c1a\u0c21\u0c02.",
+    "Construct farm ponds at the lowest elevation point of the land":
+      "\u0c2a\u0c4a\u0c32\u0c02\u0c32\u0c4b \u0c05\u0c24\u0c4d\u0c2f\u0c02\u0c24 \u0c2a\u0c32\u0c4d\u0c32\u0c02\u0c17\u0c3e \u0c09\u0c28\u0c4d\u0c28 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02\u0c32\u0c4b \u0c2a\u0c4a\u0c32\u0c02 \u0c15\u0c41\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c24\u0c35\u0c4d\u0c35\u0c02\u0c21\u0c3f",
+    "Construct firm field bunds to prevent soil erosion":
+      "\u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c15\u0c4b\u0c24\u0c28\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2a\u0c4a\u0c32\u0c02 \u0c17\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Contact PureFarm":
+      "PureFarm\u0c28\u0c3f \u0c38\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
     "Contact Storage": "\u0c38\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Contact Us": "\u0c2e\u0c2e\u0c4d\u0c2e\u0c32\u0c4d\u0c28\u0c3f \u0c38\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Contact unavailable": "\u0c38\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3f\u0c02\u0c2a\u0c41 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41 \u0c32\u0c47\u0c35\u0c41",
-    "Continue Learning": "\u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c4a\u0c28\u0c38\u0c3e\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Continue learning your active tech & AgriTech modules": "\u0c2e\u0c40 \u0c38\u0c15\u0c4d\u0c30\u0c3f\u0c2f \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15 & \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c2e\u0c3e\u0c21\u0c4d\u0c2f\u0c42\u0c33\u0c4d\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c15\u0c4a\u0c28\u0c38\u0c3e\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Coordinates:": "\u0c15\u0c4b\u0c06\u0c30\u0c4d\u0c21\u0c3f\u0c28\u0c47\u0c1f\u0c4d\u0c32\u0c41:",
-    "Coriander Seed Local (1 kg)": "\u0c27\u0c28\u0c3f\u0c2f\u0c3e\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c32\u0c4b\u0c15\u0c32\u0c4d (1 \u0c15\u0c3f\u0c32\u0c4b)",
-    "Cotton": "\u0c2a\u0c24\u0c4d\u0c24\u0c3f",
-    "Cotton pest threshold alert": "\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c24\u0c40\u0c35\u0c4d\u0c30\u0c24 \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15",
-    "Course Details & Lessons": "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41 & \u0c2a\u0c3e\u0c20\u0c3e\u0c32\u0c41",
-    "Course Not Found": "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c32\u0c47\u0c26\u0c41",
-    "Courses": "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
-    "Cover farm pond surfaces with shade nets to reduce evaporation loss.": "\u0c28\u0c40\u0c30\u0c41 \u0c06\u0c35\u0c3f\u0c30\u0c3f \u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c2a\u0c4a\u0c32\u0c02 \u0c15\u0c41\u0c02\u0c1f\u0c32\u0c2a\u0c48 \u0c28\u0c40\u0c21 \u0c35\u0c32\u0c32\u0c28\u0c41 (\u0c37\u0c46\u0c21\u0c4d \u0c28\u0c46\u0c1f\u0c4d\u0c38\u0c4d) \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f.",
+    "Contact Us":
+      "\u0c2e\u0c2e\u0c4d\u0c2e\u0c32\u0c4d\u0c28\u0c3f \u0c38\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Contact unavailable":
+      "\u0c38\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3f\u0c02\u0c2a\u0c41 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41 \u0c32\u0c47\u0c35\u0c41",
+    "Continue Learning":
+      "\u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c4a\u0c28\u0c38\u0c3e\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Continue learning your active tech & AgriTech modules":
+      "\u0c2e\u0c40 \u0c38\u0c15\u0c4d\u0c30\u0c3f\u0c2f \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15 & \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c2e\u0c3e\u0c21\u0c4d\u0c2f\u0c42\u0c33\u0c4d\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c15\u0c4a\u0c28\u0c38\u0c3e\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Coordinates:":
+      "\u0c15\u0c4b\u0c06\u0c30\u0c4d\u0c21\u0c3f\u0c28\u0c47\u0c1f\u0c4d\u0c32\u0c41:",
+    "Coriander Seed Local (1 kg)":
+      "\u0c27\u0c28\u0c3f\u0c2f\u0c3e\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c32\u0c4b\u0c15\u0c32\u0c4d (1 \u0c15\u0c3f\u0c32\u0c4b)",
+    Cotton: "\u0c2a\u0c24\u0c4d\u0c24\u0c3f",
+    "Cotton pest threshold alert":
+      "\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c24\u0c40\u0c35\u0c4d\u0c30\u0c24 \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15",
+    "Course Details & Lessons":
+      "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41 & \u0c2a\u0c3e\u0c20\u0c3e\u0c32\u0c41",
+    "Machines & Tools":
+      "\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c41 & \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41",
+    "Rent agricultural machinery and tools from farmers near you":
+      "\u0c2e\u0c40 \u0c38\u0c2e\u0c40\u0c2a\u0c02\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c30\u0c48\u0c24\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c05\u0c26\u0c4d\u0c26\u0c46\u0c15\u0c41 \u0c24\u0c40\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Course Not Found":
+      "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c32\u0c47\u0c26\u0c41",
+    Courses: "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
+    "Cover farm pond surfaces with shade nets to reduce evaporation loss.":
+      "\u0c28\u0c40\u0c30\u0c41 \u0c06\u0c35\u0c3f\u0c30\u0c3f \u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c2a\u0c4a\u0c32\u0c02 \u0c15\u0c41\u0c02\u0c1f\u0c32\u0c2a\u0c48 \u0c28\u0c40\u0c21 \u0c35\u0c32\u0c32\u0c28\u0c41 (\u0c37\u0c46\u0c21\u0c4d \u0c28\u0c46\u0c1f\u0c4d\u0c38\u0c4d) \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f.",
     "Coverage Stages": "\u0c15\u0c35\u0c30\u0c47\u0c1c\u0c4d \u0c26\u0c36\u0c32\u0c41",
     "Coverage Unit": "\u0c15\u0c35\u0c30\u0c47\u0c1c\u0c4d \u0c2f\u0c42\u0c28\u0c3f\u0c1f\u0c4d",
-    "Covered Animals": "\u0c15\u0c35\u0c30\u0c4d \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c3f\u0c28 \u0c1c\u0c02\u0c24\u0c41\u0c35\u0c41\u0c32\u0c41",
-    "Covers Prevented Sowing / Planting Risk, Standing Crop (Yield Losses due to drought, flood, pests, diseases), Localised Calamities (hailstorm, landslide, inundation), and Post-Harvest Losses (up to 14 days).": "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41 \u0c35\u0c47\u0c2f\u0c15\u0c2a\u0c4b\u0c35\u0c21\u0c02, \u0c15\u0c30\u0c41\u0c35\u0c41, \u0c2a\u0c42\u0c30\u0c32\u0c41, \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c32 \u0c15\u0c35\u0c30\u0c47\u0c1c\u0c4d.",
-    "Covers crop cultivation, post-harvest expenses, and livestock maintenance": "\u0c2a\u0c02\u0c1f \u0c38\u0c3e\u0c17\u0c41, \u0c15\u0c4b\u0c24 \u0c16\u0c30\u0c4d\u0c1a\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c36\u0c41\u0c2a\u0c4b\u0c37\u0c23\u0c15\u0c41 \u0c35\u0c30\u0c4d\u0c24\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Covers death due to accident, lightning, flood, disease outbreaks, calving complications, surgical procedures, and permanent total disability.": "\u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26\u0c3e\u0c32\u0c41, \u0c2a\u0c3f\u0c21\u0c41\u0c17\u0c41\u0c2a\u0c3e\u0c1f\u0c41, \u0c35\u0c30\u0c26\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c41\u0c32 \u0c35\u0c32\u0c28 \u0c1c\u0c02\u0c24\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c30\u0c23\u0c3e\u0c32\u0c15\u0c41 \u0c30\u0c15\u0c4d\u0c37\u0c23.",
-    "Covers prevented sowing, standing crop damage, and localized hailstorm loss": "\u0c35\u0c30\u0c26\u0c32\u0c41, \u0c35\u0c21\u0c17\u0c02\u0c21\u0c4d\u0c32 \u0c35\u0c30\u0c4d\u0c37\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c15\u0c32\u0c3f\u0c17\u0c47 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c30\u0c3f\u0c39\u0c3e\u0c30\u0c02 \u0c07\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41",
-    "Covers rainfall deficit/excess, unseasonal rainfall, high/low temperature spikes, humidity fluctuations, and wind speed deviations.": "\u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c3e\u0c24\u0c02 \u0c32\u0c4b\u0c1f\u0c41/\u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35, \u0c05\u0c15\u0c3e\u0c32 \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c41\u0c32\u0c15\u0c41 \u0c30\u0c15\u0c4d\u0c37\u0c23.",
-    "Cow Dung Manure Composted (40 kg)": "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c0e\u0c30\u0c41\u0c35\u0c41 \u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d (40 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Create Account": "\u0c16\u0c3e\u0c24\u0c3e\u0c28\u0c41 \u0c38\u0c43\u0c37\u0c4d\u0c1f\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Credit": "\u0c30\u0c41\u0c23\u0c02",
-    "Critical Crop Water Requirement Stages": "\u0c2a\u0c02\u0c1f\u0c32\u0c15\u0c41 \u0c15\u0c4d\u0c32\u0c3f\u0c37\u0c4d\u0c1f\u0c2e\u0c48\u0c28 \u0c28\u0c40\u0c1f\u0c3f \u0c05\u0c35\u0c38\u0c30 \u0c26\u0c36\u0c32\u0c41",
-    "Crop": "\u0c2a\u0c02\u0c1f",
-    "Crop Calendar": "\u0c2a\u0c02\u0c1f \u0c15\u0c4d\u0c2f\u0c3e\u0c32\u0c46\u0c02\u0c21\u0c30\u0c4d",
+    "Covered Animals":
+      "\u0c15\u0c35\u0c30\u0c4d \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c3f\u0c28 \u0c1c\u0c02\u0c24\u0c41\u0c35\u0c41\u0c32\u0c41",
+    "Covers Prevented Sowing / Planting Risk, Standing Crop (Yield Losses due to drought, flood, pests, diseases), Localised Calamities (hailstorm, landslide, inundation), and Post-Harvest Losses (up to 14 days).":
+      "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41 \u0c35\u0c47\u0c2f\u0c15\u0c2a\u0c4b\u0c35\u0c21\u0c02, \u0c15\u0c30\u0c41\u0c35\u0c41, \u0c2a\u0c42\u0c30\u0c32\u0c41, \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c32 \u0c15\u0c35\u0c30\u0c47\u0c1c\u0c4d.",
+    "Covers crop cultivation, post-harvest expenses, and livestock maintenance":
+      "\u0c2a\u0c02\u0c1f \u0c38\u0c3e\u0c17\u0c41, \u0c15\u0c4b\u0c24 \u0c16\u0c30\u0c4d\u0c1a\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c36\u0c41\u0c2a\u0c4b\u0c37\u0c23\u0c15\u0c41 \u0c35\u0c30\u0c4d\u0c24\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    "Covers death due to accident, lightning, flood, disease outbreaks, calving complications, surgical procedures, and permanent total disability.":
+      "\u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26\u0c3e\u0c32\u0c41, \u0c2a\u0c3f\u0c21\u0c41\u0c17\u0c41\u0c2a\u0c3e\u0c1f\u0c41, \u0c35\u0c30\u0c26\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c41\u0c32 \u0c35\u0c32\u0c28 \u0c1c\u0c02\u0c24\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c30\u0c23\u0c3e\u0c32\u0c15\u0c41 \u0c30\u0c15\u0c4d\u0c37\u0c23.",
+    "Covers prevented sowing, standing crop damage, and localized hailstorm loss":
+      "\u0c35\u0c30\u0c26\u0c32\u0c41, \u0c35\u0c21\u0c17\u0c02\u0c21\u0c4d\u0c32 \u0c35\u0c30\u0c4d\u0c37\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c15\u0c32\u0c3f\u0c17\u0c47 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c30\u0c3f\u0c39\u0c3e\u0c30\u0c02 \u0c07\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41",
+    "Covers rainfall deficit/excess, unseasonal rainfall, high/low temperature spikes, humidity fluctuations, and wind speed deviations.":
+      "\u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c3e\u0c24\u0c02 \u0c32\u0c4b\u0c1f\u0c41/\u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35, \u0c05\u0c15\u0c3e\u0c32 \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c41\u0c32\u0c15\u0c41 \u0c30\u0c15\u0c4d\u0c37\u0c23.",
+    "Cow Dung Manure Composted (40 kg)":
+      "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c0e\u0c30\u0c41\u0c35\u0c41 \u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d (40 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Create Account":
+      "\u0c16\u0c3e\u0c24\u0c3e\u0c28\u0c41 \u0c38\u0c43\u0c37\u0c4d\u0c1f\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    Credit: "\u0c30\u0c41\u0c23\u0c02",
+    "Critical Crop Water Requirement Stages":
+      "\u0c2a\u0c02\u0c1f\u0c32\u0c15\u0c41 \u0c15\u0c4d\u0c32\u0c3f\u0c37\u0c4d\u0c1f\u0c2e\u0c48\u0c28 \u0c28\u0c40\u0c1f\u0c3f \u0c05\u0c35\u0c38\u0c30 \u0c26\u0c36\u0c32\u0c41",
+    Crop: "\u0c2a\u0c02\u0c1f",
+    "Crop Calendar":
+      "\u0c2a\u0c02\u0c1f \u0c15\u0c4d\u0c2f\u0c3e\u0c32\u0c46\u0c02\u0c21\u0c30\u0c4d",
     "Crop Insurance": "\u0c2a\u0c02\u0c1f \u0c2c\u0c40\u0c2e\u0c3e",
     "Crop Insurance Scheme": "\u0c2a\u0c02\u0c1f \u0c2c\u0c40\u0c2e\u0c3e \u0c2a\u0c25\u0c15\u0c02",
     "Crop Management": "\u0c2a\u0c02\u0c1f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
-    "Crop Management Intern": "\u0c2a\u0c02\u0c1f\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
-    "Crop Monitoring": "\u0c2a\u0c02\u0c1f\u0c32 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23",
-    "Crop Monitoring and Harvesting Basics": "\u0c2a\u0c02\u0c1f \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4b\u0c24 \u0c2a\u0c4d\u0c30\u0c3e\u0c25\u0c2e\u0c3f\u0c15 \u0c05\u0c02\u0c36\u0c3e\u0c32\u0c41",
+    "Crop Management Intern":
+      "\u0c2a\u0c02\u0c1f\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
+    "Crop Monitoring":
+      "\u0c2a\u0c02\u0c1f\u0c32 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23",
+    "Crop Monitoring and Harvesting Basics":
+      "\u0c2a\u0c02\u0c1f \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4b\u0c24 \u0c2a\u0c4d\u0c30\u0c3e\u0c25\u0c2e\u0c3f\u0c15 \u0c05\u0c02\u0c36\u0c3e\u0c32\u0c41",
     "Crop Planning": "\u0c2a\u0c02\u0c1f \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15",
-    "Crop Planning & Seasonal Farming": "\u0c2a\u0c02\u0c1f \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15 & \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c41\u0c17\u0c41\u0c23 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    "Crop Planning & Seasonal Farming":
+      "\u0c2a\u0c02\u0c1f \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15 & \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c41\u0c17\u0c41\u0c23 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
     "Crop Protection": "\u0c2a\u0c02\u0c1f \u0c38\u0c02\u0c30\u0c15\u0c4d\u0c37\u0c23",
-    "Crop Protection Lab": "\u0c15\u0c4d\u0c30\u0c3e\u0c2a\u0c4d \u0c2a\u0c4d\u0c30\u0c4a\u0c1f\u0c46\u0c15\u0c4d\u0c37\u0c28\u0c4d \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d",
-    "Crop Rotation Strategies": "\u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f \u0c35\u0c4d\u0c2f\u0c42\u0c39\u0c3e\u0c32\u0c41",
+    "Crop Protection Lab":
+      "\u0c15\u0c4d\u0c30\u0c3e\u0c2a\u0c4d \u0c2a\u0c4d\u0c30\u0c4a\u0c1f\u0c46\u0c15\u0c4d\u0c37\u0c28\u0c4d \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d",
+    "Crop Rotation Strategies":
+      "\u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f \u0c35\u0c4d\u0c2f\u0c42\u0c39\u0c3e\u0c32\u0c41",
     "Crop insurance": "\u0c2a\u0c02\u0c1f \u0c2c\u0c40\u0c2e\u0c3e",
-    "Crop insurance coverage, low premium rates, crop loss reporting within 72 hours.": "\u0c2a\u0c02\u0c1f \u0c2c\u0c40\u0c2e\u0c3e \u0c2a\u0c30\u0c3f\u0c39\u0c3e\u0c30\u0c02, \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c2a\u0c4d\u0c30\u0c40\u0c2e\u0c3f\u0c2f\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 72 \u0c17\u0c02\u0c1f\u0c32\u0c4d\u0c32\u0c4b \u0c2a\u0c02\u0c1f \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c28\u0c2e\u0c4b\u0c26\u0c41.",
-    "Crop rotation breaks life cycles of host-specific pests and weeds": "\u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f \u0c35\u0c32\u0c4d\u0c32 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c32\u0c41\u0c2a\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Crops": "\u0c2a\u0c02\u0c1f\u0c32\u0c41",
-    "Crops have specific growth stages where moisture stress causes maximum yield loss, such as flowering, grain filling, and root establishment. Timely watering during these stages is essential.": "\u0c2a\u0c42\u0c24, \u0c2a\u0c3f\u0c02\u0c26\u0c46 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c17\u0c3f\u0c02\u0c1c \u0c2a\u0c1f\u0c4d\u0c1f\u0c41 \u0c26\u0c36\u0c32\u0c32\u0c4b \u0c28\u0c40\u0c1f\u0c3f \u0c15\u0c4a\u0c30\u0c24 \u0c0f\u0c30\u0c4d\u0c2a\u0c21\u0c3f\u0c24\u0c47 \u0c24\u0c40\u0c35\u0c4d\u0c30 \u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c3f \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c1c\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c08 \u0c26\u0c36\u0c32\u0c32\u0c4b \u0c38\u0c2e\u0c2f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c28\u0c40\u0c30\u0c41 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c1a\u0c3e\u0c32\u0c3e \u0c05\u0c35\u0c38\u0c30\u0c02.",
-    "Cucumber": "\u0c15\u0c40\u0c30\u0c26\u0c4b\u0c38",
-    "Cucumber Seed Hybrid Malini (25 g)": "\u0c26\u0c4b\u0c38\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c39\u0c48\u0c2c\u0c4d\u0c30\u0c3f\u0c21\u0c4d \u0c2e\u0c3e\u0c32\u0c3f\u0c28\u0c3f (25 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Cultivating cover crops and organic mulches to enrich soil biology.": "\u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c2a\u0c48\u0c30\u0c4d\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c1a\u0c4d\u0c1b\u0c3e\u0c26\u0c28 \u0c35\u0c3e\u0c21\u0c15\u0c02.",
-    "Current Weather": "\u0c2a\u0c4d\u0c30\u0c38\u0c4d\u0c24\u0c41\u0c24 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c02",
-    "Curry Leaf Plant Sapling": "\u0c15\u0c30\u0c3f\u0c35\u0c47\u0c2a\u0c3e\u0c15\u0c41 \u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c28\u0c3e\u0c1f\u0c41",
-    "DAP 18-46-0 (50 kg)": "\u0c21\u0c3f\u0c0e\u0c2a\u0c3f 18-46-0 (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Dairy Cattle, Buffalo, Goat & Sheep": "\u0c2a\u0c3e\u0c21\u0c3f \u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32\u0c41, \u0c17\u0c47\u0c26\u0c46\u0c32\u0c41, \u0c2e\u0c47\u0c15\u0c32\u0c41 & \u0c17\u0c4a\u0c30\u0c4d\u0c30\u0c46\u0c32\u0c41",
-    "Dairy Management": "\u0c21\u0c46\u0c2f\u0c3f\u0c30\u0c40 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Crop insurance coverage, low premium rates, crop loss reporting within 72 hours.":
+      "\u0c2a\u0c02\u0c1f \u0c2c\u0c40\u0c2e\u0c3e \u0c2a\u0c30\u0c3f\u0c39\u0c3e\u0c30\u0c02, \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c2a\u0c4d\u0c30\u0c40\u0c2e\u0c3f\u0c2f\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 72 \u0c17\u0c02\u0c1f\u0c32\u0c4d\u0c32\u0c4b \u0c2a\u0c02\u0c1f \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c28\u0c2e\u0c4b\u0c26\u0c41.",
+    "Crop rotation breaks life cycles of host-specific pests and weeds":
+      "\u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f \u0c35\u0c32\u0c4d\u0c32 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c32\u0c41\u0c2a\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    Crops: "\u0c2a\u0c02\u0c1f\u0c32\u0c41",
+    "Crops have specific growth stages where moisture stress causes maximum yield loss, such as flowering, grain filling, and root establishment. Timely watering during these stages is essential.":
+      "\u0c2a\u0c42\u0c24, \u0c2a\u0c3f\u0c02\u0c26\u0c46 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c17\u0c3f\u0c02\u0c1c \u0c2a\u0c1f\u0c4d\u0c1f\u0c41 \u0c26\u0c36\u0c32\u0c32\u0c4b \u0c28\u0c40\u0c1f\u0c3f \u0c15\u0c4a\u0c30\u0c24 \u0c0f\u0c30\u0c4d\u0c2a\u0c21\u0c3f\u0c24\u0c47 \u0c24\u0c40\u0c35\u0c4d\u0c30 \u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c3f \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c1c\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c08 \u0c26\u0c36\u0c32\u0c32\u0c4b \u0c38\u0c2e\u0c2f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c28\u0c40\u0c30\u0c41 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c1a\u0c3e\u0c32\u0c3e \u0c05\u0c35\u0c38\u0c30\u0c02.",
+    Cucumber: "\u0c15\u0c40\u0c30\u0c26\u0c4b\u0c38",
+    "Cucumber Seed Hybrid Malini (25 g)":
+      "\u0c26\u0c4b\u0c38\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c39\u0c48\u0c2c\u0c4d\u0c30\u0c3f\u0c21\u0c4d \u0c2e\u0c3e\u0c32\u0c3f\u0c28\u0c3f (25 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Cultivating cover crops and organic mulches to enrich soil biology.":
+      "\u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c2a\u0c48\u0c30\u0c4d\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c1a\u0c4d\u0c1b\u0c3e\u0c26\u0c28 \u0c35\u0c3e\u0c21\u0c15\u0c02.",
+    "Current Weather":
+      "\u0c2a\u0c4d\u0c30\u0c38\u0c4d\u0c24\u0c41\u0c24 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c02",
+    "Curry Leaf Plant Sapling":
+      "\u0c15\u0c30\u0c3f\u0c35\u0c47\u0c2a\u0c3e\u0c15\u0c41 \u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c28\u0c3e\u0c1f\u0c41",
+    "DAP 18-46-0 (50 kg)":
+      "\u0c21\u0c3f\u0c0e\u0c2a\u0c3f 18-46-0 (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Dairy Cattle, Buffalo, Goat & Sheep":
+      "\u0c2a\u0c3e\u0c21\u0c3f \u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32\u0c41, \u0c17\u0c47\u0c26\u0c46\u0c32\u0c41, \u0c2e\u0c47\u0c15\u0c32\u0c41 & \u0c17\u0c4a\u0c30\u0c4d\u0c30\u0c46\u0c32\u0c41",
+    "Dairy Management":
+      "\u0c21\u0c46\u0c2f\u0c3f\u0c30\u0c40 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
     "Data Collection": "\u0c21\u0c47\u0c1f\u0c3e \u0c38\u0c47\u0c15\u0c30\u0c23",
-    "Data Science Intern": "\u0c21\u0c47\u0c1f\u0c3e \u0c38\u0c48\u0c28\u0c4d\u0c38\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
-    "Data Structures & Algorithms": "\u0c21\u0c47\u0c1f\u0c3e \u0c38\u0c4d\u0c1f\u0c4d\u0c30\u0c15\u0c4d\u0c1a\u0c30\u0c4d\u0c38\u0c4d & \u0c06\u0c32\u0c4d\u0c17\u0c3e\u0c30\u0c3f\u0c25\u0c2e\u0c4d\u0c38\u0c4d",
-    "Deadline": "\u0c1a\u0c3f\u0c35\u0c30\u0c3f \u0c24\u0c47\u0c26\u0c40",
-    "Deals ending soon": "\u0c06\u0c2b\u0c30\u0c4d\u0c32\u0c41 \u0c24\u0c4d\u0c35\u0c30\u0c32\u0c4b \u0c2e\u0c41\u0c17\u0c41\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
-    "Decrease quantity": "\u0c2a\u0c30\u0c3f\u0c2e\u0c3e\u0c23\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Deep dive into arrays, linked lists, trees, graphs, sorting, and dynamic programming.": "\u0c05\u0c30\u0c4d\u0c30\u0c47\u0c32\u0c41, \u0c32\u0c3f\u0c02\u0c15\u0c4d\u0c21\u0c4d \u0c32\u0c3f\u0c38\u0c4d\u0c1f\u0c4d\u200c\u0c32\u0c41, \u0c1f\u0c4d\u0c30\u0c40\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c32\u0c4d\u0c17\u0c3e\u0c30\u0c3f\u0c25\u0c2e\u0c4d\u200c\u0c32 \u0c38\u0c2e\u0c17\u0c4d\u0c30 \u0c05\u0c27\u0c4d\u0c2f\u0c2f\u0c28\u0c02.",
-    "DeepAgri Intelligence": "\u0c21\u0c40\u0c2a\u0c4d\u200c\u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c07\u0c02\u0c1f\u0c46\u0c32\u0c3f\u0c1c\u0c46\u0c28\u0c4d\u0c38\u0c4d",
-    "Defined reference unit area tied to localized IMD or private automated weather station network data.": "\u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 IMD \u0c32\u0c47\u0c26\u0c3e \u0c38\u0c4d\u0c35\u0c2f\u0c02\u0c1a\u0c3e\u0c32\u0c15 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02 \u0c21\u0c47\u0c1f\u0c3e\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c38\u0c02\u0c27\u0c3e\u0c28\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02.",
-    "Degree in Chemistry, Agriculture, or Environmental Science.": "\u0c15\u0c46\u0c2e\u0c3f\u0c38\u0c4d\u0c1f\u0c4d\u0c30\u0c40, \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 \u0c32\u0c47\u0c26\u0c3e \u0c2a\u0c30\u0c4d\u0c2f\u0c3e\u0c35\u0c30\u0c23 \u0c36\u0c3e\u0c38\u0c4d\u0c24\u0c4d\u0c30\u0c02\u0c32\u0c4b \u0c21\u0c3f\u0c17\u0c4d\u0c30\u0c40.",
-    "Delay pesticide spray until leaf surface dries.": "\u0c06\u0c15\u0c41\u0c32 \u0c09\u0c2a\u0c30\u0c3f\u0c24\u0c32\u0c02 \u0c0e\u0c02\u0c21\u0c3f\u0c2a\u0c4b\u0c2f\u0c47 \u0c35\u0c30\u0c15\u0c41 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c2e\u0c02\u0c26\u0c41\u0c32 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40\u0c28\u0c3f \u0c35\u0c3e\u0c2f\u0c3f\u0c26\u0c3e \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Delete": "\u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c41",
-    "Delhi": "\u0c22\u0c3f\u0c32\u0c4d\u0c32\u0c40",
-    "Delivered": "\u0c30\u0c35\u0c3e\u0c23\u0c3e \u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c2f\u0c3f\u0c02\u0c26\u0c3f",
-    "Delivery & Contact Information": "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 & \u0c38\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3f\u0c02\u0c2a\u0c41 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02",
-    "Delivery Address": "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c1a\u0c3f\u0c30\u0c41\u0c28\u0c3e\u0c2e\u0c3e",
-    "Delivery Destination:": "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c38\u0c4d\u0c25\u0c32\u0c02:",
-    "Delivery Fee": "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c30\u0c41\u0c38\u0c41\u0c2e\u0c41",
-    "Delivery Location / Address *": "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02 / \u0c1a\u0c3f\u0c30\u0c41\u0c28\u0c3e\u0c2e\u0c3e *",
-    "Delivery Location:": "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02:",
-    "Delta Mega Cold Chain Logistics": "\u0c21\u0c46\u0c32\u0c4d\u0c1f\u0c3e \u0c2e\u0c46\u0c17\u0c3e \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c1a\u0c48\u0c28\u0c4d \u0c32\u0c3e\u0c1c\u0c3f\u0c38\u0c4d\u0c1f\u0c3f\u0c15\u0c4d\u0c38\u0c4d",
+    "Data Science Intern":
+      "\u0c21\u0c47\u0c1f\u0c3e \u0c38\u0c48\u0c28\u0c4d\u0c38\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
+    "Data Structures & Algorithms":
+      "\u0c21\u0c47\u0c1f\u0c3e \u0c38\u0c4d\u0c1f\u0c4d\u0c30\u0c15\u0c4d\u0c1a\u0c30\u0c4d\u0c38\u0c4d & \u0c06\u0c32\u0c4d\u0c17\u0c3e\u0c30\u0c3f\u0c25\u0c2e\u0c4d\u0c38\u0c4d",
+    Deadline: "\u0c1a\u0c3f\u0c35\u0c30\u0c3f \u0c24\u0c47\u0c26\u0c40",
+    "Deals ending soon":
+      "\u0c06\u0c2b\u0c30\u0c4d\u0c32\u0c41 \u0c24\u0c4d\u0c35\u0c30\u0c32\u0c4b \u0c2e\u0c41\u0c17\u0c41\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
+    "Decrease quantity":
+      "\u0c2a\u0c30\u0c3f\u0c2e\u0c3e\u0c23\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Deep dive into arrays, linked lists, trees, graphs, sorting, and dynamic programming.":
+      "\u0c05\u0c30\u0c4d\u0c30\u0c47\u0c32\u0c41, \u0c32\u0c3f\u0c02\u0c15\u0c4d\u0c21\u0c4d \u0c32\u0c3f\u0c38\u0c4d\u0c1f\u0c4d\u200c\u0c32\u0c41, \u0c1f\u0c4d\u0c30\u0c40\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c32\u0c4d\u0c17\u0c3e\u0c30\u0c3f\u0c25\u0c2e\u0c4d\u200c\u0c32 \u0c38\u0c2e\u0c17\u0c4d\u0c30 \u0c05\u0c27\u0c4d\u0c2f\u0c2f\u0c28\u0c02.",
+    "DeepAgri Intelligence":
+      "\u0c21\u0c40\u0c2a\u0c4d\u200c\u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c07\u0c02\u0c1f\u0c46\u0c32\u0c3f\u0c1c\u0c46\u0c28\u0c4d\u0c38\u0c4d",
+    "Defined reference unit area tied to localized IMD or private automated weather station network data.":
+      "\u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 IMD \u0c32\u0c47\u0c26\u0c3e \u0c38\u0c4d\u0c35\u0c2f\u0c02\u0c1a\u0c3e\u0c32\u0c15 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02 \u0c21\u0c47\u0c1f\u0c3e\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c38\u0c02\u0c27\u0c3e\u0c28\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02.",
+    "Degree in Chemistry, Agriculture, or Environmental Science.":
+      "\u0c15\u0c46\u0c2e\u0c3f\u0c38\u0c4d\u0c1f\u0c4d\u0c30\u0c40, \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 \u0c32\u0c47\u0c26\u0c3e \u0c2a\u0c30\u0c4d\u0c2f\u0c3e\u0c35\u0c30\u0c23 \u0c36\u0c3e\u0c38\u0c4d\u0c24\u0c4d\u0c30\u0c02\u0c32\u0c4b \u0c21\u0c3f\u0c17\u0c4d\u0c30\u0c40.",
+    "Delay pesticide spray until leaf surface dries.":
+      "\u0c06\u0c15\u0c41\u0c32 \u0c09\u0c2a\u0c30\u0c3f\u0c24\u0c32\u0c02 \u0c0e\u0c02\u0c21\u0c3f\u0c2a\u0c4b\u0c2f\u0c47 \u0c35\u0c30\u0c15\u0c41 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c2e\u0c02\u0c26\u0c41\u0c32 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40\u0c28\u0c3f \u0c35\u0c3e\u0c2f\u0c3f\u0c26\u0c3e \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    Delete: "\u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c41",
+    Delhi: "\u0c22\u0c3f\u0c32\u0c4d\u0c32\u0c40",
+    Delivered:
+      "\u0c30\u0c35\u0c3e\u0c23\u0c3e \u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c2f\u0c3f\u0c02\u0c26\u0c3f",
+    "Delivery & Contact Information":
+      "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 & \u0c38\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3f\u0c02\u0c2a\u0c41 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02",
+    "Delivery Address":
+      "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c1a\u0c3f\u0c30\u0c41\u0c28\u0c3e\u0c2e\u0c3e",
+    "Delivery Destination:":
+      "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c38\u0c4d\u0c25\u0c32\u0c02:",
+    "Delivery Fee":
+      "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c30\u0c41\u0c38\u0c41\u0c2e\u0c41",
+    "Delivery Location / Address *":
+      "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02 / \u0c1a\u0c3f\u0c30\u0c41\u0c28\u0c3e\u0c2e\u0c3e *",
+    "Delivery Location:":
+      "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02:",
+    "Delta Mega Cold Chain Logistics":
+      "\u0c21\u0c46\u0c32\u0c4d\u0c1f\u0c3e \u0c2e\u0c46\u0c17\u0c3e \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c1a\u0c48\u0c28\u0c4d \u0c32\u0c3e\u0c1c\u0c3f\u0c38\u0c4d\u0c1f\u0c3f\u0c15\u0c4d\u0c38\u0c4d",
     "Department of Agriculture": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c36\u0c3e\u0c16",
-    "Describe your harvest quality, moisture content, organic certification, packaging...": "\u0c2e\u0c40 \u0c2a\u0c02\u0c1f \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24, \u0c24\u0c47\u0c2e \u0c36\u0c3e\u0c24\u0c02, \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c35\u0c3f\u0c35\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
-    "Description (Optional)": "\u0c35\u0c3f\u0c35\u0c30\u0c23 (\u0c10\u0c1a\u0c4d\u0c1b\u0c3f\u0c15\u0c02)",
-    "Designing Micro-Drip Layouts": "\u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e \u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f \u0c32\u0c47\u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c30\u0c42\u0c2a\u0c15\u0c32\u0c4d\u0c2a\u0c28",
-    "Details": "\u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41",
-    "Detecting...": "\u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c32\u0c46\u0c15\u0c4d\u0c15\u0c3f\u0c38\u0c4d\u0c24\u0c4b\u0c02\u0c26\u0c3f...",
-    "Determining Optimum Harvest Timing": "\u0c38\u0c30\u0c48\u0c28 \u0c2a\u0c02\u0c1f \u0c15\u0c4b\u0c24 \u0c38\u0c2e\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c23\u0c2f\u0c3f\u0c02\u0c1a\u0c21\u0c02",
-    "Develop Python backend services, data pipelines, and API integrations.": "\u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d \u0c2c\u0c4d\u0c2f\u0c3e\u0c15\u0c46\u0c02\u0c21\u0c4d \u0c38\u0c47\u0c35\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 API \u0c07\u0c02\u0c1f\u0c3f\u0c17\u0c4d\u0c30\u0c47\u0c37\u0c28\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c05\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Digital Agriculture Platform": "\u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c47\u0c26\u0c3f\u0c15",
-    "Digital Agriculture Platform for farm inputs, mandi prices, crop advisories, schemes, and local support.": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41, \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c41, \u0c2a\u0c02\u0c1f \u0c38\u0c32\u0c39\u0c3e\u0c32\u0c41, \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c47\u0c26\u0c3f\u0c15.",
-    "Digital Portals and Agri Mobile Apps": "\u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c2a\u0c4b\u0c30\u0c4d\u0c1f\u0c32\u0c4d\u0c38\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d \u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c41",
-    "Digital mobile applications provide farmers with direct access to live mandi rates, weather forecasts, government scheme applications, and AI crop disease diagnosis using smartphone photos.": "\u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d \u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c41 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c41, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c41, \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 AI \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c2a\u0c41\u0c28\u0c41 \u0c05\u0c02\u0c26\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
-    "Dilute Panchagavya at 3% concentration for foliar spray": "3% \u0c17\u0c3e\u0c22\u0c24\u0c24\u0c4b \u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f\u0c28\u0c41 \u0c06\u0c15\u0c41\u0c32\u0c2a\u0c48 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Direct Bank Transfer (DBT)": "\u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c4d \u0c2c\u0c26\u0c3f\u0c32\u0c40 (DBT)",
-    "Direct Benefit": "\u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2a\u0c4d\u0c30\u0c2f\u0c4b\u0c1c\u0c28\u0c02",
-    "Direct Market Access": "\u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c2a\u0c4d\u0c30\u0c3e\u0c2a\u0c4d\u0c2f\u0c24",
-    "Direct Selling to Retailers & FPOs": "\u0c30\u0c3f\u0c1f\u0c48\u0c32\u0c30\u0c4d\u0c32\u0c41 & FPO\u0c32\u0c15\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3f\u0c02\u0c1a\u0c21\u0c02",
-    "Direct contracts offer pre-agreed fixed price protection": "\u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c12\u0c2a\u0c4d\u0c2a\u0c02\u0c26\u0c3e\u0c32\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c27\u0c30\u0c32 \u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Direct from Farmers": "\u0c30\u0c48\u0c24\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e",
-    "Direct sowing with Happy Seeder to conserve soil moisture and lower diesel costs.": "\u0c39\u0c4d\u0c2f\u0c3e\u0c2a\u0c40 \u0c38\u0c40\u0c21\u0c30\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c21\u0c40\u0c1c\u0c3f\u0c32\u0c4d \u0c16\u0c30\u0c4d\u0c1a\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c47\u0c2e \u0c2a\u0c30\u0c3f\u0c30\u0c15\u0c4d\u0c37\u0c23.",
-    "Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests.": "\u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c15\u0c30\u0c2e\u0c48\u0c28 \u0c28\u0c47\u0c32 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c09\u0c24\u0c4d\u0c24\u0c2e \u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c3f \u0c15\u0c4b\u0c38\u0c02 \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c02\u0c21\u0c3f.",
-    "Distinguishing between sap-sucking insects, chewing caterpillars, and beneficial insects.": "\u0c30\u0c38\u0c02 \u0c2a\u0c40\u0c32\u0c4d\u0c1a\u0c47 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41, \u0c06\u0c15\u0c41\u0c32\u0c41 \u0c28\u0c2e\u0c32\u0c47 \u0c32\u0c26\u0c4d\u0c26\u0c46 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c47\u0c32\u0c41 \u0c1a\u0c47\u0c38\u0c47 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c2a\u0c41.",
-    "Distribute agricultural advisory pamphlets and scheme guides": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c32\u0c39\u0c3e \u0c15\u0c30\u0c2a\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c25\u0c15\u0c3e\u0c32 \u0c2e\u0c3e\u0c30\u0c4d\u0c17\u0c26\u0c30\u0c4d\u0c36\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c02\u0c2a\u0c3f\u0c23\u0c40 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
-    "District & Crop Notified": "\u0c28\u0c4b\u0c1f\u0c3f\u0c2b\u0c48 \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c3f\u0c28 \u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e & \u0c2a\u0c02\u0c1f",
-    "District Scale of Finance": "\u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e \u0c2b\u0c48\u0c28\u0c3e\u0c28\u0c4d\u0c38\u0c4d \u0c38\u0c4d\u0c15\u0c47\u0c32\u0c4d",
-    "District camp calendar": "\u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e \u0c15\u0c4d\u0c2f\u0c3e\u0c02\u0c2a\u0c4d \u0c15\u0c4d\u0c2f\u0c3e\u0c32\u0c46\u0c02\u0c21\u0c30\u0c4d",
-    "Diversify crop portfolio with climate-hardy millets (Ragi, Bajra, Jowar)": "\u0c24\u0c43\u0c23\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c41 (\u0c30\u0c3e\u0c17\u0c41\u0c32\u0c41, \u0c38\u0c1c\u0c4d\u0c1c\u0c32\u0c41, \u0c1c\u0c4a\u0c28\u0c4d\u0c28\u0c32\u0c41) \u0c38\u0c3e\u0c17\u0c41 \u0c1a\u0c47\u0c38\u0c3f \u0c2a\u0c02\u0c1f \u0c35\u0c48\u0c35\u0c3f\u0c27\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Do not take soil samples directly from field bunds, manure heaps, or tree shadows.": "\u0c2a\u0c4a\u0c32\u0c02 \u0c17\u0c1f\u0c4d\u0c32\u0c41, \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c15\u0c41\u0c2a\u0c4d\u0c2a\u0c32\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c1a\u0c46\u0c1f\u0c4d\u0c32 \u0c28\u0c40\u0c21\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c28\u0c2e\u0c42\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c40\u0c38\u0c41\u0c15\u0c4b\u0c15\u0c02\u0c21\u0c3f.",
-    "Document organic farm compliance records for organic certification": "\u0c38\u0c30\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d \u0c15\u0c4b\u0c38\u0c02 \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c30\u0c3f\u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c24\u0c4d\u0c30\u0c2c\u0c26\u0c4d\u0c27\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
-    "Don't have an account? Register": "\u0c16\u0c3e\u0c24\u0c3e \u0c32\u0c47\u0c26\u0c3e? \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Download Certificate": "\u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c46\u0c1f\u0c4d \u0c21\u0c4c\u0c28\u0c4d\u200c\u0c32\u0c4b\u0c21\u0c4d \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Download Certificate (PDF)": "\u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c1f\u0c4d \u0c21\u0c4c\u0c28\u0c4d\u200c\u0c32\u0c4b\u0c21\u0c4d (PDF)",
-    "Draft customized Soil Health Cards and fertilizer dose advisories": "\u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c39\u0c46\u0c32\u0c4d\u0c24\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d\u200c\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c4b\u0c24\u0c3e\u0c26\u0c41 \u0c38\u0c32\u0c39\u0c3e\u0c32\u0c28\u0c41 \u0c30\u0c42\u0c2a\u0c4a\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c02",
-    "Drip Irrigation & Precision Farming": "\u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d \u0c07\u0c30\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d & \u0c16\u0c1a\u0c4d\u0c1a\u0c3f\u0c24\u0c2e\u0c48\u0c28 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
-    "Drip Irrigation Kit 1 Acre": "\u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 \u0c15\u0c3f\u0c1f\u0c4d 1 \u0c0e\u0c15\u0c30\u0c02",
-    "Drip and Sprinkler Irrigation Systems": "\u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c3f\u0c02\u0c15\u0c4d\u0c32\u0c30\u0c4d \u0c38\u0c47\u0c26\u0c4d\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c41",
-    "Drip irrigation delivers water directly to plant roots in precise drops, reducing water evaporation and weed growth. Sprinkler systems simulate natural rainfall for closely spaced crops.": "\u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c35\u0c47\u0c30\u0c4d\u0c32 \u0c35\u0c26\u0c4d\u0c26\u0c15\u0c41 \u0c1a\u0c3f\u0c28\u0c4d\u0c28 \u0c2c\u0c4a\u0c1f\u0c4d\u0c32\u0c41\u0c17\u0c3e \u0c05\u0c02\u0c26\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c3f\u0c02\u0c15\u0c4d\u0c32\u0c30\u0c4d\u0c32\u0c41 \u0c35\u0c30\u0c4d\u0c37\u0c02 \u0c32\u0c3e\u0c17\u0c3e \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c1a\u0c3f\u0c32\u0c15\u0c30\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
-    "Drip irrigation saves 40-60% water compared to flood irrigation": "\u0c38\u0c3e\u0c27\u0c3e\u0c30\u0c23 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c3f \u0c15\u0c02\u0c1f\u0c47 \u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 40-60% \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c06\u0c26\u0c3e \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Drone Technology": "\u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d \u0c1f\u0c46\u0c15\u0c4d\u0c28\u0c3e\u0c32\u0c1c\u0c40",
-    "Drone Technology in Agriculture": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02\u0c32\u0c4b \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24",
-    "Drone spraying for pesticides, fertilizers, and crop surveillance.": "\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41 \u0c2e\u0c02\u0c26\u0c41\u0c32\u0c41, \u0c26\u0c4d\u0c30\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1f \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23\u0c15\u0c41 \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02.",
-    "Drones cover 1 acre field spray in under 10 minutes": "\u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u0c32\u0c41 \u0c0e\u0c15\u0c30\u0c02 \u0c2a\u0c4a\u0c32\u0c3e\u0c28\u0c4d\u0c28\u0c3f 10 \u0c28\u0c3f\u0c2e\u0c3f\u0c37\u0c3e\u0c32\u0c32\u0c4b \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
-    "Drumstick Seed PKM-1 (250 g)": "\u0c2e\u0c41\u0c28\u0c17\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 PKM-1 (250 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Duggirala Cold Storage": "\u0c26\u0c41\u0c17\u0c4d\u0c17\u0c3f\u0c30\u0c3e\u0c32 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d",
-    "Duration": "\u0c35\u0c4d\u0c2f\u0c35\u0c27\u0c3f",
-    "EC sensors monitor root zone salinity and prevent fertilizer burn": "\u0c32\u0c35\u0c23\u0c3e\u0c32 \u0c36\u0c3e\u0c24\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c41 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
-    "Ear-Tagging / Microchip Identification": "\u0c1a\u0c46\u0c35\u0c3f \u0c1f\u0c4d\u0c2f\u0c3e\u0c17\u0c3f\u0c02\u0c17\u0c4d / \u0c2e\u0c48\u0c15\u0c4d\u0c30\u0c4b\u0c1a\u0c3f\u0c2a\u0c4d \u0c17\u0c41\u0c30\u0c41\u0c24\u0c3f\u0c02\u0c2a\u0c41",
-    "Edit": "\u0c38\u0c35\u0c30\u0c3f\u0c02\u0c1a\u0c41",
-    "Education": "\u0c35\u0c3f\u0c26\u0c4d\u0c2f",
-    "Effective pest management begins with correct identification. Sap-sucking insects like aphids and whiteflies cause leaf curling, while caterpillars chew leaf tissue. Ladybugs and spiders are beneficial predators.": "\u0c38\u0c30\u0c48\u0c28 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23\u0c15\u0c41 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c28\u0c41 \u0c38\u0c30\u0c3f\u0c17\u0c4d\u0c17\u0c3e \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c02. \u0c2a\u0c47\u0c28\u0c41\u0c2c\u0c02\u0c15, \u0c24\u0c46\u0c32\u0c4d\u0c32\u0c26\u0c4b\u0c2e \u0c30\u0c38\u0c02 \u0c2a\u0c40\u0c32\u0c4d\u0c1a\u0c3f \u0c06\u0c15\u0c41\u0c32\u0c41 \u0c2e\u0c41\u0c21\u0c41\u0c1a\u0c41\u0c15\u0c41\u0c2a\u0c4b\u0c2f\u0c47\u0c32\u0c3e \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f. \u0c32\u0c47\u0c21\u0c40\u0c2c\u0c30\u0c4d\u0c21\u0c4d \u0c2c\u0c40\u0c1f\u0c3f\u0c32\u0c4d\u0c38\u0c4d \u0c2e\u0c47\u0c32\u0c41 \u0c1a\u0c47\u0c38\u0c47 \u0c2e\u0c3f\u0c24\u0c4d\u0c30 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41.",
-    "Efficient irrigation helps conserve water while keeping crops healthy and productive.": "\u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c2e\u0c48\u0c28 \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c06\u0c26\u0c3e \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c42 \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c02\u0c17\u0c3e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c09\u0c24\u0c4d\u0c2a\u0c3e\u0c26\u0c15\u0c02\u0c17\u0c3e \u0c09\u0c02\u0c1a\u0c21\u0c02\u0c32\u0c4b \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Eligibility": "\u0c05\u0c30\u0c4d\u0c39\u0c24",
-    "Eligibility & Requirements": "\u0c05\u0c30\u0c4d\u0c39\u0c24 & \u0c05\u0c35\u0c38\u0c30\u0c3e\u0c32\u0c41",
-    "Eligibility criteria, enrollment process, Aadhaar seeding, and status tracking.": "\u0c05\u0c30\u0c4d\u0c39\u0c24 \u0c28\u0c3f\u0c2c\u0c02\u0c27\u0c28\u0c32\u0c41, \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c35\u0c3f\u0c27\u0c3e\u0c28\u0c02, \u0c06\u0c27\u0c3e\u0c30\u0c4d \u0c32\u0c3f\u0c02\u0c15\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c47\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c1f\u0c4d\u0c30\u0c3e\u0c15\u0c3f\u0c02\u0c17\u0c4d.",
-    "Eligible Crops": "\u0c05\u0c30\u0c4d\u0c39\u0c24 \u0c15\u0c32\u0c3f\u0c17\u0c3f\u0c28 \u0c2a\u0c02\u0c1f\u0c32\u0c41",
-    "Eluru Cold Storage": "\u0c0f\u0c32\u0c42\u0c30\u0c41 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d",
-    "Eluru, Andhra Pradesh": "\u0c0f\u0c32\u0c42\u0c30\u0c41, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
-    "Email Address": "\u0c07\u0c2e\u0c46\u0c2f\u0c3f\u0c32\u0c4d \u0c1a\u0c3f\u0c30\u0c41\u0c28\u0c3e\u0c2e\u0c3e",
-    "Empanelled Insurers & State Govts": "\u0c0e\u0c02\u0c2a\u0c4d\u0c2f\u0c3e\u0c28\u0c46\u0c32\u0c4d \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c3f\u0c28 \u0c2c\u0c40\u0c2e\u0c3e \u0c38\u0c02\u0c38\u0c4d\u0c25\u0c32\u0c41 & \u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30 \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35\u0c3e\u0c32\u0c41",
-    "Empanelled insurers with state agriculture departments": "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c36\u0c3e\u0c16\u0c32 \u0c2c\u0c40\u0c2e\u0c3e \u0c38\u0c02\u0c38\u0c4d\u0c25\u0c32\u0c41",
-    "Enables precise fertigation directly through water drippers": "\u0c28\u0c40\u0c1f\u0c3f \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e\u0c28\u0c47 \u0c26\u0c4d\u0c30\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f (\u0c2b\u0c46\u0c30\u0c4d\u0c1f\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d) \u0c35\u0c40\u0c32\u0c41 \u0c15\u0c32\u0c4d\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Engineering, Agritech, or Agriculture students interested in drone technology.": "\u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d \u0c1f\u0c46\u0c15\u0c4d\u0c28\u0c3e\u0c32\u0c1c\u0c40\u0c2a\u0c48 \u0c06\u0c38\u0c15\u0c4d\u0c24\u0c3f \u0c09\u0c28\u0c4d\u0c28 \u0c07\u0c02\u0c1c\u0c28\u0c40\u0c30\u0c3f\u0c02\u0c17\u0c4d \u0c32\u0c47\u0c26\u0c3e \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32\u0c41.",
+    "Describe your harvest quality, moisture content, organic certification, packaging...":
+      "\u0c2e\u0c40 \u0c2a\u0c02\u0c1f \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24, \u0c24\u0c47\u0c2e \u0c36\u0c3e\u0c24\u0c02, \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c35\u0c3f\u0c35\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
+    "Description (Optional)":
+      "\u0c35\u0c3f\u0c35\u0c30\u0c23 (\u0c10\u0c1a\u0c4d\u0c1b\u0c3f\u0c15\u0c02)",
+    "Designing Micro-Drip Layouts":
+      "\u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e \u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f \u0c32\u0c47\u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c30\u0c42\u0c2a\u0c15\u0c32\u0c4d\u0c2a\u0c28",
+    Details: "\u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41",
+    "Detecting...":
+      "\u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c32\u0c46\u0c15\u0c4d\u0c15\u0c3f\u0c38\u0c4d\u0c24\u0c4b\u0c02\u0c26\u0c3f...",
+    "Determining Optimum Harvest Timing":
+      "\u0c38\u0c30\u0c48\u0c28 \u0c2a\u0c02\u0c1f \u0c15\u0c4b\u0c24 \u0c38\u0c2e\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c23\u0c2f\u0c3f\u0c02\u0c1a\u0c21\u0c02",
+    "Develop Python backend services, data pipelines, and API integrations.":
+      "\u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d \u0c2c\u0c4d\u0c2f\u0c3e\u0c15\u0c46\u0c02\u0c21\u0c4d \u0c38\u0c47\u0c35\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 API \u0c07\u0c02\u0c1f\u0c3f\u0c17\u0c4d\u0c30\u0c47\u0c37\u0c28\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c05\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Digital Agriculture Platform":
+      "\u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c47\u0c26\u0c3f\u0c15",
+    "Digital Agriculture Platform for farm inputs, mandi prices, crop advisories, schemes, and local support.":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41, \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c41, \u0c2a\u0c02\u0c1f \u0c38\u0c32\u0c39\u0c3e\u0c32\u0c41, \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c47\u0c26\u0c3f\u0c15.",
+    "Digital Portals and Agri Mobile Apps":
+      "\u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c2a\u0c4b\u0c30\u0c4d\u0c1f\u0c32\u0c4d\u0c38\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d \u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c41",
+    "Digital mobile applications provide farmers with direct access to live mandi rates, weather forecasts, government scheme applications, and AI crop disease diagnosis using smartphone photos.":
+      "\u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d \u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c41 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c41, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c41, \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 AI \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c2a\u0c41\u0c28\u0c41 \u0c05\u0c02\u0c26\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
+    "Dilute Panchagavya at 3% concentration for foliar spray":
+      "3% \u0c17\u0c3e\u0c22\u0c24\u0c24\u0c4b \u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f\u0c28\u0c41 \u0c06\u0c15\u0c41\u0c32\u0c2a\u0c48 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Direct Bank Transfer (DBT)":
+      "\u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c4d \u0c2c\u0c26\u0c3f\u0c32\u0c40 (DBT)",
+    "Direct Benefit":
+      "\u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2a\u0c4d\u0c30\u0c2f\u0c4b\u0c1c\u0c28\u0c02",
+    "Direct Market Access":
+      "\u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c2a\u0c4d\u0c30\u0c3e\u0c2a\u0c4d\u0c2f\u0c24",
+    "Direct Selling to Retailers & FPOs":
+      "\u0c30\u0c3f\u0c1f\u0c48\u0c32\u0c30\u0c4d\u0c32\u0c41 & FPO\u0c32\u0c15\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3f\u0c02\u0c1a\u0c21\u0c02",
+    "Direct contracts offer pre-agreed fixed price protection":
+      "\u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c12\u0c2a\u0c4d\u0c2a\u0c02\u0c26\u0c3e\u0c32\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c27\u0c30\u0c32 \u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    "Direct from Farmers":
+      "\u0c30\u0c48\u0c24\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e",
+    "Direct sowing with Happy Seeder to conserve soil moisture and lower diesel costs.":
+      "\u0c39\u0c4d\u0c2f\u0c3e\u0c2a\u0c40 \u0c38\u0c40\u0c21\u0c30\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c21\u0c40\u0c1c\u0c3f\u0c32\u0c4d \u0c16\u0c30\u0c4d\u0c1a\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c47\u0c2e \u0c2a\u0c30\u0c3f\u0c30\u0c15\u0c4d\u0c37\u0c23.",
+    "Discover quality fertilizers and crop nutrients designed to support healthy soil and stronger harvests.":
+      "\u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c15\u0c30\u0c2e\u0c48\u0c28 \u0c28\u0c47\u0c32 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c09\u0c24\u0c4d\u0c24\u0c2e \u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c3f \u0c15\u0c4b\u0c38\u0c02 \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c02\u0c21\u0c3f.",
+    "Distinguishing between sap-sucking insects, chewing caterpillars, and beneficial insects.":
+      "\u0c30\u0c38\u0c02 \u0c2a\u0c40\u0c32\u0c4d\u0c1a\u0c47 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41, \u0c06\u0c15\u0c41\u0c32\u0c41 \u0c28\u0c2e\u0c32\u0c47 \u0c32\u0c26\u0c4d\u0c26\u0c46 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c47\u0c32\u0c41 \u0c1a\u0c47\u0c38\u0c47 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c2a\u0c41.",
+    "Distribute agricultural advisory pamphlets and scheme guides":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c32\u0c39\u0c3e \u0c15\u0c30\u0c2a\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c25\u0c15\u0c3e\u0c32 \u0c2e\u0c3e\u0c30\u0c4d\u0c17\u0c26\u0c30\u0c4d\u0c36\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c02\u0c2a\u0c3f\u0c23\u0c40 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
+    "District & Crop Notified":
+      "\u0c28\u0c4b\u0c1f\u0c3f\u0c2b\u0c48 \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c3f\u0c28 \u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e & \u0c2a\u0c02\u0c1f",
+    "District Scale of Finance":
+      "\u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e \u0c2b\u0c48\u0c28\u0c3e\u0c28\u0c4d\u0c38\u0c4d \u0c38\u0c4d\u0c15\u0c47\u0c32\u0c4d",
+    "District camp calendar":
+      "\u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e \u0c15\u0c4d\u0c2f\u0c3e\u0c02\u0c2a\u0c4d \u0c15\u0c4d\u0c2f\u0c3e\u0c32\u0c46\u0c02\u0c21\u0c30\u0c4d",
+    "Diversify crop portfolio with climate-hardy millets (Ragi, Bajra, Jowar)":
+      "\u0c24\u0c43\u0c23\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c41 (\u0c30\u0c3e\u0c17\u0c41\u0c32\u0c41, \u0c38\u0c1c\u0c4d\u0c1c\u0c32\u0c41, \u0c1c\u0c4a\u0c28\u0c4d\u0c28\u0c32\u0c41) \u0c38\u0c3e\u0c17\u0c41 \u0c1a\u0c47\u0c38\u0c3f \u0c2a\u0c02\u0c1f \u0c35\u0c48\u0c35\u0c3f\u0c27\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Do not take soil samples directly from field bunds, manure heaps, or tree shadows.":
+      "\u0c2a\u0c4a\u0c32\u0c02 \u0c17\u0c1f\u0c4d\u0c32\u0c41, \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c15\u0c41\u0c2a\u0c4d\u0c2a\u0c32\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c1a\u0c46\u0c1f\u0c4d\u0c32 \u0c28\u0c40\u0c21\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c28\u0c2e\u0c42\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c40\u0c38\u0c41\u0c15\u0c4b\u0c15\u0c02\u0c21\u0c3f.",
+    "Document organic farm compliance records for organic certification":
+      "\u0c38\u0c30\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d \u0c15\u0c4b\u0c38\u0c02 \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c30\u0c3f\u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c24\u0c4d\u0c30\u0c2c\u0c26\u0c4d\u0c27\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
+    "Don't have an account? Register":
+      "\u0c16\u0c3e\u0c24\u0c3e \u0c32\u0c47\u0c26\u0c3e? \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Download Certificate":
+      "\u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c46\u0c1f\u0c4d \u0c21\u0c4c\u0c28\u0c4d\u200c\u0c32\u0c4b\u0c21\u0c4d \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Download Certificate (PDF)":
+      "\u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c1f\u0c4d \u0c21\u0c4c\u0c28\u0c4d\u200c\u0c32\u0c4b\u0c21\u0c4d (PDF)",
+    "Draft customized Soil Health Cards and fertilizer dose advisories":
+      "\u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c39\u0c46\u0c32\u0c4d\u0c24\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d\u200c\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c4b\u0c24\u0c3e\u0c26\u0c41 \u0c38\u0c32\u0c39\u0c3e\u0c32\u0c28\u0c41 \u0c30\u0c42\u0c2a\u0c4a\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c02",
+    "Drip Irrigation & Precision Farming":
+      "\u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d \u0c07\u0c30\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d & \u0c16\u0c1a\u0c4d\u0c1a\u0c3f\u0c24\u0c2e\u0c48\u0c28 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    "Drip Irrigation Kit 1 Acre":
+      "\u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 \u0c15\u0c3f\u0c1f\u0c4d 1 \u0c0e\u0c15\u0c30\u0c02",
+    "Drip and Sprinkler Irrigation Systems":
+      "\u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c3f\u0c02\u0c15\u0c4d\u0c32\u0c30\u0c4d \u0c38\u0c47\u0c26\u0c4d\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c41",
+    "Drip irrigation delivers water directly to plant roots in precise drops, reducing water evaporation and weed growth. Sprinkler systems simulate natural rainfall for closely spaced crops.":
+      "\u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c35\u0c47\u0c30\u0c4d\u0c32 \u0c35\u0c26\u0c4d\u0c26\u0c15\u0c41 \u0c1a\u0c3f\u0c28\u0c4d\u0c28 \u0c2c\u0c4a\u0c1f\u0c4d\u0c32\u0c41\u0c17\u0c3e \u0c05\u0c02\u0c26\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c3f\u0c02\u0c15\u0c4d\u0c32\u0c30\u0c4d\u0c32\u0c41 \u0c35\u0c30\u0c4d\u0c37\u0c02 \u0c32\u0c3e\u0c17\u0c3e \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c1a\u0c3f\u0c32\u0c15\u0c30\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
+    "Drip irrigation saves 40-60% water compared to flood irrigation":
+      "\u0c38\u0c3e\u0c27\u0c3e\u0c30\u0c23 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c3f \u0c15\u0c02\u0c1f\u0c47 \u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 40-60% \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c06\u0c26\u0c3e \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    "Drone Technology":
+      "\u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d \u0c1f\u0c46\u0c15\u0c4d\u0c28\u0c3e\u0c32\u0c1c\u0c40",
+    "Drone Technology in Agriculture":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02\u0c32\u0c4b \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24",
+    "Drone spraying for pesticides, fertilizers, and crop surveillance.":
+      "\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41 \u0c2e\u0c02\u0c26\u0c41\u0c32\u0c41, \u0c26\u0c4d\u0c30\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1f \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23\u0c15\u0c41 \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02.",
+    "Drones cover 1 acre field spray in under 10 minutes":
+      "\u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u0c32\u0c41 \u0c0e\u0c15\u0c30\u0c02 \u0c2a\u0c4a\u0c32\u0c3e\u0c28\u0c4d\u0c28\u0c3f 10 \u0c28\u0c3f\u0c2e\u0c3f\u0c37\u0c3e\u0c32\u0c32\u0c4b \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
+    "Drumstick Seed PKM-1 (250 g)":
+      "\u0c2e\u0c41\u0c28\u0c17\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 PKM-1 (250 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Duggirala Cold Storage":
+      "\u0c26\u0c41\u0c17\u0c4d\u0c17\u0c3f\u0c30\u0c3e\u0c32 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d",
+    Duration: "\u0c35\u0c4d\u0c2f\u0c35\u0c27\u0c3f",
+    "EC sensors monitor root zone salinity and prevent fertilizer burn":
+      "\u0c32\u0c35\u0c23\u0c3e\u0c32 \u0c36\u0c3e\u0c24\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c41 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
+    "Ear-Tagging / Microchip Identification":
+      "\u0c1a\u0c46\u0c35\u0c3f \u0c1f\u0c4d\u0c2f\u0c3e\u0c17\u0c3f\u0c02\u0c17\u0c4d / \u0c2e\u0c48\u0c15\u0c4d\u0c30\u0c4b\u0c1a\u0c3f\u0c2a\u0c4d \u0c17\u0c41\u0c30\u0c41\u0c24\u0c3f\u0c02\u0c2a\u0c41",
+    Edit: "\u0c38\u0c35\u0c30\u0c3f\u0c02\u0c1a\u0c41",
+    Education: "\u0c35\u0c3f\u0c26\u0c4d\u0c2f",
+    "Effective pest management begins with correct identification. Sap-sucking insects like aphids and whiteflies cause leaf curling, while caterpillars chew leaf tissue. Ladybugs and spiders are beneficial predators.":
+      "\u0c38\u0c30\u0c48\u0c28 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23\u0c15\u0c41 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c28\u0c41 \u0c38\u0c30\u0c3f\u0c17\u0c4d\u0c17\u0c3e \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c02. \u0c2a\u0c47\u0c28\u0c41\u0c2c\u0c02\u0c15, \u0c24\u0c46\u0c32\u0c4d\u0c32\u0c26\u0c4b\u0c2e \u0c30\u0c38\u0c02 \u0c2a\u0c40\u0c32\u0c4d\u0c1a\u0c3f \u0c06\u0c15\u0c41\u0c32\u0c41 \u0c2e\u0c41\u0c21\u0c41\u0c1a\u0c41\u0c15\u0c41\u0c2a\u0c4b\u0c2f\u0c47\u0c32\u0c3e \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f. \u0c32\u0c47\u0c21\u0c40\u0c2c\u0c30\u0c4d\u0c21\u0c4d \u0c2c\u0c40\u0c1f\u0c3f\u0c32\u0c4d\u0c38\u0c4d \u0c2e\u0c47\u0c32\u0c41 \u0c1a\u0c47\u0c38\u0c47 \u0c2e\u0c3f\u0c24\u0c4d\u0c30 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41.",
+    "Efficient irrigation helps conserve water while keeping crops healthy and productive.":
+      "\u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c2e\u0c48\u0c28 \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c06\u0c26\u0c3e \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c42 \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c02\u0c17\u0c3e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c09\u0c24\u0c4d\u0c2a\u0c3e\u0c26\u0c15\u0c02\u0c17\u0c3e \u0c09\u0c02\u0c1a\u0c21\u0c02\u0c32\u0c4b \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    Eligibility: "\u0c05\u0c30\u0c4d\u0c39\u0c24",
+    "Eligibility & Requirements":
+      "\u0c05\u0c30\u0c4d\u0c39\u0c24 & \u0c05\u0c35\u0c38\u0c30\u0c3e\u0c32\u0c41",
+    "Eligibility criteria, enrollment process, Aadhaar seeding, and status tracking.":
+      "\u0c05\u0c30\u0c4d\u0c39\u0c24 \u0c28\u0c3f\u0c2c\u0c02\u0c27\u0c28\u0c32\u0c41, \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c35\u0c3f\u0c27\u0c3e\u0c28\u0c02, \u0c06\u0c27\u0c3e\u0c30\u0c4d \u0c32\u0c3f\u0c02\u0c15\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c47\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c1f\u0c4d\u0c30\u0c3e\u0c15\u0c3f\u0c02\u0c17\u0c4d.",
+    "Eligible Crops":
+      "\u0c05\u0c30\u0c4d\u0c39\u0c24 \u0c15\u0c32\u0c3f\u0c17\u0c3f\u0c28 \u0c2a\u0c02\u0c1f\u0c32\u0c41",
+    "Eluru Cold Storage":
+      "\u0c0f\u0c32\u0c42\u0c30\u0c41 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d",
+    "Eluru, Andhra Pradesh":
+      "\u0c0f\u0c32\u0c42\u0c30\u0c41, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
+    "Email Address":
+      "\u0c07\u0c2e\u0c46\u0c2f\u0c3f\u0c32\u0c4d \u0c1a\u0c3f\u0c30\u0c41\u0c28\u0c3e\u0c2e\u0c3e",
+    "Empanelled Insurers & State Govts":
+      "\u0c0e\u0c02\u0c2a\u0c4d\u0c2f\u0c3e\u0c28\u0c46\u0c32\u0c4d \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c3f\u0c28 \u0c2c\u0c40\u0c2e\u0c3e \u0c38\u0c02\u0c38\u0c4d\u0c25\u0c32\u0c41 & \u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30 \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35\u0c3e\u0c32\u0c41",
+    "Empanelled insurers with state agriculture departments":
+      "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c36\u0c3e\u0c16\u0c32 \u0c2c\u0c40\u0c2e\u0c3e \u0c38\u0c02\u0c38\u0c4d\u0c25\u0c32\u0c41",
+    "Enables precise fertigation directly through water drippers":
+      "\u0c28\u0c40\u0c1f\u0c3f \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e\u0c28\u0c47 \u0c26\u0c4d\u0c30\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f (\u0c2b\u0c46\u0c30\u0c4d\u0c1f\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d) \u0c35\u0c40\u0c32\u0c41 \u0c15\u0c32\u0c4d\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    "Engineering, Agritech, or Agriculture students interested in drone technology.":
+      "\u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d \u0c1f\u0c46\u0c15\u0c4d\u0c28\u0c3e\u0c32\u0c1c\u0c40\u0c2a\u0c48 \u0c06\u0c38\u0c15\u0c4d\u0c24\u0c3f \u0c09\u0c28\u0c4d\u0c28 \u0c07\u0c02\u0c1c\u0c28\u0c40\u0c30\u0c3f\u0c02\u0c17\u0c4d \u0c32\u0c47\u0c26\u0c3e \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32\u0c41.",
     "Enroll Now": "\u0c07\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c47 \u0c1a\u0c47\u0c30\u0c02\u0c21\u0c3f",
-    "Enrolled": "\u0c1a\u0c47\u0c30\u0c3e\u0c30\u0c41",
-    "Enrolled Courses": "\u0c28\u0c2e\u0c4b\u0c26\u0c48\u0c28 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
-    "Ensure adequate plant spacing for canopy ventilation": "\u0c17\u0c3e\u0c32\u0c3f \u0c35\u0c46\u0c32\u0c41\u0c24\u0c41\u0c30\u0c41 \u0c27\u0c3e\u0c30\u0c3e\u0c33\u0c02\u0c17\u0c3e \u0c24\u0c17\u0c3f\u0c32\u0c47\u0c32\u0c3e \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c32 \u0c2e\u0c27\u0c4d\u0c2f \u0c26\u0c42\u0c30\u0c02 \u0c2a\u0c3e\u0c1f\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Ensure field drainage ditches are clear before heavy cyclone warnings": "\u0c24\u0c41\u0c2b\u0c3e\u0c28\u0c41 \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c15\u0c41 \u0c2e\u0c41\u0c02\u0c26\u0c47 \u0c15\u0c3e\u0c32\u0c41\u0c35\u0c32\u0c41 \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Ensure proper drainage channels for heavy rain periods": "\u0c2d\u0c3e\u0c30\u0c40 \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c32 \u0c15\u0c3e\u0c32\u0c02\u0c32\u0c4b \u0c38\u0c30\u0c48\u0c28 \u0c28\u0c40\u0c1f\u0c3f \u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c15\u0c3e\u0c32\u0c41\u0c35\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c27\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Ensure soil moisture is adequate at root depth before seed placement": "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c35\u0c47\u0c30\u0c41 \u0c32\u0c4b\u0c24\u0c41 \u0c35\u0c30\u0c15\u0c41 \u0c38\u0c30\u0c3f\u0c2a\u0c21\u0c3e \u0c24\u0c47\u0c2e \u0c09\u0c02\u0c26\u0c28\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c27\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Ensure your bank account is e-KYC verified and seeded with Aadhaar to receive installments without delay.": "\u0c06\u0c32\u0c38\u0c4d\u0c2f\u0c02 \u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c21\u0c2c\u0c4d\u0c2c\u0c41\u0c32\u0c41 \u0c2a\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41 \u0c16\u0c3e\u0c24\u0c3e\u0c15\u0c41 e-KYC \u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c3f \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Enter your account credentials to access your dashboard": "\u0c2e\u0c40 \u0c21\u0c3e\u0c37\u0c4d\u200c\u0c2c\u0c4b\u0c30\u0c4d\u0c21\u0c4d\u200c\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c32\u0c3e\u0c17\u0c3f\u0c28\u0c4d \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Enter your password": "\u0c2e\u0c40 \u0c2a\u0c3e\u0c38\u0c4d\u200c\u0c35\u0c30\u0c4d\u0c21\u0c4d\u200c\u0c28\u0c41 \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Environment": "\u0c2a\u0c30\u0c4d\u0c2f\u0c3e\u0c35\u0c30\u0c23\u0c02",
-    "Equipment": "\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c41",
-    "Every Drop Counts": "\u0c2a\u0c4d\u0c30\u0c24\u0c3f \u0c28\u0c40\u0c1f\u0c3f \u0c2c\u0c4a\u0c1f\u0c4d\u0c1f\u0c41 \u0c35\u0c3f\u0c32\u0c41\u0c35\u0c48\u0c28\u0c26\u0c3f",
-    "Every drop counts": "\u0c2a\u0c4d\u0c30\u0c24\u0c3f \u0c1a\u0c41\u0c15\u0c4d\u0c15 \u0c35\u0c3f\u0c32\u0c41\u0c35\u0c48\u0c28\u0c26\u0c3f",
-    "Everything farmers need \u2014 from quality farm inputs and equipment to fresh agricultural products.": "\u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41, \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c24\u0c3e\u0c1c\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c35\u0c30\u0c15\u0c41 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c15\u0c3e\u0c35\u0c32\u0c38\u0c3f\u0c28\u0c35\u0c28\u0c4d\u0c28\u0c40.",
-    "Explore Agri Technology": "\u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "Explore Categories": "\u0c35\u0c30\u0c4d\u0c17\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Explore Farm Equipment": "\u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "Explore Farm Inputs": "\u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c41\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "Explore Irrigation": "\u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41",
-    "Explore Products": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "Explore fresh produce from local farmers across India and place your first direct order.": "\u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c30\u0c48\u0c24\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c24\u0c3e\u0c1c\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c3f \u0c2e\u0c40 \u0c2e\u0c4a\u0c26\u0c1f\u0c3f \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Explore internships in agriculture, agritech, farming, horticulture, livestock, food processing, and rural development.": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02, \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d, \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23, \u0c09\u0c26\u0c4d\u0c2f\u0c3e\u0c28\u0c35\u0c28\u0c02, \u0c2a\u0c36\u0c41\u0c38\u0c02\u0c35\u0c30\u0c4d\u0c27\u0c15, \u0c06\u0c39\u0c3e\u0c30 \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c40\u0c23\u0c3e\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f\u0c32\u0c4b \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d \u0c05\u0c35\u0c15\u0c3e\u0c36\u0c3e\u0c32\u0c28\u0c41 \u0c05\u0c28\u0c4d\u0c35\u0c47\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Explore machine learning algorithms, scikit-learn, neural networks, and model deployment.": "\u0c2e\u0c46\u0c37\u0c3f\u0c28\u0c4d \u0c32\u0c46\u0c30\u0c4d\u0c28\u0c3f\u0c02\u0c17\u0c4d \u0c06\u0c32\u0c4d\u0c17\u0c3e\u0c30\u0c3f\u0c25\u0c2e\u0c4d\u200c\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c4d\u0c2f\u0c42\u0c30\u0c32\u0c4d \u0c28\u0c46\u0c1f\u0c4d\u200c\u0c35\u0c30\u0c4d\u0c15\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c05\u0c27\u0c4d\u0c2f\u0c2f\u0c28\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.": "\u0c30\u0c48\u0c24\u0c41\u0c32\u0c41 \u0c24\u0c2e \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c02\u0c17\u0c3e \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f, \u0c38\u0c02\u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c47 \u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24\u0c28\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c02\u0c21\u0c3f.",
-    "Explore software development, Python, AI/ML, cloud, and modern tech courses.": "\u0c38\u0c3e\u0c2b\u0c4d\u0c1f\u0c4d\u200c\u0c35\u0c47\u0c30\u0c4d \u0c05\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f, \u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d, AI/ML, \u0c15\u0c4d\u0c32\u0c4c\u0c21\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c1f\u0c46\u0c15\u0c4d \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c05\u0c28\u0c4d\u0c35\u0c47\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Extreme Weather Mitigation (Floods & Heatwaves)": "\u0c24\u0c40\u0c35\u0c4d\u0c30 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23 (\u0c35\u0c30\u0c26\u0c32\u0c41 & \u0c35\u0c21\u0c17\u0c3e\u0c32\u0c41\u0c32\u0c41)",
-    "FEATURED": "\u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c2f\u0c47\u0c15\u0c2e\u0c48\u0c28\u0c26\u0c3f",
-    "FERTILIZERS": "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41",
-    "FPOs aggregate small farmer produce into large commercial lots": "FPO\u0c32\u0c41 \u0c1a\u0c3f\u0c28\u0c4d\u0c28 \u0c30\u0c48\u0c24\u0c41\u0c32 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c38\u0c47\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c2a\u0c46\u0c26\u0c4d\u0c26 \u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02\u0c32\u0c4b \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
-    "FREE": "\u0c09\u0c1a\u0c3f\u0c24\u0c02",
-    "FROM FIELD TO FUTURE": "\u0c2a\u0c4a\u0c32\u0c02 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2d\u0c35\u0c3f\u0c37\u0c4d\u0c2f\u0c24\u0c4d\u0c24\u0c41 \u0c35\u0c48\u0c2a\u0c41",
-    "Facility Specifications:": "\u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41:",
-    "Factors influencing daily mandi prices: arrival volume, quality, and demand.": "\u0c30\u0c4b\u0c1c\u0c41\u0c35\u0c3e\u0c30\u0c40 \u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c2d\u0c3e\u0c35\u0c3f\u0c24\u0c02 \u0c1a\u0c47\u0c38\u0c47 \u0c05\u0c02\u0c36\u0c3e\u0c32\u0c41: \u0c30\u0c3e\u0c2c\u0c21\u0c3f, \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c21\u0c3f\u0c2e\u0c3e\u0c02\u0c21\u0c4d.",
+    Enrolled: "\u0c1a\u0c47\u0c30\u0c3e\u0c30\u0c41",
+    "Enrolled Courses":
+      "\u0c28\u0c2e\u0c4b\u0c26\u0c48\u0c28 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
+    "Ensure adequate plant spacing for canopy ventilation":
+      "\u0c17\u0c3e\u0c32\u0c3f \u0c35\u0c46\u0c32\u0c41\u0c24\u0c41\u0c30\u0c41 \u0c27\u0c3e\u0c30\u0c3e\u0c33\u0c02\u0c17\u0c3e \u0c24\u0c17\u0c3f\u0c32\u0c47\u0c32\u0c3e \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c32 \u0c2e\u0c27\u0c4d\u0c2f \u0c26\u0c42\u0c30\u0c02 \u0c2a\u0c3e\u0c1f\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Ensure field drainage ditches are clear before heavy cyclone warnings":
+      "\u0c24\u0c41\u0c2b\u0c3e\u0c28\u0c41 \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c15\u0c41 \u0c2e\u0c41\u0c02\u0c26\u0c47 \u0c15\u0c3e\u0c32\u0c41\u0c35\u0c32\u0c41 \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Ensure proper drainage channels for heavy rain periods":
+      "\u0c2d\u0c3e\u0c30\u0c40 \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c32 \u0c15\u0c3e\u0c32\u0c02\u0c32\u0c4b \u0c38\u0c30\u0c48\u0c28 \u0c28\u0c40\u0c1f\u0c3f \u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c15\u0c3e\u0c32\u0c41\u0c35\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c27\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Ensure soil moisture is adequate at root depth before seed placement":
+      "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c35\u0c47\u0c30\u0c41 \u0c32\u0c4b\u0c24\u0c41 \u0c35\u0c30\u0c15\u0c41 \u0c38\u0c30\u0c3f\u0c2a\u0c21\u0c3e \u0c24\u0c47\u0c2e \u0c09\u0c02\u0c26\u0c28\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c27\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Ensure your bank account is e-KYC verified and seeded with Aadhaar to receive installments without delay.":
+      "\u0c06\u0c32\u0c38\u0c4d\u0c2f\u0c02 \u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c21\u0c2c\u0c4d\u0c2c\u0c41\u0c32\u0c41 \u0c2a\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41 \u0c16\u0c3e\u0c24\u0c3e\u0c15\u0c41 e-KYC \u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c3f \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Enter your account credentials to access your dashboard":
+      "\u0c2e\u0c40 \u0c21\u0c3e\u0c37\u0c4d\u200c\u0c2c\u0c4b\u0c30\u0c4d\u0c21\u0c4d\u200c\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c32\u0c3e\u0c17\u0c3f\u0c28\u0c4d \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Enter your password":
+      "\u0c2e\u0c40 \u0c2a\u0c3e\u0c38\u0c4d\u200c\u0c35\u0c30\u0c4d\u0c21\u0c4d\u200c\u0c28\u0c41 \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    Environment: "\u0c2a\u0c30\u0c4d\u0c2f\u0c3e\u0c35\u0c30\u0c23\u0c02",
+    Equipment: "\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c41",
+    "Every Drop Counts":
+      "\u0c2a\u0c4d\u0c30\u0c24\u0c3f \u0c28\u0c40\u0c1f\u0c3f \u0c2c\u0c4a\u0c1f\u0c4d\u0c1f\u0c41 \u0c35\u0c3f\u0c32\u0c41\u0c35\u0c48\u0c28\u0c26\u0c3f",
+    "Every drop counts":
+      "\u0c2a\u0c4d\u0c30\u0c24\u0c3f \u0c1a\u0c41\u0c15\u0c4d\u0c15 \u0c35\u0c3f\u0c32\u0c41\u0c35\u0c48\u0c28\u0c26\u0c3f",
+    "Everything farmers need \u2014 from quality farm inputs and equipment to fresh agricultural products.":
+      "\u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41, \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c24\u0c3e\u0c1c\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c35\u0c30\u0c15\u0c41 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c15\u0c3e\u0c35\u0c32\u0c38\u0c3f\u0c28\u0c35\u0c28\u0c4d\u0c28\u0c40.",
+    "Explore Agri Technology":
+      "\u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "Explore Categories":
+      "\u0c35\u0c30\u0c4d\u0c17\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Explore Farm Equipment":
+      "\u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "Explore Farm Inputs":
+      "\u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c41\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "Explore Irrigation":
+      "\u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41",
+    "Explore Products":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "Explore fresh produce from local farmers across India and place your first direct order.":
+      "\u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c30\u0c48\u0c24\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c24\u0c3e\u0c1c\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c3f \u0c2e\u0c40 \u0c2e\u0c4a\u0c26\u0c1f\u0c3f \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Explore internships in agriculture, agritech, farming, horticulture, livestock, food processing, and rural development.":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02, \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d, \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23, \u0c09\u0c26\u0c4d\u0c2f\u0c3e\u0c28\u0c35\u0c28\u0c02, \u0c2a\u0c36\u0c41\u0c38\u0c02\u0c35\u0c30\u0c4d\u0c27\u0c15, \u0c06\u0c39\u0c3e\u0c30 \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c40\u0c23\u0c3e\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f\u0c32\u0c4b \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d \u0c05\u0c35\u0c15\u0c3e\u0c36\u0c3e\u0c32\u0c28\u0c41 \u0c05\u0c28\u0c4d\u0c35\u0c47\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Explore machine learning algorithms, scikit-learn, neural networks, and model deployment.":
+      "\u0c2e\u0c46\u0c37\u0c3f\u0c28\u0c4d \u0c32\u0c46\u0c30\u0c4d\u0c28\u0c3f\u0c02\u0c17\u0c4d \u0c06\u0c32\u0c4d\u0c17\u0c3e\u0c30\u0c3f\u0c25\u0c2e\u0c4d\u200c\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c4d\u0c2f\u0c42\u0c30\u0c32\u0c4d \u0c28\u0c46\u0c1f\u0c4d\u200c\u0c35\u0c30\u0c4d\u0c15\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c05\u0c27\u0c4d\u0c2f\u0c2f\u0c28\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.":
+      "\u0c30\u0c48\u0c24\u0c41\u0c32\u0c41 \u0c24\u0c2e \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c02\u0c17\u0c3e \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f, \u0c38\u0c02\u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c47 \u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24\u0c28\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c02\u0c21\u0c3f.",
+    "Explore software development, Python, AI/ML, cloud, and modern tech courses.":
+      "\u0c38\u0c3e\u0c2b\u0c4d\u0c1f\u0c4d\u200c\u0c35\u0c47\u0c30\u0c4d \u0c05\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f, \u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d, AI/ML, \u0c15\u0c4d\u0c32\u0c4c\u0c21\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c1f\u0c46\u0c15\u0c4d \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c05\u0c28\u0c4d\u0c35\u0c47\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Extreme Weather Mitigation (Floods & Heatwaves)":
+      "\u0c24\u0c40\u0c35\u0c4d\u0c30 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23 (\u0c35\u0c30\u0c26\u0c32\u0c41 & \u0c35\u0c21\u0c17\u0c3e\u0c32\u0c41\u0c32\u0c41)",
+    FEATURED: "\u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c2f\u0c47\u0c15\u0c2e\u0c48\u0c28\u0c26\u0c3f",
+    FERTILIZERS: "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41",
+    "FPOs aggregate small farmer produce into large commercial lots":
+      "FPO\u0c32\u0c41 \u0c1a\u0c3f\u0c28\u0c4d\u0c28 \u0c30\u0c48\u0c24\u0c41\u0c32 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c38\u0c47\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c2a\u0c46\u0c26\u0c4d\u0c26 \u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02\u0c32\u0c4b \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
+    FREE: "\u0c09\u0c1a\u0c3f\u0c24\u0c02",
+    "FROM FIELD TO FUTURE":
+      "\u0c2a\u0c4a\u0c32\u0c02 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2d\u0c35\u0c3f\u0c37\u0c4d\u0c2f\u0c24\u0c4d\u0c24\u0c41 \u0c35\u0c48\u0c2a\u0c41",
+    "Facility Specifications:":
+      "\u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41:",
+    "Factors influencing daily mandi prices: arrival volume, quality, and demand.":
+      "\u0c30\u0c4b\u0c1c\u0c41\u0c35\u0c3e\u0c30\u0c40 \u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c2d\u0c3e\u0c35\u0c3f\u0c24\u0c02 \u0c1a\u0c47\u0c38\u0c47 \u0c05\u0c02\u0c36\u0c3e\u0c32\u0c41: \u0c30\u0c3e\u0c2c\u0c21\u0c3f, \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c21\u0c3f\u0c2e\u0c3e\u0c02\u0c21\u0c4d.",
     "Fair Prices": "\u0c38\u0c2e\u0c02\u0c1c\u0c38\u0c2e\u0c48\u0c28 \u0c27\u0c30\u0c32\u0c41",
-    "Farm Inputs & Fertilizers": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c2a\u0c15\u0c30\u0c23\u0c3e\u0c32\u0c41 & \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41",
-    "Farm Management": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
-    "Farm Safety Kit (Mask, Gloves, Goggles)": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c15\u0c3f\u0c1f\u0c4d (\u0c2e\u0c3e\u0c38\u0c4d\u0c15\u0c4d, \u0c17\u0c4d\u0c32\u0c4c\u0c1c\u0c41\u0c32\u0c41, \u0c17\u0c3e\u0c17\u0c41\u0c32\u0c4d\u0c38\u0c4d)",
-    "Farm Tools": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41",
-    "Farm alerts": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c41",
-    "Farm input marketplace": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c07\u0c28\u0c4d\u0c2a\u0c41\u0c1f\u0c4d \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d",
-    "Farm ponds collect excess rainwater runoff during heavy monsoon rains. Stored water provides emergency protective irrigation during dry spells and recharges groundwater aquifers.": "\u0c2a\u0c4a\u0c32\u0c02 \u0c15\u0c41\u0c02\u0c1f\u0c32\u0c41 \u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c41 \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f. \u0c08 \u0c28\u0c40\u0c30\u0c41 \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c2d\u0c3e\u0c35 \u0c2a\u0c30\u0c3f\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c41\u0c32\u0c32\u0c4b \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c2a\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Farm weather advisory": "\u0c2a\u0c02\u0c1f\u0c32 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c32\u0c39\u0c3e",
-    "Farmer": "\u0c30\u0c48\u0c24\u0c41",
-    "Farmer / Seller": "\u0c30\u0c48\u0c24\u0c41 / \u0c05\u0c2e\u0c4d\u0c2e\u0c15\u0c02\u0c26\u0c3e\u0c30\u0c41",
-    "Farmer Access Only": "\u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c2e\u0c3e\u0c24\u0c4d\u0c30\u0c2e\u0c47 \u0c2a\u0c4d\u0c30\u0c35\u0c47\u0c36\u0c02",
-    "Farmer Authentication Required": "\u0c30\u0c48\u0c24\u0c41 \u0c2a\u0c4d\u0c30\u0c3e\u0c2e\u0c3e\u0c23\u0c40\u0c15\u0c30\u0c23 \u0c05\u0c35\u0c38\u0c30\u0c02",
+    "Farm Inputs & Fertilizers":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c2a\u0c15\u0c30\u0c23\u0c3e\u0c32\u0c41 & \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41",
+    "Farm Management":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Farm Safety Kit (Mask, Gloves, Goggles)":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c15\u0c3f\u0c1f\u0c4d (\u0c2e\u0c3e\u0c38\u0c4d\u0c15\u0c4d, \u0c17\u0c4d\u0c32\u0c4c\u0c1c\u0c41\u0c32\u0c41, \u0c17\u0c3e\u0c17\u0c41\u0c32\u0c4d\u0c38\u0c4d)",
+    "Farm Tools":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41",
+    "Farm alerts":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c41",
+    "Farm input marketplace":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c07\u0c28\u0c4d\u0c2a\u0c41\u0c1f\u0c4d \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d",
+    "Farm ponds collect excess rainwater runoff during heavy monsoon rains. Stored water provides emergency protective irrigation during dry spells and recharges groundwater aquifers.":
+      "\u0c2a\u0c4a\u0c32\u0c02 \u0c15\u0c41\u0c02\u0c1f\u0c32\u0c41 \u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c41 \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f. \u0c08 \u0c28\u0c40\u0c30\u0c41 \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c2d\u0c3e\u0c35 \u0c2a\u0c30\u0c3f\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c41\u0c32\u0c32\u0c4b \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c2a\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Farm weather advisory":
+      "\u0c2a\u0c02\u0c1f\u0c32 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c32\u0c39\u0c3e",
+    Farmer: "\u0c30\u0c48\u0c24\u0c41",
+    "Farmer / Seller":
+      "\u0c30\u0c48\u0c24\u0c41 / \u0c05\u0c2e\u0c4d\u0c2e\u0c15\u0c02\u0c26\u0c3e\u0c30\u0c41",
+    "Farmer Access Only":
+      "\u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c2e\u0c3e\u0c24\u0c4d\u0c30\u0c2e\u0c47 \u0c2a\u0c4d\u0c30\u0c35\u0c47\u0c36\u0c02",
+    "Farmer Authentication Required":
+      "\u0c30\u0c48\u0c24\u0c41 \u0c2a\u0c4d\u0c30\u0c3e\u0c2e\u0c3e\u0c23\u0c40\u0c15\u0c30\u0c23 \u0c05\u0c35\u0c38\u0c30\u0c02",
     "Farmer Console": "\u0c30\u0c48\u0c24\u0c41 \u0c15\u0c28\u0c4d\u0c38\u0c4b\u0c32\u0c4d",
-    "Farmer Dashboard": "\u0c30\u0c48\u0c24\u0c41 \u0c21\u0c3e\u0c37\u0c4d\u0c2c\u0c4b\u0c30\u0c4d\u0c21\u0c4d",
+    "Farmer Dashboard":
+      "\u0c30\u0c48\u0c24\u0c41 \u0c21\u0c3e\u0c37\u0c4d\u0c2c\u0c4b\u0c30\u0c4d\u0c21\u0c4d",
     "Farmer Demo": "\u0c30\u0c48\u0c24\u0c41 \u0c21\u0c46\u0c2e\u0c4b",
-    "Farmer Product Management": "\u0c30\u0c48\u0c24\u0c41\u0c32 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Farmer Product Management":
+      "\u0c30\u0c48\u0c24\u0c41\u0c32 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
     "Farmer Registration": "\u0c30\u0c48\u0c24\u0c41 \u0c28\u0c2e\u0c4b\u0c26\u0c41",
     "Farmer Training": "\u0c30\u0c48\u0c24\u0c41 \u0c36\u0c3f\u0c15\u0c4d\u0c37\u0c23",
-    "Farmer Welfare Cell": "\u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c30\u0c4d \u0c35\u0c46\u0c32\u0c4d\u0c2b\u0c47\u0c30\u0c4d \u0c38\u0c46\u0c32\u0c4d",
-    "Farmer premium capped at 2% for Kharif, 1.5% for Rabi, 5% for commercial crops": "\u0c16\u0c30\u0c40\u0c2b\u0c4d \u0c2a\u0c02\u0c1f\u0c32\u0c15\u0c41 2%, \u0c30\u0c2c\u0c40 \u0c2a\u0c02\u0c1f\u0c32\u0c15\u0c41 1.5% \u0c2e\u0c3e\u0c24\u0c4d\u0c30\u0c2e\u0c47 \u0c2a\u0c4d\u0c30\u0c40\u0c2e\u0c3f\u0c2f\u0c02",
-    "Farmers adopting approved micro-irrigation systems through empanelled vendors.": "\u0c05\u0c28\u0c41\u0c2e\u0c24\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c2e\u0c48\u0c15\u0c4d\u0c30\u0c4b-\u0c07\u0c30\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c4d\u0c25\u0c32\u0c28\u0c41 \u0c05\u0c35\u0c32\u0c02\u0c2c\u0c3f\u0c02\u0c1a\u0c47 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41.",
-    "Farmers, tenant cultivators, SHGs, and joint liability groups with farming activity.": "\u0c30\u0c48\u0c24\u0c41\u0c32\u0c41, \u0c15\u0c4c\u0c32\u0c41 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41, \u0c38\u0c4d\u0c35\u0c2f\u0c02 \u0c38\u0c39\u0c3e\u0c2f\u0c15 \u0c2c\u0c43\u0c02\u0c26\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c2e\u0c42\u0c39\u0c3e\u0c32\u0c41.",
-    "Farming Advisory": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c42\u0c1a\u0c28\u0c32\u0c41",
-    "Farming Tip & Practical Action": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c1a\u0c3f\u0c1f\u0c4d\u0c15\u0c3e & \u0c2a\u0c4d\u0c30\u0c3e\u0c2f\u0c4b\u0c17\u0c3f\u0c15 \u0c1a\u0c30\u0c4d\u0c2f",
-    "Farming Today for a Greener Tomorrow": "\u0c2a\u0c1a\u0c4d\u0c1a\u0c28\u0c3f \u0c30\u0c47\u0c2a\u0c1f\u0c3f \u0c15\u0c4b\u0c38\u0c02 \u0c28\u0c47\u0c21\u0c47 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
-    "Farthest First": "\u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c26\u0c42\u0c30\u0c02 \u0c2e\u0c41\u0c02\u0c26\u0c41\u0c17\u0c3e",
-    "Fast Delivery": "\u0c35\u0c47\u0c17\u0c35\u0c02\u0c24\u0c2e\u0c48\u0c28 \u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40",
-    "Featured": "\u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c2f\u0c47\u0c15\u0c2e\u0c48\u0c28\u0c26\u0c3f",
-    "Featured Internship Opportunities": "\u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d \u0c05\u0c35\u0c15\u0c3e\u0c36\u0c3e\u0c32\u0c41",
-    "Featured Products": "\u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c2f\u0c47\u0c15 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41",
-    "Featured first": "\u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c2f\u0c47\u0c15\u0c2e\u0c48\u0c28\u0c35\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c41",
-    "Fenugreek Seed Pusa Early Bunching (1 kg)": "\u0c2e\u0c46\u0c02\u0c24\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2a\u0c42\u0c38\u0c3e (1 \u0c15\u0c3f\u0c32\u0c4b)",
-    "Ferment Jeevamrutha culture for 48-72 hours under shade": "\u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c40\u0c21\u0c32\u0c4b 48-72 \u0c17\u0c02\u0c1f\u0c32 \u0c2a\u0c3e\u0c1f\u0c41 \u0c2a\u0c41\u0c32\u0c3f\u0c2f\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f",
-    "Ferrous Sulphate (10 kg)": "\u0c2b\u0c46\u0c30\u0c4d\u0c30\u0c38\u0c4d \u0c38\u0c32\u0c4d\u0c2b\u0c47\u0c1f\u0c4d (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Fertigation delivers liquid water-soluble fertilizers directly into root zones via drip lines, raising nutrient efficiency from 40% to 80%.": "\u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b \u0c15\u0c30\u0c3f\u0c17\u0c47 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c02 (\u0c2b\u0c46\u0c30\u0c4d\u0c1f\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d) \u0c35\u0c32\u0c4d\u0c32 \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c17\u0c4d\u0c30\u0c39\u0c23 40% \u0c28\u0c41\u0c02\u0c21\u0c3f 80% \u0c15\u0c3f \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Fertigation: Dosing Water-Soluble Fertilizers": "\u0c2b\u0c46\u0c30\u0c4d\u0c1f\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d: \u0c26\u0c4d\u0c30\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02",
-    "Fertilizer Management": "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
-    "Fertilizers": "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41",
-    "Field + Research": "\u0c2b\u0c40\u0c32\u0c4d\u0c21\u0c4d + \u0c30\u0c40\u0c38\u0c46\u0c30\u0c4d\u0c1a\u0c4d",
-    "Field Data Collection": "\u0c15\u0c4d\u0c37\u0c47\u0c24\u0c4d\u0c30 \u0c21\u0c47\u0c1f\u0c3e \u0c38\u0c47\u0c15\u0c30\u0c23",
-    "Field Internship": "\u0c2b\u0c40\u0c32\u0c4d\u0c21\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d",
-    "Field Pea Seed HFP-4 (10 kg)": "\u0c2c\u0c1f\u0c3e\u0c23\u0c40\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 HFP-4 (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Farmer Welfare Cell":
+      "\u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c30\u0c4d \u0c35\u0c46\u0c32\u0c4d\u0c2b\u0c47\u0c30\u0c4d \u0c38\u0c46\u0c32\u0c4d",
+    "Farmer premium capped at 2% for Kharif, 1.5% for Rabi, 5% for commercial crops":
+      "\u0c16\u0c30\u0c40\u0c2b\u0c4d \u0c2a\u0c02\u0c1f\u0c32\u0c15\u0c41 2%, \u0c30\u0c2c\u0c40 \u0c2a\u0c02\u0c1f\u0c32\u0c15\u0c41 1.5% \u0c2e\u0c3e\u0c24\u0c4d\u0c30\u0c2e\u0c47 \u0c2a\u0c4d\u0c30\u0c40\u0c2e\u0c3f\u0c2f\u0c02",
+    "Farmers adopting approved micro-irrigation systems through empanelled vendors.":
+      "\u0c05\u0c28\u0c41\u0c2e\u0c24\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c2e\u0c48\u0c15\u0c4d\u0c30\u0c4b-\u0c07\u0c30\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c4d\u0c25\u0c32\u0c28\u0c41 \u0c05\u0c35\u0c32\u0c02\u0c2c\u0c3f\u0c02\u0c1a\u0c47 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41.",
+    "Farmers, tenant cultivators, SHGs, and joint liability groups with farming activity.":
+      "\u0c30\u0c48\u0c24\u0c41\u0c32\u0c41, \u0c15\u0c4c\u0c32\u0c41 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41, \u0c38\u0c4d\u0c35\u0c2f\u0c02 \u0c38\u0c39\u0c3e\u0c2f\u0c15 \u0c2c\u0c43\u0c02\u0c26\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c2e\u0c42\u0c39\u0c3e\u0c32\u0c41.",
+    "Farming Advisory":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c42\u0c1a\u0c28\u0c32\u0c41",
+    "Farming Tip & Practical Action":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c1a\u0c3f\u0c1f\u0c4d\u0c15\u0c3e & \u0c2a\u0c4d\u0c30\u0c3e\u0c2f\u0c4b\u0c17\u0c3f\u0c15 \u0c1a\u0c30\u0c4d\u0c2f",
+    "Farming Today for a Greener Tomorrow":
+      "\u0c2a\u0c1a\u0c4d\u0c1a\u0c28\u0c3f \u0c30\u0c47\u0c2a\u0c1f\u0c3f \u0c15\u0c4b\u0c38\u0c02 \u0c28\u0c47\u0c21\u0c47 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    "Farthest First":
+      "\u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c26\u0c42\u0c30\u0c02 \u0c2e\u0c41\u0c02\u0c26\u0c41\u0c17\u0c3e",
+    "Fast Delivery":
+      "\u0c35\u0c47\u0c17\u0c35\u0c02\u0c24\u0c2e\u0c48\u0c28 \u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40",
+    Featured: "\u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c2f\u0c47\u0c15\u0c2e\u0c48\u0c28\u0c26\u0c3f",
+    "Featured Internship Opportunities":
+      "\u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d \u0c05\u0c35\u0c15\u0c3e\u0c36\u0c3e\u0c32\u0c41",
+    "Featured Products":
+      "\u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c2f\u0c47\u0c15 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41",
+    "Featured first":
+      "\u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c2f\u0c47\u0c15\u0c2e\u0c48\u0c28\u0c35\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c41",
+    "Fenugreek Seed Pusa Early Bunching (1 kg)":
+      "\u0c2e\u0c46\u0c02\u0c24\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2a\u0c42\u0c38\u0c3e (1 \u0c15\u0c3f\u0c32\u0c4b)",
+    "Ferment Jeevamrutha culture for 48-72 hours under shade":
+      "\u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c40\u0c21\u0c32\u0c4b 48-72 \u0c17\u0c02\u0c1f\u0c32 \u0c2a\u0c3e\u0c1f\u0c41 \u0c2a\u0c41\u0c32\u0c3f\u0c2f\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f",
+    "Ferrous Sulphate (10 kg)":
+      "\u0c2b\u0c46\u0c30\u0c4d\u0c30\u0c38\u0c4d \u0c38\u0c32\u0c4d\u0c2b\u0c47\u0c1f\u0c4d (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Fertigation delivers liquid water-soluble fertilizers directly into root zones via drip lines, raising nutrient efficiency from 40% to 80%.":
+      "\u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b \u0c15\u0c30\u0c3f\u0c17\u0c47 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c02 (\u0c2b\u0c46\u0c30\u0c4d\u0c1f\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d) \u0c35\u0c32\u0c4d\u0c32 \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c17\u0c4d\u0c30\u0c39\u0c23 40% \u0c28\u0c41\u0c02\u0c21\u0c3f 80% \u0c15\u0c3f \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Fertigation: Dosing Water-Soluble Fertilizers":
+      "\u0c2b\u0c46\u0c30\u0c4d\u0c1f\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d: \u0c26\u0c4d\u0c30\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02",
+    "Fertilizer Management":
+      "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    Fertilizers: "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41",
+    "Field + Research":
+      "\u0c2b\u0c40\u0c32\u0c4d\u0c21\u0c4d + \u0c30\u0c40\u0c38\u0c46\u0c30\u0c4d\u0c1a\u0c4d",
+    "Field Data Collection":
+      "\u0c15\u0c4d\u0c37\u0c47\u0c24\u0c4d\u0c30 \u0c21\u0c47\u0c1f\u0c3e \u0c38\u0c47\u0c15\u0c30\u0c23",
+    "Field Internship":
+      "\u0c2b\u0c40\u0c32\u0c4d\u0c21\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d",
+    "Field Pea Seed HFP-4 (10 kg)":
+      "\u0c2c\u0c1f\u0c3e\u0c23\u0c40\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 HFP-4 (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Field Work": "\u0c2b\u0c40\u0c32\u0c4d\u0c21\u0c4d \u0c35\u0c30\u0c4d\u0c15\u0c4d",
-    "Filter by Category": "\u0c35\u0c30\u0c4d\u0c17\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c35\u0c21\u0c2a\u0c4b\u0c24",
-    "Financial protection for cattle, buffaloes, sheep, and goats against death due to natural accidents, disease, or surgical complications.": "\u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26\u0c3e\u0c32\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c41\u0c32 \u0c35\u0c32\u0c4d\u0c32 \u0c1c\u0c02\u0c24\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c30\u0c23\u0c3e\u0c32\u0c15\u0c41 \u0c06\u0c30\u0c4d\u0c25\u0c3f\u0c15 \u0c30\u0c15\u0c4d\u0c37\u0c23.",
-    "Find Cold Storage": "\u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c35\u0c46\u0c24\u0c15\u0c02\u0c21\u0c3f",
-    "Find farmer support programmes, eligibility, and official application links.": "\u0c30\u0c48\u0c24\u0c41 \u0c38\u0c39\u0c3e\u0c2f \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41, \u0c05\u0c30\u0c4d\u0c39\u0c24\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c27\u0c3f\u0c15\u0c3e\u0c30\u0c3f\u0c15 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c32\u0c3f\u0c02\u0c15\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c02\u0c21\u0c3f.",
-    "Find fresh crops, fruits, seeds, and equipment": "\u0c24\u0c3e\u0c1c\u0c3e \u0c2a\u0c02\u0c1f\u0c32\u0c41, \u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c41, \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation.": "\u0c2e\u0c40 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c38\u0c2e\u0c40\u0c2a\u0c02\u0c32\u0c4b\u0c28\u0c3f \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c3f, \u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c38\u0c3f, \u0c28\u0c3f\u0c32\u0c4d\u0c35\u0c28\u0c41 \u0c0f\u0c30\u0c4d\u0c2a\u0c3e\u0c1f\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Finger Millet Seed GPU-28 (5 kg)": "\u0c30\u0c3e\u0c17\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 GPU-28 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Five-day local forecast with field action notes.": "\u0c2a\u0c4a\u0c32\u0c02 \u0c2a\u0c28\u0c41\u0c32 \u0c38\u0c32\u0c39\u0c3e\u0c32\u0c24\u0c4b 5 \u0c30\u0c4b\u0c1c\u0c41\u0c32 \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c38\u0c42\u0c1a\u0c28.",
-    "Flowering": "\u0c2a\u0c42\u0c24 \u0c26\u0c36",
-    "Flush drip lines with clean water for 15 minutes after every fertigation session": "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c35\u0c47\u0c38\u0c3f\u0c28 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 15 \u0c28\u0c3f\u0c2e\u0c3f\u0c37\u0c3e\u0c32\u0c41 \u0c2e\u0c02\u0c1a\u0c3f \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c2a\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c2a\u0c48\u0c2a\u0c41\u0c32\u0c28\u0c41 \u0c15\u0c21\u0c17\u0c02\u0c21\u0c3f",
-    "Flush lateral ends every 15 days by opening end caps while drip pump is running.": "\u0c2a\u0c4d\u0c30\u0c24\u0c3f 15 \u0c30\u0c4b\u0c1c\u0c41\u0c32\u0c15\u0c41 \u0c12\u0c15\u0c38\u0c3e\u0c30\u0c3f \u0c2a\u0c02\u0c2a\u0c4d \u0c28\u0c21\u0c41\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c0e\u0c02\u0c21\u0c4d \u0c15\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c41 \u0c24\u0c40\u0c38\u0c3f \u0c32\u0c48\u0c28\u0c4d\u0c32\u0c28\u0c41 \u0c15\u0c21\u0c17\u0c02\u0c21\u0c3f.",
-    "Fly drone sprayers at 2-3 meters height above crop canopy for optimum droplet distribution.": "\u0c2e\u0c02\u0c26\u0c41 \u0c38\u0c2e\u0c3e\u0c28\u0c02\u0c17\u0c3e \u0c2a\u0c21\u0c47\u0c02\u0c26\u0c41\u0c15\u0c41 \u0c2a\u0c02\u0c1f\u0c2a\u0c48 2-3 \u0c2e\u0c40\u0c1f\u0c30\u0c4d\u0c32 \u0c0e\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c4b \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u200c\u0c28\u0c41 \u0c28\u0c21\u0c2a\u0c02\u0c21\u0c3f.",
-    "Fogger Machine Portable": "\u0c2a\u0c4b\u0c30\u0c4d\u0c1f\u0c2c\u0c41\u0c32\u0c4d \u0c2b\u0c3e\u0c17\u0c30\u0c4d \u0c2e\u0c46\u0c37\u0c3f\u0c28\u0c4d",
-    "Foliar spray of 1% KNO3 (10g/L water) protects crops during sudden heatwaves": "\u0c35\u0c21\u0c17\u0c3e\u0c32\u0c41\u0c32 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b 1% \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c28\u0c48\u0c1f\u0c4d\u0c30\u0c47\u0c1f\u0c4d (\u0c32\u0c40\u0c1f\u0c30\u0c41\u0c15\u0c41 10 \u0c17\u0c4d\u0c30\u0c3e) \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Foliar sprays of Potassium and Salicylic acid during heat stress.": "\u0c24\u0c40\u0c35\u0c4d\u0c30\u0c2e\u0c48\u0c28 \u0c0e\u0c02\u0c21\u0c32\u0c41 \u0c09\u0c28\u0c4d\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c36\u0c3e\u0c32\u0c3f\u0c38\u0c3f\u0c32\u0c3f\u0c15\u0c4d \u0c2f\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40.",
-    "Follow FSSAI safety standards across processing and cold storage lines": "\u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c32\u0c4b FSSAI \u0c2d\u0c26\u0c4d\u0c30\u0c24\u0c3e \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c23\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c3e\u0c1f\u0c3f\u0c02\u0c1a\u0c21\u0c02",
-    "Follow Soil Health Card dosage recommendations to save up to 20% on unnecessary fertilizer expenses.": "\u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32\u0c4b\u0c28\u0c3f \u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c3e\u0c1f\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e 20% \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c16\u0c30\u0c4d\u0c1a\u0c41\u0c28\u0c41 \u0c06\u0c26\u0c3e \u0c1a\u0c47\u0c2f\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
-    "Food Processing": "\u0c06\u0c39\u0c3e\u0c30 \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d",
-    "Food Processing & Post-Harvest Intern": "\u0c06\u0c39\u0c3e\u0c30 \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d & \u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
-    "Food Technology, Agri Business, or Food Engineering students.": "\u0c2b\u0c41\u0c21\u0c4d \u0c1f\u0c46\u0c15\u0c4d\u0c28\u0c3e\u0c32\u0c1c\u0c40, \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c2c\u0c3f\u0c1c\u0c3f\u0c28\u0c46\u0c38\u0c4d \u0c32\u0c47\u0c26\u0c3e \u0c2b\u0c41\u0c21\u0c4d \u0c07\u0c02\u0c1c\u0c28\u0c40\u0c30\u0c3f\u0c02\u0c17\u0c4d \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32\u0c41.",
-    "Food, Oilseeds & Annual Crops": "\u0c06\u0c39\u0c3e\u0c30 \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c41, \u0c28\u0c42\u0c28\u0c46\u0c17\u0c3f\u0c02\u0c1c\u0c32\u0c41 & \u0c35\u0c3e\u0c30\u0c4d\u0c37\u0c3f\u0c15 \u0c2a\u0c02\u0c1f\u0c32\u0c41",
-    "Forming Farmer Producer Organizations (FPOs) for bulk bargaining power.": "\u0c30\u0c48\u0c24\u0c41 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f\u0c26\u0c3e\u0c30\u0c41\u0c32 \u0c38\u0c02\u0c18\u0c3e\u0c32\u0c41 (FPO) \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c26\u0c33\u0c3e\u0c30\u0c41\u0c32\u0c41 \u0c32\u0c47\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3f\u0c02\u0c1a\u0c21\u0c02.",
-    "Free soil testing conducted by government agriculture laboratories": "\u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d\u200c\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c09\u0c1a\u0c3f\u0c24\u0c02\u0c17\u0c3e \u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c32\u0c41 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41",
+    "Filter by Category":
+      "\u0c35\u0c30\u0c4d\u0c17\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c35\u0c21\u0c2a\u0c4b\u0c24",
+    "Financial protection for cattle, buffaloes, sheep, and goats against death due to natural accidents, disease, or surgical complications.":
+      "\u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26\u0c3e\u0c32\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c41\u0c32 \u0c35\u0c32\u0c4d\u0c32 \u0c1c\u0c02\u0c24\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c30\u0c23\u0c3e\u0c32\u0c15\u0c41 \u0c06\u0c30\u0c4d\u0c25\u0c3f\u0c15 \u0c30\u0c15\u0c4d\u0c37\u0c23.",
+    "Find Cold Storage":
+      "\u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c35\u0c46\u0c24\u0c15\u0c02\u0c21\u0c3f",
+    "Find farmer support programmes, eligibility, and official application links.":
+      "\u0c30\u0c48\u0c24\u0c41 \u0c38\u0c39\u0c3e\u0c2f \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41, \u0c05\u0c30\u0c4d\u0c39\u0c24\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c27\u0c3f\u0c15\u0c3e\u0c30\u0c3f\u0c15 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c32\u0c3f\u0c02\u0c15\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c02\u0c21\u0c3f.",
+    "Find fresh crops, fruits, seeds, and equipment":
+      "\u0c24\u0c3e\u0c1c\u0c3e \u0c2a\u0c02\u0c1f\u0c32\u0c41, \u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c41, \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation.":
+      "\u0c2e\u0c40 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c38\u0c2e\u0c40\u0c2a\u0c02\u0c32\u0c4b\u0c28\u0c3f \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c3f, \u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c38\u0c3f, \u0c28\u0c3f\u0c32\u0c4d\u0c35\u0c28\u0c41 \u0c0f\u0c30\u0c4d\u0c2a\u0c3e\u0c1f\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Finger Millet Seed GPU-28 (5 kg)":
+      "\u0c30\u0c3e\u0c17\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 GPU-28 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Five-day local forecast with field action notes.":
+      "\u0c2a\u0c4a\u0c32\u0c02 \u0c2a\u0c28\u0c41\u0c32 \u0c38\u0c32\u0c39\u0c3e\u0c32\u0c24\u0c4b 5 \u0c30\u0c4b\u0c1c\u0c41\u0c32 \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c38\u0c42\u0c1a\u0c28.",
+    Flowering: "\u0c2a\u0c42\u0c24 \u0c26\u0c36",
+    "Flush drip lines with clean water for 15 minutes after every fertigation session":
+      "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c35\u0c47\u0c38\u0c3f\u0c28 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 15 \u0c28\u0c3f\u0c2e\u0c3f\u0c37\u0c3e\u0c32\u0c41 \u0c2e\u0c02\u0c1a\u0c3f \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c2a\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c2a\u0c48\u0c2a\u0c41\u0c32\u0c28\u0c41 \u0c15\u0c21\u0c17\u0c02\u0c21\u0c3f",
+    "Flush lateral ends every 15 days by opening end caps while drip pump is running.":
+      "\u0c2a\u0c4d\u0c30\u0c24\u0c3f 15 \u0c30\u0c4b\u0c1c\u0c41\u0c32\u0c15\u0c41 \u0c12\u0c15\u0c38\u0c3e\u0c30\u0c3f \u0c2a\u0c02\u0c2a\u0c4d \u0c28\u0c21\u0c41\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c0e\u0c02\u0c21\u0c4d \u0c15\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c41 \u0c24\u0c40\u0c38\u0c3f \u0c32\u0c48\u0c28\u0c4d\u0c32\u0c28\u0c41 \u0c15\u0c21\u0c17\u0c02\u0c21\u0c3f.",
+    "Fly drone sprayers at 2-3 meters height above crop canopy for optimum droplet distribution.":
+      "\u0c2e\u0c02\u0c26\u0c41 \u0c38\u0c2e\u0c3e\u0c28\u0c02\u0c17\u0c3e \u0c2a\u0c21\u0c47\u0c02\u0c26\u0c41\u0c15\u0c41 \u0c2a\u0c02\u0c1f\u0c2a\u0c48 2-3 \u0c2e\u0c40\u0c1f\u0c30\u0c4d\u0c32 \u0c0e\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c4b \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u200c\u0c28\u0c41 \u0c28\u0c21\u0c2a\u0c02\u0c21\u0c3f.",
+    "Fogger Machine Portable":
+      "\u0c2a\u0c4b\u0c30\u0c4d\u0c1f\u0c2c\u0c41\u0c32\u0c4d \u0c2b\u0c3e\u0c17\u0c30\u0c4d \u0c2e\u0c46\u0c37\u0c3f\u0c28\u0c4d",
+    "Foliar spray of 1% KNO3 (10g/L water) protects crops during sudden heatwaves":
+      "\u0c35\u0c21\u0c17\u0c3e\u0c32\u0c41\u0c32 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b 1% \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c28\u0c48\u0c1f\u0c4d\u0c30\u0c47\u0c1f\u0c4d (\u0c32\u0c40\u0c1f\u0c30\u0c41\u0c15\u0c41 10 \u0c17\u0c4d\u0c30\u0c3e) \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Foliar sprays of Potassium and Salicylic acid during heat stress.":
+      "\u0c24\u0c40\u0c35\u0c4d\u0c30\u0c2e\u0c48\u0c28 \u0c0e\u0c02\u0c21\u0c32\u0c41 \u0c09\u0c28\u0c4d\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c36\u0c3e\u0c32\u0c3f\u0c38\u0c3f\u0c32\u0c3f\u0c15\u0c4d \u0c2f\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40.",
+    "Follow FSSAI safety standards across processing and cold storage lines":
+      "\u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c32\u0c4b FSSAI \u0c2d\u0c26\u0c4d\u0c30\u0c24\u0c3e \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c23\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c3e\u0c1f\u0c3f\u0c02\u0c1a\u0c21\u0c02",
+    "Follow Soil Health Card dosage recommendations to save up to 20% on unnecessary fertilizer expenses.":
+      "\u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32\u0c4b\u0c28\u0c3f \u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c3e\u0c1f\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e 20% \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c16\u0c30\u0c4d\u0c1a\u0c41\u0c28\u0c41 \u0c06\u0c26\u0c3e \u0c1a\u0c47\u0c2f\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
+    "Food Processing":
+      "\u0c06\u0c39\u0c3e\u0c30 \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d",
+    "Food Processing & Post-Harvest Intern":
+      "\u0c06\u0c39\u0c3e\u0c30 \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d & \u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
+    "Food Technology, Agri Business, or Food Engineering students.":
+      "\u0c2b\u0c41\u0c21\u0c4d \u0c1f\u0c46\u0c15\u0c4d\u0c28\u0c3e\u0c32\u0c1c\u0c40, \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c2c\u0c3f\u0c1c\u0c3f\u0c28\u0c46\u0c38\u0c4d \u0c32\u0c47\u0c26\u0c3e \u0c2b\u0c41\u0c21\u0c4d \u0c07\u0c02\u0c1c\u0c28\u0c40\u0c30\u0c3f\u0c02\u0c17\u0c4d \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32\u0c41.",
+    "Food, Oilseeds & Annual Crops":
+      "\u0c06\u0c39\u0c3e\u0c30 \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c41, \u0c28\u0c42\u0c28\u0c46\u0c17\u0c3f\u0c02\u0c1c\u0c32\u0c41 & \u0c35\u0c3e\u0c30\u0c4d\u0c37\u0c3f\u0c15 \u0c2a\u0c02\u0c1f\u0c32\u0c41",
+    "Forming Farmer Producer Organizations (FPOs) for bulk bargaining power.":
+      "\u0c30\u0c48\u0c24\u0c41 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f\u0c26\u0c3e\u0c30\u0c41\u0c32 \u0c38\u0c02\u0c18\u0c3e\u0c32\u0c41 (FPO) \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c26\u0c33\u0c3e\u0c30\u0c41\u0c32\u0c41 \u0c32\u0c47\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3f\u0c02\u0c1a\u0c21\u0c02.",
+    "Free soil testing conducted by government agriculture laboratories":
+      "\u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d\u200c\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c09\u0c1a\u0c3f\u0c24\u0c02\u0c17\u0c3e \u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c32\u0c41 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41",
     "Fresh Fruits": "\u0c24\u0c3e\u0c1c\u0c3e \u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c41",
-    "Fresh Produce & Quality Agri Products Delivered": "\u0c24\u0c3e\u0c1c\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 \u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c24\u0c3e\u0c2f\u0c3f",
+    "Fresh Produce & Quality Agri Products Delivered":
+      "\u0c24\u0c3e\u0c1c\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 \u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c24\u0c3e\u0c2f\u0c3f",
     "Fresh Tomatoes": "\u0c24\u0c3e\u0c1c\u0c3e \u0c1f\u0c2e\u0c3e\u0c1f\u0c3e\u0c32\u0c41",
     "Fresh Vegetables": "\u0c24\u0c3e\u0c1c\u0c3e \u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32\u0c41",
-    "Fri": "\u0c36\u0c41\u0c15\u0c4d\u0c30\u0c35\u0c3e\u0c30\u0c02",
-    "Frontend & Web": "\u0c2b\u0c4d\u0c30\u0c02\u0c1f\u0c4d \u0c0e\u0c02\u0c21\u0c4d & \u0c35\u0c46\u0c2c\u0c4d",
-    "Frontend Development Intern": "\u0c2b\u0c4d\u0c30\u0c02\u0c1f\u0c4d\u200c\u0c0e\u0c02\u0c21\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
-    "Fruits": "\u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c41",
-    "Full": "\u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c3f\u0c17\u0c3e \u0c28\u0c3f\u0c02\u0c21\u0c3f\u0c02\u0c26\u0c3f",
+    Fri: "\u0c36\u0c41\u0c15\u0c4d\u0c30\u0c35\u0c3e\u0c30\u0c02",
+    "Frontend & Web":
+      "\u0c2b\u0c4d\u0c30\u0c02\u0c1f\u0c4d \u0c0e\u0c02\u0c21\u0c4d & \u0c35\u0c46\u0c2c\u0c4d",
+    "Frontend Development Intern":
+      "\u0c2b\u0c4d\u0c30\u0c02\u0c1f\u0c4d\u200c\u0c0e\u0c02\u0c21\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
+    Fruits: "\u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c41",
+    Full: "\u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c3f\u0c17\u0c3e \u0c28\u0c3f\u0c02\u0c21\u0c3f\u0c02\u0c26\u0c3f",
     "Full Name": "\u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c3f \u0c2a\u0c47\u0c30\u0c41",
     "Full Stack": "\u0c2b\u0c41\u0c32\u0c4d \u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d",
-    "Full Stack Development": "\u0c2b\u0c41\u0c32\u0c4d \u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d",
-    "Full Stack Development Intern": "\u0c2b\u0c41\u0c32\u0c4d \u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
-    "FullStack Academy": "\u0c2b\u0c41\u0c32\u0c4d \u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d \u0c05\u0c15\u0c3e\u0c21\u0c2e\u0c40",
-    "Fungal diseases like leaf spot, blast, and powdery mildew thrive in warm, humid weather. Preventive sprays of copper oxychloride or bio-agents like Trichoderma protect crops before infection spreads.": "\u0c06\u0c15\u0c41\u0c2e\u0c1a\u0c4d\u0c1a, \u0c05\u0c17\u0c4d\u0c17\u0c3f \u0c24\u0c46\u0c17\u0c41\u0c32\u0c41 \u0c35\u0c47\u0c21\u0c3f, \u0c24\u0c47\u0c2e \u0c09\u0c28\u0c4d\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c35\u0c47\u0c17\u0c02\u0c17\u0c3e \u0c35\u0c4d\u0c2f\u0c3e\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f. \u0c15\u0c3e\u0c2a\u0c30\u0c4d \u0c06\u0c15\u0c4d\u0c38\u0c40\u0c15\u0c4d\u0c32\u0c4b\u0c30\u0c48\u0c21\u0c4d \u0c32\u0c47\u0c26\u0c3e \u0c1f\u0c4d\u0c30\u0c48\u0c15\u0c4b\u0c21\u0c46\u0c30\u0c4d\u0c2e\u0c3e \u0c35\u0c02\u0c1f\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c38\u0c4d\u0c24\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32\u0c28\u0c41 \u0c05\u0c26\u0c41\u0c2a\u0c41 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Fungicides and Disease Prevention": "\u0c36\u0c3f\u0c32\u0c40\u0c02\u0c27\u0c4d\u0c30 \u0c28\u0c3e\u0c36\u0c15\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23",
-    "Gain practical experience in organic cultivation, composting, natural inputs, crop rotation, and sustainable farming.": "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c38\u0c3e\u0c17\u0c41, \u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c3f\u0c02\u0c17\u0c4d, \u0c38\u0c39\u0c1c \u0c35\u0c28\u0c30\u0c41\u0c32\u0c41, \u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c41\u0c38\u0c4d\u0c25\u0c3f\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02\u0c32\u0c4b \u0c2a\u0c4d\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d \u0c05\u0c28\u0c41\u0c2d\u0c35\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f.",
-    "Gain practical experience in vegetable cultivation, fruit crops, nursery management, and protected cultivation.": "\u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32 \u0c38\u0c3e\u0c17\u0c41, \u0c2a\u0c02\u0c21\u0c4d\u0c32 \u0c2a\u0c02\u0c1f\u0c32\u0c41, \u0c28\u0c30\u0c4d\u0c38\u0c30\u0c40 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c24 \u0c38\u0c3e\u0c17\u0c41\u0c32\u0c4b \u0c2a\u0c4d\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d \u0c05\u0c28\u0c41\u0c2d\u0c35\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f.",
-    "Garden Spade Steel": "\u0c24\u0c4b\u0c1f \u0c2a\u0c3e\u0c30 \u0c38\u0c4d\u0c1f\u0c40\u0c32\u0c4d",
-    "Garlic Seed Bulb G-282 (10 kg)": "\u0c35\u0c46\u0c32\u0c4d\u0c32\u0c41\u0c32\u0c4d\u0c32\u0c3f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 G-282 (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Generate crop vigor maps (NDVI) for precision fertilizer application": "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c2a\u0c02\u0c1f \u0c2a\u0c1a\u0c4d\u0c1a\u0c26\u0c28\u0c02 \u0c2e\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c28\u0c41 (NDVI) \u0c24\u0c2f\u0c3e\u0c30\u0c41 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
-    "Generates additional long-term income alongside seasonal food crops": "\u0c38\u0c3e\u0c27\u0c3e\u0c30\u0c23 \u0c2a\u0c02\u0c1f\u0c32\u0c24\u0c4b \u0c2a\u0c3e\u0c1f\u0c41 \u0c26\u0c40\u0c30\u0c4d\u0c18\u0c15\u0c3e\u0c32\u0c3f\u0c15 \u0c06\u0c26\u0c3e\u0c2f\u0c02 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Get produce quality sampled and tested at e-NAM assaying labs": "\u0c08-\u0c28\u0c3e\u0c2e\u0c4d \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d\u200c\u0c32\u0c32\u0c4b \u0c38\u0c30\u0c41\u0c15\u0c41 \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c1a\u0c47\u0c2f\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.": "\u0c24\u0c3e\u0c1c\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c3e\u0c30\u0c4d\u0c24\u0c32\u0c41, \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c41, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c3f\u0c2a\u0c41\u0c23\u0c41\u0c32 \u0c38\u0c42\u0c1a\u0c28\u0c32\u0c28\u0c41 \u0c2e\u0c40 \u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d\u200c\u0c32\u0c4b \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f.",
-    "Ginger Rhizome Seed Varada (25 kg)": "\u0c05\u0c32\u0c4d\u0c32\u0c02 \u0c15\u0c4a\u0c2e\u0c4d\u0c2e\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c35\u0c30\u0c26 (25 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Go to Dashboard": "\u0c21\u0c3e\u0c37\u0c4d\u200c\u0c2c\u0c4b\u0c30\u0c4d\u0c21\u0c4d\u200c\u0c15\u0c41 \u0c35\u0c46\u0c33\u0c4d\u0c32\u0c02\u0c21\u0c3f",
-    "Go to Marketplace": "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u200c\u0c2a\u0c4d\u0c32\u0c47\u0c38\u0c4d\u200c\u0c15\u0c41 \u0c35\u0c46\u0c33\u0c4d\u0c32\u0c02\u0c21\u0c3f",
-    "Godavari Fresh Storage & Agro Hub": "\u0c17\u0c4b\u0c26\u0c3e\u0c35\u0c30\u0c3f \u0c2b\u0c4d\u0c30\u0c46\u0c37\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d & \u0c05\u0c17\u0c4d\u0c30\u0c4b \u0c39\u0c2c\u0c4d",
+    "Full Stack Development":
+      "\u0c2b\u0c41\u0c32\u0c4d \u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d",
+    "Full Stack Development Intern":
+      "\u0c2b\u0c41\u0c32\u0c4d \u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
+    "FullStack Academy":
+      "\u0c2b\u0c41\u0c32\u0c4d \u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d \u0c05\u0c15\u0c3e\u0c21\u0c2e\u0c40",
+    "Fungal diseases like leaf spot, blast, and powdery mildew thrive in warm, humid weather. Preventive sprays of copper oxychloride or bio-agents like Trichoderma protect crops before infection spreads.":
+      "\u0c06\u0c15\u0c41\u0c2e\u0c1a\u0c4d\u0c1a, \u0c05\u0c17\u0c4d\u0c17\u0c3f \u0c24\u0c46\u0c17\u0c41\u0c32\u0c41 \u0c35\u0c47\u0c21\u0c3f, \u0c24\u0c47\u0c2e \u0c09\u0c28\u0c4d\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c35\u0c47\u0c17\u0c02\u0c17\u0c3e \u0c35\u0c4d\u0c2f\u0c3e\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f. \u0c15\u0c3e\u0c2a\u0c30\u0c4d \u0c06\u0c15\u0c4d\u0c38\u0c40\u0c15\u0c4d\u0c32\u0c4b\u0c30\u0c48\u0c21\u0c4d \u0c32\u0c47\u0c26\u0c3e \u0c1f\u0c4d\u0c30\u0c48\u0c15\u0c4b\u0c21\u0c46\u0c30\u0c4d\u0c2e\u0c3e \u0c35\u0c02\u0c1f\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c38\u0c4d\u0c24\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32\u0c28\u0c41 \u0c05\u0c26\u0c41\u0c2a\u0c41 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Fungicides and Disease Prevention":
+      "\u0c36\u0c3f\u0c32\u0c40\u0c02\u0c27\u0c4d\u0c30 \u0c28\u0c3e\u0c36\u0c15\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23",
+    "Gain practical experience in organic cultivation, composting, natural inputs, crop rotation, and sustainable farming.":
+      "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c38\u0c3e\u0c17\u0c41, \u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c3f\u0c02\u0c17\u0c4d, \u0c38\u0c39\u0c1c \u0c35\u0c28\u0c30\u0c41\u0c32\u0c41, \u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c41\u0c38\u0c4d\u0c25\u0c3f\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02\u0c32\u0c4b \u0c2a\u0c4d\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d \u0c05\u0c28\u0c41\u0c2d\u0c35\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f.",
+    "Gain practical experience in vegetable cultivation, fruit crops, nursery management, and protected cultivation.":
+      "\u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32 \u0c38\u0c3e\u0c17\u0c41, \u0c2a\u0c02\u0c21\u0c4d\u0c32 \u0c2a\u0c02\u0c1f\u0c32\u0c41, \u0c28\u0c30\u0c4d\u0c38\u0c30\u0c40 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c24 \u0c38\u0c3e\u0c17\u0c41\u0c32\u0c4b \u0c2a\u0c4d\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d \u0c05\u0c28\u0c41\u0c2d\u0c35\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f.",
+    "Garden Spade Steel":
+      "\u0c24\u0c4b\u0c1f \u0c2a\u0c3e\u0c30 \u0c38\u0c4d\u0c1f\u0c40\u0c32\u0c4d",
+    "Garlic Seed Bulb G-282 (10 kg)":
+      "\u0c35\u0c46\u0c32\u0c4d\u0c32\u0c41\u0c32\u0c4d\u0c32\u0c3f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 G-282 (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Generate crop vigor maps (NDVI) for precision fertilizer application":
+      "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c2a\u0c02\u0c1f \u0c2a\u0c1a\u0c4d\u0c1a\u0c26\u0c28\u0c02 \u0c2e\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c28\u0c41 (NDVI) \u0c24\u0c2f\u0c3e\u0c30\u0c41 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
+    "Generates additional long-term income alongside seasonal food crops":
+      "\u0c38\u0c3e\u0c27\u0c3e\u0c30\u0c23 \u0c2a\u0c02\u0c1f\u0c32\u0c24\u0c4b \u0c2a\u0c3e\u0c1f\u0c41 \u0c26\u0c40\u0c30\u0c4d\u0c18\u0c15\u0c3e\u0c32\u0c3f\u0c15 \u0c06\u0c26\u0c3e\u0c2f\u0c02 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    "Get produce quality sampled and tested at e-NAM assaying labs":
+      "\u0c08-\u0c28\u0c3e\u0c2e\u0c4d \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d\u200c\u0c32\u0c32\u0c4b \u0c38\u0c30\u0c41\u0c15\u0c41 \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c1a\u0c47\u0c2f\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.":
+      "\u0c24\u0c3e\u0c1c\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c3e\u0c30\u0c4d\u0c24\u0c32\u0c41, \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c41, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c3f\u0c2a\u0c41\u0c23\u0c41\u0c32 \u0c38\u0c42\u0c1a\u0c28\u0c32\u0c28\u0c41 \u0c2e\u0c40 \u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d\u200c\u0c32\u0c4b \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f.",
+    "Ginger Rhizome Seed Varada (25 kg)":
+      "\u0c05\u0c32\u0c4d\u0c32\u0c02 \u0c15\u0c4a\u0c2e\u0c4d\u0c2e\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c35\u0c30\u0c26 (25 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Go to Dashboard":
+      "\u0c21\u0c3e\u0c37\u0c4d\u200c\u0c2c\u0c4b\u0c30\u0c4d\u0c21\u0c4d\u200c\u0c15\u0c41 \u0c35\u0c46\u0c33\u0c4d\u0c32\u0c02\u0c21\u0c3f",
+    "Go to Marketplace":
+      "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u200c\u0c2a\u0c4d\u0c32\u0c47\u0c38\u0c4d\u200c\u0c15\u0c41 \u0c35\u0c46\u0c33\u0c4d\u0c32\u0c02\u0c21\u0c3f",
+    "Godavari Fresh Storage & Agro Hub":
+      "\u0c17\u0c4b\u0c26\u0c3e\u0c35\u0c30\u0c3f \u0c2b\u0c4d\u0c30\u0c46\u0c37\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d & \u0c05\u0c17\u0c4d\u0c30\u0c4b \u0c39\u0c2c\u0c4d",
     "Google Play": "Google Play",
-    "Government Schemes": "\u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41",
-    "Government Schemes for Farmers": "\u0c30\u0c48\u0c24\u0c41\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41",
-    "Government of India": "\u0c2d\u0c3e\u0c30\u0c24 \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35\u0c02",
-    "Government schemes": "\u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41",
-    "Govt Schemes": "\u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41",
-    "Grade A produce commands premium prices even during supply gluts": "\u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c2e\u0c48\u0c28 (Grade A) \u0c38\u0c30\u0c41\u0c15\u0c41\u0c15\u0c41 \u0c0e\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c42 \u0c2e\u0c02\u0c1a\u0c3f \u0c27\u0c30 \u0c09\u0c02\u0c1f\u0c41\u0c02\u0c26\u0c3f",
-    "Grade produce into Grade A, B, and C based on size, color, and texture": "\u0c2a\u0c30\u0c3f\u0c2e\u0c3e\u0c23\u0c02, \u0c30\u0c02\u0c17\u0c41 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c0e, \u0c2c\u0c3f, \u0c38\u0c3f \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c4d\u0c32\u0c41\u0c17\u0c3e \u0c35\u0c47\u0c30\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Grain Moisture Meter": "\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c2a\u0c41 \u0c24\u0c47\u0c2e \u0c15\u0c4a\u0c32\u0c3f\u0c1a\u0c47 \u0c2e\u0c40\u0c1f\u0c30\u0c4d",
-    "Grain Storage Silo 1 Tonne": "\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c02 \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c21\u0c4d\u0c30\u0c2e\u0c4d/\u0c38\u0c48\u0c32\u0c4b 1 \u0c1f\u0c28\u0c4d\u0c28\u0c41",
-    "Grain moisture content should be 18-20% at harvest and dried to 12-14% for storage": "\u0c15\u0c4b\u0c38\u0c47 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c24\u0c47\u0c2e 18-20% \u0c09\u0c02\u0c21\u0c3e\u0c32\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c15\u0c4b\u0c38\u0c02 12-14% \u0c15\u0c3f \u0c06\u0c30\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c3e\u0c32\u0c3f",
-    "Grain storage losses from insect pests reach up to 10%. Using airtight hermetic bags deprives insects of oxygen, killing pests naturally without chemicals.": "\u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c09\u0c02\u0c1a\u0c3f\u0c28 \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c35\u0c32\u0c4d\u0c32 10% \u0c35\u0c30\u0c15\u0c41 \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c1c\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c17\u0c3e\u0c32\u0c3f \u0c1a\u0c4a\u0c30\u0c2c\u0c21\u0c28\u0c3f \u0c38\u0c02\u0c1a\u0c41\u0c32\u0c41 (\u0c39\u0c46\u0c30\u0c4d\u0c2e\u0c46\u0c1f\u0c3f\u0c15\u0c4d \u0c2c\u0c4d\u0c2f\u0c3e\u0c17\u0c4d\u0c38\u0c4d) \u0c35\u0c3e\u0c21\u0c1f\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c38\u0c39\u0c1c\u0c02\u0c17\u0c3e \u0c1a\u0c28\u0c3f\u0c2a\u0c4b\u0c24\u0c3e\u0c2f\u0c3f.",
-    "Grains & Cereals": "\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c41 & \u0c24\u0c43\u0c23\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c41",
+    "Government Schemes":
+      "\u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41",
+    "Government Schemes for Farmers":
+      "\u0c30\u0c48\u0c24\u0c41\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41",
+    "Government of India":
+      "\u0c2d\u0c3e\u0c30\u0c24 \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35\u0c02",
+    "Government schemes":
+      "\u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41",
+    "Govt Schemes":
+      "\u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41",
+    "Grade A produce commands premium prices even during supply gluts":
+      "\u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c2e\u0c48\u0c28 (Grade A) \u0c38\u0c30\u0c41\u0c15\u0c41\u0c15\u0c41 \u0c0e\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c42 \u0c2e\u0c02\u0c1a\u0c3f \u0c27\u0c30 \u0c09\u0c02\u0c1f\u0c41\u0c02\u0c26\u0c3f",
+    "Grade produce into Grade A, B, and C based on size, color, and texture":
+      "\u0c2a\u0c30\u0c3f\u0c2e\u0c3e\u0c23\u0c02, \u0c30\u0c02\u0c17\u0c41 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c0e, \u0c2c\u0c3f, \u0c38\u0c3f \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c4d\u0c32\u0c41\u0c17\u0c3e \u0c35\u0c47\u0c30\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Grain Moisture Meter":
+      "\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c2a\u0c41 \u0c24\u0c47\u0c2e \u0c15\u0c4a\u0c32\u0c3f\u0c1a\u0c47 \u0c2e\u0c40\u0c1f\u0c30\u0c4d",
+    "Grain Storage Silo 1 Tonne":
+      "\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c02 \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c21\u0c4d\u0c30\u0c2e\u0c4d/\u0c38\u0c48\u0c32\u0c4b 1 \u0c1f\u0c28\u0c4d\u0c28\u0c41",
+    "Grain moisture content should be 18-20% at harvest and dried to 12-14% for storage":
+      "\u0c15\u0c4b\u0c38\u0c47 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c24\u0c47\u0c2e 18-20% \u0c09\u0c02\u0c21\u0c3e\u0c32\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c15\u0c4b\u0c38\u0c02 12-14% \u0c15\u0c3f \u0c06\u0c30\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c3e\u0c32\u0c3f",
+    "Grain storage losses from insect pests reach up to 10%. Using airtight hermetic bags deprives insects of oxygen, killing pests naturally without chemicals.":
+      "\u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c09\u0c02\u0c1a\u0c3f\u0c28 \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c35\u0c32\u0c4d\u0c32 10% \u0c35\u0c30\u0c15\u0c41 \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c1c\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c17\u0c3e\u0c32\u0c3f \u0c1a\u0c4a\u0c30\u0c2c\u0c21\u0c28\u0c3f \u0c38\u0c02\u0c1a\u0c41\u0c32\u0c41 (\u0c39\u0c46\u0c30\u0c4d\u0c2e\u0c46\u0c1f\u0c3f\u0c15\u0c4d \u0c2c\u0c4d\u0c2f\u0c3e\u0c17\u0c4d\u0c38\u0c4d) \u0c35\u0c3e\u0c21\u0c1f\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c38\u0c39\u0c1c\u0c02\u0c17\u0c3e \u0c1a\u0c28\u0c3f\u0c2a\u0c4b\u0c24\u0c3e\u0c2f\u0c3f.",
+    "Grains & Cereals":
+      "\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c41 & \u0c24\u0c43\u0c23\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c41",
     "Green Chilli": "\u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c2e\u0c3f\u0c30\u0c4d\u0c1a\u0c3f",
     "Green Chillies": "\u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c2e\u0c3f\u0c30\u0c4d\u0c1a\u0c3f",
-    "Green Gram Seed IPM-02-3 (5 kg)": "\u0c2a\u0c46\u0c38\u0c30 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 IPM-02-3 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Green Manuring and Bio-mulching": "\u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c41\u0c32\u0c4d\u0c1a\u0c3f\u0c02\u0c17\u0c4d",
-    "Green Valley Cold Storage": "\u0c17\u0c4d\u0c30\u0c40\u0c28\u0c4d \u0c35\u0c4d\u0c2f\u0c3e\u0c32\u0c40 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d",
-    "Green manuring involves growing fast-growing leguminous plants and ploughing them back into the soil at flowering stage. Organic mulching with straw or leaves conserves moisture and suppresses weeds.": "\u0c1c\u0c28\u0c41\u0c2e\u0c41, \u0c1c\u0c40\u0c32\u0c41\u0c17\u0c41 \u0c35\u0c02\u0c1f\u0c3f \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c2a\u0c48\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c2a\u0c46\u0c02\u0c1a\u0c3f \u0c2a\u0c42\u0c24 \u0c26\u0c36\u0c32\u0c4b \u0c2d\u0c42\u0c2e\u0c3f\u0c32\u0c4b \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c32\u0c2a\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c02 \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "GreenField Agri Research": "\u0c17\u0c4d\u0c30\u0c40\u0c28\u0c4d \u0c2b\u0c40\u0c32\u0c4d\u0c21\u0c4d \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c30\u0c40\u0c38\u0c46\u0c30\u0c4d\u0c1a\u0c4d",
-    "GreenGrow Horticulture": "\u0c17\u0c4d\u0c30\u0c40\u0c28\u0c4d \u0c17\u0c4d\u0c30\u0c4b \u0c39\u0c3e\u0c30\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d\u0c1a\u0c30\u0c4d",
-    "Groundnut Seed TAG-24 (10 kg)": "\u0c35\u0c47\u0c30\u0c41\u0c36\u0c28\u0c17 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 TAG-24 (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Grow Marigold along field borders as a trap crop for nematodes": "\u0c28\u0c41\u0c32\u0c3f\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23\u0c15\u0c41 \u0c2a\u0c4a\u0c32\u0c02 \u0c38\u0c30\u0c3f\u0c39\u0c26\u0c4d\u0c26\u0c41\u0c32\u0c4d\u0c32\u0c4b \u0c2c\u0c02\u0c24\u0c3f \u0c2a\u0c42\u0c32 \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c32\u0c28\u0c41 \u0c2a\u0c46\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Grow More. Harvest Better.": "\u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c2a\u0c02\u0c21\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f. \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c4d\u0c17\u0c3e \u0c15\u0c4b\u0c24 \u0c15\u0c4b\u0c2f\u0c02\u0c21\u0c3f.",
-    "Guava Grafted Plant Allahabad Safeda": "\u0c1c\u0c3e\u0c2e \u0c05\u0c02\u0c1f\u0c41 \u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c05\u0c32\u0c39\u0c3e\u0c2c\u0c3e\u0c26\u0c4d \u0c38\u0c2b\u0c47\u0c26\u0c3e",
-    "Guest": "\u0c05\u0c24\u0c3f\u0c25\u0c3f",
-    "Guntur Agri Cold Storage": "\u0c17\u0c41\u0c02\u0c1f\u0c42\u0c30\u0c41 \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d",
-    "Guntur Road, Vijayawada, Andhra Pradesh - 520001": "\u0c17\u0c41\u0c02\u0c1f\u0c42\u0c30\u0c41 \u0c30\u0c4b\u0c21\u0c4d, \u0c35\u0c3f\u0c1c\u0c2f\u0c35\u0c3e\u0c21, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d - 520001",
-    "Guntur, Andhra Pradesh": "\u0c17\u0c41\u0c02\u0c1f\u0c42\u0c30\u0c41, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
-    "Gypsum Agricultural Grade (50 kg)": "\u0c1c\u0c3f\u0c2a\u0c4d\u0c38\u0c2e\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c4d (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "HDPE Mulching Film 25 Micron (400 m)": "\u0c2e\u0c32\u0c4d\u0c1a\u0c3f\u0c02\u0c17\u0c4d \u0c2a\u0c47\u0c2a\u0c30\u0c4d 25 \u0c2e\u0c48\u0c15\u0c4d\u0c30\u0c3e\u0c28\u0c4d (400 \u0c2e\u0c40)",
-    "HEALTHY SOIL \u2022 HEALTHY CROPS": "\u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c15\u0c30\u0c2e\u0c48\u0c28 \u0c28\u0c47\u0c32 \u2022 \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c15\u0c30\u0c2e\u0c48\u0c28 \u0c2a\u0c02\u0c1f\u0c32\u0c41",
-    "HOT": "\u0c39\u0c3e\u0c1f\u0c4d",
-    "Handpicked products & inputs on discount": "\u0c21\u0c3f\u0c38\u0c4d\u0c15\u0c4c\u0c02\u0c1f\u0c4d\u200c\u0c32\u0c4b \u0c0e\u0c02\u0c2a\u0c3f\u0c15 \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41",
-    "Hands-on Labs": "\u0c2a\u0c4d\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d\u0c38\u0c4d",
-    "Happy Seeder sows Wheat directly into standing Paddy stubble without burning": "\u0c35\u0c30\u0c3f \u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c17\u0c32\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c39\u0c4d\u0c2f\u0c3e\u0c2a\u0c40 \u0c38\u0c40\u0c21\u0c30\u0c4d\u200c\u0c24\u0c4b \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c02\u0c21\u0c3f",
-    "Hard water and algae cause dripper clogging over time. Periodic acid treatment with dilute Hydrochloric (HCl) or Phosphoric acid dissolves mineral scale and keeps drippers operating at 100% flow rate.": "\u0c2d\u0c3e\u0c38\u0c4d\u0c35\u0c30\u0c02, \u0c09\u0c2a\u0c4d\u0c2a\u0c41 \u0c32\u0c35\u0c23\u0c3e\u0c32\u0c41 \u0c2a\u0c1f\u0c4d\u0c1f\u0c3f \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d\u0c2a\u0c30\u0c4d\u0c32\u0c41 \u0c2e\u0c42\u0c38\u0c41\u0c15\u0c41\u0c2a\u0c4b\u0c24\u0c3e\u0c2f\u0c3f. \u0c2a\u0c32\u0c1a\u0c28\u0c3f \u0c39\u0c48\u0c21\u0c4d\u0c30\u0c4b\u0c15\u0c4d\u0c32\u0c4b\u0c30\u0c3f\u0c15\u0c4d \u0c2f\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c35\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c2a\u0c30\u0c1a\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
+    "Green Gram Seed IPM-02-3 (5 kg)":
+      "\u0c2a\u0c46\u0c38\u0c30 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 IPM-02-3 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Green Manuring and Bio-mulching":
+      "\u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c41\u0c32\u0c4d\u0c1a\u0c3f\u0c02\u0c17\u0c4d",
+    "Green Valley Cold Storage":
+      "\u0c17\u0c4d\u0c30\u0c40\u0c28\u0c4d \u0c35\u0c4d\u0c2f\u0c3e\u0c32\u0c40 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d",
+    "Green manuring involves growing fast-growing leguminous plants and ploughing them back into the soil at flowering stage. Organic mulching with straw or leaves conserves moisture and suppresses weeds.":
+      "\u0c1c\u0c28\u0c41\u0c2e\u0c41, \u0c1c\u0c40\u0c32\u0c41\u0c17\u0c41 \u0c35\u0c02\u0c1f\u0c3f \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c2a\u0c48\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c2a\u0c46\u0c02\u0c1a\u0c3f \u0c2a\u0c42\u0c24 \u0c26\u0c36\u0c32\u0c4b \u0c2d\u0c42\u0c2e\u0c3f\u0c32\u0c4b \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c32\u0c2a\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c02 \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "GreenField Agri Research":
+      "\u0c17\u0c4d\u0c30\u0c40\u0c28\u0c4d \u0c2b\u0c40\u0c32\u0c4d\u0c21\u0c4d \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c30\u0c40\u0c38\u0c46\u0c30\u0c4d\u0c1a\u0c4d",
+    "GreenGrow Horticulture":
+      "\u0c17\u0c4d\u0c30\u0c40\u0c28\u0c4d \u0c17\u0c4d\u0c30\u0c4b \u0c39\u0c3e\u0c30\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d\u0c1a\u0c30\u0c4d",
+    "Groundnut Seed TAG-24 (10 kg)":
+      "\u0c35\u0c47\u0c30\u0c41\u0c36\u0c28\u0c17 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 TAG-24 (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Grow Marigold along field borders as a trap crop for nematodes":
+      "\u0c28\u0c41\u0c32\u0c3f\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23\u0c15\u0c41 \u0c2a\u0c4a\u0c32\u0c02 \u0c38\u0c30\u0c3f\u0c39\u0c26\u0c4d\u0c26\u0c41\u0c32\u0c4d\u0c32\u0c4b \u0c2c\u0c02\u0c24\u0c3f \u0c2a\u0c42\u0c32 \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c32\u0c28\u0c41 \u0c2a\u0c46\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Grow More. Harvest Better.":
+      "\u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c2a\u0c02\u0c21\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f. \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c4d\u0c17\u0c3e \u0c15\u0c4b\u0c24 \u0c15\u0c4b\u0c2f\u0c02\u0c21\u0c3f.",
+    "Guava Grafted Plant Allahabad Safeda":
+      "\u0c1c\u0c3e\u0c2e \u0c05\u0c02\u0c1f\u0c41 \u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c05\u0c32\u0c39\u0c3e\u0c2c\u0c3e\u0c26\u0c4d \u0c38\u0c2b\u0c47\u0c26\u0c3e",
+    Guest: "\u0c05\u0c24\u0c3f\u0c25\u0c3f",
+    "Guntur Agri Cold Storage":
+      "\u0c17\u0c41\u0c02\u0c1f\u0c42\u0c30\u0c41 \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d",
+    "Guntur Road, Vijayawada, Andhra Pradesh - 520001":
+      "\u0c17\u0c41\u0c02\u0c1f\u0c42\u0c30\u0c41 \u0c30\u0c4b\u0c21\u0c4d, \u0c35\u0c3f\u0c1c\u0c2f\u0c35\u0c3e\u0c21, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d - 520001",
+    "Guntur, Andhra Pradesh":
+      "\u0c17\u0c41\u0c02\u0c1f\u0c42\u0c30\u0c41, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
+    "Gypsum Agricultural Grade (50 kg)":
+      "\u0c1c\u0c3f\u0c2a\u0c4d\u0c38\u0c2e\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c4d (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "HDPE Mulching Film 25 Micron (400 m)":
+      "\u0c2e\u0c32\u0c4d\u0c1a\u0c3f\u0c02\u0c17\u0c4d \u0c2a\u0c47\u0c2a\u0c30\u0c4d 25 \u0c2e\u0c48\u0c15\u0c4d\u0c30\u0c3e\u0c28\u0c4d (400 \u0c2e\u0c40)",
+    "HEALTHY SOIL \u2022 HEALTHY CROPS":
+      "\u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c15\u0c30\u0c2e\u0c48\u0c28 \u0c28\u0c47\u0c32 \u2022 \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c15\u0c30\u0c2e\u0c48\u0c28 \u0c2a\u0c02\u0c1f\u0c32\u0c41",
+    HOT: "\u0c39\u0c3e\u0c1f\u0c4d",
+    "Handpicked products & inputs on discount":
+      "\u0c21\u0c3f\u0c38\u0c4d\u0c15\u0c4c\u0c02\u0c1f\u0c4d\u200c\u0c32\u0c4b \u0c0e\u0c02\u0c2a\u0c3f\u0c15 \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41",
+    "Hands-on Labs":
+      "\u0c2a\u0c4d\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d\u0c38\u0c4d",
+    "Happy Seeder sows Wheat directly into standing Paddy stubble without burning":
+      "\u0c35\u0c30\u0c3f \u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c17\u0c32\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c39\u0c4d\u0c2f\u0c3e\u0c2a\u0c40 \u0c38\u0c40\u0c21\u0c30\u0c4d\u200c\u0c24\u0c4b \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c02\u0c21\u0c3f",
+    "Hard water and algae cause dripper clogging over time. Periodic acid treatment with dilute Hydrochloric (HCl) or Phosphoric acid dissolves mineral scale and keeps drippers operating at 100% flow rate.":
+      "\u0c2d\u0c3e\u0c38\u0c4d\u0c35\u0c30\u0c02, \u0c09\u0c2a\u0c4d\u0c2a\u0c41 \u0c32\u0c35\u0c23\u0c3e\u0c32\u0c41 \u0c2a\u0c1f\u0c4d\u0c1f\u0c3f \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d\u0c2a\u0c30\u0c4d\u0c32\u0c41 \u0c2e\u0c42\u0c38\u0c41\u0c15\u0c41\u0c2a\u0c4b\u0c24\u0c3e\u0c2f\u0c3f. \u0c2a\u0c32\u0c1a\u0c28\u0c3f \u0c39\u0c48\u0c21\u0c4d\u0c30\u0c4b\u0c15\u0c4d\u0c32\u0c4b\u0c30\u0c3f\u0c15\u0c4d \u0c2f\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c35\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c2a\u0c30\u0c1a\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
     "Harvest Date": "\u0c2a\u0c02\u0c1f \u0c15\u0c4b\u0c24 \u0c24\u0c47\u0c26\u0c40",
-    "Harvest crops early in the morning when moisture content is stable to prevent grain loss.": "\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c02 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c24\u0c47\u0c2e \u0c38\u0c4d\u0c25\u0c3f\u0c30\u0c02\u0c17\u0c3e \u0c09\u0c02\u0c21\u0c47 \u0c09\u0c26\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c47 \u0c2a\u0c02\u0c1f\u0c28\u0c41 \u0c15\u0c4b\u0c2f\u0c02\u0c21\u0c3f.",
-    "Harvest grains when moisture content drops to 14-16%": "\u0c24\u0c47\u0c2e \u0c36\u0c3e\u0c24\u0c02 14-16% \u0c15\u0c3f \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c02 \u0c15\u0c4b\u0c24 \u0c15\u0c4b\u0c2f\u0c02\u0c21\u0c3f",
-    "Harvest paddy when 80-85% grains turn straw golden yellow": "80-85% \u0c35\u0c30\u0c3f \u0c17\u0c3f\u0c02\u0c1c\u0c32\u0c41 \u0c2c\u0c02\u0c17\u0c3e\u0c30\u0c41 \u0c2a\u0c38\u0c41\u0c2a\u0c41 \u0c30\u0c02\u0c17\u0c41\u0c32\u0c4b\u0c15\u0c3f \u0c2e\u0c3e\u0c30\u0c3f\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c15\u0c4b\u0c24 \u0c15\u0c4b\u0c2f\u0c02\u0c21\u0c3f",
-    "Harvesting": "\u0c2a\u0c02\u0c1f \u0c15\u0c4b\u0c24 \u0c26\u0c36",
-    "Harvesting at peak maturity prevents grain shattering in fields and ensures high market value. Grains harvested too early have high moisture and spoil during storage.": "\u0c38\u0c30\u0c3f\u0c17\u0c4d\u0c17\u0c3e \u0c2a\u0c15\u0c3f\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c15\u0c4b\u0c24 \u0c15\u0c4b\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c17\u0c3f\u0c02\u0c1c\u0c32\u0c41 \u0c30\u0c3e\u0c32\u0c35\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c02\u0c1a\u0c3f \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30 \u0c35\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c2e\u0c41\u0c02\u0c26\u0c47 \u0c15\u0c4b\u0c38\u0c4d\u0c24\u0c47 \u0c24\u0c47\u0c2e \u0c35\u0c32\u0c4d\u0c32 \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c02 \u0c2a\u0c3e\u0c21\u0c35\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Haryana": "\u0c39\u0c30\u0c4d\u0c2f\u0c3e\u0c28\u0c3e",
-    "Healthy & Chemical Free": "\u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c15\u0c30\u0c2e\u0c48\u0c28 & \u0c30\u0c38\u0c3e\u0c2f\u0c28 \u0c30\u0c39\u0c3f\u0c24",
+    "Harvest crops early in the morning when moisture content is stable to prevent grain loss.":
+      "\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c02 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c24\u0c47\u0c2e \u0c38\u0c4d\u0c25\u0c3f\u0c30\u0c02\u0c17\u0c3e \u0c09\u0c02\u0c21\u0c47 \u0c09\u0c26\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c47 \u0c2a\u0c02\u0c1f\u0c28\u0c41 \u0c15\u0c4b\u0c2f\u0c02\u0c21\u0c3f.",
+    "Harvest grains when moisture content drops to 14-16%":
+      "\u0c24\u0c47\u0c2e \u0c36\u0c3e\u0c24\u0c02 14-16% \u0c15\u0c3f \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c02 \u0c15\u0c4b\u0c24 \u0c15\u0c4b\u0c2f\u0c02\u0c21\u0c3f",
+    "Harvest paddy when 80-85% grains turn straw golden yellow":
+      "80-85% \u0c35\u0c30\u0c3f \u0c17\u0c3f\u0c02\u0c1c\u0c32\u0c41 \u0c2c\u0c02\u0c17\u0c3e\u0c30\u0c41 \u0c2a\u0c38\u0c41\u0c2a\u0c41 \u0c30\u0c02\u0c17\u0c41\u0c32\u0c4b\u0c15\u0c3f \u0c2e\u0c3e\u0c30\u0c3f\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c15\u0c4b\u0c24 \u0c15\u0c4b\u0c2f\u0c02\u0c21\u0c3f",
+    Harvesting: "\u0c2a\u0c02\u0c1f \u0c15\u0c4b\u0c24 \u0c26\u0c36",
+    "Harvesting at peak maturity prevents grain shattering in fields and ensures high market value. Grains harvested too early have high moisture and spoil during storage.":
+      "\u0c38\u0c30\u0c3f\u0c17\u0c4d\u0c17\u0c3e \u0c2a\u0c15\u0c3f\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c15\u0c4b\u0c24 \u0c15\u0c4b\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c17\u0c3f\u0c02\u0c1c\u0c32\u0c41 \u0c30\u0c3e\u0c32\u0c35\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c02\u0c1a\u0c3f \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30 \u0c35\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c2e\u0c41\u0c02\u0c26\u0c47 \u0c15\u0c4b\u0c38\u0c4d\u0c24\u0c47 \u0c24\u0c47\u0c2e \u0c35\u0c32\u0c4d\u0c32 \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c02 \u0c2a\u0c3e\u0c21\u0c35\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    Haryana: "\u0c39\u0c30\u0c4d\u0c2f\u0c3e\u0c28\u0c3e",
+    "Healthy & Chemical Free":
+      "\u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c15\u0c30\u0c2e\u0c48\u0c28 & \u0c30\u0c38\u0c3e\u0c2f\u0c28 \u0c30\u0c39\u0c3f\u0c24",
     "Hide Details": "\u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c26\u0c3e\u0c1a\u0c41",
-    "High market arrival volumes lead to temporary price dips": "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u200c\u0c15\u0c41 \u0c2a\u0c02\u0c1f \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35\u0c17\u0c3e \u0c35\u0c38\u0c4d\u0c24\u0c47 \u0c24\u0c3e\u0c24\u0c4d\u0c15\u0c3e\u0c32\u0c3f\u0c15\u0c02\u0c17\u0c3e \u0c27\u0c30\u0c32\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c41\u0c24\u0c3e\u0c2f\u0c3f",
+    "High market arrival volumes lead to temporary price dips":
+      "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u200c\u0c15\u0c41 \u0c2a\u0c02\u0c1f \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35\u0c17\u0c3e \u0c35\u0c38\u0c4d\u0c24\u0c47 \u0c24\u0c3e\u0c24\u0c4d\u0c15\u0c3e\u0c32\u0c3f\u0c15\u0c02\u0c17\u0c3e \u0c27\u0c30\u0c32\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c41\u0c24\u0c3e\u0c2f\u0c3f",
     "Hisar Mandi": "\u0c39\u0c3f\u0c38\u0c3e\u0c30\u0c4d \u0c2e\u0c02\u0c21\u0c40",
-    "Hisar, Haryana": "\u0c39\u0c3f\u0c38\u0c3e\u0c30\u0c4d, \u0c39\u0c30\u0c4d\u0c2f\u0c3e\u0c28\u0c3e",
-    "Home": "\u0c39\u0c4b\u0c2e\u0c4d",
-    "Horticulture": "\u0c09\u0c26\u0c4d\u0c2f\u0c3e\u0c28\u0c35\u0c28\u0c02",
-    "Horticulture & Cash Crops": "\u0c24\u0c4b\u0c1f\u0c2a\u0c28\u0c3f & \u0c35\u0c3e\u0c23\u0c3f\u0c1c\u0c4d\u0c2f \u0c2a\u0c02\u0c1f\u0c32\u0c41",
-    "Horticulture Internship": "\u0c09\u0c26\u0c4d\u0c2f\u0c3e\u0c28\u0c35\u0c28 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d",
-    "Hot": "\u0c39\u0c3e\u0c1f\u0c4d",
-    "How can PureFarm help?": "PureFarm \u0c2e\u0c40\u0c15\u0c41 \u0c0e\u0c32\u0c3e \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f?",
-    "How to choose high-quality seeds, seed treatment, and optimum seed depth.": "\u0c09\u0c24\u0c4d\u0c24\u0c2e \u0c30\u0c15\u0c02 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32 \u0c0e\u0c02\u0c2a\u0c3f\u0c15, \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c36\u0c41\u0c26\u0c4d\u0c27\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c30\u0c48\u0c28 \u0c32\u0c4b\u0c24\u0c41\u0c32\u0c4b \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c21\u0c02.",
-    "How to collect soil samples, understand pH values, and correct acidic or alkaline soil.": "\u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c28\u0c2e\u0c42\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c38\u0c47\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c02, pH \u0c35\u0c3f\u0c32\u0c41\u0c35\u0c32\u0c28\u0c41 \u0c05\u0c30\u0c4d\u0c25\u0c02 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c2e\u0c4d\u0c32/\u0c15\u0c4d\u0c37\u0c3e\u0c30 \u0c28\u0c47\u0c32\u0c32\u0c28\u0c41 \u0c38\u0c30\u0c3f\u0c1a\u0c47\u0c2f\u0c21\u0c02.",
-    "How to get free soil testing, reading soil card results, and fertilizer recommendations.": "\u0c09\u0c1a\u0c3f\u0c24 \u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c32\u0c41, \u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d \u0c2b\u0c32\u0c3f\u0c24\u0c3e\u0c32\u0c28\u0c41 \u0c1a\u0c26\u0c35\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41.",
-    "Humic Acid Granules (5 kg)": "\u0c39\u0c4d\u0c2f\u0c42\u0c2e\u0c3f\u0c15\u0c4d \u0c2f\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c17\u0c41\u0c33\u0c3f\u0c15\u0c32\u0c41 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Humid sunshine": "\u0c24\u0c47\u0c2e\u0c24\u0c4b \u0c15\u0c42\u0c21\u0c3f\u0c28 \u0c0e\u0c02\u0c21",
-    "Humidity": "\u0c24\u0c47\u0c2e",
-    "Humidity control: Automated 85%-95% RH": "\u0c24\u0c47\u0c2e \u0c28\u0c3f\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c23: \u0c38\u0c4d\u0c35\u0c2f\u0c02\u0c1a\u0c3e\u0c32\u0c15 85%-95% RH",
-    "Hybrid": "\u0c39\u0c48\u0c2c\u0c4d\u0c30\u0c3f\u0c21\u0c4d",
-    "Hybrid Brinjal Seed (10 g)": "\u0c39\u0c48\u0c2c\u0c4d\u0c30\u0c3f\u0c21\u0c4d \u0c35\u0c02\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 (10 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Hybrid Maize Seed DKC-9108 (5 kg)": "\u0c39\u0c48\u0c2c\u0c4d\u0c30\u0c3f\u0c21\u0c4d \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c1c\u0c4a\u0c28\u0c4d\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 DKC-9108 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Hybrid Tomato Seed (10 g)": "\u0c39\u0c48\u0c2c\u0c4d\u0c30\u0c3f\u0c21\u0c4d \u0c1f\u0c2e\u0c4b\u0c1f\u0c3e \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 (10 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Hyderabad": "\u0c39\u0c48\u0c26\u0c30\u0c3e\u0c2c\u0c3e\u0c26\u0c4d",
-    "Hyderabad, Telangana": "\u0c39\u0c48\u0c26\u0c30\u0c3e\u0c2c\u0c3e\u0c26\u0c4d, \u0c24\u0c46\u0c32\u0c02\u0c17\u0c3e\u0c23",
-    "IPM combines multiple pest control methods to keep pest populations below Economic Threshold Levels (ETL) without over-relying on chemical sprays, safeguarding human health and ecosystem safety.": "\u0c38\u0c17\u0c4d\u0c30 \u0c38\u0c38\u0c4d\u0c2f\u0c30\u0c15\u0c4d\u0c37\u0c23 (IPM) \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c3f\u0c32\u0c4b \u0c30\u0c38\u0c3e\u0c2f\u0c28\u0c3e\u0c32\u0c2a\u0c48\u0c28\u0c47 \u0c06\u0c27\u0c3e\u0c30\u0c2a\u0c21\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c35\u0c3f\u0c2d\u0c3f\u0c28\u0c4d\u0c28 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23 \u0c2e\u0c3e\u0c30\u0c4d\u0c17\u0c3e\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c09\u0c27\u0c43\u0c24\u0c3f\u0c28\u0c3f \u0c05\u0c26\u0c41\u0c2a\u0c41\u0c32\u0c4b \u0c09\u0c02\u0c1a\u0c41\u0c24\u0c3e\u0c30\u0c41.",
-    "Ideal soil pH for most crops is between 6.5 and 7.5": "\u0c1a\u0c3e\u0c32\u0c3e \u0c2a\u0c02\u0c1f\u0c32\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c15\u0c42\u0c32\u0c2e\u0c48\u0c28 \u0c28\u0c47\u0c32 pH 6.5 \u0c28\u0c41\u0c02\u0c21\u0c3f 7.5 \u0c2e\u0c27\u0c4d\u0c2f \u0c09\u0c02\u0c1f\u0c41\u0c02\u0c26\u0c3f",
-    "Identification & Tagging": "\u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c2a\u0c41 & \u0c1f\u0c4d\u0c2f\u0c3e\u0c17\u0c3f\u0c02\u0c17\u0c4d",
-    "Identify common crop pests and diseases and learn safe and effective methods to manage them.": "\u0c38\u0c3e\u0c27\u0c3e\u0c30\u0c23 \u0c2a\u0c02\u0c1f \u0c1a\u0c40\u0c21\u0c2a\u0c40\u0c21\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c41\u0c32\u0c28\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c3f, \u0c35\u0c3e\u0c1f\u0c3f\u0c28\u0c3f \u0c38\u0c41\u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c24\u0c02\u0c17\u0c3e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c02\u0c17\u0c3e \u0c28\u0c3f\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c3f\u0c02\u0c1a\u0c47 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Identifying Common Crop Pests and Insects": "\u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c2a\u0c02\u0c1f \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c40\u0c1f\u0c15\u0c3e\u0c32 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c2a\u0c41",
-    "Identifying critical growth stages when crops must receive irrigation.": "\u0c2a\u0c02\u0c1f\u0c32\u0c15\u0c41 \u0c24\u0c2a\u0c4d\u0c2a\u0c28\u0c3f\u0c38\u0c30\u0c3f\u0c17\u0c3e \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c3e\u0c32\u0c4d\u0c38\u0c3f\u0c28 \u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c0e\u0c26\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c26\u0c36\u0c32 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c2a\u0c41.",
-    "Image URL (Optional)": "\u0c1a\u0c3f\u0c24\u0c4d\u0c30\u0c02 URL (\u0c10\u0c1a\u0c4d\u0c1b\u0c3f\u0c15\u0c02)",
-    "Implement crop rotation and green manuring in organic vegetable beds": "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c2e\u0c21\u0c41\u0c32\u0c32\u0c4b \u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c05\u0c2e\u0c30\u0c4d\u0c1a\u0c21\u0c02",
-    "In Stock": "\u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d \u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c02\u0c26\u0c3f",
-    "In case of hailstorm or localized flooding, inform the insurance company within 72 hours via crop insurance app.": "\u0c35\u0c21\u0c17\u0c02\u0c21\u0c4d\u0c32 \u0c35\u0c30\u0c4d\u0c37\u0c02 \u0c2a\u0c21\u0c3f\u0c24\u0c47 72 \u0c17\u0c02\u0c1f\u0c32\u0c4d\u0c32\u0c4b\u0c2a\u0c41 \u0c15\u0c4d\u0c30\u0c3e\u0c2a\u0c4d \u0c2c\u0c40\u0c2e\u0c3e \u0c2f\u0c3e\u0c2a\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02 \u0c07\u0c35\u0c4d\u0c35\u0c02\u0c21\u0c3f.",
-    "Inactive (Hidden from Marketplace)": "\u0c28\u0c3f\u0c37\u0c4d\u0c15\u0c4d\u0c30\u0c3f\u0c2f\u0c02 (\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u200c\u0c2a\u0c4d\u0c32\u0c47\u0c38\u0c4d\u200c\u0c32\u0c4b \u0c26\u0c3e\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f)",
-    "Income assistance for eligible landholding farmer families through direct bank transfer.": "\u0c30\u0c48\u0c24\u0c41 \u0c15\u0c41\u0c1f\u0c41\u0c02\u0c2c\u0c3e\u0c32\u0c15\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c4d \u0c2c\u0c26\u0c3f\u0c32\u0c40 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c06\u0c26\u0c3e\u0c2f \u0c38\u0c39\u0c3e\u0c2f\u0c02.",
-    "Incorporate crop residues into soil instead of burning": "\u0c2a\u0c02\u0c1f \u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c17\u0c32\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f\u0c32\u0c4b \u0c15\u0c32\u0c3f\u0c2a\u0c3f \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c02\u0c21\u0c3f",
-    "Incorporate green manure into soil at 45 to 50 days growth stage": "45-50 \u0c30\u0c4b\u0c1c\u0c41\u0c32 \u0c35\u0c2f\u0c38\u0c4d\u0c38\u0c41\u0c32\u0c4b \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f\u0c28\u0c41 \u0c2d\u0c42\u0c2e\u0c3f\u0c32\u0c4b \u0c15\u0c32\u0c3f\u0c2a\u0c3f \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c02\u0c21\u0c3f",
-    "Incorporating 45-day-old Dhaincha into soil adds up to 80 kg Nitrogen per hectare.": "45 \u0c30\u0c4b\u0c1c\u0c41\u0c32 \u0c1c\u0c40\u0c32\u0c41\u0c17\u0c41 \u0c2a\u0c48\u0c30\u0c41\u0c28\u0c41 \u0c2d\u0c42\u0c2e\u0c3f\u0c32\u0c4b \u0c15\u0c32\u0c3f\u0c2a\u0c3f \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c39\u0c46\u0c15\u0c4d\u0c1f\u0c3e\u0c30\u0c41\u0c15\u0c41 80 \u0c15\u0c47\u0c1c\u0c40\u0c32 \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c05\u0c02\u0c26\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Increase quantity": "\u0c2a\u0c30\u0c3f\u0c2e\u0c3e\u0c23\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Index-based protection for rainfall, temperature, humidity, and wind deviations.": "\u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c3e\u0c24\u0c02, \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c08\u0c26\u0c41\u0c30\u0c41\u0c17\u0c3e\u0c32\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c30\u0c15\u0c4d\u0c37\u0c23.",
-    "Index-based weather parametric protection compensating farmers against quantifiable financial loss caused by adverse weather conditions.": "\u0c2a\u0c4d\u0c30\u0c24\u0c3f\u0c15\u0c42\u0c32 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c2a\u0c30\u0c3f\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c41\u0c32 \u0c35\u0c32\u0c4d\u0c32 \u0c15\u0c32\u0c3f\u0c17\u0c47 \u0c06\u0c30\u0c4d\u0c25\u0c3f\u0c15 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c30\u0c15\u0c4d\u0c37\u0c23.",
-    "India's agricultural calendar is divided into Kharif (monsoon crops like Paddy, Maize, Cotton), Rabi (winter crops like Wheat, Mustard, Gram), and Zaid (summer crops like Watermelon, Cucumber, Pulses).": "\u0c2d\u0c3e\u0c30\u0c24\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c15\u0c4d\u0c2f\u0c3e\u0c32\u0c46\u0c02\u0c21\u0c30\u0c4d \u0c16\u0c30\u0c40\u0c2b\u0c4d (\u0c35\u0c30\u0c3f, \u0c1c\u0c4a\u0c28\u0c4d\u0c28, \u0c2a\u0c24\u0c4d\u0c24\u0c3f), \u0c30\u0c2c\u0c40 (\u0c17\u0c4b\u0c27\u0c41\u0c2e, \u0c06\u0c35\u0c3e\u0c32\u0c41, \u0c36\u0c28\u0c17) \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c1c\u0c48\u0c26\u0c4d (\u0c2a\u0c41\u0c1a\u0c4d\u0c1a\u0c15\u0c3e\u0c2f, \u0c26\u0c4b\u0c38\u0c15\u0c3e\u0c2f, \u0c2a\u0c2a\u0c4d\u0c2a\u0c41\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c41) \u0c38\u0c40\u0c1c\u0c28\u0c4d\u0c32\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c2d\u0c1c\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f.",
-    "Industry Internship": "\u0c2a\u0c30\u0c3f\u0c36\u0c4d\u0c30\u0c2e \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d",
-    "Inject fertilizers during middle 50% of total irrigation cycle duration": "\u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c3e\u0c30\u0c47 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c2e\u0c27\u0c4d\u0c2f \u0c2d\u0c3e\u0c17\u0c02\u0c32\u0c4b \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Inoculate legume seeds with Rhizobium culture": "\u0c2a\u0c2a\u0c4d\u0c2a\u0c41\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c15\u0c41 \u0c30\u0c48\u0c1c\u0c4b\u0c2c\u0c3f\u0c2f\u0c02 \u0c15\u0c32\u0c4d\u0c1a\u0c30\u0c4d\u200c\u0c24\u0c4b \u0c2a\u0c1f\u0c4d\u0c1f\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Insect Net 40 Mesh (3 x 50 m)": "\u0c07\u0c28\u0c4d\u0c38\u0c46\u0c15\u0c4d\u0c1f\u0c4d \u0c28\u0c46\u0c1f\u0c4d 40 \u0c2e\u0c46\u0c37\u0c4d (3 x 50 \u0c2e\u0c40)",
-    "Inspect crops at least twice a week during critical growth stages": "\u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c0e\u0c26\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c26\u0c36\u0c32\u0c4d\u0c32\u0c4b \u0c35\u0c3e\u0c30\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c15\u0c28\u0c40\u0c38\u0c02 \u0c30\u0c46\u0c02\u0c21\u0c41\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c41 \u0c2a\u0c02\u0c1f\u0c28\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Install flush valves at lateral ends for periodic sediment flushing": "\u0c32\u0c48\u0c28\u0c4d\u0c32\u0c28\u0c41 \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c1a\u0c3f\u0c35\u0c30\u0c4d\u0c32\u0c32\u0c4b \u0c2b\u0c4d\u0c32\u0c37\u0c4d \u0c35\u0c3e\u0c32\u0c4d\u0c35\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c05\u0c2e\u0c30\u0c4d\u0c1a\u0c02\u0c21\u0c3f",
-    "Install yellow sticky cards in vegetable fields to detect whiteflies and aphids early.": "\u0c24\u0c46\u0c32\u0c4d\u0c32\u0c26\u0c4b\u0c2e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c47\u0c28\u0c41\u0c2c\u0c02\u0c15\u0c28\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c38\u0c41\u0c2a\u0c41 \u0c30\u0c02\u0c17\u0c41 \u0c1c\u0c3f\u0c17\u0c41\u0c30\u0c41 \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32\u0c28\u0c41 \u0c0f\u0c30\u0c4d\u0c2a\u0c3e\u0c1f\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Instructor": "\u0c2c\u0c4b\u0c27\u0c15\u0c41\u0c32\u0c41",
-    "Insurance": "\u0c2c\u0c40\u0c2e\u0c3e",
-    "Integrated Pest Management (IPM) Principles": "\u0c38\u0c17\u0c4d\u0c30 \u0c38\u0c38\u0c4d\u0c2f\u0c30\u0c15\u0c4d\u0c37\u0c23 (IPM) \u0c38\u0c42\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c41",
-    "Integrating soil moisture probes and Electrical Conductivity (EC) sensors with automated solenoid valves turns drip systems into smart precision systems that irrigate automatically when soil moisture drops.": "\u0c24\u0c47\u0c2e \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c06\u0c1f\u0c4b\u0c2e\u0c47\u0c1f\u0c3f\u0c15\u0c4d \u0c35\u0c3e\u0c32\u0c4d\u0c35\u0c4d\u200c\u0c32\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c38\u0c02\u0c27\u0c3e\u0c28\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c28\u0c47\u0c32\u0c32\u0c4b \u0c24\u0c47\u0c2e \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c38\u0c3f\u0c38\u0c4d\u0c1f\u0c2e\u0c4d \u0c06\u0c1f\u0c4b\u0c2e\u0c47\u0c1f\u0c3f\u0c15\u0c4d\u200c\u0c17\u0c3e \u0c28\u0c21\u0c41\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Interactive Labs": "\u0c07\u0c02\u0c1f\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c3f\u0c35\u0c4d \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d\u0c38\u0c4d",
-    "Intercrop Maize with Cowpea or Arhar for ground cover": "\u0c1c\u0c4a\u0c28\u0c4d\u0c28 \u0c2a\u0c02\u0c1f\u0c32\u0c4b \u0c05\u0c32\u0c38\u0c02\u0c26\u0c32\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c15\u0c02\u0c26\u0c41\u0c32\u0c28\u0c41 \u0c05\u0c02\u0c24\u0c30 \u0c2a\u0c02\u0c1f\u0c17\u0c3e \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Intercropping and Companion Planting": "\u0c05\u0c02\u0c24\u0c30 \u0c2a\u0c02\u0c1f\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c39\u0c1a\u0c30 \u0c2a\u0c02\u0c1f\u0c32\u0c41",
-    "Intercropping involves cultivating two or more crops simultaneously in the same field in specific row patterns. It reduces risk against total crop failure and optimizes sunlight and water use.": "\u0c05\u0c02\u0c24\u0c30 \u0c2a\u0c02\u0c1f\u0c32 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c3f\u0c32\u0c4b \u0c12\u0c15\u0c47 \u0c2a\u0c4a\u0c32\u0c02\u0c32\u0c4b \u0c28\u0c3f\u0c30\u0c4d\u0c26\u0c3f\u0c37\u0c4d\u0c1f \u0c35\u0c30\u0c41\u0c38\u0c32\u0c32\u0c4b \u0c30\u0c46\u0c02\u0c21\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c05\u0c02\u0c24\u0c15\u0c02\u0c1f\u0c47 \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c38\u0c3e\u0c17\u0c41 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41. \u0c07\u0c26\u0c3f \u0c2a\u0c02\u0c1f \u0c28\u0c37\u0c4d\u0c1f \u0c2d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Interest in organic agriculture, permaculture, or natural farming.": "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 \u0c32\u0c47\u0c26\u0c3e \u0c2a\u0c4d\u0c30\u0c15\u0c43\u0c24\u0c3f \u0c38\u0c3e\u0c17\u0c41\u0c2a\u0c48 \u0c06\u0c38\u0c15\u0c4d\u0c24\u0c3f \u0c09\u0c28\u0c4d\u0c28\u0c35\u0c3e\u0c30\u0c41.",
-    "Intermediate": "\u0c2e\u0c27\u0c4d\u0c2f\u0c38\u0c4d\u0c25 \u0c38\u0c4d\u0c25\u0c3e\u0c2f\u0c3f",
-    "Internship Details": "\u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41",
-    "Internship Not Found": "\u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c32\u0c47\u0c26\u0c41",
-    "Internship Opportunities": "\u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d \u0c05\u0c35\u0c15\u0c3e\u0c36\u0c3e\u0c32\u0c41",
-    "Internships": "\u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d\u0c32\u0c41",
-    "Introduction to Modern Agricultural Practices": "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32 \u0c2a\u0c30\u0c3f\u0c1a\u0c2f\u0c02",
-    "Irrigate crops in early morning or evening to lower evaporation": "\u0c28\u0c40\u0c30\u0c41 \u0c06\u0c35\u0c3f\u0c30\u0c3f \u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c09\u0c26\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c47 \u0c32\u0c47\u0c26\u0c3e \u0c38\u0c3e\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c02 \u0c35\u0c47\u0c33\u0c32\u0c4d\u0c32\u0c4b \u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f",
-    "Irrigate fields during cool evening hours to minimize water loss from solar evaporation.": "\u0c38\u0c42\u0c30\u0c4d\u0c2f\u0c30\u0c36\u0c4d\u0c2e\u0c3f \u0c35\u0c32\u0c4d\u0c32 \u0c28\u0c40\u0c30\u0c41 \u0c06\u0c35\u0c3f\u0c30\u0c3f \u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c38\u0c3e\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c02 \u0c1a\u0c32\u0c4d\u0c32\u0c28\u0c3f \u0c35\u0c47\u0c33\u0c32\u0c4d\u0c32\u0c4b \u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f.",
-    "Irrigate vegetables in the evening and avoid urea spray after noon.": "\u0c38\u0c3e\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c02 \u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32\u0c15\u0c41 \u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c27\u0c4d\u0c2f\u0c3e\u0c39\u0c4d\u0c28\u0c02 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c2f\u0c42\u0c30\u0c3f\u0c2f\u0c3e \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Irrigation": "\u0c38\u0c3e\u0c17\u0c41\u0c28\u0c40\u0c30\u0c41",
-    "Irrigation & Water Management": "\u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 & \u0c28\u0c40\u0c1f\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
-    "Issue Date": "\u0c1c\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c24\u0c47\u0c26\u0c40",
-    "Issuer": "\u0c2e\u0c02\u0c1c\u0c42\u0c30\u0c41 \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c36\u0c3e\u0c16",
-    "Item Total": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02",
-    "Jeevamrut Concentrate (5 litre)": "\u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 \u0c15\u0c3e\u0c28\u0c4d\u0c38\u0c02\u0c1f\u0c4d\u0c30\u0c47\u0c1f\u0c4d (5 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41)",
-    "Jeevamrutha is a fermented bio-culture rich in beneficial microorganisms that revive soil health. Neem oil (10,000 ppm) acts as an effective repellent and growth disruptor for insect pests.": "\u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 \u0c28\u0c47\u0c32\u0c32\u0c4b\u0c28\u0c3f \u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e\u0c1c\u0c40\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c41\u0c28\u0c30\u0c41\u0c1c\u0c4d\u0c1c\u0c40\u0c35\u0c3f\u0c02\u0c2a\u0c1c\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c35\u0c47\u0c2a \u0c28\u0c42\u0c28\u0c46 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c35\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c05\u0c30\u0c3f\u0c15\u0c1f\u0c4d\u0c1f\u0c21\u0c02\u0c32\u0c4b \u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c02\u0c17\u0c3e \u0c2a\u0c28\u0c3f\u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Join a local FPO to aggregate small crop quantities into bulk lots that attract corporate buyers.": "\u0c2a\u0c46\u0c26\u0c4d\u0c26 \u0c35\u0c4d\u0c2f\u0c3e\u0c2a\u0c3e\u0c30\u0c41\u0c32\u0c28\u0c41 \u0c06\u0c15\u0c30\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c40 \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 FPO\u0c32\u0c4b \u0c1a\u0c47\u0c30\u0c02\u0c21\u0c3f.",
-    "Join the Digital": "\u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c35\u0c3f\u0c2a\u0c4d\u0c32\u0c35\u0c02\u0c32\u0c4b \u0c1a\u0c47\u0c30\u0c02\u0c21\u0c3f",
-    "Jute Gunny Bags (Pack of 50)": "\u0c1c\u0c28\u0c2a\u0c28\u0c3e\u0c30 \u0c38\u0c02\u0c1a\u0c41\u0c32\u0c41 (50 \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d)",
-    "KCC document camp this week": "\u0c08 \u0c35\u0c3e\u0c30\u0c02 KCC \u0c21\u0c3e\u0c15\u0c4d\u0c2f\u0c41\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c15\u0c4d\u0c2f\u0c3e\u0c02\u0c2a\u0c4d",
-    "Kadiyam, Rajahmundry Rural, Andhra Pradesh - 533126": "\u0c15\u0c21\u0c3f\u0c2f\u0c02, \u0c30\u0c3e\u0c1c\u0c2e\u0c02\u0c21\u0c4d\u0c30\u0c3f \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c40\u0c23, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d - 533126",
+    "Hisar, Haryana":
+      "\u0c39\u0c3f\u0c38\u0c3e\u0c30\u0c4d, \u0c39\u0c30\u0c4d\u0c2f\u0c3e\u0c28\u0c3e",
+    Home: "\u0c39\u0c4b\u0c2e\u0c4d",
+    Horticulture: "\u0c09\u0c26\u0c4d\u0c2f\u0c3e\u0c28\u0c35\u0c28\u0c02",
+    "Horticulture & Cash Crops":
+      "\u0c24\u0c4b\u0c1f\u0c2a\u0c28\u0c3f & \u0c35\u0c3e\u0c23\u0c3f\u0c1c\u0c4d\u0c2f \u0c2a\u0c02\u0c1f\u0c32\u0c41",
+    "Horticulture Internship":
+      "\u0c09\u0c26\u0c4d\u0c2f\u0c3e\u0c28\u0c35\u0c28 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d",
+    Hot: "\u0c39\u0c3e\u0c1f\u0c4d",
+    "How can PureFarm help?":
+      "PureFarm \u0c2e\u0c40\u0c15\u0c41 \u0c0e\u0c32\u0c3e \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f?",
+    "How to choose high-quality seeds, seed treatment, and optimum seed depth.":
+      "\u0c09\u0c24\u0c4d\u0c24\u0c2e \u0c30\u0c15\u0c02 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32 \u0c0e\u0c02\u0c2a\u0c3f\u0c15, \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c36\u0c41\u0c26\u0c4d\u0c27\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c30\u0c48\u0c28 \u0c32\u0c4b\u0c24\u0c41\u0c32\u0c4b \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c21\u0c02.",
+    "How to collect soil samples, understand pH values, and correct acidic or alkaline soil.":
+      "\u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c28\u0c2e\u0c42\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c38\u0c47\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c02, pH \u0c35\u0c3f\u0c32\u0c41\u0c35\u0c32\u0c28\u0c41 \u0c05\u0c30\u0c4d\u0c25\u0c02 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c2e\u0c4d\u0c32/\u0c15\u0c4d\u0c37\u0c3e\u0c30 \u0c28\u0c47\u0c32\u0c32\u0c28\u0c41 \u0c38\u0c30\u0c3f\u0c1a\u0c47\u0c2f\u0c21\u0c02.",
+    "How to get free soil testing, reading soil card results, and fertilizer recommendations.":
+      "\u0c09\u0c1a\u0c3f\u0c24 \u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c32\u0c41, \u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d \u0c2b\u0c32\u0c3f\u0c24\u0c3e\u0c32\u0c28\u0c41 \u0c1a\u0c26\u0c35\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41.",
+    "Humic Acid Granules (5 kg)":
+      "\u0c39\u0c4d\u0c2f\u0c42\u0c2e\u0c3f\u0c15\u0c4d \u0c2f\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c17\u0c41\u0c33\u0c3f\u0c15\u0c32\u0c41 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Humid sunshine":
+      "\u0c24\u0c47\u0c2e\u0c24\u0c4b \u0c15\u0c42\u0c21\u0c3f\u0c28 \u0c0e\u0c02\u0c21",
+    Humidity: "\u0c24\u0c47\u0c2e",
+    "Humidity control: Automated 85%-95% RH":
+      "\u0c24\u0c47\u0c2e \u0c28\u0c3f\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c23: \u0c38\u0c4d\u0c35\u0c2f\u0c02\u0c1a\u0c3e\u0c32\u0c15 85%-95% RH",
+    Hybrid: "\u0c39\u0c48\u0c2c\u0c4d\u0c30\u0c3f\u0c21\u0c4d",
+    "Hybrid Brinjal Seed (10 g)":
+      "\u0c39\u0c48\u0c2c\u0c4d\u0c30\u0c3f\u0c21\u0c4d \u0c35\u0c02\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 (10 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Hybrid Maize Seed DKC-9108 (5 kg)":
+      "\u0c39\u0c48\u0c2c\u0c4d\u0c30\u0c3f\u0c21\u0c4d \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c1c\u0c4a\u0c28\u0c4d\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 DKC-9108 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Hybrid Tomato Seed (10 g)":
+      "\u0c39\u0c48\u0c2c\u0c4d\u0c30\u0c3f\u0c21\u0c4d \u0c1f\u0c2e\u0c4b\u0c1f\u0c3e \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 (10 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    Hyderabad: "\u0c39\u0c48\u0c26\u0c30\u0c3e\u0c2c\u0c3e\u0c26\u0c4d",
+    "Hyderabad, Telangana":
+      "\u0c39\u0c48\u0c26\u0c30\u0c3e\u0c2c\u0c3e\u0c26\u0c4d, \u0c24\u0c46\u0c32\u0c02\u0c17\u0c3e\u0c23",
+    "IPM combines multiple pest control methods to keep pest populations below Economic Threshold Levels (ETL) without over-relying on chemical sprays, safeguarding human health and ecosystem safety.":
+      "\u0c38\u0c17\u0c4d\u0c30 \u0c38\u0c38\u0c4d\u0c2f\u0c30\u0c15\u0c4d\u0c37\u0c23 (IPM) \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c3f\u0c32\u0c4b \u0c30\u0c38\u0c3e\u0c2f\u0c28\u0c3e\u0c32\u0c2a\u0c48\u0c28\u0c47 \u0c06\u0c27\u0c3e\u0c30\u0c2a\u0c21\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c35\u0c3f\u0c2d\u0c3f\u0c28\u0c4d\u0c28 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23 \u0c2e\u0c3e\u0c30\u0c4d\u0c17\u0c3e\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c09\u0c27\u0c43\u0c24\u0c3f\u0c28\u0c3f \u0c05\u0c26\u0c41\u0c2a\u0c41\u0c32\u0c4b \u0c09\u0c02\u0c1a\u0c41\u0c24\u0c3e\u0c30\u0c41.",
+    "Ideal soil pH for most crops is between 6.5 and 7.5":
+      "\u0c1a\u0c3e\u0c32\u0c3e \u0c2a\u0c02\u0c1f\u0c32\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c15\u0c42\u0c32\u0c2e\u0c48\u0c28 \u0c28\u0c47\u0c32 pH 6.5 \u0c28\u0c41\u0c02\u0c21\u0c3f 7.5 \u0c2e\u0c27\u0c4d\u0c2f \u0c09\u0c02\u0c1f\u0c41\u0c02\u0c26\u0c3f",
+    "Identification & Tagging":
+      "\u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c2a\u0c41 & \u0c1f\u0c4d\u0c2f\u0c3e\u0c17\u0c3f\u0c02\u0c17\u0c4d",
+    "Identify common crop pests and diseases and learn safe and effective methods to manage them.":
+      "\u0c38\u0c3e\u0c27\u0c3e\u0c30\u0c23 \u0c2a\u0c02\u0c1f \u0c1a\u0c40\u0c21\u0c2a\u0c40\u0c21\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c41\u0c32\u0c28\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c3f, \u0c35\u0c3e\u0c1f\u0c3f\u0c28\u0c3f \u0c38\u0c41\u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c24\u0c02\u0c17\u0c3e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c02\u0c17\u0c3e \u0c28\u0c3f\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c3f\u0c02\u0c1a\u0c47 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Identifying Common Crop Pests and Insects":
+      "\u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c2a\u0c02\u0c1f \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c40\u0c1f\u0c15\u0c3e\u0c32 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c2a\u0c41",
+    "Identifying critical growth stages when crops must receive irrigation.":
+      "\u0c2a\u0c02\u0c1f\u0c32\u0c15\u0c41 \u0c24\u0c2a\u0c4d\u0c2a\u0c28\u0c3f\u0c38\u0c30\u0c3f\u0c17\u0c3e \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c3e\u0c32\u0c4d\u0c38\u0c3f\u0c28 \u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c0e\u0c26\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c26\u0c36\u0c32 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c2a\u0c41.",
+    "Image URL (Optional)":
+      "\u0c1a\u0c3f\u0c24\u0c4d\u0c30\u0c02 URL (\u0c10\u0c1a\u0c4d\u0c1b\u0c3f\u0c15\u0c02)",
+    "Implement crop rotation and green manuring in organic vegetable beds":
+      "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c2e\u0c21\u0c41\u0c32\u0c32\u0c4b \u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c05\u0c2e\u0c30\u0c4d\u0c1a\u0c21\u0c02",
+    "In Stock":
+      "\u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d \u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c02\u0c26\u0c3f",
+    "In case of hailstorm or localized flooding, inform the insurance company within 72 hours via crop insurance app.":
+      "\u0c35\u0c21\u0c17\u0c02\u0c21\u0c4d\u0c32 \u0c35\u0c30\u0c4d\u0c37\u0c02 \u0c2a\u0c21\u0c3f\u0c24\u0c47 72 \u0c17\u0c02\u0c1f\u0c32\u0c4d\u0c32\u0c4b\u0c2a\u0c41 \u0c15\u0c4d\u0c30\u0c3e\u0c2a\u0c4d \u0c2c\u0c40\u0c2e\u0c3e \u0c2f\u0c3e\u0c2a\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02 \u0c07\u0c35\u0c4d\u0c35\u0c02\u0c21\u0c3f.",
+    "Inactive (Hidden from Marketplace)":
+      "\u0c28\u0c3f\u0c37\u0c4d\u0c15\u0c4d\u0c30\u0c3f\u0c2f\u0c02 (\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u200c\u0c2a\u0c4d\u0c32\u0c47\u0c38\u0c4d\u200c\u0c32\u0c4b \u0c26\u0c3e\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f)",
+    "Income assistance for eligible landholding farmer families through direct bank transfer.":
+      "\u0c30\u0c48\u0c24\u0c41 \u0c15\u0c41\u0c1f\u0c41\u0c02\u0c2c\u0c3e\u0c32\u0c15\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c4d \u0c2c\u0c26\u0c3f\u0c32\u0c40 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c06\u0c26\u0c3e\u0c2f \u0c38\u0c39\u0c3e\u0c2f\u0c02.",
+    "Incorporate crop residues into soil instead of burning":
+      "\u0c2a\u0c02\u0c1f \u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c17\u0c32\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f\u0c32\u0c4b \u0c15\u0c32\u0c3f\u0c2a\u0c3f \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c02\u0c21\u0c3f",
+    "Incorporate green manure into soil at 45 to 50 days growth stage":
+      "45-50 \u0c30\u0c4b\u0c1c\u0c41\u0c32 \u0c35\u0c2f\u0c38\u0c4d\u0c38\u0c41\u0c32\u0c4b \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f\u0c28\u0c41 \u0c2d\u0c42\u0c2e\u0c3f\u0c32\u0c4b \u0c15\u0c32\u0c3f\u0c2a\u0c3f \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c02\u0c21\u0c3f",
+    "Incorporating 45-day-old Dhaincha into soil adds up to 80 kg Nitrogen per hectare.":
+      "45 \u0c30\u0c4b\u0c1c\u0c41\u0c32 \u0c1c\u0c40\u0c32\u0c41\u0c17\u0c41 \u0c2a\u0c48\u0c30\u0c41\u0c28\u0c41 \u0c2d\u0c42\u0c2e\u0c3f\u0c32\u0c4b \u0c15\u0c32\u0c3f\u0c2a\u0c3f \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c39\u0c46\u0c15\u0c4d\u0c1f\u0c3e\u0c30\u0c41\u0c15\u0c41 80 \u0c15\u0c47\u0c1c\u0c40\u0c32 \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c05\u0c02\u0c26\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Increase quantity":
+      "\u0c2a\u0c30\u0c3f\u0c2e\u0c3e\u0c23\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Index-based protection for rainfall, temperature, humidity, and wind deviations.":
+      "\u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c3e\u0c24\u0c02, \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c08\u0c26\u0c41\u0c30\u0c41\u0c17\u0c3e\u0c32\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c30\u0c15\u0c4d\u0c37\u0c23.",
+    "Index-based weather parametric protection compensating farmers against quantifiable financial loss caused by adverse weather conditions.":
+      "\u0c2a\u0c4d\u0c30\u0c24\u0c3f\u0c15\u0c42\u0c32 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c2a\u0c30\u0c3f\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c41\u0c32 \u0c35\u0c32\u0c4d\u0c32 \u0c15\u0c32\u0c3f\u0c17\u0c47 \u0c06\u0c30\u0c4d\u0c25\u0c3f\u0c15 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c30\u0c15\u0c4d\u0c37\u0c23.",
+    "India's agricultural calendar is divided into Kharif (monsoon crops like Paddy, Maize, Cotton), Rabi (winter crops like Wheat, Mustard, Gram), and Zaid (summer crops like Watermelon, Cucumber, Pulses).":
+      "\u0c2d\u0c3e\u0c30\u0c24\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c15\u0c4d\u0c2f\u0c3e\u0c32\u0c46\u0c02\u0c21\u0c30\u0c4d \u0c16\u0c30\u0c40\u0c2b\u0c4d (\u0c35\u0c30\u0c3f, \u0c1c\u0c4a\u0c28\u0c4d\u0c28, \u0c2a\u0c24\u0c4d\u0c24\u0c3f), \u0c30\u0c2c\u0c40 (\u0c17\u0c4b\u0c27\u0c41\u0c2e, \u0c06\u0c35\u0c3e\u0c32\u0c41, \u0c36\u0c28\u0c17) \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c1c\u0c48\u0c26\u0c4d (\u0c2a\u0c41\u0c1a\u0c4d\u0c1a\u0c15\u0c3e\u0c2f, \u0c26\u0c4b\u0c38\u0c15\u0c3e\u0c2f, \u0c2a\u0c2a\u0c4d\u0c2a\u0c41\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c41) \u0c38\u0c40\u0c1c\u0c28\u0c4d\u0c32\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c2d\u0c1c\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f.",
+    "Industry Internship":
+      "\u0c2a\u0c30\u0c3f\u0c36\u0c4d\u0c30\u0c2e \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d",
+    "Inject fertilizers during middle 50% of total irrigation cycle duration":
+      "\u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c3e\u0c30\u0c47 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c2e\u0c27\u0c4d\u0c2f \u0c2d\u0c3e\u0c17\u0c02\u0c32\u0c4b \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Inoculate legume seeds with Rhizobium culture":
+      "\u0c2a\u0c2a\u0c4d\u0c2a\u0c41\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c15\u0c41 \u0c30\u0c48\u0c1c\u0c4b\u0c2c\u0c3f\u0c2f\u0c02 \u0c15\u0c32\u0c4d\u0c1a\u0c30\u0c4d\u200c\u0c24\u0c4b \u0c2a\u0c1f\u0c4d\u0c1f\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Insect Net 40 Mesh (3 x 50 m)":
+      "\u0c07\u0c28\u0c4d\u0c38\u0c46\u0c15\u0c4d\u0c1f\u0c4d \u0c28\u0c46\u0c1f\u0c4d 40 \u0c2e\u0c46\u0c37\u0c4d (3 x 50 \u0c2e\u0c40)",
+    "Inspect crops at least twice a week during critical growth stages":
+      "\u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c0e\u0c26\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c26\u0c36\u0c32\u0c4d\u0c32\u0c4b \u0c35\u0c3e\u0c30\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c15\u0c28\u0c40\u0c38\u0c02 \u0c30\u0c46\u0c02\u0c21\u0c41\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c41 \u0c2a\u0c02\u0c1f\u0c28\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Install flush valves at lateral ends for periodic sediment flushing":
+      "\u0c32\u0c48\u0c28\u0c4d\u0c32\u0c28\u0c41 \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c1a\u0c3f\u0c35\u0c30\u0c4d\u0c32\u0c32\u0c4b \u0c2b\u0c4d\u0c32\u0c37\u0c4d \u0c35\u0c3e\u0c32\u0c4d\u0c35\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c05\u0c2e\u0c30\u0c4d\u0c1a\u0c02\u0c21\u0c3f",
+    "Install yellow sticky cards in vegetable fields to detect whiteflies and aphids early.":
+      "\u0c24\u0c46\u0c32\u0c4d\u0c32\u0c26\u0c4b\u0c2e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c47\u0c28\u0c41\u0c2c\u0c02\u0c15\u0c28\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c38\u0c41\u0c2a\u0c41 \u0c30\u0c02\u0c17\u0c41 \u0c1c\u0c3f\u0c17\u0c41\u0c30\u0c41 \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32\u0c28\u0c41 \u0c0f\u0c30\u0c4d\u0c2a\u0c3e\u0c1f\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    Instructor: "\u0c2c\u0c4b\u0c27\u0c15\u0c41\u0c32\u0c41",
+    Insurance: "\u0c2c\u0c40\u0c2e\u0c3e",
+    "Integrated Pest Management (IPM) Principles":
+      "\u0c38\u0c17\u0c4d\u0c30 \u0c38\u0c38\u0c4d\u0c2f\u0c30\u0c15\u0c4d\u0c37\u0c23 (IPM) \u0c38\u0c42\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c41",
+    "Integrating soil moisture probes and Electrical Conductivity (EC) sensors with automated solenoid valves turns drip systems into smart precision systems that irrigate automatically when soil moisture drops.":
+      "\u0c24\u0c47\u0c2e \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c06\u0c1f\u0c4b\u0c2e\u0c47\u0c1f\u0c3f\u0c15\u0c4d \u0c35\u0c3e\u0c32\u0c4d\u0c35\u0c4d\u200c\u0c32\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c38\u0c02\u0c27\u0c3e\u0c28\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c28\u0c47\u0c32\u0c32\u0c4b \u0c24\u0c47\u0c2e \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c38\u0c3f\u0c38\u0c4d\u0c1f\u0c2e\u0c4d \u0c06\u0c1f\u0c4b\u0c2e\u0c47\u0c1f\u0c3f\u0c15\u0c4d\u200c\u0c17\u0c3e \u0c28\u0c21\u0c41\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Interactive Labs":
+      "\u0c07\u0c02\u0c1f\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c3f\u0c35\u0c4d \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d\u0c38\u0c4d",
+    "Intercrop Maize with Cowpea or Arhar for ground cover":
+      "\u0c1c\u0c4a\u0c28\u0c4d\u0c28 \u0c2a\u0c02\u0c1f\u0c32\u0c4b \u0c05\u0c32\u0c38\u0c02\u0c26\u0c32\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c15\u0c02\u0c26\u0c41\u0c32\u0c28\u0c41 \u0c05\u0c02\u0c24\u0c30 \u0c2a\u0c02\u0c1f\u0c17\u0c3e \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Intercropping and Companion Planting":
+      "\u0c05\u0c02\u0c24\u0c30 \u0c2a\u0c02\u0c1f\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c39\u0c1a\u0c30 \u0c2a\u0c02\u0c1f\u0c32\u0c41",
+    "Intercropping involves cultivating two or more crops simultaneously in the same field in specific row patterns. It reduces risk against total crop failure and optimizes sunlight and water use.":
+      "\u0c05\u0c02\u0c24\u0c30 \u0c2a\u0c02\u0c1f\u0c32 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c3f\u0c32\u0c4b \u0c12\u0c15\u0c47 \u0c2a\u0c4a\u0c32\u0c02\u0c32\u0c4b \u0c28\u0c3f\u0c30\u0c4d\u0c26\u0c3f\u0c37\u0c4d\u0c1f \u0c35\u0c30\u0c41\u0c38\u0c32\u0c32\u0c4b \u0c30\u0c46\u0c02\u0c21\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c05\u0c02\u0c24\u0c15\u0c02\u0c1f\u0c47 \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c38\u0c3e\u0c17\u0c41 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41. \u0c07\u0c26\u0c3f \u0c2a\u0c02\u0c1f \u0c28\u0c37\u0c4d\u0c1f \u0c2d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Interest in organic agriculture, permaculture, or natural farming.":
+      "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 \u0c32\u0c47\u0c26\u0c3e \u0c2a\u0c4d\u0c30\u0c15\u0c43\u0c24\u0c3f \u0c38\u0c3e\u0c17\u0c41\u0c2a\u0c48 \u0c06\u0c38\u0c15\u0c4d\u0c24\u0c3f \u0c09\u0c28\u0c4d\u0c28\u0c35\u0c3e\u0c30\u0c41.",
+    Intermediate: "\u0c2e\u0c27\u0c4d\u0c2f\u0c38\u0c4d\u0c25 \u0c38\u0c4d\u0c25\u0c3e\u0c2f\u0c3f",
+    "Internship Details":
+      "\u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41",
+    "Internship Not Found":
+      "\u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c32\u0c47\u0c26\u0c41",
+    "Internship Opportunities":
+      "\u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d \u0c05\u0c35\u0c15\u0c3e\u0c36\u0c3e\u0c32\u0c41",
+    Internships: "\u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d\u0c32\u0c41",
+    "Introduction to Modern Agricultural Practices":
+      "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32 \u0c2a\u0c30\u0c3f\u0c1a\u0c2f\u0c02",
+    "Irrigate crops in early morning or evening to lower evaporation":
+      "\u0c28\u0c40\u0c30\u0c41 \u0c06\u0c35\u0c3f\u0c30\u0c3f \u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c09\u0c26\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c47 \u0c32\u0c47\u0c26\u0c3e \u0c38\u0c3e\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c02 \u0c35\u0c47\u0c33\u0c32\u0c4d\u0c32\u0c4b \u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f",
+    "Irrigate fields during cool evening hours to minimize water loss from solar evaporation.":
+      "\u0c38\u0c42\u0c30\u0c4d\u0c2f\u0c30\u0c36\u0c4d\u0c2e\u0c3f \u0c35\u0c32\u0c4d\u0c32 \u0c28\u0c40\u0c30\u0c41 \u0c06\u0c35\u0c3f\u0c30\u0c3f \u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c38\u0c3e\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c02 \u0c1a\u0c32\u0c4d\u0c32\u0c28\u0c3f \u0c35\u0c47\u0c33\u0c32\u0c4d\u0c32\u0c4b \u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f.",
+    "Irrigate vegetables in the evening and avoid urea spray after noon.":
+      "\u0c38\u0c3e\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c02 \u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32\u0c15\u0c41 \u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c27\u0c4d\u0c2f\u0c3e\u0c39\u0c4d\u0c28\u0c02 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c2f\u0c42\u0c30\u0c3f\u0c2f\u0c3e \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    Irrigation: "\u0c38\u0c3e\u0c17\u0c41\u0c28\u0c40\u0c30\u0c41",
+    "Irrigation & Water Management":
+      "\u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 & \u0c28\u0c40\u0c1f\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Issue Date":
+      "\u0c1c\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c24\u0c47\u0c26\u0c40",
+    Issuer:
+      "\u0c2e\u0c02\u0c1c\u0c42\u0c30\u0c41 \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c36\u0c3e\u0c16",
+    "Item Total":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02",
+    "Jeevamrut Concentrate (5 litre)":
+      "\u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 \u0c15\u0c3e\u0c28\u0c4d\u0c38\u0c02\u0c1f\u0c4d\u0c30\u0c47\u0c1f\u0c4d (5 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41)",
+    "Jeevamrutha is a fermented bio-culture rich in beneficial microorganisms that revive soil health. Neem oil (10,000 ppm) acts as an effective repellent and growth disruptor for insect pests.":
+      "\u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 \u0c28\u0c47\u0c32\u0c32\u0c4b\u0c28\u0c3f \u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e\u0c1c\u0c40\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c41\u0c28\u0c30\u0c41\u0c1c\u0c4d\u0c1c\u0c40\u0c35\u0c3f\u0c02\u0c2a\u0c1c\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c35\u0c47\u0c2a \u0c28\u0c42\u0c28\u0c46 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c35\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c05\u0c30\u0c3f\u0c15\u0c1f\u0c4d\u0c1f\u0c21\u0c02\u0c32\u0c4b \u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c02\u0c17\u0c3e \u0c2a\u0c28\u0c3f\u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Join a local FPO to aggregate small crop quantities into bulk lots that attract corporate buyers.":
+      "\u0c2a\u0c46\u0c26\u0c4d\u0c26 \u0c35\u0c4d\u0c2f\u0c3e\u0c2a\u0c3e\u0c30\u0c41\u0c32\u0c28\u0c41 \u0c06\u0c15\u0c30\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c40 \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 FPO\u0c32\u0c4b \u0c1a\u0c47\u0c30\u0c02\u0c21\u0c3f.",
+    "Join the Digital":
+      "\u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c35\u0c3f\u0c2a\u0c4d\u0c32\u0c35\u0c02\u0c32\u0c4b \u0c1a\u0c47\u0c30\u0c02\u0c21\u0c3f",
+    "Jute Gunny Bags (Pack of 50)":
+      "\u0c1c\u0c28\u0c2a\u0c28\u0c3e\u0c30 \u0c38\u0c02\u0c1a\u0c41\u0c32\u0c41 (50 \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d)",
+    "KCC document camp this week":
+      "\u0c08 \u0c35\u0c3e\u0c30\u0c02 KCC \u0c21\u0c3e\u0c15\u0c4d\u0c2f\u0c41\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c15\u0c4d\u0c2f\u0c3e\u0c02\u0c2a\u0c4d",
+    "Kadiyam, Rajahmundry Rural, Andhra Pradesh - 533126":
+      "\u0c15\u0c21\u0c3f\u0c2f\u0c02, \u0c30\u0c3e\u0c1c\u0c2e\u0c02\u0c21\u0c4d\u0c30\u0c3f \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c40\u0c23, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d - 533126",
     "Karnal Mandi": "\u0c15\u0c30\u0c4d\u0c28\u0c3e\u0c32\u0c4d \u0c2e\u0c02\u0c21\u0c40",
-    "Karnal, Haryana": "\u0c15\u0c30\u0c4d\u0c28\u0c3e\u0c32\u0c4d, \u0c39\u0c30\u0c4d\u0c2f\u0c3e\u0c28\u0c3e",
-    "Keep harvested grain covered; good window for transplanting paddy.": "\u0c15\u0c4b\u0c24 \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c2a\u0c4d\u0c2a\u0c3f \u0c09\u0c02\u0c1a\u0c02\u0c21\u0c3f; \u0c35\u0c30\u0c3f \u0c28\u0c3e\u0c1f\u0c4d\u0c32\u0c41 \u0c35\u0c47\u0c2f\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c07\u0c26\u0c3f \u0c05\u0c28\u0c41\u0c15\u0c42\u0c32 \u0c38\u0c2e\u0c2f\u0c02.",
-    "Keep vermicompost beds shaded from direct sunlight and heavy rain": "\u0c0e\u0c02\u0c21 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c30\u0c4d\u0c37\u0c02 \u0c2a\u0c21\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c28\u0c40\u0c21 \u0c09\u0c28\u0c4d\u0c28 \u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c02\u0c32\u0c4b \u0c2c\u0c46\u0c21\u0c4d\u0c32\u0c28\u0c41 \u0c0f\u0c30\u0c4d\u0c2a\u0c3e\u0c1f\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Key Field Takeaways": "\u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c2a\u0c4a\u0c32\u0c02 \u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c3e\u0c02\u0c36\u0c3e\u0c32\u0c41",
-    "Key Responsibilities": "\u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c2c\u0c3e\u0c27\u0c4d\u0c2f\u0c24\u0c32\u0c41",
-    "Kharif 2%, Rabi 1.5%, commercial crops 5%": "\u0c16\u0c30\u0c40\u0c2b\u0c4d 2%, \u0c30\u0c2c\u0c40 1.5%, \u0c35\u0c3e\u0c23\u0c3f\u0c1c\u0c4d\u0c2f \u0c2a\u0c02\u0c1f\u0c32\u0c41 5%",
+    "Karnal, Haryana":
+      "\u0c15\u0c30\u0c4d\u0c28\u0c3e\u0c32\u0c4d, \u0c39\u0c30\u0c4d\u0c2f\u0c3e\u0c28\u0c3e",
+    "Keep harvested grain covered; good window for transplanting paddy.":
+      "\u0c15\u0c4b\u0c24 \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c2a\u0c4d\u0c2a\u0c3f \u0c09\u0c02\u0c1a\u0c02\u0c21\u0c3f; \u0c35\u0c30\u0c3f \u0c28\u0c3e\u0c1f\u0c4d\u0c32\u0c41 \u0c35\u0c47\u0c2f\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c07\u0c26\u0c3f \u0c05\u0c28\u0c41\u0c15\u0c42\u0c32 \u0c38\u0c2e\u0c2f\u0c02.",
+    "Keep vermicompost beds shaded from direct sunlight and heavy rain":
+      "\u0c0e\u0c02\u0c21 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c30\u0c4d\u0c37\u0c02 \u0c2a\u0c21\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c28\u0c40\u0c21 \u0c09\u0c28\u0c4d\u0c28 \u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c02\u0c32\u0c4b \u0c2c\u0c46\u0c21\u0c4d\u0c32\u0c28\u0c41 \u0c0f\u0c30\u0c4d\u0c2a\u0c3e\u0c1f\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Key Field Takeaways":
+      "\u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c2a\u0c4a\u0c32\u0c02 \u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c3e\u0c02\u0c36\u0c3e\u0c32\u0c41",
+    "Key Responsibilities":
+      "\u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c2c\u0c3e\u0c27\u0c4d\u0c2f\u0c24\u0c32\u0c41",
+    "Kharif 2%, Rabi 1.5%, commercial crops 5%":
+      "\u0c16\u0c30\u0c40\u0c2b\u0c4d 2%, \u0c30\u0c2c\u0c40 1.5%, \u0c35\u0c3e\u0c23\u0c3f\u0c1c\u0c4d\u0c2f \u0c2a\u0c02\u0c1f\u0c32\u0c41 5%",
     "Kharif Season": "\u0c16\u0c30\u0c40\u0c2b\u0c4d \u0c38\u0c40\u0c1c\u0c28\u0c4d",
-    "Kharif sowing depends on early monsoon rain arrivals": "\u0c16\u0c30\u0c40\u0c2b\u0c4d \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c21\u0c02 \u0c24\u0c4a\u0c32\u0c3f \u0c30\u0c41\u0c24\u0c41\u0c2a\u0c35\u0c28\u0c3e\u0c32 \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c32\u0c2a\u0c48 \u0c06\u0c27\u0c3e\u0c30\u0c2a\u0c21\u0c3f \u0c09\u0c02\u0c1f\u0c41\u0c02\u0c26\u0c3f",
-    "Kharif, Rabi, and Zaid Crop Cycles": "\u0c16\u0c30\u0c40\u0c2b\u0c4d, \u0c30\u0c2c\u0c40 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c1c\u0c48\u0c26\u0c4d \u0c2a\u0c02\u0c1f \u0c1a\u0c15\u0c4d\u0c30\u0c3e\u0c32\u0c41",
-    "Kilogram (kg)": "\u0c15\u0c3f\u0c32\u0c4b\u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c4d (\u0c15\u0c3f\u0c32\u0c4b)",
-    "Kisan Credit Card": "\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c15\u0c4d\u0c30\u0c46\u0c21\u0c3f\u0c1f\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d",
-    "Kisan Credit Card (KCC)": "\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c15\u0c4d\u0c30\u0c46\u0c21\u0c3f\u0c1f\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d (KCC)",
-    "Kisan Credit Card (KCC) Scheme": "\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c15\u0c4d\u0c30\u0c46\u0c21\u0c3f\u0c1f\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d (KCC) \u0c2a\u0c25\u0c15\u0c02",
-    "Kisan Credit Card gives farmers flexible working capital credit for crop cultivation at concessional 4% interest rates (with prompt repayment interest subvention).": "\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c15\u0c4d\u0c30\u0c46\u0c21\u0c3f\u0c1f\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c15\u0c47\u0c35\u0c32\u0c02 4% \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c35\u0c21\u0c4d\u0c21\u0c40\u0c15\u0c47 \u0c2a\u0c02\u0c1f \u0c30\u0c41\u0c23\u0c3e\u0c32\u0c41 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
-    "Krishna Agro Cold Preserving Unit": "\u0c15\u0c43\u0c37\u0c4d\u0c23\u0c3e \u0c05\u0c17\u0c4d\u0c30\u0c4b \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c2a\u0c4d\u0c30\u0c3f\u0c1c\u0c30\u0c4d\u0c35\u0c3f\u0c02\u0c17\u0c4d \u0c2f\u0c42\u0c28\u0c3f\u0c1f\u0c4d",
-    "Kudali / Hoe 1.5 kg": "\u0c24\u0c4a\u0c35\u0c4d\u0c35\u0c47 \u0c17\u0c41\u0c28\u0c2a\u0c02 / \u0c2a\u0c3e\u0c30 1.5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41",
-    "Land Preparation and Field Layout": "\u0c28\u0c47\u0c32 \u0c24\u0c2f\u0c3e\u0c30\u0c40 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4a\u0c32\u0c02 \u0c32\u0c47\u0c05\u0c35\u0c41\u0c1f\u0c4d",
-    "Language": "\u0c2d\u0c3e\u0c37",
-    "Lasalgaon Mandi": "\u0c32\u0c38\u0c32\u0c4d\u200c\u0c17\u0c3e\u0c35\u0c4d \u0c2e\u0c02\u0c21\u0c40",
-    "Lasalgaon, Maharashtra": "\u0c32\u0c38\u0c32\u0c4d\u200c\u0c17\u0c3e\u0c35\u0c4d, \u0c2e\u0c39\u0c3e\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30",
-    "Laser land levelling improves irrigation efficiency": "\u0c32\u0c47\u0c1c\u0c30\u0c4d \u0c2a\u0c4a\u0c32\u0c02 \u0c32\u0c46\u0c35\u0c32\u0c3f\u0c02\u0c17\u0c4d \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c41\u0c2a\u0c30\u0c41\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Learn": "\u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Learn More": "\u0c2e\u0c30\u0c3f\u0c02\u0c24 \u0c24\u0c46\u0c32\u0c41\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Learn about important government schemes, financial support, crop insurance, farmer benefits, and eligibility.": "\u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41, \u0c06\u0c30\u0c4d\u0c25\u0c3f\u0c15 \u0c38\u0c39\u0c3e\u0c2f\u0c02, \u0c2a\u0c02\u0c1f \u0c2c\u0c40\u0c2e\u0c3e, \u0c30\u0c48\u0c24\u0c41 \u0c2a\u0c4d\u0c30\u0c2f\u0c4b\u0c1c\u0c28\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c30\u0c4d\u0c39\u0c24 \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c24\u0c46\u0c32\u0c41\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn efficient irrigation methods, water conservation, drip irrigation, and proper watering schedules.": "\u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c2e\u0c48\u0c28 \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c41, \u0c28\u0c40\u0c1f\u0c3f \u0c38\u0c02\u0c30\u0c15\u0c4d\u0c37\u0c23, \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d \u0c07\u0c30\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c30\u0c48\u0c28 \u0c28\u0c40\u0c1f\u0c3f \u0c37\u0c46\u0c21\u0c4d\u0c2f\u0c42\u0c32\u0c4d \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn farming practices that help farmers adapt to changing weather conditions and reduce climate-related risks.": "\u0c2e\u0c3e\u0c30\u0c41\u0c24\u0c41\u0c28\u0c4d\u0c28 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c2a\u0c30\u0c3f\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c17\u0c41\u0c23\u0c02\u0c17\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c02\u0c2c\u0c02\u0c27\u0c3f\u0c24 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c02\u0c1a\u0c47 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn harvesting, grading, drying, storage, cold storage, and methods to reduce post-harvest losses.": "\u0c15\u0c4b\u0c24, \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c35\u0c30\u0c4d\u0c17\u0c40\u0c15\u0c30\u0c23, \u0c0e\u0c02\u0c21\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c21\u0c02, \u0c28\u0c3f\u0c32\u0c4d\u0c35, \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c02\u0c1a\u0c47 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn how technology, sensors, drones, weather information, and digital tools can improve farm productivity.": "\u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24, \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c30\u0c4d\u0c32\u0c41, \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u0c32\u0c41, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c38\u0c3e\u0c27\u0c28\u0c3e\u0c32\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c24\u0c4d\u0c2a\u0c3e\u0c26\u0c15\u0c24\u0c28\u0c41 \u0c0e\u0c32\u0c3e \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c41\u0c2a\u0c30\u0c41\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c4b \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn how to select crops, plan sowing schedules, and choose crops according to seasons and local conditions.": "\u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02, \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c38\u0c2e\u0c2f\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c41\u0c17\u0c41\u0c23\u0c02\u0c17\u0c3e, \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c2a\u0c30\u0c3f\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c17\u0c41\u0c23\u0c02\u0c17\u0c3e \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn how to test soil, understand soil nutrients, improve soil fertility, and use fertilizers properly.": "\u0c28\u0c47\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c02, \u0c28\u0c47\u0c32\u0c32\u0c4b\u0c28\u0c3f \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c05\u0c30\u0c4d\u0c25\u0c02 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02, \u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c41\u0c2a\u0c30\u0c1a\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c38\u0c30\u0c48\u0c28 \u0c35\u0c3f\u0c27\u0c02\u0c17\u0c3e \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn how to understand mandi prices, compare markets, choose the right time to sell, and improve selling decisions.": "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c28\u0c41 \u0c05\u0c30\u0c4d\u0c25\u0c02 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02, \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c2a\u0c4b\u0c32\u0c4d\u0c1a\u0c21\u0c02, \u0c38\u0c30\u0c48\u0c28 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c48\u0c28 \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f \u0c28\u0c3f\u0c30\u0c4d\u0c23\u0c2f\u0c3e\u0c32\u0c41 \u0c24\u0c40\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn livestock care, dairy management, animal nutrition, farm hygiene, and basic livestock record keeping.": "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c38\u0c02\u0c30\u0c15\u0c4d\u0c37\u0c23, \u0c21\u0c46\u0c2f\u0c3f\u0c30\u0c40 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23, \u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c2a\u0c4b\u0c37\u0c23, \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c4d \u0c2a\u0c30\u0c3f\u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c36\u0c41\u0c38\u0c02\u0c35\u0c30\u0c4d\u0c27\u0c15 \u0c30\u0c3f\u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn modern HTML, CSS, JavaScript, and React to build responsive web apps.": "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 HTML, CSS, JavaScript \u0c2e\u0c30\u0c3f\u0c2f\u0c41 React \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c35\u0c46\u0c2c\u0c4d \u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn modern farming practices, crop planning, farm management, and efficient use of agricultural resources.": "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c41, \u0c2a\u0c02\u0c1f \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15, \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c28\u0c30\u0c41\u0c32\u0c28\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c02\u0c17\u0c3e \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn modern farming techniques, agribusiness, and tech.": "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c38\u0c3e\u0c17\u0c41 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c41, \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c4d\u0c2f\u0c3e\u0c2a\u0c3e\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn organic farming practices, natural inputs, composting, crop rotation, and sustainable agriculture methods.": "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c41, \u0c38\u0c39\u0c1c \u0c35\u0c28\u0c30\u0c41\u0c32\u0c41, \u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c3f\u0c02\u0c17\u0c4d, \u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c41\u0c38\u0c4d\u0c25\u0c3f\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn post-harvest handling, grading, packaging, storage, food processing, and value addition.": "\u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23, \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c35\u0c30\u0c4d\u0c17\u0c40\u0c15\u0c30\u0c23, \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c47\u0c1c\u0c3f\u0c02\u0c17\u0c4d, \u0c28\u0c3f\u0c32\u0c4d\u0c35, \u0c06\u0c39\u0c3e\u0c30 \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c3f\u0c32\u0c41\u0c35 \u0c06\u0c27\u0c3e\u0c30\u0c3f\u0c24 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn practical farming skills, modern agricultural technologies, crop management, and sustainable farming practices.": "\u0c2a\u0c4d\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c28\u0c48\u0c2a\u0c41\u0c23\u0c4d\u0c2f\u0c3e\u0c32\u0c41, \u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24\u0c32\u0c41, \u0c2a\u0c02\u0c1f\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c41\u0c38\u0c4d\u0c25\u0c3f\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn precision farming techniques, drip irrigation, efficient fertilizer application, and resource management.": "\u0c16\u0c1a\u0c4d\u0c1a\u0c3f\u0c24\u0c2e\u0c48\u0c28 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c41, \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d \u0c07\u0c30\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d, \u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c2e\u0c48\u0c28 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c35\u0c3f\u0c28\u0c3f\u0c2f\u0c4b\u0c17\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c28\u0c30\u0c41\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learn soil testing, nutrient analysis, fertilizer recommendations, and soil health management.": "\u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c32\u0c41, \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c35\u0c3f\u0c36\u0c4d\u0c32\u0c47\u0c37\u0c23, \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c47\u0c32 \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Learning": "\u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38\u0c02",
-    "Learning Hub": "\u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02",
+    "Kharif sowing depends on early monsoon rain arrivals":
+      "\u0c16\u0c30\u0c40\u0c2b\u0c4d \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c21\u0c02 \u0c24\u0c4a\u0c32\u0c3f \u0c30\u0c41\u0c24\u0c41\u0c2a\u0c35\u0c28\u0c3e\u0c32 \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c32\u0c2a\u0c48 \u0c06\u0c27\u0c3e\u0c30\u0c2a\u0c21\u0c3f \u0c09\u0c02\u0c1f\u0c41\u0c02\u0c26\u0c3f",
+    "Kharif, Rabi, and Zaid Crop Cycles":
+      "\u0c16\u0c30\u0c40\u0c2b\u0c4d, \u0c30\u0c2c\u0c40 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c1c\u0c48\u0c26\u0c4d \u0c2a\u0c02\u0c1f \u0c1a\u0c15\u0c4d\u0c30\u0c3e\u0c32\u0c41",
+    "Kilogram (kg)":
+      "\u0c15\u0c3f\u0c32\u0c4b\u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c4d (\u0c15\u0c3f\u0c32\u0c4b)",
+    "Kisan Credit Card":
+      "\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c15\u0c4d\u0c30\u0c46\u0c21\u0c3f\u0c1f\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d",
+    "Kisan Credit Card (KCC)":
+      "\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c15\u0c4d\u0c30\u0c46\u0c21\u0c3f\u0c1f\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d (KCC)",
+    "Kisan Credit Card (KCC) Scheme":
+      "\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c15\u0c4d\u0c30\u0c46\u0c21\u0c3f\u0c1f\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d (KCC) \u0c2a\u0c25\u0c15\u0c02",
+    "Kisan Credit Card gives farmers flexible working capital credit for crop cultivation at concessional 4% interest rates (with prompt repayment interest subvention).":
+      "\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c15\u0c4d\u0c30\u0c46\u0c21\u0c3f\u0c1f\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c15\u0c47\u0c35\u0c32\u0c02 4% \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c35\u0c21\u0c4d\u0c21\u0c40\u0c15\u0c47 \u0c2a\u0c02\u0c1f \u0c30\u0c41\u0c23\u0c3e\u0c32\u0c41 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
+    "Krishna Agro Cold Preserving Unit":
+      "\u0c15\u0c43\u0c37\u0c4d\u0c23\u0c3e \u0c05\u0c17\u0c4d\u0c30\u0c4b \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c2a\u0c4d\u0c30\u0c3f\u0c1c\u0c30\u0c4d\u0c35\u0c3f\u0c02\u0c17\u0c4d \u0c2f\u0c42\u0c28\u0c3f\u0c1f\u0c4d",
+    "Kudali / Hoe 1.5 kg":
+      "\u0c24\u0c4a\u0c35\u0c4d\u0c35\u0c47 \u0c17\u0c41\u0c28\u0c2a\u0c02 / \u0c2a\u0c3e\u0c30 1.5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41",
+    "Land Preparation and Field Layout":
+      "\u0c28\u0c47\u0c32 \u0c24\u0c2f\u0c3e\u0c30\u0c40 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4a\u0c32\u0c02 \u0c32\u0c47\u0c05\u0c35\u0c41\u0c1f\u0c4d",
+    Language: "\u0c2d\u0c3e\u0c37",
+    "Lasalgaon Mandi":
+      "\u0c32\u0c38\u0c32\u0c4d\u200c\u0c17\u0c3e\u0c35\u0c4d \u0c2e\u0c02\u0c21\u0c40",
+    "Lasalgaon, Maharashtra":
+      "\u0c32\u0c38\u0c32\u0c4d\u200c\u0c17\u0c3e\u0c35\u0c4d, \u0c2e\u0c39\u0c3e\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30",
+    "Laser land levelling improves irrigation efficiency":
+      "\u0c32\u0c47\u0c1c\u0c30\u0c4d \u0c2a\u0c4a\u0c32\u0c02 \u0c32\u0c46\u0c35\u0c32\u0c3f\u0c02\u0c17\u0c4d \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c41\u0c2a\u0c30\u0c41\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    Learn: "\u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Learn More":
+      "\u0c2e\u0c30\u0c3f\u0c02\u0c24 \u0c24\u0c46\u0c32\u0c41\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Learn about important government schemes, financial support, crop insurance, farmer benefits, and eligibility.":
+      "\u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41, \u0c06\u0c30\u0c4d\u0c25\u0c3f\u0c15 \u0c38\u0c39\u0c3e\u0c2f\u0c02, \u0c2a\u0c02\u0c1f \u0c2c\u0c40\u0c2e\u0c3e, \u0c30\u0c48\u0c24\u0c41 \u0c2a\u0c4d\u0c30\u0c2f\u0c4b\u0c1c\u0c28\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c30\u0c4d\u0c39\u0c24 \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c24\u0c46\u0c32\u0c41\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn efficient irrigation methods, water conservation, drip irrigation, and proper watering schedules.":
+      "\u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c2e\u0c48\u0c28 \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c41, \u0c28\u0c40\u0c1f\u0c3f \u0c38\u0c02\u0c30\u0c15\u0c4d\u0c37\u0c23, \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d \u0c07\u0c30\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c30\u0c48\u0c28 \u0c28\u0c40\u0c1f\u0c3f \u0c37\u0c46\u0c21\u0c4d\u0c2f\u0c42\u0c32\u0c4d \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn farming practices that help farmers adapt to changing weather conditions and reduce climate-related risks.":
+      "\u0c2e\u0c3e\u0c30\u0c41\u0c24\u0c41\u0c28\u0c4d\u0c28 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c2a\u0c30\u0c3f\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c17\u0c41\u0c23\u0c02\u0c17\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c02\u0c2c\u0c02\u0c27\u0c3f\u0c24 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c02\u0c1a\u0c47 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn harvesting, grading, drying, storage, cold storage, and methods to reduce post-harvest losses.":
+      "\u0c15\u0c4b\u0c24, \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c35\u0c30\u0c4d\u0c17\u0c40\u0c15\u0c30\u0c23, \u0c0e\u0c02\u0c21\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c21\u0c02, \u0c28\u0c3f\u0c32\u0c4d\u0c35, \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c02\u0c1a\u0c47 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn how technology, sensors, drones, weather information, and digital tools can improve farm productivity.":
+      "\u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24, \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c30\u0c4d\u0c32\u0c41, \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u0c32\u0c41, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c38\u0c3e\u0c27\u0c28\u0c3e\u0c32\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c24\u0c4d\u0c2a\u0c3e\u0c26\u0c15\u0c24\u0c28\u0c41 \u0c0e\u0c32\u0c3e \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c41\u0c2a\u0c30\u0c41\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c4b \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn how to select crops, plan sowing schedules, and choose crops according to seasons and local conditions.":
+      "\u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02, \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c38\u0c2e\u0c2f\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c41\u0c17\u0c41\u0c23\u0c02\u0c17\u0c3e, \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c2a\u0c30\u0c3f\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c17\u0c41\u0c23\u0c02\u0c17\u0c3e \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn how to test soil, understand soil nutrients, improve soil fertility, and use fertilizers properly.":
+      "\u0c28\u0c47\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c02, \u0c28\u0c47\u0c32\u0c32\u0c4b\u0c28\u0c3f \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c05\u0c30\u0c4d\u0c25\u0c02 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02, \u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c41\u0c2a\u0c30\u0c1a\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c38\u0c30\u0c48\u0c28 \u0c35\u0c3f\u0c27\u0c02\u0c17\u0c3e \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn how to understand mandi prices, compare markets, choose the right time to sell, and improve selling decisions.":
+      "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c28\u0c41 \u0c05\u0c30\u0c4d\u0c25\u0c02 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02, \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c2a\u0c4b\u0c32\u0c4d\u0c1a\u0c21\u0c02, \u0c38\u0c30\u0c48\u0c28 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c48\u0c28 \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f \u0c28\u0c3f\u0c30\u0c4d\u0c23\u0c2f\u0c3e\u0c32\u0c41 \u0c24\u0c40\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn livestock care, dairy management, animal nutrition, farm hygiene, and basic livestock record keeping.":
+      "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c38\u0c02\u0c30\u0c15\u0c4d\u0c37\u0c23, \u0c21\u0c46\u0c2f\u0c3f\u0c30\u0c40 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23, \u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c2a\u0c4b\u0c37\u0c23, \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c4d \u0c2a\u0c30\u0c3f\u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c36\u0c41\u0c38\u0c02\u0c35\u0c30\u0c4d\u0c27\u0c15 \u0c30\u0c3f\u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn modern HTML, CSS, JavaScript, and React to build responsive web apps.":
+      "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 HTML, CSS, JavaScript \u0c2e\u0c30\u0c3f\u0c2f\u0c41 React \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c35\u0c46\u0c2c\u0c4d \u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn modern farming practices, crop planning, farm management, and efficient use of agricultural resources.":
+      "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c41, \u0c2a\u0c02\u0c1f \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15, \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c28\u0c30\u0c41\u0c32\u0c28\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c02\u0c17\u0c3e \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn modern farming techniques, agribusiness, and tech.":
+      "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c38\u0c3e\u0c17\u0c41 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c41, \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c4d\u0c2f\u0c3e\u0c2a\u0c3e\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn organic farming practices, natural inputs, composting, crop rotation, and sustainable agriculture methods.":
+      "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c41, \u0c38\u0c39\u0c1c \u0c35\u0c28\u0c30\u0c41\u0c32\u0c41, \u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c3f\u0c02\u0c17\u0c4d, \u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c41\u0c38\u0c4d\u0c25\u0c3f\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn post-harvest handling, grading, packaging, storage, food processing, and value addition.":
+      "\u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23, \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c35\u0c30\u0c4d\u0c17\u0c40\u0c15\u0c30\u0c23, \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c47\u0c1c\u0c3f\u0c02\u0c17\u0c4d, \u0c28\u0c3f\u0c32\u0c4d\u0c35, \u0c06\u0c39\u0c3e\u0c30 \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c3f\u0c32\u0c41\u0c35 \u0c06\u0c27\u0c3e\u0c30\u0c3f\u0c24 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn practical farming skills, modern agricultural technologies, crop management, and sustainable farming practices.":
+      "\u0c2a\u0c4d\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c28\u0c48\u0c2a\u0c41\u0c23\u0c4d\u0c2f\u0c3e\u0c32\u0c41, \u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24\u0c32\u0c41, \u0c2a\u0c02\u0c1f\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c41\u0c38\u0c4d\u0c25\u0c3f\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn precision farming techniques, drip irrigation, efficient fertilizer application, and resource management.":
+      "\u0c16\u0c1a\u0c4d\u0c1a\u0c3f\u0c24\u0c2e\u0c48\u0c28 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c41, \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d \u0c07\u0c30\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d, \u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c2e\u0c48\u0c28 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c35\u0c3f\u0c28\u0c3f\u0c2f\u0c4b\u0c17\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c28\u0c30\u0c41\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Learn soil testing, nutrient analysis, fertilizer recommendations, and soil health management.":
+      "\u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c32\u0c41, \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c35\u0c3f\u0c36\u0c4d\u0c32\u0c47\u0c37\u0c23, \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c47\u0c32 \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    Learning: "\u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38\u0c02",
+    "Learning Hub":
+      "\u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02",
     "Learning Time": "\u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38 \u0c38\u0c2e\u0c2f\u0c02",
-    "Legumes fix atmospheric nitrogen for subsequent cereal crops": "\u0c2a\u0c2a\u0c4d\u0c2a\u0c41\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c41 \u0c24\u0c26\u0c41\u0c2a\u0c30\u0c3f \u0c2a\u0c02\u0c1f\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c17\u0c3e\u0c32\u0c3f\u0c32\u0c4b\u0c28\u0c3f \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f\u0c28\u0c3f \u0c38\u0c4d\u0c25\u0c3f\u0c30\u0c40\u0c15\u0c30\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
-    "Lentil Seed IPL-406 (5 kg)": "\u0c2e\u0c48\u0c38\u0c42\u0c30\u0c4d \u0c2a\u0c2a\u0c4d\u0c2a\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 IPL-406 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Lesson": "\u0c2a\u0c3e\u0c20\u0c02",
-    "Level": "\u0c38\u0c4d\u0c25\u0c3e\u0c2f\u0c3f",
-    "Levelling field surfaces reduces seed loss during heavy rain and ensures uniform germination.": "\u0c2a\u0c4a\u0c32\u0c02 \u0c09\u0c2a\u0c30\u0c3f\u0c24\u0c32\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c38\u0c2e\u0c3e\u0c28\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c2d\u0c3e\u0c30\u0c40 \u0c35\u0c30\u0c4d\u0c37\u0c02\u0c32\u0c4b \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32 \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c24\u0c17\u0c4d\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c2e\u0c3e\u0c28\u0c02\u0c17\u0c3e \u0c2e\u0c4a\u0c32\u0c15\u0c46\u0c24\u0c4d\u0c24\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Light showers": "\u0c24\u0c47\u0c32\u0c3f\u0c15\u0c2a\u0c3e\u0c1f\u0c3f \u0c1c\u0c32\u0c4d\u0c32\u0c41\u0c32\u0c41",
-    "Line farm ponds with HDPE sheets to prevent seepage": "\u0c28\u0c40\u0c30\u0c41 \u0c07\u0c02\u0c15\u0c3f\u0c2a\u0c4b\u0c15\u0c41\u0c02\u0c21\u0c3e HDPE \u0c37\u0c40\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c1a\u0c02\u0c21\u0c3f",
-    "Liquid Consortia Biofertiliser (1 litre)": "\u0c26\u0c4d\u0c30\u0c35 \u0c1c\u0c40\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c3f\u0c36\u0c4d\u0c30\u0c2e\u0c02 (1 \u0c32\u0c40\u0c1f\u0c30\u0c41)",
-    "List New Produce": "\u0c15\u0c4a\u0c24\u0c4d\u0c24 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "List Your First Product": "\u0c2e\u0c40 \u0c2e\u0c4a\u0c26\u0c1f\u0c3f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Live Mandi Prices": "\u0c32\u0c48\u0c35\u0c4d \u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c41",
-    "Livestock": "\u0c2a\u0c36\u0c41\u0c38\u0c02\u0c35\u0c30\u0c4d\u0c27\u0c15",
-    "Livestock & Dairy Management Intern": "\u0c2a\u0c36\u0c41\u0c38\u0c02\u0c35\u0c30\u0c4d\u0c27\u0c15 & \u0c21\u0c46\u0c2f\u0c3f\u0c30\u0c40 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
-    "Livestock Insurance Support": "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c2c\u0c40\u0c2e\u0c3e \u0c2e\u0c26\u0c4d\u0c26\u0c24\u0c41",
-    "Livestock Management": "\u0c2a\u0c36\u0c41\u0c38\u0c02\u0c35\u0c30\u0c4d\u0c27\u0c15 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Legumes fix atmospheric nitrogen for subsequent cereal crops":
+      "\u0c2a\u0c2a\u0c4d\u0c2a\u0c41\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c41 \u0c24\u0c26\u0c41\u0c2a\u0c30\u0c3f \u0c2a\u0c02\u0c1f\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c17\u0c3e\u0c32\u0c3f\u0c32\u0c4b\u0c28\u0c3f \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f\u0c28\u0c3f \u0c38\u0c4d\u0c25\u0c3f\u0c30\u0c40\u0c15\u0c30\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
+    "Lentil Seed IPL-406 (5 kg)":
+      "\u0c2e\u0c48\u0c38\u0c42\u0c30\u0c4d \u0c2a\u0c2a\u0c4d\u0c2a\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 IPL-406 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    Lesson: "\u0c2a\u0c3e\u0c20\u0c02",
+    Level: "\u0c38\u0c4d\u0c25\u0c3e\u0c2f\u0c3f",
+    "Levelling field surfaces reduces seed loss during heavy rain and ensures uniform germination.":
+      "\u0c2a\u0c4a\u0c32\u0c02 \u0c09\u0c2a\u0c30\u0c3f\u0c24\u0c32\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c38\u0c2e\u0c3e\u0c28\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c2d\u0c3e\u0c30\u0c40 \u0c35\u0c30\u0c4d\u0c37\u0c02\u0c32\u0c4b \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32 \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c24\u0c17\u0c4d\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c2e\u0c3e\u0c28\u0c02\u0c17\u0c3e \u0c2e\u0c4a\u0c32\u0c15\u0c46\u0c24\u0c4d\u0c24\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Light showers":
+      "\u0c24\u0c47\u0c32\u0c3f\u0c15\u0c2a\u0c3e\u0c1f\u0c3f \u0c1c\u0c32\u0c4d\u0c32\u0c41\u0c32\u0c41",
+    "Line farm ponds with HDPE sheets to prevent seepage":
+      "\u0c28\u0c40\u0c30\u0c41 \u0c07\u0c02\u0c15\u0c3f\u0c2a\u0c4b\u0c15\u0c41\u0c02\u0c21\u0c3e HDPE \u0c37\u0c40\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c1a\u0c02\u0c21\u0c3f",
+    "Liquid Consortia Biofertiliser (1 litre)":
+      "\u0c26\u0c4d\u0c30\u0c35 \u0c1c\u0c40\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c3f\u0c36\u0c4d\u0c30\u0c2e\u0c02 (1 \u0c32\u0c40\u0c1f\u0c30\u0c41)",
+    "List New Produce":
+      "\u0c15\u0c4a\u0c24\u0c4d\u0c24 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "List Your First Product":
+      "\u0c2e\u0c40 \u0c2e\u0c4a\u0c26\u0c1f\u0c3f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Live Mandi Prices":
+      "\u0c32\u0c48\u0c35\u0c4d \u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c41",
+    Livestock: "\u0c2a\u0c36\u0c41\u0c38\u0c02\u0c35\u0c30\u0c4d\u0c27\u0c15",
+    "Livestock & Dairy Management Intern":
+      "\u0c2a\u0c36\u0c41\u0c38\u0c02\u0c35\u0c30\u0c4d\u0c27\u0c15 & \u0c21\u0c46\u0c2f\u0c3f\u0c30\u0c40 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
+    "Livestock Insurance Support":
+      "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c2c\u0c40\u0c2e\u0c3e \u0c2e\u0c26\u0c4d\u0c26\u0c24\u0c41",
+    "Livestock Management":
+      "\u0c2a\u0c36\u0c41\u0c38\u0c02\u0c35\u0c30\u0c4d\u0c27\u0c15 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
     "Loading...": "\u0c32\u0c4b\u0c21\u0c4d \u0c05\u0c35\u0c41\u0c24\u0c4b\u0c02\u0c26\u0c3f...",
-    "Local Area Hub": "\u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02",
-    "Location": "\u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02",
-    "Location (City, State)": "\u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02 (\u0c28\u0c17\u0c30\u0c02, \u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c02)",
-    "Logout": "\u0c32\u0c3e\u0c17\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d",
-    "Low-interest crop loans, interest subvention, and application requirements.": "\u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c35\u0c21\u0c4d\u0c21\u0c40\u0c15\u0c47 \u0c2a\u0c02\u0c1f \u0c30\u0c41\u0c23\u0c3e\u0c32\u0c41, \u0c35\u0c21\u0c4d\u0c21\u0c40 \u0c30\u0c3e\u0c2f\u0c3f\u0c24\u0c40 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c2a\u0c4d\u0c30\u0c15\u0c4d\u0c30\u0c3f\u0c2f.",
+    "Local Area Hub":
+      "\u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02",
+    Location: "\u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02",
+    "Location (City, State)":
+      "\u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02 (\u0c28\u0c17\u0c30\u0c02, \u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c02)",
+    Logout: "\u0c32\u0c3e\u0c17\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d",
+    "Low-interest crop loans, interest subvention, and application requirements.":
+      "\u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c35\u0c21\u0c4d\u0c21\u0c40\u0c15\u0c47 \u0c2a\u0c02\u0c1f \u0c30\u0c41\u0c23\u0c3e\u0c32\u0c41, \u0c35\u0c21\u0c4d\u0c21\u0c40 \u0c30\u0c3e\u0c2f\u0c3f\u0c24\u0c40 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c2a\u0c4d\u0c30\u0c15\u0c4d\u0c30\u0c3f\u0c2f.",
     "Ludhiana Mandi": "\u0c32\u0c41\u0c27\u0c3f\u0c2f\u0c3e\u0c28\u0c3e \u0c2e\u0c02\u0c21\u0c40",
-    "Ludhiana, Punjab": "\u0c32\u0c41\u0c27\u0c3f\u0c2f\u0c3e\u0c28\u0c3e, \u0c2a\u0c02\u0c1c\u0c3e\u0c2c\u0c4d",
-    "MOP Muriate of Potash (50 kg)": "\u0c0e\u0c02\u0c13\u0c2a\u0c3f \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c4d (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Maharashtra": "\u0c2e\u0c39\u0c3e\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30",
+    "Ludhiana, Punjab":
+      "\u0c32\u0c41\u0c27\u0c3f\u0c2f\u0c3e\u0c28\u0c3e, \u0c2a\u0c02\u0c1c\u0c3e\u0c2c\u0c4d",
+    "MOP Muriate of Potash (50 kg)":
+      "\u0c0e\u0c02\u0c13\u0c2a\u0c3f \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c4d (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    Maharashtra: "\u0c2e\u0c39\u0c3e\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30",
     "Main Navigation": "\u0c2e\u0c41\u0c16\u0c4d\u0c2f \u0c35\u0c3f\u0c2d\u0c3e\u0c17\u0c02",
-    "Maintain 1 meter gap between bag stacks and warehouse walls": "\u0c17\u0c4b\u0c21\u0c32\u0c15\u0c41 \u0c38\u0c02\u0c1a\u0c41\u0c32\u0c15\u0c41 \u0c2e\u0c27\u0c4d\u0c2f 1 \u0c2e\u0c40\u0c1f\u0c30\u0c41 \u0c16\u0c3e\u0c33\u0c40 \u0c09\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Maintain 60% moisture content in vermicompost pits": "\u0c35\u0c30\u0c4d\u0c2e\u0c40\u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d \u0c17\u0c4b\u0c24\u0c41\u0c32\u0c32\u0c4b 60% \u0c24\u0c47\u0c2e\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Maintain a 3-meter buffer zone along field borders to prevent chemical drift from neighboring farms.": "\u0c2a\u0c15\u0c4d\u0c15 \u0c2a\u0c4a\u0c32\u0c3e\u0c32 \u0c30\u0c38\u0c3e\u0c2f\u0c28\u0c3e\u0c32\u0c41 \u0c2a\u0c21\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c2a\u0c4a\u0c32\u0c02 \u0c38\u0c30\u0c3f\u0c39\u0c26\u0c4d\u0c26\u0c41\u0c32\u0c4d\u0c32\u0c4b 3 \u0c2e\u0c40\u0c1f\u0c30\u0c4d\u0c32 \u0c2c\u0c2b\u0c30\u0c4d \u0c1c\u0c4b\u0c28\u0c4d \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Maintain animal health logs, ear tagging records, and vaccination schedules": "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f \u0c30\u0c3f\u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32\u0c41, \u0c07\u0c2f\u0c30\u0c4d \u0c1f\u0c4d\u0c2f\u0c3e\u0c17\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c1f\u0c40\u0c15\u0c3e\u0c32 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c21\u0c02",
-    "Maintain detailed farm records of all organic inputs and harvests": "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c41\u0c32 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Maintain operating pressure at 1.0 to 1.5 kg/cm\u00b2 using pressure regulators": "\u0c28\u0c40\u0c1f\u0c3f \u0c12\u0c24\u0c4d\u0c24\u0c3f\u0c21\u0c3f\u0c28\u0c3f 1.0 \u0c28\u0c41\u0c02\u0c21\u0c3f 1.5 kg/cm\u00b2 \u0c2e\u0c27\u0c4d\u0c2f \u0c38\u0c4d\u0c25\u0c3f\u0c30\u0c02\u0c17\u0c3e \u0c09\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Maintain proper inter-row spacing to prevent light competition": "\u0c35\u0c46\u0c32\u0c41\u0c24\u0c41\u0c30\u0c41 \u0c2a\u0c4b\u0c1f\u0c40 \u0c32\u0c47\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c35\u0c30\u0c41\u0c38\u0c32 \u0c2e\u0c27\u0c4d\u0c2f \u0c38\u0c30\u0c48\u0c28 \u0c26\u0c42\u0c30\u0c02 \u0c2a\u0c3e\u0c1f\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Maintain proper seed spacing and depth for crop canopy": "\u0c2a\u0c02\u0c1f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32 \u0c2e\u0c27\u0c4d\u0c2f \u0c38\u0c30\u0c48\u0c28 \u0c26\u0c42\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c32\u0c4b\u0c24\u0c41\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Maintain relative humidity at 85-95% to prevent fruit shriveling": "\u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c41 \u0c2e\u0c41\u0c21\u0c24\u0c32\u0c41 \u0c2a\u0c21\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c09\u0c02\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f 85-95% \u0c24\u0c47\u0c2e\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Maintenance": "\u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23\u0c32\u0c4b \u0c09\u0c02\u0c26\u0c3f",
-    "Maize": "\u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c1c\u0c4a\u0c28\u0c4d\u0c28",
-    "Making Vermicompost & Panchagavya": "\u0c35\u0c30\u0c4d\u0c2e\u0c40\u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f \u0c24\u0c2f\u0c3e\u0c30\u0c40",
-    "Manage Products": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
-    "Manage shade net nurseries, seedling germination, and plant grafting": "\u0c28\u0c40\u0c21 \u0c35\u0c32 \u0c28\u0c30\u0c4d\u0c38\u0c30\u0c40\u0c32\u0c41, \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32 \u0c2e\u0c4a\u0c32\u0c15\u0c46\u0c24\u0c4d\u0c24\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c02\u0c1f\u0c41\u0c15\u0c1f\u0c4d\u0c1f\u0c21\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c21\u0c02",
-    "Manage your farm produce listings, update stock levels, and publish products to buyers across India.": "\u0c2e\u0c40 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c3f\u0c32\u0c4d\u0c35\u0c32\u0c28\u0c41 \u0c28\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Management": "\u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
-    "Management & Implementation": "\u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 & \u0c05\u0c2e\u0c32\u0c41",
-    "Managing fungal blights, rots, and mildew through preventive sprays.": "\u0c06\u0c15\u0c41\u0c2e\u0c1a\u0c4d\u0c1a, \u0c15\u0c41\u0c33\u0c4d\u0c33\u0c41 \u0c24\u0c46\u0c17\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c42\u0c1c\u0c41 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32 \u0c2e\u0c41\u0c02\u0c26\u0c38\u0c4d\u0c24\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23.",
-    "Mandi": "\u0c2e\u0c02\u0c21\u0c40",
+    "Maintain 1 meter gap between bag stacks and warehouse walls":
+      "\u0c17\u0c4b\u0c21\u0c32\u0c15\u0c41 \u0c38\u0c02\u0c1a\u0c41\u0c32\u0c15\u0c41 \u0c2e\u0c27\u0c4d\u0c2f 1 \u0c2e\u0c40\u0c1f\u0c30\u0c41 \u0c16\u0c3e\u0c33\u0c40 \u0c09\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Maintain 60% moisture content in vermicompost pits":
+      "\u0c35\u0c30\u0c4d\u0c2e\u0c40\u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d \u0c17\u0c4b\u0c24\u0c41\u0c32\u0c32\u0c4b 60% \u0c24\u0c47\u0c2e\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Maintain a 3-meter buffer zone along field borders to prevent chemical drift from neighboring farms.":
+      "\u0c2a\u0c15\u0c4d\u0c15 \u0c2a\u0c4a\u0c32\u0c3e\u0c32 \u0c30\u0c38\u0c3e\u0c2f\u0c28\u0c3e\u0c32\u0c41 \u0c2a\u0c21\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c2a\u0c4a\u0c32\u0c02 \u0c38\u0c30\u0c3f\u0c39\u0c26\u0c4d\u0c26\u0c41\u0c32\u0c4d\u0c32\u0c4b 3 \u0c2e\u0c40\u0c1f\u0c30\u0c4d\u0c32 \u0c2c\u0c2b\u0c30\u0c4d \u0c1c\u0c4b\u0c28\u0c4d \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Maintain animal health logs, ear tagging records, and vaccination schedules":
+      "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f \u0c30\u0c3f\u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32\u0c41, \u0c07\u0c2f\u0c30\u0c4d \u0c1f\u0c4d\u0c2f\u0c3e\u0c17\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c1f\u0c40\u0c15\u0c3e\u0c32 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c21\u0c02",
+    "Maintain detailed farm records of all organic inputs and harvests":
+      "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c41\u0c32 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Maintain operating pressure at 1.0 to 1.5 kg/cm\u00b2 using pressure regulators":
+      "\u0c28\u0c40\u0c1f\u0c3f \u0c12\u0c24\u0c4d\u0c24\u0c3f\u0c21\u0c3f\u0c28\u0c3f 1.0 \u0c28\u0c41\u0c02\u0c21\u0c3f 1.5 kg/cm\u00b2 \u0c2e\u0c27\u0c4d\u0c2f \u0c38\u0c4d\u0c25\u0c3f\u0c30\u0c02\u0c17\u0c3e \u0c09\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Maintain proper inter-row spacing to prevent light competition":
+      "\u0c35\u0c46\u0c32\u0c41\u0c24\u0c41\u0c30\u0c41 \u0c2a\u0c4b\u0c1f\u0c40 \u0c32\u0c47\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c35\u0c30\u0c41\u0c38\u0c32 \u0c2e\u0c27\u0c4d\u0c2f \u0c38\u0c30\u0c48\u0c28 \u0c26\u0c42\u0c30\u0c02 \u0c2a\u0c3e\u0c1f\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Maintain proper seed spacing and depth for crop canopy":
+      "\u0c2a\u0c02\u0c1f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32 \u0c2e\u0c27\u0c4d\u0c2f \u0c38\u0c30\u0c48\u0c28 \u0c26\u0c42\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c32\u0c4b\u0c24\u0c41\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Maintain relative humidity at 85-95% to prevent fruit shriveling":
+      "\u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c41 \u0c2e\u0c41\u0c21\u0c24\u0c32\u0c41 \u0c2a\u0c21\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c09\u0c02\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f 85-95% \u0c24\u0c47\u0c2e\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    Maintenance: "\u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23\u0c32\u0c4b \u0c09\u0c02\u0c26\u0c3f",
+    Maize: "\u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c1c\u0c4a\u0c28\u0c4d\u0c28",
+    "Making Vermicompost & Panchagavya":
+      "\u0c35\u0c30\u0c4d\u0c2e\u0c40\u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f \u0c24\u0c2f\u0c3e\u0c30\u0c40",
+    "Manage Products":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Manage shade net nurseries, seedling germination, and plant grafting":
+      "\u0c28\u0c40\u0c21 \u0c35\u0c32 \u0c28\u0c30\u0c4d\u0c38\u0c30\u0c40\u0c32\u0c41, \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32 \u0c2e\u0c4a\u0c32\u0c15\u0c46\u0c24\u0c4d\u0c24\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c02\u0c1f\u0c41\u0c15\u0c1f\u0c4d\u0c1f\u0c21\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c21\u0c02",
+    "Manage your farm produce listings, update stock levels, and publish products to buyers across India.":
+      "\u0c2e\u0c40 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c3f\u0c32\u0c4d\u0c35\u0c32\u0c28\u0c41 \u0c28\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    Management: "\u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Management & Implementation":
+      "\u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 & \u0c05\u0c2e\u0c32\u0c41",
+    "Managing fungal blights, rots, and mildew through preventive sprays.":
+      "\u0c06\u0c15\u0c41\u0c2e\u0c1a\u0c4d\u0c1a, \u0c15\u0c41\u0c33\u0c4d\u0c33\u0c41 \u0c24\u0c46\u0c17\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c42\u0c1c\u0c41 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32 \u0c2e\u0c41\u0c02\u0c26\u0c38\u0c4d\u0c24\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23.",
+    Mandi: "\u0c2e\u0c02\u0c21\u0c40",
     "Mandi / Market": "\u0c2e\u0c02\u0c21\u0c40 / \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d",
-    "Mandi Market Advisory": "\u0c2e\u0c02\u0c21\u0c40 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c05\u0c21\u0c4d\u0c35\u0c48\u0c1c\u0c30\u0c40",
-    "Mandi prices fluctuate daily based on total crop arrival volumes, quality grading, buyer competition, and transportation costs. Monitoring arrival trends helps farmers choose the best selling day.": "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c41 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c30\u0c3e\u0c2c\u0c21\u0c3f, \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41\u0c26\u0c3e\u0c30\u0c41\u0c32 \u0c2a\u0c4b\u0c1f\u0c40 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c30\u0c4b\u0c1c\u0c42 \u0c2e\u0c3e\u0c30\u0c24\u0c3e\u0c2f\u0c3f. \u0c08 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41 \u0c24\u0c46\u0c32\u0c3f\u0c38\u0c4d\u0c24\u0c47 \u0c2e\u0c02\u0c1a\u0c3f \u0c30\u0c4b\u0c1c\u0c41\u0c28 \u0c05\u0c2e\u0c4d\u0c2e\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
-    "Mango Grafted Plant Dasheri": "\u0c2e\u0c3e\u0c2e\u0c3f\u0c21\u0c3f \u0c05\u0c02\u0c1f\u0c41 \u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c26\u0c38\u0c47\u0c30\u0c40",
-    "Manual Knapsack Sprayer 16 L": "\u0c2e\u0c47\u0c28\u0c4d\u0c2f\u0c41\u0c35\u0c32\u0c4d \u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c47\u0c2f\u0c30\u0c4d 16 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41",
-    "Map farm plots using multispectral drone sensors": "\u0c2e\u0c32\u0c4d\u0c1f\u0c40\u0c38\u0c4d\u0c2a\u0c46\u0c15\u0c4d\u0c1f\u0c4d\u0c30\u0c32\u0c4d \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c3f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c15\u0c4d\u0c37\u0c47\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c2e\u0c4d\u0c2f\u0c3e\u0c2a\u0c3f\u0c02\u0c17\u0c4d \u0c1a\u0c47\u0c2f\u0c21\u0c02",
-    "Marigold Seed African Orange (50 g)": "\u0c2c\u0c02\u0c24\u0c3f\u0c2a\u0c42\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c06\u0c2b\u0c4d\u0c30\u0c3f\u0c15\u0c28\u0c4d \u0c06\u0c30\u0c02\u0c1c\u0c4d (50 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Mark as Complete": "\u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c2f\u0c3f\u0c28\u0c1f\u0c4d\u0c32\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c41\u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f",
+    "Mandi Market Advisory":
+      "\u0c2e\u0c02\u0c21\u0c40 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c05\u0c21\u0c4d\u0c35\u0c48\u0c1c\u0c30\u0c40",
+    "Mandi prices fluctuate daily based on total crop arrival volumes, quality grading, buyer competition, and transportation costs. Monitoring arrival trends helps farmers choose the best selling day.":
+      "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c41 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c30\u0c3e\u0c2c\u0c21\u0c3f, \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41\u0c26\u0c3e\u0c30\u0c41\u0c32 \u0c2a\u0c4b\u0c1f\u0c40 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c30\u0c4b\u0c1c\u0c42 \u0c2e\u0c3e\u0c30\u0c24\u0c3e\u0c2f\u0c3f. \u0c08 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41 \u0c24\u0c46\u0c32\u0c3f\u0c38\u0c4d\u0c24\u0c47 \u0c2e\u0c02\u0c1a\u0c3f \u0c30\u0c4b\u0c1c\u0c41\u0c28 \u0c05\u0c2e\u0c4d\u0c2e\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
+    "Mango Grafted Plant Dasheri":
+      "\u0c2e\u0c3e\u0c2e\u0c3f\u0c21\u0c3f \u0c05\u0c02\u0c1f\u0c41 \u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c26\u0c38\u0c47\u0c30\u0c40",
+    "Manual Knapsack Sprayer 16 L":
+      "\u0c2e\u0c47\u0c28\u0c4d\u0c2f\u0c41\u0c35\u0c32\u0c4d \u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c47\u0c2f\u0c30\u0c4d 16 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41",
+    "Map farm plots using multispectral drone sensors":
+      "\u0c2e\u0c32\u0c4d\u0c1f\u0c40\u0c38\u0c4d\u0c2a\u0c46\u0c15\u0c4d\u0c1f\u0c4d\u0c30\u0c32\u0c4d \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c3f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c15\u0c4d\u0c37\u0c47\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c2e\u0c4d\u0c2f\u0c3e\u0c2a\u0c3f\u0c02\u0c17\u0c4d \u0c1a\u0c47\u0c2f\u0c21\u0c02",
+    "Marigold Seed African Orange (50 g)":
+      "\u0c2c\u0c02\u0c24\u0c3f\u0c2a\u0c42\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c06\u0c2b\u0c4d\u0c30\u0c3f\u0c15\u0c28\u0c4d \u0c06\u0c30\u0c02\u0c1c\u0c4d (50 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Mark as Complete":
+      "\u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c2f\u0c3f\u0c28\u0c1f\u0c4d\u0c32\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c41\u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f",
     "Market Advisory": "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c38\u0c32\u0c39\u0c3e",
     "Market Prices": "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c41",
-    "Market Prices & Better Selling": "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c41 & \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c48\u0c28 \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3e\u0c32\u0c41",
-    "Market value of animal evaluated and certified by a registered Veterinary Assistant Surgeon at the time of insurance policy issuance.": "\u0c2c\u0c40\u0c2e\u0c3e \u0c2a\u0c3e\u0c32\u0c38\u0c40 \u0c1c\u0c3e\u0c30\u0c40 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c35\u0c46\u0c1f\u0c30\u0c4d\u0c28\u0c30\u0c40 \u0c38\u0c30\u0c4d\u0c1c\u0c28\u0c4d \u0c1a\u0c47\u0c24 \u0c28\u0c3f\u0c30\u0c4d\u0c23\u0c2f\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c1c\u0c02\u0c24\u0c41\u0c35\u0c41 \u0c35\u0c3f\u0c32\u0c41\u0c35.",
-    "Market value of insured animal after veterinary certification.": "\u0c35\u0c46\u0c1f\u0c30\u0c4d\u0c28\u0c30\u0c40 \u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c07\u0c28\u0c4d\u0c38\u0c42\u0c30\u0c4d \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c35\u0c3f\u0c32\u0c41\u0c35.",
-    "Marketplace": "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u0c2a\u0c4d\u0c32\u0c47\u0c38\u0c4d",
-    "Master Python fundamentals, object-oriented programming, and scripting.": "\u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d \u0c2a\u0c4d\u0c30\u0c3e\u0c25\u0c2e\u0c3f\u0c15\u0c3e\u0c02\u0c36\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4d\u0c30\u0c4b\u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c3f\u0c02\u0c17\u0c4d\u200c\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Max": "\u0c17\u0c30\u0c3f\u0c37\u0c4d\u0c1f \u0c2a\u0c30\u0c3f\u0c2e\u0c3f\u0c24\u0c3f",
+    "Market Prices & Better Selling":
+      "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c41 & \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c48\u0c28 \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3e\u0c32\u0c41",
+    "Market value of animal evaluated and certified by a registered Veterinary Assistant Surgeon at the time of insurance policy issuance.":
+      "\u0c2c\u0c40\u0c2e\u0c3e \u0c2a\u0c3e\u0c32\u0c38\u0c40 \u0c1c\u0c3e\u0c30\u0c40 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c35\u0c46\u0c1f\u0c30\u0c4d\u0c28\u0c30\u0c40 \u0c38\u0c30\u0c4d\u0c1c\u0c28\u0c4d \u0c1a\u0c47\u0c24 \u0c28\u0c3f\u0c30\u0c4d\u0c23\u0c2f\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c1c\u0c02\u0c24\u0c41\u0c35\u0c41 \u0c35\u0c3f\u0c32\u0c41\u0c35.",
+    "Market value of insured animal after veterinary certification.":
+      "\u0c35\u0c46\u0c1f\u0c30\u0c4d\u0c28\u0c30\u0c40 \u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c07\u0c28\u0c4d\u0c38\u0c42\u0c30\u0c4d \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c35\u0c3f\u0c32\u0c41\u0c35.",
+    Marketplace:
+      "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u0c2a\u0c4d\u0c32\u0c47\u0c38\u0c4d",
+    "Master Python fundamentals, object-oriented programming, and scripting.":
+      "\u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d \u0c2a\u0c4d\u0c30\u0c3e\u0c25\u0c2e\u0c3f\u0c15\u0c3e\u0c02\u0c36\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4d\u0c30\u0c4b\u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c3f\u0c02\u0c17\u0c4d\u200c\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    Max: "\u0c17\u0c30\u0c3f\u0c37\u0c4d\u0c1f \u0c2a\u0c30\u0c3f\u0c2e\u0c3f\u0c24\u0c3f",
     "Max Price": "\u0c17\u0c30\u0c3f\u0c37\u0c4d\u0c1f \u0c27\u0c30",
-    "Maximizing land efficiency by growing complementary crops together.": "\u0c12\u0c15\u0c47 \u0c2a\u0c4a\u0c32\u0c02\u0c32\u0c4b \u0c05\u0c28\u0c41\u0c15\u0c42\u0c32\u0c2e\u0c48\u0c28 \u0c05\u0c02\u0c24\u0c30 \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c2a\u0c46\u0c02\u0c1a\u0c21\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2d\u0c42\u0c2e\u0c3f \u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c17\u0c30\u0c3f\u0c37\u0c4d\u0c1f\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02.",
+    "Maximizing land efficiency by growing complementary crops together.":
+      "\u0c12\u0c15\u0c47 \u0c2a\u0c4a\u0c32\u0c02\u0c32\u0c4b \u0c05\u0c28\u0c41\u0c15\u0c42\u0c32\u0c2e\u0c48\u0c28 \u0c05\u0c02\u0c24\u0c30 \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c2a\u0c46\u0c02\u0c1a\u0c21\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2d\u0c42\u0c2e\u0c3f \u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c17\u0c30\u0c3f\u0c37\u0c4d\u0c1f\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02.",
     "Metric Ton": "\u0c2e\u0c46\u0c1f\u0c4d\u0c30\u0c3f\u0c15\u0c4d \u0c1f\u0c28\u0c4d\u0c28\u0c41",
-    "Micronutrient Mixture Grade-II (5 kg)": "\u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e\u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c2e\u0c3f\u0c36\u0c4d\u0c30\u0c2e\u0c02 \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c4d-II (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Milking Machine Single Bucket": "\u0c2a\u0c3e\u0c32\u0c41 \u0c2a\u0c3f\u0c24\u0c3f\u0c15\u0c47 \u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c02 \u0c38\u0c3f\u0c02\u0c17\u0c3f\u0c32\u0c4d \u0c2c\u0c15\u0c46\u0c1f\u0c4d",
-    "Millets consume 70% less water than paddy and survive high heat dry spells.": "\u0c1a\u0c3f\u0c30\u0c41\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c41 \u0c35\u0c30\u0c3f \u0c15\u0c02\u0c1f\u0c47 70% \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c24\u0c40\u0c38\u0c41\u0c15\u0c41\u0c02\u0c1f\u0c3e\u0c2f\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c30\u0c41\u0c35\u0c41\u0c28\u0c41 \u0c24\u0c1f\u0c4d\u0c1f\u0c41\u0c15\u0c41\u0c02\u0c1f\u0c3e\u0c2f\u0c3f.",
+    "Micronutrient Mixture Grade-II (5 kg)":
+      "\u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e\u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c2e\u0c3f\u0c36\u0c4d\u0c30\u0c2e\u0c02 \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c4d-II (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Milking Machine Single Bucket":
+      "\u0c2a\u0c3e\u0c32\u0c41 \u0c2a\u0c3f\u0c24\u0c3f\u0c15\u0c47 \u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c02 \u0c38\u0c3f\u0c02\u0c17\u0c3f\u0c32\u0c4d \u0c2c\u0c15\u0c46\u0c1f\u0c4d",
+    "Millets consume 70% less water than paddy and survive high heat dry spells.":
+      "\u0c1a\u0c3f\u0c30\u0c41\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c41 \u0c35\u0c30\u0c3f \u0c15\u0c02\u0c1f\u0c47 70% \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c24\u0c40\u0c38\u0c41\u0c15\u0c41\u0c02\u0c1f\u0c3e\u0c2f\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c30\u0c41\u0c35\u0c41\u0c28\u0c41 \u0c24\u0c1f\u0c4d\u0c1f\u0c41\u0c15\u0c41\u0c02\u0c1f\u0c3e\u0c2f\u0c3f.",
     "Min Price": "\u0c15\u0c28\u0c40\u0c38 \u0c27\u0c30",
-    "Min. 6 characters": "\u0c15\u0c28\u0c40\u0c38\u0c02 6 \u0c05\u0c15\u0c4d\u0c37\u0c30\u0c3e\u0c32\u0c41",
-    "Ministry of Agriculture": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2e\u0c02\u0c24\u0c4d\u0c30\u0c3f\u0c24\u0c4d\u0c35 \u0c36\u0c3e\u0c16",
-    "Mix 5 ml neem oil with 1 ml liquid soap per liter of spray water": "\u0c32\u0c40\u0c1f\u0c30\u0c41 \u0c28\u0c40\u0c1f\u0c3f\u0c15\u0c3f 5 \u0c2e\u0c3f.\u0c32\u0c40 \u0c35\u0c47\u0c2a \u0c28\u0c42\u0c28\u0c46 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 1 \u0c2e\u0c3f.\u0c32\u0c40 \u0c26\u0c4d\u0c30\u0c35 \u0c38\u0c2c\u0c4d\u0c2c\u0c41 \u0c15\u0c32\u0c3f\u0c2a\u0c3f \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Min. 6 characters":
+      "\u0c15\u0c28\u0c40\u0c38\u0c02 6 \u0c05\u0c15\u0c4d\u0c37\u0c30\u0c3e\u0c32\u0c41",
+    "Ministry of Agriculture":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2e\u0c02\u0c24\u0c4d\u0c30\u0c3f\u0c24\u0c4d\u0c35 \u0c36\u0c3e\u0c16",
+    "Mix 5 ml neem oil with 1 ml liquid soap per liter of spray water":
+      "\u0c32\u0c40\u0c1f\u0c30\u0c41 \u0c28\u0c40\u0c1f\u0c3f\u0c15\u0c3f 5 \u0c2e\u0c3f.\u0c32\u0c40 \u0c35\u0c47\u0c2a \u0c28\u0c42\u0c28\u0c46 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 1 \u0c2e\u0c3f.\u0c32\u0c40 \u0c26\u0c4d\u0c30\u0c35 \u0c38\u0c2c\u0c4d\u0c2c\u0c41 \u0c15\u0c32\u0c3f\u0c2a\u0c3f \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
     "Mobile Number": "\u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d \u0c28\u0c02\u0c2c\u0c30\u0c4d",
     "Modal Price": "\u0c38\u0c17\u0c1f\u0c41 \u0c27\u0c30",
-    "Modern Farming Basics": "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c4d\u0c30\u0c3e\u0c25\u0c2e\u0c3f\u0c15\u0c3e\u0c32\u0c41",
-    "Modern farm machinery helps farmers work smarter, faster and more efficiently.": "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c02\u0c24 \u0c24\u0c46\u0c32\u0c3f\u0c35\u0c3f\u0c17\u0c3e, \u0c35\u0c47\u0c17\u0c02\u0c17\u0c3e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c02\u0c17\u0c3e \u0c2a\u0c28\u0c3f\u0c1a\u0c47\u0c2f\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c24\u0c3e\u0c2f\u0c3f.",
-    "Modern farming combines traditional agricultural knowledge with scientific techniques such as soil testing, balanced fertilization, and mechanized tillage to maximize crop production while preserving land quality.": "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 \u0c38\u0c3e\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3e\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c1c\u0c4d\u0c1e\u0c3e\u0c28\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37, \u0c38\u0c2e\u0c24\u0c41\u0c32\u0c4d\u0c2f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c40\u0c15\u0c43\u0c24 \u0c26\u0c41\u0c15\u0c4d\u0c15\u0c3f \u0c35\u0c02\u0c1f\u0c3f \u0c35\u0c48\u0c1c\u0c4d\u0c1e\u0c3e\u0c28\u0c3f\u0c15 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c24\u0c4b \u0c2e\u0c3f\u0c33\u0c3f\u0c24\u0c02 \u0c1a\u0c47\u0c38\u0c3f \u0c2d\u0c42\u0c2e\u0c3f \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c41\u0c24\u0c42 \u0c2a\u0c02\u0c1f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c17\u0c30\u0c3f\u0c37\u0c4d\u0c1f\u0c02 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Moisture stress during flowering causes severe flower drop": "\u0c2a\u0c42\u0c24 \u0c26\u0c36\u0c32\u0c4b \u0c28\u0c40\u0c1f\u0c3f \u0c0e\u0c26\u0c4d\u0c26\u0c21\u0c3f \u0c35\u0c32\u0c4d\u0c32 \u0c2a\u0c41\u0c35\u0c4d\u0c35\u0c41\u0c32\u0c41 \u0c30\u0c3e\u0c32\u0c3f\u0c2a\u0c4b\u0c24\u0c3e\u0c2f\u0c3f",
-    "Mon": "\u0c38\u0c4b\u0c2e\u0c35\u0c3e\u0c30\u0c02",
-    "Monitor database health, oversee user profiles, and manage system operations.": "\u0c21\u0c47\u0c1f\u0c3e\u0c2c\u0c47\u0c38\u0c4d \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f\u0c28\u0c3f \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c3f\u0c38\u0c4d\u0c1f\u0c2e\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c2f\u0c15\u0c32\u0c3e\u0c2a\u0c3e\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Monitor drip fertigation schedules for polyhouse vegetable crops": "\u0c2a\u0c3e\u0c32\u0c3f\u0c39\u0c4c\u0c38\u0c4d \u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d \u0c2b\u0c46\u0c30\u0c4d\u0c1f\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d \u0c38\u0c2e\u0c2f\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c02",
-    "Monitor milking parlor hygiene, milk testing, and cold storage temperature": "\u0c2a\u0c3e\u0c32\u0c41 \u0c2a\u0c3f\u0c24\u0c3f\u0c15\u0c47 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32 \u0c2a\u0c30\u0c3f\u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24\u0c28\u0c41 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c02",
-    "Monoculture depletes specific soil nutrients and builds up soil-borne diseases. Rotating heavy-feeding cereal crops with nitrogen-fixing leguminous crops restores soil balance naturally.": "\u0c12\u0c15\u0c47 \u0c2a\u0c02\u0c1f\u0c28\u0c41 \u0c35\u0c30\u0c41\u0c38\u0c17\u0c3e \u0c35\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c28\u0c47\u0c32\u0c32\u0c4b \u0c28\u0c3f\u0c30\u0c4d\u0c26\u0c3f\u0c37\u0c4d\u0c1f \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c2a\u0c4b\u0c24\u0c3e\u0c2f\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32\u0c41 \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c3e\u0c2f\u0c3f. \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c2a\u0c41 \u0c2a\u0c48\u0c30\u0c4d\u0c32 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c2a\u0c2a\u0c4d\u0c2a\u0c41\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c28\u0c41 \u0c35\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c02 \u0c38\u0c39\u0c1c\u0c02\u0c17\u0c3e \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Modern Farming Basics":
+      "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c4d\u0c30\u0c3e\u0c25\u0c2e\u0c3f\u0c15\u0c3e\u0c32\u0c41",
+    "Modern farm machinery helps farmers work smarter, faster and more efficiently.":
+      "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c02\u0c24 \u0c24\u0c46\u0c32\u0c3f\u0c35\u0c3f\u0c17\u0c3e, \u0c35\u0c47\u0c17\u0c02\u0c17\u0c3e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c02\u0c17\u0c3e \u0c2a\u0c28\u0c3f\u0c1a\u0c47\u0c2f\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c24\u0c3e\u0c2f\u0c3f.",
+    "Modern farming combines traditional agricultural knowledge with scientific techniques such as soil testing, balanced fertilization, and mechanized tillage to maximize crop production while preserving land quality.":
+      "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 \u0c38\u0c3e\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3e\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c1c\u0c4d\u0c1e\u0c3e\u0c28\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37, \u0c38\u0c2e\u0c24\u0c41\u0c32\u0c4d\u0c2f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c40\u0c15\u0c43\u0c24 \u0c26\u0c41\u0c15\u0c4d\u0c15\u0c3f \u0c35\u0c02\u0c1f\u0c3f \u0c35\u0c48\u0c1c\u0c4d\u0c1e\u0c3e\u0c28\u0c3f\u0c15 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c24\u0c4b \u0c2e\u0c3f\u0c33\u0c3f\u0c24\u0c02 \u0c1a\u0c47\u0c38\u0c3f \u0c2d\u0c42\u0c2e\u0c3f \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c41\u0c24\u0c42 \u0c2a\u0c02\u0c1f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c17\u0c30\u0c3f\u0c37\u0c4d\u0c1f\u0c02 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Moisture stress during flowering causes severe flower drop":
+      "\u0c2a\u0c42\u0c24 \u0c26\u0c36\u0c32\u0c4b \u0c28\u0c40\u0c1f\u0c3f \u0c0e\u0c26\u0c4d\u0c26\u0c21\u0c3f \u0c35\u0c32\u0c4d\u0c32 \u0c2a\u0c41\u0c35\u0c4d\u0c35\u0c41\u0c32\u0c41 \u0c30\u0c3e\u0c32\u0c3f\u0c2a\u0c4b\u0c24\u0c3e\u0c2f\u0c3f",
+    Mon: "\u0c38\u0c4b\u0c2e\u0c35\u0c3e\u0c30\u0c02",
+    "Monitor database health, oversee user profiles, and manage system operations.":
+      "\u0c21\u0c47\u0c1f\u0c3e\u0c2c\u0c47\u0c38\u0c4d \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f\u0c28\u0c3f \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c3f\u0c38\u0c4d\u0c1f\u0c2e\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c2f\u0c15\u0c32\u0c3e\u0c2a\u0c3e\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Monitor drip fertigation schedules for polyhouse vegetable crops":
+      "\u0c2a\u0c3e\u0c32\u0c3f\u0c39\u0c4c\u0c38\u0c4d \u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d \u0c2b\u0c46\u0c30\u0c4d\u0c1f\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d \u0c38\u0c2e\u0c2f\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c02",
+    "Monitor milking parlor hygiene, milk testing, and cold storage temperature":
+      "\u0c2a\u0c3e\u0c32\u0c41 \u0c2a\u0c3f\u0c24\u0c3f\u0c15\u0c47 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32 \u0c2a\u0c30\u0c3f\u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24\u0c28\u0c41 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c02",
+    "Monoculture depletes specific soil nutrients and builds up soil-borne diseases. Rotating heavy-feeding cereal crops with nitrogen-fixing leguminous crops restores soil balance naturally.":
+      "\u0c12\u0c15\u0c47 \u0c2a\u0c02\u0c1f\u0c28\u0c41 \u0c35\u0c30\u0c41\u0c38\u0c17\u0c3e \u0c35\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c28\u0c47\u0c32\u0c32\u0c4b \u0c28\u0c3f\u0c30\u0c4d\u0c26\u0c3f\u0c37\u0c4d\u0c1f \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c2a\u0c4b\u0c24\u0c3e\u0c2f\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32\u0c41 \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c3e\u0c2f\u0c3f. \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c2a\u0c41 \u0c2a\u0c48\u0c30\u0c4d\u0c32 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c2a\u0c2a\u0c4d\u0c2a\u0c41\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c32\u0c28\u0c41 \u0c35\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c02 \u0c38\u0c39\u0c1c\u0c02\u0c17\u0c3e \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
     "More Information": "\u0c2e\u0c30\u0c3f\u0c02\u0c24 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02",
-    "Most Popular": "\u0c05\u0c24\u0c4d\u0c2f\u0c02\u0c24 \u0c2a\u0c4d\u0c30\u0c1c\u0c3e\u0c26\u0c30\u0c23",
-    "Mulch crop rows to conserve soil moisture and suppress weeds": "\u0c24\u0c47\u0c2e\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c47\u0c02\u0c26\u0c41\u0c15\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c32\u0c41\u0c2a\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23\u0c15\u0c41 \u0c06\u0c1a\u0c4d\u0c1b\u0c3e\u0c26\u0c28 (\u0c2e\u0c41\u0c32\u0c4d\u0c1a\u0c3f\u0c02\u0c17\u0c4d) \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Multispectral drone cameras identify stressed crop patches early": "\u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d \u0c15\u0c46\u0c2e\u0c46\u0c30\u0c3e\u0c32\u0c41 \u0c2a\u0c02\u0c1f\u0c32\u0c4d\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c38\u0c2e\u0c38\u0c4d\u0c2f\u0c32\u0c28\u0c41 \u0c2e\u0c41\u0c02\u0c26\u0c47 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
-    "Muskmelon Seed Hara Madhu (100 g)": "\u0c15\u0c30\u0c4d\u0c2c\u0c42\u0c1c \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c39\u0c30\u0c3e \u0c2e\u0c27\u0c41 (100 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Must report crop loss within 72 hours to insurance company or agri officer": "\u0c2a\u0c02\u0c1f \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c1c\u0c30\u0c3f\u0c17\u0c3f\u0c28 72 \u0c17\u0c02\u0c1f\u0c32\u0c4d\u0c32\u0c4b\u0c2a\u0c41 \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c3e\u0c32\u0c3f",
-    "Mustard": "\u0c06\u0c35\u0c3e\u0c32\u0c41",
-    "Mustard Seed Pusa Bold (2 kg)": "\u0c06\u0c35\u0c3e\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2a\u0c42\u0c38\u0c3e \u0c2c\u0c4b\u0c32\u0c4d\u0c21\u0c4d (2 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "My Applications": "\u0c28\u0c3e \u0c05\u0c2a\u0c4d\u0c32\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d\u0c32\u0c41",
-    "My Applications Status": "\u0c28\u0c3e \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41\u0c32 \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f",
+    "Most Popular":
+      "\u0c05\u0c24\u0c4d\u0c2f\u0c02\u0c24 \u0c2a\u0c4d\u0c30\u0c1c\u0c3e\u0c26\u0c30\u0c23",
+    "Mulch crop rows to conserve soil moisture and suppress weeds":
+      "\u0c24\u0c47\u0c2e\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c47\u0c02\u0c26\u0c41\u0c15\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c32\u0c41\u0c2a\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23\u0c15\u0c41 \u0c06\u0c1a\u0c4d\u0c1b\u0c3e\u0c26\u0c28 (\u0c2e\u0c41\u0c32\u0c4d\u0c1a\u0c3f\u0c02\u0c17\u0c4d) \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Multispectral drone cameras identify stressed crop patches early":
+      "\u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d \u0c15\u0c46\u0c2e\u0c46\u0c30\u0c3e\u0c32\u0c41 \u0c2a\u0c02\u0c1f\u0c32\u0c4d\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c38\u0c2e\u0c38\u0c4d\u0c2f\u0c32\u0c28\u0c41 \u0c2e\u0c41\u0c02\u0c26\u0c47 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
+    "Muskmelon Seed Hara Madhu (100 g)":
+      "\u0c15\u0c30\u0c4d\u0c2c\u0c42\u0c1c \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c39\u0c30\u0c3e \u0c2e\u0c27\u0c41 (100 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Must report crop loss within 72 hours to insurance company or agri officer":
+      "\u0c2a\u0c02\u0c1f \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c1c\u0c30\u0c3f\u0c17\u0c3f\u0c28 72 \u0c17\u0c02\u0c1f\u0c32\u0c4d\u0c32\u0c4b\u0c2a\u0c41 \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c3e\u0c32\u0c3f",
+    Mustard: "\u0c06\u0c35\u0c3e\u0c32\u0c41",
+    "Mustard Seed Pusa Bold (2 kg)":
+      "\u0c06\u0c35\u0c3e\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2a\u0c42\u0c38\u0c3e \u0c2c\u0c4b\u0c32\u0c4d\u0c21\u0c4d (2 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "My Applications":
+      "\u0c28\u0c3e \u0c05\u0c2a\u0c4d\u0c32\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d\u0c32\u0c41",
+    "My Applications Status":
+      "\u0c28\u0c3e \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41\u0c32 \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f",
     "My Cart": "\u0c28\u0c3e \u0c15\u0c3e\u0c30\u0c4d\u0c1f\u0c4d",
-    "My Certificates": "\u0c28\u0c3e \u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c1f\u0c4d\u0c32\u0c41",
+    "My Certificates":
+      "\u0c28\u0c3e \u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c1f\u0c4d\u0c32\u0c41",
     "My Courses": "\u0c28\u0c3e \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
-    "My Enrolled Courses": "\u0c28\u0c47\u0c28\u0c41 \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c41\u0c28\u0c4d\u0c28 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
-    "My Internship Applications": "\u0c28\u0c3e \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41\u0c32\u0c41",
-    "My Learning Courses": "\u0c28\u0c3e \u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
+    "My Enrolled Courses":
+      "\u0c28\u0c47\u0c28\u0c41 \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c41\u0c28\u0c4d\u0c28 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
+    "My Internship Applications":
+      "\u0c28\u0c3e \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41\u0c32\u0c41",
+    "My Learning Courses":
+      "\u0c28\u0c3e \u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
     "My Orders": "\u0c28\u0c3e \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u0c32\u0c41",
-    "My Products & Inventory": "\u0c28\u0c3e \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 & \u0c28\u0c3f\u0c32\u0c4d\u0c35\u0c32\u0c41",
-    "My Products (Sell)": "\u0c28\u0c3e \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 (\u0c05\u0c2e\u0c4d\u0c2e\u0c15\u0c02)",
-    "Mycorrhiza VAM Granules (4 kg)": "\u0c2e\u0c48\u0c15\u0c4b\u0c30\u0c48\u0c1c\u0c3e VAM \u0c17\u0c41\u0c33\u0c3f\u0c15\u0c32\u0c41 (4 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "NABARD and Banks": "\u0c28\u0c3e\u0c2c\u0c3e\u0c30\u0c4d\u0c21\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41\u0c32\u0c41",
-    "NDVI satellite imagery measures green vegetation health from space, helping farmers identify yield variations, nutrient shortages, and irrigation leaks.": "\u0c36\u0c3e\u0c1f\u0c3f\u0c32\u0c48\u0c1f\u0c4d \u0c07\u0c2e\u0c47\u0c1c\u0c30\u0c40 (NDVI) \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c05\u0c02\u0c24\u0c30\u0c3f\u0c15\u0c4d\u0c37\u0c02 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2a\u0c02\u0c1f \u0c2a\u0c1a\u0c4d\u0c1a\u0c26\u0c28\u0c3e\u0c28\u0c4d\u0c28\u0c3f, \u0c28\u0c40\u0c1f\u0c3f \u0c0e\u0c26\u0c4d\u0c26\u0c21\u0c3f\u0c28\u0c3f \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
-    "NDVI values near 0.8 indicate healthy, dense green crop canopy": "NDVI \u0c35\u0c3f\u0c32\u0c41\u0c35 0.8 \u0c09\u0c02\u0c1f\u0c47 \u0c2a\u0c02\u0c1f \u0c1a\u0c3e\u0c32\u0c3e \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c15\u0c30\u0c02\u0c17\u0c3e \u0c09\u0c28\u0c4d\u0c28\u0c1f\u0c4d\u0c32\u0c41 \u0c05\u0c30\u0c4d\u0c25\u0c02",
-    "NEXT-GEN AGRICULTURE": "\u0c24\u0c30\u0c41\u0c35\u0c3e\u0c24 \u0c24\u0c30\u0c02 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
-    "NPK 10:26:26 Complex (50 kg)": "\u0c0e\u0c28\u0c4d\u200c\u0c2a\u0c3f\u0c15\u0c3f 10:26:26 \u0c15\u0c3e\u0c02\u0c2a\u0c4d\u0c32\u0c46\u0c15\u0c4d\u0c38\u0c4d (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "NPK 20:20:0:13 (50 kg)": "\u0c0e\u0c28\u0c4d\u200c\u0c2a\u0c3f\u0c15\u0c3f 20:20:0:13 (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Nano DAP Liquid (500 ml)": "\u0c28\u0c3e\u0c28\u0c4b \u0c21\u0c3f\u0c0e\u0c2a\u0c3f \u0c26\u0c4d\u0c30\u0c35\u0c02 (500 \u0c2e\u0c3f.\u0c32\u0c40)",
-    "Nano Urea Liquid (500 ml)": "\u0c28\u0c3e\u0c28\u0c4b \u0c2f\u0c42\u0c30\u0c3f\u0c2f\u0c3e \u0c26\u0c4d\u0c30\u0c35\u0c02 (500 \u0c2e\u0c3f.\u0c32\u0c40)",
-    "Napier Grass Root Slips (100 slips)": "\u0c28\u0c47\u0c2a\u0c3f\u0c2f\u0c30\u0c4d \u0c17\u0c21\u0c4d\u0c21\u0c3f \u0c35\u0c47\u0c30\u0c4d\u0c32\u0c41 (100 \u0c2e\u0c41\u0c15\u0c4d\u0c15\u0c32\u0c41)",
-    "Natural Pest Control (Jeevamrutha & Neem Oil)": "\u0c38\u0c39\u0c1c \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23 (\u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 & \u0c35\u0c47\u0c2a \u0c28\u0c42\u0c28\u0c46)",
-    "Nearest Distance First": "\u0c38\u0c2e\u0c40\u0c2a \u0c26\u0c42\u0c30\u0c02 \u0c2e\u0c41\u0c02\u0c26\u0c41\u0c17\u0c3e",
+    "My Products & Inventory":
+      "\u0c28\u0c3e \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 & \u0c28\u0c3f\u0c32\u0c4d\u0c35\u0c32\u0c41",
+    "My Products (Sell)":
+      "\u0c28\u0c3e \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 (\u0c05\u0c2e\u0c4d\u0c2e\u0c15\u0c02)",
+    "Mycorrhiza VAM Granules (4 kg)":
+      "\u0c2e\u0c48\u0c15\u0c4b\u0c30\u0c48\u0c1c\u0c3e VAM \u0c17\u0c41\u0c33\u0c3f\u0c15\u0c32\u0c41 (4 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "NABARD and Banks":
+      "\u0c28\u0c3e\u0c2c\u0c3e\u0c30\u0c4d\u0c21\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41\u0c32\u0c41",
+    "NDVI satellite imagery measures green vegetation health from space, helping farmers identify yield variations, nutrient shortages, and irrigation leaks.":
+      "\u0c36\u0c3e\u0c1f\u0c3f\u0c32\u0c48\u0c1f\u0c4d \u0c07\u0c2e\u0c47\u0c1c\u0c30\u0c40 (NDVI) \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c05\u0c02\u0c24\u0c30\u0c3f\u0c15\u0c4d\u0c37\u0c02 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2a\u0c02\u0c1f \u0c2a\u0c1a\u0c4d\u0c1a\u0c26\u0c28\u0c3e\u0c28\u0c4d\u0c28\u0c3f, \u0c28\u0c40\u0c1f\u0c3f \u0c0e\u0c26\u0c4d\u0c26\u0c21\u0c3f\u0c28\u0c3f \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
+    "NDVI values near 0.8 indicate healthy, dense green crop canopy":
+      "NDVI \u0c35\u0c3f\u0c32\u0c41\u0c35 0.8 \u0c09\u0c02\u0c1f\u0c47 \u0c2a\u0c02\u0c1f \u0c1a\u0c3e\u0c32\u0c3e \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c15\u0c30\u0c02\u0c17\u0c3e \u0c09\u0c28\u0c4d\u0c28\u0c1f\u0c4d\u0c32\u0c41 \u0c05\u0c30\u0c4d\u0c25\u0c02",
+    "NEXT-GEN AGRICULTURE":
+      "\u0c24\u0c30\u0c41\u0c35\u0c3e\u0c24 \u0c24\u0c30\u0c02 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    "NPK 10:26:26 Complex (50 kg)":
+      "\u0c0e\u0c28\u0c4d\u200c\u0c2a\u0c3f\u0c15\u0c3f 10:26:26 \u0c15\u0c3e\u0c02\u0c2a\u0c4d\u0c32\u0c46\u0c15\u0c4d\u0c38\u0c4d (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "NPK 20:20:0:13 (50 kg)":
+      "\u0c0e\u0c28\u0c4d\u200c\u0c2a\u0c3f\u0c15\u0c3f 20:20:0:13 (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Nano DAP Liquid (500 ml)":
+      "\u0c28\u0c3e\u0c28\u0c4b \u0c21\u0c3f\u0c0e\u0c2a\u0c3f \u0c26\u0c4d\u0c30\u0c35\u0c02 (500 \u0c2e\u0c3f.\u0c32\u0c40)",
+    "Nano Urea Liquid (500 ml)":
+      "\u0c28\u0c3e\u0c28\u0c4b \u0c2f\u0c42\u0c30\u0c3f\u0c2f\u0c3e \u0c26\u0c4d\u0c30\u0c35\u0c02 (500 \u0c2e\u0c3f.\u0c32\u0c40)",
+    "Napier Grass Root Slips (100 slips)":
+      "\u0c28\u0c47\u0c2a\u0c3f\u0c2f\u0c30\u0c4d \u0c17\u0c21\u0c4d\u0c21\u0c3f \u0c35\u0c47\u0c30\u0c4d\u0c32\u0c41 (100 \u0c2e\u0c41\u0c15\u0c4d\u0c15\u0c32\u0c41)",
+    "Natural Pest Control (Jeevamrutha & Neem Oil)":
+      "\u0c38\u0c39\u0c1c \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23 (\u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 & \u0c35\u0c47\u0c2a \u0c28\u0c42\u0c28\u0c46)",
+    "Nearest Distance First":
+      "\u0c38\u0c2e\u0c40\u0c2a \u0c26\u0c42\u0c30\u0c02 \u0c2e\u0c41\u0c02\u0c26\u0c41\u0c17\u0c3e",
     "Need Help?": "\u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c15\u0c3e\u0c35\u0c3e\u0c32\u0c3e?",
-    "Neem Cake Powder (25 kg)": "\u0c35\u0c47\u0c2a \u0c2a\u0c3f\u0c02\u0c21\u0c3f \u0c2a\u0c4a\u0c21\u0c3f (25 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Never miss irrigation during the Crown Root Initiation stage (20-25 days after Wheat sowing).": "\u0c17\u0c4b\u0c27\u0c41\u0c2e \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c3f\u0c28 20-25 \u0c30\u0c4b\u0c1c\u0c41\u0c32\u0c15\u0c41 (CRI \u0c26\u0c36) \u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c21\u0c02 \u0c2e\u0c30\u0c35\u0c15\u0c02\u0c21\u0c3f.",
-    "Never mix damaged or decaying fruits/vegetables with healthy produce during packaging.": "\u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c3f\u0c02\u0c17\u0c4d \u0c1a\u0c47\u0c38\u0c47\u0c1f\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c2a\u0c3e\u0c21\u0c48\u0c28 \u0c15\u0c3e\u0c2f\u0c32\u0c28\u0c41 \u0c2e\u0c02\u0c1a\u0c3f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c24\u0c4b \u0c15\u0c32\u0c2a\u0c15\u0c02\u0c21\u0c3f.",
-    "Never spray pesticides against wind direction or during hot midday hours": "\u0c0e\u0c02\u0c21 \u0c24\u0c40\u0c35\u0c4d\u0c30\u0c24 \u0c09\u0c28\u0c4d\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c17\u0c3e\u0c32\u0c3f\u0c15\u0c3f \u0c0e\u0c26\u0c41\u0c30\u0c41\u0c17\u0c3e \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c35\u0c26\u0c4d\u0c26\u0c41",
-    "Next": "\u0c24\u0c26\u0c41\u0c2a\u0c30\u0c3f",
+    "Neem Cake Powder (25 kg)":
+      "\u0c35\u0c47\u0c2a \u0c2a\u0c3f\u0c02\u0c21\u0c3f \u0c2a\u0c4a\u0c21\u0c3f (25 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Never miss irrigation during the Crown Root Initiation stage (20-25 days after Wheat sowing).":
+      "\u0c17\u0c4b\u0c27\u0c41\u0c2e \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c3f\u0c28 20-25 \u0c30\u0c4b\u0c1c\u0c41\u0c32\u0c15\u0c41 (CRI \u0c26\u0c36) \u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c21\u0c02 \u0c2e\u0c30\u0c35\u0c15\u0c02\u0c21\u0c3f.",
+    "Never mix damaged or decaying fruits/vegetables with healthy produce during packaging.":
+      "\u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c3f\u0c02\u0c17\u0c4d \u0c1a\u0c47\u0c38\u0c47\u0c1f\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c2a\u0c3e\u0c21\u0c48\u0c28 \u0c15\u0c3e\u0c2f\u0c32\u0c28\u0c41 \u0c2e\u0c02\u0c1a\u0c3f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c24\u0c4b \u0c15\u0c32\u0c2a\u0c15\u0c02\u0c21\u0c3f.",
+    "Never spray pesticides against wind direction or during hot midday hours":
+      "\u0c0e\u0c02\u0c21 \u0c24\u0c40\u0c35\u0c4d\u0c30\u0c24 \u0c09\u0c28\u0c4d\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c17\u0c3e\u0c32\u0c3f\u0c15\u0c3f \u0c0e\u0c26\u0c41\u0c30\u0c41\u0c17\u0c3e \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c35\u0c26\u0c4d\u0c26\u0c41",
+    Next: "\u0c24\u0c26\u0c41\u0c2a\u0c30\u0c3f",
     "Next Lesson": "\u0c24\u0c30\u0c41\u0c35\u0c3e\u0c24\u0c3f \u0c2a\u0c3e\u0c20\u0c02",
-    "Nitrogen promotes vegetative leaf growth, Phosphorus boosts root development, and Potassium enhances crop disease resistance and grain filling. Split application of Nitrogen reduces leaching losses.": "\u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c06\u0c15\u0c41\u0c32 \u0c0e\u0c26\u0c41\u0c17\u0c41\u0c26\u0c32\u0c15\u0c41, \u0c2d\u0c3e\u0c38\u0c4d\u0c35\u0c30\u0c02 \u0c35\u0c47\u0c30\u0c4d\u0c32 \u0c05\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f\u0c15\u0c3f, \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32 \u0c28\u0c3f\u0c30\u0c4b\u0c27\u0c15\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c17\u0c3f\u0c02\u0c1c \u0c2a\u0c15\u0c4d\u0c35\u0c24\u0c15\u0c41 \u0c24\u0c4b\u0c21\u0c4d\u0c2a\u0c21\u0c24\u0c3e\u0c2f\u0c3f. \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f\u0c28\u0c3f \u0c35\u0c3f\u0c21\u0c24\u0c32 \u0c35\u0c3e\u0c30\u0c40\u0c17\u0c3e \u0c35\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c02 \u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c28\u0c3f\u0c30\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
-    "No Individual Loss Assessment": "\u0c35\u0c4d\u0c2f\u0c15\u0c4d\u0c24\u0c3f\u0c17\u0c24 \u0c28\u0c37\u0c4d\u0c1f \u0c05\u0c02\u0c1a\u0c28\u0c3e \u0c32\u0c47\u0c26\u0c41",
-    "No collateral required for crop loans up to Rs. 1.6 Lakh": "\u0c30\u0c42. 1.6 \u0c32\u0c15\u0c4d\u0c37\u0c32 \u0c35\u0c30\u0c15\u0c41 \u0c0e\u0c32\u0c3e\u0c02\u0c1f\u0c3f \u0c37\u0c42\u0c30\u0c3f\u0c1f\u0c40 \u0c05\u0c35\u0c38\u0c30\u0c02 \u0c32\u0c47\u0c26\u0c41",
-    "No matching market prices found. Try adjusting your search or filters.": "\u0c0e\u0c32\u0c3e\u0c02\u0c1f\u0c3f \u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c32\u0c47\u0c26\u0c41. \u0c36\u0c4b\u0c27\u0c28\u0c28\u0c41 \u0c2e\u0c3e\u0c30\u0c4d\u0c1a\u0c02\u0c21\u0c3f.",
-    "No matching products": "\u0c0f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c32\u0c47\u0c26\u0c41",
-    "No online payment is processed today. Pay cash or UPI upon crop inspection & delivery.": "\u0c06\u0c28\u0c4d\u200c\u0c32\u0c48\u0c28\u0c4d \u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41 \u0c32\u0c47\u0c26\u0c41. \u0c2a\u0c02\u0c1f \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c28 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c38\u0c2e\u0c2f\u0c2e\u0c41\u0c32\u0c4b \u0c28\u0c17\u0c26\u0c41 \u0c32\u0c47\u0c26\u0c3e UPI \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "No products listed yet.": "\u0c07\u0c02\u0c15\u0c3e \u0c0f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c32\u0c47\u0c26\u0c41.",
-    "No received orders yet.": "\u0c07\u0c02\u0c15\u0c3e \u0c0e\u0c32\u0c3e\u0c02\u0c1f\u0c3f \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u200c\u0c32\u0c41 \u0c30\u0c3e\u0c32\u0c47\u0c26\u0c41.",
-    "Notifications": "\u0c28\u0c4b\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d\u0c32\u0c41",
-    "Notified crops including Paddy, Wheat, Cotton, Maize, Mustard, Pulses, Commercial, and Horticultural crops notified by state governments.": "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30 \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35\u0c3e\u0c32\u0c41 \u0c28\u0c4b\u0c1f\u0c3f\u0c2b\u0c48 \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c35\u0c30\u0c3f, \u0c17\u0c4b\u0c27\u0c41\u0c2e\u0c32\u0c41, \u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c24\u0c3f, \u0c1c\u0c4a\u0c28\u0c4d\u0c28\u0c32\u0c41 \u0c2e\u0c4a\u0c26\u0c32\u0c48\u0c28 \u0c2a\u0c02\u0c1f\u0c32\u0c41.",
-    "Nourish Your Soil, Grow Better": "\u0c28\u0c47\u0c32\u0c28\u0c41 \u0c2a\u0c4b\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f, \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c48\u0c28 \u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c3f \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f",
-    "Nursery Management": "\u0c28\u0c30\u0c4d\u0c38\u0c30\u0c40 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
-    "Nutrient Management": "\u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
-    "Obtain basic FSSAI registration for selling packaged processed foods": "\u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3e\u0c28\u0c3f\u0c15\u0c3f FSSAI \u0c30\u0c3f\u0c1c\u0c3f\u0c38\u0c4d\u0c1f\u0c4d\u0c30\u0c47\u0c37\u0c28\u0c4d \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f",
-    "Oilseeds": "\u0c28\u0c42\u0c28\u0c46\u0c17\u0c3f\u0c02\u0c1c\u0c32\u0c41",
-    "Okra Seed Arka Anamika (250 g)": "\u0c2c\u0c46\u0c02\u0c21\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c05\u0c30\u0c4d\u0c15\u0c3e \u0c05\u0c28\u0c3e\u0c2e\u0c3f\u0c15 (250 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Onion": "\u0c09\u0c32\u0c4d\u0c32\u0c3f\u0c2a\u0c3e\u0c2f",
-    "Onion Seed Agrifound Dark Red (50 g)": "\u0c09\u0c32\u0c4d\u0c32\u0c3f\u0c2a\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c2b\u0c4c\u0c02\u0c21\u0c4d \u0c21\u0c3e\u0c30\u0c4d\u0c15\u0c4d \u0c30\u0c46\u0c21\u0c4d (50 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Online Now": "\u0c06\u0c28\u0c4d\u200c\u0c32\u0c48\u0c28\u0c4d\u200c\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28\u0c3e\u0c30\u0c41",
-    "Open Enrollment": "\u0c0e\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c48\u0c28\u0c3e \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c2f\u0c35\u0c1a\u0c4d\u0c1a\u0c41",
-    "Open enrollment": "\u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c02\u0c32\u0c4b \u0c09\u0c02\u0c26\u0c3f",
-    "Open through banks": "\u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c1a\u0c4d\u0c1a\u0c41",
-    "Operate drip systems early in the morning to maintain optimal hydraulic pressure across laterals.": "\u0c38\u0c30\u0c48\u0c28 \u0c28\u0c40\u0c1f\u0c3f \u0c12\u0c24\u0c4d\u0c24\u0c3f\u0c21\u0c3f \u0c09\u0c02\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c09\u0c26\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c47 \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d \u0c38\u0c3f\u0c38\u0c4d\u0c1f\u0c2e\u0c4d\u200c\u0c28\u0c41 \u0c28\u0c21\u0c2a\u0c02\u0c21\u0c3f.",
-    "Operate sorting, grading, and vacuum packaging machinery for produce": "\u0c38\u0c3e\u0c30\u0c4d\u0c1f\u0c3f\u0c02\u0c17\u0c4d, \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c3e\u0c15\u0c4d\u0c2f\u0c42\u0c2e\u0c4d \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c47\u0c1c\u0c3f\u0c02\u0c17\u0c4d \u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c28\u0c21\u0c2a\u0c21\u0c02",
-    "Oranges": "\u0c28\u0c3e\u0c30\u0c3f\u0c02\u0c1c \u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c41",
-    "Order Console": "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c15\u0c28\u0c4d\u0c38\u0c4b\u0c32\u0c4d",
+    "Nitrogen promotes vegetative leaf growth, Phosphorus boosts root development, and Potassium enhances crop disease resistance and grain filling. Split application of Nitrogen reduces leaching losses.":
+      "\u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c06\u0c15\u0c41\u0c32 \u0c0e\u0c26\u0c41\u0c17\u0c41\u0c26\u0c32\u0c15\u0c41, \u0c2d\u0c3e\u0c38\u0c4d\u0c35\u0c30\u0c02 \u0c35\u0c47\u0c30\u0c4d\u0c32 \u0c05\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f\u0c15\u0c3f, \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32 \u0c28\u0c3f\u0c30\u0c4b\u0c27\u0c15\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c17\u0c3f\u0c02\u0c1c \u0c2a\u0c15\u0c4d\u0c35\u0c24\u0c15\u0c41 \u0c24\u0c4b\u0c21\u0c4d\u0c2a\u0c21\u0c24\u0c3e\u0c2f\u0c3f. \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f\u0c28\u0c3f \u0c35\u0c3f\u0c21\u0c24\u0c32 \u0c35\u0c3e\u0c30\u0c40\u0c17\u0c3e \u0c35\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c02 \u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c28\u0c3f\u0c30\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
+    "No Individual Loss Assessment":
+      "\u0c35\u0c4d\u0c2f\u0c15\u0c4d\u0c24\u0c3f\u0c17\u0c24 \u0c28\u0c37\u0c4d\u0c1f \u0c05\u0c02\u0c1a\u0c28\u0c3e \u0c32\u0c47\u0c26\u0c41",
+    "No collateral required for crop loans up to Rs. 1.6 Lakh":
+      "\u0c30\u0c42. 1.6 \u0c32\u0c15\u0c4d\u0c37\u0c32 \u0c35\u0c30\u0c15\u0c41 \u0c0e\u0c32\u0c3e\u0c02\u0c1f\u0c3f \u0c37\u0c42\u0c30\u0c3f\u0c1f\u0c40 \u0c05\u0c35\u0c38\u0c30\u0c02 \u0c32\u0c47\u0c26\u0c41",
+    "No matching market prices found. Try adjusting your search or filters.":
+      "\u0c0e\u0c32\u0c3e\u0c02\u0c1f\u0c3f \u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c32\u0c47\u0c26\u0c41. \u0c36\u0c4b\u0c27\u0c28\u0c28\u0c41 \u0c2e\u0c3e\u0c30\u0c4d\u0c1a\u0c02\u0c21\u0c3f.",
+    "No matching products":
+      "\u0c0f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c32\u0c47\u0c26\u0c41",
+    "No online payment is processed today. Pay cash or UPI upon crop inspection & delivery.":
+      "\u0c06\u0c28\u0c4d\u200c\u0c32\u0c48\u0c28\u0c4d \u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41 \u0c32\u0c47\u0c26\u0c41. \u0c2a\u0c02\u0c1f \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c28 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c38\u0c2e\u0c2f\u0c2e\u0c41\u0c32\u0c4b \u0c28\u0c17\u0c26\u0c41 \u0c32\u0c47\u0c26\u0c3e UPI \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "No products listed yet.":
+      "\u0c07\u0c02\u0c15\u0c3e \u0c0f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c32\u0c47\u0c26\u0c41.",
+    "No received orders yet.":
+      "\u0c07\u0c02\u0c15\u0c3e \u0c0e\u0c32\u0c3e\u0c02\u0c1f\u0c3f \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u200c\u0c32\u0c41 \u0c30\u0c3e\u0c32\u0c47\u0c26\u0c41.",
+    Notifications: "\u0c28\u0c4b\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d\u0c32\u0c41",
+    "Notified crops including Paddy, Wheat, Cotton, Maize, Mustard, Pulses, Commercial, and Horticultural crops notified by state governments.":
+      "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30 \u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35\u0c3e\u0c32\u0c41 \u0c28\u0c4b\u0c1f\u0c3f\u0c2b\u0c48 \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c35\u0c30\u0c3f, \u0c17\u0c4b\u0c27\u0c41\u0c2e\u0c32\u0c41, \u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c24\u0c3f, \u0c1c\u0c4a\u0c28\u0c4d\u0c28\u0c32\u0c41 \u0c2e\u0c4a\u0c26\u0c32\u0c48\u0c28 \u0c2a\u0c02\u0c1f\u0c32\u0c41.",
+    "Nourish Your Soil, Grow Better":
+      "\u0c28\u0c47\u0c32\u0c28\u0c41 \u0c2a\u0c4b\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f, \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c48\u0c28 \u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c3f \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f",
+    "Nursery Management":
+      "\u0c28\u0c30\u0c4d\u0c38\u0c30\u0c40 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Nutrient Management":
+      "\u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Obtain basic FSSAI registration for selling packaged processed foods":
+      "\u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3e\u0c28\u0c3f\u0c15\u0c3f FSSAI \u0c30\u0c3f\u0c1c\u0c3f\u0c38\u0c4d\u0c1f\u0c4d\u0c30\u0c47\u0c37\u0c28\u0c4d \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f",
+    Oilseeds: "\u0c28\u0c42\u0c28\u0c46\u0c17\u0c3f\u0c02\u0c1c\u0c32\u0c41",
+    "Okra Seed Arka Anamika (250 g)":
+      "\u0c2c\u0c46\u0c02\u0c21\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c05\u0c30\u0c4d\u0c15\u0c3e \u0c05\u0c28\u0c3e\u0c2e\u0c3f\u0c15 (250 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    Onion: "\u0c09\u0c32\u0c4d\u0c32\u0c3f\u0c2a\u0c3e\u0c2f",
+    "Onion Seed Agrifound Dark Red (50 g)":
+      "\u0c09\u0c32\u0c4d\u0c32\u0c3f\u0c2a\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c2b\u0c4c\u0c02\u0c21\u0c4d \u0c21\u0c3e\u0c30\u0c4d\u0c15\u0c4d \u0c30\u0c46\u0c21\u0c4d (50 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Online Now":
+      "\u0c06\u0c28\u0c4d\u200c\u0c32\u0c48\u0c28\u0c4d\u200c\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28\u0c3e\u0c30\u0c41",
+    "Open Enrollment":
+      "\u0c0e\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c48\u0c28\u0c3e \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c2f\u0c35\u0c1a\u0c4d\u0c1a\u0c41",
+    "Open enrollment":
+      "\u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c02\u0c32\u0c4b \u0c09\u0c02\u0c26\u0c3f",
+    "Open through banks":
+      "\u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c1a\u0c4d\u0c1a\u0c41",
+    "Operate drip systems early in the morning to maintain optimal hydraulic pressure across laterals.":
+      "\u0c38\u0c30\u0c48\u0c28 \u0c28\u0c40\u0c1f\u0c3f \u0c12\u0c24\u0c4d\u0c24\u0c3f\u0c21\u0c3f \u0c09\u0c02\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c09\u0c26\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c47 \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d \u0c38\u0c3f\u0c38\u0c4d\u0c1f\u0c2e\u0c4d\u200c\u0c28\u0c41 \u0c28\u0c21\u0c2a\u0c02\u0c21\u0c3f.",
+    "Operate sorting, grading, and vacuum packaging machinery for produce":
+      "\u0c38\u0c3e\u0c30\u0c4d\u0c1f\u0c3f\u0c02\u0c17\u0c4d, \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c3e\u0c15\u0c4d\u0c2f\u0c42\u0c2e\u0c4d \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c47\u0c1c\u0c3f\u0c02\u0c17\u0c4d \u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c28\u0c21\u0c2a\u0c21\u0c02",
+    Oranges: "\u0c28\u0c3e\u0c30\u0c3f\u0c02\u0c1c \u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c41",
+    "Order Console":
+      "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c15\u0c28\u0c4d\u0c38\u0c4b\u0c32\u0c4d",
     "Order Date": "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c24\u0c47\u0c26\u0c40",
     "Order ID": "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c10\u0c21\u0c3f",
-    "Order Notes (Optional)": "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c17\u0c2e\u0c28\u0c3f\u0c15\u0c32\u0c41 (\u0c10\u0c1a\u0c4d\u0c1b\u0c3f\u0c15\u0c02)",
-    "Order PF-2048 dispatched": "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d PF-2048 \u0c2a\u0c02\u0c2a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
-    "Order Successful": "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c35\u0c3f\u0c1c\u0c2f\u0c35\u0c02\u0c24\u0c2e\u0c48\u0c02\u0c26\u0c3f",
+    "Order Notes (Optional)":
+      "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c17\u0c2e\u0c28\u0c3f\u0c15\u0c32\u0c41 (\u0c10\u0c1a\u0c4d\u0c1b\u0c3f\u0c15\u0c02)",
+    "Order PF-2048 dispatched":
+      "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d PF-2048 \u0c2a\u0c02\u0c2a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
+    "Order Successful":
+      "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c35\u0c3f\u0c1c\u0c2f\u0c35\u0c02\u0c24\u0c2e\u0c48\u0c02\u0c26\u0c3f",
     "Order Total": "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02",
-    "Organic & Sustainable Farming": "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f & \u0c38\u0c41\u0c38\u0c4d\u0c25\u0c3f\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
-    "Organic Farming": "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
-    "Organic Farming Forum": "\u0c06\u0c30\u0c4d\u0c17\u0c3e\u0c28\u0c3f\u0c15\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c17\u0c4d \u0c2b\u0c4b\u0c30\u0c2e\u0c4d",
-    "Organic Farming Intern": "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
-    "Organic Manures and Bio-fertilizers": "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c1c\u0c40\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41",
-    "Organic farming avoids synthetic chemical fertilizers and toxic pesticides, relying instead on natural crop rotation, organic manures, and biological pest control to grow healthy, chemical-free food.": "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 \u0c30\u0c38\u0c3e\u0c2f\u0c28 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41, \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41 \u0c2e\u0c02\u0c26\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c30\u0c4d\u0c1c\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c07\u0c26\u0c3f \u0c38\u0c39\u0c1c \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c1c\u0c40\u0c35 \u0c28\u0c3f\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c23\u0c2a\u0c48 \u0c06\u0c27\u0c3e\u0c30\u0c2a\u0c21\u0c3f \u0c30\u0c38\u0c3e\u0c2f\u0c28\u0c3e\u0c32\u0c41 \u0c32\u0c47\u0c28\u0c3f \u0c06\u0c39\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c05\u0c02\u0c26\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Organic manures increase soil organic carbon, improve water holding capacity, and stimulate beneficial soil microbes. Bio-fertilizers convert atmospheric nitrogen into plant-absorbable forms.": "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c28\u0c47\u0c32\u0c32\u0c4b \u0c2c\u0c4a\u0c17\u0c4d\u0c17\u0c41 \u0c36\u0c3e\u0c24\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c1a\u0c41\u0c24\u0c3e\u0c2f\u0c3f, \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c2a\u0c1f\u0c4d\u0c1f\u0c3f \u0c09\u0c02\u0c1a\u0c47 \u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c41\u0c2a\u0c30\u0c41\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c47\u0c32\u0c41 \u0c1a\u0c47\u0c38\u0c47 \u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e\u0c1c\u0c40\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
-    "Organic residue mulch retains soil moisture during hot winds": "\u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3e\u0c32 \u0c2a\u0c4a\u0c30 \u0c28\u0c47\u0c32 \u0c24\u0c47\u0c2e\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Organize village-level farmer awareness workshops and training camps": "\u0c17\u0c4d\u0c30\u0c3e\u0c2e \u0c38\u0c4d\u0c25\u0c3e\u0c2f\u0c3f\u0c32\u0c4b \u0c30\u0c48\u0c24\u0c41\u0c32 \u0c05\u0c35\u0c17\u0c3e\u0c39\u0c28 \u0c38\u0c26\u0c38\u0c4d\u0c38\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c36\u0c3f\u0c15\u0c4d\u0c37\u0c23\u0c3e \u0c36\u0c3f\u0c2c\u0c3f\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c21\u0c02",
+    "Organic & Sustainable Farming":
+      "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f & \u0c38\u0c41\u0c38\u0c4d\u0c25\u0c3f\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    "Organic Farming":
+      "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    "Organic Farming Forum":
+      "\u0c06\u0c30\u0c4d\u0c17\u0c3e\u0c28\u0c3f\u0c15\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c17\u0c4d \u0c2b\u0c4b\u0c30\u0c2e\u0c4d",
+    "Organic Farming Intern":
+      "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
+    "Organic Manures and Bio-fertilizers":
+      "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c1c\u0c40\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41",
+    "Organic farming avoids synthetic chemical fertilizers and toxic pesticides, relying instead on natural crop rotation, organic manures, and biological pest control to grow healthy, chemical-free food.":
+      "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 \u0c30\u0c38\u0c3e\u0c2f\u0c28 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41, \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41 \u0c2e\u0c02\u0c26\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c30\u0c4d\u0c1c\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c07\u0c26\u0c3f \u0c38\u0c39\u0c1c \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c1c\u0c40\u0c35 \u0c28\u0c3f\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c23\u0c2a\u0c48 \u0c06\u0c27\u0c3e\u0c30\u0c2a\u0c21\u0c3f \u0c30\u0c38\u0c3e\u0c2f\u0c28\u0c3e\u0c32\u0c41 \u0c32\u0c47\u0c28\u0c3f \u0c06\u0c39\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c05\u0c02\u0c26\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Organic manures increase soil organic carbon, improve water holding capacity, and stimulate beneficial soil microbes. Bio-fertilizers convert atmospheric nitrogen into plant-absorbable forms.":
+      "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c28\u0c47\u0c32\u0c32\u0c4b \u0c2c\u0c4a\u0c17\u0c4d\u0c17\u0c41 \u0c36\u0c3e\u0c24\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c1a\u0c41\u0c24\u0c3e\u0c2f\u0c3f, \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c2a\u0c1f\u0c4d\u0c1f\u0c3f \u0c09\u0c02\u0c1a\u0c47 \u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c41\u0c2a\u0c30\u0c41\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c47\u0c32\u0c41 \u0c1a\u0c47\u0c38\u0c47 \u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e\u0c1c\u0c40\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
+    "Organic residue mulch retains soil moisture during hot winds":
+      "\u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3e\u0c32 \u0c2a\u0c4a\u0c30 \u0c28\u0c47\u0c32 \u0c24\u0c47\u0c2e\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    "Organize village-level farmer awareness workshops and training camps":
+      "\u0c17\u0c4d\u0c30\u0c3e\u0c2e \u0c38\u0c4d\u0c25\u0c3e\u0c2f\u0c3f\u0c32\u0c4b \u0c30\u0c48\u0c24\u0c41\u0c32 \u0c05\u0c35\u0c17\u0c3e\u0c39\u0c28 \u0c38\u0c26\u0c38\u0c4d\u0c38\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c36\u0c3f\u0c15\u0c4d\u0c37\u0c23\u0c3e \u0c36\u0c3f\u0c2c\u0c3f\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c21\u0c02",
     "Other Agriculture": "\u0c07\u0c24\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
     "Out of Stock": "\u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d \u0c32\u0c47\u0c26\u0c41",
-    "Over-irrigation leads to oxygen deprivation in plant root zones": "\u0c05\u0c27\u0c3f\u0c15 \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c35\u0c32\u0c4d\u0c32 \u0c35\u0c47\u0c30\u0c4d\u0c32\u0c15\u0c41 \u0c06\u0c15\u0c4d\u0c38\u0c3f\u0c1c\u0c28\u0c4d \u0c05\u0c02\u0c26\u0c26\u0c41",
-    "Overall Course Progress": "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41 \u0c2a\u0c4d\u0c30\u0c17\u0c24\u0c3f",
-    "Overcome pest attacks early": "\u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23\u0c28\u0c41 \u0c2e\u0c41\u0c02\u0c26\u0c38\u0c4d\u0c24\u0c41\u0c17\u0c3e \u0c1a\u0c47\u0c2a\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f",
-    "Overview & Guidance": "\u0c05\u0c35\u0c32\u0c4b\u0c15\u0c28\u0c02 & \u0c2e\u0c3e\u0c30\u0c4d\u0c17\u0c26\u0c30\u0c4d\u0c36\u0c15\u0c24\u0c4d\u0c35\u0c02",
-    "Overview & Role Description": "\u0c05\u0c35\u0c32\u0c4b\u0c15\u0c28\u0c02 & \u0c2a\u0c3e\u0c24\u0c4d\u0c30 \u0c35\u0c3f\u0c35\u0c30\u0c23",
-    "Overview of modern machinery, soil preparation, and crop rotation for high yield.": "\u0c05\u0c27\u0c3f\u0c15 \u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c3f \u0c15\u0c4b\u0c38\u0c02 \u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c41, \u0c28\u0c47\u0c32 \u0c24\u0c2f\u0c3e\u0c30\u0c40 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f \u0c05\u0c35\u0c32\u0c4b\u0c15\u0c28\u0c02.",
-    "PM-KISAN Income Support": "\u0c2a\u0c40\u0c0e\u0c02-\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c06\u0c26\u0c3e\u0c2f \u0c2e\u0c26\u0c4d\u0c26\u0c24\u0c41",
-    "PM-KISAN Income Support Scheme": "\u0c2a\u0c3f\u0c0e\u0c02-\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c06\u0c26\u0c3e\u0c2f \u0c2e\u0c26\u0c4d\u0c26\u0c24\u0c41 \u0c2a\u0c25\u0c15\u0c02",
-    "PM-KISAN Samman Nidhi": "\u0c2a\u0c40\u0c0e\u0c02-\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c38\u0c2e\u0c4d\u0c2e\u0c3e\u0c28\u0c4d \u0c28\u0c3f\u0c27\u0c3f",
-    "PM-KISAN provides Rs. 6,000 per year in three equal installments of Rs. 2,000 directly into the bank accounts of landholding farmer families across India.": "\u0c2a\u0c3f\u0c0e\u0c02-\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c05\u0c30\u0c4d\u0c39\u0c41\u0c32\u0c48\u0c28 \u0c30\u0c48\u0c24\u0c41 \u0c15\u0c41\u0c1f\u0c41\u0c02\u0c2c\u0c3e\u0c32\u0c15\u0c41 \u0c0f\u0c21\u0c3e\u0c26\u0c3f\u0c15\u0c3f \u0c30\u0c42. 6,000 \u0c28\u0c3f \u0c2e\u0c42\u0c21\u0c41 \u0c35\u0c3f\u0c21\u0c24\u0c32\u0c4d\u0c32\u0c4b \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41 \u0c16\u0c3e\u0c24\u0c3e\u0c32\u0c4b \u0c1c\u0c2e \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41.",
-    "PMFBY protects farmers against non-preventable crop losses from natural calamities, droughts, floods, and pest attacks. Premium is capped at just 2% for Kharif and 1.5% for Rabi crops.": "\u0c2a\u0c4d\u0c30\u0c15\u0c43\u0c24\u0c3f \u0c35\u0c48\u0c2a\u0c30\u0c40\u0c24\u0c4d\u0c2f\u0c3e\u0c32\u0c41, \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c2d\u0c3e\u0c35\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c15\u0c32\u0c3f\u0c17\u0c47 \u0c2a\u0c02\u0c1f \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2b\u0c38\u0c32\u0c4d \u0c2c\u0c40\u0c2e\u0c3e \u0c2f\u0c4b\u0c1c\u0c28 \u0c06\u0c30\u0c4d\u0c25\u0c3f\u0c15 \u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c07\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c16\u0c30\u0c40\u0c2b\u0c4d\u200c\u0c15\u0c41 2%, \u0c30\u0c2c\u0c40\u0c15\u0c3f 1.5% \u0c2e\u0c3e\u0c24\u0c4d\u0c30\u0c2e\u0c47 \u0c2a\u0c4d\u0c30\u0c40\u0c2e\u0c3f\u0c2f\u0c02.",
-    "PRODUCE PRESERVATION & LOGISTICS": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c38\u0c02\u0c30\u0c15\u0c4d\u0c37\u0c23 & \u0c32\u0c3e\u0c1c\u0c3f\u0c38\u0c4d\u0c1f\u0c3f\u0c15\u0c4d\u0c38\u0c4d",
-    "PSB Phosphate Solubilising Bacteria (500 g)": "\u0c2a\u0c3f\u0c0e\u0c38\u0c4d\u200c\u0c2c\u0c3f \u0c2b\u0c3e\u0c38\u0c4d\u0c2b\u0c47\u0c1f\u0c4d \u0c2c\u0c4d\u0c2f\u0c3e\u0c15\u0c4d\u0c1f\u0c40\u0c30\u0c3f\u0c2f\u0c3e (500 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Pack produce in clean jute or breathable HDPE bags with weight tags": "\u0c2a\u0c30\u0c3f\u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c2e\u0c48\u0c28 \u0c17\u0c4b\u0c28\u0c46 \u0c38\u0c02\u0c1a\u0c41\u0c32\u0c32\u0c4b \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Packaging": "\u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c47\u0c1c\u0c3f\u0c02\u0c17\u0c4d",
-    "Paddy": "\u0c35\u0c30\u0c3f",
-    "Paddy Seed PR-126 (5 kg)": "\u0c35\u0c30\u0c3f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 PR-126 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Paddy mandi price up in Amritsar": "\u0c05\u0c2e\u0c43\u0c24\u0c38\u0c30\u0c4d\u200c\u0c32\u0c4b \u0c35\u0c30\u0c3f \u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30 \u0c2a\u0c46\u0c30\u0c3f\u0c17\u0c3f\u0c02\u0c26\u0c3f",
-    "Paddy requires critical water at tillering and panicle initiation": "\u0c35\u0c30\u0c3f\u0c15\u0c3f \u0c2a\u0c3f\u0c32\u0c15\u0c32 \u0c26\u0c36 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c08\u0c24 \u0c26\u0c36\u0c32\u0c32\u0c4b \u0c28\u0c40\u0c30\u0c41 \u0c1a\u0c3e\u0c32\u0c3e \u0c05\u0c35\u0c38\u0c30\u0c02",
-    "Panchagavya Organic Tonic (5 litre)": "\u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c4d (5 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41)",
-    "Papaya Seed Red Lady (10 g)": "\u0c2c\u0c4a\u0c2a\u0c4d\u0c2a\u0c3e\u0c2f\u0c3f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c30\u0c46\u0c21\u0c4d \u0c32\u0c47\u0c21\u0c40 (10 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Participate in post-harvest harvesting, grading, and packing of fruit crops": "\u0c2a\u0c02\u0c21\u0c4d\u0c32 \u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23, \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c3f\u0c02\u0c17\u0c4d\u200c\u0c32\u0c4b \u0c2a\u0c3e\u0c32\u0c4d\u0c17\u0c4a\u0c28\u0c21\u0c02",
-    "Partly cloudy": "\u0c2a\u0c3e\u0c15\u0c4d\u0c37\u0c3f\u0c15\u0c02\u0c17\u0c3e \u0c2e\u0c47\u0c18\u0c3e\u0c35\u0c43\u0c24\u0c02",
+    "Over-irrigation leads to oxygen deprivation in plant root zones":
+      "\u0c05\u0c27\u0c3f\u0c15 \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c35\u0c32\u0c4d\u0c32 \u0c35\u0c47\u0c30\u0c4d\u0c32\u0c15\u0c41 \u0c06\u0c15\u0c4d\u0c38\u0c3f\u0c1c\u0c28\u0c4d \u0c05\u0c02\u0c26\u0c26\u0c41",
+    "Overall Course Progress":
+      "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41 \u0c2a\u0c4d\u0c30\u0c17\u0c24\u0c3f",
+    "Overcome pest attacks early":
+      "\u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23\u0c28\u0c41 \u0c2e\u0c41\u0c02\u0c26\u0c38\u0c4d\u0c24\u0c41\u0c17\u0c3e \u0c1a\u0c47\u0c2a\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f",
+    "Overview & Guidance":
+      "\u0c05\u0c35\u0c32\u0c4b\u0c15\u0c28\u0c02 & \u0c2e\u0c3e\u0c30\u0c4d\u0c17\u0c26\u0c30\u0c4d\u0c36\u0c15\u0c24\u0c4d\u0c35\u0c02",
+    "Overview & Role Description":
+      "\u0c05\u0c35\u0c32\u0c4b\u0c15\u0c28\u0c02 & \u0c2a\u0c3e\u0c24\u0c4d\u0c30 \u0c35\u0c3f\u0c35\u0c30\u0c23",
+    "Overview of modern machinery, soil preparation, and crop rotation for high yield.":
+      "\u0c05\u0c27\u0c3f\u0c15 \u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c3f \u0c15\u0c4b\u0c38\u0c02 \u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c41, \u0c28\u0c47\u0c32 \u0c24\u0c2f\u0c3e\u0c30\u0c40 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f \u0c05\u0c35\u0c32\u0c4b\u0c15\u0c28\u0c02.",
+    "PM-KISAN Income Support":
+      "\u0c2a\u0c40\u0c0e\u0c02-\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c06\u0c26\u0c3e\u0c2f \u0c2e\u0c26\u0c4d\u0c26\u0c24\u0c41",
+    "PM-KISAN Income Support Scheme":
+      "\u0c2a\u0c3f\u0c0e\u0c02-\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c06\u0c26\u0c3e\u0c2f \u0c2e\u0c26\u0c4d\u0c26\u0c24\u0c41 \u0c2a\u0c25\u0c15\u0c02",
+    "PM-KISAN Samman Nidhi":
+      "\u0c2a\u0c40\u0c0e\u0c02-\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c38\u0c2e\u0c4d\u0c2e\u0c3e\u0c28\u0c4d \u0c28\u0c3f\u0c27\u0c3f",
+    "PM-KISAN provides Rs. 6,000 per year in three equal installments of Rs. 2,000 directly into the bank accounts of landholding farmer families across India.":
+      "\u0c2a\u0c3f\u0c0e\u0c02-\u0c15\u0c3f\u0c38\u0c3e\u0c28\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c05\u0c30\u0c4d\u0c39\u0c41\u0c32\u0c48\u0c28 \u0c30\u0c48\u0c24\u0c41 \u0c15\u0c41\u0c1f\u0c41\u0c02\u0c2c\u0c3e\u0c32\u0c15\u0c41 \u0c0f\u0c21\u0c3e\u0c26\u0c3f\u0c15\u0c3f \u0c30\u0c42. 6,000 \u0c28\u0c3f \u0c2e\u0c42\u0c21\u0c41 \u0c35\u0c3f\u0c21\u0c24\u0c32\u0c4d\u0c32\u0c4b \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41 \u0c16\u0c3e\u0c24\u0c3e\u0c32\u0c4b \u0c1c\u0c2e \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41.",
+    "PMFBY protects farmers against non-preventable crop losses from natural calamities, droughts, floods, and pest attacks. Premium is capped at just 2% for Kharif and 1.5% for Rabi crops.":
+      "\u0c2a\u0c4d\u0c30\u0c15\u0c43\u0c24\u0c3f \u0c35\u0c48\u0c2a\u0c30\u0c40\u0c24\u0c4d\u0c2f\u0c3e\u0c32\u0c41, \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c2d\u0c3e\u0c35\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c15\u0c32\u0c3f\u0c17\u0c47 \u0c2a\u0c02\u0c1f \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2b\u0c38\u0c32\u0c4d \u0c2c\u0c40\u0c2e\u0c3e \u0c2f\u0c4b\u0c1c\u0c28 \u0c06\u0c30\u0c4d\u0c25\u0c3f\u0c15 \u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c07\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c16\u0c30\u0c40\u0c2b\u0c4d\u200c\u0c15\u0c41 2%, \u0c30\u0c2c\u0c40\u0c15\u0c3f 1.5% \u0c2e\u0c3e\u0c24\u0c4d\u0c30\u0c2e\u0c47 \u0c2a\u0c4d\u0c30\u0c40\u0c2e\u0c3f\u0c2f\u0c02.",
+    "PRODUCE PRESERVATION & LOGISTICS":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c38\u0c02\u0c30\u0c15\u0c4d\u0c37\u0c23 & \u0c32\u0c3e\u0c1c\u0c3f\u0c38\u0c4d\u0c1f\u0c3f\u0c15\u0c4d\u0c38\u0c4d",
+    "PSB Phosphate Solubilising Bacteria (500 g)":
+      "\u0c2a\u0c3f\u0c0e\u0c38\u0c4d\u200c\u0c2c\u0c3f \u0c2b\u0c3e\u0c38\u0c4d\u0c2b\u0c47\u0c1f\u0c4d \u0c2c\u0c4d\u0c2f\u0c3e\u0c15\u0c4d\u0c1f\u0c40\u0c30\u0c3f\u0c2f\u0c3e (500 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Pack produce in clean jute or breathable HDPE bags with weight tags":
+      "\u0c2a\u0c30\u0c3f\u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c2e\u0c48\u0c28 \u0c17\u0c4b\u0c28\u0c46 \u0c38\u0c02\u0c1a\u0c41\u0c32\u0c32\u0c4b \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    Packaging: "\u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c47\u0c1c\u0c3f\u0c02\u0c17\u0c4d",
+    Paddy: "\u0c35\u0c30\u0c3f",
+    "Paddy Seed PR-126 (5 kg)":
+      "\u0c35\u0c30\u0c3f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 PR-126 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Paddy mandi price up in Amritsar":
+      "\u0c05\u0c2e\u0c43\u0c24\u0c38\u0c30\u0c4d\u200c\u0c32\u0c4b \u0c35\u0c30\u0c3f \u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30 \u0c2a\u0c46\u0c30\u0c3f\u0c17\u0c3f\u0c02\u0c26\u0c3f",
+    "Paddy requires critical water at tillering and panicle initiation":
+      "\u0c35\u0c30\u0c3f\u0c15\u0c3f \u0c2a\u0c3f\u0c32\u0c15\u0c32 \u0c26\u0c36 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c08\u0c24 \u0c26\u0c36\u0c32\u0c32\u0c4b \u0c28\u0c40\u0c30\u0c41 \u0c1a\u0c3e\u0c32\u0c3e \u0c05\u0c35\u0c38\u0c30\u0c02",
+    "Panchagavya Organic Tonic (5 litre)":
+      "\u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c4d (5 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41)",
+    "Papaya Seed Red Lady (10 g)":
+      "\u0c2c\u0c4a\u0c2a\u0c4d\u0c2a\u0c3e\u0c2f\u0c3f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c30\u0c46\u0c21\u0c4d \u0c32\u0c47\u0c21\u0c40 (10 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Participate in post-harvest harvesting, grading, and packing of fruit crops":
+      "\u0c2a\u0c02\u0c21\u0c4d\u0c32 \u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23, \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c3f\u0c02\u0c17\u0c4d\u200c\u0c32\u0c4b \u0c2a\u0c3e\u0c32\u0c4d\u0c17\u0c4a\u0c28\u0c21\u0c02",
+    "Partly cloudy":
+      "\u0c2a\u0c3e\u0c15\u0c4d\u0c37\u0c3f\u0c15\u0c02\u0c17\u0c3e \u0c2e\u0c47\u0c18\u0c3e\u0c35\u0c43\u0c24\u0c02",
     "Passcode / Password": "\u0c2a\u0c3e\u0c38\u0c4d\u200c\u0c35\u0c30\u0c4d\u0c21\u0c4d",
-    "Password": "\u0c2a\u0c3e\u0c38\u0c4d\u0c35\u0c30\u0c4d\u0c21\u0c4d",
+    Password: "\u0c2a\u0c3e\u0c38\u0c4d\u0c35\u0c30\u0c4d\u0c21\u0c4d",
     "Past 30 Days": "\u0c17\u0c24 30 \u0c30\u0c4b\u0c1c\u0c41\u0c32\u0c41",
-    "Pay cash or UPI on crop inspection at delivery. No advance online payment required.": "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c38\u0c2e\u0c2f\u0c2e\u0c41\u0c32\u0c4b \u0c28\u0c2e\u0c42\u0c28\u0c3e \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c28\u0c17\u0c26\u0c41 \u0c32\u0c47\u0c26\u0c3e UPI \u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Payment Details": "\u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41",
-    "Payment Integration Coming Soon": "\u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41\u0c32 \u0c38\u0c2e\u0c40\u0c15\u0c30\u0c23 \u0c24\u0c4d\u0c35\u0c30\u0c32\u0c4b \u0c30\u0c3e\u0c28\u0c41\u0c02\u0c26\u0c3f",
-    "Payment Method": "\u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c3f",
-    "Payout Mechanism": "\u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41 \u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c3e\u0c02\u0c17\u0c02",
-    "Payout triggered by notified weather station readings.": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32 \u0c30\u0c40\u0c21\u0c3f\u0c02\u0c17\u0c4d\u200c\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2a\u0c30\u0c3f\u0c39\u0c3e\u0c30\u0c02 \u0c26\u0c3e\u0c35\u0c3e \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Pearl Millet Seed HHB-67 (5 kg)": "\u0c38\u0c1c\u0c4d\u0c1c\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 HHB-67 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Pending": "\u0c2a\u0c46\u0c02\u0c21\u0c3f\u0c02\u0c17\u0c4d",
-    "Per Drop More Crop": "\u0c2a\u0c4d\u0c30\u0c24\u0c3f \u0c1a\u0c41\u0c15\u0c4d\u0c15\u0c15\u0c41 \u0c2e\u0c30\u0c3f\u0c02\u0c24 \u0c2a\u0c02\u0c1f",
-    "Perform acid treatment when emitter discharge drops by more than 10%": "\u0c28\u0c40\u0c1f\u0c3f \u0c2a\u0c4d\u0c30\u0c35\u0c3e\u0c39\u0c02 \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c2a\u0c4b\u0c24\u0c47 \u0c2f\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c1f\u0c4d\u0c30\u0c40\u0c1f\u0c4d\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Perform soil testing before every sowing season": "\u0c2a\u0c4d\u0c30\u0c24\u0c3f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c38\u0c40\u0c1c\u0c28\u0c4d\u200c\u0c15\u0c41 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Perishable produce requires cold storage maintenance (2-8\u00b0C) to slow down respiration rates, double shelf life, and enable transport to distant urban markets.": "\u0c24\u0c4d\u0c35\u0c30\u0c17\u0c3e \u0c2a\u0c3e\u0c21\u0c2f\u0c4d\u0c2f\u0c47 \u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32\u0c41, \u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c28\u0c41 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d\u200c\u0c32\u0c4b \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c35\u0c3e\u0c1f\u0c3f \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c15\u0c3e\u0c32\u0c02 \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c02\u0c1a\u0c3f \u0c27\u0c30 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Personal Information": "\u0c35\u0c4d\u0c2f\u0c15\u0c4d\u0c24\u0c3f\u0c17\u0c24 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02",
-    "Pest & Disease Management": "\u0c1a\u0c40\u0c21\u0c2a\u0c40\u0c21\u0c32\u0c41 & \u0c2a\u0c02\u0c1f \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c41\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
-    "Pest Control": "\u0c1a\u0c40\u0c21\u0c2a\u0c40\u0c21\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23",
-    "Pest and disease alerts for wheat crop": "\u0c17\u0c4b\u0c27\u0c41\u0c2e \u0c2a\u0c02\u0c1f\u0c15\u0c41 \u0c24\u0c46\u0c17\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c3f \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c41",
-    "Pest and disease warnings": "\u0c24\u0c46\u0c17\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c3f \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c41",
-    "Pesticides": "\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c2e\u0c02\u0c26\u0c41\u0c32\u0c41",
-    "Pheromone Trap Set (Pack of 10)": "\u0c2b\u0c46\u0c30\u0c2e\u0c4b\u0c28\u0c4d \u0c1f\u0c4d\u0c30\u0c3e\u0c2a\u0c4d \u0c38\u0c46\u0c1f\u0c4d (10 \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d)",
+    "Pay cash or UPI on crop inspection at delivery. No advance online payment required.":
+      "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c38\u0c2e\u0c2f\u0c2e\u0c41\u0c32\u0c4b \u0c28\u0c2e\u0c42\u0c28\u0c3e \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c28\u0c17\u0c26\u0c41 \u0c32\u0c47\u0c26\u0c3e UPI \u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Payment Details":
+      "\u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41",
+    "Payment Integration Coming Soon":
+      "\u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41\u0c32 \u0c38\u0c2e\u0c40\u0c15\u0c30\u0c23 \u0c24\u0c4d\u0c35\u0c30\u0c32\u0c4b \u0c30\u0c3e\u0c28\u0c41\u0c02\u0c26\u0c3f",
+    "Payment Method":
+      "\u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c3f",
+    "Payout Mechanism":
+      "\u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41 \u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c3e\u0c02\u0c17\u0c02",
+    "Payout triggered by notified weather station readings.":
+      "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32 \u0c30\u0c40\u0c21\u0c3f\u0c02\u0c17\u0c4d\u200c\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2a\u0c30\u0c3f\u0c39\u0c3e\u0c30\u0c02 \u0c26\u0c3e\u0c35\u0c3e \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Pearl Millet Seed HHB-67 (5 kg)":
+      "\u0c38\u0c1c\u0c4d\u0c1c\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 HHB-67 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    Pending: "\u0c2a\u0c46\u0c02\u0c21\u0c3f\u0c02\u0c17\u0c4d",
+    "Per Drop More Crop":
+      "\u0c2a\u0c4d\u0c30\u0c24\u0c3f \u0c1a\u0c41\u0c15\u0c4d\u0c15\u0c15\u0c41 \u0c2e\u0c30\u0c3f\u0c02\u0c24 \u0c2a\u0c02\u0c1f",
+    "Perform acid treatment when emitter discharge drops by more than 10%":
+      "\u0c28\u0c40\u0c1f\u0c3f \u0c2a\u0c4d\u0c30\u0c35\u0c3e\u0c39\u0c02 \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c2a\u0c4b\u0c24\u0c47 \u0c2f\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c1f\u0c4d\u0c30\u0c40\u0c1f\u0c4d\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Perform soil testing before every sowing season":
+      "\u0c2a\u0c4d\u0c30\u0c24\u0c3f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c38\u0c40\u0c1c\u0c28\u0c4d\u200c\u0c15\u0c41 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Perishable produce requires cold storage maintenance (2-8\u00b0C) to slow down respiration rates, double shelf life, and enable transport to distant urban markets.":
+      "\u0c24\u0c4d\u0c35\u0c30\u0c17\u0c3e \u0c2a\u0c3e\u0c21\u0c2f\u0c4d\u0c2f\u0c47 \u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32\u0c41, \u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c28\u0c41 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d\u200c\u0c32\u0c4b \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c35\u0c3e\u0c1f\u0c3f \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c15\u0c3e\u0c32\u0c02 \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c02\u0c1a\u0c3f \u0c27\u0c30 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Personal Information":
+      "\u0c35\u0c4d\u0c2f\u0c15\u0c4d\u0c24\u0c3f\u0c17\u0c24 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02",
+    "Pest & Disease Management":
+      "\u0c1a\u0c40\u0c21\u0c2a\u0c40\u0c21\u0c32\u0c41 & \u0c2a\u0c02\u0c1f \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c41\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Pest Control":
+      "\u0c1a\u0c40\u0c21\u0c2a\u0c40\u0c21\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23",
+    "Pest and disease alerts for wheat crop":
+      "\u0c17\u0c4b\u0c27\u0c41\u0c2e \u0c2a\u0c02\u0c1f\u0c15\u0c41 \u0c24\u0c46\u0c17\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c3f \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c41",
+    "Pest and disease warnings":
+      "\u0c24\u0c46\u0c17\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c3f \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c41",
+    Pesticides: "\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c2e\u0c02\u0c26\u0c41\u0c32\u0c41",
+    "Pheromone Trap Set (Pack of 10)":
+      "\u0c2b\u0c46\u0c30\u0c2e\u0c4b\u0c28\u0c4d \u0c1f\u0c4d\u0c30\u0c3e\u0c2a\u0c4d \u0c38\u0c46\u0c1f\u0c4d (10 \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d)",
     "Phone Number": "\u0c2b\u0c4b\u0c28\u0c4d \u0c28\u0c02\u0c2c\u0c30\u0c4d",
-    "Pigeon Pea Seed ICPL-87 (5 kg)": "\u0c15\u0c02\u0c26\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 ICPL-87 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Place Cash / UPI Order": "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f (\u0c28\u0c17\u0c26\u0c41 / UPI)",
+    "Pigeon Pea Seed ICPL-87 (5 kg)":
+      "\u0c15\u0c02\u0c26\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 ICPL-87 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Place Cash / UPI Order":
+      "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f (\u0c28\u0c17\u0c26\u0c41 / UPI)",
     "Place Order": "\u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Place dry neem leaves inside storage bags to prevent insect infestation naturally.": "\u0c38\u0c02\u0c1a\u0c41\u0c32\u0c32\u0c4b \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c2a\u0c1f\u0c4d\u0c1f\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c0e\u0c02\u0c21\u0c3f\u0c28 \u0c35\u0c47\u0c2a \u0c06\u0c15\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Place soil moisture sensors at both shallow (15 cm) and deep (30 cm) root zone levels.": "\u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c24\u0c47\u0c2e \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c35\u0c47\u0c30\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c4d\u0c25 \u0c2a\u0c48\u0c2d\u0c3e\u0c17\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c32\u0c4b\u0c2a\u0c32\u0c3f \u0c2d\u0c3e\u0c17\u0c02 \u0c30\u0c46\u0c02\u0c21\u0c3f\u0c02\u0c1f\u0c3f\u0c32\u0c4b\u0c28\u0c42 \u0c05\u0c2e\u0c30\u0c4d\u0c1a\u0c02\u0c21\u0c3f.",
-    "Plan your sell with confidence": "\u0c28\u0c2e\u0c4d\u0c2e\u0c15\u0c02\u0c24\u0c4b \u0c2e\u0c40 \u0c05\u0c2e\u0c4d\u0c2e\u0c15\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Planning crops around monsoon timings, winter season, and summer irrigation.": "\u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c15\u0c3e\u0c32\u0c02, \u0c36\u0c40\u0c24\u0c3e\u0c15\u0c3e\u0c32\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c47\u0c38\u0c35\u0c3f \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c17\u0c41\u0c23\u0c02\u0c17\u0c3e \u0c2a\u0c02\u0c1f \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15.",
-    "Plant Poplar, Melia Dubia, or Sandalwood along field boundaries": "\u0c2a\u0c4a\u0c32\u0c02 \u0c38\u0c30\u0c3f\u0c39\u0c26\u0c4d\u0c26\u0c41\u0c32\u0c32\u0c4b \u0c36\u0c4d\u0c30\u0c40\u0c17\u0c02\u0c27\u0c02, \u0c38\u0c41\u0c2c\u0c3e\u0c2c\u0c41\u0c32\u0c4d \u0c32\u0c47\u0c26\u0c3e \u0c2e\u0c32\u0c2c\u0c3e\u0c30\u0c4d \u0c35\u0c47\u0c2a \u0c1a\u0c46\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c28\u0c3e\u0c1f\u0c02\u0c21\u0c3f",
-    "Plant border trees along North-South lines to minimize shade competition with field crops.": "\u0c2a\u0c02\u0c1f\u0c15\u0c41 \u0c28\u0c40\u0c21 \u0c2a\u0c21\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c1a\u0c46\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c09\u0c24\u0c4d\u0c24\u0c30-\u0c26\u0c15\u0c4d\u0c37\u0c3f\u0c23 \u0c26\u0c3f\u0c36\u0c32\u0c32\u0c4b \u0c28\u0c3e\u0c1f\u0c02\u0c21\u0c3f.",
-    "Planting border trees like Teak, Subabul, or Poplar for shade, timber, and carbon credits.": "\u0c2a\u0c4a\u0c32\u0c02 \u0c38\u0c30\u0c3f\u0c39\u0c26\u0c4d\u0c26\u0c41\u0c32\u0c4d\u0c32\u0c4b \u0c1f\u0c47\u0c15\u0c41, \u0c38\u0c41\u0c2c\u0c3e\u0c2c\u0c41\u0c32\u0c4d \u0c35\u0c02\u0c1f\u0c3f \u0c1a\u0c46\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c2a\u0c46\u0c02\u0c1a\u0c21\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c05\u0c26\u0c28\u0c2a\u0c41 \u0c06\u0c26\u0c3e\u0c2f\u0c02.",
-    "Planting summer Moong after Rabi Wheat adds natural nitrogen and extra income.": "\u0c30\u0c2c\u0c40 \u0c17\u0c4b\u0c27\u0c41\u0c2e \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c35\u0c47\u0c38\u0c35\u0c3f \u0c2a\u0c46\u0c38\u0c30 \u0c35\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c38\u0c39\u0c1c \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c26\u0c28\u0c2a\u0c41 \u0c06\u0c26\u0c3e\u0c2f\u0c02 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
-    "Please register or log in as a Farmer to access product management.": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23\u0c15\u0c41 \u0c32\u0c3e\u0c17\u0c3f\u0c28\u0c4d \u0c05\u0c35\u0c4d\u0c35\u0c02\u0c21\u0c3f.",
-    "Plough in green manure 2 weeks before main crop sowing to allow full soil decomposition.": "\u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c2a\u0c02\u0c1f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f 2 \u0c35\u0c3e\u0c30\u0c3e\u0c32 \u0c2e\u0c41\u0c02\u0c26\u0c47 \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f\u0c28\u0c41 \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c3f \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f\u0c32\u0c4b \u0c15\u0c41\u0c33\u0c4d\u0c32\u0c28\u0c3f\u0c35\u0c4d\u0c35\u0c02\u0c21\u0c3f.",
-    "Post Harvest": "\u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
-    "Post-Harvest Management": "\u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
-    "Post-Harvest Management & Storage": "\u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 & \u0c28\u0c3f\u0c32\u0c4d\u0c35",
-    "Post-harvest cleaning and grading separates damaged, undersized, or diseased produce from top-quality items. Graded produce commands a 15-20% higher market price in mandis.": "\u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c3f\u0c02\u0c17\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c47\u0c30\u0c41 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u0c32\u0c4b 15-20% \u0c05\u0c26\u0c28\u0c2a\u0c41 \u0c27\u0c30 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Posted": "\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
-    "Potassium Humate Shiny Flakes (2 kg)": "\u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c39\u0c4d\u0c2f\u0c42\u0c2e\u0c47\u0c1f\u0c4d \u0c2b\u0c4d\u0c32\u0c47\u0c15\u0c4d\u0c38\u0c4d (2 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Potassium Schoenite (25 kg)": "\u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c37\u0c4a\u0c28\u0c48\u0c1f\u0c4d (25 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Potato": "\u0c2c\u0c02\u0c17\u0c3e\u0c33\u0c3e\u0c26\u0c41\u0c02\u0c2a",
-    "Potato Seed Tuber Kufri Jyoti (50 kg)": "\u0c2c\u0c02\u0c17\u0c3e\u0c33\u0c3e\u0c26\u0c41\u0c02\u0c2a \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c15\u0c41\u0c2b\u0c4d\u0c30\u0c3f \u0c1c\u0c4d\u0c2f\u0c4b\u0c24\u0c3f (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Potatoes": "\u0c2c\u0c02\u0c17\u0c3e\u0c33\u0c3e\u0c26\u0c41\u0c02\u0c2a\u0c32\u0c41",
-    "Poultry Automatic Drinker (Pack of 10)": "\u0c15\u0c4b\u0c33\u0c4d\u0c32 \u0c24\u0c3e\u0c17\u0c41\u0c28\u0c40\u0c1f\u0c3f \u0c38\u0c3e\u0c27\u0c28\u0c02 (10 \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d)",
+    "Place dry neem leaves inside storage bags to prevent insect infestation naturally.":
+      "\u0c38\u0c02\u0c1a\u0c41\u0c32\u0c32\u0c4b \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c2a\u0c1f\u0c4d\u0c1f\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c0e\u0c02\u0c21\u0c3f\u0c28 \u0c35\u0c47\u0c2a \u0c06\u0c15\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Place soil moisture sensors at both shallow (15 cm) and deep (30 cm) root zone levels.":
+      "\u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c24\u0c47\u0c2e \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c35\u0c47\u0c30\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c4d\u0c25 \u0c2a\u0c48\u0c2d\u0c3e\u0c17\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c32\u0c4b\u0c2a\u0c32\u0c3f \u0c2d\u0c3e\u0c17\u0c02 \u0c30\u0c46\u0c02\u0c21\u0c3f\u0c02\u0c1f\u0c3f\u0c32\u0c4b\u0c28\u0c42 \u0c05\u0c2e\u0c30\u0c4d\u0c1a\u0c02\u0c21\u0c3f.",
+    "Plan your sell with confidence":
+      "\u0c28\u0c2e\u0c4d\u0c2e\u0c15\u0c02\u0c24\u0c4b \u0c2e\u0c40 \u0c05\u0c2e\u0c4d\u0c2e\u0c15\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Planning crops around monsoon timings, winter season, and summer irrigation.":
+      "\u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c15\u0c3e\u0c32\u0c02, \u0c36\u0c40\u0c24\u0c3e\u0c15\u0c3e\u0c32\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c47\u0c38\u0c35\u0c3f \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c17\u0c41\u0c23\u0c02\u0c17\u0c3e \u0c2a\u0c02\u0c1f \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15.",
+    "Plant Poplar, Melia Dubia, or Sandalwood along field boundaries":
+      "\u0c2a\u0c4a\u0c32\u0c02 \u0c38\u0c30\u0c3f\u0c39\u0c26\u0c4d\u0c26\u0c41\u0c32\u0c32\u0c4b \u0c36\u0c4d\u0c30\u0c40\u0c17\u0c02\u0c27\u0c02, \u0c38\u0c41\u0c2c\u0c3e\u0c2c\u0c41\u0c32\u0c4d \u0c32\u0c47\u0c26\u0c3e \u0c2e\u0c32\u0c2c\u0c3e\u0c30\u0c4d \u0c35\u0c47\u0c2a \u0c1a\u0c46\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c28\u0c3e\u0c1f\u0c02\u0c21\u0c3f",
+    "Plant border trees along North-South lines to minimize shade competition with field crops.":
+      "\u0c2a\u0c02\u0c1f\u0c15\u0c41 \u0c28\u0c40\u0c21 \u0c2a\u0c21\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c1a\u0c46\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c09\u0c24\u0c4d\u0c24\u0c30-\u0c26\u0c15\u0c4d\u0c37\u0c3f\u0c23 \u0c26\u0c3f\u0c36\u0c32\u0c32\u0c4b \u0c28\u0c3e\u0c1f\u0c02\u0c21\u0c3f.",
+    "Planting border trees like Teak, Subabul, or Poplar for shade, timber, and carbon credits.":
+      "\u0c2a\u0c4a\u0c32\u0c02 \u0c38\u0c30\u0c3f\u0c39\u0c26\u0c4d\u0c26\u0c41\u0c32\u0c4d\u0c32\u0c4b \u0c1f\u0c47\u0c15\u0c41, \u0c38\u0c41\u0c2c\u0c3e\u0c2c\u0c41\u0c32\u0c4d \u0c35\u0c02\u0c1f\u0c3f \u0c1a\u0c46\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c2a\u0c46\u0c02\u0c1a\u0c21\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c05\u0c26\u0c28\u0c2a\u0c41 \u0c06\u0c26\u0c3e\u0c2f\u0c02.",
+    "Planting summer Moong after Rabi Wheat adds natural nitrogen and extra income.":
+      "\u0c30\u0c2c\u0c40 \u0c17\u0c4b\u0c27\u0c41\u0c2e \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c35\u0c47\u0c38\u0c35\u0c3f \u0c2a\u0c46\u0c38\u0c30 \u0c35\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c38\u0c39\u0c1c \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c26\u0c28\u0c2a\u0c41 \u0c06\u0c26\u0c3e\u0c2f\u0c02 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
+    "Please register or log in as a Farmer to access product management.":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23\u0c15\u0c41 \u0c32\u0c3e\u0c17\u0c3f\u0c28\u0c4d \u0c05\u0c35\u0c4d\u0c35\u0c02\u0c21\u0c3f.",
+    "Plough in green manure 2 weeks before main crop sowing to allow full soil decomposition.":
+      "\u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c2a\u0c02\u0c1f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f 2 \u0c35\u0c3e\u0c30\u0c3e\u0c32 \u0c2e\u0c41\u0c02\u0c26\u0c47 \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f\u0c28\u0c41 \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c3f \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f\u0c32\u0c4b \u0c15\u0c41\u0c33\u0c4d\u0c32\u0c28\u0c3f\u0c35\u0c4d\u0c35\u0c02\u0c21\u0c3f.",
+    "Post Harvest":
+      "\u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Post-Harvest Management":
+      "\u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Post-Harvest Management & Storage":
+      "\u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 & \u0c28\u0c3f\u0c32\u0c4d\u0c35",
+    "Post-harvest cleaning and grading separates damaged, undersized, or diseased produce from top-quality items. Graded produce commands a 15-20% higher market price in mandis.":
+      "\u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c3f\u0c02\u0c17\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c47\u0c30\u0c41 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u0c32\u0c4b 15-20% \u0c05\u0c26\u0c28\u0c2a\u0c41 \u0c27\u0c30 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    Posted:
+      "\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
+    "Potassium Humate Shiny Flakes (2 kg)":
+      "\u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c39\u0c4d\u0c2f\u0c42\u0c2e\u0c47\u0c1f\u0c4d \u0c2b\u0c4d\u0c32\u0c47\u0c15\u0c4d\u0c38\u0c4d (2 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Potassium Schoenite (25 kg)":
+      "\u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c37\u0c4a\u0c28\u0c48\u0c1f\u0c4d (25 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    Potato: "\u0c2c\u0c02\u0c17\u0c3e\u0c33\u0c3e\u0c26\u0c41\u0c02\u0c2a",
+    "Potato Seed Tuber Kufri Jyoti (50 kg)":
+      "\u0c2c\u0c02\u0c17\u0c3e\u0c33\u0c3e\u0c26\u0c41\u0c02\u0c2a \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c15\u0c41\u0c2b\u0c4d\u0c30\u0c3f \u0c1c\u0c4d\u0c2f\u0c4b\u0c24\u0c3f (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    Potatoes: "\u0c2c\u0c02\u0c17\u0c3e\u0c33\u0c3e\u0c26\u0c41\u0c02\u0c2a\u0c32\u0c41",
+    "Poultry Automatic Drinker (Pack of 10)":
+      "\u0c15\u0c4b\u0c33\u0c4d\u0c32 \u0c24\u0c3e\u0c17\u0c41\u0c28\u0c40\u0c1f\u0c3f \u0c38\u0c3e\u0c27\u0c28\u0c02 (10 \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d)",
     "Power Weeder 5 HP": "\u0c2a\u0c35\u0c30\u0c4d \u0c35\u0c40\u0c21\u0c30\u0c4d 5 HP",
-    "Powering Every Acre": "\u0c2a\u0c4d\u0c30\u0c24\u0c3f \u0c0e\u0c15\u0c30\u0c3e\u0c15\u0c41 \u0c36\u0c15\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c05\u0c02\u0c26\u0c3f\u0c38\u0c4d\u0c24\u0c4b\u0c02\u0c26\u0c3f",
-    "Pradhan Mantri Fasal Bima Yojana": "\u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c2e\u0c02\u0c24\u0c4d\u0c30\u0c3f \u0c2b\u0c38\u0c32\u0c4d \u0c2c\u0c40\u0c2e\u0c3e \u0c2f\u0c4b\u0c1c\u0c28",
-    "Pradhan Mantri Fasal Bima Yojana (PMFBY)": "\u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c2e\u0c02\u0c24\u0c4d\u0c30\u0c3f \u0c2b\u0c38\u0c32\u0c4d \u0c2c\u0c40\u0c2e\u0c3e \u0c2f\u0c4b\u0c1c\u0c28 (PMFBY)",
-    "Pre-cool fruits in shaded packing sheds immediately after picking to remove field heat.": "\u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c28\u0c41 \u0c15\u0c4b\u0c38\u0c3f\u0c28 \u0c35\u0c46\u0c02\u0c1f\u0c28\u0c47 \u0c35\u0c47\u0c21\u0c3f \u0c24\u0c17\u0c4d\u0c17\u0c47\u0c32\u0c3e \u0c28\u0c40\u0c21 \u0c09\u0c28\u0c4d\u0c28 \u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c02\u0c32\u0c4b \u0c06\u0c30\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f.",
-    "Pre-cool harvested vegetables within 2 hours of field picking": "\u0c15\u0c4b\u0c38\u0c3f\u0c28 2 \u0c17\u0c02\u0c1f\u0c32\u0c32\u0c4b\u0c2a\u0c41 \u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32\u0c28\u0c41 \u0c28\u0c40\u0c21\u0c32\u0c4b \u0c2a\u0c4d\u0c30\u0c40-\u0c15\u0c42\u0c32\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Pre-cooling, temperature control, and humidity management for perishable produce.": "\u0c24\u0c4d\u0c35\u0c30\u0c17\u0c3e \u0c2a\u0c3e\u0c21\u0c2f\u0c4d\u0c2f\u0c47 \u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32\u0c41, \u0c2a\u0c02\u0c21\u0c4d\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c47\u0c2e \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23.",
-    "Precision Agri Institute": "\u0c2a\u0c4d\u0c30\u0c3f\u0c38\u0c3f\u0c37\u0c28\u0c4d \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c07\u0c28\u0c4d\u0c38\u0c4d\u0c1f\u0c3f\u0c1f\u0c4d\u0c2f\u0c42\u0c1f\u0c4d",
-    "Precision Agri Tools & IoT Sensors": "\u0c16\u0c1a\u0c4d\u0c1a\u0c3f\u0c24\u0c24\u0c4d\u0c35 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41 & IoT \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c41",
-    "Precision Agriculture": "\u0c16\u0c1a\u0c4d\u0c1a\u0c3f\u0c24\u0c2e\u0c48\u0c28 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
-    "Precision Farming": "\u0c16\u0c1a\u0c4d\u0c1a\u0c3f\u0c24\u0c2e\u0c48\u0c28 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
-    "Precision Soil Sensor Integration": "\u0c28\u0c47\u0c32 \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32 \u0c05\u0c28\u0c41\u0c38\u0c02\u0c27\u0c3e\u0c28\u0c02",
-    "Precision drip systems require correct sizing of mainlines, submains, lateral tubes, and inline drippers based on soil texture, slope, and crop row spacing.": "\u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 \u0c35\u0c3f\u0c1c\u0c2f\u0c35\u0c02\u0c24\u0c02 \u0c15\u0c3e\u0c35\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c4a\u0c32\u0c02 \u0c35\u0c3e\u0c32\u0c41, \u0c2a\u0c02\u0c1f \u0c35\u0c30\u0c41\u0c38\u0c32 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c32\u0c48\u0c28\u0c4d\u0c32\u0c41, \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d\u0c2a\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c38\u0c30\u0c3f\u0c17\u0c4d\u0c17\u0c3e \u0c0f\u0c30\u0c4d\u0c2a\u0c3e\u0c1f\u0c41 \u0c1a\u0c47\u0c2f\u0c3e\u0c32\u0c3f.",
-    "Precision nutrient tools calculate exact fertilizer requirement per plot": "\u0c38\u0c30\u0c3f\u0c17\u0c4d\u0c17\u0c3e \u0c05\u0c35\u0c38\u0c30\u0c2e\u0c48\u0c28 \u0c2e\u0c4b\u0c24\u0c3e\u0c26\u0c41\u0c32\u0c4b\u0c28\u0c47 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c47\u0c2f\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c41 \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c24\u0c3e\u0c2f\u0c3f",
-    "Preparation steps for nutrient-rich vermicompost and bio-stimulants.": "\u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32\u0c24\u0c4b \u0c15\u0c42\u0c21\u0c3f\u0c28 \u0c35\u0c3e\u0c28\u0c2a\u0c3e\u0c2e\u0c41\u0c32 \u0c0e\u0c30\u0c41\u0c35\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f \u0c24\u0c2f\u0c3e\u0c30\u0c40 \u0c35\u0c3f\u0c27\u0c3e\u0c28\u0c02.",
-    "Prepare land with deep summer ploughing to expose weed seeds and soil pests to heat.": "\u0c15\u0c32\u0c41\u0c2a\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c47\u0c32 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c21\u0c15\u0c41 \u0c17\u0c41\u0c30\u0c3f\u0c1a\u0c47\u0c2f\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c35\u0c47\u0c38\u0c35\u0c3f\u0c32\u0c4b \u0c32\u0c4b\u0c24\u0c48\u0c28 \u0c26\u0c41\u0c15\u0c4d\u0c15\u0c3f \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c02\u0c21\u0c3f.",
-    "Prepare seasonal crop rotation and sowing recommendations for regional crops": "\u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c40\u0c2f \u0c2a\u0c02\u0c1f\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c41\u0c17\u0c41\u0c23 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f \u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c24\u0c2f\u0c3e\u0c30\u0c41 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
-    "Prepare vermicompost, Panchagavya, Jeevamrutha, and neem bio-pesticides": "\u0c35\u0c30\u0c4d\u0c2e\u0c40\u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d, \u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f, \u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c47\u0c2a \u0c15\u0c37\u0c3e\u0c2f\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c2f\u0c3e\u0c30\u0c41 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
-    "Prepared Soil": "\u0c38\u0c3f\u0c26\u0c4d\u0c27\u0c02 \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c28\u0c47\u0c32",
-    "Preparing Jeevamrutha and neem seed kernel extract for field application.": "\u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c47\u0c2a \u0c17\u0c3f\u0c02\u0c1c\u0c32 \u0c15\u0c37\u0c3e\u0c2f\u0c02 \u0c24\u0c2f\u0c3e\u0c30\u0c40 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c3e\u0c21\u0c15\u0c02.",
-    "Preventing storage pests, weevils, and moisture damage in godowns.": "\u0c17\u0c4b\u0c21\u0c4c\u0c28\u0c4d\u0c32\u0c32\u0c4b \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41, \u0c2e\u0c41\u0c15\u0c4d\u0c15\u0c41 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c47\u0c2e \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c02.",
-    "Previous": "\u0c2e\u0c41\u0c28\u0c41\u0c2a\u0c1f\u0c3f",
+    "Powering Every Acre":
+      "\u0c2a\u0c4d\u0c30\u0c24\u0c3f \u0c0e\u0c15\u0c30\u0c3e\u0c15\u0c41 \u0c36\u0c15\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c05\u0c02\u0c26\u0c3f\u0c38\u0c4d\u0c24\u0c4b\u0c02\u0c26\u0c3f",
+    "Pradhan Mantri Fasal Bima Yojana":
+      "\u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c2e\u0c02\u0c24\u0c4d\u0c30\u0c3f \u0c2b\u0c38\u0c32\u0c4d \u0c2c\u0c40\u0c2e\u0c3e \u0c2f\u0c4b\u0c1c\u0c28",
+    "Pradhan Mantri Fasal Bima Yojana (PMFBY)":
+      "\u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c2e\u0c02\u0c24\u0c4d\u0c30\u0c3f \u0c2b\u0c38\u0c32\u0c4d \u0c2c\u0c40\u0c2e\u0c3e \u0c2f\u0c4b\u0c1c\u0c28 (PMFBY)",
+    "Pre-cool fruits in shaded packing sheds immediately after picking to remove field heat.":
+      "\u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c28\u0c41 \u0c15\u0c4b\u0c38\u0c3f\u0c28 \u0c35\u0c46\u0c02\u0c1f\u0c28\u0c47 \u0c35\u0c47\u0c21\u0c3f \u0c24\u0c17\u0c4d\u0c17\u0c47\u0c32\u0c3e \u0c28\u0c40\u0c21 \u0c09\u0c28\u0c4d\u0c28 \u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c02\u0c32\u0c4b \u0c06\u0c30\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f.",
+    "Pre-cool harvested vegetables within 2 hours of field picking":
+      "\u0c15\u0c4b\u0c38\u0c3f\u0c28 2 \u0c17\u0c02\u0c1f\u0c32\u0c32\u0c4b\u0c2a\u0c41 \u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32\u0c28\u0c41 \u0c28\u0c40\u0c21\u0c32\u0c4b \u0c2a\u0c4d\u0c30\u0c40-\u0c15\u0c42\u0c32\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Pre-cooling, temperature control, and humidity management for perishable produce.":
+      "\u0c24\u0c4d\u0c35\u0c30\u0c17\u0c3e \u0c2a\u0c3e\u0c21\u0c2f\u0c4d\u0c2f\u0c47 \u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32\u0c41, \u0c2a\u0c02\u0c21\u0c4d\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c47\u0c2e \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23.",
+    "Precision Agri Institute":
+      "\u0c2a\u0c4d\u0c30\u0c3f\u0c38\u0c3f\u0c37\u0c28\u0c4d \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c07\u0c28\u0c4d\u0c38\u0c4d\u0c1f\u0c3f\u0c1f\u0c4d\u0c2f\u0c42\u0c1f\u0c4d",
+    "Precision Agri Tools & IoT Sensors":
+      "\u0c16\u0c1a\u0c4d\u0c1a\u0c3f\u0c24\u0c24\u0c4d\u0c35 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41 & IoT \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c41",
+    "Precision Agriculture":
+      "\u0c16\u0c1a\u0c4d\u0c1a\u0c3f\u0c24\u0c2e\u0c48\u0c28 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    "Precision Farming":
+      "\u0c16\u0c1a\u0c4d\u0c1a\u0c3f\u0c24\u0c2e\u0c48\u0c28 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    "Precision Soil Sensor Integration":
+      "\u0c28\u0c47\u0c32 \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32 \u0c05\u0c28\u0c41\u0c38\u0c02\u0c27\u0c3e\u0c28\u0c02",
+    "Precision drip systems require correct sizing of mainlines, submains, lateral tubes, and inline drippers based on soil texture, slope, and crop row spacing.":
+      "\u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 \u0c35\u0c3f\u0c1c\u0c2f\u0c35\u0c02\u0c24\u0c02 \u0c15\u0c3e\u0c35\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c4a\u0c32\u0c02 \u0c35\u0c3e\u0c32\u0c41, \u0c2a\u0c02\u0c1f \u0c35\u0c30\u0c41\u0c38\u0c32 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c32\u0c48\u0c28\u0c4d\u0c32\u0c41, \u0c21\u0c4d\u0c30\u0c3f\u0c2a\u0c4d\u0c2a\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c38\u0c30\u0c3f\u0c17\u0c4d\u0c17\u0c3e \u0c0f\u0c30\u0c4d\u0c2a\u0c3e\u0c1f\u0c41 \u0c1a\u0c47\u0c2f\u0c3e\u0c32\u0c3f.",
+    "Precision nutrient tools calculate exact fertilizer requirement per plot":
+      "\u0c38\u0c30\u0c3f\u0c17\u0c4d\u0c17\u0c3e \u0c05\u0c35\u0c38\u0c30\u0c2e\u0c48\u0c28 \u0c2e\u0c4b\u0c24\u0c3e\u0c26\u0c41\u0c32\u0c4b\u0c28\u0c47 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c47\u0c2f\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c41 \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c24\u0c3e\u0c2f\u0c3f",
+    "Preparation steps for nutrient-rich vermicompost and bio-stimulants.":
+      "\u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32\u0c24\u0c4b \u0c15\u0c42\u0c21\u0c3f\u0c28 \u0c35\u0c3e\u0c28\u0c2a\u0c3e\u0c2e\u0c41\u0c32 \u0c0e\u0c30\u0c41\u0c35\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f \u0c24\u0c2f\u0c3e\u0c30\u0c40 \u0c35\u0c3f\u0c27\u0c3e\u0c28\u0c02.",
+    "Prepare land with deep summer ploughing to expose weed seeds and soil pests to heat.":
+      "\u0c15\u0c32\u0c41\u0c2a\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c47\u0c32 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c21\u0c15\u0c41 \u0c17\u0c41\u0c30\u0c3f\u0c1a\u0c47\u0c2f\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c35\u0c47\u0c38\u0c35\u0c3f\u0c32\u0c4b \u0c32\u0c4b\u0c24\u0c48\u0c28 \u0c26\u0c41\u0c15\u0c4d\u0c15\u0c3f \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c02\u0c21\u0c3f.",
+    "Prepare seasonal crop rotation and sowing recommendations for regional crops":
+      "\u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c40\u0c2f \u0c2a\u0c02\u0c1f\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c41\u0c17\u0c41\u0c23 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f \u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c24\u0c2f\u0c3e\u0c30\u0c41 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
+    "Prepare vermicompost, Panchagavya, Jeevamrutha, and neem bio-pesticides":
+      "\u0c35\u0c30\u0c4d\u0c2e\u0c40\u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d, \u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f, \u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c47\u0c2a \u0c15\u0c37\u0c3e\u0c2f\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c2f\u0c3e\u0c30\u0c41 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
+    "Prepared Soil":
+      "\u0c38\u0c3f\u0c26\u0c4d\u0c27\u0c02 \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c28\u0c47\u0c32",
+    "Preparing Jeevamrutha and neem seed kernel extract for field application.":
+      "\u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c47\u0c2a \u0c17\u0c3f\u0c02\u0c1c\u0c32 \u0c15\u0c37\u0c3e\u0c2f\u0c02 \u0c24\u0c2f\u0c3e\u0c30\u0c40 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c3e\u0c21\u0c15\u0c02.",
+    "Preventing storage pests, weevils, and moisture damage in godowns.":
+      "\u0c17\u0c4b\u0c21\u0c4c\u0c28\u0c4d\u0c32\u0c32\u0c4b \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41, \u0c2e\u0c41\u0c15\u0c4d\u0c15\u0c41 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c47\u0c2e \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c02.",
+    Previous: "\u0c2e\u0c41\u0c28\u0c41\u0c2a\u0c1f\u0c3f",
     "Previous Lesson": "\u0c2e\u0c41\u0c28\u0c41\u0c2a\u0c1f\u0c3f \u0c2a\u0c3e\u0c20\u0c02",
-    "Price": "\u0c27\u0c30",
+    Price: "\u0c27\u0c30",
     "Price / Rate (\u20b9)": "\u0c27\u0c30 / \u0c30\u0c47\u0c1f\u0c41 (\u20b9)",
     "Price Range (\u20b9)": "\u0c27\u0c30 \u0c2a\u0c30\u0c3f\u0c27\u0c3f (\u20b9)",
-    "Price high to low": "\u0c27\u0c30: \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35",
-    "Price low to high": "\u0c27\u0c30: \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35",
-    "Primary Goal / Note": "\u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c32\u0c15\u0c4d\u0c37\u0c4d\u0c2f\u0c02 / \u0c17\u0c2e\u0c28\u0c3f\u0c15",
-    "Primary Nutrients: N, P, K Management": "\u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32\u0c41: N, P, K \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
-    "Primary processing\u2014such as milling mustard into oil, converting paddy to rice, or drying turmeric and chillies\u2014transforms raw agricultural commodities into high-value processed products.": "\u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d \u0c1a\u0c47\u0c2f\u0c21\u0c02 (\u0c06\u0c35\u0c3e\u0c32 \u0c28\u0c42\u0c28\u0c46, \u0c2a\u0c38\u0c41\u0c2a\u0c41 \u0c2a\u0c4a\u0c21\u0c3f, \u0c2e\u0c3f\u0c30\u0c2a\u0c15\u0c3e\u0c2f\u0c32\u0c41 \u0c0e\u0c02\u0c21\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c21\u0c02) \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2e\u0c41\u0c21\u0c3f \u0c38\u0c30\u0c41\u0c15\u0c41 \u0c15\u0c02\u0c1f\u0c47 \u0c30\u0c46\u0c1f\u0c4d\u0c1f\u0c3f\u0c02\u0c2a\u0c41 \u0c32\u0c3e\u0c2d\u0c02 \u0c2a\u0c4a\u0c02\u0c26\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
-    "Principles of Organic Farming & Certification": "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c42\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c23\u0c2a\u0c24\u0c4d\u0c30\u0c02",
-    "Principles of micro-irrigation, water savings, and root zone delivery.": "\u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c38\u0c42\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c41, \u0c28\u0c40\u0c1f\u0c3f \u0c2a\u0c4a\u0c26\u0c41\u0c2a\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c47\u0c30\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c4d\u0c25\u0c15\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c28\u0c40\u0c1f\u0c3f \u0c30\u0c35\u0c3e\u0c23\u0c3e.",
-    "Problem Solving": "\u0c38\u0c2e\u0c38\u0c4d\u0c2f \u0c2a\u0c30\u0c3f\u0c37\u0c4d\u0c15\u0c3e\u0c30\u0c02",
-    "Proceed to Checkout": "\u0c1a\u0c46\u0c15\u0c4c\u0c1f\u0c4d\u0c15\u0c41 \u0c35\u0c46\u0c33\u0c4d\u0c32\u0c02\u0c21\u0c3f",
-    "Processing crops into flour, oil, dried fruits, or spices for higher profit.": "\u0c05\u0c27\u0c3f\u0c15 \u0c32\u0c3e\u0c2d\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c2a\u0c3f\u0c02\u0c21\u0c3f, \u0c28\u0c42\u0c28\u0c46, \u0c0e\u0c02\u0c21\u0c3f\u0c28 \u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c2e\u0c38\u0c3e\u0c32\u0c3e\u0c32\u0c41\u0c17\u0c3e \u0c2e\u0c3e\u0c30\u0c4d\u0c1a\u0c21\u0c02.",
-    "Produce Listing Details": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41",
+    "Price high to low":
+      "\u0c27\u0c30: \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35",
+    "Price low to high":
+      "\u0c27\u0c30: \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35",
+    "Primary Goal / Note":
+      "\u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c32\u0c15\u0c4d\u0c37\u0c4d\u0c2f\u0c02 / \u0c17\u0c2e\u0c28\u0c3f\u0c15",
+    "Primary Nutrients: N, P, K Management":
+      "\u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32\u0c41: N, P, K \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Primary processing\u2014such as milling mustard into oil, converting paddy to rice, or drying turmeric and chillies\u2014transforms raw agricultural commodities into high-value processed products.":
+      "\u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d \u0c1a\u0c47\u0c2f\u0c21\u0c02 (\u0c06\u0c35\u0c3e\u0c32 \u0c28\u0c42\u0c28\u0c46, \u0c2a\u0c38\u0c41\u0c2a\u0c41 \u0c2a\u0c4a\u0c21\u0c3f, \u0c2e\u0c3f\u0c30\u0c2a\u0c15\u0c3e\u0c2f\u0c32\u0c41 \u0c0e\u0c02\u0c21\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c21\u0c02) \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2e\u0c41\u0c21\u0c3f \u0c38\u0c30\u0c41\u0c15\u0c41 \u0c15\u0c02\u0c1f\u0c47 \u0c30\u0c46\u0c1f\u0c4d\u0c1f\u0c3f\u0c02\u0c2a\u0c41 \u0c32\u0c3e\u0c2d\u0c02 \u0c2a\u0c4a\u0c02\u0c26\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
+    "Principles of Organic Farming & Certification":
+      "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c42\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c23\u0c2a\u0c24\u0c4d\u0c30\u0c02",
+    "Principles of micro-irrigation, water savings, and root zone delivery.":
+      "\u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c38\u0c42\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c41, \u0c28\u0c40\u0c1f\u0c3f \u0c2a\u0c4a\u0c26\u0c41\u0c2a\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c47\u0c30\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c4d\u0c25\u0c15\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c28\u0c40\u0c1f\u0c3f \u0c30\u0c35\u0c3e\u0c23\u0c3e.",
+    "Problem Solving":
+      "\u0c38\u0c2e\u0c38\u0c4d\u0c2f \u0c2a\u0c30\u0c3f\u0c37\u0c4d\u0c15\u0c3e\u0c30\u0c02",
+    "Proceed to Checkout":
+      "\u0c1a\u0c46\u0c15\u0c4c\u0c1f\u0c4d\u0c15\u0c41 \u0c35\u0c46\u0c33\u0c4d\u0c32\u0c02\u0c21\u0c3f",
+    "Processing crops into flour, oil, dried fruits, or spices for higher profit.":
+      "\u0c05\u0c27\u0c3f\u0c15 \u0c32\u0c3e\u0c2d\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c2a\u0c3f\u0c02\u0c21\u0c3f, \u0c28\u0c42\u0c28\u0c46, \u0c0e\u0c02\u0c21\u0c3f\u0c28 \u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c2e\u0c38\u0c3e\u0c32\u0c3e\u0c32\u0c41\u0c17\u0c3e \u0c2e\u0c3e\u0c30\u0c4d\u0c1a\u0c21\u0c02.",
+    "Produce Listing Details":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41",
     "Produce Name": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c2a\u0c47\u0c30\u0c41",
-    "Produce Preservation & Logistics": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c38\u0c02\u0c30\u0c15\u0c4d\u0c37\u0c23 & \u0c32\u0c3e\u0c1c\u0c3f\u0c38\u0c4d\u0c1f\u0c3f\u0c15\u0c4d\u0c38\u0c4d",
-    "Product Image": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c1a\u0c3f\u0c24\u0c4d\u0c30\u0c02",
-    "Product Status": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f",
-    "Programming": "\u0c2a\u0c4d\u0c30\u0c4b\u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c3f\u0c02\u0c17\u0c4d",
-    "Progress": "\u0c2a\u0c41\u0c30\u0c4b\u0c17\u0c24\u0c3f",
-    "Project Based": "\u0c2a\u0c4d\u0c30\u0c3e\u0c1c\u0c46\u0c15\u0c4d\u0c1f\u0c4d \u0c06\u0c27\u0c3e\u0c30\u0c3f\u0c24\u0c02",
-    "Proper field levelling, bunding, and channel creation for uniform irrigation.": "\u0c38\u0c2e\u0c3e\u0c28\u0c2e\u0c48\u0c28 \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c38\u0c30\u0c48\u0c28 \u0c2a\u0c4a\u0c32\u0c02 \u0c32\u0c46\u0c35\u0c32\u0c3f\u0c02\u0c17\u0c4d, \u0c17\u0c1f\u0c4d\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c3e\u0c32\u0c41\u0c35\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c2e\u0c3e\u0c23\u0c02.",
-    "Proper land levelling prevents waterlogging and ensures even moisture distribution across the field. Laser levelling can save up to 20% irrigation water and increase crop yield.": "\u0c38\u0c30\u0c48\u0c28 \u0c2a\u0c4a\u0c32\u0c02 \u0c32\u0c46\u0c35\u0c32\u0c3f\u0c02\u0c17\u0c4d \u0c28\u0c40\u0c30\u0c41 \u0c28\u0c3f\u0c32\u0c35\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c28\u0c3f\u0c30\u0c4b\u0c27\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4a\u0c32\u0c2e\u0c02\u0c24\u0c3e \u0c38\u0c2e\u0c3e\u0c28\u0c02\u0c17\u0c3e \u0c24\u0c47\u0c2e \u0c05\u0c02\u0c26\u0c41\u0c24\u0c41\u0c02\u0c26\u0c28\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c27\u0c3e\u0c30\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c32\u0c47\u0c1c\u0c30\u0c4d \u0c32\u0c46\u0c35\u0c32\u0c3f\u0c02\u0c17\u0c4d 20% \u0c35\u0c30\u0c15\u0c41 \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c06\u0c26\u0c3e \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c3f\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c1a\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Protect natural predators like ladybird beetles and lacewings": "\u0c32\u0c47\u0c21\u0c40\u0c2c\u0c30\u0c4d\u0c21\u0c4d \u0c2c\u0c40\u0c1f\u0c3f\u0c32\u0c4d\u0c38\u0c4d \u0c35\u0c02\u0c1f\u0c3f \u0c2e\u0c3f\u0c24\u0c4d\u0c30 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Protection for dairy animals and small ruminants against death due to accident or disease.": "\u0c2a\u0c3e\u0c21\u0c3f \u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c17\u0c4a\u0c30\u0c4d\u0c30\u0c46\u0c32\u0c41/\u0c2e\u0c47\u0c15\u0c32\u0c15\u0c41 \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26\u0c35\u0c36\u0c3e\u0c24\u0c4d\u0c24\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c3f \u0c15\u0c3e\u0c30\u0c23\u0c02\u0c17\u0c3e \u0c30\u0c15\u0c4d\u0c37\u0c23.",
-    "Provide shade nets or protective sprinkler misting for high-value crops": "\u0c35\u0c3f\u0c32\u0c41\u0c35\u0c48\u0c28 \u0c2a\u0c02\u0c1f\u0c32\u0c15\u0c41 \u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c3f\u0c02\u0c15\u0c4d\u0c32\u0c30\u0c4d\u0c32\u0c24\u0c4b \u0c28\u0c40\u0c30\u0c41 \u0c1a\u0c3f\u0c32\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Provides crop-specific fertilizer dosage recommendations": "\u0c2a\u0c02\u0c1f \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c35\u0c47\u0c2f\u0c3e\u0c32\u0c4d\u0c38\u0c3f\u0c28 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c4b\u0c24\u0c3e\u0c26\u0c41\u0c28\u0c41 \u0c38\u0c42\u0c1a\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41",
-    "Provides short-term crop loans up to Rs. 3 Lakh at 4% effective interest": "\u0c30\u0c42. 3 \u0c32\u0c15\u0c4d\u0c37\u0c32 \u0c35\u0c30\u0c15\u0c41 \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c35\u0c21\u0c4d\u0c21\u0c40\u0c15\u0c47 \u0c2a\u0c02\u0c1f \u0c30\u0c41\u0c23\u0c3e\u0c32\u0c41 \u0c07\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41",
-    "Pruning Secateur Bypass": "\u0c15\u0c4a\u0c2e\u0c4d\u0c2e\u0c32 \u0c15\u0c24\u0c4d\u0c24\u0c3f\u0c30\u0c3f\u0c02\u0c2a\u0c41 \u0c15\u0c24\u0c4d\u0c24\u0c46\u0c30",
-    "Pseudomonas Fluorescens (1 kg)": "\u0c38\u0c42\u0c21\u0c4b\u0c2e\u0c4b\u0c28\u0c3e\u0c38\u0c4d \u0c2b\u0c4d\u0c32\u0c42\u0c30\u0c4b\u0c38\u0c46\u0c28\u0c4d\u0c38\u0c4d (1 \u0c15\u0c3f\u0c32\u0c4b)",
-    "Publish Produce Listing": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c1a\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Punjab": "\u0c2a\u0c02\u0c1c\u0c3e\u0c2c\u0c4d",
-    "PureFarm": "PureFarm",
-    "PureFarm Agri Academy": "PureFarm \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c05\u0c15\u0c3e\u0c21\u0c2e\u0c40",
-    "PureFarm Agri Services": "\u0c2a\u0c4d\u0c2f\u0c42\u0c30\u0c4d \u0c2b\u0c3e\u0c2e\u0c4d \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c38\u0c30\u0c4d\u0c35\u0c40\u0c38\u0c46\u0c38\u0c4d",
-    "PureFarm Agri Services, Amritsar, Punjab 143001, India": "\u0c2a\u0c4d\u0c2f\u0c42\u0c30\u0c4d\u0c2b\u0c3e\u0c2e\u0c4d \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c38\u0c30\u0c4d\u0c35\u0c40\u0c38\u0c46\u0c38\u0c4d, \u0c05\u0c2e\u0c43\u0c24\u0c4d\u0c38\u0c30\u0c4d, \u0c2a\u0c02\u0c1c\u0c3e\u0c2c\u0c4d 143001, \u0c07\u0c02\u0c21\u0c3f\u0c2f\u0c3e",
-    "PureFarm Innovations": "PureFarm \u0c07\u0c28\u0c4d\u0c28\u0c4b\u0c35\u0c47\u0c37\u0c28\u0c4d\u0c38\u0c4d",
+    "Produce Preservation & Logistics":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c38\u0c02\u0c30\u0c15\u0c4d\u0c37\u0c23 & \u0c32\u0c3e\u0c1c\u0c3f\u0c38\u0c4d\u0c1f\u0c3f\u0c15\u0c4d\u0c38\u0c4d",
+    "Product Image":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c1a\u0c3f\u0c24\u0c4d\u0c30\u0c02",
+    "Product Status":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f",
+    Programming: "\u0c2a\u0c4d\u0c30\u0c4b\u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c3f\u0c02\u0c17\u0c4d",
+    Progress: "\u0c2a\u0c41\u0c30\u0c4b\u0c17\u0c24\u0c3f",
+    "Project Based":
+      "\u0c2a\u0c4d\u0c30\u0c3e\u0c1c\u0c46\u0c15\u0c4d\u0c1f\u0c4d \u0c06\u0c27\u0c3e\u0c30\u0c3f\u0c24\u0c02",
+    "Proper field levelling, bunding, and channel creation for uniform irrigation.":
+      "\u0c38\u0c2e\u0c3e\u0c28\u0c2e\u0c48\u0c28 \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c38\u0c30\u0c48\u0c28 \u0c2a\u0c4a\u0c32\u0c02 \u0c32\u0c46\u0c35\u0c32\u0c3f\u0c02\u0c17\u0c4d, \u0c17\u0c1f\u0c4d\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c3e\u0c32\u0c41\u0c35\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c2e\u0c3e\u0c23\u0c02.",
+    "Proper land levelling prevents waterlogging and ensures even moisture distribution across the field. Laser levelling can save up to 20% irrigation water and increase crop yield.":
+      "\u0c38\u0c30\u0c48\u0c28 \u0c2a\u0c4a\u0c32\u0c02 \u0c32\u0c46\u0c35\u0c32\u0c3f\u0c02\u0c17\u0c4d \u0c28\u0c40\u0c30\u0c41 \u0c28\u0c3f\u0c32\u0c35\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c28\u0c3f\u0c30\u0c4b\u0c27\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4a\u0c32\u0c2e\u0c02\u0c24\u0c3e \u0c38\u0c2e\u0c3e\u0c28\u0c02\u0c17\u0c3e \u0c24\u0c47\u0c2e \u0c05\u0c02\u0c26\u0c41\u0c24\u0c41\u0c02\u0c26\u0c28\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c27\u0c3e\u0c30\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c32\u0c47\u0c1c\u0c30\u0c4d \u0c32\u0c46\u0c35\u0c32\u0c3f\u0c02\u0c17\u0c4d 20% \u0c35\u0c30\u0c15\u0c41 \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c06\u0c26\u0c3e \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c26\u0c3f\u0c17\u0c41\u0c2c\u0c21\u0c3f\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c1a\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Protect natural predators like ladybird beetles and lacewings":
+      "\u0c32\u0c47\u0c21\u0c40\u0c2c\u0c30\u0c4d\u0c21\u0c4d \u0c2c\u0c40\u0c1f\u0c3f\u0c32\u0c4d\u0c38\u0c4d \u0c35\u0c02\u0c1f\u0c3f \u0c2e\u0c3f\u0c24\u0c4d\u0c30 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Protection for dairy animals and small ruminants against death due to accident or disease.":
+      "\u0c2a\u0c3e\u0c21\u0c3f \u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c17\u0c4a\u0c30\u0c4d\u0c30\u0c46\u0c32\u0c41/\u0c2e\u0c47\u0c15\u0c32\u0c15\u0c41 \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26\u0c35\u0c36\u0c3e\u0c24\u0c4d\u0c24\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c3f \u0c15\u0c3e\u0c30\u0c23\u0c02\u0c17\u0c3e \u0c30\u0c15\u0c4d\u0c37\u0c23.",
+    "Provide shade nets or protective sprinkler misting for high-value crops":
+      "\u0c35\u0c3f\u0c32\u0c41\u0c35\u0c48\u0c28 \u0c2a\u0c02\u0c1f\u0c32\u0c15\u0c41 \u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c3f\u0c02\u0c15\u0c4d\u0c32\u0c30\u0c4d\u0c32\u0c24\u0c4b \u0c28\u0c40\u0c30\u0c41 \u0c1a\u0c3f\u0c32\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Provides crop-specific fertilizer dosage recommendations":
+      "\u0c2a\u0c02\u0c1f \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c35\u0c47\u0c2f\u0c3e\u0c32\u0c4d\u0c38\u0c3f\u0c28 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c4b\u0c24\u0c3e\u0c26\u0c41\u0c28\u0c41 \u0c38\u0c42\u0c1a\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41",
+    "Provides short-term crop loans up to Rs. 3 Lakh at 4% effective interest":
+      "\u0c30\u0c42. 3 \u0c32\u0c15\u0c4d\u0c37\u0c32 \u0c35\u0c30\u0c15\u0c41 \u0c24\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c35\u0c21\u0c4d\u0c21\u0c40\u0c15\u0c47 \u0c2a\u0c02\u0c1f \u0c30\u0c41\u0c23\u0c3e\u0c32\u0c41 \u0c07\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41",
+    "Pruning Secateur Bypass":
+      "\u0c15\u0c4a\u0c2e\u0c4d\u0c2e\u0c32 \u0c15\u0c24\u0c4d\u0c24\u0c3f\u0c30\u0c3f\u0c02\u0c2a\u0c41 \u0c15\u0c24\u0c4d\u0c24\u0c46\u0c30",
+    "Pseudomonas Fluorescens (1 kg)":
+      "\u0c38\u0c42\u0c21\u0c4b\u0c2e\u0c4b\u0c28\u0c3e\u0c38\u0c4d \u0c2b\u0c4d\u0c32\u0c42\u0c30\u0c4b\u0c38\u0c46\u0c28\u0c4d\u0c38\u0c4d (1 \u0c15\u0c3f\u0c32\u0c4b)",
+    "Publish Produce Listing":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c1a\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    Punjab: "\u0c2a\u0c02\u0c1c\u0c3e\u0c2c\u0c4d",
+    PureFarm: "PureFarm",
+    "PureFarm Agri Academy":
+      "PureFarm \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c05\u0c15\u0c3e\u0c21\u0c2e\u0c40",
+    "PureFarm Agri Services":
+      "\u0c2a\u0c4d\u0c2f\u0c42\u0c30\u0c4d \u0c2b\u0c3e\u0c2e\u0c4d \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c38\u0c30\u0c4d\u0c35\u0c40\u0c38\u0c46\u0c38\u0c4d",
+    "PureFarm Agri Services, Amritsar, Punjab 143001, India":
+      "\u0c2a\u0c4d\u0c2f\u0c42\u0c30\u0c4d\u0c2b\u0c3e\u0c2e\u0c4d \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c38\u0c30\u0c4d\u0c35\u0c40\u0c38\u0c46\u0c38\u0c4d, \u0c05\u0c2e\u0c43\u0c24\u0c4d\u0c38\u0c30\u0c4d, \u0c2a\u0c02\u0c1c\u0c3e\u0c2c\u0c4d 143001, \u0c07\u0c02\u0c21\u0c3f\u0c2f\u0c3e",
+    "PureFarm Innovations":
+      "PureFarm \u0c07\u0c28\u0c4d\u0c28\u0c4b\u0c35\u0c47\u0c37\u0c28\u0c4d\u0c38\u0c4d",
     "PureFarm Labs": "PureFarm \u0c32\u0c3e\u0c2c\u0c4d\u0c38\u0c4d",
     "PureFarm Learning": "PureFarm \u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38\u0c02",
-    "PureFarm Platform": "PureFarm \u0c2a\u0c4d\u0c32\u0c3e\u0c1f\u0c4d\u200c\u0c2b\u0c3e\u0c30\u0c2e\u0c4d",
+    "PureFarm Platform":
+      "PureFarm \u0c2a\u0c4d\u0c32\u0c3e\u0c1f\u0c4d\u200c\u0c2b\u0c3e\u0c30\u0c2e\u0c4d",
     "PureFarm Tech": "PureFarm \u0c1f\u0c46\u0c15\u0c4d",
-    "PureFarm Tech Academy": "PureFarm \u0c1f\u0c46\u0c15\u0c4d \u0c05\u0c15\u0c3e\u0c21\u0c2e\u0c40",
-    "Python Development Intern": "\u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
-    "Python Programming": "\u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d \u0c2a\u0c4d\u0c30\u0c4b\u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c3f\u0c02\u0c17\u0c4d",
-    "Quantity": "\u0c2a\u0c30\u0c3f\u0c2e\u0c3e\u0c23\u0c02",
+    "PureFarm Tech Academy":
+      "PureFarm \u0c1f\u0c46\u0c15\u0c4d \u0c05\u0c15\u0c3e\u0c21\u0c2e\u0c40",
+    "Python Development Intern":
+      "\u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
+    "Python Programming":
+      "\u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d \u0c2a\u0c4d\u0c30\u0c4b\u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c3f\u0c02\u0c17\u0c4d",
+    Quantity: "\u0c2a\u0c30\u0c3f\u0c2e\u0c3e\u0c23\u0c02",
     "Quick Actions": "\u0c36\u0c40\u0c18\u0c4d\u0c30 \u0c1a\u0c30\u0c4d\u0c2f\u0c32\u0c41",
     "Quick Support": "\u0c36\u0c40\u0c18\u0c4d\u0c30 \u0c2e\u0c26\u0c4d\u0c26\u0c24\u0c41",
     "Rabi Season": "\u0c30\u0c2c\u0c40 \u0c38\u0c40\u0c1c\u0c28\u0c4d",
-    "Rabi crops require cool winter temperatures during grain filling": "\u0c30\u0c2c\u0c40 \u0c2a\u0c02\u0c1f\u0c32\u0c15\u0c41 \u0c17\u0c3f\u0c02\u0c1c \u0c2a\u0c15\u0c4d\u0c35\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c1a\u0c32\u0c4d\u0c32\u0c28\u0c3f \u0c36\u0c40\u0c24\u0c3e\u0c15\u0c3e\u0c32 \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24\u0c32\u0c41 \u0c05\u0c35\u0c38\u0c30\u0c02",
-    "Rain": "\u0c35\u0c30\u0c4d\u0c37\u0c02",
-    "Rain advisory for Ludhiana belt": "\u0c32\u0c41\u0c27\u0c3f\u0c2f\u0c3e\u0c28\u0c3e \u0c2c\u0c46\u0c32\u0c4d\u0c1f\u0c4d \u0c15\u0c4b\u0c38\u0c02 \u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c41 \u0c38\u0c32\u0c39\u0c3e",
-    "Rainfall": "\u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c3e\u0c24\u0c02",
-    "Rainwater Harvesting & Farm Ponds": "\u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c41 \u0c28\u0c40\u0c1f\u0c3f \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4a\u0c32\u0c02 \u0c15\u0c41\u0c02\u0c1f\u0c32\u0c41",
+    "Rabi crops require cool winter temperatures during grain filling":
+      "\u0c30\u0c2c\u0c40 \u0c2a\u0c02\u0c1f\u0c32\u0c15\u0c41 \u0c17\u0c3f\u0c02\u0c1c \u0c2a\u0c15\u0c4d\u0c35\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c1a\u0c32\u0c4d\u0c32\u0c28\u0c3f \u0c36\u0c40\u0c24\u0c3e\u0c15\u0c3e\u0c32 \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24\u0c32\u0c41 \u0c05\u0c35\u0c38\u0c30\u0c02",
+    Rain: "\u0c35\u0c30\u0c4d\u0c37\u0c02",
+    "Rain advisory for Ludhiana belt":
+      "\u0c32\u0c41\u0c27\u0c3f\u0c2f\u0c3e\u0c28\u0c3e \u0c2c\u0c46\u0c32\u0c4d\u0c1f\u0c4d \u0c15\u0c4b\u0c38\u0c02 \u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c41 \u0c38\u0c32\u0c39\u0c3e",
+    Rainfall: "\u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c3e\u0c24\u0c02",
+    "Rainwater Harvesting & Farm Ponds":
+      "\u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c41 \u0c28\u0c40\u0c1f\u0c3f \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4a\u0c32\u0c02 \u0c15\u0c41\u0c02\u0c1f\u0c32\u0c41",
     "Rajahmundry, AP": "\u0c30\u0c3e\u0c1c\u0c2e\u0c02\u0c21\u0c4d\u0c30\u0c3f, \u0c0f\u0c2a\u0c40",
-    "Rajahmundry, Andhra Pradesh": "\u0c30\u0c3e\u0c1c\u0c2e\u0c02\u0c21\u0c4d\u0c30\u0c3f, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
-    "Rajahmundry, East Godavari, Andhra Pradesh - 533101": "\u0c30\u0c3e\u0c1c\u0c2e\u0c02\u0c21\u0c4d\u0c30\u0c3f, \u0c24\u0c42\u0c30\u0c4d\u0c2a\u0c41 \u0c17\u0c4b\u0c26\u0c3e\u0c35\u0c30\u0c3f, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d - 533101",
-    "Real-time Prices": "\u0c30\u0c3f\u0c2f\u0c32\u0c4d-\u0c1f\u0c48\u0c2e\u0c4d \u0c27\u0c30\u0c32\u0c41",
-    "Real-time alerts for weather, market prices, and order updates": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c02, \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c05\u0c2a\u0c4d\u200c\u0c21\u0c47\u0c1f\u0c4d\u200c\u0c32 \u0c24\u0c15\u0c4d\u0c37\u0c23 \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c41",
-    "Receive direct online payment into bank account within 24 hours": "24 \u0c17\u0c02\u0c1f\u0c32\u0c4d\u0c32\u0c4b \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41 \u0c16\u0c3e\u0c24\u0c3e\u0c15\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c21\u0c2c\u0c4d\u0c2c\u0c41 \u0c1c\u0c2e \u0c05\u0c35\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Receive real-time weather risk alerts via SMS or app notifications": "\u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d\u200c\u0c15\u0c41 \u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c2f\u0c15\u0c4d\u0c37 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c28\u0c41 \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f",
-    "Recent Orders": "\u0c07\u0c1f\u0c40\u0c35\u0c32\u0c3f \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u0c32\u0c41",
-    "Recent Orders Received": "\u0c07\u0c1f\u0c40\u0c35\u0c32 \u0c35\u0c1a\u0c4d\u0c1a\u0c3f\u0c28 \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u200c\u0c32\u0c41",
-    "Recently Added": "\u0c07\u0c1f\u0c40\u0c35\u0c32 \u0c1c\u0c4b\u0c21\u0c3f\u0c02\u0c1a\u0c3f\u0c28\u0c35\u0c3f",
-    "Recommendations": "\u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
-    "Recommended dosage, safety gear, nozzle selection, and spray timing.": "\u0c38\u0c30\u0c48\u0c28 \u0c2e\u0c4b\u0c24\u0c3e\u0c26\u0c41, \u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c26\u0c41\u0c38\u0c4d\u0c24\u0c41\u0c32\u0c41, \u0c28\u0c3e\u0c1c\u0c3f\u0c32\u0c4d \u0c0e\u0c02\u0c2a\u0c3f\u0c15 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c38\u0c2e\u0c2f\u0c02.",
-    "Record weed density and pest occurrence in experimental trial plots": "\u0c2a\u0c4d\u0c30\u0c2f\u0c4b\u0c17 \u0c15\u0c4d\u0c37\u0c47\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c32\u0c4b \u0c15\u0c32\u0c41\u0c2a\u0c41 \u0c24\u0c40\u0c35\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c33 \u0c38\u0c02\u0c2d\u0c35\u0c28\u0c40\u0c2f\u0c24\u0c28\u0c41 \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
-    "Red Onions": "\u0c0e\u0c30\u0c4d\u0c30 \u0c09\u0c32\u0c4d\u0c32\u0c3f\u0c2a\u0c3e\u0c2f\u0c32\u0c41",
-    "Reduces direct farmer exposure to chemical pesticides": "\u0c30\u0c48\u0c24\u0c41\u0c32\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c30\u0c38\u0c3e\u0c2f\u0c28\u0c3e\u0c32 \u0c2a\u0c4d\u0c30\u0c2d\u0c3e\u0c35\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c17\u0c41\u0c30\u0c3f\u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
-    "Reduces labor costs and water consumption by an additional 25%": "\u0c36\u0c4d\u0c30\u0c2e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c40\u0c1f\u0c3f \u0c35\u0c3e\u0c21\u0c15\u0c02 \u0c2e\u0c30\u0c4b 25% \u0c24\u0c17\u0c4d\u0c17\u0c41\u0c24\u0c3e\u0c2f\u0c3f",
-    "Reduces weed emergence in inter-row spaces": "\u0c35\u0c30\u0c41\u0c38\u0c32 \u0c2e\u0c27\u0c4d\u0c2f \u0c15\u0c32\u0c41\u0c2a\u0c41 \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c32 \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c26\u0c32\u0c28\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Refresh": "\u0c30\u0c3f\u0c2b\u0c4d\u0c30\u0c46\u0c37\u0c4d",
-    "Register": "\u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Register as a Farmer to sell your harvest directly.": "\u0c2e\u0c40 \u0c2a\u0c02\u0c1f\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c30\u0c48\u0c24\u0c41\u0c17\u0c3e \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Register farmer account on e-NAM portal using Aadhaar and bank details": "\u0c06\u0c27\u0c3e\u0c30\u0c4d, \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c24\u0c4b \u0c08-\u0c28\u0c3e\u0c2e\u0c4d\u200c\u0c32\u0c4b \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Registering on e-NAM, online quality testing, and transparent digital bidding.": "\u0c08-\u0c28\u0c3e\u0c2e\u0c4d\u200c\u0c32\u0c4b \u0c28\u0c2e\u0c4b\u0c26\u0c41, \u0c06\u0c28\u0c4d\u200c\u0c32\u0c48\u0c28\u0c4d \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c35\u0c47\u0c32\u0c02.",
+    "Rajahmundry, Andhra Pradesh":
+      "\u0c30\u0c3e\u0c1c\u0c2e\u0c02\u0c21\u0c4d\u0c30\u0c3f, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
+    "Rajahmundry, East Godavari, Andhra Pradesh - 533101":
+      "\u0c30\u0c3e\u0c1c\u0c2e\u0c02\u0c21\u0c4d\u0c30\u0c3f, \u0c24\u0c42\u0c30\u0c4d\u0c2a\u0c41 \u0c17\u0c4b\u0c26\u0c3e\u0c35\u0c30\u0c3f, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d - 533101",
+    "Real-time Prices":
+      "\u0c30\u0c3f\u0c2f\u0c32\u0c4d-\u0c1f\u0c48\u0c2e\u0c4d \u0c27\u0c30\u0c32\u0c41",
+    "Real-time alerts for weather, market prices, and order updates":
+      "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c02, \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c05\u0c2a\u0c4d\u200c\u0c21\u0c47\u0c1f\u0c4d\u200c\u0c32 \u0c24\u0c15\u0c4d\u0c37\u0c23 \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c41",
+    "Receive direct online payment into bank account within 24 hours":
+      "24 \u0c17\u0c02\u0c1f\u0c32\u0c4d\u0c32\u0c4b \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41 \u0c16\u0c3e\u0c24\u0c3e\u0c15\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c21\u0c2c\u0c4d\u0c2c\u0c41 \u0c1c\u0c2e \u0c05\u0c35\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    "Receive real-time weather risk alerts via SMS or app notifications":
+      "\u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d\u200c\u0c15\u0c41 \u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c2f\u0c15\u0c4d\u0c37 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c28\u0c41 \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f",
+    "Recent Orders":
+      "\u0c07\u0c1f\u0c40\u0c35\u0c32\u0c3f \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u0c32\u0c41",
+    "Recent Orders Received":
+      "\u0c07\u0c1f\u0c40\u0c35\u0c32 \u0c35\u0c1a\u0c4d\u0c1a\u0c3f\u0c28 \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u200c\u0c32\u0c41",
+    "Recently Added":
+      "\u0c07\u0c1f\u0c40\u0c35\u0c32 \u0c1c\u0c4b\u0c21\u0c3f\u0c02\u0c1a\u0c3f\u0c28\u0c35\u0c3f",
+    Recommendations: "\u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
+    "Recommended dosage, safety gear, nozzle selection, and spray timing.":
+      "\u0c38\u0c30\u0c48\u0c28 \u0c2e\u0c4b\u0c24\u0c3e\u0c26\u0c41, \u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c26\u0c41\u0c38\u0c4d\u0c24\u0c41\u0c32\u0c41, \u0c28\u0c3e\u0c1c\u0c3f\u0c32\u0c4d \u0c0e\u0c02\u0c2a\u0c3f\u0c15 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c38\u0c2e\u0c2f\u0c02.",
+    "Record weed density and pest occurrence in experimental trial plots":
+      "\u0c2a\u0c4d\u0c30\u0c2f\u0c4b\u0c17 \u0c15\u0c4d\u0c37\u0c47\u0c24\u0c4d\u0c30\u0c3e\u0c32\u0c32\u0c4b \u0c15\u0c32\u0c41\u0c2a\u0c41 \u0c24\u0c40\u0c35\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c33 \u0c38\u0c02\u0c2d\u0c35\u0c28\u0c40\u0c2f\u0c24\u0c28\u0c41 \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
+    "Red Onions":
+      "\u0c0e\u0c30\u0c4d\u0c30 \u0c09\u0c32\u0c4d\u0c32\u0c3f\u0c2a\u0c3e\u0c2f\u0c32\u0c41",
+    "Reduces direct farmer exposure to chemical pesticides":
+      "\u0c30\u0c48\u0c24\u0c41\u0c32\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c30\u0c38\u0c3e\u0c2f\u0c28\u0c3e\u0c32 \u0c2a\u0c4d\u0c30\u0c2d\u0c3e\u0c35\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c17\u0c41\u0c30\u0c3f\u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
+    "Reduces labor costs and water consumption by an additional 25%":
+      "\u0c36\u0c4d\u0c30\u0c2e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c40\u0c1f\u0c3f \u0c35\u0c3e\u0c21\u0c15\u0c02 \u0c2e\u0c30\u0c4b 25% \u0c24\u0c17\u0c4d\u0c17\u0c41\u0c24\u0c3e\u0c2f\u0c3f",
+    "Reduces weed emergence in inter-row spaces":
+      "\u0c35\u0c30\u0c41\u0c38\u0c32 \u0c2e\u0c27\u0c4d\u0c2f \u0c15\u0c32\u0c41\u0c2a\u0c41 \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c32 \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c26\u0c32\u0c28\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    Refresh: "\u0c30\u0c3f\u0c2b\u0c4d\u0c30\u0c46\u0c37\u0c4d",
+    Register:
+      "\u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Register as a Farmer to sell your harvest directly.":
+      "\u0c2e\u0c40 \u0c2a\u0c02\u0c1f\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c30\u0c48\u0c24\u0c41\u0c17\u0c3e \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Register farmer account on e-NAM portal using Aadhaar and bank details":
+      "\u0c06\u0c27\u0c3e\u0c30\u0c4d, \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c24\u0c4b \u0c08-\u0c28\u0c3e\u0c2e\u0c4d\u200c\u0c32\u0c4b \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Registering on e-NAM, online quality testing, and transparent digital bidding.":
+      "\u0c08-\u0c28\u0c3e\u0c2e\u0c4d\u200c\u0c32\u0c4b \u0c28\u0c2e\u0c4b\u0c26\u0c41, \u0c06\u0c28\u0c4d\u200c\u0c32\u0c48\u0c28\u0c4d \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c35\u0c47\u0c32\u0c02.",
     "Registration Date:": "\u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c24\u0c47\u0c26\u0c40:",
-    "Regular field inspection helps farmers detect pest infestations, nutrient deficiencies, and water stress early. Timely harvesting at physiological maturity minimizes grain shattering and quality loss.": "\u0c15\u0c4d\u0c30\u0c2e\u0c02 \u0c24\u0c2a\u0c4d\u0c2a\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c2a\u0c4a\u0c32\u0c02 \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c26\u0c3e\u0c21\u0c3f, \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c32\u0c4b\u0c2a\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c40\u0c1f\u0c3f \u0c0e\u0c26\u0c4d\u0c26\u0c21\u0c3f\u0c28\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c41\u0c17\u0c3e\u0c28\u0c47 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c17\u0c32\u0c30\u0c41. \u0c38\u0c30\u0c48\u0c28 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c15\u0c4b\u0c24 \u0c15\u0c4b\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c17\u0c3f\u0c02\u0c1c\u0c32\u0c41 \u0c30\u0c3e\u0c32\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c24\u0c17\u0c4d\u0c17\u0c21\u0c02 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
-    "Regular field scouting for pests, water stress, and identifying crop maturity.": "\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41, \u0c28\u0c40\u0c1f\u0c3f \u0c0e\u0c26\u0c4d\u0c26\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1f \u0c2a\u0c15\u0c4d\u0c35\u0c24\u0c28\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c15\u0c4d\u0c30\u0c2e\u0c02 \u0c24\u0c2a\u0c4d\u0c2a\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c2a\u0c4a\u0c32\u0c02 \u0c24\u0c28\u0c3f\u0c16\u0c40.",
-    "Remember me for 30 days": "30 \u0c30\u0c4b\u0c1c\u0c41\u0c32 \u0c2a\u0c3e\u0c1f\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c41\u0c02\u0c1a\u0c41\u0c15\u0c4b",
-    "Remote": "\u0c30\u0c3f\u0c2e\u0c4b\u0c1f\u0c4d (\u0c07\u0c02\u0c1f\u0c3f \u0c28\u0c41\u0c02\u0c21\u0c3f)",
-    "Remote Sensing": "\u0c30\u0c3f\u0c2e\u0c4b\u0c1f\u0c4d \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3f\u0c02\u0c17\u0c4d",
-    "Remove": "\u0c24\u0c40\u0c38\u0c3f\u0c35\u0c47\u0c2f\u0c3f",
-    "Remove and destroy infected plant debris from the field to stop fungal spore spread.": "\u0c24\u0c46\u0c17\u0c41\u0c32\u0c41 \u0c38\u0c4b\u0c15\u0c3f\u0c28 \u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c2d\u0c3e\u0c17\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c4a\u0c32\u0c02 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c3f \u0c28\u0c3e\u0c36\u0c28\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Removing chaff, sorting produce by size and quality for premium prices.": "\u0c2a\u0c4a\u0c1f\u0c4d\u0c1f\u0c41 \u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c02, \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c30\u0c3f\u0c2e\u0c3e\u0c23\u0c02 \u0c2a\u0c4d\u0c30\u0c15\u0c3e\u0c30\u0c02 \u0c35\u0c47\u0c30\u0c41 \u0c1a\u0c47\u0c38\u0c3f \u0c2e\u0c02\u0c1a\u0c3f \u0c27\u0c30 \u0c2a\u0c4a\u0c02\u0c26\u0c21\u0c02.",
+    "Regular field inspection helps farmers detect pest infestations, nutrient deficiencies, and water stress early. Timely harvesting at physiological maturity minimizes grain shattering and quality loss.":
+      "\u0c15\u0c4d\u0c30\u0c2e\u0c02 \u0c24\u0c2a\u0c4d\u0c2a\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c2a\u0c4a\u0c32\u0c02 \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c26\u0c3e\u0c21\u0c3f, \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c32\u0c4b\u0c2a\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c40\u0c1f\u0c3f \u0c0e\u0c26\u0c4d\u0c26\u0c21\u0c3f\u0c28\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c41\u0c17\u0c3e\u0c28\u0c47 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c17\u0c32\u0c30\u0c41. \u0c38\u0c30\u0c48\u0c28 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c15\u0c4b\u0c24 \u0c15\u0c4b\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c17\u0c3f\u0c02\u0c1c\u0c32\u0c41 \u0c30\u0c3e\u0c32\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c24\u0c17\u0c4d\u0c17\u0c21\u0c02 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c3f\u0c02\u0c1a\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
+    "Regular field scouting for pests, water stress, and identifying crop maturity.":
+      "\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41, \u0c28\u0c40\u0c1f\u0c3f \u0c0e\u0c26\u0c4d\u0c26\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1f \u0c2a\u0c15\u0c4d\u0c35\u0c24\u0c28\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c15\u0c4d\u0c30\u0c2e\u0c02 \u0c24\u0c2a\u0c4d\u0c2a\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c2a\u0c4a\u0c32\u0c02 \u0c24\u0c28\u0c3f\u0c16\u0c40.",
+    "Remember me for 30 days":
+      "30 \u0c30\u0c4b\u0c1c\u0c41\u0c32 \u0c2a\u0c3e\u0c1f\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c41\u0c02\u0c1a\u0c41\u0c15\u0c4b",
+    Remote:
+      "\u0c30\u0c3f\u0c2e\u0c4b\u0c1f\u0c4d (\u0c07\u0c02\u0c1f\u0c3f \u0c28\u0c41\u0c02\u0c21\u0c3f)",
+    "Remote Sensing":
+      "\u0c30\u0c3f\u0c2e\u0c4b\u0c1f\u0c4d \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3f\u0c02\u0c17\u0c4d",
+    Remove: "\u0c24\u0c40\u0c38\u0c3f\u0c35\u0c47\u0c2f\u0c3f",
+    "Remove and destroy infected plant debris from the field to stop fungal spore spread.":
+      "\u0c24\u0c46\u0c17\u0c41\u0c32\u0c41 \u0c38\u0c4b\u0c15\u0c3f\u0c28 \u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c2d\u0c3e\u0c17\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c4a\u0c32\u0c02 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c3f \u0c28\u0c3e\u0c36\u0c28\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Removing chaff, sorting produce by size and quality for premium prices.":
+      "\u0c2a\u0c4a\u0c1f\u0c4d\u0c1f\u0c41 \u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c02, \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c30\u0c3f\u0c2e\u0c3e\u0c23\u0c02 \u0c2a\u0c4d\u0c30\u0c15\u0c3e\u0c30\u0c02 \u0c35\u0c47\u0c30\u0c41 \u0c1a\u0c47\u0c38\u0c3f \u0c2e\u0c02\u0c1a\u0c3f \u0c27\u0c30 \u0c2a\u0c4a\u0c02\u0c26\u0c21\u0c02.",
     "Rent Rate": "\u0c05\u0c26\u0c4d\u0c26\u0c46 \u0c27\u0c30",
-    "Repay KCC loan before due date to claim 3% prompt repayment interest subvention bonus.": "3% \u0c35\u0c21\u0c4d\u0c21\u0c40 \u0c30\u0c3e\u0c2f\u0c3f\u0c24\u0c40 \u0c2c\u0c4b\u0c28\u0c38\u0c4d \u0c2a\u0c4a\u0c02\u0c26\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c30\u0c41\u0c23\u0c3e\u0c28\u0c4d\u0c28\u0c40 \u0c17\u0c21\u0c41\u0c35\u0c41\u0c32\u0c4b\u0c17\u0c3e \u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Required Skills": "\u0c15\u0c3e\u0c35\u0c32\u0c38\u0c3f\u0c28 \u0c28\u0c48\u0c2a\u0c41\u0c23\u0c4d\u0c2f\u0c3e\u0c32\u0c41",
-    "Requires land ownership records (Khata/Khasra) and Aadhaar linkage": "\u0c2a\u0c1f\u0c4d\u0c1f\u0c3e\u0c26\u0c3e\u0c30\u0c41 \u0c2a\u0c3e\u0c38\u0c4d \u0c2a\u0c41\u0c38\u0c4d\u0c24\u0c15\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c27\u0c3e\u0c30\u0c4d \u0c32\u0c3f\u0c02\u0c15\u0c3f\u0c02\u0c17\u0c4d \u0c24\u0c2a\u0c4d\u0c2a\u0c28\u0c3f\u0c38\u0c30\u0c3f",
-    "Research": "\u0c2a\u0c30\u0c3f\u0c36\u0c4b\u0c27\u0c28",
-    "Research Internship": "\u0c2a\u0c30\u0c3f\u0c36\u0c4b\u0c27\u0c28 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d",
-    "Resume interculture in maize and apply mulch to nursery beds.": "\u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c1c\u0c4a\u0c28\u0c4d\u0c28\u0c32\u0c4b \u0c05\u0c02\u0c24\u0c30\u0c15\u0c43\u0c37\u0c3f\u0c28\u0c3f \u0c24\u0c3f\u0c30\u0c3f\u0c17\u0c3f \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c3f, \u0c28\u0c30\u0c4d\u0c38\u0c30\u0c40 \u0c2c\u0c46\u0c21\u0c4d\u0c32\u0c15\u0c41 \u0c2e\u0c32\u0c4d\u0c1a\u0c4d \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Rhizobium Biofertiliser (500 g)": "\u0c30\u0c48\u0c1c\u0c4b\u0c2c\u0c3f\u0c2f\u0c02 \u0c1c\u0c40\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41 (500 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Role of FYM, vermicompost, Rhizobium, and Azotobacter in soil health.": "\u0c28\u0c47\u0c32 \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c02\u0c32\u0c4b \u0c2a\u0c36\u0c41\u0c32 \u0c0e\u0c30\u0c41\u0c35\u0c41, \u0c35\u0c30\u0c4d\u0c2e\u0c40\u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d, \u0c30\u0c48\u0c1c\u0c4b\u0c2c\u0c3f\u0c2f\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c1c\u0c4b\u0c1f\u0c4b\u0c2c\u0c3e\u0c15\u0c4d\u0c1f\u0c30\u0c4d \u0c2a\u0c3e\u0c24\u0c4d\u0c30.",
-    "Rotate Paddy/Wheat with Gram, Moong, or Groundnut": "\u0c35\u0c30\u0c3f/\u0c17\u0c4b\u0c27\u0c41\u0c2e\u0c32 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c36\u0c28\u0c17\u0c32\u0c41, \u0c2e\u0c3f\u0c28\u0c41\u0c2e\u0c41\u0c32\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c35\u0c47\u0c30\u0c41\u0c36\u0c28\u0c17 \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Rotavator 5 Feet": "\u0c30\u0c4b\u0c1f\u0c35\u0c47\u0c1f\u0c30\u0c4d 5 \u0c2b\u0c40\u0c1f\u0c4d\u0c32\u0c41",
+    "Repay KCC loan before due date to claim 3% prompt repayment interest subvention bonus.":
+      "3% \u0c35\u0c21\u0c4d\u0c21\u0c40 \u0c30\u0c3e\u0c2f\u0c3f\u0c24\u0c40 \u0c2c\u0c4b\u0c28\u0c38\u0c4d \u0c2a\u0c4a\u0c02\u0c26\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c30\u0c41\u0c23\u0c3e\u0c28\u0c4d\u0c28\u0c40 \u0c17\u0c21\u0c41\u0c35\u0c41\u0c32\u0c4b\u0c17\u0c3e \u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Required Skills":
+      "\u0c15\u0c3e\u0c35\u0c32\u0c38\u0c3f\u0c28 \u0c28\u0c48\u0c2a\u0c41\u0c23\u0c4d\u0c2f\u0c3e\u0c32\u0c41",
+    "Requires land ownership records (Khata/Khasra) and Aadhaar linkage":
+      "\u0c2a\u0c1f\u0c4d\u0c1f\u0c3e\u0c26\u0c3e\u0c30\u0c41 \u0c2a\u0c3e\u0c38\u0c4d \u0c2a\u0c41\u0c38\u0c4d\u0c24\u0c15\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c27\u0c3e\u0c30\u0c4d \u0c32\u0c3f\u0c02\u0c15\u0c3f\u0c02\u0c17\u0c4d \u0c24\u0c2a\u0c4d\u0c2a\u0c28\u0c3f\u0c38\u0c30\u0c3f",
+    Research: "\u0c2a\u0c30\u0c3f\u0c36\u0c4b\u0c27\u0c28",
+    "Research Internship":
+      "\u0c2a\u0c30\u0c3f\u0c36\u0c4b\u0c27\u0c28 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d",
+    "Resume interculture in maize and apply mulch to nursery beds.":
+      "\u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c1c\u0c4a\u0c28\u0c4d\u0c28\u0c32\u0c4b \u0c05\u0c02\u0c24\u0c30\u0c15\u0c43\u0c37\u0c3f\u0c28\u0c3f \u0c24\u0c3f\u0c30\u0c3f\u0c17\u0c3f \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c3f, \u0c28\u0c30\u0c4d\u0c38\u0c30\u0c40 \u0c2c\u0c46\u0c21\u0c4d\u0c32\u0c15\u0c41 \u0c2e\u0c32\u0c4d\u0c1a\u0c4d \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Rhizobium Biofertiliser (500 g)":
+      "\u0c30\u0c48\u0c1c\u0c4b\u0c2c\u0c3f\u0c2f\u0c02 \u0c1c\u0c40\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41 (500 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Role of FYM, vermicompost, Rhizobium, and Azotobacter in soil health.":
+      "\u0c28\u0c47\u0c32 \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c02\u0c32\u0c4b \u0c2a\u0c36\u0c41\u0c32 \u0c0e\u0c30\u0c41\u0c35\u0c41, \u0c35\u0c30\u0c4d\u0c2e\u0c40\u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d, \u0c30\u0c48\u0c1c\u0c4b\u0c2c\u0c3f\u0c2f\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c1c\u0c4b\u0c1f\u0c4b\u0c2c\u0c3e\u0c15\u0c4d\u0c1f\u0c30\u0c4d \u0c2a\u0c3e\u0c24\u0c4d\u0c30.",
+    "Rotate Paddy/Wheat with Gram, Moong, or Groundnut":
+      "\u0c35\u0c30\u0c3f/\u0c17\u0c4b\u0c27\u0c41\u0c2e\u0c32 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c36\u0c28\u0c17\u0c32\u0c41, \u0c2e\u0c3f\u0c28\u0c41\u0c2e\u0c41\u0c32\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c35\u0c47\u0c30\u0c41\u0c36\u0c28\u0c17 \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Rotavator 5 Feet":
+      "\u0c30\u0c4b\u0c1f\u0c35\u0c47\u0c1f\u0c30\u0c4d 5 \u0c2b\u0c40\u0c1f\u0c4d\u0c32\u0c41",
     "Rs. 12,000/month": "\u20b9 12,000 / \u0c28\u0c46\u0c32",
     "Rs. 14,000/month": "\u20b9 14,000 / \u0c28\u0c46\u0c32",
     "Rs. 15,000/month": "\u20b9 15,000 / \u0c28\u0c46\u0c32",
     "Rs. 16,000/month": "\u20b9 16,000 / \u0c28\u0c46\u0c32",
     "Rs. 18,000/month": "\u20b9 18,000 / \u0c28\u0c46\u0c32",
-    "Rs. 6,000 annual income support transferred directly via DBT": "\u0c0f\u0c21\u0c3e\u0c26\u0c3f\u0c15\u0c3f \u0c30\u0c42. 6,000 \u0c38\u0c3e\u0c2f\u0c02 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c16\u0c3e\u0c24\u0c3e\u0c32\u0c4b \u0c1c\u0c2e \u0c05\u0c35\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Ruminants & Allied Livestock": "\u0c2a\u0c36\u0c41\u0c38\u0c02\u0c2a\u0c26 & \u0c05\u0c28\u0c41\u0c2c\u0c02\u0c27 \u0c1c\u0c02\u0c24\u0c41\u0c35\u0c41\u0c32\u0c41",
-    "Rural Farmer Support Foundation": "\u0c30\u0c42\u0c30\u0c32\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c30\u0c4d \u0c38\u0c2a\u0c4b\u0c30\u0c4d\u0c1f\u0c4d \u0c2b\u0c4c\u0c02\u0c21\u0c47\u0c37\u0c28\u0c4d",
-    "Rural Livestock Development Centre": "\u0c30\u0c42\u0c30\u0c32\u0c4d \u0c32\u0c48\u0c35\u0c4d\u200c\u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c38\u0c46\u0c02\u0c1f\u0c30\u0c4d",
-    "SEEDS": "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41",
+    "Rs. 6,000 annual income support transferred directly via DBT":
+      "\u0c0f\u0c21\u0c3e\u0c26\u0c3f\u0c15\u0c3f \u0c30\u0c42. 6,000 \u0c38\u0c3e\u0c2f\u0c02 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c16\u0c3e\u0c24\u0c3e\u0c32\u0c4b \u0c1c\u0c2e \u0c05\u0c35\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    "Ruminants & Allied Livestock":
+      "\u0c2a\u0c36\u0c41\u0c38\u0c02\u0c2a\u0c26 & \u0c05\u0c28\u0c41\u0c2c\u0c02\u0c27 \u0c1c\u0c02\u0c24\u0c41\u0c35\u0c41\u0c32\u0c41",
+    "Rural Farmer Support Foundation":
+      "\u0c30\u0c42\u0c30\u0c32\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c30\u0c4d \u0c38\u0c2a\u0c4b\u0c30\u0c4d\u0c1f\u0c4d \u0c2b\u0c4c\u0c02\u0c21\u0c47\u0c37\u0c28\u0c4d",
+    "Rural Livestock Development Centre":
+      "\u0c30\u0c42\u0c30\u0c32\u0c4d \u0c32\u0c48\u0c35\u0c4d\u200c\u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d \u0c38\u0c46\u0c02\u0c1f\u0c30\u0c4d",
+    SEEDS: "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41",
     "SKU / Unit": "\u0c2f\u0c42\u0c28\u0c3f\u0c1f\u0c4d \u0c15\u0c4a\u0c32\u0c24",
-    "SMART FARMING": "\u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
-    "SMART FARMING HUB": "\u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c17\u0c4d \u0c39\u0c2c\u0c4d",
-    "SMART WATER MANAGEMENT": "\u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c28\u0c40\u0c1f\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "SMART FARMING":
+      "\u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    "SMART FARMING HUB":
+      "\u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c17\u0c4d \u0c39\u0c2c\u0c4d",
+    "SMART WATER MANAGEMENT":
+      "\u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c28\u0c40\u0c1f\u0c3f \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
     "SORT BY": "\u0c15\u0c4d\u0c30\u0c2e\u0c2c\u0c26\u0c4d\u0c27\u0c40\u0c15\u0c30\u0c23",
-    "SPONSOR": "\u0c38\u0c4d\u0c2a\u0c3e\u0c28\u0c4d\u0c38\u0c30\u0c4d",
-    "STATUS": "\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f",
-    "STIPEND": "\u0c38\u0c4d\u0c1f\u0c48\u0c2a\u0c46\u0c02\u0c21\u0c4d",
-    "Safe Pesticide Handling & Spraying": "\u0c38\u0c41\u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c24 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41 \u0c2e\u0c02\u0c26\u0c41\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40",
-    "Sat": "\u0c36\u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c02",
-    "Satellite Remote Sensing & Crop Mapping": "\u0c36\u0c3e\u0c1f\u0c3f\u0c32\u0c48\u0c1f\u0c4d \u0c30\u0c3f\u0c2e\u0c4b\u0c1f\u0c4d \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3f\u0c02\u0c17\u0c4d & \u0c2a\u0c02\u0c1f \u0c2e\u0c4d\u0c2f\u0c3e\u0c2a\u0c3f\u0c02\u0c17\u0c4d",
-    "Satellite maps help optimize field-specific fertilizer application": "\u0c36\u0c3e\u0c1f\u0c3f\u0c32\u0c48\u0c1f\u0c4d \u0c2e\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c05\u0c35\u0c38\u0c30\u0c2e\u0c48\u0c28 \u0c1a\u0c4b\u0c1f\u0c47 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c35\u0c47\u0c2f\u0c35\u0c1a\u0c4d\u0c1a\u0c41",
-    "Save": "\u0c38\u0c47\u0c35\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Saves Rs. 2,500 to 3,000 per acre in tractor diesel and land preparation costs": "\u0c0e\u0c15\u0c30\u0c3e\u0c15\u0c41 \u0c30\u0c42. 2,500 \u0c28\u0c41\u0c02\u0c21\u0c3f 3,000 \u0c35\u0c30\u0c15\u0c41 \u0c21\u0c40\u0c1c\u0c3f\u0c32\u0c4d \u0c16\u0c30\u0c4d\u0c1a\u0c41 \u0c06\u0c26\u0c3e \u0c05\u0c35\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    SPONSOR: "\u0c38\u0c4d\u0c2a\u0c3e\u0c28\u0c4d\u0c38\u0c30\u0c4d",
+    STATUS: "\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f",
+    STIPEND: "\u0c38\u0c4d\u0c1f\u0c48\u0c2a\u0c46\u0c02\u0c21\u0c4d",
+    "Safe Pesticide Handling & Spraying":
+      "\u0c38\u0c41\u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c24 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41 \u0c2e\u0c02\u0c26\u0c41\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40",
+    Sat: "\u0c36\u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c02",
+    "Satellite Remote Sensing & Crop Mapping":
+      "\u0c36\u0c3e\u0c1f\u0c3f\u0c32\u0c48\u0c1f\u0c4d \u0c30\u0c3f\u0c2e\u0c4b\u0c1f\u0c4d \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3f\u0c02\u0c17\u0c4d & \u0c2a\u0c02\u0c1f \u0c2e\u0c4d\u0c2f\u0c3e\u0c2a\u0c3f\u0c02\u0c17\u0c4d",
+    "Satellite maps help optimize field-specific fertilizer application":
+      "\u0c36\u0c3e\u0c1f\u0c3f\u0c32\u0c48\u0c1f\u0c4d \u0c2e\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c05\u0c35\u0c38\u0c30\u0c2e\u0c48\u0c28 \u0c1a\u0c4b\u0c1f\u0c47 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c35\u0c47\u0c2f\u0c35\u0c1a\u0c4d\u0c1a\u0c41",
+    Save: "\u0c38\u0c47\u0c35\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Saves Rs. 2,500 to 3,000 per acre in tractor diesel and land preparation costs":
+      "\u0c0e\u0c15\u0c30\u0c3e\u0c15\u0c41 \u0c30\u0c42. 2,500 \u0c28\u0c41\u0c02\u0c21\u0c3f 3,000 \u0c35\u0c30\u0c15\u0c41 \u0c21\u0c40\u0c1c\u0c3f\u0c32\u0c4d \u0c16\u0c30\u0c4d\u0c1a\u0c41 \u0c06\u0c26\u0c3e \u0c05\u0c35\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
     "Scheme Details": "\u0c2a\u0c25\u0c15\u0c02 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41",
-    "Schemes": "\u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41",
-    "Scientific Grain Storage & Hermetic Bags": "\u0c36\u0c3e\u0c38\u0c4d\u0c24\u0c4d\u0c30\u0c40\u0c2f \u0c27\u0c3e\u0c28\u0c4d\u0c2f \u0c28\u0c3f\u0c32\u0c4d\u0c35 & \u0c39\u0c46\u0c30\u0c4d\u0c2e\u0c46\u0c1f\u0c3f\u0c15\u0c4d \u0c38\u0c02\u0c1a\u0c41\u0c32\u0c41",
-    "Scout cotton for jassid after humid nights.": "\u0c24\u0c47\u0c2e\u0c24\u0c4b \u0c15\u0c42\u0c21\u0c3f\u0c28 \u0c30\u0c3e\u0c24\u0c4d\u0c30\u0c41\u0c32 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c2a\u0c02\u0c1f\u0c32\u0c4b \u0c1c\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Search Courses": "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Search Internships": "\u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Search Mandi Prices": "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Search Notifications": "\u0c28\u0c4b\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Search Storage Facilities": "\u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Search by facility name or address...": "\u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02 \u0c2a\u0c47\u0c30\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c1a\u0c3f\u0c30\u0c41\u0c28\u0c3e\u0c2e\u0c3e \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
-    "Search courses...": "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
-    "Search crop, mandi, state...": "\u0c2a\u0c02\u0c1f, \u0c2e\u0c02\u0c21\u0c40, \u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
-    "Search for products, crops, tools, seeds...": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41, \u0c2a\u0c02\u0c1f\u0c32\u0c41, \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41, \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
-    "Search internships...": "\u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
-    "Search seeds, fertiliser, tools...": "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41, \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41, \u0c2a\u0c28\u0c3f\u0c2e\u0c41\u0c1f\u0c4d\u0c32\u0c41 \u0c15\u0c4b\u0c38\u0c02 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
-    "Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart.": "100 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c3f \u0c15\u0c47\u0c1f\u0c32\u0c3e\u0c17\u0c4d\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f, \u0c27\u0c30\u0c32\u0c28\u0c41 \u0c2a\u0c4b\u0c32\u0c4d\u0c1a\u0c02\u0c21\u0c3f, \u0c35\u0c30\u0c4d\u0c17\u0c3e\u0c32\u0c28\u0c41 \u0c2b\u0c3f\u0c32\u0c4d\u0c1f\u0c30\u0c4d \u0c1a\u0c47\u0c38\u0c3f, \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c15\u0c3e\u0c30\u0c4d\u0c1f\u0c4d\u0c15\u0c41 \u0c1c\u0c4b\u0c21\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    Schemes:
+      "\u0c2a\u0c4d\u0c30\u0c2d\u0c41\u0c24\u0c4d\u0c35 \u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41",
+    "Scientific Grain Storage & Hermetic Bags":
+      "\u0c36\u0c3e\u0c38\u0c4d\u0c24\u0c4d\u0c30\u0c40\u0c2f \u0c27\u0c3e\u0c28\u0c4d\u0c2f \u0c28\u0c3f\u0c32\u0c4d\u0c35 & \u0c39\u0c46\u0c30\u0c4d\u0c2e\u0c46\u0c1f\u0c3f\u0c15\u0c4d \u0c38\u0c02\u0c1a\u0c41\u0c32\u0c41",
+    "Scout cotton for jassid after humid nights.":
+      "\u0c24\u0c47\u0c2e\u0c24\u0c4b \u0c15\u0c42\u0c21\u0c3f\u0c28 \u0c30\u0c3e\u0c24\u0c4d\u0c30\u0c41\u0c32 \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c2a\u0c24\u0c4d\u0c24\u0c3f \u0c2a\u0c02\u0c1f\u0c32\u0c4b \u0c1c\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Search Courses":
+      "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Search Internships":
+      "\u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Search Mandi Prices":
+      "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Search Notifications":
+      "\u0c28\u0c4b\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Search Storage Facilities":
+      "\u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Search by facility name or address...":
+      "\u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02 \u0c2a\u0c47\u0c30\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c1a\u0c3f\u0c30\u0c41\u0c28\u0c3e\u0c2e\u0c3e \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
+    "Search courses...":
+      "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
+    "Search crop, mandi, state...":
+      "\u0c2a\u0c02\u0c1f, \u0c2e\u0c02\u0c21\u0c40, \u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
+    "Search for products, crops, tools, seeds...":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41, \u0c2a\u0c02\u0c1f\u0c32\u0c41, \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41, \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
+    "Search internships...":
+      "\u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
+    "Search seeds, fertiliser, tools...":
+      "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41, \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41, \u0c2a\u0c28\u0c3f\u0c2e\u0c41\u0c1f\u0c4d\u0c32\u0c41 \u0c15\u0c4b\u0c38\u0c02 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
+    "Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart.":
+      "100 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c3f \u0c15\u0c47\u0c1f\u0c32\u0c3e\u0c17\u0c4d\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f, \u0c27\u0c30\u0c32\u0c28\u0c41 \u0c2a\u0c4b\u0c32\u0c4d\u0c1a\u0c02\u0c21\u0c3f, \u0c35\u0c30\u0c4d\u0c17\u0c3e\u0c32\u0c28\u0c41 \u0c2b\u0c3f\u0c32\u0c4d\u0c1f\u0c30\u0c4d \u0c1a\u0c47\u0c38\u0c3f, \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c15\u0c3e\u0c30\u0c4d\u0c1f\u0c4d\u0c15\u0c41 \u0c1c\u0c4b\u0c21\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
     "Search...": "\u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f...",
-    "Seasonal Crop Calendar": "\u0c15\u0c3e\u0c32\u0c3e\u0c32 \u0c35\u0c3e\u0c30\u0c40 \u0c2a\u0c02\u0c1f\u0c32 \u0c15\u0c4d\u0c2f\u0c3e\u0c32\u0c46\u0c02\u0c21\u0c30\u0c4d",
-    "Seasonal Crop Insurance": "\u0c2a\u0c02\u0c1f \u0c15\u0c3e\u0c32\u0c2a\u0c41 \u0c2c\u0c40\u0c2e\u0c3e",
-    "Seasonal Farming Guide": "\u0c38\u0c40\u0c1c\u0c28\u0c32\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c17\u0c4d \u0c17\u0c48\u0c21\u0c4d",
-    "Seasonal crop insurance": "\u0c38\u0c40\u0c1c\u0c28\u0c32\u0c4d \u0c2a\u0c02\u0c1f \u0c2c\u0c40\u0c2e\u0c3e",
-    "Seaweed Extract Liquid (1 litre)": "\u0c38\u0c2e\u0c41\u0c26\u0c4d\u0c30\u0c2a\u0c41 \u0c2a\u0c3e\u0c1a\u0c3f \u0c26\u0c4d\u0c30\u0c35\u0c02 (1 \u0c32\u0c40\u0c1f\u0c30\u0c41)",
-    "Secure Payments": "\u0c38\u0c41\u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c24\u0c2e\u0c48\u0c28 \u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41\u0c32\u0c41",
-    "Seed Drill 9 Tyne": "\u0c38\u0c40\u0c21\u0c4d \u0c21\u0c4d\u0c30\u0c3f\u0c32\u0c4d 9 \u0c1f\u0c48\u0c28\u0c4d",
-    "Seed Selection and Sowing Techniques": "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c0e\u0c02\u0c2a\u0c3f\u0c15 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c41",
-    "Seeds": "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41",
-    "Select 16 mm lateral lines with 2 LPH or 4 LPH pressure-compensating emitters": "\u0c2a\u0c02\u0c1f\u0c15\u0c41 \u0c24\u0c17\u0c3f\u0c28\u0c1f\u0c4d\u0c32\u0c41\u0c17\u0c3e 16 mm \u0c32\u0c47\u0c1f\u0c30\u0c32\u0c4d \u0c32\u0c48\u0c28\u0c4d\u0c32\u0c28\u0c41 \u0c05\u0c2e\u0c30\u0c4d\u0c1a\u0c02\u0c21\u0c3f",
-    "Select Category": "\u0c35\u0c30\u0c4d\u0c17\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Select Role": "\u0c2a\u0c3e\u0c24\u0c4d\u0c30\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Select Unit": "\u0c2f\u0c42\u0c28\u0c3f\u0c1f\u0c4d\u200c\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Select a lesson to begin learning": "\u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c12\u0c15 \u0c2a\u0c3e\u0c20\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
-    "Select short-duration Kharif varieties if monsoon rainfall is delayed in your region.": "\u0c2e\u0c40 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02\u0c32\u0c4b \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c32\u0c41 \u0c06\u0c32\u0c38\u0c4d\u0c2f\u0c2e\u0c48\u0c24\u0c47 \u0c38\u0c4d\u0c35\u0c32\u0c4d\u0c2a\u0c15\u0c3e\u0c32\u0c3f\u0c15 \u0c16\u0c30\u0c40\u0c2b\u0c4d \u0c30\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Selected Role:": "\u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c41\u0c28\u0c4d\u0c28 \u0c2a\u0c3e\u0c24\u0c4d\u0c30:",
-    "Selected districts": "\u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c41\u0c28\u0c4d\u0c28 \u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e\u0c32\u0c41",
-    "Selecting disease-resistant hybrid or certified seed varieties suitable for local agro-climatic conditions is the foundation of high productivity. Seed treatment with bio-agents or fungicides protects young roots.": "\u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c2a\u0c30\u0c3f\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c17\u0c41\u0c23\u0c2e\u0c48\u0c28 \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c3f \u0c28\u0c3f\u0c30\u0c4b\u0c27\u0c15 \u0c38\u0c02\u0c15\u0c30 \u0c32\u0c47\u0c26\u0c3e \u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c30\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c05\u0c27\u0c3f\u0c15 \u0c09\u0c24\u0c4d\u0c2a\u0c3e\u0c26\u0c15\u0c24\u0c15\u0c41 \u0c2a\u0c41\u0c28\u0c3e\u0c26\u0c3f. \u0c1c\u0c40\u0c35 \u0c0f\u0c1c\u0c46\u0c02\u0c1f\u0c4d\u0c32\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c36\u0c3f\u0c32\u0c40\u0c02\u0c27\u0c4d\u0c30 \u0c28\u0c3e\u0c36\u0c15\u0c3e\u0c32\u0c24\u0c4b \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c36\u0c41\u0c26\u0c4d\u0c27\u0c3f \u0c2a\u0c38\u0c3f \u0c35\u0c47\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Selecting drought-tolerant, flood-tolerant, and short-duration crop varieties.": "\u0c15\u0c30\u0c41\u0c35\u0c41, \u0c35\u0c30\u0c26\u0c32\u0c28\u0c41 \u0c24\u0c1f\u0c4d\u0c1f\u0c41\u0c15\u0c41\u0c28\u0c47 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c4d\u0c35\u0c32\u0c4d\u0c2a\u0c15\u0c3e\u0c32\u0c3f\u0c15 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c30\u0c15\u0c3e\u0c32 \u0c0e\u0c02\u0c2a\u0c3f\u0c15.",
+    "Seasonal Crop Calendar":
+      "\u0c15\u0c3e\u0c32\u0c3e\u0c32 \u0c35\u0c3e\u0c30\u0c40 \u0c2a\u0c02\u0c1f\u0c32 \u0c15\u0c4d\u0c2f\u0c3e\u0c32\u0c46\u0c02\u0c21\u0c30\u0c4d",
+    "Seasonal Crop Insurance":
+      "\u0c2a\u0c02\u0c1f \u0c15\u0c3e\u0c32\u0c2a\u0c41 \u0c2c\u0c40\u0c2e\u0c3e",
+    "Seasonal Farming Guide":
+      "\u0c38\u0c40\u0c1c\u0c28\u0c32\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c17\u0c4d \u0c17\u0c48\u0c21\u0c4d",
+    "Seasonal crop insurance":
+      "\u0c38\u0c40\u0c1c\u0c28\u0c32\u0c4d \u0c2a\u0c02\u0c1f \u0c2c\u0c40\u0c2e\u0c3e",
+    "Seaweed Extract Liquid (1 litre)":
+      "\u0c38\u0c2e\u0c41\u0c26\u0c4d\u0c30\u0c2a\u0c41 \u0c2a\u0c3e\u0c1a\u0c3f \u0c26\u0c4d\u0c30\u0c35\u0c02 (1 \u0c32\u0c40\u0c1f\u0c30\u0c41)",
+    "Secure Payments":
+      "\u0c38\u0c41\u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c24\u0c2e\u0c48\u0c28 \u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41\u0c32\u0c41",
+    "Seed Drill 9 Tyne":
+      "\u0c38\u0c40\u0c21\u0c4d \u0c21\u0c4d\u0c30\u0c3f\u0c32\u0c4d 9 \u0c1f\u0c48\u0c28\u0c4d",
+    "Seed Selection and Sowing Techniques":
+      "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c0e\u0c02\u0c2a\u0c3f\u0c15 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c41",
+    Seeds: "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41",
+    "Select 16 mm lateral lines with 2 LPH or 4 LPH pressure-compensating emitters":
+      "\u0c2a\u0c02\u0c1f\u0c15\u0c41 \u0c24\u0c17\u0c3f\u0c28\u0c1f\u0c4d\u0c32\u0c41\u0c17\u0c3e 16 mm \u0c32\u0c47\u0c1f\u0c30\u0c32\u0c4d \u0c32\u0c48\u0c28\u0c4d\u0c32\u0c28\u0c41 \u0c05\u0c2e\u0c30\u0c4d\u0c1a\u0c02\u0c21\u0c3f",
+    "Select Category":
+      "\u0c35\u0c30\u0c4d\u0c17\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Select Role":
+      "\u0c2a\u0c3e\u0c24\u0c4d\u0c30\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Select Unit":
+      "\u0c2f\u0c42\u0c28\u0c3f\u0c1f\u0c4d\u200c\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Select a lesson to begin learning":
+      "\u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c12\u0c15 \u0c2a\u0c3e\u0c20\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Select short-duration Kharif varieties if monsoon rainfall is delayed in your region.":
+      "\u0c2e\u0c40 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c02\u0c32\u0c4b \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c32\u0c41 \u0c06\u0c32\u0c38\u0c4d\u0c2f\u0c2e\u0c48\u0c24\u0c47 \u0c38\u0c4d\u0c35\u0c32\u0c4d\u0c2a\u0c15\u0c3e\u0c32\u0c3f\u0c15 \u0c16\u0c30\u0c40\u0c2b\u0c4d \u0c30\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Selected Role:":
+      "\u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c41\u0c28\u0c4d\u0c28 \u0c2a\u0c3e\u0c24\u0c4d\u0c30:",
+    "Selected districts":
+      "\u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c41\u0c28\u0c4d\u0c28 \u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e\u0c32\u0c41",
+    "Selecting disease-resistant hybrid or certified seed varieties suitable for local agro-climatic conditions is the foundation of high productivity. Seed treatment with bio-agents or fungicides protects young roots.":
+      "\u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c2a\u0c30\u0c3f\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c41\u0c32\u0c15\u0c41 \u0c05\u0c28\u0c41\u0c17\u0c41\u0c23\u0c2e\u0c48\u0c28 \u0c35\u0c4d\u0c2f\u0c3e\u0c27\u0c3f \u0c28\u0c3f\u0c30\u0c4b\u0c27\u0c15 \u0c38\u0c02\u0c15\u0c30 \u0c32\u0c47\u0c26\u0c3e \u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c30\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c05\u0c27\u0c3f\u0c15 \u0c09\u0c24\u0c4d\u0c2a\u0c3e\u0c26\u0c15\u0c24\u0c15\u0c41 \u0c2a\u0c41\u0c28\u0c3e\u0c26\u0c3f. \u0c1c\u0c40\u0c35 \u0c0f\u0c1c\u0c46\u0c02\u0c1f\u0c4d\u0c32\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c36\u0c3f\u0c32\u0c40\u0c02\u0c27\u0c4d\u0c30 \u0c28\u0c3e\u0c36\u0c15\u0c3e\u0c32\u0c24\u0c4b \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c36\u0c41\u0c26\u0c4d\u0c27\u0c3f \u0c2a\u0c38\u0c3f \u0c35\u0c47\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Selecting drought-tolerant, flood-tolerant, and short-duration crop varieties.":
+      "\u0c15\u0c30\u0c41\u0c35\u0c41, \u0c35\u0c30\u0c26\u0c32\u0c28\u0c41 \u0c24\u0c1f\u0c4d\u0c1f\u0c41\u0c15\u0c41\u0c28\u0c47 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c4d\u0c35\u0c32\u0c4d\u0c2a\u0c15\u0c3e\u0c32\u0c3f\u0c15 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c30\u0c15\u0c3e\u0c32 \u0c0e\u0c02\u0c2a\u0c3f\u0c15.",
     "Sell Harvest": "\u0c2a\u0c02\u0c1f \u0c05\u0c2e\u0c4d\u0c2e\u0c15\u0c02",
-    "Sell Your Produce": "\u0c2e\u0c40 \u0c2a\u0c02\u0c1f\u0c28\u0c41 \u0c05\u0c2e\u0c4d\u0c2e\u0c02\u0c21\u0c3f",
-    "Seller": "\u0c05\u0c2e\u0c4d\u0c2e\u0c15\u0c02\u0c26\u0c3e\u0c30\u0c41",
-    "Seller Demo": "\u0c05\u0c2e\u0c4d\u0c2e\u0c15\u0c02\u0c26\u0c3e\u0c30\u0c41 \u0c21\u0c46\u0c2e\u0c4b",
-    "Selling through FPOs or direct supply contracts with retail chains bypasses multiple middleman commissions, increasing farmer profit margins by 15-20%.": "\u0c30\u0c48\u0c24\u0c41 \u0c38\u0c02\u0c18\u0c3e\u0c32 (FPO) \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c26\u0c33\u0c3e\u0c30\u0c41\u0c32 \u0c15\u0c2e\u0c3f\u0c37\u0c28\u0c4d\u0c32\u0c41 \u0c24\u0c2a\u0c4d\u0c2a\u0c3f \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 15-20% \u0c05\u0c26\u0c28\u0c2a\u0c41 \u0c32\u0c3e\u0c2d\u0c02 \u0c1a\u0c47\u0c15\u0c42\u0c30\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Send Verification Code": "\u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c23 \u0c15\u0c4b\u0c21\u0c4d\u200c\u0c28\u0c41 \u0c2a\u0c02\u0c2a\u0c02\u0c21\u0c3f",
-    "Sesame Seed GT-10 (2 kg)": "\u0c28\u0c41\u0c35\u0c4d\u0c35\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 GT-10 (2 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Set up 5 pheromone traps per acre for early detection of bollworm and stem borer moths.": "\u0c15\u0c3e\u0c02\u0c21\u0c02 \u0c24\u0c4a\u0c32\u0c41\u0c1a\u0c41 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23\u0c15\u0c41 \u0c0e\u0c15\u0c30\u0c3e\u0c15\u0c41 5 \u0c32\u0c3f\u0c02\u0c17 \u0c06\u0c15\u0c30\u0c4d\u0c37\u0c23 \u0c2c\u0c41\u0c1f\u0c4d\u0c1f\u0c32\u0c28\u0c41 \u0c05\u0c2e\u0c30\u0c4d\u0c1a\u0c02\u0c21\u0c3f.",
-    "Shade Net 50% Green (3 x 50 m)": "\u0c37\u0c47\u0c21\u0c4d \u0c28\u0c46\u0c1f\u0c4d 50% \u0c06\u0c15\u0c41\u0c2a\u0c1a\u0c4d\u0c1a (3 x 50 \u0c2e\u0c40)",
-    "Shipping Address *": "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c1a\u0c3f\u0c30\u0c41\u0c28\u0c3e\u0c2e\u0c3e *",
-    "Shop Fertilizers": "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c15\u0c4a\u0c28\u0c02\u0c21\u0c3f",
-    "Shop Marketplace": "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u0c2a\u0c4d\u0c32\u0c47\u0c38\u0c4d \u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41",
-    "Shop by Category": "\u0c35\u0c30\u0c4d\u0c17\u0c3e\u0c32 \u0c35\u0c3e\u0c30\u0c40\u0c17\u0c3e \u0c15\u0c4a\u0c28\u0c02\u0c21\u0c3f",
-    "Shopping Cart": "\u0c37\u0c3e\u0c2a\u0c3f\u0c02\u0c17\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c1f\u0c4d",
-    "Short, practical modules for software development, computing, and agriculture.": "\u0c38\u0c3e\u0c2b\u0c4d\u0c1f\u0c4d\u200c\u0c35\u0c47\u0c30\u0c4d \u0c05\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f, \u0c15\u0c02\u0c2a\u0c4d\u0c2f\u0c42\u0c1f\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c1a\u0c3f\u0c28\u0c4d\u0c28, \u0c06\u0c1a\u0c30\u0c23\u0c3e\u0c24\u0c4d\u0c2e\u0c15 \u0c2e\u0c3e\u0c21\u0c4d\u0c2f\u0c42\u0c32\u0c4d\u0c38\u0c4d.",
-    "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied activities.": "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41, \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41, \u0c15\u0c42\u0c32\u0c40\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c38\u0c4d\u0c35\u0c32\u0c4d\u0c2a\u0c15\u0c3e\u0c32\u0c3f\u0c15 \u0c30\u0c41\u0c23\u0c02.",
-    "Showing": "\u0c1a\u0c42\u0c2a\u0c41\u0c24\u0c4b\u0c02\u0c26\u0c3f",
-    "Sickle Serrated Steel": "\u0c38\u0c4d\u0c1f\u0c40\u0c32\u0c4d \u0c15\u0c4a\u0c21\u0c35\u0c32\u0c3f",
+    "Sell Your Produce":
+      "\u0c2e\u0c40 \u0c2a\u0c02\u0c1f\u0c28\u0c41 \u0c05\u0c2e\u0c4d\u0c2e\u0c02\u0c21\u0c3f",
+    Seller: "\u0c05\u0c2e\u0c4d\u0c2e\u0c15\u0c02\u0c26\u0c3e\u0c30\u0c41",
+    "Seller Demo":
+      "\u0c05\u0c2e\u0c4d\u0c2e\u0c15\u0c02\u0c26\u0c3e\u0c30\u0c41 \u0c21\u0c46\u0c2e\u0c4b",
+    "Selling through FPOs or direct supply contracts with retail chains bypasses multiple middleman commissions, increasing farmer profit margins by 15-20%.":
+      "\u0c30\u0c48\u0c24\u0c41 \u0c38\u0c02\u0c18\u0c3e\u0c32 (FPO) \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c26\u0c33\u0c3e\u0c30\u0c41\u0c32 \u0c15\u0c2e\u0c3f\u0c37\u0c28\u0c4d\u0c32\u0c41 \u0c24\u0c2a\u0c4d\u0c2a\u0c3f \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 15-20% \u0c05\u0c26\u0c28\u0c2a\u0c41 \u0c32\u0c3e\u0c2d\u0c02 \u0c1a\u0c47\u0c15\u0c42\u0c30\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Send Verification Code":
+      "\u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c23 \u0c15\u0c4b\u0c21\u0c4d\u200c\u0c28\u0c41 \u0c2a\u0c02\u0c2a\u0c02\u0c21\u0c3f",
+    "Sesame Seed GT-10 (2 kg)":
+      "\u0c28\u0c41\u0c35\u0c4d\u0c35\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 GT-10 (2 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Set up 5 pheromone traps per acre for early detection of bollworm and stem borer moths.":
+      "\u0c15\u0c3e\u0c02\u0c21\u0c02 \u0c24\u0c4a\u0c32\u0c41\u0c1a\u0c41 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23\u0c15\u0c41 \u0c0e\u0c15\u0c30\u0c3e\u0c15\u0c41 5 \u0c32\u0c3f\u0c02\u0c17 \u0c06\u0c15\u0c30\u0c4d\u0c37\u0c23 \u0c2c\u0c41\u0c1f\u0c4d\u0c1f\u0c32\u0c28\u0c41 \u0c05\u0c2e\u0c30\u0c4d\u0c1a\u0c02\u0c21\u0c3f.",
+    "Shade Net 50% Green (3 x 50 m)":
+      "\u0c37\u0c47\u0c21\u0c4d \u0c28\u0c46\u0c1f\u0c4d 50% \u0c06\u0c15\u0c41\u0c2a\u0c1a\u0c4d\u0c1a (3 x 50 \u0c2e\u0c40)",
+    "Shipping Address *":
+      "\u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c1a\u0c3f\u0c30\u0c41\u0c28\u0c3e\u0c2e\u0c3e *",
+    "Shop Fertilizers":
+      "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c15\u0c4a\u0c28\u0c02\u0c21\u0c3f",
+    "Shop Marketplace":
+      "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u0c2a\u0c4d\u0c32\u0c47\u0c38\u0c4d \u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41",
+    "Shop by Category":
+      "\u0c35\u0c30\u0c4d\u0c17\u0c3e\u0c32 \u0c35\u0c3e\u0c30\u0c40\u0c17\u0c3e \u0c15\u0c4a\u0c28\u0c02\u0c21\u0c3f",
+    "Shopping Cart":
+      "\u0c37\u0c3e\u0c2a\u0c3f\u0c02\u0c17\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c1f\u0c4d",
+    "Short, practical modules for software development, computing, and agriculture.":
+      "\u0c38\u0c3e\u0c2b\u0c4d\u0c1f\u0c4d\u200c\u0c35\u0c47\u0c30\u0c4d \u0c05\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f, \u0c15\u0c02\u0c2a\u0c4d\u0c2f\u0c42\u0c1f\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c1a\u0c3f\u0c28\u0c4d\u0c28, \u0c06\u0c1a\u0c30\u0c23\u0c3e\u0c24\u0c4d\u0c2e\u0c15 \u0c2e\u0c3e\u0c21\u0c4d\u0c2f\u0c42\u0c32\u0c4d\u0c38\u0c4d.",
+    "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied activities.":
+      "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41, \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41, \u0c15\u0c42\u0c32\u0c40\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c38\u0c4d\u0c35\u0c32\u0c4d\u0c2a\u0c15\u0c3e\u0c32\u0c3f\u0c15 \u0c30\u0c41\u0c23\u0c02.",
+    Showing: "\u0c1a\u0c42\u0c2a\u0c41\u0c24\u0c4b\u0c02\u0c26\u0c3f",
+    "Sickle Serrated Steel":
+      "\u0c38\u0c4d\u0c1f\u0c40\u0c32\u0c4d \u0c15\u0c4a\u0c21\u0c35\u0c32\u0c3f",
     "Sign In": "\u0c32\u0c3e\u0c17\u0c3f\u0c28\u0c4d",
-    "Sign in to your account": "\u0c2e\u0c40 \u0c16\u0c3e\u0c24\u0c3e\u0c32\u0c4b\u0c15\u0c3f \u0c32\u0c3e\u0c17\u0c3f\u0c28\u0c4d \u0c05\u0c35\u0c4d\u0c35\u0c02\u0c21\u0c3f",
-    "Simple field tests to check root-zone moisture before watering.": "\u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c35\u0c47\u0c30\u0c41 \u0c35\u0c26\u0c4d\u0c26 \u0c24\u0c47\u0c2e\u0c28\u0c41 \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c38\u0c41\u0c32\u0c2d\u0c2e\u0c48\u0c28 \u0c2a\u0c4a\u0c32\u0c02 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c32\u0c41.",
-    "Simple milling and packaging doubles profit margins compared to raw grain sales": "\u0c17\u0c3f\u0c02\u0c1c\u0c32 \u0c15\u0c02\u0c1f\u0c47 \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c4d \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c38\u0c3f \u0c05\u0c2e\u0c4d\u0c2e\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c32\u0c3e\u0c2d\u0c02 \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Single Super Phosphate (50 kg)": "\u0c38\u0c3f\u0c02\u0c17\u0c3f\u0c32\u0c4d \u0c38\u0c42\u0c2a\u0c30\u0c4d \u0c2b\u0c3e\u0c38\u0c4d\u0c2b\u0c47\u0c1f\u0c4d (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Small & Marginal Farmers": "\u0c1a\u0c3f\u0c28\u0c4d\u0c28 & \u0c38\u0c28\u0c4d\u0c28\u0c15\u0c3e\u0c30\u0c41 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41",
-    "Small and marginal farmers with verified land records and Aadhaar-linked bank accounts.": "\u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c3f\u0c28 \u0c2d\u0c42\u0c2e\u0c3f \u0c30\u0c3f\u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c27\u0c3e\u0c30\u0c4d-\u0c32\u0c3f\u0c02\u0c15\u0c4d \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c4d \u0c16\u0c3e\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c32\u0c3f\u0c17\u0c3f\u0c28 \u0c1a\u0c3f\u0c28\u0c4d\u0c28, \u0c38\u0c28\u0c4d\u0c28\u0c15\u0c3e\u0c30\u0c41 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41.",
-    "Smart Farming": "\u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
-    "Smart Farming & Agri Technology": "\u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 & \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24",
-    "Smart Farming & Drone Intern": "\u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c17\u0c4d & \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d \u0c1f\u0c46\u0c15\u0c4d\u0c28\u0c3e\u0c32\u0c1c\u0c40 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
-    "Smart farming utilizes digital tools such as soil sensors, automatic weather stations, and satellite telemetry to monitor crop health, soil moisture, and weather in real time.": "\u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c17\u0c4d \u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2a\u0c02\u0c1f \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c02, \u0c24\u0c47\u0c2e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c2f\u0c15\u0c4d\u0c37\u0c02\u0c17\u0c3e \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Soak paddy seeds in 1% salt water to remove light, hollow seeds before nursery bed preparation.": "\u0c28\u0c3e\u0c30\u0c4d\u0c32 \u0c2a\u0c46\u0c02\u0c2a\u0c15\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c24\u0c47\u0c32\u0c3f\u0c15\u0c48\u0c28, \u0c32\u0c4a\u0c32\u0c4d\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c35\u0c30\u0c3f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c28\u0c41 1% \u0c09\u0c2a\u0c4d\u0c2a\u0c41 \u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b \u0c28\u0c3e\u0c28\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f.",
-    "Social Accounts": "\u0c38\u0c4b\u0c37\u0c32\u0c4d \u0c2e\u0c40\u0c21\u0c3f\u0c2f\u0c3e \u0c16\u0c3e\u0c24\u0c3e\u0c32\u0c41",
-    "Soil & Fertilizer Management Intern": "\u0c28\u0c47\u0c32 & \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
+    "Sign in to your account":
+      "\u0c2e\u0c40 \u0c16\u0c3e\u0c24\u0c3e\u0c32\u0c4b\u0c15\u0c3f \u0c32\u0c3e\u0c17\u0c3f\u0c28\u0c4d \u0c05\u0c35\u0c4d\u0c35\u0c02\u0c21\u0c3f",
+    "Simple field tests to check root-zone moisture before watering.":
+      "\u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c35\u0c47\u0c30\u0c41 \u0c35\u0c26\u0c4d\u0c26 \u0c24\u0c47\u0c2e\u0c28\u0c41 \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c38\u0c41\u0c32\u0c2d\u0c2e\u0c48\u0c28 \u0c2a\u0c4a\u0c32\u0c02 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c32\u0c41.",
+    "Simple milling and packaging doubles profit margins compared to raw grain sales":
+      "\u0c17\u0c3f\u0c02\u0c1c\u0c32 \u0c15\u0c02\u0c1f\u0c47 \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c4d \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c38\u0c3f \u0c05\u0c2e\u0c4d\u0c2e\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c32\u0c3e\u0c2d\u0c02 \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    "Single Super Phosphate (50 kg)":
+      "\u0c38\u0c3f\u0c02\u0c17\u0c3f\u0c32\u0c4d \u0c38\u0c42\u0c2a\u0c30\u0c4d \u0c2b\u0c3e\u0c38\u0c4d\u0c2b\u0c47\u0c1f\u0c4d (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Small & Marginal Farmers":
+      "\u0c1a\u0c3f\u0c28\u0c4d\u0c28 & \u0c38\u0c28\u0c4d\u0c28\u0c15\u0c3e\u0c30\u0c41 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41",
+    "Small and marginal farmers with verified land records and Aadhaar-linked bank accounts.":
+      "\u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c02\u0c1a\u0c3f\u0c28 \u0c2d\u0c42\u0c2e\u0c3f \u0c30\u0c3f\u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c27\u0c3e\u0c30\u0c4d-\u0c32\u0c3f\u0c02\u0c15\u0c4d \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c4d \u0c16\u0c3e\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c32\u0c3f\u0c17\u0c3f\u0c28 \u0c1a\u0c3f\u0c28\u0c4d\u0c28, \u0c38\u0c28\u0c4d\u0c28\u0c15\u0c3e\u0c30\u0c41 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41.",
+    "Smart Farming":
+      "\u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    "Smart Farming & Agri Technology":
+      "\u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 & \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24",
+    "Smart Farming & Drone Intern":
+      "\u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c17\u0c4d & \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d \u0c1f\u0c46\u0c15\u0c4d\u0c28\u0c3e\u0c32\u0c1c\u0c40 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
+    "Smart farming utilizes digital tools such as soil sensors, automatic weather stations, and satellite telemetry to monitor crop health, soil moisture, and weather in real time.":
+      "\u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c17\u0c4d \u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2a\u0c02\u0c1f \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c02, \u0c24\u0c47\u0c2e \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c2f\u0c15\u0c4d\u0c37\u0c02\u0c17\u0c3e \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Soak paddy seeds in 1% salt water to remove light, hollow seeds before nursery bed preparation.":
+      "\u0c28\u0c3e\u0c30\u0c4d\u0c32 \u0c2a\u0c46\u0c02\u0c2a\u0c15\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c24\u0c47\u0c32\u0c3f\u0c15\u0c48\u0c28, \u0c32\u0c4a\u0c32\u0c4d\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c35\u0c30\u0c3f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c28\u0c41 1% \u0c09\u0c2a\u0c4d\u0c2a\u0c41 \u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b \u0c28\u0c3e\u0c28\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f.",
+    "Social Accounts":
+      "\u0c38\u0c4b\u0c37\u0c32\u0c4d \u0c2e\u0c40\u0c21\u0c3f\u0c2f\u0c3e \u0c16\u0c3e\u0c24\u0c3e\u0c32\u0c41",
+    "Soil & Fertilizer Management Intern":
+      "\u0c28\u0c47\u0c32 & \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d",
     "Soil & Nutrients": "\u0c28\u0c47\u0c32 & \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32\u0c41",
     "Soil Advisory": "\u0c28\u0c47\u0c32 \u0c38\u0c32\u0c39\u0c3e",
-    "Soil Health & Fertility Management": "\u0c28\u0c47\u0c32 \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c02 & \u0c38\u0c3e\u0c30\u0c35\u0c02\u0c24\u0c24 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
-    "Soil Health Advisory": "\u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c39\u0c46\u0c32\u0c4d\u0c24\u0c4d \u0c05\u0c21\u0c4d\u0c35\u0c48\u0c1c\u0c30\u0c40",
-    "Soil Health Card": "\u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c39\u0c46\u0c32\u0c4d\u0c24\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d",
-    "Soil Health Card Scheme": "\u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c39\u0c46\u0c32\u0c4d\u0c24\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d \u0c2a\u0c25\u0c15\u0c02",
-    "Soil Moisture Monitoring and Scheduling": "\u0c28\u0c47\u0c32 \u0c24\u0c47\u0c2e \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c40\u0c1f\u0c3f \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15",
-    "Soil Organic Matter and Carbon Conservation": "\u0c28\u0c47\u0c32 \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c2a\u0c26\u0c3e\u0c30\u0c4d\u0c25\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c3e\u0c30\u0c4d\u0c2c\u0c28\u0c4d \u0c2a\u0c30\u0c3f\u0c30\u0c15\u0c4d\u0c37\u0c23",
+    "Soil Health & Fertility Management":
+      "\u0c28\u0c47\u0c32 \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c02 & \u0c38\u0c3e\u0c30\u0c35\u0c02\u0c24\u0c24 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23",
+    "Soil Health Advisory":
+      "\u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c39\u0c46\u0c32\u0c4d\u0c24\u0c4d \u0c05\u0c21\u0c4d\u0c35\u0c48\u0c1c\u0c30\u0c40",
+    "Soil Health Card":
+      "\u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c39\u0c46\u0c32\u0c4d\u0c24\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d",
+    "Soil Health Card Scheme":
+      "\u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c39\u0c46\u0c32\u0c4d\u0c24\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d \u0c2a\u0c25\u0c15\u0c02",
+    "Soil Moisture Monitoring and Scheduling":
+      "\u0c28\u0c47\u0c32 \u0c24\u0c47\u0c2e \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c40\u0c1f\u0c3f \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15",
+    "Soil Organic Matter and Carbon Conservation":
+      "\u0c28\u0c47\u0c32 \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c2a\u0c26\u0c3e\u0c30\u0c4d\u0c25\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c3e\u0c30\u0c4d\u0c2c\u0c28\u0c4d \u0c2a\u0c30\u0c3f\u0c30\u0c15\u0c4d\u0c37\u0c23",
     "Soil Testing": "\u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c32\u0c41",
-    "Soil Testing & Recommendations": "\u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c32\u0c41 & \u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
-    "Soil Testing Kit Digital": "\u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c15\u0c3f\u0c1f\u0c4d",
-    "Soil Testing and pH Balance": "\u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 pH \u0c38\u0c2e\u0c24\u0c41\u0c32\u0c4d\u0c2f\u0c24",
-    "Soil organic matter is the foundation of soil fertility. Incorporating crop residues, green manure crops like Sunn Hemp or Dhaincha, and practicing zero-tillage builds long-term soil carbon.": "\u0c28\u0c47\u0c32 \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c2a\u0c26\u0c3e\u0c30\u0c4d\u0c25\u0c02 \u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c42\u0c32\u0c38\u0c4d\u0c24\u0c02\u0c2d\u0c02. \u0c2a\u0c02\u0c1f \u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3e\u0c32\u0c28\u0c41 \u0c15\u0c32\u0c3f\u0c2a\u0c3f \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c21\u0c02, \u0c1c\u0c28\u0c41\u0c2e\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c1c\u0c40\u0c32\u0c41\u0c17\u0c41 \u0c35\u0c02\u0c1f\u0c3f \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c2a\u0c48\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c2a\u0c46\u0c02\u0c1a\u0c21\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c28\u0c47\u0c32\u0c32\u0c4b \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c15\u0c3e\u0c30\u0c4d\u0c2c\u0c28\u0c4d \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Soil sensors send automated moisture alerts to mobile phones": "\u0c24\u0c47\u0c2e \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c41 \u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d\u200c\u0c15\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c02\u0c2a\u0c41\u0c24\u0c3e\u0c2f\u0c3f",
-    "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use.": "\u0c38\u0c2e\u0c24\u0c41\u0c32\u0c4d\u0c2f \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c35\u0c3f\u0c28\u0c3f\u0c2f\u0c4b\u0c17\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1f\u0c32 \u0c35\u0c3e\u0c30\u0c40\u0c17\u0c3e \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41.",
-    "Soil testing reveals the availability of primary and micronutrients in the field. Soil pH affects nutrient uptake; lime is used for acidic soils while gypsum is recommended for alkaline soils.": "\u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c32\u0c2d\u0c4d\u0c2f\u0c24 \u0c24\u0c46\u0c32\u0c41\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c28\u0c47\u0c32 pH \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c17\u0c4d\u0c30\u0c39\u0c23\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c2d\u0c3e\u0c35\u0c3f\u0c24\u0c02 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f; \u0c06\u0c2e\u0c4d\u0c32 \u0c28\u0c47\u0c32\u0c32\u0c15\u0c41 \u0c38\u0c41\u0c28\u0c4d\u0c28\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4d\u0c37\u0c3e\u0c30 \u0c28\u0c47\u0c32\u0c32\u0c15\u0c41 \u0c1c\u0c3f\u0c2a\u0c4d\u0c38\u0c2e\u0c4d \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Solar Insect Light Trap": "\u0c38\u0c4b\u0c32\u0c3e\u0c30\u0c4d \u0c15\u0c40\u0c1f\u0c15\u0c3e\u0c32 \u0c26\u0c40\u0c2a\u0c02",
-    "Solar Pump Controller 5 HP": "\u0c38\u0c4b\u0c32\u0c3e\u0c30\u0c4d \u0c2a\u0c02\u0c2a\u0c4d \u0c15\u0c02\u0c1f\u0c4d\u0c30\u0c4b\u0c32\u0c30\u0c4d 5 HP",
-    "Solar drying extends shelf life of perishable chillies and fruits": "\u0c38\u0c4c\u0c30 \u0c36\u0c15\u0c4d\u0c24\u0c3f\u0c24\u0c4b \u0c0e\u0c02\u0c21\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c2e\u0c3f\u0c30\u0c2a\u0c15\u0c3e\u0c2f\u0c32\u0c41, \u0c2a\u0c02\u0c21\u0c4d\u0c32 \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c15\u0c3e\u0c32\u0c02 \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Solar drying tomatoes and chillies creates shelf-stable products that sell at 3x raw prices.": "\u0c1f\u0c2e\u0c3e\u0c1f\u0c3e\u0c32\u0c41, \u0c2e\u0c3f\u0c30\u0c2a\u0c15\u0c3e\u0c2f\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c21\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c3f \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 3 \u0c30\u0c46\u0c1f\u0c4d\u0c32\u0c41 \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c27\u0c30 \u0c2a\u0c4a\u0c02\u0c26\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
-    "Solid State Storage": "\u0c18\u0c28 \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f \u0c28\u0c3f\u0c32\u0c4d\u0c35",
-    "Sorghum Seed CSH-16 (5 kg)": "\u0c1c\u0c4a\u0c28\u0c4d\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 CSH-16 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Soil Testing & Recommendations":
+      "\u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c32\u0c41 & \u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
+    "Soil Testing Kit Digital":
+      "\u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c15\u0c3f\u0c1f\u0c4d",
+    "Soil Testing and pH Balance":
+      "\u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 pH \u0c38\u0c2e\u0c24\u0c41\u0c32\u0c4d\u0c2f\u0c24",
+    "Soil organic matter is the foundation of soil fertility. Incorporating crop residues, green manure crops like Sunn Hemp or Dhaincha, and practicing zero-tillage builds long-term soil carbon.":
+      "\u0c28\u0c47\u0c32 \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c2a\u0c26\u0c3e\u0c30\u0c4d\u0c25\u0c02 \u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c42\u0c32\u0c38\u0c4d\u0c24\u0c02\u0c2d\u0c02. \u0c2a\u0c02\u0c1f \u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3e\u0c32\u0c28\u0c41 \u0c15\u0c32\u0c3f\u0c2a\u0c3f \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c21\u0c02, \u0c1c\u0c28\u0c41\u0c2e\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c1c\u0c40\u0c32\u0c41\u0c17\u0c41 \u0c35\u0c02\u0c1f\u0c3f \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c2a\u0c48\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c2a\u0c46\u0c02\u0c1a\u0c21\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c28\u0c47\u0c32\u0c32\u0c4b \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c15\u0c3e\u0c30\u0c4d\u0c2c\u0c28\u0c4d \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Soil sensors send automated moisture alerts to mobile phones":
+      "\u0c24\u0c47\u0c2e \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c41 \u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d\u200c\u0c15\u0c41 \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c02\u0c2a\u0c41\u0c24\u0c3e\u0c2f\u0c3f",
+    "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use.":
+      "\u0c38\u0c2e\u0c24\u0c41\u0c32\u0c4d\u0c2f \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c35\u0c3f\u0c28\u0c3f\u0c2f\u0c4b\u0c17\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1f\u0c32 \u0c35\u0c3e\u0c30\u0c40\u0c17\u0c3e \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41.",
+    "Soil testing reveals the availability of primary and micronutrients in the field. Soil pH affects nutrient uptake; lime is used for acidic soils while gypsum is recommended for alkaline soils.":
+      "\u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c32\u0c2d\u0c4d\u0c2f\u0c24 \u0c24\u0c46\u0c32\u0c41\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c28\u0c47\u0c32 pH \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c17\u0c4d\u0c30\u0c39\u0c23\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c2d\u0c3e\u0c35\u0c3f\u0c24\u0c02 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f; \u0c06\u0c2e\u0c4d\u0c32 \u0c28\u0c47\u0c32\u0c32\u0c15\u0c41 \u0c38\u0c41\u0c28\u0c4d\u0c28\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4d\u0c37\u0c3e\u0c30 \u0c28\u0c47\u0c32\u0c32\u0c15\u0c41 \u0c1c\u0c3f\u0c2a\u0c4d\u0c38\u0c2e\u0c4d \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Solar Insect Light Trap":
+      "\u0c38\u0c4b\u0c32\u0c3e\u0c30\u0c4d \u0c15\u0c40\u0c1f\u0c15\u0c3e\u0c32 \u0c26\u0c40\u0c2a\u0c02",
+    "Solar Pump Controller 5 HP":
+      "\u0c38\u0c4b\u0c32\u0c3e\u0c30\u0c4d \u0c2a\u0c02\u0c2a\u0c4d \u0c15\u0c02\u0c1f\u0c4d\u0c30\u0c4b\u0c32\u0c30\u0c4d 5 HP",
+    "Solar drying extends shelf life of perishable chillies and fruits":
+      "\u0c38\u0c4c\u0c30 \u0c36\u0c15\u0c4d\u0c24\u0c3f\u0c24\u0c4b \u0c0e\u0c02\u0c21\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c2e\u0c3f\u0c30\u0c2a\u0c15\u0c3e\u0c2f\u0c32\u0c41, \u0c2a\u0c02\u0c21\u0c4d\u0c32 \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c15\u0c3e\u0c32\u0c02 \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    "Solar drying tomatoes and chillies creates shelf-stable products that sell at 3x raw prices.":
+      "\u0c1f\u0c2e\u0c3e\u0c1f\u0c3e\u0c32\u0c41, \u0c2e\u0c3f\u0c30\u0c2a\u0c15\u0c3e\u0c2f\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c21\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c3f \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 3 \u0c30\u0c46\u0c1f\u0c4d\u0c32\u0c41 \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c27\u0c30 \u0c2a\u0c4a\u0c02\u0c26\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
+    "Solid State Storage":
+      "\u0c18\u0c28 \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f \u0c28\u0c3f\u0c32\u0c4d\u0c35",
+    "Sorghum Seed CSH-16 (5 kg)":
+      "\u0c1c\u0c4a\u0c28\u0c4d\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 CSH-16 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Sort By": "\u0c15\u0c4d\u0c30\u0c2e\u0c2c\u0c26\u0c4d\u0c27\u0c40\u0c15\u0c30\u0c23",
-    "Sow Dhaincha or Sunn Hemp at 20-25 kg seed per acre": "\u0c0e\u0c15\u0c30\u0c3e\u0c15\u0c41 20-25 \u0c15\u0c47\u0c1c\u0c40\u0c32 \u0c1c\u0c40\u0c32\u0c41\u0c17\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c1c\u0c28\u0c41\u0c2e\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c02\u0c21\u0c3f",
-    "Sow climate-resilient crop varieties certified by ICAR / State Agri Universities": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c3f\u0c36\u0c4d\u0c35\u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c32\u0c2f\u0c3e\u0c32\u0c41 \u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c3f\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c30\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
-    "Sow green manure crops like Dhaincha before Kharif paddy": "\u0c16\u0c30\u0c40\u0c2b\u0c4d \u0c35\u0c30\u0c3f\u0c15\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c1c\u0c40\u0c32\u0c41\u0c17\u0c41 \u0c35\u0c02\u0c1f\u0c3f \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c2a\u0c48\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Sowing": "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41 \u0c35\u0c47\u0c2f\u0c21\u0c02",
-    "Sowing at the right soil temperature and moisture condition ensures uniform seed emergence. Climate advisory apps provide localized weather alerts to guide sowing dates.": "\u0c38\u0c30\u0c48\u0c28 \u0c28\u0c47\u0c32 \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c47\u0c2e \u0c09\u0c28\u0c4d\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c38\u0c2e\u0c3e\u0c28\u0c02\u0c17\u0c3e \u0c2e\u0c4a\u0c32\u0c15\u0c46\u0c24\u0c4d\u0c24\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c06\u0c27\u0c3e\u0c30\u0c3f\u0c24 \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c41 \u0c38\u0c30\u0c48\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c38\u0c2e\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c38\u0c42\u0c1a\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
-    "Soybean Seed JS-9560 (20 kg)": "\u0c38\u0c4b\u0c2f\u0c3e\u0c2c\u0c40\u0c28\u0c4d \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 JS-9560 (20 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Specilised Agri Protection": "\u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c2f\u0c47\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c30\u0c15\u0c4d\u0c37\u0c23",
-    "Spinach Seed All Green (500 g)": "\u0c2a\u0c3e\u0c32\u0c15\u0c42\u0c30 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c06\u0c32\u0c4d \u0c17\u0c4d\u0c30\u0c40\u0c28\u0c4d (500 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Spray insecticides during early morning or late afternoon when honeybees are inactive.": "\u0c24\u0c47\u0c28\u0c46\u0c1f\u0c40\u0c17\u0c32\u0c15\u0c41 \u0c39\u0c3e\u0c28\u0c3f \u0c15\u0c32\u0c17\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c09\u0c26\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c47 \u0c32\u0c47\u0c26\u0c3e \u0c38\u0c3e\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c02 \u0c2e\u0c02\u0c26\u0c41\u0c32\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Spraying 3% Panchagavya solution every 15 days increases flower retention and fruit setting.": "\u0c2a\u0c4d\u0c30\u0c24\u0c3f 15 \u0c30\u0c4b\u0c1c\u0c41\u0c32\u0c15\u0c41 \u0c12\u0c15\u0c38\u0c3e\u0c30\u0c3f 3% \u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c2a\u0c42\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c3f\u0c02\u0c26\u0c46 \u0c28\u0c3f\u0c32\u0c41\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Sprinkler Set 1 Acre": "\u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c3f\u0c02\u0c15\u0c4d\u0c32\u0c30\u0c4d \u0c38\u0c46\u0c1f\u0c4d 1 \u0c0e\u0c15\u0c30\u0c02",
-    "Squeeze soil sample from 15 cm depth; if it forms a firm ball, irrigation is not needed": "15 \u0c38\u0c46\u0c02.\u0c2e\u0c40 \u0c32\u0c4b\u0c24\u0c41 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f\u0c28\u0c3f \u0c24\u0c40\u0c38\u0c41\u0c15\u0c41\u0c28\u0c3f \u0c2e\u0c41\u0c26\u0c4d\u0c26\u0c17\u0c3e \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c47 \u0c2e\u0c41\u0c26\u0c4d\u0c26 \u0c05\u0c2f\u0c3f\u0c24\u0c47 \u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c28\u0c35\u0c38\u0c30\u0c02 \u0c32\u0c47\u0c26\u0c41",
-    "Start Course": "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Start Learning": "\u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Start Shopping": "\u0c37\u0c3e\u0c2a\u0c3f\u0c02\u0c17\u0c4d \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "State": "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c02",
-    "State animal husbandry departments": "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30 \u0c2a\u0c36\u0c41\u0c38\u0c02\u0c35\u0c30\u0c4d\u0c27\u0c15 \u0c36\u0c3e\u0c16",
-    "State-notified insurance companies": "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c3f\u0c28 \u0c2c\u0c40\u0c2e\u0c3e \u0c15\u0c02\u0c2a\u0c46\u0c28\u0c40\u0c32\u0c41",
-    "State-specific": "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c38\u0c02\u0c2c\u0c02\u0c27\u0c3f\u0c02\u0c1a\u0c3f\u0c28\u0c35\u0c3f",
-    "State-wise annual targets": "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c3e\u0c32 \u0c35\u0c3e\u0c30\u0c40\u0c17\u0c3e \u0c35\u0c3e\u0c30\u0c4d\u0c37\u0c3f\u0c15 \u0c32\u0c15\u0c4d\u0c37\u0c4d\u0c2f\u0c3e\u0c32\u0c41",
-    "Status": "\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f",
+    "Sow Dhaincha or Sunn Hemp at 20-25 kg seed per acre":
+      "\u0c0e\u0c15\u0c30\u0c3e\u0c15\u0c41 20-25 \u0c15\u0c47\u0c1c\u0c40\u0c32 \u0c1c\u0c40\u0c32\u0c41\u0c17\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c1c\u0c28\u0c41\u0c2e\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c02\u0c21\u0c3f",
+    "Sow climate-resilient crop varieties certified by ICAR / State Agri Universities":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c3f\u0c36\u0c4d\u0c35\u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c32\u0c2f\u0c3e\u0c32\u0c41 \u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c3f\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c30\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
+    "Sow green manure crops like Dhaincha before Kharif paddy":
+      "\u0c16\u0c30\u0c40\u0c2b\u0c4d \u0c35\u0c30\u0c3f\u0c15\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c1c\u0c40\u0c32\u0c41\u0c17\u0c41 \u0c35\u0c02\u0c1f\u0c3f \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c2a\u0c48\u0c30\u0c4d\u0c32\u0c28\u0c41 \u0c35\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    Sowing: "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41 \u0c35\u0c47\u0c2f\u0c21\u0c02",
+    "Sowing at the right soil temperature and moisture condition ensures uniform seed emergence. Climate advisory apps provide localized weather alerts to guide sowing dates.":
+      "\u0c38\u0c30\u0c48\u0c28 \u0c28\u0c47\u0c32 \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c47\u0c2e \u0c09\u0c28\u0c4d\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c38\u0c2e\u0c3e\u0c28\u0c02\u0c17\u0c3e \u0c2e\u0c4a\u0c32\u0c15\u0c46\u0c24\u0c4d\u0c24\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c06\u0c27\u0c3e\u0c30\u0c3f\u0c24 \u0c39\u0c46\u0c1a\u0c4d\u0c1a\u0c30\u0c3f\u0c15\u0c32\u0c41 \u0c38\u0c30\u0c48\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c38\u0c2e\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c38\u0c42\u0c1a\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
+    "Soybean Seed JS-9560 (20 kg)":
+      "\u0c38\u0c4b\u0c2f\u0c3e\u0c2c\u0c40\u0c28\u0c4d \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 JS-9560 (20 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Specilised Agri Protection":
+      "\u0c2a\u0c4d\u0c30\u0c24\u0c4d\u0c2f\u0c47\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c30\u0c15\u0c4d\u0c37\u0c23",
+    "Spinach Seed All Green (500 g)":
+      "\u0c2a\u0c3e\u0c32\u0c15\u0c42\u0c30 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c06\u0c32\u0c4d \u0c17\u0c4d\u0c30\u0c40\u0c28\u0c4d (500 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    "Spray insecticides during early morning or late afternoon when honeybees are inactive.":
+      "\u0c24\u0c47\u0c28\u0c46\u0c1f\u0c40\u0c17\u0c32\u0c15\u0c41 \u0c39\u0c3e\u0c28\u0c3f \u0c15\u0c32\u0c17\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c09\u0c26\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c47 \u0c32\u0c47\u0c26\u0c3e \u0c38\u0c3e\u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c02 \u0c2e\u0c02\u0c26\u0c41\u0c32\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Spraying 3% Panchagavya solution every 15 days increases flower retention and fruit setting.":
+      "\u0c2a\u0c4d\u0c30\u0c24\u0c3f 15 \u0c30\u0c4b\u0c1c\u0c41\u0c32\u0c15\u0c41 \u0c12\u0c15\u0c38\u0c3e\u0c30\u0c3f 3% \u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c2a\u0c42\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c3f\u0c02\u0c26\u0c46 \u0c28\u0c3f\u0c32\u0c41\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Sprinkler Set 1 Acre":
+      "\u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c3f\u0c02\u0c15\u0c4d\u0c32\u0c30\u0c4d \u0c38\u0c46\u0c1f\u0c4d 1 \u0c0e\u0c15\u0c30\u0c02",
+    "Squeeze soil sample from 15 cm depth; if it forms a firm ball, irrigation is not needed":
+      "15 \u0c38\u0c46\u0c02.\u0c2e\u0c40 \u0c32\u0c4b\u0c24\u0c41 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f\u0c28\u0c3f \u0c24\u0c40\u0c38\u0c41\u0c15\u0c41\u0c28\u0c3f \u0c2e\u0c41\u0c26\u0c4d\u0c26\u0c17\u0c3e \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c47 \u0c2e\u0c41\u0c26\u0c4d\u0c26 \u0c05\u0c2f\u0c3f\u0c24\u0c47 \u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c28\u0c35\u0c38\u0c30\u0c02 \u0c32\u0c47\u0c26\u0c41",
+    "Start Course":
+      "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c28\u0c41 \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Start Learning":
+      "\u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Start Shopping":
+      "\u0c37\u0c3e\u0c2a\u0c3f\u0c02\u0c17\u0c4d \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    State: "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c02",
+    "State animal husbandry departments":
+      "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30 \u0c2a\u0c36\u0c41\u0c38\u0c02\u0c35\u0c30\u0c4d\u0c27\u0c15 \u0c36\u0c3e\u0c16",
+    "State-notified insurance companies":
+      "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c3f\u0c28 \u0c2c\u0c40\u0c2e\u0c3e \u0c15\u0c02\u0c2a\u0c46\u0c28\u0c40\u0c32\u0c41",
+    "State-specific":
+      "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c38\u0c02\u0c2c\u0c02\u0c27\u0c3f\u0c02\u0c1a\u0c3f\u0c28\u0c35\u0c3f",
+    "State-wise annual targets":
+      "\u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c3e\u0c32 \u0c35\u0c3e\u0c30\u0c40\u0c17\u0c3e \u0c35\u0c3e\u0c30\u0c4d\u0c37\u0c3f\u0c15 \u0c32\u0c15\u0c4d\u0c37\u0c4d\u0c2f\u0c3e\u0c32\u0c41",
+    Status: "\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f",
     "Status:": "\u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f:",
-    "Stay Updated, Stay Ahead!": "\u0c05\u0c2a\u0c4d\u200c\u0c21\u0c47\u0c1f\u0c4d\u200c\u0c17\u0c3e \u0c09\u0c02\u0c21\u0c02\u0c21\u0c3f, \u0c2e\u0c41\u0c02\u0c26\u0c41\u0c02\u0c21\u0c02\u0c21\u0c3f!",
-    "Stay updated with the latest mandi prices across India": "\u0c2d\u0c3e\u0c30\u0c24\u0c26\u0c47\u0c36\u0c02\u0c32\u0c4b\u0c28\u0c3f \u0c24\u0c3e\u0c1c\u0c3e \u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c24\u0c4b \u0c0e\u0c2a\u0c4d\u0c2a\u0c1f\u0c3f\u0c15\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02 \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f",
-    "Stipend": "\u0c38\u0c4d\u0c1f\u0c48\u0c2a\u0c46\u0c02\u0c21\u0c4d",
+    "Stay Updated, Stay Ahead!":
+      "\u0c05\u0c2a\u0c4d\u200c\u0c21\u0c47\u0c1f\u0c4d\u200c\u0c17\u0c3e \u0c09\u0c02\u0c21\u0c02\u0c21\u0c3f, \u0c2e\u0c41\u0c02\u0c26\u0c41\u0c02\u0c21\u0c02\u0c21\u0c3f!",
+    "Stay updated with the latest mandi prices across India":
+      "\u0c2d\u0c3e\u0c30\u0c24\u0c26\u0c47\u0c36\u0c02\u0c32\u0c4b\u0c28\u0c3f \u0c24\u0c3e\u0c1c\u0c3e \u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c24\u0c4b \u0c0e\u0c2a\u0c4d\u0c2a\u0c1f\u0c3f\u0c15\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02 \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f",
+    Stipend: "\u0c38\u0c4d\u0c1f\u0c48\u0c2a\u0c46\u0c02\u0c21\u0c4d",
     "Stock Quantity": "\u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c2a\u0c30\u0c3f\u0c2e\u0c3e\u0c23\u0c02",
-    "Store FYM in shaded pits covered with soil to retain Nitrogen content.": "\u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c36\u0c3e\u0c24\u0c02 \u0c24\u0c17\u0c4d\u0c17\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c09\u0c02\u0c21\u0c47\u0c02\u0c26\u0c41\u0c15\u0c41 \u0c2a\u0c36\u0c41\u0c32 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c28\u0c41 \u0c28\u0c40\u0c21 \u0c09\u0c28\u0c4d\u0c28 \u0c17\u0c4b\u0c24\u0c41\u0c32\u0c32\u0c4b \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f\u0c24\u0c4b \u0c15\u0c2a\u0c4d\u0c2a\u0c3f \u0c09\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Store bags on wooden dunnage racks elevated 1 foot off the ground": "\u0c38\u0c02\u0c1a\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c32\u0c15\u0c41 \u0c24\u0c17\u0c32\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c1a\u0c46\u0c15\u0c4d\u0c15 \u0c2c\u0c32\u0c4d\u0c32\u0c32\u0c2a\u0c48 \u0c09\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Streamlined process for listing, selling, and delivering farm produce across India.": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c38\u0c41\u0c32\u0c2d\u0c02\u0c17\u0c3e \u0c05\u0c2e\u0c4d\u0c2e\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0cae\u0cbe\u0ca1\u0cb2\u0cc1 \u0c35\u0c47\u0c26\u0c3f\u0c15.",
+    "Store FYM in shaded pits covered with soil to retain Nitrogen content.":
+      "\u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c36\u0c3e\u0c24\u0c02 \u0c24\u0c17\u0c4d\u0c17\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c09\u0c02\u0c21\u0c47\u0c02\u0c26\u0c41\u0c15\u0c41 \u0c2a\u0c36\u0c41\u0c32 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c28\u0c41 \u0c28\u0c40\u0c21 \u0c09\u0c28\u0c4d\u0c28 \u0c17\u0c4b\u0c24\u0c41\u0c32\u0c32\u0c4b \u0c2e\u0c1f\u0c4d\u0c1f\u0c3f\u0c24\u0c4b \u0c15\u0c2a\u0c4d\u0c2a\u0c3f \u0c09\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Store bags on wooden dunnage racks elevated 1 foot off the ground":
+      "\u0c38\u0c02\u0c1a\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c32\u0c15\u0c41 \u0c24\u0c17\u0c32\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c1a\u0c46\u0c15\u0c4d\u0c15 \u0c2c\u0c32\u0c4d\u0c32\u0c32\u0c2a\u0c48 \u0c09\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Streamlined process for listing, selling, and delivering farm produce across India.":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c38\u0c41\u0c32\u0c2d\u0c02\u0c17\u0c3e \u0c05\u0c2e\u0c4d\u0c2e\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0cae\u0cbe\u0ca1\u0cb2\u0cc1 \u0c35\u0c47\u0c26\u0c3f\u0c15.",
     "Stronger Farmers": "\u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41",
-    "Student": "\u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c3f",
-    "Student Courses Catalog": "\u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32 \u0c15\u0c4d\u0c2f\u0c3e\u0c1f\u0c32\u0c3e\u0c17\u0c4d",
-    "Student Dashboard": "\u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c3f \u0c21\u0c3e\u0c37\u0c4d\u0c2c\u0c4b\u0c30\u0c4d\u0c21\u0c4d",
-    "Student Demo": "\u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c3f \u0c21\u0c46\u0c2e\u0c4b",
-    "Student Internship Hub": "\u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c3f \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d \u0c39\u0c2c\u0c4d",
-    "Students in Horticulture or Agriculture diplomas/degrees.": "\u0c39\u0c3e\u0c30\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d\u0c1a\u0c30\u0c4d \u0c32\u0c47\u0c26\u0c3e \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c15\u0c32\u0c4d\u0c1a\u0c30\u0c4d \u0c21\u0c3f\u0c2a\u0c4d\u0c32\u0c4a\u0c2e\u0c3e/\u0c21\u0c3f\u0c17\u0c4d\u0c30\u0c40 \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32\u0c41.",
-    "Students in Rural Development, Social Work, or Agriculture.": "\u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c40\u0c23\u0c3e\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f, \u0c38\u0c4b\u0c37\u0c32\u0c4d \u0c35\u0c30\u0c4d\u0c15\u0c4d \u0c32\u0c47\u0c26\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32\u0c41.",
-    "Students or graduates in Agriculture, Agritech, Diploma, or related field.": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02, \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c32\u0c47\u0c26\u0c3e \u0c05\u0c28\u0c41\u0c2c\u0c02\u0c27 \u0c30\u0c02\u0c17\u0c3e\u0c32\u0c32\u0c4b \u0c21\u0c3f\u0c2a\u0c4d\u0c32\u0c4a\u0c2e\u0c3e/\u0c21\u0c3f\u0c17\u0c4d\u0c30\u0c40 \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32\u0c41.",
-    "Submersible Pump 3 HP": "\u0c38\u0c2c\u0c4d\u200c\u0c2e\u0c30\u0c4d\u0c38\u0c3f\u0c2c\u0c41\u0c32\u0c4d \u0c2a\u0c02\u0c2a\u0c4d 3 HP",
-    "Submit": "\u0c38\u0c2e\u0c30\u0c4d\u0c2a\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Submit Application": "\u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c2a\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Submit My Application": "\u0c28\u0c3e \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c2a\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Subsidised in several states": "\u0c2a\u0c32\u0c41 \u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c3e\u0c32\u0c4d\u0c32\u0c4b \u0c30\u0c3e\u0c2f\u0c3f\u0c24\u0c40 \u0c07\u0c35\u0c4d\u0c35\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
-    "Subtotal": "\u0c09\u0c2a\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02",
-    "Sudden drops in NDVI highlight disease outbreaks or drought stress": "\u0c35\u0c3f\u0c32\u0c41\u0c35\u0c32\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c33\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c28\u0c40\u0c1f\u0c3f \u0c0e\u0c26\u0c4d\u0c26\u0c21\u0c3f\u0c28\u0c3f \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c35\u0c1a\u0c4d\u0c1a\u0c41",
-    "Sudden heatwaves during grain filling shorten crop maturity and reduce grain weight. Applying foliar sprays of 1% Potassium Nitrate helps plants maintain cell turgor and withstand thermal stress.": "\u0c05\u0c28\u0c41\u0c15\u0c4b\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c35\u0c1a\u0c4d\u0c1a\u0c47 \u0c24\u0c40\u0c35\u0c4d\u0c30\u0c2e\u0c48\u0c28 \u0c35\u0c21\u0c17\u0c3e\u0c32\u0c41\u0c32\u0c41 \u0c17\u0c3f\u0c02\u0c1c \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24\u0c28\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f. \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c28\u0c48\u0c1f\u0c4d\u0c30\u0c47\u0c1f\u0c4d (1%) \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c32\u0c15\u0c41 \u0c35\u0c47\u0c21\u0c3f\u0c28\u0c3f \u0c24\u0c1f\u0c4d\u0c1f\u0c41\u0c15\u0c41\u0c28\u0c47 \u0c36\u0c15\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c07\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Sugarcane Seed Sett Co-0238 (100 setts)": "\u0c1a\u0c46\u0c30\u0c15\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 Co-0238 (100 \u0c2e\u0c41\u0c15\u0c4d\u0c15\u0c32\u0c41)",
-    "Sulphur 90% WDG (5 kg)": "\u0c38\u0c32\u0c4d\u0c2b\u0c30\u0c4d 90% WDG (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Sum insured based on district crop notification and scale of finance.": "\u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e \u0c2a\u0c02\u0c1f \u0c28\u0c4b\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c07\u0c28\u0c4d\u0c38\u0c42\u0c30\u0c46\u0c28\u0c4d\u0c38\u0c4d \u0c2a\u0c30\u0c3f\u0c2e\u0c3f\u0c24\u0c3f.",
-    "Sun": "\u0c06\u0c26\u0c3f\u0c35\u0c3e\u0c30\u0c02",
-    "Sun-dry harvested grains on tarpaulin sheets to bring moisture content down to 12% before bagging.": "\u0c38\u0c02\u0c1a\u0c41\u0c32\u0c4d\u0c32\u0c4b \u0c28\u0c3f\u0c02\u0c2a\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c02 \u0c24\u0c47\u0c2e\u0c28\u0c41 12% \u0c15\u0c3f \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c24\u0c3e\u0c30\u0c4d\u0c2a\u0c3e\u0c32\u0c3f\u0c28\u0c4d \u0c37\u0c40\u0c1f\u0c4d\u0c32\u0c2a\u0c48 \u0c2c\u0c3e\u0c17\u0c3e \u0c06\u0c30\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f.",
-    "Sunflower Seed KBSH-44 (5 kg)": "\u0c2a\u0c4a\u0c26\u0c4d\u0c26\u0c41\u0c24\u0c3f\u0c30\u0c41\u0c17\u0c41\u0c21\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 KBSH-44 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Sunny": "\u0c0e\u0c02\u0c21\u0c17\u0c3e \u0c09\u0c02\u0c26\u0c3f",
-    "Supplier": "\u0c38\u0c30\u0c2b\u0c30\u0c3e\u0c26\u0c3e\u0c30\u0c41",
-    "Support": "\u0c38\u0c39\u0c3e\u0c2f\u0c02",
-    "Support crop monitoring, crop growth observations, seasonal planning, and farm experiment activities.": "\u0c2a\u0c02\u0c1f\u0c32 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23, \u0c2a\u0c02\u0c1f \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c28, \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c41\u0c17\u0c41\u0c23 \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c4d\u0c30\u0c2f\u0c4b\u0c17 \u0c15\u0c3e\u0c30\u0c4d\u0c2f\u0c15\u0c4d\u0c30\u0c2e\u0c3e\u0c32\u0c4d\u0c32\u0c4b \u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Support for drip and sprinkler irrigation systems to improve water-use efficiency.": "\u0c28\u0c40\u0c1f\u0c3f \u0c35\u0c3f\u0c28\u0c3f\u0c2f\u0c4b\u0c17 \u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c41\u0c02\u0c2a\u0c30 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c26\u0c4d\u0c26\u0c24\u0c41.",
-    "Sustainable Agriculture": "\u0c38\u0c41\u0c38\u0c4d\u0c25\u0c3f\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
-    "Sustainable Farm Initiative": "\u0c38\u0c38\u0c4d\u0c1f\u0c48\u0c28\u0c2c\u0c41\u0c32\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c4d \u0c07\u0c28\u0c3f\u0c37\u0c3f\u0c2f\u0c47\u0c1f\u0c3f\u0c35\u0c4d",
-    "Sync Mandi Prices": "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c28\u0c41 \u0c24\u0c3e\u0c1c\u0c3e\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "System Status": "\u0c38\u0c3f\u0c38\u0c4d\u0c1f\u0c2e\u0c4d \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f",
-    "TOOLS": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41",
-    "TOP RATED": "\u0c05\u0c24\u0c4d\u0c2f\u0c41\u0c24\u0c4d\u0c24\u0c2e \u0c30\u0c47\u0c1f\u0c3f\u0c02\u0c17\u0c4d",
-    "TOPIC": "\u0c05\u0c02\u0c36\u0c02",
-    "Take clear, well-lit photos of diseased leaves showing both top and bottom surfaces for AI diagnosis.": "\u0c24\u0c46\u0c17\u0c41\u0c32\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c2a\u0c41 \u0c15\u0c4b\u0c38\u0c02 \u0c06\u0c15\u0c41 \u0c2a\u0c48\u0c28 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4d\u0c30\u0c3f\u0c02\u0c26\u0c3f \u0c2d\u0c3e\u0c17\u0c02 \u0c38\u0c4d\u0c2a\u0c37\u0c4d\u0c1f\u0c02\u0c17\u0c3e \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c02\u0c1a\u0c47\u0c32\u0c3e \u0c2b\u0c4b\u0c1f\u0c4b \u0c24\u0c40\u0c2f\u0c02\u0c21\u0c3f.",
+    Student: "\u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c3f",
+    "Student Courses Catalog":
+      "\u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32 \u0c15\u0c4d\u0c2f\u0c3e\u0c1f\u0c32\u0c3e\u0c17\u0c4d",
+    "Student Dashboard":
+      "\u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c3f \u0c21\u0c3e\u0c37\u0c4d\u0c2c\u0c4b\u0c30\u0c4d\u0c21\u0c4d",
+    "Student Demo":
+      "\u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c3f \u0c21\u0c46\u0c2e\u0c4b",
+    "Student Internship Hub":
+      "\u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c3f \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d \u0c39\u0c2c\u0c4d",
+    "Students in Horticulture or Agriculture diplomas/degrees.":
+      "\u0c39\u0c3e\u0c30\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d\u0c1a\u0c30\u0c4d \u0c32\u0c47\u0c26\u0c3e \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c15\u0c32\u0c4d\u0c1a\u0c30\u0c4d \u0c21\u0c3f\u0c2a\u0c4d\u0c32\u0c4a\u0c2e\u0c3e/\u0c21\u0c3f\u0c17\u0c4d\u0c30\u0c40 \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32\u0c41.",
+    "Students in Rural Development, Social Work, or Agriculture.":
+      "\u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c40\u0c23\u0c3e\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f, \u0c38\u0c4b\u0c37\u0c32\u0c4d \u0c35\u0c30\u0c4d\u0c15\u0c4d \u0c32\u0c47\u0c26\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32\u0c41.",
+    "Students or graduates in Agriculture, Agritech, Diploma, or related field.":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02, \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c32\u0c47\u0c26\u0c3e \u0c05\u0c28\u0c41\u0c2c\u0c02\u0c27 \u0c30\u0c02\u0c17\u0c3e\u0c32\u0c32\u0c4b \u0c21\u0c3f\u0c2a\u0c4d\u0c32\u0c4a\u0c2e\u0c3e/\u0c21\u0c3f\u0c17\u0c4d\u0c30\u0c40 \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32\u0c41.",
+    "Submersible Pump 3 HP":
+      "\u0c38\u0c2c\u0c4d\u200c\u0c2e\u0c30\u0c4d\u0c38\u0c3f\u0c2c\u0c41\u0c32\u0c4d \u0c2a\u0c02\u0c2a\u0c4d 3 HP",
+    Submit: "\u0c38\u0c2e\u0c30\u0c4d\u0c2a\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Submit Application":
+      "\u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c2a\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Submit My Application":
+      "\u0c28\u0c3e \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c2a\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Subsidised in several states":
+      "\u0c2a\u0c32\u0c41 \u0c30\u0c3e\u0c37\u0c4d\u0c1f\u0c4d\u0c30\u0c3e\u0c32\u0c4d\u0c32\u0c4b \u0c30\u0c3e\u0c2f\u0c3f\u0c24\u0c40 \u0c07\u0c35\u0c4d\u0c35\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
+    Subtotal: "\u0c09\u0c2a\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02",
+    "Sudden drops in NDVI highlight disease outbreaks or drought stress":
+      "\u0c35\u0c3f\u0c32\u0c41\u0c35\u0c32\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c33\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c28\u0c40\u0c1f\u0c3f \u0c0e\u0c26\u0c4d\u0c26\u0c21\u0c3f\u0c28\u0c3f \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c35\u0c1a\u0c4d\u0c1a\u0c41",
+    "Sudden heatwaves during grain filling shorten crop maturity and reduce grain weight. Applying foliar sprays of 1% Potassium Nitrate helps plants maintain cell turgor and withstand thermal stress.":
+      "\u0c05\u0c28\u0c41\u0c15\u0c4b\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c35\u0c1a\u0c4d\u0c1a\u0c47 \u0c24\u0c40\u0c35\u0c4d\u0c30\u0c2e\u0c48\u0c28 \u0c35\u0c21\u0c17\u0c3e\u0c32\u0c41\u0c32\u0c41 \u0c17\u0c3f\u0c02\u0c1c \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24\u0c28\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f. \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c28\u0c48\u0c1f\u0c4d\u0c30\u0c47\u0c1f\u0c4d (1%) \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c32\u0c15\u0c41 \u0c35\u0c47\u0c21\u0c3f\u0c28\u0c3f \u0c24\u0c1f\u0c4d\u0c1f\u0c41\u0c15\u0c41\u0c28\u0c47 \u0c36\u0c15\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c07\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Sugarcane Seed Sett Co-0238 (100 setts)":
+      "\u0c1a\u0c46\u0c30\u0c15\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 Co-0238 (100 \u0c2e\u0c41\u0c15\u0c4d\u0c15\u0c32\u0c41)",
+    "Sulphur 90% WDG (5 kg)":
+      "\u0c38\u0c32\u0c4d\u0c2b\u0c30\u0c4d 90% WDG (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Sum insured based on district crop notification and scale of finance.":
+      "\u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e \u0c2a\u0c02\u0c1f \u0c28\u0c4b\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c07\u0c28\u0c4d\u0c38\u0c42\u0c30\u0c46\u0c28\u0c4d\u0c38\u0c4d \u0c2a\u0c30\u0c3f\u0c2e\u0c3f\u0c24\u0c3f.",
+    Sun: "\u0c06\u0c26\u0c3f\u0c35\u0c3e\u0c30\u0c02",
+    "Sun-dry harvested grains on tarpaulin sheets to bring moisture content down to 12% before bagging.":
+      "\u0c38\u0c02\u0c1a\u0c41\u0c32\u0c4d\u0c32\u0c4b \u0c28\u0c3f\u0c02\u0c2a\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c02 \u0c24\u0c47\u0c2e\u0c28\u0c41 12% \u0c15\u0c3f \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c24\u0c3e\u0c30\u0c4d\u0c2a\u0c3e\u0c32\u0c3f\u0c28\u0c4d \u0c37\u0c40\u0c1f\u0c4d\u0c32\u0c2a\u0c48 \u0c2c\u0c3e\u0c17\u0c3e \u0c06\u0c30\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f.",
+    "Sunflower Seed KBSH-44 (5 kg)":
+      "\u0c2a\u0c4a\u0c26\u0c4d\u0c26\u0c41\u0c24\u0c3f\u0c30\u0c41\u0c17\u0c41\u0c21\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 KBSH-44 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    Sunny: "\u0c0e\u0c02\u0c21\u0c17\u0c3e \u0c09\u0c02\u0c26\u0c3f",
+    Supplier: "\u0c38\u0c30\u0c2b\u0c30\u0c3e\u0c26\u0c3e\u0c30\u0c41",
+    Support: "\u0c38\u0c39\u0c3e\u0c2f\u0c02",
+    "Support crop monitoring, crop growth observations, seasonal planning, and farm experiment activities.":
+      "\u0c2a\u0c02\u0c1f\u0c32 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23, \u0c2a\u0c02\u0c1f \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c28, \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c41\u0c17\u0c41\u0c23 \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c4d\u0c30\u0c2f\u0c4b\u0c17 \u0c15\u0c3e\u0c30\u0c4d\u0c2f\u0c15\u0c4d\u0c30\u0c2e\u0c3e\u0c32\u0c4d\u0c32\u0c4b \u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Support for drip and sprinkler irrigation systems to improve water-use efficiency.":
+      "\u0c28\u0c40\u0c1f\u0c3f \u0c35\u0c3f\u0c28\u0c3f\u0c2f\u0c4b\u0c17 \u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c24\u0c41\u0c02\u0c2a\u0c30 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c26\u0c4d\u0c26\u0c24\u0c41.",
+    "Sustainable Agriculture":
+      "\u0c38\u0c41\u0c38\u0c4d\u0c25\u0c3f\u0c30 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    "Sustainable Farm Initiative":
+      "\u0c38\u0c38\u0c4d\u0c1f\u0c48\u0c28\u0c2c\u0c41\u0c32\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c4d \u0c07\u0c28\u0c3f\u0c37\u0c3f\u0c2f\u0c47\u0c1f\u0c3f\u0c35\u0c4d",
+    "Sync Mandi Prices":
+      "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c28\u0c41 \u0c24\u0c3e\u0c1c\u0c3e\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "System Status":
+      "\u0c38\u0c3f\u0c38\u0c4d\u0c1f\u0c2e\u0c4d \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f",
+    TOOLS:
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41",
+    "TOP RATED":
+      "\u0c05\u0c24\u0c4d\u0c2f\u0c41\u0c24\u0c4d\u0c24\u0c2e \u0c30\u0c47\u0c1f\u0c3f\u0c02\u0c17\u0c4d",
+    TOPIC: "\u0c05\u0c02\u0c36\u0c02",
+    "Take clear, well-lit photos of diseased leaves showing both top and bottom surfaces for AI diagnosis.":
+      "\u0c24\u0c46\u0c17\u0c41\u0c32\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c2a\u0c41 \u0c15\u0c4b\u0c38\u0c02 \u0c06\u0c15\u0c41 \u0c2a\u0c48\u0c28 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4d\u0c30\u0c3f\u0c02\u0c26\u0c3f \u0c2d\u0c3e\u0c17\u0c02 \u0c38\u0c4d\u0c2a\u0c37\u0c4d\u0c1f\u0c02\u0c17\u0c3e \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c02\u0c1a\u0c47\u0c32\u0c3e \u0c2b\u0c4b\u0c1f\u0c4b \u0c24\u0c40\u0c2f\u0c02\u0c21\u0c3f.",
     "Target Crops": "\u0c32\u0c15\u0c4d\u0c37\u0c4d\u0c2f \u0c2a\u0c02\u0c1f\u0c32\u0c41",
-    "Tarpaulin Sheet 200 GSM (18 x 24 ft)": "\u0c24\u0c3e\u0c30\u0c4d\u0c2a\u0c3e\u0c32\u0c3f\u0c28\u0c4d \u0c37\u0c40\u0c1f\u0c4d 200 GSM (18 x 24 \u0c05\u0c21\u0c41\u0c17\u0c41\u0c32\u0c41)",
-    "Technical Advisor": "\u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15 \u0c38\u0c32\u0c39\u0c3e\u0c26\u0c3e\u0c30\u0c41",
-    "Technology": "\u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24",
-    "Technology Taking Farming Higher": "\u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24\u0c24\u0c4b \u0c09\u0c28\u0c4d\u0c28\u0c24 \u0c38\u0c4d\u0c25\u0c3e\u0c2f\u0c3f\u0c15\u0c3f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
-    "Temperature": "\u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24",
-    "Temperature range: -2\u00b0C to +8\u00b0C (Multi-commodity)": "\u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2a\u0c30\u0c3f\u0c27\u0c3f: -2\u00b0C \u0c28\u0c41\u0c02\u0c21\u0c3f +8\u00b0C",
+    "Tarpaulin Sheet 200 GSM (18 x 24 ft)":
+      "\u0c24\u0c3e\u0c30\u0c4d\u0c2a\u0c3e\u0c32\u0c3f\u0c28\u0c4d \u0c37\u0c40\u0c1f\u0c4d 200 GSM (18 x 24 \u0c05\u0c21\u0c41\u0c17\u0c41\u0c32\u0c41)",
+    "Technical Advisor":
+      "\u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15 \u0c38\u0c32\u0c39\u0c3e\u0c26\u0c3e\u0c30\u0c41",
+    Technology: "\u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24",
+    "Technology Taking Farming Higher":
+      "\u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24\u0c24\u0c4b \u0c09\u0c28\u0c4d\u0c28\u0c24 \u0c38\u0c4d\u0c25\u0c3e\u0c2f\u0c3f\u0c15\u0c3f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    Temperature: "\u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24",
+    "Temperature range: -2\u00b0C to +8\u00b0C (Multi-commodity)":
+      "\u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2a\u0c30\u0c3f\u0c27\u0c3f: -2\u00b0C \u0c28\u0c41\u0c02\u0c21\u0c3f +8\u00b0C",
     "Terms of Service": "\u0c38\u0c47\u0c35\u0c3e \u0c28\u0c3f\u0c2c\u0c02\u0c27\u0c28\u0c32\u0c41",
-    "Test moisture content and shelf-life stability of dried fruits & spices": "\u0c0e\u0c02\u0c21\u0c3f\u0c28 \u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c38\u0c3e\u0c32\u0c3e\u0c32 \u0c24\u0c47\u0c2e \u0c36\u0c3e\u0c24\u0c02, \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c02",
-    "Test seed germination percentage before large-scale field planting": "\u0c2a\u0c46\u0c26\u0c4d\u0c26 \u0c0e\u0c24\u0c4d\u0c24\u0c41\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c2e\u0c4a\u0c32\u0c15 \u0c36\u0c3e\u0c24\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Thank you for your order.": "\u0c2e\u0c40 \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u200c\u0c15\u0c41 \u0c27\u0c28\u0c4d\u0c2f\u0c35\u0c3e\u0c26\u0c3e\u0c32\u0c41.",
-    "The Soil Health Card scheme provides farmers with customized nutrient advisories every 3 years, guiding balanced fertilizer application to lower cultivation costs.": "\u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c39\u0c46\u0c32\u0c4d\u0c24\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d \u0c2a\u0c25\u0c15\u0c02 \u0c2a\u0c4d\u0c30\u0c24\u0c3f 3 \u0c38\u0c02\u0c35\u0c24\u0c4d\u0c38\u0c30\u0c3e\u0c32\u0c15\u0c41 \u0c12\u0c15\u0c38\u0c3e\u0c30\u0c3f \u0c09\u0c1a\u0c3f\u0c24 \u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c32\u0c41 \u0c1a\u0c47\u0c38\u0c3f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02\u0c2a\u0c48 \u0c09\u0c1a\u0c3f\u0c24 \u0c38\u0c32\u0c39\u0c3e\u0c32\u0c41 \u0c07\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "The requested course could not be found or does not exist.": "\u0c05\u0c2d\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3f\u0c02\u0c1a\u0c3f\u0c28 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c32\u0c47\u0c26\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c32\u0c47\u0c26\u0c41.",
-    "The requested internship could not be found.": "\u0c05\u0c2d\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3f\u0c02\u0c1a\u0c3f\u0c28 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c32\u0c47\u0c26\u0c41.",
-    "Thu": "\u0c17\u0c41\u0c30\u0c41\u0c35\u0c3e\u0c30\u0c02",
-    "Today": "\u0c08\u0c30\u0c4b\u0c1c\u0c41",
-    "Today's Mandi Feeds": "\u0c28\u0c47\u0c1f\u0c3f \u0c2e\u0c02\u0c21\u0c40 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41",
-    "Together for a prosperous future": "\u0c38\u0c2e\u0c43\u0c26\u0c4d\u0c27\u0c3f\u0c17\u0c3e \u0c09\u0c28\u0c4d\u0c28 \u0c2d\u0c35\u0c3f\u0c37\u0c4d\u0c2f\u0c24\u0c4d\u0c24\u0c41 \u0c15\u0c4b\u0c38\u0c02 \u0c15\u0c32\u0c3f\u0c38\u0c3f",
-    "Tomato": "\u0c1f\u0c2e\u0c3e\u0c1f\u0c4b",
-    "Tools": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41",
-    "Top Rated": "\u0c05\u0c24\u0c4d\u0c2f\u0c41\u0c24\u0c4d\u0c24\u0c2e \u0c30\u0c47\u0c1f\u0c3f\u0c02\u0c17\u0c4d",
-    "Top rated": "\u0c05\u0c24\u0c4d\u0c2f\u0c41\u0c24\u0c4d\u0c24\u0c2e \u0c30\u0c47\u0c1f\u0c3f\u0c02\u0c17\u0c4d",
-    "Total": "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02",
+    "Test moisture content and shelf-life stability of dried fruits & spices":
+      "\u0c0e\u0c02\u0c21\u0c3f\u0c28 \u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c38\u0c3e\u0c32\u0c3e\u0c32 \u0c24\u0c47\u0c2e \u0c36\u0c3e\u0c24\u0c02, \u0c28\u0c3f\u0c32\u0c4d\u0c35 \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c02",
+    "Test seed germination percentage before large-scale field planting":
+      "\u0c2a\u0c46\u0c26\u0c4d\u0c26 \u0c0e\u0c24\u0c4d\u0c24\u0c41\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c2e\u0c4a\u0c32\u0c15 \u0c36\u0c3e\u0c24\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Thank you for your order.":
+      "\u0c2e\u0c40 \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u200c\u0c15\u0c41 \u0c27\u0c28\u0c4d\u0c2f\u0c35\u0c3e\u0c26\u0c3e\u0c32\u0c41.",
+    "The Soil Health Card scheme provides farmers with customized nutrient advisories every 3 years, guiding balanced fertilizer application to lower cultivation costs.":
+      "\u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c39\u0c46\u0c32\u0c4d\u0c24\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d \u0c2a\u0c25\u0c15\u0c02 \u0c2a\u0c4d\u0c30\u0c24\u0c3f 3 \u0c38\u0c02\u0c35\u0c24\u0c4d\u0c38\u0c30\u0c3e\u0c32\u0c15\u0c41 \u0c12\u0c15\u0c38\u0c3e\u0c30\u0c3f \u0c09\u0c1a\u0c3f\u0c24 \u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c32\u0c41 \u0c1a\u0c47\u0c38\u0c3f \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02\u0c2a\u0c48 \u0c09\u0c1a\u0c3f\u0c24 \u0c38\u0c32\u0c39\u0c3e\u0c32\u0c41 \u0c07\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "The requested course could not be found or does not exist.":
+      "\u0c05\u0c2d\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3f\u0c02\u0c1a\u0c3f\u0c28 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c32\u0c47\u0c26\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c32\u0c47\u0c26\u0c41.",
+    "The requested internship could not be found.":
+      "\u0c05\u0c2d\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3f\u0c02\u0c1a\u0c3f\u0c28 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u0c37\u0c3f\u0c2a\u0c4d \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c32\u0c47\u0c26\u0c41.",
+    Thu: "\u0c17\u0c41\u0c30\u0c41\u0c35\u0c3e\u0c30\u0c02",
+    Today: "\u0c08\u0c30\u0c4b\u0c1c\u0c41",
+    "Today's Mandi Feeds":
+      "\u0c28\u0c47\u0c1f\u0c3f \u0c2e\u0c02\u0c21\u0c40 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41",
+    "Together for a prosperous future":
+      "\u0c38\u0c2e\u0c43\u0c26\u0c4d\u0c27\u0c3f\u0c17\u0c3e \u0c09\u0c28\u0c4d\u0c28 \u0c2d\u0c35\u0c3f\u0c37\u0c4d\u0c2f\u0c24\u0c4d\u0c24\u0c41 \u0c15\u0c4b\u0c38\u0c02 \u0c15\u0c32\u0c3f\u0c38\u0c3f",
+    Tomato: "\u0c1f\u0c2e\u0c3e\u0c1f\u0c4b",
+    Tools:
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41",
+    "Top Rated":
+      "\u0c05\u0c24\u0c4d\u0c2f\u0c41\u0c24\u0c4d\u0c24\u0c2e \u0c30\u0c47\u0c1f\u0c3f\u0c02\u0c17\u0c4d",
+    "Top rated":
+      "\u0c05\u0c24\u0c4d\u0c2f\u0c41\u0c24\u0c4d\u0c24\u0c2e \u0c30\u0c47\u0c1f\u0c3f\u0c02\u0c17\u0c4d",
+    Total: "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02",
     "Total Amount": "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02 \u0c38\u0c4a\u0c2e\u0c4d\u0c2e\u0c41",
-    "Total Courses": "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
+    "Total Courses":
+      "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41",
     "Total Earnings": "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02 \u0c06\u0c26\u0c3e\u0c2f\u0c02",
     "Total Enrolled": "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02 \u0c28\u0c2e\u0c4b\u0c26\u0c41",
-    "Total Internships": "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d\u200c\u0c32\u0c41",
-    "Total Orders": "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02 \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u200c\u0c32\u0c41",
-    "Total Products": "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41",
+    "Total Internships":
+      "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d\u200c\u0c32\u0c41",
+    "Total Orders":
+      "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02 \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u200c\u0c32\u0c41",
+    "Total Products":
+      "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41",
     "Total Value": "\u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02 \u0c35\u0c3f\u0c32\u0c41\u0c35",
-    "Track crop growth stages, tillering, and leaf phenology in field plots": "\u0c2a\u0c02\u0c1f \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c26\u0c36\u0c32\u0c41, \u0c2a\u0c3f\u0c32\u0c15\u0c32\u0c41 \u0c24\u0c4a\u0c21\u0c3f\u0c17\u0c47 \u0c26\u0c36 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c15\u0c41\u0c32 \u0c2a\u0c30\u0c3f\u0c23\u0c3e\u0c2e\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c1f\u0c4d\u0c30\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c2f\u0c21\u0c02",
-    "Track market arrival statistics on Agmarknet or PureFarm portal": "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c30\u0c3e\u0c2c\u0c21\u0c3f \u0c17\u0c23\u0c3e\u0c02\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c06\u0c28\u0c4d\u200c\u0c32\u0c48\u0c28\u0c4d\u200c\u0c32\u0c4b \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Tracking Code": "\u0c1f\u0c4d\u0c30\u0c3e\u0c15\u0c3f\u0c02\u0c17\u0c4d \u0c15\u0c4b\u0c21\u0c4d",
-    "Tractor Trolley Tipping 5 Tonne": "\u0c1f\u0c4d\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c30\u0c4d \u0c1f\u0c4d\u0c30\u0c3e\u0c32\u0c40 \u0c1f\u0c3f\u0c2a\u0c4d\u0c2a\u0c3f\u0c02\u0c17\u0c4d 5 \u0c1f\u0c28\u0c4d\u0c28\u0c41\u0c32\u0c41",
+    "Track crop growth stages, tillering, and leaf phenology in field plots":
+      "\u0c2a\u0c02\u0c1f \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c26\u0c36\u0c32\u0c41, \u0c2a\u0c3f\u0c32\u0c15\u0c32\u0c41 \u0c24\u0c4a\u0c21\u0c3f\u0c17\u0c47 \u0c26\u0c36 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c15\u0c41\u0c32 \u0c2a\u0c30\u0c3f\u0c23\u0c3e\u0c2e\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c1f\u0c4d\u0c30\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c2f\u0c21\u0c02",
+    "Track market arrival statistics on Agmarknet or PureFarm portal":
+      "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c30\u0c3e\u0c2c\u0c21\u0c3f \u0c17\u0c23\u0c3e\u0c02\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c06\u0c28\u0c4d\u200c\u0c32\u0c48\u0c28\u0c4d\u200c\u0c32\u0c4b \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Tracking Code":
+      "\u0c1f\u0c4d\u0c30\u0c3e\u0c15\u0c3f\u0c02\u0c17\u0c4d \u0c15\u0c4b\u0c21\u0c4d",
+    "Tractor Trolley Tipping 5 Tonne":
+      "\u0c1f\u0c4d\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c30\u0c4d \u0c1f\u0c4d\u0c30\u0c3e\u0c32\u0c40 \u0c1f\u0c3f\u0c2a\u0c4d\u0c2a\u0c3f\u0c02\u0c17\u0c4d 5 \u0c1f\u0c28\u0c4d\u0c28\u0c41\u0c32\u0c41",
     "Trading Hub": "\u0c1f\u0c4d\u0c30\u0c47\u0c21\u0c3f\u0c02\u0c17\u0c4d \u0c39\u0c2c\u0c4d",
-    "Treat seeds with Trichoderma or fungicide before sowing": "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c1f\u0c4d\u0c30\u0c48\u0c15\u0c4b\u0c21\u0c46\u0c30\u0c4d\u0c2e\u0c3e \u0c32\u0c47\u0c26\u0c3e \u0c36\u0c3f\u0c32\u0c40\u0c02\u0c27\u0c4d\u0c30 \u0c28\u0c3e\u0c36\u0c15\u0c02\u0c24\u0c4b \u0c36\u0c41\u0c26\u0c4d\u0c27\u0c3f \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Tree windbreaks reduce wind erosion and crop lodging during storms": "\u0c08\u0c26\u0c41\u0c30\u0c41\u0c17\u0c3e\u0c32\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2a\u0c02\u0c1f \u0c35\u0c3e\u0c32\u0c3f\u0c2a\u0c4b\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c1a\u0c46\u0c1f\u0c4d\u0c32\u0c41 \u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
-    "Trend": "\u0c27\u0c4b\u0c30\u0c23\u0c3f",
-    "Trichoderma Viride Bio-fungicide (1 kg)": "\u0c1f\u0c4d\u0c30\u0c48\u0c15\u0c4b\u0c21\u0c46\u0c30\u0c4d\u0c2e\u0c3e \u0c35\u0c3f\u0c30\u0c3f\u0c21\u0c47 \u0c1c\u0c40\u0c35 \u0c36\u0c3f\u0c32\u0c40\u0c02\u0c27\u0c4d\u0c30 \u0c28\u0c3e\u0c36\u0c3f\u0c28\u0c3f (1 \u0c15\u0c3f\u0c32\u0c4b)",
-    "Trusted Information": "\u0c28\u0c2e\u0c4d\u0c2e\u0c26\u0c17\u0c3f\u0c28 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02",
-    "Try another crop input, category, or raise the max price filter.": "\u0c2e\u0c30\u0c4a\u0c15 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c32\u0c47\u0c26\u0c3e \u0c35\u0c30\u0c4d\u0c17\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Tue": "\u0c2e\u0c02\u0c17\u0c33\u0c35\u0c3e\u0c30\u0c02",
-    "Turmeric Rhizome Seed Salem (25 kg)": "\u0c2a\u0c38\u0c41\u0c2a\u0c41 \u0c15\u0c4a\u0c2e\u0c4d\u0c2e\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c38\u0c47\u0c32\u0c02 (25 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Treat seeds with Trichoderma or fungicide before sowing":
+      "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c2e\u0c41\u0c02\u0c26\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c1f\u0c4d\u0c30\u0c48\u0c15\u0c4b\u0c21\u0c46\u0c30\u0c4d\u0c2e\u0c3e \u0c32\u0c47\u0c26\u0c3e \u0c36\u0c3f\u0c32\u0c40\u0c02\u0c27\u0c4d\u0c30 \u0c28\u0c3e\u0c36\u0c15\u0c02\u0c24\u0c4b \u0c36\u0c41\u0c26\u0c4d\u0c27\u0c3f \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Tree windbreaks reduce wind erosion and crop lodging during storms":
+      "\u0c08\u0c26\u0c41\u0c30\u0c41\u0c17\u0c3e\u0c32\u0c41\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2a\u0c02\u0c1f \u0c35\u0c3e\u0c32\u0c3f\u0c2a\u0c4b\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c1a\u0c46\u0c1f\u0c4d\u0c32\u0c41 \u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
+    Trend: "\u0c27\u0c4b\u0c30\u0c23\u0c3f",
+    "Trichoderma Viride Bio-fungicide (1 kg)":
+      "\u0c1f\u0c4d\u0c30\u0c48\u0c15\u0c4b\u0c21\u0c46\u0c30\u0c4d\u0c2e\u0c3e \u0c35\u0c3f\u0c30\u0c3f\u0c21\u0c47 \u0c1c\u0c40\u0c35 \u0c36\u0c3f\u0c32\u0c40\u0c02\u0c27\u0c4d\u0c30 \u0c28\u0c3e\u0c36\u0c3f\u0c28\u0c3f (1 \u0c15\u0c3f\u0c32\u0c4b)",
+    "Trusted Information":
+      "\u0c28\u0c2e\u0c4d\u0c2e\u0c26\u0c17\u0c3f\u0c28 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02",
+    "Try another crop input, category, or raise the max price filter.":
+      "\u0c2e\u0c30\u0c4a\u0c15 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c32\u0c47\u0c26\u0c3e \u0c35\u0c30\u0c4d\u0c17\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    Tue: "\u0c2e\u0c02\u0c17\u0c33\u0c35\u0c3e\u0c30\u0c02",
+    "Turmeric Rhizome Seed Salem (25 kg)":
+      "\u0c2a\u0c38\u0c41\u0c2a\u0c41 \u0c15\u0c4a\u0c2e\u0c4d\u0c2e\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c38\u0c47\u0c32\u0c02 (25 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Type:": "\u0c30\u0c15\u0c02:",
-    "UNIT": "\u0c2f\u0c42\u0c28\u0c3f\u0c1f\u0c4d",
-    "UPDATE PRODUCT": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c28\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Understand AWS core services, Docker containers, serverless architectures, and CI/CD.": "AWS \u0c38\u0c47\u0c35\u0c32\u0c41, \u0c21\u0c3e\u0c15\u0c30\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4d\u0c32\u0c4c\u0c21\u0c4d \u0c28\u0c3f\u0c30\u0c4d\u0c2e\u0c3e\u0c23\u0c3e\u0c32\u0c28\u0c41 \u0c05\u0c30\u0c4d\u0c25\u0c02 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Understanding Mandi Price Discovery": "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c23\u0c2f \u0c2a\u0c4d\u0c30\u0c15\u0c4d\u0c30\u0c3f\u0c2f\u0c28\u0c41 \u0c05\u0c30\u0c4d\u0c25\u0c02 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02",
-    "Understanding organic standards, bio-inputs, and conversion period.": "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c23\u0c3e\u0c32\u0c41, \u0c1c\u0c40\u0c35 \u0c09\u0c24\u0c4d\u0c2a\u0c3e\u0c26\u0c15\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c24\u0c28 \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c05\u0c30\u0c4d\u0c25\u0c02 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02.",
+    UNIT: "\u0c2f\u0c42\u0c28\u0c3f\u0c1f\u0c4d",
+    "UPDATE PRODUCT":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c28\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Understand AWS core services, Docker containers, serverless architectures, and CI/CD.":
+      "AWS \u0c38\u0c47\u0c35\u0c32\u0c41, \u0c21\u0c3e\u0c15\u0c30\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4d\u0c32\u0c4c\u0c21\u0c4d \u0c28\u0c3f\u0c30\u0c4d\u0c2e\u0c3e\u0c23\u0c3e\u0c32\u0c28\u0c41 \u0c05\u0c30\u0c4d\u0c25\u0c02 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
+    "Understanding Mandi Price Discovery":
+      "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32 \u0c28\u0c3f\u0c30\u0c4d\u0c23\u0c2f \u0c2a\u0c4d\u0c30\u0c15\u0c4d\u0c30\u0c3f\u0c2f\u0c28\u0c41 \u0c05\u0c30\u0c4d\u0c25\u0c02 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02",
+    "Understanding organic standards, bio-inputs, and conversion period.":
+      "\u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c23\u0c3e\u0c32\u0c41, \u0c1c\u0c40\u0c35 \u0c09\u0c24\u0c4d\u0c2a\u0c3e\u0c26\u0c15\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c24\u0c28 \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c05\u0c30\u0c4d\u0c25\u0c02 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02.",
     "Unit Metric": "\u0c2f\u0c42\u0c28\u0c3f\u0c1f\u0c4d \u0c15\u0c4a\u0c32\u0c24",
     "Unit of Measurement": "\u0c15\u0c4a\u0c32\u0c24 \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c23\u0c02",
-    "Unpaid": "\u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c1a\u0c32\u0c47\u0c26\u0c41",
-    "Update Inventory": "\u0c28\u0c3f\u0c32\u0c4d\u0c35\u0c32\u0c28\u0c41 \u0c28\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Updated Mandi Rates": "\u0c28\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c2e\u0c02\u0c21\u0c40 \u0c30\u0c47\u0c1f\u0c4d\u0c32\u0c41",
-    "Updated from authentic sources": "\u0c35\u0c3f\u0c36\u0c4d\u0c35\u0c38\u0c28\u0c40\u0c2f \u0c2e\u0c42\u0c32\u0c3e\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c28\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
-    "Upload crop leaf photos for instant AI disease identification": "AI \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c24\u0c46\u0c17\u0c41\u0c32\u0c41\u0c28\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c06\u0c15\u0c41 \u0c2b\u0c4b\u0c1f\u0c4b\u0c32\u0c28\u0c41 \u0c05\u0c2a\u0c4d\u200c\u0c32\u0c4b\u0c21\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
-    "Urea 46% N (45 kg)": "\u0c2f\u0c42\u0c30\u0c3f\u0c2f\u0c3e 46% N (45 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Use 0.1% Hydrochloric acid solution and let it sit in laterals for 24 hours before flushing": "0.1% \u0c39\u0c46\u0c1a\u0c4d\u200c\u0c38\u0c3f\u0c0e\u0c32\u0c4d (HCl) \u0c26\u0c4d\u0c30\u0c3e\u0c35\u0c23\u0c3e\u0c28\u0c4d\u0c28\u0c3f 24 \u0c17\u0c02\u0c1f\u0c32\u0c41 \u0c2a\u0c48\u0c2a\u0c41\u0c32\u0c32\u0c4b \u0c09\u0c02\u0c1a\u0c3f \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c15\u0c21\u0c17\u0c02\u0c21\u0c3f",
-    "Use 100% water-soluble fertilizers to prevent line clogging": "\u0c2a\u0c48\u0c2a\u0c41\u0c32\u0c41 \u0c2e\u0c42\u0c38\u0c41\u0c15\u0c41\u0c2a\u0c4b\u0c15\u0c41\u0c02\u0c21\u0c3e 100% \u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b \u0c15\u0c30\u0c3f\u0c17\u0c47 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c47 \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
-    "Use My Location": "\u0c28\u0c3e \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Use Phosphate Solubilizing Bacteria (PSB) to unlock fixed soil phosphorus": "\u0c28\u0c47\u0c32\u0c32\u0c4b \u0c09\u0c02\u0c21\u0c47 \u0c2d\u0c3e\u0c38\u0c4d\u0c35\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c30\u0c3f\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c3f\u0c0e\u0c38\u0c4d\u200c\u0c2c\u0c3f (PSB) \u0c28\u0c3f \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Use airtight hermetic bags to eliminate storage weevils naturally": "\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23\u0c15\u0c41 \u0c17\u0c3e\u0c32\u0c3f \u0c1a\u0c4a\u0c30\u0c2c\u0c21\u0c28\u0c3f \u0c2c\u0c4d\u0c2f\u0c3e\u0c17\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
-    "Use certified organic seeds or untreated local seeds": "\u0c30\u0c38\u0c3e\u0c2f\u0c28 \u0c36\u0c41\u0c26\u0c4d\u0c27\u0c3f \u0c1a\u0c47\u0c2f\u0c28\u0c3f \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c32\u0c47\u0c26\u0c3e \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
-    "Use certified seeds with high germination rates": "\u0c05\u0c27\u0c3f\u0c15 \u0c2e\u0c4a\u0c32\u0c15 \u0c36\u0c3e\u0c24\u0c02\u0c24\u0c4b \u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Use certified weather advisories for localized spray and sowing decisions": "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c02\u0c26\u0c41\u0c32\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c38\u0c47 \u0c38\u0c2e\u0c2f\u0c3e\u0c32\u0c15\u0c41 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c28\u0c3f\u0c35\u0c47\u0c26\u0c3f\u0c15\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "Use neem-coated urea to slow down Nitrogen release and improve plant absorption efficiency.": "\u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c28\u0c46\u0c2e\u0c4d\u0c2e\u0c26\u0c3f\u0c17\u0c3e \u0c35\u0c3f\u0c21\u0c41\u0c26\u0c32\u0c35\u0c4d\u0c35\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c32\u0c15\u0c41 \u0c2c\u0c3e\u0c17\u0c3e \u0c05\u0c02\u0c26\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c35\u0c47\u0c2a\u0c2a\u0c42\u0c24 \u0c2a\u0c42\u0c38\u0c3f\u0c28 \u0c2f\u0c42\u0c30\u0c3f\u0c2f\u0c3e\u0c28\u0c41 \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Use pheromone traps for monitoring insect pest populations": "\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c09\u0c28\u0c3f\u0c15\u0c3f\u0c28\u0c3f \u0c17\u0c2e\u0c28\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c32\u0c3f\u0c02\u0c17 \u0c06\u0c15\u0c30\u0c4d\u0c37\u0c23 \u0c2c\u0c41\u0c1f\u0c4d\u0c1f\u0c32\u0c28\u0c41 (\u0c2b\u0c46\u0c30\u0c2e\u0c4b\u0c28\u0c4d \u0c1f\u0c4d\u0c30\u0c3e\u0c2a\u0c4d\u0c38\u0c4d) \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
-    "Use pond water for supplemental irrigation during dry spells": "\u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c2d\u0c3e\u0c35 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c2a\u0c02\u0c1f\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c08 \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
-    "Use winnowers or grain cleaners to remove dust, chaff, and weed seeds": "\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c02 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c24\u0c42\u0c21\u0c41, \u0c2a\u0c4a\u0c1f\u0c4d\u0c1f\u0c41 \u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c24\u0c42\u0c30\u0c4d\u0c2a\u0c3e\u0c30\u0c2c\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f",
-    "User Role Notice": "\u0c35\u0c3f\u0c28\u0c3f\u0c2f\u0c4b\u0c17\u0c26\u0c3e\u0c30\u0c41 \u0c2a\u0c3e\u0c24\u0c4d\u0c30 \u0c38\u0c42\u0c1a\u0c28",
-    "Using NDVI indices to assess crop vigor and water stress.": "\u0c2a\u0c02\u0c1f \u0c38\u0c3e\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c40\u0c1f\u0c3f \u0c0e\u0c26\u0c4d\u0c26\u0c21\u0c3f\u0c28\u0c3f \u0c05\u0c02\u0c1a\u0c28\u0c3e \u0c35\u0c47\u0c2f\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f NDVI \u0c38\u0c42\u0c1a\u0c3f\u0c15\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02.",
-    "Using Venturi injectors and fertilizer tanks to feed crops through drippers.": "\u0c35\u0c46\u0c02\u0c1a\u0c41\u0c30\u0c40 \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c2a\u0c41 \u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b\u0c28\u0c47 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c02.",
-    "Using chemical pesticides safely requires wearing protective gloves and masks, calculating precise doses per acre, using hollow-cone nozzles, and spraying during calm wind conditions.": "\u0c2e\u0c02\u0c26\u0c41\u0c32\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c38\u0c47\u0c1f\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c1a\u0c47\u0c24\u0c3f \u0c24\u0c4a\u0c21\u0c41\u0c17\u0c41\u0c32\u0c41, \u0c2e\u0c3e\u0c38\u0c4d\u0c15\u0c4d \u0c27\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c17\u0c3e\u0c32\u0c3f \u0c35\u0c40\u0c1a\u0c47 \u0c26\u0c3f\u0c36\u0c28\u0c41 \u0c17\u0c2e\u0c28\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c1a\u0c3e\u0c32\u0c3e \u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c02.",
-    "Using rainfall forecasts and temperature windows for optimal sowing.": "\u0c38\u0c30\u0c48\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c38\u0c2e\u0c2f\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c3e\u0c24 \u0c05\u0c02\u0c1a\u0c28\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2a\u0c30\u0c3f\u0c2e\u0c3f\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c02.",
-    "Using soil moisture sensors, weather stations, and smart controllers.": "\u0c28\u0c47\u0c32 \u0c24\u0c47\u0c2e \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c41, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c15\u0c02\u0c1f\u0c4d\u0c30\u0c4b\u0c32\u0c30\u0c4d\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02.",
+    Unpaid: "\u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c1a\u0c32\u0c47\u0c26\u0c41",
+    "Update Inventory":
+      "\u0c28\u0c3f\u0c32\u0c4d\u0c35\u0c32\u0c28\u0c41 \u0c28\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Updated Mandi Rates":
+      "\u0c28\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c2e\u0c02\u0c21\u0c40 \u0c30\u0c47\u0c1f\u0c4d\u0c32\u0c41",
+    "Updated from authentic sources":
+      "\u0c35\u0c3f\u0c36\u0c4d\u0c35\u0c38\u0c28\u0c40\u0c2f \u0c2e\u0c42\u0c32\u0c3e\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c28\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
+    "Upload crop leaf photos for instant AI disease identification":
+      "AI \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c24\u0c46\u0c17\u0c41\u0c32\u0c41\u0c28\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c06\u0c15\u0c41 \u0c2b\u0c4b\u0c1f\u0c4b\u0c32\u0c28\u0c41 \u0c05\u0c2a\u0c4d\u200c\u0c32\u0c4b\u0c21\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Urea 46% N (45 kg)":
+      "\u0c2f\u0c42\u0c30\u0c3f\u0c2f\u0c3e 46% N (45 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Use 0.1% Hydrochloric acid solution and let it sit in laterals for 24 hours before flushing":
+      "0.1% \u0c39\u0c46\u0c1a\u0c4d\u200c\u0c38\u0c3f\u0c0e\u0c32\u0c4d (HCl) \u0c26\u0c4d\u0c30\u0c3e\u0c35\u0c23\u0c3e\u0c28\u0c4d\u0c28\u0c3f 24 \u0c17\u0c02\u0c1f\u0c32\u0c41 \u0c2a\u0c48\u0c2a\u0c41\u0c32\u0c32\u0c4b \u0c09\u0c02\u0c1a\u0c3f \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c15\u0c21\u0c17\u0c02\u0c21\u0c3f",
+    "Use 100% water-soluble fertilizers to prevent line clogging":
+      "\u0c2a\u0c48\u0c2a\u0c41\u0c32\u0c41 \u0c2e\u0c42\u0c38\u0c41\u0c15\u0c41\u0c2a\u0c4b\u0c15\u0c41\u0c02\u0c21\u0c3e 100% \u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b \u0c15\u0c30\u0c3f\u0c17\u0c47 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c47 \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
+    "Use My Location":
+      "\u0c28\u0c3e \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Use Phosphate Solubilizing Bacteria (PSB) to unlock fixed soil phosphorus":
+      "\u0c28\u0c47\u0c32\u0c32\u0c4b \u0c09\u0c02\u0c21\u0c47 \u0c2d\u0c3e\u0c38\u0c4d\u0c35\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c30\u0c3f\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c3f\u0c0e\u0c38\u0c4d\u200c\u0c2c\u0c3f (PSB) \u0c28\u0c3f \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Use airtight hermetic bags to eliminate storage weevils naturally":
+      "\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23\u0c15\u0c41 \u0c17\u0c3e\u0c32\u0c3f \u0c1a\u0c4a\u0c30\u0c2c\u0c21\u0c28\u0c3f \u0c2c\u0c4d\u0c2f\u0c3e\u0c17\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
+    "Use certified organic seeds or untreated local seeds":
+      "\u0c30\u0c38\u0c3e\u0c2f\u0c28 \u0c36\u0c41\u0c26\u0c4d\u0c27\u0c3f \u0c1a\u0c47\u0c2f\u0c28\u0c3f \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c32\u0c47\u0c26\u0c3e \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
+    "Use certified seeds with high germination rates":
+      "\u0c05\u0c27\u0c3f\u0c15 \u0c2e\u0c4a\u0c32\u0c15 \u0c36\u0c3e\u0c24\u0c02\u0c24\u0c4b \u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Use certified weather advisories for localized spray and sowing decisions":
+      "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c02\u0c26\u0c41\u0c32\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c38\u0c47 \u0c38\u0c2e\u0c2f\u0c3e\u0c32\u0c15\u0c41 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c28\u0c3f\u0c35\u0c47\u0c26\u0c3f\u0c15\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "Use neem-coated urea to slow down Nitrogen release and improve plant absorption efficiency.":
+      "\u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c28\u0c46\u0c2e\u0c4d\u0c2e\u0c26\u0c3f\u0c17\u0c3e \u0c35\u0c3f\u0c21\u0c41\u0c26\u0c32\u0c35\u0c4d\u0c35\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c32\u0c15\u0c41 \u0c2c\u0c3e\u0c17\u0c3e \u0c05\u0c02\u0c26\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c35\u0c47\u0c2a\u0c2a\u0c42\u0c24 \u0c2a\u0c42\u0c38\u0c3f\u0c28 \u0c2f\u0c42\u0c30\u0c3f\u0c2f\u0c3e\u0c28\u0c41 \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    "Use pheromone traps for monitoring insect pest populations":
+      "\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c09\u0c28\u0c3f\u0c15\u0c3f\u0c28\u0c3f \u0c17\u0c2e\u0c28\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c32\u0c3f\u0c02\u0c17 \u0c06\u0c15\u0c30\u0c4d\u0c37\u0c23 \u0c2c\u0c41\u0c1f\u0c4d\u0c1f\u0c32\u0c28\u0c41 (\u0c2b\u0c46\u0c30\u0c2e\u0c4b\u0c28\u0c4d \u0c1f\u0c4d\u0c30\u0c3e\u0c2a\u0c4d\u0c38\u0c4d) \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
+    "Use pond water for supplemental irrigation during dry spells":
+      "\u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c2d\u0c3e\u0c35 \u0c38\u0c2e\u0c2f\u0c02\u0c32\u0c4b \u0c2a\u0c02\u0c1f\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c08 \u0c28\u0c40\u0c1f\u0c3f\u0c28\u0c3f \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
+    "Use winnowers or grain cleaners to remove dust, chaff, and weed seeds":
+      "\u0c27\u0c3e\u0c28\u0c4d\u0c2f\u0c02 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c24\u0c42\u0c21\u0c41, \u0c2a\u0c4a\u0c1f\u0c4d\u0c1f\u0c41 \u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c24\u0c42\u0c30\u0c4d\u0c2a\u0c3e\u0c30\u0c2c\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f",
+    "User Role Notice":
+      "\u0c35\u0c3f\u0c28\u0c3f\u0c2f\u0c4b\u0c17\u0c26\u0c3e\u0c30\u0c41 \u0c2a\u0c3e\u0c24\u0c4d\u0c30 \u0c38\u0c42\u0c1a\u0c28",
+    "Using NDVI indices to assess crop vigor and water stress.":
+      "\u0c2a\u0c02\u0c1f \u0c38\u0c3e\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c40\u0c1f\u0c3f \u0c0e\u0c26\u0c4d\u0c26\u0c21\u0c3f\u0c28\u0c3f \u0c05\u0c02\u0c1a\u0c28\u0c3e \u0c35\u0c47\u0c2f\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f NDVI \u0c38\u0c42\u0c1a\u0c3f\u0c15\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02.",
+    "Using Venturi injectors and fertilizer tanks to feed crops through drippers.":
+      "\u0c35\u0c46\u0c02\u0c1a\u0c41\u0c30\u0c40 \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c2a\u0c41 \u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b\u0c28\u0c47 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41 \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c02.",
+    "Using chemical pesticides safely requires wearing protective gloves and masks, calculating precise doses per acre, using hollow-cone nozzles, and spraying during calm wind conditions.":
+      "\u0c2e\u0c02\u0c26\u0c41\u0c32\u0c41 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c38\u0c47\u0c1f\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c1a\u0c47\u0c24\u0c3f \u0c24\u0c4a\u0c21\u0c41\u0c17\u0c41\u0c32\u0c41, \u0c2e\u0c3e\u0c38\u0c4d\u0c15\u0c4d \u0c27\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c17\u0c3e\u0c32\u0c3f \u0c35\u0c40\u0c1a\u0c47 \u0c26\u0c3f\u0c36\u0c28\u0c41 \u0c17\u0c2e\u0c28\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c1a\u0c3e\u0c32\u0c3e \u0c2e\u0c41\u0c16\u0c4d\u0c2f\u0c02.",
+    "Using rainfall forecasts and temperature windows for optimal sowing.":
+      "\u0c38\u0c30\u0c48\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c47 \u0c38\u0c2e\u0c2f\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c3e\u0c24 \u0c05\u0c02\u0c1a\u0c28\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2a\u0c30\u0c3f\u0c2e\u0c3f\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c09\u0c2a\u0c2f\u0c4b\u0c17\u0c3f\u0c02\u0c1a\u0c21\u0c02.",
+    "Using soil moisture sensors, weather stations, and smart controllers.":
+      "\u0c28\u0c47\u0c32 \u0c24\u0c47\u0c2e \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3e\u0c30\u0c4d\u0c32\u0c41, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c38\u0c4d\u0c2e\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c15\u0c02\u0c1f\u0c4d\u0c30\u0c4b\u0c32\u0c30\u0c4d\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02.",
     "Uttar Pradesh": "\u0c09\u0c24\u0c4d\u0c24\u0c30 \u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
-    "Value Addition & Primary Processing": "\u0c35\u0c3f\u0c32\u0c41\u0c35 \u0c1c\u0c4b\u0c21\u0c3f\u0c02\u0c2a\u0c41 & \u0c2a\u0c4d\u0c30\u0c3e\u0c25\u0c2e\u0c3f\u0c15 \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d",
-    "Varies by crop and district": "\u0c2a\u0c02\u0c1f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e\u0c28\u0c41 \u0c2c\u0c1f\u0c4d\u0c1f\u0c3f \u0c2e\u0c3e\u0c30\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Varies by historical risk profile": "\u0c1a\u0c3e\u0c30\u0c3f\u0c24\u0c4d\u0c30\u0c15 \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26\u0c3e\u0c32 \u0c2a\u0c4d\u0c30\u0c4a\u0c2b\u0c48\u0c32\u0c4d \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c2e\u0c3e\u0c30\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
-    "Vector Logistics": "\u0c35\u0c46\u0c15\u0c4d\u0c1f\u0c3e\u0c30\u0c4d \u0c32\u0c3e\u0c1c\u0c3f\u0c38\u0c4d\u0c1f\u0c3f\u0c15\u0c4d\u0c38\u0c4d",
+    "Value Addition & Primary Processing":
+      "\u0c35\u0c3f\u0c32\u0c41\u0c35 \u0c1c\u0c4b\u0c21\u0c3f\u0c02\u0c2a\u0c41 & \u0c2a\u0c4d\u0c30\u0c3e\u0c25\u0c2e\u0c3f\u0c15 \u0c2a\u0c4d\u0c30\u0c3e\u0c38\u0c46\u0c38\u0c3f\u0c02\u0c17\u0c4d",
+    "Varies by crop and district":
+      "\u0c2a\u0c02\u0c1f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e\u0c28\u0c41 \u0c2c\u0c1f\u0c4d\u0c1f\u0c3f \u0c2e\u0c3e\u0c30\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    "Varies by historical risk profile":
+      "\u0c1a\u0c3e\u0c30\u0c3f\u0c24\u0c4d\u0c30\u0c15 \u0c2a\u0c4d\u0c30\u0c2e\u0c3e\u0c26\u0c3e\u0c32 \u0c2a\u0c4d\u0c30\u0c4a\u0c2b\u0c48\u0c32\u0c4d \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c2e\u0c3e\u0c30\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f",
+    "Vector Logistics":
+      "\u0c35\u0c46\u0c15\u0c4d\u0c1f\u0c3e\u0c30\u0c4d \u0c32\u0c3e\u0c1c\u0c3f\u0c38\u0c4d\u0c1f\u0c3f\u0c15\u0c4d\u0c38\u0c4d",
     "Vegetable Cultivation": "\u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32 \u0c38\u0c3e\u0c17\u0c41",
-    "Vegetables": "\u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32\u0c41",
-    "Vegetative": "\u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c26\u0c36",
+    Vegetables: "\u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32\u0c41",
+    Vegetative:
+      "\u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c26\u0c36",
     "Verification Code": "\u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c23 \u0c15\u0c4b\u0c21\u0c4d",
-    "Verification Pending": "\u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c23 \u0c2a\u0c46\u0c02\u0c21\u0c3f\u0c02\u0c17\u0c4d\u200c\u0c32\u0c4b \u0c09\u0c02\u0c26\u0c3f",
-    "Verified Farmer": "\u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c30\u0c48\u0c24\u0c41",
-    "Verified mandi data": "\u0c38\u0c30\u0c3f\u0c1a\u0c42\u0c38\u0c3f\u0c28 \u0c2e\u0c02\u0c21\u0c40 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02",
-    "Verify Mobile": "\u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d \u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
-    "Vermicompost Organic (30 kg)": "\u0c35\u0c30\u0c4d\u0c2e\u0c40\u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c0e\u0c30\u0c41\u0c35\u0c41 (30 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Vermicompost uses earthworms to convert organic waste into high-grade humic manure. Panchagavya is a natural growth promoter prepared from cow dung, urine, milk, curd, and ghee.": "\u0c35\u0c3e\u0c28\u0c2a\u0c3e\u0c2e\u0c41\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c17\u0c3e \u0c2e\u0c3e\u0c30\u0c41\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41. \u0c06\u0c35\u0c41 \u0c2a\u0c47\u0c21, \u0c2e\u0c42\u0c24\u0c4d\u0c30\u0c02, \u0c2a\u0c3e\u0c32\u0c41, \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c46\u0c2f\u0c4d\u0c2f\u0c3f\u0c24\u0c4b \u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f \u0c24\u0c2f\u0c3e\u0c30\u0c41 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41.",
-    "Veterinary Officer Certification": "\u0c35\u0c46\u0c1f\u0c30\u0c4d\u0c28\u0c30\u0c40 \u0c05\u0c27\u0c3f\u0c15\u0c3e\u0c30\u0c3f \u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d",
-    "Veterinary Science, Dairy Technology, or Animal Husbandry students.": "\u0c35\u0c46\u0c1f\u0c30\u0c4d\u0c28\u0c30\u0c40 \u0c38\u0c48\u0c28\u0c4d\u0c38\u0c4d, \u0c21\u0c46\u0c2f\u0c3f\u0c30\u0c40 \u0c1f\u0c46\u0c15\u0c4d\u0c28\u0c3e\u0c32\u0c1c\u0c40 \u0c32\u0c47\u0c26\u0c3e \u0c2a\u0c36\u0c41\u0c38\u0c02\u0c35\u0c30\u0c4d\u0c27\u0c15 \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32\u0c41.",
-    "Video & Hands-on": "\u0c35\u0c40\u0c21\u0c3f\u0c2f\u0c4b & \u0c2a\u0c4d\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d",
+    "Verification Pending":
+      "\u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c23 \u0c2a\u0c46\u0c02\u0c21\u0c3f\u0c02\u0c17\u0c4d\u200c\u0c32\u0c4b \u0c09\u0c02\u0c26\u0c3f",
+    "Verified Farmer":
+      "\u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c28 \u0c30\u0c48\u0c24\u0c41",
+    "Verified mandi data":
+      "\u0c38\u0c30\u0c3f\u0c1a\u0c42\u0c38\u0c3f\u0c28 \u0c2e\u0c02\u0c21\u0c40 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02",
+    "Verify Mobile":
+      "\u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d \u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Vermicompost Organic (30 kg)":
+      "\u0c35\u0c30\u0c4d\u0c2e\u0c40\u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c0e\u0c30\u0c41\u0c35\u0c41 (30 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Vermicompost uses earthworms to convert organic waste into high-grade humic manure. Panchagavya is a natural growth promoter prepared from cow dung, urine, milk, curd, and ghee.":
+      "\u0c35\u0c3e\u0c28\u0c2a\u0c3e\u0c2e\u0c41\u0c32 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c17\u0c3e \u0c2e\u0c3e\u0c30\u0c41\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41. \u0c06\u0c35\u0c41 \u0c2a\u0c47\u0c21, \u0c2e\u0c42\u0c24\u0c4d\u0c30\u0c02, \u0c2a\u0c3e\u0c32\u0c41, \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c46\u0c2f\u0c4d\u0c2f\u0c3f\u0c24\u0c4b \u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f \u0c24\u0c2f\u0c3e\u0c30\u0c41 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41.",
+    "Veterinary Officer Certification":
+      "\u0c35\u0c46\u0c1f\u0c30\u0c4d\u0c28\u0c30\u0c40 \u0c05\u0c27\u0c3f\u0c15\u0c3e\u0c30\u0c3f \u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d",
+    "Veterinary Science, Dairy Technology, or Animal Husbandry students.":
+      "\u0c35\u0c46\u0c1f\u0c30\u0c4d\u0c28\u0c30\u0c40 \u0c38\u0c48\u0c28\u0c4d\u0c38\u0c4d, \u0c21\u0c46\u0c2f\u0c3f\u0c30\u0c40 \u0c1f\u0c46\u0c15\u0c4d\u0c28\u0c3e\u0c32\u0c1c\u0c40 \u0c32\u0c47\u0c26\u0c3e \u0c2a\u0c36\u0c41\u0c38\u0c02\u0c35\u0c30\u0c4d\u0c27\u0c15 \u0c35\u0c3f\u0c26\u0c4d\u0c2f\u0c3e\u0c30\u0c4d\u0c25\u0c41\u0c32\u0c41.",
+    "Video & Hands-on":
+      "\u0c35\u0c40\u0c21\u0c3f\u0c2f\u0c4b & \u0c2a\u0c4d\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d",
     "View All": "\u0c05\u0c28\u0c4d\u0c28\u0c40 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "View All Courses": "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "View All Internships": "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "View Certificate": "\u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c1f\u0c4d \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "View Course": "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "View Details": "\u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "View Farm Tools": "\u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "View All Courses":
+      "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "View All Internships":
+      "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "View Certificate":
+      "\u0c38\u0c30\u0c4d\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c1f\u0c4d \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "View Course":
+      "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "View Details":
+      "\u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "View Farm Tools":
+      "\u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
     "View Schemes": "\u0c2a\u0c25\u0c15\u0c3e\u0c32\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
-    "Vijayawada Hwy, Eluru, Andhra Pradesh - 534002": "\u0c35\u0c3f\u0c1c\u0c2f\u0c35\u0c3e\u0c21 \u0c39\u0c48\u0c35\u0c47, \u0c0f\u0c32\u0c42\u0c30\u0c41, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d - 534002",
-    "Vijayawada, Andhra Pradesh": "\u0c35\u0c3f\u0c1c\u0c2f\u0c35\u0c3e\u0c21, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
-    "Village camps will verify land records and bank details.": "\u0c17\u0c4d\u0c30\u0c3e\u0c2e \u0c15\u0c4d\u0c2f\u0c3e\u0c02\u0c2a\u0c41\u0c32\u0c41 \u0c2d\u0c42\u0c2e\u0c3f \u0c30\u0c3f\u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
-    "Water Conservation Cell": "\u0c35\u0c3e\u0c1f\u0c30\u0c4d \u0c15\u0c28\u0c4d\u0c1c\u0c30\u0c4d\u0c35\u0c47\u0c37\u0c28\u0c4d \u0c38\u0c46\u0c32\u0c4d",
-    "Water Pump 5 HP Diesel": "\u0c21\u0c40\u0c1c\u0c3f\u0c32\u0c4d \u0c35\u0c3e\u0c1f\u0c30\u0c4d \u0c2a\u0c02\u0c2a\u0c4d 5 HP",
-    "Water Soluble NPK 0:52:34 (1 kg)": "\u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b \u0c15\u0c30\u0c3f\u0c17\u0c47 \u0c0e\u0c28\u0c4d\u200c\u0c2a\u0c3f\u0c15\u0c3f 0:52:34 (1 \u0c15\u0c3f\u0c32\u0c4b)",
-    "Water Soluble NPK 19:19:19 (1 kg)": "\u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b \u0c15\u0c30\u0c3f\u0c17\u0c47 \u0c0e\u0c28\u0c4d\u200c\u0c2a\u0c3f\u0c15\u0c3f 19:19:19 (1 \u0c15\u0c3f\u0c32\u0c4b)",
-    "Watermelon Seed Sugar Baby (100 g)": "\u0c2a\u0c41\u0c1a\u0c4d\u0c1a\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c37\u0c41\u0c17\u0c30\u0c4d \u0c2c\u0c47\u0c2c\u0c40 (100 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Weather": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c02",
-    "Weather Based Crop Insurance": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c06\u0c27\u0c3e\u0c30\u0c3f\u0c24 \u0c2a\u0c02\u0c1f \u0c2c\u0c40\u0c2e\u0c3e",
-    "Weather Forecast & Advisory": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02 & \u0c38\u0c42\u0c1a\u0c28\u0c32\u0c41",
+    "Vijayawada Hwy, Eluru, Andhra Pradesh - 534002":
+      "\u0c35\u0c3f\u0c1c\u0c2f\u0c35\u0c3e\u0c21 \u0c39\u0c48\u0c35\u0c47, \u0c0f\u0c32\u0c42\u0c30\u0c41, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d - 534002",
+    "Vijayawada, Andhra Pradesh":
+      "\u0c35\u0c3f\u0c1c\u0c2f\u0c35\u0c3e\u0c21, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
+    "Village camps will verify land records and bank details.":
+      "\u0c17\u0c4d\u0c30\u0c3e\u0c2e \u0c15\u0c4d\u0c2f\u0c3e\u0c02\u0c2a\u0c41\u0c32\u0c41 \u0c2d\u0c42\u0c2e\u0c3f \u0c30\u0c3f\u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c41\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f.",
+    "Water Conservation Cell":
+      "\u0c35\u0c3e\u0c1f\u0c30\u0c4d \u0c15\u0c28\u0c4d\u0c1c\u0c30\u0c4d\u0c35\u0c47\u0c37\u0c28\u0c4d \u0c38\u0c46\u0c32\u0c4d",
+    "Water Pump 5 HP Diesel":
+      "\u0c21\u0c40\u0c1c\u0c3f\u0c32\u0c4d \u0c35\u0c3e\u0c1f\u0c30\u0c4d \u0c2a\u0c02\u0c2a\u0c4d 5 HP",
+    "Water Soluble NPK 0:52:34 (1 kg)":
+      "\u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b \u0c15\u0c30\u0c3f\u0c17\u0c47 \u0c0e\u0c28\u0c4d\u200c\u0c2a\u0c3f\u0c15\u0c3f 0:52:34 (1 \u0c15\u0c3f\u0c32\u0c4b)",
+    "Water Soluble NPK 19:19:19 (1 kg)":
+      "\u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b \u0c15\u0c30\u0c3f\u0c17\u0c47 \u0c0e\u0c28\u0c4d\u200c\u0c2a\u0c3f\u0c15\u0c3f 19:19:19 (1 \u0c15\u0c3f\u0c32\u0c4b)",
+    "Watermelon Seed Sugar Baby (100 g)":
+      "\u0c2a\u0c41\u0c1a\u0c4d\u0c1a\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c37\u0c41\u0c17\u0c30\u0c4d \u0c2c\u0c47\u0c2c\u0c40 (100 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
+    Weather: "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c02",
+    "Weather Based Crop Insurance":
+      "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c06\u0c27\u0c3e\u0c30\u0c3f\u0c24 \u0c2a\u0c02\u0c1f \u0c2c\u0c40\u0c2e\u0c3e",
+    "Weather Forecast & Advisory":
+      "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02 & \u0c38\u0c42\u0c1a\u0c28\u0c32\u0c41",
     "Weather Index": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c42\u0c1a\u0c3f\u0c15",
-    "Weather Index Protection": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c42\u0c1a\u0c3f\u0c15 \u0c30\u0c15\u0c4d\u0c37\u0c23",
-    "Weather Station Mini Digital": "\u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c2e\u0c3f\u0c28\u0c3f \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c02",
-    "Weather Station Parametric Triggers": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02 \u0c2a\u0c3e\u0c30\u0c3e\u0c2e\u0c46\u0c1f\u0c4d\u0c30\u0c3f\u0c15\u0c4d \u0c1f\u0c4d\u0c30\u0c3f\u0c17\u0c4d\u0c17\u0c30\u0c4d\u200c\u0c32\u0c41",
-    "Weather Update": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02",
+    "Weather Index Protection":
+      "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c42\u0c1a\u0c3f\u0c15 \u0c30\u0c15\u0c4d\u0c37\u0c23",
+    "Weather Station Mini Digital":
+      "\u0c21\u0c3f\u0c1c\u0c3f\u0c1f\u0c32\u0c4d \u0c2e\u0c3f\u0c28\u0c3f \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c02",
+    "Weather Station Parametric Triggers":
+      "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c02 \u0c2a\u0c3e\u0c30\u0c3e\u0c2e\u0c46\u0c1f\u0c4d\u0c30\u0c3f\u0c15\u0c4d \u0c1f\u0c4d\u0c30\u0c3f\u0c17\u0c4d\u0c17\u0c30\u0c4d\u200c\u0c32\u0c41",
+    "Weather Update":
+      "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02",
     "Weather index": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c42\u0c1a\u0c3f\u0c15",
-    "Weather-Based Sowing Schedules": "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c06\u0c27\u0c3e\u0c30\u0c3f\u0c24 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15",
-    "Web Development": "\u0c35\u0c46\u0c2c\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d",
-    "Wed": "\u0c2c\u0c41\u0c27\u0c35\u0c3e\u0c30\u0c02",
-    "Weekly Mandi Update": "\u0c35\u0c3e\u0c30\u0c2a\u0c41 \u0c2e\u0c02\u0c21\u0c40 \u0c05\u0c2a\u0c4d\u200c\u0c21\u0c47\u0c1f\u0c4d",
-    "Weighing Scale Platform 300 kg": "\u0c35\u0c47\u0c2f\u0c3f\u0c02\u0c17\u0c4d \u0c38\u0c4d\u0c15\u0c47\u0c32\u0c4d \u0c2a\u0c4d\u0c32\u0c3e\u0c1f\u0c4d\u200c\u0c2b\u0c3e\u0c30\u0c2e\u0c4d 300 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41",
+    "Weather-Based Sowing Schedules":
+      "\u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c06\u0c27\u0c3e\u0c30\u0c3f\u0c24 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28 \u0c2a\u0c4d\u0c30\u0c23\u0c3e\u0c33\u0c3f\u0c15",
+    "Web Development":
+      "\u0c35\u0c46\u0c2c\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d",
+    Wed: "\u0c2c\u0c41\u0c27\u0c35\u0c3e\u0c30\u0c02",
+    "Weekly Mandi Update":
+      "\u0c35\u0c3e\u0c30\u0c2a\u0c41 \u0c2e\u0c02\u0c21\u0c40 \u0c05\u0c2a\u0c4d\u200c\u0c21\u0c47\u0c1f\u0c4d",
+    "Weighing Scale Platform 300 kg":
+      "\u0c35\u0c47\u0c2f\u0c3f\u0c02\u0c17\u0c4d \u0c38\u0c4d\u0c15\u0c47\u0c32\u0c4d \u0c2a\u0c4d\u0c32\u0c3e\u0c1f\u0c4d\u200c\u0c2b\u0c3e\u0c30\u0c2e\u0c4d 300 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41",
     "Weight / Count": "\u0c2c\u0c30\u0c41\u0c35\u0c41 / \u0c38\u0c02\u0c16\u0c4d\u0c2f",
-    "Welcome": "\u0c38\u0c4d\u0c35\u0c3e\u0c17\u0c24\u0c02",
-    "West Godavari, Andhra Pradesh": "\u0c2a\u0c36\u0c4d\u0c1a\u0c3f\u0c2e \u0c17\u0c4b\u0c26\u0c3e\u0c35\u0c30\u0c3f, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
-    "Wheat": "\u0c17\u0c4b\u0c27\u0c41\u0c2e",
-    "Wheat Seed PBW-343 (5 kg)": "\u0c17\u0c4b\u0c27\u0c41\u0c2e \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 PBW-343 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Wheat needs guaranteed irrigation at Crown Root Initiation (CRI) stage": "\u0c17\u0c4b\u0c27\u0c41\u0c2e\u0c15\u0c41 \u0c2e\u0c4a\u0c26\u0c1f \u0c35\u0c47\u0c30\u0c4d\u0c32\u0c41 \u0c24\u0c4a\u0c21\u0c3f\u0c17\u0c47 \u0c26\u0c36 (CRI) \u0c32\u0c4b \u0c24\u0c2a\u0c4d\u0c2a\u0c28\u0c3f\u0c38\u0c30\u0c3f\u0c17\u0c3e \u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c3e\u0c32\u0c3f",
-    "Wheelbarrow Steel 100 L": "\u0c38\u0c4d\u0c1f\u0c40\u0c32\u0c4d \u0c28\u0c3f\u0c02\u0c21\u0c3f\u0c28 \u0c24\u0c4b\u0c2a\u0c41\u0c21\u0c41 \u0c2c\u0c02\u0c21\u0c3f 100 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41",
-    "Whitefly counts are rising in nearby blocks. Begin field scouting.": "\u0c38\u0c2e\u0c40\u0c2a \u0c2c\u0c4d\u0c32\u0c3e\u0c15\u0c41\u0c32\u0c4d\u0c32\u0c4b \u0c24\u0c46\u0c32\u0c4d\u0c32\u0c26\u0c4b\u0c2e\u0c32 \u0c38\u0c02\u0c16\u0c4d\u0c2f \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c4b\u0c02\u0c26\u0c3f. \u0c2a\u0c4a\u0c32\u0c02 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c28 \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
-    "Wind": "\u0c17\u0c3e\u0c32\u0c3f",
+    Welcome: "\u0c38\u0c4d\u0c35\u0c3e\u0c17\u0c24\u0c02",
+    "West Godavari, Andhra Pradesh":
+      "\u0c2a\u0c36\u0c4d\u0c1a\u0c3f\u0c2e \u0c17\u0c4b\u0c26\u0c3e\u0c35\u0c30\u0c3f, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
+    Wheat: "\u0c17\u0c4b\u0c27\u0c41\u0c2e",
+    "Wheat Seed PBW-343 (5 kg)":
+      "\u0c17\u0c4b\u0c27\u0c41\u0c2e \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 PBW-343 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Wheat needs guaranteed irrigation at Crown Root Initiation (CRI) stage":
+      "\u0c17\u0c4b\u0c27\u0c41\u0c2e\u0c15\u0c41 \u0c2e\u0c4a\u0c26\u0c1f \u0c35\u0c47\u0c30\u0c4d\u0c32\u0c41 \u0c24\u0c4a\u0c21\u0c3f\u0c17\u0c47 \u0c26\u0c36 (CRI) \u0c32\u0c4b \u0c24\u0c2a\u0c4d\u0c2a\u0c28\u0c3f\u0c38\u0c30\u0c3f\u0c17\u0c3e \u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c3e\u0c32\u0c3f",
+    "Wheelbarrow Steel 100 L":
+      "\u0c38\u0c4d\u0c1f\u0c40\u0c32\u0c4d \u0c28\u0c3f\u0c02\u0c21\u0c3f\u0c28 \u0c24\u0c4b\u0c2a\u0c41\u0c21\u0c41 \u0c2c\u0c02\u0c21\u0c3f 100 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41",
+    "Whitefly counts are rising in nearby blocks. Begin field scouting.":
+      "\u0c38\u0c2e\u0c40\u0c2a \u0c2c\u0c4d\u0c32\u0c3e\u0c15\u0c41\u0c32\u0c4d\u0c32\u0c4b \u0c24\u0c46\u0c32\u0c4d\u0c32\u0c26\u0c4b\u0c2e\u0c32 \u0c38\u0c02\u0c16\u0c4d\u0c2f \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c4b\u0c02\u0c26\u0c3f. \u0c2a\u0c4a\u0c32\u0c02 \u0c2a\u0c30\u0c3f\u0c36\u0c40\u0c32\u0c28 \u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
+    Wind: "\u0c17\u0c3e\u0c32\u0c3f",
     "Wind Speed": "\u0c17\u0c3e\u0c32\u0c3f \u0c35\u0c47\u0c17\u0c02",
-    "Work across the full stack on database schemas, REST APIs, and React interfaces.": "\u0c21\u0c47\u0c1f\u0c3e\u0c2c\u0c47\u0c38\u0c4d \u0c38\u0c4d\u0c15\u0c40\u0c2e\u0c3e\u0c32\u0c41, REST API\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 React \u0c07\u0c02\u0c1f\u0c30\u0c4d\u200c\u0c2b\u0c47\u0c38\u0c4d\u200c\u0c32\u0c32\u0c4b \u0c2a\u0c28\u0c3f \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Work with drones, remote sensing, crop monitoring, farm mapping, and precision agriculture technologies.": "\u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u0c32\u0c41, \u0c30\u0c3f\u0c2e\u0c4b\u0c1f\u0c4d \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3f\u0c02\u0c17\u0c4d, \u0c2a\u0c02\u0c1f\u0c32 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23, \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2e\u0c4d\u0c2f\u0c3e\u0c2a\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c16\u0c1a\u0c4d\u0c1a\u0c3f\u0c24\u0c2e\u0c48\u0c28 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24\u0c32\u0c24\u0c4b \u0c2a\u0c28\u0c3f \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "Work with farming communities and support farmer awareness programs, training sessions, and agricultural information sharing.": "\u0c30\u0c48\u0c24\u0c41 \u0c38\u0c2e\u0c3e\u0c1c\u0c3e\u0c32\u0c24\u0c4b \u0c15\u0c32\u0c3f\u0c38\u0c3f \u0c2a\u0c28\u0c3f\u0c1a\u0c47\u0c38\u0c3f, \u0c30\u0c48\u0c24\u0c41\u0c32 \u0c05\u0c35\u0c17\u0c3e\u0c39\u0c28 \u0c15\u0c3e\u0c30\u0c4d\u0c2f\u0c15\u0c4d\u0c30\u0c2e\u0c3e\u0c32\u0c41, \u0c36\u0c3f\u0c15\u0c4d\u0c37\u0c23\u0c3e \u0c15\u0c3e\u0c30\u0c4d\u0c2f\u0c15\u0c4d\u0c30\u0c2e\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c02\u0c32\u0c4b \u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
-    "You haven't placed any orders yet.": "\u0c2e\u0c40\u0c30\u0c41 \u0c07\u0c02\u0c15\u0c3e \u0c0e\u0c32\u0c3e\u0c02\u0c1f\u0c3f \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u200c\u0c32\u0c41 \u0c1a\u0c47\u0c2f\u0c32\u0c47\u0c26\u0c41.",
+    "Work across the full stack on database schemas, REST APIs, and React interfaces.":
+      "\u0c21\u0c47\u0c1f\u0c3e\u0c2c\u0c47\u0c38\u0c4d \u0c38\u0c4d\u0c15\u0c40\u0c2e\u0c3e\u0c32\u0c41, REST API\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 React \u0c07\u0c02\u0c1f\u0c30\u0c4d\u200c\u0c2b\u0c47\u0c38\u0c4d\u200c\u0c32\u0c32\u0c4b \u0c2a\u0c28\u0c3f \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Work with drones, remote sensing, crop monitoring, farm mapping, and precision agriculture technologies.":
+      "\u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u0c32\u0c41, \u0c30\u0c3f\u0c2e\u0c4b\u0c1f\u0c4d \u0c38\u0c46\u0c28\u0c4d\u0c38\u0c3f\u0c02\u0c17\u0c4d, \u0c2a\u0c02\u0c1f\u0c32 \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23, \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2e\u0c4d\u0c2f\u0c3e\u0c2a\u0c3f\u0c02\u0c17\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c16\u0c1a\u0c4d\u0c1a\u0c3f\u0c24\u0c2e\u0c48\u0c28 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24\u0c32\u0c24\u0c4b \u0c2a\u0c28\u0c3f \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "Work with farming communities and support farmer awareness programs, training sessions, and agricultural information sharing.":
+      "\u0c30\u0c48\u0c24\u0c41 \u0c38\u0c2e\u0c3e\u0c1c\u0c3e\u0c32\u0c24\u0c4b \u0c15\u0c32\u0c3f\u0c38\u0c3f \u0c2a\u0c28\u0c3f\u0c1a\u0c47\u0c38\u0c3f, \u0c30\u0c48\u0c24\u0c41\u0c32 \u0c05\u0c35\u0c17\u0c3e\u0c39\u0c28 \u0c15\u0c3e\u0c30\u0c4d\u0c2f\u0c15\u0c4d\u0c30\u0c2e\u0c3e\u0c32\u0c41, \u0c36\u0c3f\u0c15\u0c4d\u0c37\u0c23\u0c3e \u0c15\u0c3e\u0c30\u0c4d\u0c2f\u0c15\u0c4d\u0c30\u0c2e\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c02\u0c32\u0c4b \u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
+    "You haven't placed any orders yet.":
+      "\u0c2e\u0c40\u0c30\u0c41 \u0c07\u0c02\u0c15\u0c3e \u0c0e\u0c32\u0c3e\u0c02\u0c1f\u0c3f \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u200c\u0c32\u0c41 \u0c1a\u0c47\u0c2f\u0c32\u0c47\u0c26\u0c41.",
     "Your Cart": "\u0c2e\u0c40 \u0c15\u0c3e\u0c30\u0c4d\u0c1f\u0c4d",
-    "Your Cart is Empty": "\u0c2e\u0c40 \u0c15\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c16\u0c3e\u0c33\u0c40\u0c17\u0c3e \u0c09\u0c02\u0c26\u0c3f",
-    "Your Order History": "\u0c2e\u0c40 \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c1a\u0c30\u0c3f\u0c24\u0c4d\u0c30",
+    "Your Cart is Empty":
+      "\u0c2e\u0c40 \u0c15\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c16\u0c3e\u0c33\u0c40\u0c17\u0c3e \u0c09\u0c02\u0c26\u0c3f",
+    "Your Order History":
+      "\u0c2e\u0c40 \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d \u0c1a\u0c30\u0c3f\u0c24\u0c4d\u0c30",
     "Your Orders": "\u0c2e\u0c40 \u0c06\u0c30\u0c4d\u0c21\u0c30\u0c4d\u200c\u0c32\u0c41",
-    "Your Products (Farmer Catalog)": "\u0c2e\u0c40 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 (\u0c30\u0c48\u0c24\u0c41 \u0c15\u0c47\u0c1f\u0c32\u0c3e\u0c17\u0c4d)",
-    "Your application has been submitted successfully!": "\u0c2e\u0c40 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c35\u0c3f\u0c1c\u0c2f\u0c35\u0c02\u0c24\u0c02\u0c17\u0c3e \u0c38\u0c2e\u0c30\u0c4d\u0c2a\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f!",
-    "Your cart is empty.": "\u0c2e\u0c40 \u0c15\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c16\u0c3e\u0c33\u0c40\u0c17\u0c3e \u0c09\u0c02\u0c26\u0c3f.",
-    "Your drip irrigation kit is on the way with expected delivery tomorrow.": "\u0c2e\u0c40 \u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 \u0c15\u0c3f\u0c1f\u0c4d \u0c26\u0c3e\u0c30\u0c3f\u0c32\u0c4b \u0c09\u0c02\u0c26\u0c3f, \u0c30\u0c47\u0c2a\u0c41 \u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Your Products (Farmer Catalog)":
+      "\u0c2e\u0c40 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 (\u0c30\u0c48\u0c24\u0c41 \u0c15\u0c47\u0c1f\u0c32\u0c3e\u0c17\u0c4d)",
+    "Your application has been submitted successfully!":
+      "\u0c2e\u0c40 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c35\u0c3f\u0c1c\u0c2f\u0c35\u0c02\u0c24\u0c02\u0c17\u0c3e \u0c38\u0c2e\u0c30\u0c4d\u0c2a\u0c3f\u0c02\u0c1a\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f!",
+    "Your cart is empty.":
+      "\u0c2e\u0c40 \u0c15\u0c3e\u0c30\u0c4d\u0c1f\u0c4d \u0c16\u0c3e\u0c33\u0c40\u0c17\u0c3e \u0c09\u0c02\u0c26\u0c3f.",
+    "Your drip irrigation kit is on the way with expected delivery tomorrow.":
+      "\u0c2e\u0c40 \u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 \u0c15\u0c3f\u0c1f\u0c4d \u0c26\u0c3e\u0c30\u0c3f\u0c32\u0c4b \u0c09\u0c02\u0c26\u0c3f, \u0c30\u0c47\u0c2a\u0c41 \u0c21\u0c46\u0c32\u0c3f\u0c35\u0c30\u0c40 \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
     "Zaid Season": "\u0c1c\u0c3e\u0c2f\u0c46\u0c26\u0c4d \u0c38\u0c40\u0c1c\u0c28\u0c4d",
-    "Zaid crops offer quick short-duration income between main seasons": "\u0c1c\u0c48\u0c26\u0c4d \u0c2a\u0c02\u0c1f\u0c32\u0c41 \u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c38\u0c40\u0c1c\u0c28\u0c4d\u0c32 \u0c2e\u0c27\u0c4d\u0c2f \u0c38\u0c4d\u0c35\u0c32\u0c4d\u0c2a\u0c15\u0c3e\u0c32\u0c3f\u0c15 \u0c06\u0c26\u0c3e\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c07\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
-    "Zero-Tillage & Conservation Agriculture": "\u0c26\u0c41\u0c15\u0c4d\u0c15\u0c3f \u0c32\u0c47\u0c28\u0c3f \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 (\u0c1c\u0c40\u0c30\u0c4b \u0c1f\u0c4d\u0c30\u0c3f\u0c32\u0c4d\u0c32\u0c47\u0c1c\u0c4d) & \u0c2a\u0c30\u0c3f\u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
-    "Zero-tillage involves sowing seeds directly into unploughed fields retaining previous crop residues. Using machines like Happy Seeder saves tractor fuel, preserves soil structure, and reduces soil evaporation.": "\u0c26\u0c41\u0c15\u0c4d\u0c15\u0c3f \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2a\u0c3e\u0c24 \u0c2a\u0c02\u0c1f \u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3e\u0c32\u0c32\u0c4b\u0c28\u0c47 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c21\u0c40\u0c1c\u0c3f\u0c32\u0c4d \u0c16\u0c30\u0c4d\u0c1a\u0c41 \u0c06\u0c26\u0c3e \u0c05\u0c35\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c47\u0c32 \u0c24\u0c47\u0c2e \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
-    "Zero-tillage wheat sowing advances planting date by 7-10 days, preventing terminal heat stress in March.": "\u0c26\u0c41\u0c15\u0c4d\u0c15\u0c3f \u0c32\u0c47\u0c28\u0c3f \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e 7-10 \u0c30\u0c4b\u0c1c\u0c41\u0c32\u0c41 \u0c2e\u0c41\u0c02\u0c26\u0c41\u0c17\u0c3e\u0c28\u0c47 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
-    "Zinc Sulphate 21% (5 kg)": "\u0c1c\u0c3f\u0c02\u0c15\u0c4d \u0c38\u0c32\u0c4d\u0c2b\u0c47\u0c1f\u0c4d 21% (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Zaid crops offer quick short-duration income between main seasons":
+      "\u0c1c\u0c48\u0c26\u0c4d \u0c2a\u0c02\u0c1f\u0c32\u0c41 \u0c2a\u0c4d\u0c30\u0c27\u0c3e\u0c28 \u0c38\u0c40\u0c1c\u0c28\u0c4d\u0c32 \u0c2e\u0c27\u0c4d\u0c2f \u0c38\u0c4d\u0c35\u0c32\u0c4d\u0c2a\u0c15\u0c3e\u0c32\u0c3f\u0c15 \u0c06\u0c26\u0c3e\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c07\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
+    "Zero-Tillage & Conservation Agriculture":
+      "\u0c26\u0c41\u0c15\u0c4d\u0c15\u0c3f \u0c32\u0c47\u0c28\u0c3f \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 (\u0c1c\u0c40\u0c30\u0c4b \u0c1f\u0c4d\u0c30\u0c3f\u0c32\u0c4d\u0c32\u0c47\u0c1c\u0c4d) & \u0c2a\u0c30\u0c3f\u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02",
+    "Zero-tillage involves sowing seeds directly into unploughed fields retaining previous crop residues. Using machines like Happy Seeder saves tractor fuel, preserves soil structure, and reduces soil evaporation.":
+      "\u0c26\u0c41\u0c15\u0c4d\u0c15\u0c3f \u0c26\u0c41\u0c28\u0c4d\u0c28\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2a\u0c3e\u0c24 \u0c2a\u0c02\u0c1f \u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c3e\u0c32\u0c32\u0c4b\u0c28\u0c47 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c21\u0c40\u0c1c\u0c3f\u0c32\u0c4d \u0c16\u0c30\u0c4d\u0c1a\u0c41 \u0c06\u0c26\u0c3e \u0c05\u0c35\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c47\u0c32 \u0c24\u0c47\u0c2e \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
+    "Zero-tillage wheat sowing advances planting date by 7-10 days, preventing terminal heat stress in March.":
+      "\u0c26\u0c41\u0c15\u0c4d\u0c15\u0c3f \u0c32\u0c47\u0c28\u0c3f \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e 7-10 \u0c30\u0c4b\u0c1c\u0c41\u0c32\u0c41 \u0c2e\u0c41\u0c02\u0c26\u0c41\u0c17\u0c3e\u0c28\u0c47 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
+    "Zinc Sulphate 21% (5 kg)":
+      "\u0c1c\u0c3f\u0c02\u0c15\u0c4d \u0c38\u0c32\u0c4d\u0c2b\u0c47\u0c1f\u0c4d 21% (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Zip Code": "\u0c2a\u0c3f\u0c28\u0c4d \u0c15\u0c4b\u0c21\u0c4d",
     "Zoom In": "\u0c1c\u0c42\u0c2e\u0c4d \u0c07\u0c28\u0c4d",
     "Zoom Out": "\u0c1c\u0c42\u0c2e\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d",
-    "all": "\u0c05\u0c28\u0c4d\u0c28\u0c3f",
-    "available space": "\u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c38\u0c4d\u0c25\u0c32\u0c02",
-    "completed": "\u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c2f\u0c3f\u0c02\u0c26\u0c3f",
-    "e-NAM (Electronic National Agriculture Market)": "\u0c08-\u0c28\u0c3e\u0c2e\u0c4d (\u0c08-\u0c1c\u0c3e\u0c24\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d)",
-    "e-NAM connects physical mandis across India into a single online trading platform. Farmers can sell produce to distant traders through transparent digital auctions and direct bank payments.": "\u0c08-\u0c28\u0c3e\u0c2e\u0c4d \u0c26\u0c47\u0c36\u0c35\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u0c24\u0c02\u0c17\u0c3e \u0c09\u0c28\u0c4d\u0c28 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c05\u0c28\u0c41\u0c38\u0c02\u0c27\u0c3e\u0c28\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41 \u0c06\u0c28\u0c4d\u200c\u0c32\u0c48\u0c28\u0c4d \u0c35\u0c47\u0c32\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c26\u0c47\u0c36\u0c02\u0c32\u0c4b \u0c0e\u0c15\u0c4d\u0c15\u0c21\u0c48\u0c28\u0c3e \u0c05\u0c2e\u0c4d\u0c2e\u0c3f \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41\u0c32\u0c4b \u0c21\u0c2c\u0c4d\u0c2c\u0c41 \u0c2a\u0c4a\u0c02\u0c26\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
-    "facilities": "\u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32\u0c41",
-    "fertilizers": "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41",
-    "hrs": "\u0c17\u0c02\u0c1f\u0c32\u0c41",
+    all: "\u0c05\u0c28\u0c4d\u0c28\u0c3f",
+    "available space":
+      "\u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c38\u0c4d\u0c25\u0c32\u0c02",
+    completed: "\u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c2f\u0c3f\u0c02\u0c26\u0c3f",
+    "e-NAM (Electronic National Agriculture Market)":
+      "\u0c08-\u0c28\u0c3e\u0c2e\u0c4d (\u0c08-\u0c1c\u0c3e\u0c24\u0c40\u0c2f \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d)",
+    "e-NAM connects physical mandis across India into a single online trading platform. Farmers can sell produce to distant traders through transparent digital auctions and direct bank payments.":
+      "\u0c08-\u0c28\u0c3e\u0c2e\u0c4d \u0c26\u0c47\u0c36\u0c35\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u0c24\u0c02\u0c17\u0c3e \u0c09\u0c28\u0c4d\u0c28 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c05\u0c28\u0c41\u0c38\u0c02\u0c27\u0c3e\u0c28\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c30\u0c48\u0c24\u0c41\u0c32\u0c41 \u0c06\u0c28\u0c4d\u200c\u0c32\u0c48\u0c28\u0c4d \u0c35\u0c47\u0c32\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c26\u0c47\u0c36\u0c02\u0c32\u0c4b \u0c0e\u0c15\u0c4d\u0c15\u0c21\u0c48\u0c28\u0c3e \u0c05\u0c2e\u0c4d\u0c2e\u0c3f \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41\u0c32\u0c4b \u0c21\u0c2c\u0c4d\u0c2c\u0c41 \u0c2a\u0c4a\u0c02\u0c26\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
+    facilities: "\u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32\u0c41",
+    fertilizers: "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c41",
+    hrs: "\u0c17\u0c02\u0c1f\u0c32\u0c41",
     "km away": "\u0c15\u0c3f.\u0c2e\u0c40 \u0c26\u0c42\u0c30\u0c02\u0c32\u0c4b",
-    "lessons": "\u0c2a\u0c3e\u0c20\u0c3e\u0c32\u0c41",
-    "products found": "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c4d\u0c21\u0c3e\u0c2f\u0c3f",
-    "rain": "\u0c35\u0c30\u0c4d\u0c37\u0c02",
-    "seeds": "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41",
-    "tools": "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41",
+    lessons: "\u0c2a\u0c3e\u0c20\u0c3e\u0c32\u0c41",
+    "products found":
+      "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c2c\u0c21\u0c4d\u0c21\u0c3e\u0c2f\u0c3f",
+    rain: "\u0c35\u0c30\u0c4d\u0c37\u0c02",
+    seeds: "\u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41",
+    tools:
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c41",
     "Farm alerts": "వ్యవసాయ హెచ్చరికలు",
     "Agricultural Advisories": "వ్యవసాయ హెచ్చరికలు",
-    "Notifications": "నోటిఫికేషన్లు",
+    Notifications: "నోటిఫికేషన్లు",
     "Paddy mandi price up in Amritsar": "అమృత్‌సర్‌లో వరి మండి ధర పెరిగింది",
-    "Average arrivals are stable and price improved by 1.8% today.": "నేడు సగటు రాక స్థిరంగా ఉంది మరియు ధర 1.8% మెరుగైంది.",
+    "Average arrivals are stable and price improved by 1.8% today.":
+      "నేడు సగటు రాక స్థిరంగా ఉంది మరియు ధర 1.8% మెరుగైంది.",
     "Rain advisory for Ludhiana belt": "లూధియానా బెల్ట్ కొరకు వర్షపు సలహా",
-    "Avoid foliar spray for the next 24 hours due to likely showers.": "వర్ష సూచన ఉన్నందున రాబోయే 24 గంటల పాటు ఆకులపై పిచికారీ నివారించండి.",
+    "Avoid foliar spray for the next 24 hours due to likely showers.":
+      "వర్ష సూచన ఉన్నందున రాబోయే 24 గంటల పాటు ఆకులపై పిచికారీ నివారించండి.",
     "KCC document camp this week": "ఈ వారం కెసిసి డాక్యుమెంట్ క్యాంప్",
-    "Village camps will verify land records and bank details.": "గ్రామ క్యాంపులు భూమి రికార్డులు మరియు బ్యాంకు వివరాలను పరిశీలిస్తాయి.",
+    "Village camps will verify land records and bank details.":
+      "గ్రామ క్యాంపులు భూమి రికార్డులు మరియు బ్యాంకు వివరాలను పరిశీలిస్తాయి.",
     "Order PF-2048 dispatched": "ఆర్డర్ PF-2048 పంపబడింది",
-    "Your drip irrigation kit is on the way with expected delivery tomorrow.": "మీ బిందు సేద్యం కిట్ దారిలో ఉంది, రేపు డెలివరీ అవుతుంది.",
+    "Your drip irrigation kit is on the way with expected delivery tomorrow.":
+      "మీ బిందు సేద్యం కిట్ దారిలో ఉంది, రేపు డెలివరీ అవుతుంది.",
     "Cotton pest threshold alert": "పత్తి చీడపీడల హెచ్చరిక",
-    "Whitefly counts are rising in nearby blocks. Begin field scouting.": "సమీప బ్లాకుల్లో తెల్లదోమల సంఖ్య పెరుగుతోంది. క్షేత్ర స్థాయి పరిశీలన ప్రారంభించండి.",
-    "3 unread advisories across market, weather, schemes, and orders.": "మార్కెట్, వాతావరణం, పథకాలు మరియు ఆర్డర్లకు సంబంధించిన 3 చదవని హెచ్చరికలు.",
+    "Whitefly counts are rising in nearby blocks. Begin field scouting.":
+      "సమీప బ్లాకుల్లో తెల్లదోమల సంఖ్య పెరుగుతోంది. క్షేత్ర స్థాయి పరిశీలన ప్రారంభించండి.",
+    "3 unread advisories across market, weather, schemes, and orders.":
+      "మార్కెట్, వాతావరణం, పథకాలు మరియు ఆర్డర్లకు సంబంధించిన 3 చదవని హెచ్చరికలు.",
     "12 min ago": "12 నిమిషాల క్రితం",
     "1 hr ago": "1 గంట క్రితం",
-    "Yesterday": "నిన్న",
+    Yesterday: "నిన్న",
     "2 days ago": "2 రోజుల క్రితం",
     "3 days ago": "3 రోజుల క్రితం",
-    "Unread": "చదవనివి",
-    "Read": "చదివినవి",
+    Unread: "చదవనివి",
+    Read: "చదివినవి",
     "All Notifications": "అన్ని నోటిఫికేషన్లు",
     "Mark all as read": "అన్నీ చదివినట్లుగా గుర్తించండి",
     "Mark all as unread": "అన్నీ చదవనట్లుగా గుర్తించండి",
@@ -2941,8 +4536,9 @@ export const translations: Record<Language, Record<string, string>> = {
     "No notifications found": "నోటిఫికేషన్లు ఏవీ లేవు",
     "Government Schemes": "ప్రభుత్వ పథకాలు",
     "Government schemes": "ప్రభుత్వ పథకాలు",
-    "Schemes": "పథకాలు",
-    "Find farmer support programmes, eligibility, and official application links.": "రైతులకు సహాయపడే ప్రభుత్వ పథకాలు, అర్హతలు మరియు అధికారిక వివరాలను తెలుసుకోండి.",
+    Schemes: "పథకాలు",
+    "Find farmer support programmes, eligibility, and official application links.":
+      "రైతులకు సహాయపడే ప్రభుత్వ పథకాలు, అర్హతలు మరియు అధికారిక వివరాలను తెలుసుకోండి.",
     "Search schemes by name, category, or eligibility...": "పథకాలను వెతకండి...",
     "Search schemes...": "పథకాలను వెతకండి...",
     "Official Portal": "అధికారిక వెబ్‌సైట్",
@@ -2966,12 +4562,12 @@ export const translations: Record<Language, Record<string, string>> = {
     "Ministry of Agriculture & Farmers Welfare": "కేంద్ర వ్యవసాయ & రైతు సంక్షేమ మంత్రిత్వ శాఖ",
     "Direct Benefit": "నేరుగా నగదు బదిలీ",
     "Soil Advisory": "నేల పరీక్ష సలహా",
-    "Credit": "వ్యవసాయ రుణం",
-    "Irrigation": "బిందు సేద్యం",
-    "Insurance": "పంట బీమా",
-    "Mechanization": "వ్యవసాయ యంత్రాలు",
+    Credit: "వ్యవసాయ రుణం",
+    Irrigation: "బిందు సేద్యం",
+    Insurance: "పంట బీమా",
+    Mechanization: "వ్యవసాయ యంత్రాలు",
     "Organic Farming": "సేంద్రీయ వ్యవసాయం",
-    "Infrastructure": "వ్యవసాయ మౌలిక సదుపాయాలు",
+    Infrastructure: "వ్యవసాయ మౌలిక సదుపాయాలు",
     "Open enrollment": "ఎల్లప్పుడూ అందుబాటులో ఉంటుంది",
     "District camp calendar": "జిల్లా క్యాంపుల క్యాలెండర్",
     "Open through banks": "బ్యాంకుల ద్వారా దరఖాస్తు",
@@ -2988,21 +4584,37 @@ export const translations: Record<Language, Record<string, string>> = {
     "40-50% farm machinery subsidy": "40-50% యంత్రాల సబ్సిడీ",
     "₹31,000 / hectare organic support": "హెక్టారుకు ₹31,000 ప్రోత్సాహకం",
     "3% interest subvention on credit": "రుణాలపై 3% వడ్డీ రాయితీ",
-    "Income assistance of ₹6,000 per year for eligible landholding farmer families through direct bank transfer in three equal installments.": "అర్హత ఉన్న రైతు కుటుంబాలకు ఏటా ₹6,000 ఆర్థిక సహాయాన్ని మూడు విడతల్లో నేరుగా బ్యాంకు ఖాతాలో జమ చేసే పథకం.",
-    "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use and soil fertility enhancement.": "నేల సారాన్ని పరీక్షించి, పంటల వారీగా సమతుల్య ఎరువుల వాడకం కొరకు సిఫార్సులు అందించే ఉచిత సేవ.",
-    "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied agricultural activities at subsidized interest rates.": "విత్తనాలు, ఎరువులు, కూలీలు మరియు వ్యవసాయ పరికరాల కొరకు రాయితీ వడ్డీతో స్వల్పకాలిక రుణం అందించే పథకం.",
-    "Financial assistance for drip and sprinkler irrigation systems to improve water-use efficiency and crop yield.": "నీటి పొదుపు మరియు అధిక దిగుబడి కోసం బిందు మరియు స్ప్రింక్లర్ సాగు పరికరాలపై 55% వరకు రాయితీ సదుపాయం.",
-    "Comprehensive crop insurance protection against drought, flood, pests, diseases, and post-harvest losses at minimal premium.": "ప్రకృతి వైపరీత్యాలు, తెగుళ్లు మరియు పంట నష్టాల నుండి తక్కువ ప్రీమియంతో పూర్తి ఆర్థిక రక్షణ కల్పించే పంట బీమా.",
-    "Subsidy up to 40-50% for purchasing tractors, power tillers, harvesters, and modern farm machinery.": "ట్రాక్టర్లు, పవర్ టిల్లర్లు, కోత యంత్రాలు మరియు ఆధునిక వ్యవసాయ పరికరాల కొనుగోలుపై 40-50% సబ్సిడీ.",
-    "Financial assistance and certification support for organic cluster farming, vermicomposting, and bio-inputs.": "సేంద్రీయ వ్యవసాయ క్లస్టర్లు, వర్మీ కంపోస్ట్ మరియు జీవ ఎరువుల తయారీకి హెక్టారుకు ₹31,000 ప్రోత్సాహకం.",
-    "Long-term debt financing facility for post-harvest management infrastructure and community farming assets.": "కోత అనంతర నిల్వ గోదాములు, శీతలీకరణ కేంద్రాలు మరియు ప్రాసెసింగ్ యూనిట్ల నిర్మాణానికి 3% వడ్డీ రాయితీ రుణాలు.",
-    "Small and marginal farmers with verified land records and Aadhaar-linked bank accounts.": "పరిశీలించిన భూమి రికార్డులు మరియు ఆధార్ అనుసంధానిత బ్యాంకు ఖాతాలు ఉన్న రైతులందరూ అర్హులు.",
-    "All registered cultivators can apply through local agriculture offices or Village Revenue Officers.": "సాగుభూమి కలిగిన రైతులందరూ తమ స్థానిక వ్యవసాయ అధికారి (AEO) లేదా రైతు సేవా కేంద్రం ద్వారా దరఖాస్తు చేసుకోవచ్చు.",
-    "Farmers, tenant cultivators, SHGs, and joint liability groups with active farming activity.": "సొంత భూమి ఉన్న రైతులు, కౌలు రైతులు, స్వయం సహాయక సంఘాలు మరియు పశుసంవర్ధక రైతులందరూ అర్హులు.",
-    "Farmers adopting approved micro-irrigation systems through empanelled vendors in target districts.": "అనుమతించబడిన సూక్ష్మ సేద్య కంపెనీల ద్వారా డ్రిప్/స్ప్రింక్లర్ అమర్చుకునే రైతులందరూ అర్హులు.",
-    "All farmers growing notified crops in notified areas including tenant farmers.": "నోటిఫై చేసిన జిల్లాల్లో నోటిఫై చేసిన పంటలను సాగు చేసే రైతులందరూ (కౌలు రైతులతో సహా) అర్హులు.",
-    "Individual farmers, SHGs, FPOs, and custom hiring centres in rural areas.": "సొంత సాగు చేసే రైతులు, రైతు ఉత్పత్తిదారుల సంఘాలు (FPO) మరియు కస్టమ్ హైరింగ్ సెంటర్లు.",
-    "Farmers forming organic clusters (minimum 50 acres) through local agriculture extension officers.": "50 ఎకరాల గ్రూపుగా ఏర్పడి సేంద్రీయ సాగు చేసే రైతు సంఘాలు మరియు రైతు సమూహాలు.",
-    "Primary Agricultural Credit Societies (PACS), FPOs, Agri-entrepreneurs, and Startups.": "రైతు సంఘాలు (FPOs), వ్యవసాయ సహకార సంఘాలు, అగ్రి స్టార్టప్‌లు మరియు ఔత్సాహిక పారిశ్రామికవేత్తలు.",
+    "Income assistance of ₹6,000 per year for eligible landholding farmer families through direct bank transfer in three equal installments.":
+      "అర్హత ఉన్న రైతు కుటుంబాలకు ఏటా ₹6,000 ఆర్థిక సహాయాన్ని మూడు విడతల్లో నేరుగా బ్యాంకు ఖాతాలో జమ చేసే పథకం.",
+    "Soil testing and crop-wise fertiliser recommendations for balanced nutrient use and soil fertility enhancement.":
+      "నేల సారాన్ని పరీక్షించి, పంటల వారీగా సమతుల్య ఎరువుల వాడకం కొరకు సిఫార్సులు అందించే ఉచిత సేవ.",
+    "Short-term crop credit for seeds, fertilisers, labour, equipment, and allied agricultural activities at subsidized interest rates.":
+      "విత్తనాలు, ఎరువులు, కూలీలు మరియు వ్యవసాయ పరికరాల కొరకు రాయితీ వడ్డీతో స్వల్పకాలిక రుణం అందించే పథకం.",
+    "Financial assistance for drip and sprinkler irrigation systems to improve water-use efficiency and crop yield.":
+      "నీటి పొదుపు మరియు అధిక దిగుబడి కోసం బిందు మరియు స్ప్రింక్లర్ సాగు పరికరాలపై 55% వరకు రాయితీ సదుపాయం.",
+    "Comprehensive crop insurance protection against drought, flood, pests, diseases, and post-harvest losses at minimal premium.":
+      "ప్రకృతి వైపరీత్యాలు, తెగుళ్లు మరియు పంట నష్టాల నుండి తక్కువ ప్రీమియంతో పూర్తి ఆర్థిక రక్షణ కల్పించే పంట బీమా.",
+    "Subsidy up to 40-50% for purchasing tractors, power tillers, harvesters, and modern farm machinery.":
+      "ట్రాక్టర్లు, పవర్ టిల్లర్లు, కోత యంత్రాలు మరియు ఆధునిక వ్యవసాయ పరికరాల కొనుగోలుపై 40-50% సబ్సిడీ.",
+    "Financial assistance and certification support for organic cluster farming, vermicomposting, and bio-inputs.":
+      "సేంద్రీయ వ్యవసాయ క్లస్టర్లు, వర్మీ కంపోస్ట్ మరియు జీవ ఎరువుల తయారీకి హెక్టారుకు ₹31,000 ప్రోత్సాహకం.",
+    "Long-term debt financing facility for post-harvest management infrastructure and community farming assets.":
+      "కోత అనంతర నిల్వ గోదాములు, శీతలీకరణ కేంద్రాలు మరియు ప్రాసెసింగ్ యూనిట్ల నిర్మాణానికి 3% వడ్డీ రాయితీ రుణాలు.",
+    "Small and marginal farmers with verified land records and Aadhaar-linked bank accounts.":
+      "పరిశీలించిన భూమి రికార్డులు మరియు ఆధార్ అనుసంధానిత బ్యాంకు ఖాతాలు ఉన్న రైతులందరూ అర్హులు.",
+    "All registered cultivators can apply through local agriculture offices or Village Revenue Officers.":
+      "సాగుభూమి కలిగిన రైతులందరూ తమ స్థానిక వ్యవసాయ అధికారి (AEO) లేదా రైతు సేవా కేంద్రం ద్వారా దరఖాస్తు చేసుకోవచ్చు.",
+    "Farmers, tenant cultivators, SHGs, and joint liability groups with active farming activity.":
+      "సొంత భూమి ఉన్న రైతులు, కౌలు రైతులు, స్వయం సహాయక సంఘాలు మరియు పశుసంవర్ధక రైతులందరూ అర్హులు.",
+    "Farmers adopting approved micro-irrigation systems through empanelled vendors in target districts.":
+      "అనుమతించబడిన సూక్ష్మ సేద్య కంపెనీల ద్వారా డ్రిప్/స్ప్రింక్లర్ అమర్చుకునే రైతులందరూ అర్హులు.",
+    "All farmers growing notified crops in notified areas including tenant farmers.":
+      "నోటిఫై చేసిన జిల్లాల్లో నోటిఫై చేసిన పంటలను సాగు చేసే రైతులందరూ (కౌలు రైతులతో సహా) అర్హులు.",
+    "Individual farmers, SHGs, FPOs, and custom hiring centres in rural areas.":
+      "సొంత సాగు చేసే రైతులు, రైతు ఉత్పత్తిదారుల సంఘాలు (FPO) మరియు కస్టమ్ హైరింగ్ సెంటర్లు.",
+    "Farmers forming organic clusters (minimum 50 acres) through local agriculture extension officers.":
+      "50 ఎకరాల గ్రూపుగా ఏర్పడి సేంద్రీయ సాగు చేసే రైతు సంఘాలు మరియు రైతు సమూహాలు.",
+    "Primary Agricultural Credit Societies (PACS), FPOs, Agri-entrepreneurs, and Startups.":
+      "రైతు సంఘాలు (FPOs), వ్యవసాయ సహకార సంఘాలు, అగ్రి స్టార్టప్‌లు మరియు ఔత్సాహిక పారిశ్రామికవేత్తలు.",
   },
 };

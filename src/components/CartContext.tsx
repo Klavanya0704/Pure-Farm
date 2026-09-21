@@ -16,8 +16,16 @@ export interface CartContextValue {
   items: CartItem[];
   count: number;
   subtotal: number;
-  addItem: (productId: string, qty?: number, details?: Partial<CartItem>) => { success: boolean; message?: string };
-  updateQty: (productId: string, qty: number, maxStock?: number) => { success: boolean; message?: string };
+  addItem: (
+    productId: string,
+    qty?: number,
+    details?: Partial<CartItem>,
+  ) => { success: boolean; message?: string };
+  updateQty: (
+    productId: string,
+    qty: number,
+    maxStock?: number,
+  ) => { success: boolean; message?: string };
   removeItem: (productId: string) => void;
   clearCart: () => void;
   syncCartWithDatabase: () => Promise<{ warnings: string[] }>;
@@ -98,7 +106,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     const subtotal = items.reduce((sum, item) => {
       const dbPrice = item.price;
       const staticProduct = PRODUCTS.find((p) => p.id === item.productId);
-      const price = dbPrice !== undefined ? dbPrice : (staticProduct ? staticProduct.price : 0);
+      const price = dbPrice !== undefined ? dbPrice : staticProduct ? staticProduct.price : 0;
       return sum + price * item.qty;
     }, 0);
 
@@ -126,9 +134,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         if (existing) {
           commitItems(
             current.map((item) =>
-              item.productId === productId
-                ? { ...item, ...details, qty: requestedTotal }
-                : item,
+              item.productId === productId ? { ...item, ...details, qty: requestedTotal } : item,
             ),
           );
         } else {
@@ -148,9 +154,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
           return { success: false, message: `Only ${avail} units are currently available.` };
         }
         commitItems(
-          current.map((item) =>
-            item.productId === productId ? { ...item, qty } : item,
-          ),
+          current.map((item) => (item.productId === productId ? { ...item, qty } : item)),
         );
         return { success: true };
       },
@@ -181,7 +185,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
         for (const item of current) {
           const live = liveProducts.find((p) => p.id === item.productId);
-          if (!live || live.status === "inactive" || live.status === "sold_out" || Number(live.available_quantity) <= 0) {
+          if (
+            !live ||
+            live.status === "inactive" ||
+            live.status === "sold_out" ||
+            Number(live.available_quantity) <= 0
+          ) {
             warnings.push(`"${live?.name || item.name || "Product"}" is sold out and unavailable.`);
             updatedItems.push({
               ...item,
@@ -195,7 +204,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
             if (item.qty > liveStock) {
               newQty = liveStock;
-              warnings.push(`Only ${liveStock} units of "${live.name || item.name}" are currently available.`);
+              warnings.push(
+                `Only ${liveStock} units of "${live.name || item.name}" are currently available.`,
+              );
             }
 
             updatedItems.push({
@@ -252,7 +263,9 @@ export function getCartProducts(items: CartItem[]) {
           rating: 4.8,
           stock: item.availableQuantity ?? 99,
           description: "Fresh produce directly from verified farmer",
-          image: item.imageUrl || "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300' fill='%23f3f4f6'><rect width='400' height='300' fill='%23f3f4f6'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='%239ca3af'>Image Unavailable</text></svg>",
+          image:
+            item.imageUrl ||
+            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300' fill='%23f3f4f6'><rect width='400' height='300' fill='%23f3f4f6'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='%239ca3af'>Image Unavailable</text></svg>",
         };
         return { product: syntheticProduct, qty: item.qty, cartItem: item };
       }

@@ -26,6 +26,7 @@ import {
   BookOpen,
   FileText,
   Award,
+  Wrench,
 } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { SITE, waLink } from "@/data/site";
@@ -100,6 +101,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         { to: "/admin", label: t("Admin Console"), icon: ShieldCheck },
         { to: "/marketplace", label: t("Marketplace"), icon: Store },
         { to: "/market-prices", label: t("Market Prices"), icon: TrendingUp },
+        { to: "/machines-tools", label: t("Machines & Tools"), icon: Wrench },
         { to: "/cold-storage", label: t("Cold Storage"), icon: Snowflake },
         { to: "/schemes", label: t("Schemes"), icon: Shield },
         { to: "/weather", label: t("Weather"), icon: CloudSun },
@@ -129,6 +131,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       { to: "/", label: t("Home"), icon: Home },
       { to: "/marketplace", label: t("Marketplace"), icon: Store },
       { to: "/market-prices", label: t("Market Prices"), icon: TrendingUp },
+      { to: "/machines-tools", label: t("Machines & Tools"), icon: Wrench },
       { to: "/cold-storage", label: t("Cold Storage"), icon: Snowflake },
       { to: "/schemes", label: t("Schemes"), icon: ShieldCheck },
       { to: "/crop-insurance", label: t("Crop Insurance"), icon: Shield },

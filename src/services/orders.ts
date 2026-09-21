@@ -46,7 +46,7 @@ export async function createRealBuyerOrder(input: {
     throw new Error("Cannot place an empty order");
   }
 
-  const productIds = input.items.map(i => i.productId);
+  const productIds = input.items.map((i) => i.productId);
 
   // 1. Re-fetch current database product records from Supabase
   const { data: dbProducts, error: fetchErr } = await supabase
@@ -69,7 +69,7 @@ export async function createRealBuyerOrder(input: {
   }[] = [];
 
   for (const cartItem of input.items) {
-    const dbProduct = dbProducts.find(p => p.id === cartItem.productId);
+    const dbProduct = dbProducts.find((p) => p.id === cartItem.productId);
 
     if (!dbProduct) {
       throw new Error(`Product is no longer available in the store.`);
@@ -84,7 +84,9 @@ export async function createRealBuyerOrder(input: {
     }
 
     if (cartItem.qty > dbProduct.available_quantity) {
-      throw new Error(`Only ${dbProduct.available_quantity} units of "${dbProduct.name}" are currently available.`);
+      throw new Error(
+        `Only ${dbProduct.available_quantity} units of "${dbProduct.name}" are currently available.`,
+      );
     }
 
     const unit_price = Number(dbProduct.price);
@@ -134,7 +136,7 @@ export async function createRealBuyerOrder(input: {
       throw orderErr || new Error("Failed to create order record in Supabase.");
     }
 
-    const orderItemsToInsert = groupItems.map(gi => ({
+    const orderItemsToInsert = groupItems.map((gi) => ({
       order_id: order.id,
       product_id: gi.product.id,
       quantity: gi.qty,
@@ -142,9 +144,7 @@ export async function createRealBuyerOrder(input: {
       subtotal: gi.subtotal,
     }));
 
-    const { error: itemsErr } = await supabase
-      .from("order_items")
-      .insert(orderItemsToInsert);
+    const { error: itemsErr } = await supabase.from("order_items").insert(orderItemsToInsert);
 
     if (itemsErr) {
       console.error("Error creating order items:", itemsErr.message);
@@ -190,7 +190,7 @@ export async function createOrder(input: CreateOrderInput): Promise<Order> {
 
   // 2. Insert Order Items
   if (input.items && input.items.length > 0) {
-    const itemsToInsert = input.items.map(item => ({
+    const itemsToInsert = input.items.map((item) => ({
       order_id: order.id,
       product_id: item.product_id,
       quantity: item.quantity,
@@ -198,9 +198,7 @@ export async function createOrder(input: CreateOrderInput): Promise<Order> {
       subtotal: item.subtotal,
     }));
 
-    const { error: itemsError } = await supabase
-      .from("order_items")
-      .insert(itemsToInsert);
+    const { error: itemsError } = await supabase.from("order_items").insert(itemsToInsert);
 
     if (itemsError) {
       console.error("Error inserting order items:", itemsError.message);
@@ -259,7 +257,7 @@ export async function getOrderById(orderId: string): Promise<OrderWithItems | nu
 export async function updateOrderStatus(
   orderId: string,
   status: OrderStatus,
-  paymentStatus?: PaymentStatus
+  paymentStatus?: PaymentStatus,
 ): Promise<Order | null> {
   if (!isSupabaseConfigured) return null;
   const updatePayload: Partial<Order> = { status };
@@ -289,7 +287,7 @@ export async function updateOrderStatus(
 export async function decrementProductStockAtomic(
   productId: string,
   quantity: number,
-  _fallbackStock?: number
+  _fallbackStock?: number,
 ): Promise<{ newStock: number; status: string }> {
   if (!isSupabaseConfigured) {
     return { newStock: 0, status: "available" };
@@ -349,7 +347,9 @@ export async function decrementProductStockAtomic(
   }
 
   if (!updatedRows || updatedRows.length === 0) {
-    throw new Error(`Concurrent purchase conflict: Stock was modified by another buyer during transaction.`);
+    throw new Error(
+      `Concurrent purchase conflict: Stock was modified by another buyer during transaction.`,
+    );
   }
 
   return {

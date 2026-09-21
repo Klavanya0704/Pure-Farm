@@ -86,18 +86,14 @@ export async function getFarmerProducts(farmerId: string): Promise<DbProduct[]> 
 
 export async function getProductById(id: string): Promise<DbProduct | null> {
   if (!isSupabaseConfigured) {
-    const staticP = STATIC_PRODUCTS.find(p => p.id === id);
+    const staticP = STATIC_PRODUCTS.find((p) => p.id === id);
     return staticP ? convertSingleStatic(staticP) : null;
   }
 
-  const { data, error } = await supabase
-    .from("products")
-    .select("*")
-    .eq("id", id)
-    .single();
+  const { data, error } = await supabase.from("products").select("*").eq("id", id).single();
 
   if (error) {
-    const staticP = STATIC_PRODUCTS.find(p => p.id === id);
+    const staticP = STATIC_PRODUCTS.find((p) => p.id === id);
     return staticP ? convertSingleStatic(staticP) : null;
   }
   return data;
@@ -108,7 +104,9 @@ export async function createProduct(input: CreateProductInput): Promise<DbProduc
     throw new Error("Supabase is not configured");
   }
 
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   const farmerId = input.farmer_id || user?.id;
 
   if (!farmerId) {
@@ -151,20 +149,23 @@ export async function updateProduct(id: string, updates: UpdateProductInput): Pr
   const payload: Record<string, any> = {};
   if (updates["name"] !== undefined) payload["name"] = updates["name"].trim();
   if (updates["category"] !== undefined) payload["category"] = updates["category"];
-  if (updates["description"] !== undefined) payload["description"] = updates["description"]?.trim() || null;
+  if (updates["description"] !== undefined)
+    payload["description"] = updates["description"]?.trim() || null;
   if (updates["price"] !== undefined) payload["price"] = Number(updates["price"]);
   if (updates["unit"] !== undefined) payload["unit"] = updates["unit"].trim();
   if (updates["quantity"] !== undefined) payload["quantity"] = Number(updates["quantity"]);
-  if (updates["available_quantity"] !== undefined) payload["available_quantity"] = Number(updates["available_quantity"]);
+  if (updates["available_quantity"] !== undefined)
+    payload["available_quantity"] = Number(updates["available_quantity"]);
   if (updates["location"] !== undefined) payload["location"] = updates["location"]?.trim() || null;
-  if (updates["image_url"] !== undefined) payload["image_url"] = updates["image_url"]?.trim() || null;
+  if (updates["image_url"] !== undefined)
+    payload["image_url"] = updates["image_url"]?.trim() || null;
   if (updates["quality"] !== undefined) payload["quality"] = updates["quality"]?.trim() || null;
-  if (updates["harvest_date"] !== undefined) payload["harvest_date"] = updates["harvest_date"] || null;
+  if (updates["harvest_date"] !== undefined)
+    payload["harvest_date"] = updates["harvest_date"] || null;
   if (updates["status"] !== undefined) payload["status"] = updates["status"];
   if (updates["badge"] !== undefined) payload["badge"] = updates["badge"]?.trim() || null;
 
-  const { data, error } = await (supabase
-    .from("products") as any)
+  const { data, error } = await (supabase.from("products") as any)
     .update(payload)
     .eq("id", id)
     .select()
@@ -213,10 +214,14 @@ function convertSingleStatic(p: LegacyProduct): DbProduct {
   };
 }
 
-function mapStaticToDbProducts(options?: { category?: string; farmerId?: string; limit?: number }): DbProduct[] {
+function mapStaticToDbProducts(options?: {
+  category?: string;
+  farmerId?: string;
+  limit?: number;
+}): DbProduct[] {
   let filtered = STATIC_PRODUCTS;
   if (options?.category && options.category !== "all") {
-    filtered = filtered.filter(p => p.category === options.category);
+    filtered = filtered.filter((p) => p.category === options.category);
   }
   if (options?.limit) {
     filtered = filtered.slice(0, options.limit);

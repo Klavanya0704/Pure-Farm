@@ -20,7 +20,7 @@ export function calculateHaversineDistance(
   lat1: number,
   lon1: number,
   lat2: number,
-  lon2: number
+  lon2: number,
 ): number {
   const R = 6371; // Earth radius in kilometers
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
@@ -77,7 +77,7 @@ export const DEFAULT_COLD_STORAGE_FACILITIES: ColdStorageFacility[] = [
     name: "Krishna Agro Cold Preserving Unit",
     address: "Guntur Road, Vijayawada, Andhra Pradesh - 520001",
     latitude: 16.5062,
-    longitude: 80.6480,
+    longitude: 80.648,
     distance: 62.0,
     capacity: 4000,
     available_capacity: 1800,
@@ -142,7 +142,7 @@ export async function getColdStorageFacilities(options?: {
           options.userLat!,
           options.userLng!,
           facility.latitude,
-          facility.longitude
+          facility.longitude,
         );
         return { ...facility, calculatedDistance: dist };
       }
@@ -153,9 +153,7 @@ export async function getColdStorageFacilities(options?: {
   if (options?.search && options.search.trim()) {
     const q = options.search.trim().toLowerCase();
     facilities = facilities.filter(
-      (f) =>
-        f.name.toLowerCase().includes(q) ||
-        f.address.toLowerCase().includes(q)
+      (f) => f.name.toLowerCase().includes(q) || f.address.toLowerCase().includes(q),
     );
   }
 

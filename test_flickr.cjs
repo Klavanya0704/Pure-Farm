@@ -1,4 +1,4 @@
-const https = require('https');
+const https = require("https");
 const url = "https://loremflickr.com/800/600/corn,seed";
 
 https.get(url, (res) => {

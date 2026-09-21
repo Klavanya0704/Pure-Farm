@@ -5,7 +5,9 @@ const puppeteer = require("puppeteer");
   await page.setViewport({ width: 1440, height: 900 });
   await page.goto("http://localhost:4173/login", { waitUntil: "networkidle0" });
   await page.evaluate(() => {
-    Array.from(document.querySelectorAll('button')).find(el => el.textContent.includes('Farmer')).click();
+    Array.from(document.querySelectorAll("button"))
+      .find((el) => el.textContent.includes("Farmer"))
+      .click();
   });
   await page.waitForNavigation();
   await page.goto("http://localhost:4173/market", { waitUntil: "networkidle0" });

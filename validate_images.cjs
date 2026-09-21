@@ -1,8 +1,8 @@
-const fs = require('fs');
-const audit = JSON.parse(fs.readFileSync('product-image-audit.json', 'utf-8'));
+const fs = require("fs");
+const audit = JSON.parse(fs.readFileSync("product-image-audit.json", "utf-8"));
 const total = audit.length;
-const verified = audit.filter(a => a.matchStatus === 'verified').length;
-const missing = audit.filter(a => a.matchStatus === 'broken' || !a.imagePath).length;
+const verified = audit.filter((a) => a.matchStatus === "verified").length;
+const missing = audit.filter((a) => a.matchStatus === "broken" || !a.imagePath).length;
 
 console.log(`Products: ${total}`);
 console.log(`Images: ${total}`);

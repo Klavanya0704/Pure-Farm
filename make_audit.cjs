@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const content = fs.readFileSync('src/data/products.ts', 'utf-8');
+const content = fs.readFileSync("src/data/products.ts", "utf-8");
 const regex = /^\s*\[\s*"([^"]+)",\s*"([^"]+)",\s*"([^"]+)",/gm;
 let m;
 const products = [];
@@ -32,7 +32,7 @@ for (const p of products) {
   <div class="card">
     <div class="id">${p.id}</div>
     <div class="name" style="font-size: 12px;">${p.name}</div>
-    <img src="file://${path.resolve('public/images/products/' + p.id + '.jpg')}" />
+    <img src="file://${path.resolve("public/images/products/" + p.id + ".jpg")}" />
   </div>
   `;
 }
@@ -43,5 +43,5 @@ html += `
 </html>
 `;
 
-fs.writeFileSync('audit.html', html);
+fs.writeFileSync("audit.html", html);
 console.log("audit.html created.");

@@ -50,19 +50,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   // Helper to sync profile from Supabase
-  const loadUserProfile = async (authUserId: string, authEmail?: string, authMetadata?: Record<string, any>): Promise<UserSession | null> => {
+  const loadUserProfile = async (
+    authUserId: string,
+    authEmail?: string,
+    authMetadata?: Record<string, any>,
+  ): Promise<UserSession | null> => {
     try {
       let profile = await getProfile(authUserId);
 
       // If profile is missing in profiles table, create it from auth metadata
       if (!profile && isSupabaseConfigured) {
-        const metadataRole = authMetadata?.["app_role"] || authMetadata?.["user_role"] || authMetadata?.["role"];
-        const safeRole: UserRole = (metadataRole === "buyer" || metadataRole === "student" || metadataRole === "admin" || metadataRole === "seller") ? metadataRole : "farmer";
-        
+        const metadataRole =
+          authMetadata?.["app_role"] || authMetadata?.["user_role"] || authMetadata?.["role"];
+        const safeRole: UserRole =
+          metadataRole === "buyer" ||
+          metadataRole === "student" ||
+          metadataRole === "admin" ||
+          metadataRole === "seller"
+            ? metadataRole
+            : "farmer";
+
         try {
           profile = await upsertProfile({
             id: authUserId,
-            full_name: authMetadata?.["full_name"] || authMetadata?.["name"] || authEmail?.split("@")[0] || "PureFarm User",
+            full_name:
+              authMetadata?.["full_name"] ||
+              authMetadata?.["name"] ||
+              authEmail?.split("@")[0] ||
+              "PureFarm User",
             email: authEmail || null,
             phone: authMetadata?.["phone"] || null,
             role: safeRole,
@@ -74,7 +89,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       if (profile) {
-        const resolvedRole = (authMetadata?.["app_role"] || authMetadata?.["user_role"] || profile.role) as UserRole;
+        const resolvedRole = (authMetadata?.["app_role"] ||
+          authMetadata?.["user_role"] ||
+          profile.role) as UserRole;
         const session: UserSession = {
           id: profile.id,
           name: profile.full_name,
@@ -92,7 +109,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     // Fallback if metadata is available
     if (authEmail) {
-      const resolvedRole = (authMetadata?.["app_role"] || authMetadata?.["user_role"] || authMetadata?.["role"] || "farmer") as UserRole;
+      const resolvedRole = (authMetadata?.["app_role"] ||
+        authMetadata?.["user_role"] ||
+        authMetadata?.["role"] ||
+        "farmer") as UserRole;
       return {
         id: authUserId,
         name: authMetadata?.["full_name"] || authMetadata?.["name"] || authEmail.split("@")[0],
@@ -112,7 +132,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     async function initAuth() {
       if (isSupabaseConfigured) {
         try {
-          const { data: { session }, error } = await supabase.auth.getSession();
+          const {
+            data: { session },
+            error,
+          } = await supabase.auth.getSession();
           if (error) {
             console.error("Error fetching Supabase session:", error.message);
           }
@@ -121,11 +144,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             const userSession = await loadUserProfile(
               session.user.id,
               session.user.email,
-              session.user.user_metadata
+              session.user.user_metadata,
             );
             if (mounted) setUser(userSession);
           } else if (mounted) {
-            const stored = typeof window !== "undefined" ? window.localStorage.getItem(LOCAL_FALLBACK_SESSION_KEY) : null;
+            const stored =
+              typeof window !== "undefined"
+                ? window.localStorage.getItem(LOCAL_FALLBACK_SESSION_KEY)
+                : null;
             if (stored) {
               try {
                 setUser(JSON.parse(stored));
@@ -167,13 +193,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             const userSession = await loadUserProfile(
               session.user.id,
               session.user.email,
-              session.user.user_metadata
+              session.user.user_metadata,
             );
             if (mounted) setUser(userSession);
           }
         } else if (event === "SIGNED_OUT") {
           if (mounted) {
-            const stored = typeof window !== "undefined" ? window.localStorage.getItem(LOCAL_FALLBACK_SESSION_KEY) : null;
+            const stored =
+              typeof window !== "undefined"
+                ? window.localStorage.getItem(LOCAL_FALLBACK_SESSION_KEY)
+                : null;
             if (stored) {
               try {
                 setUser(JSON.parse(stored));
@@ -201,7 +230,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const { name, email, phone, password, role, location } = input;
 
     // Security check: Force public signups to be farmer, buyer, or student
-    const safeRole: "farmer" | "buyer" | "student" = (role === "buyer" || role === "student") ? role : "farmer";
+    const safeRole: "farmer" | "buyer" | "student" =
+      role === "buyer" || role === "student" ? role : "farmer";
 
     if (!email || !password || password.length < 6) {
       return { success: false, error: "Password must be at least 6 characters long." };
@@ -225,7 +255,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
         if (authResult.error) {
           console.error("Supabase Auth signUp error:", authResult.error);
-          return { success: false, error: authResult.error.message || "Database error saving new user." };
+          return {
+            success: false,
+            error: authResult.error.message || "Database error saving new user.",
+          };
         }
 
         if (authResult.data.user) {
@@ -240,7 +273,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
               location: location?.trim() || null,
             });
           } catch (profileErr: any) {
-            console.warn("Could not immediately upsert profile:", profileErr?.message || profileErr);
+            console.warn(
+              "Could not immediately upsert profile:",
+              profileErr?.message || profileErr,
+            );
           }
 
           const userSession: UserSession = {
@@ -259,7 +295,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         return { success: true, role: safeRole };
       } catch (err: any) {
         console.error("Signup error:", err);
-        return { success: false, error: err.message || "An unexpected error occurred during signup." };
+        return {
+          success: false,
+          error: err.message || "An unexpected error occurred during signup.",
+        };
       }
     } else {
       // Offline fallback
@@ -328,7 +367,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const userSession = await loadUserProfile(
           data.user.id,
           data.user.email,
-          data.user.user_metadata
+          data.user.user_metadata,
         );
 
         if (userSession) {
@@ -428,8 +467,14 @@ export function useAuth() {
     return {
       user: null,
       loading: false,
-      login: async (): Promise<AuthResponse> => ({ success: false, error: "AuthContext unavailable" }),
-      signup: async (): Promise<AuthResponse> => ({ success: false, error: "AuthContext unavailable" }),
+      login: async (): Promise<AuthResponse> => ({
+        success: false,
+        error: "AuthContext unavailable",
+      }),
+      signup: async (): Promise<AuthResponse> => ({
+        success: false,
+        error: "AuthContext unavailable",
+      }),
       logout: async (): Promise<void> => {},
       hasRole: (): boolean => false,
       hasAnyRole: (): boolean => false,

@@ -1,8 +1,11 @@
-import fs from 'fs';
-import https from 'https';
+import fs from "fs";
+import https from "https";
 
 async function getWikiImage(query) {
-  const wikiUrl = 'https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=' + encodeURIComponent(query) + '&gsrlimit=1&prop=pageimages&pithumbsize=800&format=json';
+  const wikiUrl =
+    "https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=" +
+    encodeURIComponent(query) +
+    "&gsrlimit=1&prop=pageimages&pithumbsize=800&format=json";
   try {
     const wikiRes = await fetch(wikiUrl);
     const wikiJson = await wikiRes.json();
@@ -136,17 +139,17 @@ const customQueries = {
   "Pheromone Trap Set (Pack of 10)": "Pheromone trap",
   "Farm Safety Kit (Mask, Gloves, Goggles)": "Personal protective equipment",
   "Weather Station Mini Digital": "Weather station",
-  "Tractor Trolley Tipping 5 Tonne": "Tractor trailer"
+  "Tractor Trolley Tipping 5 Tonne": "Tractor trailer",
 };
 
 (async () => {
-  const content = fs.readFileSync('src/data/products.ts', 'utf8');
+  const content = fs.readFileSync("src/data/products.ts", "utf8");
   const match = content.match(/const ROWS: Row\[\] = \[([\s\S]*?)\];/);
   if (!match) return;
-  const rowsRaw = match[1].split('],\n');
-  
+  const rowsRaw = match[1].split("],\n");
+
   const mappings = {};
-  
+
   let i = 0;
   for (const row of rowsRaw) {
     const titleMatch = row.match(/"([^"]+)"/);
@@ -154,24 +157,38 @@ const customQueries = {
       const title = titleMatch[1];
       let query = customQueries[title];
       if (!query) query = title;
-      
+
       let url = await getWikiImage(query);
       if (!url) {
-         // fallback manually to a known image for the category
-         if (query.includes("fertilizer") || query.includes("granules")) url = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Fertilizer.jpg/800px-Fertilizer.jpg";
-         else if (query.includes("sprayer") || query.includes("pump")) url = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Knapsack_sprayer.jpg/800px-Knapsack_sprayer.jpg";
-         else if (query.includes("seed")) url = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Various_seeds.jpg/800px-Various_seeds.jpg";
-         else if (query.includes("trap")) url = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Insect_trap.jpg/800px-Insect_trap.jpg";
-         else if (query.includes("net") || query.includes("mulch")) url = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Plastic_mulch.jpg/800px-Plastic_mulch.jpg";
-         else if (query.includes("silo")) url = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Grain_silos.jpg/800px-Grain_silos.jpg";
-         else url = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Agriculture_in_India.jpg/800px-Agriculture_in_India.jpg";
+        // fallback manually to a known image for the category
+        if (query.includes("fertilizer") || query.includes("granules"))
+          url =
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Fertilizer.jpg/800px-Fertilizer.jpg";
+        else if (query.includes("sprayer") || query.includes("pump"))
+          url =
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Knapsack_sprayer.jpg/800px-Knapsack_sprayer.jpg";
+        else if (query.includes("seed"))
+          url =
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Various_seeds.jpg/800px-Various_seeds.jpg";
+        else if (query.includes("trap"))
+          url =
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Insect_trap.jpg/800px-Insect_trap.jpg";
+        else if (query.includes("net") || query.includes("mulch"))
+          url =
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Plastic_mulch.jpg/800px-Plastic_mulch.jpg";
+        else if (query.includes("silo"))
+          url =
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Grain_silos.jpg/800px-Grain_silos.jpg";
+        else
+          url =
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Agriculture_in_India.jpg/800px-Agriculture_in_India.jpg";
       }
       mappings[title] = url;
-      console.log(`[${i+1}/120] Found ${title} -> ${url}`);
+      console.log(`[${i + 1}/120] Found ${title} -> ${url}`);
     }
     i++;
   }
-  
-  fs.writeFileSync('src/data/image_mappings.json', JSON.stringify(mappings, null, 2));
-  console.log('Done mapping custom Wiki images!');
+
+  fs.writeFileSync("src/data/image_mappings.json", JSON.stringify(mappings, null, 2));
+  console.log("Done mapping custom Wiki images!");
 })();

@@ -150,8 +150,7 @@ export const SCHEMES: Scheme[] = [
     description:
       "Comprehensive crop insurance protection against drought, flood, pests, diseases, and post-harvest losses at minimal premium.",
     deadline: "Seasonal crop notification dates",
-    eligibility:
-      "All farmers growing notified crops in notified areas including tenant farmers.",
+    eligibility: "All farmers growing notified crops in notified areas including tenant farmers.",
     url: "https://pmfby.gov.in/",
     icon: "🛡️",
     benefit: "100% crop loss risk protection",
@@ -164,8 +163,7 @@ export const SCHEMES: Scheme[] = [
     description:
       "Subsidy up to 40-50% for purchasing tractors, power tillers, harvesters, and modern farm machinery.",
     deadline: "Annual state portal window",
-    eligibility:
-      "Individual farmers, SHGs, FPOs, and custom hiring centres in rural areas.",
+    eligibility: "Individual farmers, SHGs, FPOs, and custom hiring centres in rural areas.",
     url: "https://agrimachinery.nic.in/",
     icon: "🚜",
     benefit: "40-50% farm machinery subsidy",
@@ -252,7 +250,8 @@ export const COURSES: Course[] = [
     progress: 0,
     topic: "Crop Management",
     format: "Video & Field Notes",
-    description: "Learn modern farming practices, crop planning, farm management, and efficient use of agricultural resources.",
+    description:
+      "Learn modern farming practices, crop planning, farm management, and efficient use of agricultural resources.",
   },
   {
     id: "agri-2",
@@ -264,7 +263,8 @@ export const COURSES: Course[] = [
     progress: 0,
     topic: "Soil & Nutrients",
     format: "Interactive Soil Guide",
-    description: "Learn how to test soil, understand soil nutrients, improve soil fertility, and use fertilizers properly.",
+    description:
+      "Learn how to test soil, understand soil nutrients, improve soil fertility, and use fertilizers properly.",
   },
   {
     id: "agri-3",
@@ -276,7 +276,8 @@ export const COURSES: Course[] = [
     progress: 0,
     topic: "Crop Planning",
     format: "Season Planner",
-    description: "Learn how to select crops, plan sowing schedules, and choose crops according to seasons and local conditions.",
+    description:
+      "Learn how to select crops, plan sowing schedules, and choose crops according to seasons and local conditions.",
   },
   {
     id: "agri-4",
@@ -288,7 +289,8 @@ export const COURSES: Course[] = [
     progress: 0,
     topic: "Irrigation",
     format: "Drip & Water Guide",
-    description: "Learn efficient irrigation methods, water conservation, drip irrigation, and proper watering schedules.",
+    description:
+      "Learn efficient irrigation methods, water conservation, drip irrigation, and proper watering schedules.",
   },
   {
     id: "agri-5",
@@ -300,7 +302,8 @@ export const COURSES: Course[] = [
     progress: 0,
     topic: "Pest Control",
     format: "Field Scout Manual",
-    description: "Identify common crop pests and diseases and learn safe and effective methods to manage them.",
+    description:
+      "Identify common crop pests and diseases and learn safe and effective methods to manage them.",
   },
   {
     id: "agri-6",
@@ -312,7 +315,8 @@ export const COURSES: Course[] = [
     progress: 0,
     topic: "Organic Farming",
     format: "Compost & Rotation",
-    description: "Learn organic farming practices, natural inputs, composting, crop rotation, and sustainable agriculture methods.",
+    description:
+      "Learn organic farming practices, natural inputs, composting, crop rotation, and sustainable agriculture methods.",
   },
   {
     id: "agri-7",
@@ -324,7 +328,8 @@ export const COURSES: Course[] = [
     progress: 0,
     topic: "Smart Farming",
     format: "Tech & Drones",
-    description: "Learn how technology, sensors, drones, weather information, and digital tools can improve farm productivity.",
+    description:
+      "Learn how technology, sensors, drones, weather information, and digital tools can improve farm productivity.",
   },
   {
     id: "agri-8",
@@ -336,7 +341,8 @@ export const COURSES: Course[] = [
     progress: 0,
     topic: "Post Harvest",
     format: "Storage & Cold Chain",
-    description: "Learn harvesting, grading, drying, storage, cold storage, and methods to reduce post-harvest losses.",
+    description:
+      "Learn harvesting, grading, drying, storage, cold storage, and methods to reduce post-harvest losses.",
   },
   {
     id: "agri-9",
@@ -348,7 +354,8 @@ export const COURSES: Course[] = [
     progress: 0,
     topic: "Market Advisory",
     format: "Price Comparison",
-    description: "Learn how to understand mandi prices, compare markets, choose the right time to sell, and improve selling decisions.",
+    description:
+      "Learn how to understand mandi prices, compare markets, choose the right time to sell, and improve selling decisions.",
   },
   {
     id: "agri-10",
@@ -360,7 +367,8 @@ export const COURSES: Course[] = [
     progress: 0,
     topic: "Government Schemes",
     format: "Scheme Eligibility",
-    description: "Learn about important government schemes, financial support, crop insurance, farmer benefits, and eligibility.",
+    description:
+      "Learn about important government schemes, financial support, crop insurance, farmer benefits, and eligibility.",
   },
   {
     id: "agri-11",
@@ -372,7 +380,8 @@ export const COURSES: Course[] = [
     progress: 0,
     topic: "Precision Farming",
     format: "Micro-Irrigation Labs",
-    description: "Learn precision farming techniques, drip irrigation, efficient fertilizer application, and resource management.",
+    description:
+      "Learn precision farming techniques, drip irrigation, efficient fertilizer application, and resource management.",
   },
   {
     id: "agri-12",
@@ -384,7 +393,8 @@ export const COURSES: Course[] = [
     progress: 0,
     topic: "Climate Resilience",
     format: "Weather & Adaptation",
-    description: "Learn farming practices that help farmers adapt to changing weather conditions and reduce climate-related risks.",
+    description:
+      "Learn farming practices that help farmers adapt to changing weather conditions and reduce climate-related risks.",
   },
 ];
 
@@ -400,7 +410,8 @@ export const INTERNSHIPS: Internship[] = [
     deadline: "30 Oct 2026",
     skills: ["Crop Monitoring", "Field Data Collection", "Farm Management"],
     category: "Field Work",
-    description: "Assist farmers with digital agriculture tools, crop monitoring, field data collection, and farm advisory activities.",
+    description:
+      "Assist farmers with digital agriculture tools, crop monitoring, field data collection, and farm advisory activities.",
     duration: "3 Months",
     eligibility: "Students or graduates in Agriculture, Agritech, Diploma, or related field.",
     responsibilities: [
@@ -420,7 +431,8 @@ export const INTERNSHIPS: Internship[] = [
     deadline: "25 Oct 2026",
     skills: ["Crop Management", "Agriculture Research", "Data Collection"],
     category: "Research",
-    description: "Support crop monitoring, crop growth observations, seasonal planning, and farm experiment activities.",
+    description:
+      "Support crop monitoring, crop growth observations, seasonal planning, and farm experiment activities.",
     duration: "6 Months",
     eligibility: "B.Sc or M.Sc Agriculture students.",
     responsibilities: [
@@ -440,7 +452,8 @@ export const INTERNSHIPS: Internship[] = [
     deadline: "15 Nov 2026",
     skills: ["Soil Testing", "Nutrient Management", "Fertilizer Management"],
     category: "Research",
-    description: "Learn soil testing, nutrient analysis, fertilizer recommendations, and soil health management.",
+    description:
+      "Learn soil testing, nutrient analysis, fertilizer recommendations, and soil health management.",
     duration: "4 Months",
     eligibility: "Degree in Chemistry, Agriculture, or Environmental Science.",
     responsibilities: [
@@ -460,7 +473,8 @@ export const INTERNSHIPS: Internship[] = [
     deadline: "05 Nov 2026",
     skills: ["Drone Technology", "Remote Sensing", "Precision Agriculture"],
     category: "Agritech",
-    description: "Work with drones, remote sensing, crop monitoring, farm mapping, and precision agriculture technologies.",
+    description:
+      "Work with drones, remote sensing, crop monitoring, farm mapping, and precision agriculture technologies.",
     duration: "3 Months",
     eligibility: "Engineering, Agritech, or Agriculture students interested in drone technology.",
     responsibilities: [
@@ -480,7 +494,8 @@ export const INTERNSHIPS: Internship[] = [
     deadline: "20 Oct 2026",
     skills: ["Horticulture", "Vegetable Cultivation", "Nursery Management"],
     category: "Horticulture",
-    description: "Gain practical experience in vegetable cultivation, fruit crops, nursery management, and protected cultivation.",
+    description:
+      "Gain practical experience in vegetable cultivation, fruit crops, nursery management, and protected cultivation.",
     duration: "3 Months",
     eligibility: "Students in Horticulture or Agriculture diplomas/degrees.",
     responsibilities: [
@@ -500,7 +515,8 @@ export const INTERNSHIPS: Internship[] = [
     deadline: "12 Nov 2026",
     skills: ["Livestock Management", "Dairy Management", "Animal Nutrition"],
     category: "Livestock",
-    description: "Learn livestock care, dairy management, animal nutrition, farm hygiene, and basic livestock record keeping.",
+    description:
+      "Learn livestock care, dairy management, animal nutrition, farm hygiene, and basic livestock record keeping.",
     duration: "6 Months",
     eligibility: "Veterinary Science, Dairy Technology, or Animal Husbandry students.",
     responsibilities: [
@@ -520,7 +536,8 @@ export const INTERNSHIPS: Internship[] = [
     deadline: "18 Nov 2026",
     skills: ["Post-Harvest Management", "Food Processing", "Packaging"],
     category: "Food Processing",
-    description: "Learn post-harvest handling, grading, packaging, storage, food processing, and value addition.",
+    description:
+      "Learn post-harvest handling, grading, packaging, storage, food processing, and value addition.",
     duration: "4 Months",
     eligibility: "Food Technology, Agri Business, or Food Engineering students.",
     responsibilities: [
@@ -540,7 +557,8 @@ export const INTERNSHIPS: Internship[] = [
     deadline: "28 Oct 2026",
     skills: ["Organic Farming", "Composting", "Sustainable Agriculture"],
     category: "Organic Farming",
-    description: "Gain practical experience in organic cultivation, composting, natural inputs, crop rotation, and sustainable farming.",
+    description:
+      "Gain practical experience in organic cultivation, composting, natural inputs, crop rotation, and sustainable farming.",
     duration: "3 Months",
     eligibility: "Interest in organic agriculture, permaculture, or natural farming.",
     responsibilities: [
@@ -560,7 +578,8 @@ export const INTERNSHIPS: Internship[] = [
     deadline: "10 Nov 2026",
     skills: ["Farmer Training", "Communication", "Agricultural Extension"],
     category: "Field Work",
-    description: "Work with farming communities and support farmer awareness programs, training sessions, and agricultural information sharing.",
+    description:
+      "Work with farming communities and support farmer awareness programs, training sessions, and agricultural information sharing.",
     duration: "3 Months",
     eligibility: "Students in Rural Development, Social Work, or Agriculture.",
     responsibilities: [

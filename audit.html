@@ -1,737 +1,993 @@
-
 <html>
-<head>
-<style>
-  body { font-family: sans-serif; background: #eee; }
-  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-  .card { background: #fff; padding: 10px; text-align: center; border: 1px solid #ccc; }
-  .card img { max-width: 100%; height: 150px; object-fit: cover; }
-  .id { font-weight: bold; color: red; }
-</style>
-</head>
-<body>
-<div class="grid">
+  <head>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #eee;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+      }
+      .card {
+        background: #fff;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ccc;
+      }
+      .card img {
+        max-width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+      .id {
+        font-weight: bold;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="card">
+        <div class="id">p-001</div>
+        <div class="name" style="font-size: 12px">Paddy Seed PR-126 (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-001.jpg"
+        />
+      </div>
 
-  <div class="card">
-    <div class="id">p-001</div>
-    <div class="name" style="font-size: 12px;">Paddy Seed PR-126 (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-001.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-002</div>
-    <div class="name" style="font-size: 12px;">Wheat Seed PBW-343 (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-002.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-003</div>
-    <div class="name" style="font-size: 12px;">BT Cotton Seed (450 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-003.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-004</div>
-    <div class="name" style="font-size: 12px;">Groundnut Seed TAG-24 (10 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-004.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-005</div>
-    <div class="name" style="font-size: 12px;">Hybrid Maize Seed DKC-9108 (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-005.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-006</div>
-    <div class="name" style="font-size: 12px;">Sunflower Seed KBSH-44 (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-006.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-007</div>
-    <div class="name" style="font-size: 12px;">Pearl Millet Seed HHB-67 (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-007.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-008</div>
-    <div class="name" style="font-size: 12px;">Hybrid Tomato Seed (10 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-008.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-009</div>
-    <div class="name" style="font-size: 12px;">Onion Seed Agrifound Dark Red (50 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-009.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-010</div>
-    <div class="name" style="font-size: 12px;">Hybrid Brinjal Seed (10 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-010.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-011</div>
-    <div class="name" style="font-size: 12px;">Chilli Seed Byadgi Dabbi (50 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-011.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-012</div>
-    <div class="name" style="font-size: 12px;">Okra Seed Arka Anamika (250 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-012.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-013</div>
-    <div class="name" style="font-size: 12px;">Mustard Seed Pusa Bold (2 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-013.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-014</div>
-    <div class="name" style="font-size: 12px;">Chickpea Seed JG-11 (10 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-014.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-015</div>
-    <div class="name" style="font-size: 12px;">Pigeon Pea Seed ICPL-87 (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-015.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-016</div>
-    <div class="name" style="font-size: 12px;">Soybean Seed JS-9560 (20 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-016.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-017</div>
-    <div class="name" style="font-size: 12px;">Sugarcane Seed Sett Co-0238 (100 setts)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-017.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-018</div>
-    <div class="name" style="font-size: 12px;">Potato Seed Tuber Kufri Jyoti (50 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-018.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-019</div>
-    <div class="name" style="font-size: 12px;">Green Gram Seed IPM-02-3 (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-019.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-020</div>
-    <div class="name" style="font-size: 12px;">Black Gram Seed Pant U-31 (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-020.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-021</div>
-    <div class="name" style="font-size: 12px;">Cabbage Seed Golden Acre (100 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-021.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-022</div>
-    <div class="name" style="font-size: 12px;">Cauliflower Seed Snowball-16 (50 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-022.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-023</div>
-    <div class="name" style="font-size: 12px;">Cucumber Seed Hybrid Malini (25 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-023.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-024</div>
-    <div class="name" style="font-size: 12px;">Bottle Gourd Seed Pusa Naveen (100 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-024.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-025</div>
-    <div class="name" style="font-size: 12px;">Bitter Gourd Seed Hybrid (50 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-025.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-026</div>
-    <div class="name" style="font-size: 12px;">Watermelon Seed Sugar Baby (100 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-026.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-027</div>
-    <div class="name" style="font-size: 12px;">Muskmelon Seed Hara Madhu (100 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-027.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-028</div>
-    <div class="name" style="font-size: 12px;">Carrot Seed Pusa Rudhira (250 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-028.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-029</div>
-    <div class="name" style="font-size: 12px;">Spinach Seed All Green (500 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-029.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-030</div>
-    <div class="name" style="font-size: 12px;">Coriander Seed Local (1 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-030.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-031</div>
-    <div class="name" style="font-size: 12px;">Fenugreek Seed Pusa Early Bunching (1 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-031.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-032</div>
-    <div class="name" style="font-size: 12px;">Barley Seed BH-946 (20 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-032.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-033</div>
-    <div class="name" style="font-size: 12px;">Sorghum Seed CSH-16 (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-033.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-034</div>
-    <div class="name" style="font-size: 12px;">Finger Millet Seed GPU-28 (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-034.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-035</div>
-    <div class="name" style="font-size: 12px;">Sesame Seed GT-10 (2 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-035.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-036</div>
-    <div class="name" style="font-size: 12px;">Castor Seed GCH-7 (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-036.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-037</div>
-    <div class="name" style="font-size: 12px;">Lentil Seed IPL-406 (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-037.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-038</div>
-    <div class="name" style="font-size: 12px;">Field Pea Seed HFP-4 (10 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-038.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-039</div>
-    <div class="name" style="font-size: 12px;">Berseem Fodder Seed (10 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-039.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-040</div>
-    <div class="name" style="font-size: 12px;">Napier Grass Root Slips (100 slips)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-040.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-041</div>
-    <div class="name" style="font-size: 12px;">Marigold Seed African Orange (50 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-041.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-042</div>
-    <div class="name" style="font-size: 12px;">Turmeric Rhizome Seed Salem (25 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-042.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-043</div>
-    <div class="name" style="font-size: 12px;">Ginger Rhizome Seed Varada (25 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-043.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-044</div>
-    <div class="name" style="font-size: 12px;">Garlic Seed Bulb G-282 (10 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-044.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-045</div>
-    <div class="name" style="font-size: 12px;">Papaya Seed Red Lady (10 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-045.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-046</div>
-    <div class="name" style="font-size: 12px;">Banana Tissue Culture Plant G-9</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-046.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-047</div>
-    <div class="name" style="font-size: 12px;">Guava Grafted Plant Allahabad Safeda</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-047.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-048</div>
-    <div class="name" style="font-size: 12px;">Mango Grafted Plant Dasheri</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-048.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-049</div>
-    <div class="name" style="font-size: 12px;">Drumstick Seed PKM-1 (250 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-049.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-050</div>
-    <div class="name" style="font-size: 12px;">Curry Leaf Plant Sapling</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-050.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-051</div>
-    <div class="name" style="font-size: 12px;">Urea 46% N (45 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-051.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-052</div>
-    <div class="name" style="font-size: 12px;">DAP 18-46-0 (50 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-052.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-053</div>
-    <div class="name" style="font-size: 12px;">MOP Muriate of Potash (50 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-053.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-054</div>
-    <div class="name" style="font-size: 12px;">NPK 10:26:26 Complex (50 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-054.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-055</div>
-    <div class="name" style="font-size: 12px;">NPK 20:20:0:13 (50 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-055.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-056</div>
-    <div class="name" style="font-size: 12px;">Single Super Phosphate (50 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-056.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-057</div>
-    <div class="name" style="font-size: 12px;">Zinc Sulphate 21% (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-057.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-058</div>
-    <div class="name" style="font-size: 12px;">Ammonium Sulphate (50 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-058.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-059</div>
-    <div class="name" style="font-size: 12px;">Calcium Nitrate (25 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-059.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-060</div>
-    <div class="name" style="font-size: 12px;">Water Soluble NPK 19:19:19 (1 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-060.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-061</div>
-    <div class="name" style="font-size: 12px;">Water Soluble NPK 0:52:34 (1 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-061.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-062</div>
-    <div class="name" style="font-size: 12px;">Potassium Schoenite (25 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-062.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-063</div>
-    <div class="name" style="font-size: 12px;">Vermicompost Organic (30 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-063.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-064</div>
-    <div class="name" style="font-size: 12px;">Neem Cake Powder (25 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-064.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-065</div>
-    <div class="name" style="font-size: 12px;">Bone Meal Organic (10 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-065.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-066</div>
-    <div class="name" style="font-size: 12px;">Cow Dung Manure Composted (40 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-066.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-067</div>
-    <div class="name" style="font-size: 12px;">Rhizobium Biofertiliser (500 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-067.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-068</div>
-    <div class="name" style="font-size: 12px;">Azotobacter Biofertiliser (500 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-068.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-069</div>
-    <div class="name" style="font-size: 12px;">PSB Phosphate Solubilising Bacteria (500 g)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-069.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-070</div>
-    <div class="name" style="font-size: 12px;">Mycorrhiza VAM Granules (4 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-070.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-071</div>
-    <div class="name" style="font-size: 12px;">Trichoderma Viride Bio-fungicide (1 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-071.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-072</div>
-    <div class="name" style="font-size: 12px;">Pseudomonas Fluorescens (1 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-072.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-073</div>
-    <div class="name" style="font-size: 12px;">Humic Acid Granules (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-073.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-074</div>
-    <div class="name" style="font-size: 12px;">Seaweed Extract Liquid (1 litre)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-074.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-075</div>
-    <div class="name" style="font-size: 12px;">Micronutrient Mixture Grade-II (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-075.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-076</div>
-    <div class="name" style="font-size: 12px;">Boron 20% Powder (1 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-076.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-077</div>
-    <div class="name" style="font-size: 12px;">Ferrous Sulphate (10 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-077.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-078</div>
-    <div class="name" style="font-size: 12px;">Gypsum Agricultural Grade (50 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-078.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-079</div>
-    <div class="name" style="font-size: 12px;">Sulphur 90% WDG (5 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-079.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-080</div>
-    <div class="name" style="font-size: 12px;">Liquid Consortia Biofertiliser (1 litre)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-080.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-081</div>
-    <div class="name" style="font-size: 12px;">Nano Urea Liquid (500 ml)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-081.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-082</div>
-    <div class="name" style="font-size: 12px;">Nano DAP Liquid (500 ml)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-082.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-083</div>
-    <div class="name" style="font-size: 12px;">Potassium Humate Shiny Flakes (2 kg)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-083.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-084</div>
-    <div class="name" style="font-size: 12px;">Panchagavya Organic Tonic (5 litre)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-084.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-085</div>
-    <div class="name" style="font-size: 12px;">Jeevamrut Concentrate (5 litre)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-085.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-086</div>
-    <div class="name" style="font-size: 12px;">Battery Knapsack Sprayer 16 L</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-086.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-087</div>
-    <div class="name" style="font-size: 12px;">Manual Knapsack Sprayer 16 L</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-087.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-088</div>
-    <div class="name" style="font-size: 12px;">Power Weeder 5 HP</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-088.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-089</div>
-    <div class="name" style="font-size: 12px;">Brush Cutter 2-Stroke 43 CC</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-089.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-090</div>
-    <div class="name" style="font-size: 12px;">Rotavator 5 Feet</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-090.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-091</div>
-    <div class="name" style="font-size: 12px;">Seed Drill 9 Tyne</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-091.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-092</div>
-    <div class="name" style="font-size: 12px;">Drip Irrigation Kit 1 Acre</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-092.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-093</div>
-    <div class="name" style="font-size: 12px;">Sprinkler Set 1 Acre</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-093.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-094</div>
-    <div class="name" style="font-size: 12px;">HDPE Mulching Film 25 Micron (400 m)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-094.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-095</div>
-    <div class="name" style="font-size: 12px;">Shade Net 50% Green (3 x 50 m)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-095.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-096</div>
-    <div class="name" style="font-size: 12px;">Insect Net 40 Mesh (3 x 50 m)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-096.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-097</div>
-    <div class="name" style="font-size: 12px;">Soil Testing Kit Digital</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-097.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-098</div>
-    <div class="name" style="font-size: 12px;">Grain Moisture Meter</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-098.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-099</div>
-    <div class="name" style="font-size: 12px;">Sickle Serrated Steel</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-099.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-100</div>
-    <div class="name" style="font-size: 12px;">Kudali / Hoe 1.5 kg</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-100.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-101</div>
-    <div class="name" style="font-size: 12px;">Garden Spade Steel</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-101.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-102</div>
-    <div class="name" style="font-size: 12px;">Pruning Secateur Bypass</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-102.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-103</div>
-    <div class="name" style="font-size: 12px;">Chaff Cutter Electric 2 HP</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-103.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-104</div>
-    <div class="name" style="font-size: 12px;">Water Pump 5 HP Diesel</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-104.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-105</div>
-    <div class="name" style="font-size: 12px;">Submersible Pump 3 HP</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-105.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-106</div>
-    <div class="name" style="font-size: 12px;">Solar Pump Controller 5 HP</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-106.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-107</div>
-    <div class="name" style="font-size: 12px;">Tarpaulin Sheet 200 GSM (18 x 24 ft)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-107.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-108</div>
-    <div class="name" style="font-size: 12px;">Jute Gunny Bags (Pack of 50)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-108.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-109</div>
-    <div class="name" style="font-size: 12px;">Grain Storage Silo 1 Tonne</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-109.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-110</div>
-    <div class="name" style="font-size: 12px;">Weighing Scale Platform 300 kg</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-110.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-111</div>
-    <div class="name" style="font-size: 12px;">Cattle Feed Trough Plastic 60 L</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-111.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-112</div>
-    <div class="name" style="font-size: 12px;">Milking Machine Single Bucket</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-112.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-113</div>
-    <div class="name" style="font-size: 12px;">Poultry Automatic Drinker (Pack of 10)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-113.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-114</div>
-    <div class="name" style="font-size: 12px;">Wheelbarrow Steel 100 L</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-114.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-115</div>
-    <div class="name" style="font-size: 12px;">Fogger Machine Portable</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-115.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-116</div>
-    <div class="name" style="font-size: 12px;">Solar Insect Light Trap</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-116.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-117</div>
-    <div class="name" style="font-size: 12px;">Pheromone Trap Set (Pack of 10)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-117.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-118</div>
-    <div class="name" style="font-size: 12px;">Farm Safety Kit (Mask, Gloves, Goggles)</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-118.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-119</div>
-    <div class="name" style="font-size: 12px;">Weather Station Mini Digital</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-119.jpg" />
-  </div>
-  
-  <div class="card">
-    <div class="id">p-120</div>
-    <div class="name" style="font-size: 12px;">Tractor Trolley Tipping 5 Tonne</div>
-    <img src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-120.jpg" />
-  </div>
-  
-</div>
-</body>
+      <div class="card">
+        <div class="id">p-002</div>
+        <div class="name" style="font-size: 12px">Wheat Seed PBW-343 (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-002.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-003</div>
+        <div class="name" style="font-size: 12px">BT Cotton Seed (450 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-003.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-004</div>
+        <div class="name" style="font-size: 12px">Groundnut Seed TAG-24 (10 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-004.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-005</div>
+        <div class="name" style="font-size: 12px">Hybrid Maize Seed DKC-9108 (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-005.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-006</div>
+        <div class="name" style="font-size: 12px">Sunflower Seed KBSH-44 (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-006.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-007</div>
+        <div class="name" style="font-size: 12px">Pearl Millet Seed HHB-67 (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-007.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-008</div>
+        <div class="name" style="font-size: 12px">Hybrid Tomato Seed (10 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-008.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-009</div>
+        <div class="name" style="font-size: 12px">Onion Seed Agrifound Dark Red (50 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-009.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-010</div>
+        <div class="name" style="font-size: 12px">Hybrid Brinjal Seed (10 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-010.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-011</div>
+        <div class="name" style="font-size: 12px">Chilli Seed Byadgi Dabbi (50 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-011.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-012</div>
+        <div class="name" style="font-size: 12px">Okra Seed Arka Anamika (250 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-012.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-013</div>
+        <div class="name" style="font-size: 12px">Mustard Seed Pusa Bold (2 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-013.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-014</div>
+        <div class="name" style="font-size: 12px">Chickpea Seed JG-11 (10 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-014.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-015</div>
+        <div class="name" style="font-size: 12px">Pigeon Pea Seed ICPL-87 (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-015.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-016</div>
+        <div class="name" style="font-size: 12px">Soybean Seed JS-9560 (20 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-016.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-017</div>
+        <div class="name" style="font-size: 12px">Sugarcane Seed Sett Co-0238 (100 setts)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-017.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-018</div>
+        <div class="name" style="font-size: 12px">Potato Seed Tuber Kufri Jyoti (50 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-018.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-019</div>
+        <div class="name" style="font-size: 12px">Green Gram Seed IPM-02-3 (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-019.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-020</div>
+        <div class="name" style="font-size: 12px">Black Gram Seed Pant U-31 (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-020.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-021</div>
+        <div class="name" style="font-size: 12px">Cabbage Seed Golden Acre (100 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-021.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-022</div>
+        <div class="name" style="font-size: 12px">Cauliflower Seed Snowball-16 (50 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-022.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-023</div>
+        <div class="name" style="font-size: 12px">Cucumber Seed Hybrid Malini (25 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-023.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-024</div>
+        <div class="name" style="font-size: 12px">Bottle Gourd Seed Pusa Naveen (100 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-024.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-025</div>
+        <div class="name" style="font-size: 12px">Bitter Gourd Seed Hybrid (50 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-025.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-026</div>
+        <div class="name" style="font-size: 12px">Watermelon Seed Sugar Baby (100 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-026.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-027</div>
+        <div class="name" style="font-size: 12px">Muskmelon Seed Hara Madhu (100 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-027.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-028</div>
+        <div class="name" style="font-size: 12px">Carrot Seed Pusa Rudhira (250 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-028.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-029</div>
+        <div class="name" style="font-size: 12px">Spinach Seed All Green (500 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-029.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-030</div>
+        <div class="name" style="font-size: 12px">Coriander Seed Local (1 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-030.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-031</div>
+        <div class="name" style="font-size: 12px">Fenugreek Seed Pusa Early Bunching (1 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-031.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-032</div>
+        <div class="name" style="font-size: 12px">Barley Seed BH-946 (20 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-032.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-033</div>
+        <div class="name" style="font-size: 12px">Sorghum Seed CSH-16 (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-033.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-034</div>
+        <div class="name" style="font-size: 12px">Finger Millet Seed GPU-28 (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-034.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-035</div>
+        <div class="name" style="font-size: 12px">Sesame Seed GT-10 (2 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-035.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-036</div>
+        <div class="name" style="font-size: 12px">Castor Seed GCH-7 (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-036.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-037</div>
+        <div class="name" style="font-size: 12px">Lentil Seed IPL-406 (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-037.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-038</div>
+        <div class="name" style="font-size: 12px">Field Pea Seed HFP-4 (10 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-038.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-039</div>
+        <div class="name" style="font-size: 12px">Berseem Fodder Seed (10 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-039.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-040</div>
+        <div class="name" style="font-size: 12px">Napier Grass Root Slips (100 slips)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-040.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-041</div>
+        <div class="name" style="font-size: 12px">Marigold Seed African Orange (50 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-041.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-042</div>
+        <div class="name" style="font-size: 12px">Turmeric Rhizome Seed Salem (25 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-042.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-043</div>
+        <div class="name" style="font-size: 12px">Ginger Rhizome Seed Varada (25 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-043.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-044</div>
+        <div class="name" style="font-size: 12px">Garlic Seed Bulb G-282 (10 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-044.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-045</div>
+        <div class="name" style="font-size: 12px">Papaya Seed Red Lady (10 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-045.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-046</div>
+        <div class="name" style="font-size: 12px">Banana Tissue Culture Plant G-9</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-046.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-047</div>
+        <div class="name" style="font-size: 12px">Guava Grafted Plant Allahabad Safeda</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-047.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-048</div>
+        <div class="name" style="font-size: 12px">Mango Grafted Plant Dasheri</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-048.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-049</div>
+        <div class="name" style="font-size: 12px">Drumstick Seed PKM-1 (250 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-049.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-050</div>
+        <div class="name" style="font-size: 12px">Curry Leaf Plant Sapling</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-050.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-051</div>
+        <div class="name" style="font-size: 12px">Urea 46% N (45 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-051.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-052</div>
+        <div class="name" style="font-size: 12px">DAP 18-46-0 (50 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-052.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-053</div>
+        <div class="name" style="font-size: 12px">MOP Muriate of Potash (50 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-053.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-054</div>
+        <div class="name" style="font-size: 12px">NPK 10:26:26 Complex (50 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-054.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-055</div>
+        <div class="name" style="font-size: 12px">NPK 20:20:0:13 (50 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-055.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-056</div>
+        <div class="name" style="font-size: 12px">Single Super Phosphate (50 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-056.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-057</div>
+        <div class="name" style="font-size: 12px">Zinc Sulphate 21% (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-057.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-058</div>
+        <div class="name" style="font-size: 12px">Ammonium Sulphate (50 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-058.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-059</div>
+        <div class="name" style="font-size: 12px">Calcium Nitrate (25 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-059.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-060</div>
+        <div class="name" style="font-size: 12px">Water Soluble NPK 19:19:19 (1 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-060.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-061</div>
+        <div class="name" style="font-size: 12px">Water Soluble NPK 0:52:34 (1 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-061.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-062</div>
+        <div class="name" style="font-size: 12px">Potassium Schoenite (25 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-062.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-063</div>
+        <div class="name" style="font-size: 12px">Vermicompost Organic (30 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-063.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-064</div>
+        <div class="name" style="font-size: 12px">Neem Cake Powder (25 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-064.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-065</div>
+        <div class="name" style="font-size: 12px">Bone Meal Organic (10 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-065.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-066</div>
+        <div class="name" style="font-size: 12px">Cow Dung Manure Composted (40 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-066.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-067</div>
+        <div class="name" style="font-size: 12px">Rhizobium Biofertiliser (500 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-067.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-068</div>
+        <div class="name" style="font-size: 12px">Azotobacter Biofertiliser (500 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-068.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-069</div>
+        <div class="name" style="font-size: 12px">PSB Phosphate Solubilising Bacteria (500 g)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-069.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-070</div>
+        <div class="name" style="font-size: 12px">Mycorrhiza VAM Granules (4 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-070.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-071</div>
+        <div class="name" style="font-size: 12px">Trichoderma Viride Bio-fungicide (1 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-071.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-072</div>
+        <div class="name" style="font-size: 12px">Pseudomonas Fluorescens (1 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-072.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-073</div>
+        <div class="name" style="font-size: 12px">Humic Acid Granules (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-073.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-074</div>
+        <div class="name" style="font-size: 12px">Seaweed Extract Liquid (1 litre)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-074.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-075</div>
+        <div class="name" style="font-size: 12px">Micronutrient Mixture Grade-II (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-075.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-076</div>
+        <div class="name" style="font-size: 12px">Boron 20% Powder (1 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-076.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-077</div>
+        <div class="name" style="font-size: 12px">Ferrous Sulphate (10 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-077.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-078</div>
+        <div class="name" style="font-size: 12px">Gypsum Agricultural Grade (50 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-078.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-079</div>
+        <div class="name" style="font-size: 12px">Sulphur 90% WDG (5 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-079.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-080</div>
+        <div class="name" style="font-size: 12px">Liquid Consortia Biofertiliser (1 litre)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-080.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-081</div>
+        <div class="name" style="font-size: 12px">Nano Urea Liquid (500 ml)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-081.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-082</div>
+        <div class="name" style="font-size: 12px">Nano DAP Liquid (500 ml)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-082.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-083</div>
+        <div class="name" style="font-size: 12px">Potassium Humate Shiny Flakes (2 kg)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-083.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-084</div>
+        <div class="name" style="font-size: 12px">Panchagavya Organic Tonic (5 litre)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-084.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-085</div>
+        <div class="name" style="font-size: 12px">Jeevamrut Concentrate (5 litre)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-085.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-086</div>
+        <div class="name" style="font-size: 12px">Battery Knapsack Sprayer 16 L</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-086.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-087</div>
+        <div class="name" style="font-size: 12px">Manual Knapsack Sprayer 16 L</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-087.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-088</div>
+        <div class="name" style="font-size: 12px">Power Weeder 5 HP</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-088.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-089</div>
+        <div class="name" style="font-size: 12px">Brush Cutter 2-Stroke 43 CC</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-089.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-090</div>
+        <div class="name" style="font-size: 12px">Rotavator 5 Feet</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-090.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-091</div>
+        <div class="name" style="font-size: 12px">Seed Drill 9 Tyne</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-091.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-092</div>
+        <div class="name" style="font-size: 12px">Drip Irrigation Kit 1 Acre</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-092.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-093</div>
+        <div class="name" style="font-size: 12px">Sprinkler Set 1 Acre</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-093.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-094</div>
+        <div class="name" style="font-size: 12px">HDPE Mulching Film 25 Micron (400 m)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-094.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-095</div>
+        <div class="name" style="font-size: 12px">Shade Net 50% Green (3 x 50 m)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-095.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-096</div>
+        <div class="name" style="font-size: 12px">Insect Net 40 Mesh (3 x 50 m)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-096.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-097</div>
+        <div class="name" style="font-size: 12px">Soil Testing Kit Digital</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-097.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-098</div>
+        <div class="name" style="font-size: 12px">Grain Moisture Meter</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-098.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-099</div>
+        <div class="name" style="font-size: 12px">Sickle Serrated Steel</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-099.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-100</div>
+        <div class="name" style="font-size: 12px">Kudali / Hoe 1.5 kg</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-100.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-101</div>
+        <div class="name" style="font-size: 12px">Garden Spade Steel</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-101.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-102</div>
+        <div class="name" style="font-size: 12px">Pruning Secateur Bypass</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-102.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-103</div>
+        <div class="name" style="font-size: 12px">Chaff Cutter Electric 2 HP</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-103.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-104</div>
+        <div class="name" style="font-size: 12px">Water Pump 5 HP Diesel</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-104.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-105</div>
+        <div class="name" style="font-size: 12px">Submersible Pump 3 HP</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-105.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-106</div>
+        <div class="name" style="font-size: 12px">Solar Pump Controller 5 HP</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-106.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-107</div>
+        <div class="name" style="font-size: 12px">Tarpaulin Sheet 200 GSM (18 x 24 ft)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-107.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-108</div>
+        <div class="name" style="font-size: 12px">Jute Gunny Bags (Pack of 50)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-108.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-109</div>
+        <div class="name" style="font-size: 12px">Grain Storage Silo 1 Tonne</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-109.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-110</div>
+        <div class="name" style="font-size: 12px">Weighing Scale Platform 300 kg</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-110.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-111</div>
+        <div class="name" style="font-size: 12px">Cattle Feed Trough Plastic 60 L</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-111.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-112</div>
+        <div class="name" style="font-size: 12px">Milking Machine Single Bucket</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-112.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-113</div>
+        <div class="name" style="font-size: 12px">Poultry Automatic Drinker (Pack of 10)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-113.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-114</div>
+        <div class="name" style="font-size: 12px">Wheelbarrow Steel 100 L</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-114.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-115</div>
+        <div class="name" style="font-size: 12px">Fogger Machine Portable</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-115.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-116</div>
+        <div class="name" style="font-size: 12px">Solar Insect Light Trap</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-116.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-117</div>
+        <div class="name" style="font-size: 12px">Pheromone Trap Set (Pack of 10)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-117.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-118</div>
+        <div class="name" style="font-size: 12px">Farm Safety Kit (Mask, Gloves, Goggles)</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-118.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-119</div>
+        <div class="name" style="font-size: 12px">Weather Station Mini Digital</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-119.jpg"
+        />
+      </div>
+
+      <div class="card">
+        <div class="id">p-120</div>
+        <div class="name" style="font-size: 12px">Tractor Trolley Tipping 5 Tonne</div>
+        <img
+          src="file://C:\Users\Lavanya\Downloads\fresh-produce-connect-main\fresh-produce-connect-main\public\images\products\p-120.jpg"
+        />
+      </div>
+    </div>
+  </body>
 </html>

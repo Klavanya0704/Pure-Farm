@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer';
+import puppeteer from "puppeteer";
 
 const TARGET_URL = "https://fresh-produce-connect-main.vercel.app";
 
@@ -8,14 +8,14 @@ async function testSidebarClicks() {
 
   const browser = await puppeteer.launch({
     headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 
   const page = await browser.newPage();
   await page.setViewport({ width: 1400, height: 900 });
 
   console.log("Step 1: Navigating to Home Page...");
-  await page.goto(`${TARGET_URL}/`, { waitUntil: 'networkidle2' });
+  await page.goto(`${TARGET_URL}/`, { waitUntil: "networkidle2" });
 
   console.log("Page URL:", page.url());
   console.log("Page Title:", await page.title());
@@ -45,19 +45,27 @@ async function testSidebarClicks() {
 
     // Ensure we are back on a page with sidebar if needed or click directly
     const elementHandle = await page.evaluateHandle((text) => {
-      const links = Array.from(document.querySelectorAll('aside nav a, aside a'));
-      return links.find(a => a.textContent.trim() === text || a.textContent.trim().startsWith(text));
+      const links = Array.from(document.querySelectorAll("aside nav a, aside a"));
+      return links.find(
+        (a) => a.textContent.trim() === text || a.textContent.trim().startsWith(text),
+      );
     }, item.label);
 
     const element = elementHandle.asElement();
 
     if (!element) {
       console.log(`❌ Element for "${item.label}" NOT FOUND in sidebar!`);
-      results.push({ label: item.label, expected: item.expectedPath, actual: "NOT FOUND", clickStatus: "FAIL", refreshStatus: "N/A" });
+      results.push({
+        label: item.label,
+        expected: item.expectedPath,
+        actual: "NOT FOUND",
+        clickStatus: "FAIL",
+        refreshStatus: "N/A",
+      });
       continue;
     }
 
-    const href = await page.evaluate(el => el.getAttribute('href'), element);
+    const href = await page.evaluate((el) => el.getAttribute("href"), element);
     console.log(`   Link href: "${href}"`);
 
     // Perform actual click on sidebar link
@@ -69,24 +77,24 @@ async function testSidebarClicks() {
     let actualPath = urlObj.pathname;
 
     const clickPass = actualPath === item.expectedPath;
-    console.log(`   Path after click: "${actualPath}" -> ${clickPass ? 'PASS ✓' : 'FAIL ✗'}`);
+    console.log(`   Path after click: "${actualPath}" -> ${clickPass ? "PASS ✓" : "FAIL ✗"}`);
 
     // Test browser refresh on destination
     console.log(`   Refreshing page at "${actualPath}"...`);
-    await page.reload({ waitUntil: 'networkidle2' });
+    await page.reload({ waitUntil: "networkidle2" });
     await page.waitForTimeout(1000);
 
     const refreshUrl = page.url();
     const refreshPath = new URL(refreshUrl).pathname;
     const refreshPass = refreshPath === item.expectedPath;
-    console.log(`   Path after refresh: "${refreshPath}" -> ${refreshPass ? 'PASS ✓' : 'FAIL ✗'}`);
+    console.log(`   Path after refresh: "${refreshPath}" -> ${refreshPass ? "PASS ✓" : "FAIL ✗"}`);
 
     results.push({
       label: item.label,
       expected: item.expectedPath,
       actual: actualPath,
-      clickStatus: clickPass ? 'PASS' : 'FAIL',
-      refreshStatus: refreshPass ? 'PASS' : 'FAIL'
+      clickStatus: clickPass ? "PASS" : "FAIL",
+      refreshStatus: refreshPass ? "PASS" : "FAIL",
     });
   }
 
@@ -96,6 +104,6 @@ async function testSidebarClicks() {
   console.table(results);
 }
 
-testSidebarClicks().catch(err => {
+testSidebarClicks().catch((err) => {
   console.error("Test Error:", err);
 });

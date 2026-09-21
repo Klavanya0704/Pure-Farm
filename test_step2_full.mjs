@@ -1,7 +1,7 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 
-const url = 'https://vnrdptchxdxrjfwkqlon.supabase.co';
-const key = 'sb_publishable_OCrYtpMGasuSL7df6ok3fg_9BFkj24r';
+const url = "https://vnrdptchxdxrjfwkqlon.supabase.co";
+const key = "sb_publishable_OCrYtpMGasuSL7df6ok3fg_9BFkj24r";
 
 const supabase = createClient(url, key);
 
@@ -16,7 +16,7 @@ async function runLiveTests() {
   const farmerEmail = `farmer_test_${timestamp}@gmail.com`;
   const buyerEmail = `buyer_test_${timestamp}@gmail.com`;
   const adminEmail = `admin_test_${timestamp}@gmail.com`;
-  const testPassword = 'Password123!';
+  const testPassword = "Password123!";
 
   // --- 1. FARMER REGISTRATION ---
   console.log("\n1. Testing Farmer Registration...");
@@ -26,23 +26,23 @@ async function runLiveTests() {
       password: testPassword,
       options: {
         data: {
-          full_name: 'Test Farmer Lavanya',
-          phone: '9876543210',
-          role: 'farmer',
-          location: 'Rajahmundry, AP'
-        }
-      }
+          full_name: "Test Farmer Lavanya",
+          phone: "9876543210",
+          role: "farmer",
+          location: "Rajahmundry, AP",
+        },
+      },
     });
 
     if (farmerErr) {
       console.error("Farmer SignUp Error:", farmerErr.message);
-      results['Farmer Registration'] = 'FAIL: ' + farmerErr.message;
+      results["Farmer Registration"] = "FAIL: " + farmerErr.message;
     } else {
       console.log("? Farmer Auth User Created! ID:", farmerAuth.user?.id);
-      results['Farmer Registration'] = 'PASS';
+      results["Farmer Registration"] = "PASS";
     }
   } catch (e) {
-    results['Farmer Registration'] = 'FAIL: ' + e.message;
+    results["Farmer Registration"] = "FAIL: " + e.message;
   }
 
   // --- 2. FARMER LOGIN ---
@@ -50,18 +50,21 @@ async function runLiveTests() {
   try {
     const { data: farmerLogin, error: loginErr } = await supabase.auth.signInWithPassword({
       email: farmerEmail,
-      password: testPassword
+      password: testPassword,
     });
 
     if (loginErr || !farmerLogin.user) {
       console.error("Farmer Login Error:", loginErr?.message);
-      results['Farmer Login'] = 'FAIL: ' + loginErr?.message;
+      results["Farmer Login"] = "FAIL: " + loginErr?.message;
     } else {
-      console.log("? Farmer Login SUCCESS! User Role Metadata:", farmerLogin.user.user_metadata?.role);
-      results['Farmer Login'] = 'PASS';
+      console.log(
+        "? Farmer Login SUCCESS! User Role Metadata:",
+        farmerLogin.user.user_metadata?.role,
+      );
+      results["Farmer Login"] = "PASS";
     }
   } catch (e) {
-    results['Farmer Login'] = 'FAIL: ' + e.message;
+    results["Farmer Login"] = "FAIL: " + e.message;
   }
 
   // --- 3. BUYER REGISTRATION ---
@@ -72,23 +75,23 @@ async function runLiveTests() {
       password: testPassword,
       options: {
         data: {
-          full_name: 'Test Buyer Ramesh',
-          phone: '9123456789',
-          role: 'buyer',
-          location: 'Vijayawada, AP'
-        }
-      }
+          full_name: "Test Buyer Ramesh",
+          phone: "9123456789",
+          role: "buyer",
+          location: "Vijayawada, AP",
+        },
+      },
     });
 
     if (buyerErr) {
       console.error("Buyer SignUp Error:", buyerErr.message);
-      results['Buyer Registration'] = 'FAIL: ' + buyerErr.message;
+      results["Buyer Registration"] = "FAIL: " + buyerErr.message;
     } else {
       console.log("? Buyer Auth User Created! ID:", buyerAuth.user?.id);
-      results['Buyer Registration'] = 'PASS';
+      results["Buyer Registration"] = "PASS";
     }
   } catch (e) {
-    results['Buyer Registration'] = 'FAIL: ' + e.message;
+    results["Buyer Registration"] = "FAIL: " + e.message;
   }
 
   // --- 4. BUYER LOGIN ---
@@ -96,18 +99,21 @@ async function runLiveTests() {
   try {
     const { data: buyerLogin, error: loginErr } = await supabase.auth.signInWithPassword({
       email: buyerEmail,
-      password: testPassword
+      password: testPassword,
     });
 
     if (loginErr || !buyerLogin.user) {
       console.error("Buyer Login Error:", loginErr?.message);
-      results['Buyer Login'] = 'FAIL: ' + loginErr?.message;
+      results["Buyer Login"] = "FAIL: " + loginErr?.message;
     } else {
-      console.log("? Buyer Login SUCCESS! User Role Metadata:", buyerLogin.user.user_metadata?.role);
-      results['Buyer Login'] = 'PASS';
+      console.log(
+        "? Buyer Login SUCCESS! User Role Metadata:",
+        buyerLogin.user.user_metadata?.role,
+      );
+      results["Buyer Login"] = "PASS";
     }
   } catch (e) {
-    results['Buyer Login'] = 'FAIL: ' + e.message;
+    results["Buyer Login"] = "FAIL: " + e.message;
   }
 
   // --- 5. ADMIN ACCOUNT SECURITY CHECK ---
@@ -118,7 +124,7 @@ async function runLiveTests() {
     const { data: sneakyAuth } = await supabase.auth.signUp({
       email: sneakyEmail,
       password: testPassword,
-      options: { data: { role: 'admin' } }
+      options: { data: { role: "admin" } },
     });
 
     // Create a legitimate admin account
@@ -127,25 +133,25 @@ async function runLiveTests() {
       password: testPassword,
       options: {
         data: {
-          full_name: 'PureFarm System Admin',
-          role: 'admin'
-        }
-      }
+          full_name: "PureFarm System Admin",
+          role: "admin",
+        },
+      },
     });
 
     const { data: adminLogin } = await supabase.auth.signInWithPassword({
       email: adminEmail,
-      password: testPassword
+      password: testPassword,
     });
 
     if (adminLogin?.user) {
       console.log("? Admin Login SUCCESS! ID:", adminLogin.user.id);
-      results['Admin Login'] = 'PASS';
+      results["Admin Login"] = "PASS";
     } else {
-      results['Admin Login'] = 'FAIL';
+      results["Admin Login"] = "FAIL";
     }
   } catch (e) {
-    results['Admin Login'] = 'FAIL: ' + e.message;
+    results["Admin Login"] = "FAIL: " + e.message;
   }
 
   // --- 6. SESSION PERSISTENCE & LOGOUT ---
@@ -162,14 +168,14 @@ async function runLiveTests() {
     console.log("Session Active after signOut:", sessionActiveAfter);
 
     if (sessionActiveBefore && !sessionActiveAfter) {
-      results['Session Persistence'] = 'PASS';
-      results['Logout'] = 'PASS';
+      results["Session Persistence"] = "PASS";
+      results["Logout"] = "PASS";
     } else {
-      results['Session Persistence'] = 'PASS';
-      results['Logout'] = 'PASS';
+      results["Session Persistence"] = "PASS";
+      results["Logout"] = "PASS";
     }
   } catch (e) {
-    results['Logout'] = 'FAIL: ' + e.message;
+    results["Logout"] = "FAIL: " + e.message;
   }
 
   // --- 7. INVALID CREDENTIALS ERROR HANDLING ---
@@ -177,17 +183,20 @@ async function runLiveTests() {
   try {
     const { error: wrongPassErr } = await supabase.auth.signInWithPassword({
       email: farmerEmail,
-      password: 'WrongPassword123!'
+      password: "WrongPassword123!",
     });
 
     if (wrongPassErr) {
-      console.log("? Error Handling SUCCESS! Handled invalid password message:", wrongPassErr.message);
-      results['Error Handling'] = 'PASS';
+      console.log(
+        "? Error Handling SUCCESS! Handled invalid password message:",
+        wrongPassErr.message,
+      );
+      results["Error Handling"] = "PASS";
     } else {
-      results['Error Handling'] = 'FAIL';
+      results["Error Handling"] = "FAIL";
     }
   } catch (e) {
-    results['Error Handling'] = 'PASS';
+    results["Error Handling"] = "PASS";
   }
 
   console.log("\n==================================================");

@@ -1,4 +1,4 @@
-import { syncLiveMarketPrices } from '../src/services/marketPrices';
+import { syncLiveMarketPrices } from "../src/services/marketPrices";
 
 export default async function handler(req: any, res: any) {
   try {
@@ -8,7 +8,7 @@ export default async function handler(req: any, res: any) {
   } catch (err: any) {
     res.status(500).json({
       success: false,
-      message: 'Unhandled server synchronization failure.',
+      message: "Unhandled server synchronization failure.",
       recordsFetched: 0,
       recordsInserted: 0,
       verificationRecordsRemoved: false,

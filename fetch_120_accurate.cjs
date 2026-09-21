@@ -1,9 +1,9 @@
-const fs = require('fs');
-const https = require('https');
-const http = require('http');
-const path = require('path');
+const fs = require("fs");
+const https = require("https");
+const http = require("http");
+const path = require("path");
 
-const products = JSON.parse(fs.readFileSync('all_120_products.json', 'utf-8'));
+const products = JSON.parse(fs.readFileSync("all_120_products.json", "utf-8"));
 
 // Exact semantic search terms tailored for Wikipedia / Wikimedia Commons
 const QUERY_MAP = {
@@ -132,82 +132,103 @@ const QUERY_MAP = {
 function searchCommons(term) {
   const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(term)}&gsrlimit=3&gsrnamespace=6&prop=imageinfo&iiprop=url&iiurlwidth=800&format=json`;
   return new Promise((resolve) => {
-    https.get(url, { headers: { 'User-Agent': 'FreshProducePureFarmBot/1.0 (dev@purefarm.ag)' } }, (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => {
-        try {
-          const json = JSON.parse(data);
-          if (json.query && json.query.pages) {
-            const pages = Object.values(json.query.pages);
-            for (const page of pages) {
-              if (page.imageinfo && page.imageinfo[0]) {
-                const img = page.imageinfo[0];
-                const u = img.thumburl || img.url;
-                if (u && !u.endsWith('.pdf') && !u.endsWith('.svg') && !u.includes('.pdf.jpg') && !u.includes('.djvu')) {
-                  return resolve(u);
+    https
+      .get(
+        url,
+        { headers: { "User-Agent": "FreshProducePureFarmBot/1.0 (dev@purefarm.ag)" } },
+        (res) => {
+          let data = "";
+          res.on("data", (chunk) => (data += chunk));
+          res.on("end", () => {
+            try {
+              const json = JSON.parse(data);
+              if (json.query && json.query.pages) {
+                const pages = Object.values(json.query.pages);
+                for (const page of pages) {
+                  if (page.imageinfo && page.imageinfo[0]) {
+                    const img = page.imageinfo[0];
+                    const u = img.thumburl || img.url;
+                    if (
+                      u &&
+                      !u.endsWith(".pdf") &&
+                      !u.endsWith(".svg") &&
+                      !u.includes(".pdf.jpg") &&
+                      !u.includes(".djvu")
+                    ) {
+                      return resolve(u);
+                    }
+                  }
+                }
+                if (pages[0] && pages[0].imageinfo && pages[0].imageinfo[0]) {
+                  return resolve(pages[0].imageinfo[0].thumburl || pages[0].imageinfo[0].url);
                 }
               }
+              resolve(null);
+            } catch (e) {
+              resolve(null);
             }
-            if (pages[0] && pages[0].imageinfo && pages[0].imageinfo[0]) {
-              return resolve(pages[0].imageinfo[0].thumburl || pages[0].imageinfo[0].url);
-            }
-          }
-          resolve(null);
-        } catch(e) {
-          resolve(null);
-        }
-      });
-    }).on('error', () => resolve(null));
+          });
+        },
+      )
+      .on("error", () => resolve(null));
   });
 }
 
 function downloadImage(url, dest) {
   return new Promise((resolve, reject) => {
-    const lib = url.startsWith('https') ? https : http;
-    const req = lib.get(url, { headers: { 'User-Agent': 'FreshProducePureFarmBot/1.0 (dev@purefarm.ag)' } }, (res) => {
-      if (res.statusCode === 301 || res.statusCode === 302) {
-        let loc = res.headers.location;
-        if (!loc.startsWith('http')) {
-          const uObj = new URL(url);
-          loc = `${uObj.protocol}//${uObj.host}${loc}`;
-        }
-        return resolve(downloadImage(loc, dest));
-      }
-      if (res.statusCode !== 200) {
-        return reject(new Error(`Status ${res.statusCode}`));
-      }
-      const file = fs.createWriteStream(dest);
-      res.pipe(file);
-      file.on('finish', () => { file.close(); resolve(true); });
-      file.on('error', reject);
-    }).on('error', reject);
+    const lib = url.startsWith("https") ? https : http;
+    const req = lib
+      .get(
+        url,
+        { headers: { "User-Agent": "FreshProducePureFarmBot/1.0 (dev@purefarm.ag)" } },
+        (res) => {
+          if (res.statusCode === 301 || res.statusCode === 302) {
+            let loc = res.headers.location;
+            if (!loc.startsWith("http")) {
+              const uObj = new URL(url);
+              loc = `${uObj.protocol}//${uObj.host}${loc}`;
+            }
+            return resolve(downloadImage(loc, dest));
+          }
+          if (res.statusCode !== 200) {
+            return reject(new Error(`Status ${res.statusCode}`));
+          }
+          const file = fs.createWriteStream(dest);
+          res.pipe(file);
+          file.on("finish", () => {
+            file.close();
+            resolve(true);
+          });
+          file.on("error", reject);
+        },
+      )
+      .on("error", reject);
   });
 }
 
-const sleep = ms => new Promise(r => setTimeout(r, ms));
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function main() {
   const audit = [];
-  const outDir = path.join(process.cwd(), 'public', 'images', 'products');
+  const outDir = path.join(process.cwd(), "public", "images", "products");
   if (!fs.existsSync(outDir)) {
     fs.mkdirSync(outDir, { recursive: true });
   }
 
   console.log(`Starting fetch for ${products.length} products...`);
-  
+
   for (let idx = 0; idx < products.length; idx++) {
     const p = products[idx];
     const query = QUERY_MAP[p.id] || p.name;
     const dest = path.join(outDir, `${p.id}.jpg`);
-    
+
     let imgUrl = await searchCommons(query);
     if (!imgUrl) {
       // Fallback search with shorter term
-      const words = p.name.split(' ').slice(0, 3).join(' ');
-      imgUrl = await searchCommons(words + ' agriculture');
+      const words = p.name.split(" ").slice(0, 3).join(" ");
+      imgUrl = await searchCommons(words + " agriculture");
     }
-    
+
     if (imgUrl) {
       try {
         await downloadImage(imgUrl, dest);
@@ -218,9 +239,9 @@ async function main() {
           searchQuery: query,
           imagePath: `/images/products/${p.id}.jpg`,
           sourceUrl: imgUrl,
-          matchStatus: "verified"
+          matchStatus: "verified",
         });
-      } catch(err) {
+      } catch (err) {
         console.error(`[${idx + 1}/${products.length}] ERR downloading ${p.id}: ${err.message}`);
         audit.push({
           productId: p.id,
@@ -228,7 +249,7 @@ async function main() {
           searchQuery: query,
           imagePath: `/images/products/${p.id}.jpg`,
           sourceUrl: imgUrl,
-          matchStatus: "broken"
+          matchStatus: "broken",
         });
       }
     } else {
@@ -239,15 +260,15 @@ async function main() {
         searchQuery: query,
         imagePath: `/images/products/${p.id}.jpg`,
         sourceUrl: null,
-        matchStatus: "missing"
+        matchStatus: "missing",
       });
     }
-    
+
     await sleep(250); // Respectful rate limiting
   }
 
-  fs.writeFileSync('product-image-audit.json', JSON.stringify(audit, null, 2));
-  console.log('Saved product-image-audit.json');
+  fs.writeFileSync("product-image-audit.json", JSON.stringify(audit, null, 2));
+  console.log("Saved product-image-audit.json");
 }
 
 main();

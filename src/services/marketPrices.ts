@@ -73,7 +73,11 @@ export async function getMarketPrices(options?: GetMarketPricesOptions): Promise
     if (options?.cropName && options.cropName !== "all" && options.cropName !== "All Crops") {
       query = query.ilike("crop_name", `%${options.cropName}%`);
     }
-    if (options?.marketName && options.marketName !== "all" && options.marketName !== "All Markets") {
+    if (
+      options?.marketName &&
+      options.marketName !== "all" &&
+      options.marketName !== "All Markets"
+    ) {
       query = query.ilike("market_name", `%${options.marketName}%`);
     }
 
@@ -98,7 +102,7 @@ export async function getMarketPrices(options?: GetMarketPricesOptions): Promise
           m.crop_name?.toLowerCase().includes(q) ||
           m.market_name?.toLowerCase().includes(q) ||
           m.location?.toLowerCase().includes(q) ||
-          m.state?.toLowerCase().includes(q)
+          m.state?.toLowerCase().includes(q),
       );
     }
 
@@ -110,14 +114,10 @@ export async function getMarketPrices(options?: GetMarketPricesOptions): Promise
 }
 
 export async function addMarketPrice(
-  input: Omit<MarketPrice, "id" | "created_at" | "updated_at">
+  input: Omit<MarketPrice, "id" | "created_at" | "updated_at">,
 ): Promise<MarketPrice | null> {
   if (!isSupabaseConfigured) throw new Error("Supabase is not configured");
-  const { data, error } = await supabase
-    .from("market_prices")
-    .insert(input)
-    .select()
-    .single();
+  const { data, error } = await supabase.from("market_prices").insert(input).select().single();
 
   if (error) {
     console.error("Error adding market price:", error.message);
@@ -153,7 +153,7 @@ export const syncLiveMarketPrices = createServerFn({ method: "POST" }).handler(
 
     try {
       const url = `https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=${encodeURIComponent(
-        apiKey
+        apiKey,
       )}&format=json&filters[state]=Andhra%20Pradesh&limit=100`;
 
       const response = await fetch(url, {
@@ -262,6 +262,5 @@ export const syncLiveMarketPrices = createServerFn({ method: "POST" }).handler(
         error: err?.message || String(err),
       };
     }
-  }
+  },
 );
-

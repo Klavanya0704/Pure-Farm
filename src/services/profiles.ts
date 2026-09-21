@@ -13,11 +13,7 @@ export interface ProfileInput {
 
 export async function getProfile(id: string): Promise<Profile | null> {
   if (!isSupabaseConfigured) return null;
-  const { data, error } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id", id)
-    .single();
+  const { data, error } = await supabase.from("profiles").select("*").eq("id", id).single();
 
   if (error) {
     console.error("Error fetching profile:", error.message);
@@ -49,7 +45,10 @@ export async function upsertProfile(profile: ProfileInput): Promise<Profile | nu
   return data;
 }
 
-export async function updateProfile(id: string, updates: Partial<Profile>): Promise<Profile | null> {
+export async function updateProfile(
+  id: string,
+  updates: Partial<Profile>,
+): Promise<Profile | null> {
   if (!isSupabaseConfigured) return null;
   const { data, error } = await supabase
     .from("profiles")

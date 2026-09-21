@@ -65,6 +65,9 @@ import {
   Snowflake,
   Building2,
   Phone,
+  Wrench,
+  PlusCircle,
+  DollarSign,
 } from "lucide-react";
 import { useMemo, useState, useEffect, useRef } from "react";
 import {
@@ -6669,6 +6672,755 @@ export function ColdStoragePage() {
                 </div>
               );
             })}
+          </div>
+        )}
+      </PageShell>
+    </RoleGuard>
+  );
+}
+
+export function MachinesToolsPage() {
+  const { language, t } = useTranslation();
+  const isTelugu = language === "te";
+
+  // Filter & Search states
+  const [query, setQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedLocation, setSelectedLocation] = useState("all");
+
+  // Listing modal & Request modal states
+  const [isListModalOpen, setIsListModalOpen] = useState(false);
+  const [selectedEquipmentForRental, setSelectedEquipmentForRental] = useState<any | null>(null);
+  const [rentalSuccessToast, setRentalSuccessToast] = useState("");
+
+  // New Equipment Form State
+  const [newEquipName, setNewEquipName] = useState("");
+  const [newEquipCategory, setNewEquipCategory] = useState("Tractors");
+  const [newEquipLocation, setNewEquipLocation] = useState("Rajahmundry");
+  const [newEquipRate, setNewEquipRate] = useState("");
+  const [newEquipRateUnit, setNewEquipRateUnit] = useState("hr");
+  const [newEquipSpecs, setNewEquipSpecs] = useState("");
+  const [newEquipDesc, setNewEquipDesc] = useState("");
+  const [newEquipOwner, setNewEquipOwner] = useState("");
+  const [newEquipPhone, setNewEquipPhone] = useState("");
+
+  // Rental Request Form State
+  const [rentalDate, setRentalDate] = useState("");
+  const [rentalDuration, setRentalDuration] = useState("1");
+  const [rentalNotes, setRentalNotes] = useState("");
+
+  const categories = [
+    "all",
+    "Tractors",
+    "Harvesters",
+    "Rotavators",
+    "Cultivators",
+    "Seeders",
+    "Sprayers",
+    "Water Pumps",
+    "Irrigation Equipment",
+    "Power Tools",
+    "Other Farm Equipment",
+  ];
+
+  const locations = [
+    "all",
+    "Rajahmundry",
+    "Kakinada",
+    "Eluru",
+    "Vijayawada",
+    "Guntur",
+    "Tanuku",
+    "Mandapeta",
+  ];
+
+  const initialEquipmentList = [
+    {
+      id: "eq-1",
+      name: "Mahindra 575 DI Tractor (45 HP)",
+      category: "Tractors",
+      owner: "Ramesh Varma",
+      location: "Rajahmundry",
+      rate: "₹500",
+      rateUnit: "hr",
+      available: true,
+      specs: "45 HP, Diesel, Power Steering, Dual Clutch",
+      description:
+        "Well maintained Mahindra tractor available with experienced driver for tilling, plowing, and haulage.",
+      image:
+        "https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&w=800",
+      phone: "9876543210",
+    },
+    {
+      id: "eq-2",
+      name: "Kubota Harvester DC-68G",
+      category: "Harvesters",
+      owner: "Venkat Rao",
+      location: "Kakinada",
+      rate: "₹1,800",
+      rateUnit: "hr",
+      available: true,
+      specs: "Paddy & Wheat Combine, 68 HP Diesel Engine",
+      description:
+        "High capacity rubber crawler harvester for wet paddy fields. Minimal grain loss during harvesting.",
+      image:
+        "https://images.unsplash.com/photo-1592417817098-8f3d6ef23a63?auto=format&fit=crop&w=800",
+      phone: "9876543211",
+    },
+    {
+      id: "eq-3",
+      name: "Shaktiman Rotavator 7 Feet",
+      category: "Rotavators",
+      owner: "Appa Rao",
+      location: "Eluru",
+      rate: "₹450",
+      rateUnit: "hr",
+      available: true,
+      specs: "48 Blades, Heavy Duty PTO Driven",
+      description:
+        "Ideal for secondary tillage, soil pulverization, and stubble incorporation after paddy harvest.",
+      image:
+        "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=800",
+      phone: "9876543212",
+    },
+    {
+      id: "eq-4",
+      name: "Multi-Crop Power Sprayer 20L",
+      category: "Sprayers",
+      owner: "Satyanarayana",
+      location: "Rajahmundry",
+      rate: "₹250",
+      rateUnit: "day",
+      available: true,
+      specs: "12V Battery Operated, Dual Brass Nozzle, 20L Tank",
+      description:
+        "Lightweight battery sprayer with adjustable pressure for pesticide and liquid fertilizer application.",
+      image:
+        "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=800",
+      phone: "9876543213",
+    },
+    {
+      id: "eq-5",
+      name: "Honda 5 HP High Pressure Water Pump",
+      category: "Water Pumps",
+      owner: "Krishna Reddy",
+      location: "Tanuku",
+      rate: "₹300",
+      rateUnit: "day",
+      available: true,
+      specs: "4-Stroke Petrol Engine, 3 Inch Delivery Pipe",
+      description:
+        "High discharge water pump for canal irrigation and emergency dewatering. Easy recoil start.",
+      image:
+        "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800",
+      phone: "9876543214",
+    },
+    {
+      id: "eq-6",
+      name: "STIHL Heavy Duty Power Tiller 7.5 HP",
+      category: "Cultivators",
+      owner: "Rambabu",
+      location: "Mandapeta",
+      rate: "₹350",
+      rateUnit: "hr",
+      available: true,
+      specs: "7.5 HP Petrol, Reverse Gear, Tillage Depth 6-8 inch",
+      description:
+        "Compact inter-cultivator for sugarcane, banana, and horticulture crops weeding and soil loosening.",
+      image:
+        "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800",
+      phone: "9876543215",
+    },
+  ];
+
+  const [equipmentList, setEquipmentList] = useState(initialEquipmentList);
+
+  const filteredEquipment = useMemo(() => {
+    return equipmentList.filter((item) => {
+      const matchesQuery =
+        `${item.name} ${item.category} ${item.owner} ${item.location} ${item.specs} ${item.description}`
+          .toLowerCase()
+          .includes(query.toLowerCase());
+
+      const matchesCat = selectedCategory === "all" || item.category === selectedCategory;
+      const matchesLoc = selectedLocation === "all" || item.location === selectedLocation;
+
+      return matchesQuery && matchesCat && matchesLoc;
+    });
+  }, [equipmentList, query, selectedCategory, selectedLocation]);
+
+  const handleAddEquipment = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newEquipName || !newEquipRate || !newEquipOwner) return;
+
+    const newItem = {
+      id: `eq-${Date.now()}`,
+      name: newEquipName,
+      category: newEquipCategory,
+      owner: newEquipOwner,
+      location: newEquipLocation,
+      rate: `₹${newEquipRate}`,
+      rateUnit: newEquipRateUnit,
+      available: true,
+      specs: newEquipSpecs || "Standard Farm Equipment Specs",
+      description: newEquipDesc || "Listed for rent by verified farmer on PureFarm.",
+      image:
+        "https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&w=800",
+      phone: newEquipPhone || "9876543210",
+    };
+
+    setEquipmentList([newItem, ...equipmentList]);
+    setIsListModalOpen(false);
+
+    // Reset Form
+    setNewEquipName("");
+    setNewEquipRate("");
+    setNewEquipSpecs("");
+    setNewEquipDesc("");
+    setNewEquipOwner("");
+    setNewEquipPhone("");
+
+    setRentalSuccessToast(
+      isTelugu
+        ? "మీ యంత్రం విజయవంతంగా జాబితా చేయబడింది!"
+        : "Your equipment has been listed for rent successfully!",
+    );
+    setTimeout(() => setRentalSuccessToast(""), 4000);
+  };
+
+  const handleConfirmRentalRequest = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!selectedEquipmentForRental) return;
+
+    const equipName = selectedEquipmentForRental.name;
+    setSelectedEquipmentForRental(null);
+
+    setRentalSuccessToast(
+      isTelugu
+        ? `${equipName} కొరకు అద్దె అభ్యర్థన పంపబడింది!`
+        : `Rental request sent for ${equipName}! Owner will contact you shortly.`,
+    );
+    setTimeout(() => setRentalSuccessToast(""), 5000);
+  };
+
+  return (
+    <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
+      <PageShell
+        bgImage="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=2000"
+        lightTheme={true}
+        eyebrow="Agricultural Equipment"
+        title="Machines & Tools"
+        intro={
+          isTelugu
+            ? "మీ సమీపంలో ఉన్న రైతుల నుండి వ్యవసాయ యంత్రాలు మరియు పరికరాలను అద్దెకు తీసుకోండి"
+            : "Rent agricultural machinery and tools from farmers near you"
+        }
+      >
+        {/* Toast Notification */}
+        {rentalSuccessToast && (
+          <div className="fixed top-20 right-5 z-50 flex items-center gap-3 rounded-2xl bg-[#123F2D] px-5 py-4 text-white shadow-2xl animate-bounce">
+            <CheckCircle2 className="h-6 w-6 text-[#10B981]" />
+            <span className="text-sm font-bold">{rentalSuccessToast}</span>
+          </div>
+        )}
+
+        <div className="mx-auto max-w-6xl space-y-8">
+          {/* Two Main Action Banners */}
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* Action Banner 1: List Your Machine/Tool */}
+            <div className="relative overflow-hidden rounded-3xl border border-[#1E6446]/20 bg-gradient-to-br from-white/96 via-[#F0FDF4] to-[#E6F4ED] p-6 sm:p-8 shadow-xl shadow-emerald-950/5">
+              <div className="flex items-start justify-between gap-4">
+                <div className="space-y-3">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[#1E6446]/30 bg-[#E6F4ED] px-3.5 py-1 text-xs font-bold text-[#0D6E48]">
+                    <PlusCircle className="h-3.5 w-3.5" />
+                    {isTelugu ? "యంత్రాల యజమానులకు" : "For Machinery Owners"}
+                  </span>
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#123F2D]">
+                    {isTelugu
+                      ? "మీ యంత్రాలు / పరికరాలను జాబితా చేయండి"
+                      : "List Your Machine / Tool"}
+                  </h2>
+                  <p className="text-sm font-medium leading-relaxed text-[#315A49]">
+                    {isTelugu
+                      ? "ఉపయోగించని ట్రాక్టర్లు, స్ప్రేయర్లు లేదా పరికరాలు ఉన్నాయా? అద్దెకు ఇచ్చి అదనపు ఆదాయం పొందండి."
+                      : "Have tractors, harvesters, or sprayers sitting idle? List your equipment for rent and earn extra income from fellow farmers."}
+                  </p>
+                </div>
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#123F2D] text-white shadow-md">
+                  <Wrench className="h-7 w-7" />
+                </div>
+              </div>
+              <div className="mt-6">
+                <button
+                  type="button"
+                  onClick={() => setIsListModalOpen(true)}
+                  className="inline-flex items-center gap-2 rounded-2xl bg-[#123F2D] hover:bg-[#0D6E48] px-6 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:scale-[1.02]"
+                >
+                  <PlusCircle className="h-4 w-4" />
+                  <span>{isTelugu ? "అద్దెకు జాబితా చేయండి" : "List for Rent"}</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Action Banner 2: Browse & Rent Equipment */}
+            <div className="relative overflow-hidden rounded-3xl border border-[#1E6446]/20 bg-gradient-to-br from-white/96 via-[#FAFDFB] to-[#F0FDF4] p-6 sm:p-8 shadow-xl shadow-emerald-950/5">
+              <div className="flex items-start justify-between gap-4">
+                <div className="space-y-3">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[#1E6446]/30 bg-[#E6F4ED] px-3.5 py-1 text-xs font-bold text-[#0D6E48]">
+                    <Truck className="h-3.5 w-3.5" />
+                    {isTelugu ? "అద్దెకు కావలసిన రైతులకు" : "For Farmers Needing Tools"}
+                  </span>
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#123F2D]">
+                    {isTelugu
+                      ? "పరికరాలను అన్వేషించండి & అద్దెకు తీసుకోండి"
+                      : "Browse & Rent Equipment"}
+                  </h2>
+                  <p className="text-sm font-medium leading-relaxed text-[#315A49]">
+                    {isTelugu
+                      ? "నేల తయారీ, విత్తనాలు నాటడం లేదా కోత కొరకు యంత్రాలు కావలెనా? పారదర్శక ధరలతో వెతకండి."
+                      : "Need machinery for land preparation, sowing, or harvest? Find verified equipment with transparent hourly/daily rates near you."}
+                  </p>
+                </div>
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#10B981] text-white shadow-md">
+                  <Truck className="h-7 w-7" />
+                </div>
+              </div>
+              <div className="mt-6">
+                <a
+                  href="#equipment-catalog"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-[#10B981] hover:bg-[#0D9668] px-6 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:scale-[1.02]"
+                >
+                  <Search className="h-4 w-4" />
+                  <span>{isTelugu ? "పరికరాలను బ్రౌజ్ చేయండి" : "Browse Equipment"}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Search & Filter Controls (Clean Light Glass Card) */}
+          <div
+            id="equipment-catalog"
+            className="flex flex-col gap-5 rounded-3xl border border-[#1E6446]/20 bg-white/96 p-6 shadow-xl shadow-emerald-950/5 backdrop-blur-md"
+          >
+            {/* Search & Location Bar */}
+            <div className="grid gap-4 sm:grid-cols-12">
+              <div className="relative sm:col-span-8">
+                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#10B981]" />
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder={
+                    isTelugu
+                      ? "యంత్రాలు, పరికరాలను వెతకండి..."
+                      : "Search machines, tools, equipment..."
+                  }
+                  className="w-full rounded-2xl border border-[#1E6446]/25 bg-slate-50/90 py-3.5 pl-12 pr-4 text-base font-semibold text-[#123F2D] placeholder-[#527064] transition-all focus:border-[#10B981] focus:outline-none focus:ring-2 focus:ring-[#10B981]/20"
+                />
+                {query && (
+                  <button
+                    type="button"
+                    onClick={() => setQuery("")}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-[#0D6E48] hover:text-[#10B981]"
+                  >
+                    {isTelugu ? "స్పష్టంచేయి" : "Clear"}
+                  </button>
+                )}
+              </div>
+
+              {/* Location Select */}
+              <div className="relative sm:col-span-4">
+                <MapPin className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#10B981]" />
+                <select
+                  value={selectedLocation}
+                  onChange={(e) => setSelectedLocation(e.target.value)}
+                  className="w-full rounded-2xl border border-[#1E6446]/25 bg-slate-50/90 py-3.5 pl-10 pr-4 text-sm font-semibold text-[#123F2D] transition-all focus:border-[#10B981] focus:outline-none focus:ring-2 focus:ring-[#10B981]/20 cursor-pointer"
+                >
+                  <option value="all">{isTelugu ? "అన్ని ప్రాంతాలు" : "All Locations"}</option>
+                  {locations
+                    .filter((l) => l !== "all")
+                    .map((loc) => (
+                      <option key={loc} value={loc}>
+                        📍 {loc}, AP
+                      </option>
+                    ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Category Filter Badges */}
+            <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-[#1E6446]/10">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0D6E48] mr-1">
+                {isTelugu ? "వర్గాలు:" : "Categories:"}
+              </span>
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`rounded-xl px-3.5 py-1.5 text-xs sm:text-sm transition-all ${
+                    selectedCategory === cat
+                      ? "bg-[#123F2D] text-white font-bold shadow-md shadow-emerald-950/20"
+                      : "bg-white/95 border border-[#1E6446]/20 text-[#123F2D] font-semibold hover:bg-emerald-50 hover:text-[#10B981]"
+                  }`}
+                >
+                  {cat === "all" ? (isTelugu ? "అన్నీ" : "All") : t(cat)}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Equipment Cards Grid */}
+          {filteredEquipment.length === 0 ? (
+            <div className="rounded-3xl border border-[#1E6446]/20 bg-white/96 p-12 text-center shadow-xl">
+              <Wrench className="mx-auto h-12 w-12 text-emerald-600/40" />
+              <p className="mt-3 text-lg font-bold text-[#123F2D]">
+                {isTelugu ? "పరికరాలు ఏవీ కనుగొనబడలేదు" : "No equipment found"}
+              </p>
+              <p className="mt-1 text-sm font-medium text-[#315A49]">
+                {isTelugu
+                  ? "మీ సెర్చ్‌కి సరిపోలే యంత్రాలు ఏవీ లేవు. దయచేసి ఫిల్టర్‌ని రీసెట్ చేయండి."
+                  : "No equipment matched your query. Try adjusting your search or category filter."}
+              </p>
+            </div>
+          ) : (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {filteredEquipment.map((item) => (
+                <div
+                  key={item.id}
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[#1E6446]/20 bg-white/96 shadow-xl shadow-emerald-950/5 transition-all duration-300 hover:bg-white hover:border-[#1E6446]/40 hover:-translate-y-1"
+                >
+                  <div>
+                    {/* Image Header */}
+                    <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <span className="absolute top-3 left-3 rounded-full bg-[#123F2D]/90 px-3 py-1 text-xs font-bold text-white backdrop-blur-md">
+                        {t(item.category)}
+                      </span>
+                      <span className="absolute top-3 right-3 rounded-full bg-[#10B981] px-3 py-1 text-xs font-bold text-white shadow-md">
+                        {isTelugu ? "అందుబాటులో ఉంది" : "Available"}
+                      </span>
+                    </div>
+
+                    <div className="p-5 space-y-3">
+                      {/* Name & Rate */}
+                      <div className="flex items-start justify-between gap-2">
+                        <h3 className="text-base sm:text-lg font-bold text-[#123F2D] leading-snug group-hover:text-[#0D6E48] transition-colors">
+                          {item.name}
+                        </h3>
+                      </div>
+
+                      {/* Pricing Tag */}
+                      <div className="inline-flex items-center gap-1 rounded-xl bg-[#F0FDF4] border border-[#BBF7D0] px-3 py-1 text-sm font-bold text-[#0D6E48]">
+                        <span className="text-base font-extrabold">{item.rate}</span>
+                        <span className="text-xs text-[#315A49]">
+                          /{" "}
+                          {item.rateUnit === "hr"
+                            ? isTelugu
+                              ? "గంట"
+                              : "hr"
+                            : isTelugu
+                              ? "రోజు"
+                              : "day"}
+                        </span>
+                      </div>
+
+                      {/* Specs */}
+                      <p className="text-xs font-semibold text-[#315A49] bg-slate-50 p-2.5 rounded-xl border border-slate-200/60">
+                        ⚙️ <span className="font-bold text-[#123F2D]">{item.specs}</span>
+                      </p>
+
+                      {/* Owner & Location Details */}
+                      <div className="space-y-1 text-xs font-semibold text-[#527064]">
+                        <div className="flex items-center gap-1.5">
+                          <User className="h-3.5 w-3.5 text-[#0D6E48]" />
+                          <span>
+                            {isTelugu ? "యజమాని:" : "Owner:"}{" "}
+                            <strong className="text-[#123F2D]">{item.owner}</strong>
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <MapPin className="h-3.5 w-3.5 text-[#0D6E48]" />
+                          <span>📍 {item.location}, AP</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Rental CTA Button */}
+                  <div className="p-5 pt-0">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedEquipmentForRental(item)}
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#10B981] hover:bg-[#0D9668] py-3 text-sm font-bold text-white shadow-md transition-all hover:shadow-lg"
+                    >
+                      <Wrench className="h-4 w-4" />
+                      <span>
+                        {isTelugu ? "ఇప్పుడే అద్దెకు అభ్యర్థించండి" : "Rent Now / Request Rental"}
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* OWNER LISTING MODAL ("List for Rent") */}
+        {isListModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
+            <div className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-3xl bg-white p-6 sm:p-8 shadow-2xl space-y-5">
+              <button
+                type="button"
+                onClick={() => setIsListModalOpen(false)}
+                className="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200"
+              >
+                <X className="h-4 w-4" />
+              </button>
+
+              <div className="space-y-1 border-b pb-4">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#0D6E48]">
+                  {isTelugu ? "వ్యవసాయ పరికరాల జాబితా" : "Agricultural Equipment Listing"}
+                </span>
+                <h3 className="text-xl font-extrabold text-[#123F2D]">
+                  {isTelugu
+                    ? "మీ యంత్రాన్ని అద్దెకు జాబితా చేయండి"
+                    : "List Your Equipment for Rent"}
+                </h3>
+              </div>
+
+              <form onSubmit={handleAddEquipment} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1">
+                    {isTelugu ? "పరికరం / యంత్రం పేరు" : "Machine / Tool Name"} *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={newEquipName}
+                    onChange={(e) => setNewEquipName(e.target.value)}
+                    placeholder="e.g. Mahindra 575 DI Tractor 45 HP"
+                    className="w-full rounded-xl border border-slate-300 p-3 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981]"
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1">
+                      {isTelugu ? "వర్గం" : "Category"}
+                    </label>
+                    <select
+                      value={newEquipCategory}
+                      onChange={(e) => setNewEquipCategory(e.target.value)}
+                      className="w-full rounded-xl border border-slate-300 p-3 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981]"
+                    >
+                      {categories
+                        .filter((c) => c !== "all")
+                        .map((c) => (
+                          <option key={c} value={c}>
+                            {c}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1">
+                      {isTelugu ? "ప్రాంతం" : "Location"}
+                    </label>
+                    <select
+                      value={newEquipLocation}
+                      onChange={(e) => setNewEquipLocation(e.target.value)}
+                      className="w-full rounded-xl border border-slate-300 p-3 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981]"
+                    >
+                      {locations
+                        .filter((l) => l !== "all")
+                        .map((l) => (
+                          <option key={l} value={l}>
+                            {l}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1">
+                      {isTelugu ? "అద్దె ధర (₹)" : "Rental Price (₹)"} *
+                    </label>
+                    <input
+                      type="number"
+                      required
+                      value={newEquipRate}
+                      onChange={(e) => setNewEquipRate(e.target.value)}
+                      placeholder="e.g. 500"
+                      className="w-full rounded-xl border border-slate-300 p-3 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1">
+                      {isTelugu ? "వ్యవధి" : "Per Unit"}
+                    </label>
+                    <select
+                      value={newEquipRateUnit}
+                      onChange={(e) => setNewEquipRateUnit(e.target.value)}
+                      className="w-full rounded-xl border border-slate-300 p-3 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981]"
+                    >
+                      <option value="hr">{isTelugu ? "గంటకు" : "Per Hour"}</option>
+                      <option value="day">{isTelugu ? "రోజుకు" : "Per Day"}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1">
+                    {isTelugu ? "ముఖ్యమైన వివరాలు / స్పెసిఫికేషన్లు" : "Specifications"}
+                  </label>
+                  <input
+                    type="text"
+                    value={newEquipSpecs}
+                    onChange={(e) => setNewEquipSpecs(e.target.value)}
+                    placeholder="e.g. 45 HP, Dual Clutch, Power Steering"
+                    className="w-full rounded-xl border border-slate-300 p-3 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981]"
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1">
+                      {isTelugu ? "యజమాని పేరు" : "Owner Name"} *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={newEquipOwner}
+                      onChange={(e) => setNewEquipOwner(e.target.value)}
+                      placeholder="e.g. Ramesh Farmer"
+                      className="w-full rounded-xl border border-slate-300 p-3 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1">
+                      {isTelugu ? "ఫోన్ నంబర్" : "Mobile Number"}
+                    </label>
+                    <input
+                      type="tel"
+                      value={newEquipPhone}
+                      onChange={(e) => setNewEquipPhone(e.target.value)}
+                      placeholder="9876543210"
+                      className="w-full rounded-xl border border-slate-300 p-3 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981]"
+                    />
+                  </div>
+                </div>
+
+                <div className="pt-3">
+                  <button
+                    type="submit"
+                    className="w-full rounded-2xl bg-[#123F2D] hover:bg-[#0D6E48] py-3.5 font-bold text-white shadow-lg transition"
+                  >
+                    {isTelugu ? "జాబితాను ప్రచురించు" : "Publish Listing"}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
+
+        {/* REQUEST RENTAL MODAL */}
+        {selectedEquipmentForRental && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
+            <div className="relative w-full max-w-lg rounded-3xl bg-white p-6 sm:p-8 shadow-2xl space-y-5">
+              <button
+                type="button"
+                onClick={() => setSelectedEquipmentForRental(null)}
+                className="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200"
+              >
+                <X className="h-4 w-4" />
+              </button>
+
+              <div className="space-y-1 border-b pb-4">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#0D6E48]">
+                  {isTelugu ? "అద్దె అభ్యర్థన" : "Rental Request"}
+                </span>
+                <h3 className="text-xl font-extrabold text-[#123F2D]">
+                  {selectedEquipmentForRental.name}
+                </h3>
+                <p className="text-xs font-bold text-[#315A49]">
+                  {isTelugu ? "ధర:" : "Rate:"} {selectedEquipmentForRental.rate} /{" "}
+                  {selectedEquipmentForRental.rateUnit === "hr" ? "hour" : "day"} • 📍{" "}
+                  {selectedEquipmentForRental.location}
+                </p>
+              </div>
+
+              <form onSubmit={handleConfirmRentalRequest} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1">
+                    {isTelugu ? "అవసరమైన తేదీ" : "Required Date"} *
+                  </label>
+                  <input
+                    type="date"
+                    required
+                    value={rentalDate}
+                    onChange={(e) => setRentalDate(e.target.value)}
+                    className="w-full rounded-xl border border-slate-300 p-3 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1">
+                    {isTelugu ? "వ్యవధి (గంటలు / రోజులు)" : "Duration (Hours/Days)"} *
+                  </label>
+                  <input
+                    type="number"
+                    min="1"
+                    required
+                    value={rentalDuration}
+                    onChange={(e) => setRentalDuration(e.target.value)}
+                    className="w-full rounded-xl border border-slate-300 p-3 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1">
+                    {isTelugu ? "పొలం చిరునామా / సూచనలు" : "Field Location & Notes"}
+                  </label>
+                  <textarea
+                    rows={2}
+                    value={rentalNotes}
+                    onChange={(e) => setRentalNotes(e.target.value)}
+                    placeholder="e.g. Near Panchayat Office, 5 acres tilling work"
+                    className="w-full rounded-xl border border-slate-300 p-3 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981]"
+                  />
+                </div>
+
+                <div className="rounded-xl bg-[#F0FDF4] p-3 text-xs font-bold text-[#0D6E48] flex items-center justify-between border border-[#BBF7D0]">
+                  <span>{isTelugu ? "యజమాని సంప్రదించు సంఖ్య:" : "Owner Contact:"}</span>
+                  <a
+                    href={`tel:${selectedEquipmentForRental.phone}`}
+                    className="inline-flex items-center gap-1 text-[#123F2D] hover:underline"
+                  >
+                    <Phone className="h-3.5 w-3.5 text-[#10B981]" />
+                    {selectedEquipmentForRental.phone}
+                  </a>
+                </div>
+
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="w-full rounded-2xl bg-[#10B981] hover:bg-[#0D9668] py-3.5 font-bold text-white shadow-lg transition"
+                  >
+                    {isTelugu ? "అభ్యర్థనను పంపండి" : "Confirm Rental Request"}
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         )}
       </PageShell>

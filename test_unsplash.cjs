@@ -1,4 +1,4 @@
-const https = require('https');
+const https = require("https");
 const url = "https://source.unsplash.com/800x600/?onion,seed";
 
 https.get(url, (res) => {

@@ -215,7 +215,8 @@
 }
 
 @keyframes subtle-float-1 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -224,7 +225,8 @@
 }
 
 @keyframes subtle-float-2 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -246,16 +248,20 @@
   backdrop-filter: blur(22px) saturate(130%);
   -webkit-backdrop-filter: blur(22px) saturate(130%);
   border: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.28), inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.28),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
   border-radius: 28px;
 }
 
 .glass-card-dark {
-  background: rgba(20, 40, 32, 0.30);
+  background: rgba(20, 40, 32, 0.3);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.38);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.20), inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .glass-input-white {
@@ -264,7 +270,7 @@
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.55);
   box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .glass-input-white::placeholder {
@@ -273,20 +279,22 @@
 
 .glass-input-white:focus {
   background: rgba(255, 255, 255, 0.24);
-  border-color: #19C37D;
-  box-shadow: 0 0 0 3px rgba(25, 195, 125, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  border-color: #19c37d;
+  box-shadow:
+    0 0 0 3px rgba(25, 195, 125, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
 }
 
 .glass-btn-primary-agri {
-  background: linear-gradient(135deg, #087A50, #064B38);
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #087a50, #064b38);
+  color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 10px 30px rgba(0, 90, 60, 0.35);
   transition: all 300ms ease;
 }
 
 .glass-btn-primary-agri:hover:not(:disabled) {
-  background: linear-gradient(135deg, #19C37D, #087A50);
+  background: linear-gradient(135deg, #19c37d, #087a50);
   transform: translateY(-2px);
   box-shadow: 0 14px 35px rgba(25, 195, 125, 0.4);
 }
@@ -296,7 +304,7 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.45);
-  color: #FFFFFF;
+  color: #ffffff;
   transition: all 300ms ease;
 }
 
@@ -311,13 +319,13 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.45);
-  color: #FFFFFF;
+  color: #ffffff;
   transition: all 300ms ease;
 }
 
 .glass-pill-demo:hover {
-  background: rgba(25, 195, 125, 0.30);
-  border-color: #19C37D;
+  background: rgba(25, 195, 125, 0.3);
+  border-color: #19c37d;
   transform: translateY(-1px);
 }
 
@@ -325,7 +333,7 @@
   background: rgba(5, 35, 25, 0.55);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border-top: 1px solid rgba(255, 255, 255, 0.30);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Market Price Table Exact Specifications */
@@ -333,40 +341,59 @@
   width: 100%;
   border-collapse: separate !important;
   border-spacing: 0 !important;
-  border: 1px solid #D9E2DD !important;
+  border: 1px solid #d9e2dd !important;
   border-radius: 18px !important;
   overflow: hidden !important;
-  background: #FFFFFF !important;
+  background: #ffffff !important;
 }
 
-.market-price-table th:nth-child(1), .market-price-table td:nth-child(1) { width: 20%; }
-.market-price-table th:nth-child(2), .market-price-table td:nth-child(2) { width: 20%; }
-.market-price-table th:nth-child(3), .market-price-table td:nth-child(3) { width: 18%; }
-.market-price-table th:nth-child(4), .market-price-table td:nth-child(4) { width: 18%; }
-.market-price-table th:nth-child(5), .market-price-table td:nth-child(5) { width: 14%; }
-.market-price-table th:nth-child(6), .market-price-table td:nth-child(6) { width: 10%; text-align: right; }
+.market-price-table th:nth-child(1),
+.market-price-table td:nth-child(1) {
+  width: 20%;
+}
+.market-price-table th:nth-child(2),
+.market-price-table td:nth-child(2) {
+  width: 20%;
+}
+.market-price-table th:nth-child(3),
+.market-price-table td:nth-child(3) {
+  width: 18%;
+}
+.market-price-table th:nth-child(4),
+.market-price-table td:nth-child(4) {
+  width: 18%;
+}
+.market-price-table th:nth-child(5),
+.market-price-table td:nth-child(5) {
+  width: 14%;
+}
+.market-price-table th:nth-child(6),
+.market-price-table td:nth-child(6) {
+  width: 10%;
+  text-align: right;
+}
 
 .market-price-table thead tr {
-  background-color: #E8F5EA !important;
+  background-color: #e8f5ea !important;
   height: 48px !important;
 }
 
 .market-price-table thead th {
-  background-color: #E8F5EA !important;
-  border-bottom: 1px solid #D9E2DD !important;
+  background-color: #e8f5ea !important;
+  border-bottom: 1px solid #d9e2dd !important;
   padding: 12px 18px !important;
-  color: #176B3A !important;
+  color: #176b3a !important;
   font-weight: 700 !important;
   font-size: 13px !important;
 }
 
 .market-price-table tbody tr {
-  background-color: #FFFFFF !important;
+  background-color: #ffffff !important;
   height: 63px !important;
 }
 
 .market-price-table tbody tr td {
-  border-bottom: 1px solid #D9E2DD !important;
+  border-bottom: 1px solid #d9e2dd !important;
   padding: 12px 18px !important;
   vertical-align: middle !important;
 }
@@ -376,13 +403,13 @@
 }
 
 .market-price-table tbody tr:hover {
-  background-color: #F7FCF8 !important;
+  background-color: #f7fcf8 !important;
 }
 
 .btn-view-details-agri {
-  background-color: #E7F3EA !important;
-  border: 1px solid #D0E7D6 !important;
-  color: #176B3A !important;
+  background-color: #e7f3ea !important;
+  border: 1px solid #d0e7d6 !important;
+  color: #176b3a !important;
   border-radius: 18px !important;
   padding: 6px 14px !important;
   font-size: 12px !important;
@@ -392,7 +419,7 @@
 }
 
 .btn-view-details-agri:hover {
-  background-color: #D8ECE0 !important;
+  background-color: #d8ece0 !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
