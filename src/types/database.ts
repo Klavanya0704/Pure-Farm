@@ -93,6 +93,42 @@ export interface MarketPrice {
   updated_at: string;
 }
 
+export type MachineCategory =
+  | "Tractor"
+  | "Harvester"
+  | "Rotavator"
+  | "Cultivator"
+  | "Seeder"
+  | "Sprayer"
+  | "Water Pump"
+  | "Irrigation Equipment"
+  | "Power Tool"
+  | "Other";
+
+export type MachineCondition = "Excellent" | "Good" | "Fair";
+export type MachineRateUnit = "hr" | "day" | "week";
+export type MachineAvailability = "available" | "booked" | "maintenance";
+
+export interface DbMachine {
+  id: string;
+  farmer_id: string | null;
+  owner_name: string;
+  owner_phone: string | null;
+  name: string;
+  category: MachineCategory;
+  description: string | null;
+  image_url: string | null;
+  location: string;
+  rental_rate: number;
+  rate_unit: MachineRateUnit;
+  availability: MachineAvailability;
+  condition: MachineCondition;
+  specifications: string | null;
+  status: string;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface ColdStorage {
   id: string;
   name: string;
@@ -163,8 +199,18 @@ export interface Database {
         };
         Update: Partial<Omit<ColdStorage, "id">>;
       };
+      machines_tools: {
+        Row: DbMachine;
+        Insert: Omit<DbMachine, "id" | "created_at" | "updated_at"> & {
+          id?: string;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Omit<DbMachine, "id">>;
+      };
     };
     Views: Record<string, never>;
     Functions: Record<string, never>;
   };
 }
+

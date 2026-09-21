@@ -3,7 +3,15 @@ import { useTranslation } from "@/i18n/LanguageContext";
 import { LanguageSelector } from "./AppShell";
 import { getColdStorageFacilities, type ColdStorageFacility } from "@/services/coldStorage";
 import { getMarketPrices, syncLiveMarketPrices, type SyncResult } from "@/services/marketPrices";
-import type { MarketPrice } from "@/types/database";
+import { getMachines, createMachine } from "@/services/machines";
+import type {
+  MarketPrice,
+  DbMachine,
+  MachineCategory,
+  MachineCondition,
+  MachineRateUnit,
+  MachineAvailability,
+} from "@/types/database";
 import {
   ArrowRight,
   ArrowLeft,
@@ -6835,6 +6843,32 @@ export function MachinesToolsPage() {
 
   const [equipmentList, setEquipmentList] = useState(initialEquipmentList);
 
+  useEffect(() => {
+    getMachines()
+      .then((data) => {
+        if (data && data.length > 0) {
+          const mapped = data.map((item) => ({
+            id: item.id,
+            name: item.name,
+            category: item.category,
+            owner: item.owner_name,
+            location: item.location,
+            rate: `₹${item.rental_rate}`,
+            rateUnit: item.rate_unit,
+            available: item.availability === "available",
+            specs: item.specifications || "Standard Farm Equipment Specs",
+            description: item.description || "Listed for rent on PureFarm.",
+            image:
+              item.image_url ||
+              "https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=800",
+            phone: item.owner_phone || "9876543210",
+          }));
+          setEquipmentList(mapped);
+        }
+      })
+      .catch((err) => console.error("Error loading machines:", err));
+  }, []);
+
   const filteredEquipment = useMemo(() => {
     return equipmentList.filter((item) => {
       const matchesQuery =
@@ -6951,14 +6985,13 @@ export function MachinesToolsPage() {
                 </div>
               </div>
               <div className="mt-6">
-                <button
-                  type="button"
-                  onClick={() => setIsListModalOpen(true)}
+                <Link
+                  to="/machines-tools/list"
                   className="inline-flex items-center gap-2 rounded-2xl bg-[#123F2D] hover:bg-[#0D6E48] px-6 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:scale-[1.02]"
                 >
                   <PlusCircle className="h-4 w-4" />
                   <span>{isTelugu ? "అద్దెకు జాబితా చేయండి" : "List for Rent"}</span>
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -7423,6 +7456,468 @@ export function MachinesToolsPage() {
             </div>
           </div>
         )}
+      </PageShell>
+    </RoleGuard>
+  );
+}
+
+export function MachinesToolsListPage() {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const isTelugu =
+    typeof window !== "undefined" && localStorage.getItem("purefarm_language") === "te";
+
+  // Form Field States
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState<MachineCategory>("Tractor");
+  const [description, setDescription] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [location, setLocation] = useState("Rajahmundry");
+  const [rentalRate, setRentalRate] = useState("");
+  const [rateUnit, setRateUnit] = useState<MachineRateUnit>("hr");
+  const [availability, setAvailability] = useState<MachineAvailability>("available");
+  const [condition, setCondition] = useState<MachineCondition>("Good");
+  const [specifications, setSpecifications] = useState("");
+  const [ownerName, setOwnerName] = useState(user?.name || "");
+  const [ownerPhone, setOwnerPhone] = useState(user?.phone || "");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+
+  useEffect(() => {
+    if (user?.name && !ownerName) setOwnerName(user.name);
+    if (user?.phone && !ownerPhone) setOwnerPhone(user.phone);
+  }, [user]);
+
+  const categories: MachineCategory[] = [
+    "Tractor",
+    "Harvester",
+    "Rotavator",
+    "Cultivator",
+    "Seeder",
+    "Sprayer",
+    "Water Pump",
+    "Irrigation Equipment",
+    "Power Tool",
+    "Other",
+  ];
+
+  const locations = [
+    "Rajahmundry",
+    "Kakinada",
+    "Eluru",
+    "Tanuku",
+    "Mandapeta",
+    "Vijayawada",
+    "Visakhapatnam",
+  ];
+
+  const sampleImages = [
+    {
+      label: "Tractor",
+      url: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=1000",
+    },
+    {
+      label: "Harvester",
+      url: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1000",
+    },
+    {
+      label: "Rotavator",
+      url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000",
+    },
+    {
+      label: "Sprayer",
+      url: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=1000",
+    },
+    {
+      label: "Water Pump",
+      url: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1000",
+    },
+  ];
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !rentalRate || !ownerName) return;
+
+    setIsSubmitting(true);
+    try {
+      await createMachine({
+        farmer_id: user?.id || null,
+        owner_name: ownerName,
+        owner_phone: ownerPhone,
+        name,
+        category,
+        description,
+        image_url:
+          imageUrl || sampleImages.find((i) => i.label === category)?.url || sampleImages[0].url,
+        location,
+        rental_rate: Number(rentalRate),
+        rate_unit: rateUnit,
+        availability,
+        condition,
+        specifications,
+        status: "active",
+      });
+
+      setToastMessage(
+        isTelugu
+          ? "మీ యంత్రం / పరికరం అద్దెకు విజయవంతంగా జాబితా చేయబడింది!"
+          : "Your machine / tool listing has been published for rent successfully!",
+      );
+
+      setTimeout(() => {
+        navigate({ to: "/machines-tools" });
+      }, 1200);
+    } catch (err) {
+      console.error("Failed to submit machine listing:", err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
+      <PageShell
+        bgImage="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=2000"
+        lightTheme={true}
+        eyebrow={isTelugu ? "వ్యవసాయ పరికరాలు" : "Agricultural Equipment"}
+        title={
+          isTelugu
+            ? "మీ యంత్రాన్ని / పరికరాన్ని అద్దెకు జాబితా చేయండి"
+            : "List Your Machine / Tool for Rent"
+        }
+        intro={
+          isTelugu
+            ? "అవసరమైన రైతులకు మీ వ్యవసాయ యంత్రాలు మరియు పరికరాలను అద్దెకు ఇవ్వండి."
+            : "Rent out your agricultural machinery and tools to farmers who need them."
+        }
+      >
+        {/* Toast */}
+        {toastMessage && (
+          <div className="fixed top-20 right-5 z-50 flex items-center gap-3 rounded-2xl bg-[#123F2D] px-6 py-4 text-white shadow-2xl animate-bounce">
+            <CheckCircle2 className="h-6 w-6 text-[#10B981]" />
+            <span className="text-sm font-bold">{toastMessage}</span>
+          </div>
+        )}
+
+        <div className="mx-auto max-w-4xl space-y-6">
+          <div className="flex items-center justify-between">
+            <Link
+              to="/machines-tools"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#0D6E48] hover:text-[#123F2D] transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              <span>
+                {isTelugu ? "← పరికరాల పేజీకి తిరిగి వెళ్లండి" : "Back to Machines & Tools"}
+              </span>
+            </Link>
+          </div>
+
+          <div className="rounded-3xl border border-[#1E6446]/20 bg-white/96 p-6 sm:p-10 shadow-xl shadow-emerald-950/5 backdrop-blur-md space-y-8">
+            <div className="border-b border-slate-200 pb-5">
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#123F2D] text-white shadow-md">
+                  <Wrench className="h-6 w-6" />
+                </div>
+                <div>
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#123F2D]">
+                    {isTelugu
+                      ? "మీ యంత్రాన్ని / పరికరాన్ని అద్దెకు జాబితా చేయండి"
+                      : "List Your Machine / Tool for Rent"}
+                  </h2>
+                  <p className="text-sm font-medium text-[#315A49]">
+                    {isTelugu
+                      ? "అవసరమైన రైతులకు మీ వ్యవసాయ యంత్రాలు మరియు పరికరాలను అద్దెకు ఇవ్వండి."
+                      : "Rent out your agricultural machinery and tools to farmers who need them."}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-8">
+              {/* SECTION 1: MACHINE DETAILS */}
+              <div className="space-y-4">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[#0D6E48] border-b border-[#1E6446]/10 pb-2 flex items-center gap-2">
+                  <PlusCircle className="h-4 w-4" />
+                  {isTelugu ? "1. యంత్రం / పరికరం వివరాలు" : "1. Machine & Tool Details"}
+                </h3>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="sm:col-span-2">
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1.5">
+                      {isTelugu ? "పరికరం / యంత్రం పేరు" : "Machine / Tool Name"} *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder={
+                        isTelugu
+                          ? "ఉదా: మహీంద్రా 575 DI ట్రాక్టర్ (45 HP)"
+                          : "e.g. Mahindra 575 DI Tractor (45 HP)"
+                      }
+                      className="w-full rounded-2xl border border-slate-300 bg-slate-50/80 p-3.5 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981] focus:bg-white focus:ring-2 focus:ring-[#10B981]/20 transition"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1.5">
+                      {isTelugu ? "వర్గం" : "Category"} *
+                    </label>
+                    <select
+                      value={category}
+                      onChange={(e) => setCategory(e.target.value as MachineCategory)}
+                      className="w-full rounded-2xl border border-slate-300 bg-slate-50/80 p-3.5 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981] focus:bg-white focus:ring-2 focus:ring-[#10B981]/20 transition cursor-pointer"
+                    >
+                      {categories.map((cat) => (
+                        <option key={cat} value={cat}>
+                          {cat}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1.5">
+                      {isTelugu ? "ప్రాంతం / ఊరు" : "Location"} *
+                    </label>
+                    <select
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      className="w-full rounded-2xl border border-slate-300 bg-slate-50/80 p-3.5 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981] focus:bg-white focus:ring-2 focus:ring-[#10B981]/20 transition cursor-pointer"
+                    >
+                      {locations.map((loc) => (
+                        <option key={loc} value={loc}>
+                          📍 {loc}, AP
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="sm:col-span-2">
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1.5">
+                      {isTelugu ? "వివరణ" : "Description"}
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
+                      placeholder={
+                        isTelugu
+                          ? "యంత్రం యొక్క పనితీరు, ఇంజిన్ సామర్థ్యం మరియు ఇతర ముఖ్య వివరాలను ఇక్కడ వివరించండి..."
+                          : "Describe engine capacity, attachments, usage guidelines, and performance..."
+                      }
+                      className="w-full rounded-2xl border border-slate-300 bg-slate-50/80 p-3.5 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981] focus:bg-white focus:ring-2 focus:ring-[#10B981]/20 transition"
+                    />
+                  </div>
+
+                  <div className="sm:col-span-2">
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1.5">
+                      {isTelugu
+                        ? "యంత్రం చిత్రం (Image URL లేదా నమూనా ని ఎంచుకోండి)"
+                        : "Upload Machine / Tool Image URL"}
+                    </label>
+                    <input
+                      type="url"
+                      value={imageUrl}
+                      onChange={(e) => setImageUrl(e.target.value)}
+                      placeholder="https://images.unsplash.com/..."
+                      className="w-full rounded-2xl border border-slate-300 bg-slate-50/80 p-3.5 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981] focus:bg-white focus:ring-2 focus:ring-[#10B981]/20 transition"
+                    />
+                    <div className="mt-2 flex flex-wrap gap-2 items-center">
+                      <span className="text-xs font-bold text-[#527064]">
+                        {isTelugu ? "త్వరిత ఫోటో నమూనా:" : "Quick Photo Presets:"}
+                      </span>
+                      {sampleImages.map((s) => (
+                        <button
+                          key={s.label}
+                          type="button"
+                          onClick={() => setImageUrl(s.url)}
+                          className={`rounded-xl px-2.5 py-1 text-xs font-bold border transition ${
+                            imageUrl === s.url
+                              ? "bg-[#123F2D] text-white border-[#123F2D]"
+                              : "bg-slate-100 text-[#123F2D] border-slate-200 hover:bg-emerald-50"
+                          }`}
+                        >
+                          📷 {s.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* SECTION 2: PRICING, AVAILABILITY & CONDITION */}
+              <div className="space-y-4">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[#0D6E48] border-b border-[#1E6446]/10 pb-2 flex items-center gap-2">
+                  <DollarSign className="h-4 w-4" />
+                  {isTelugu
+                    ? "2. అద్దె ధర & అందుబాటు వివరాలు"
+                    : "2. Rental Pricing & Availability"}
+                </h3>
+
+                <div className="grid gap-4 sm:grid-cols-3">
+                  <div>
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1.5">
+                      {isTelugu ? "అద్దె ధర (₹)" : "Rental Rate (₹)"} *
+                    </label>
+                    <input
+                      type="number"
+                      required
+                      min="1"
+                      value={rentalRate}
+                      onChange={(e) => setRentalRate(e.target.value)}
+                      placeholder="e.g. 500"
+                      className="w-full rounded-2xl border border-slate-300 bg-slate-50/80 p-3.5 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981] focus:bg-white focus:ring-2 focus:ring-[#10B981]/20 transition"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1.5">
+                      {isTelugu ? "అద్దె వ్యవధి" : "Rental Unit"} *
+                    </label>
+                    <select
+                      value={rateUnit}
+                      onChange={(e) => setRateUnit(e.target.value as MachineRateUnit)}
+                      className="w-full rounded-2xl border border-slate-300 bg-slate-50/80 p-3.5 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981] focus:bg-white focus:ring-2 focus:ring-[#10B981]/20 transition cursor-pointer"
+                    >
+                      <option value="hr">
+                        {isTelugu ? "గంటకు (Per Hour)" : "Per Hour"}
+                      </option>
+                      <option value="day">{isTelugu ? "రోజుకు (Per Day)" : "Per Day"}</option>
+                      <option value="week">{isTelugu ? "వారానికి (Per Week)" : "Per Week"}</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1.5">
+                      {isTelugu ? "అందుబాటు ప్రస్థితి" : "Availability"}
+                    </label>
+                    <select
+                      value={availability}
+                      onChange={(e) => setAvailability(e.target.value as MachineAvailability)}
+                      className="w-full rounded-2xl border border-slate-300 bg-slate-50/80 p-3.5 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981] focus:bg-white focus:ring-2 focus:ring-[#10B981]/20 transition cursor-pointer"
+                    >
+                      <option value="available">
+                        {isTelugu
+                          ? "ఇప్పుడే అందుబాటులో ఉంది (Available Now)"
+                          : "Available Now"}
+                      </option>
+                      <option value="booked">
+                        {isTelugu
+                          ? "ముందస్తు బుకింగ్ మాత్రమే (Booking Only)"
+                          : "Booking Only"}
+                      </option>
+                      <option value="maintenance">
+                        {isTelugu ? "మరమ్మత్తులో ఉంది (Maintenance)" : "Maintenance"}
+                      </option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1.5">
+                      {isTelugu ? "పరిస్థితి" : "Machine Condition"}
+                    </label>
+                    <select
+                      value={condition}
+                      onChange={(e) => setCondition(e.target.value as MachineCondition)}
+                      className="w-full rounded-2xl border border-slate-300 bg-slate-50/80 p-3.5 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981] focus:bg-white focus:ring-2 focus:ring-[#10B981]/20 transition cursor-pointer"
+                    >
+                      <option value="Excellent">
+                        {isTelugu ? "చాలా బాగుంది (Excellent)" : "Excellent"}
+                      </option>
+                      <option value="Good">{isTelugu ? "బాగుంది (Good)" : "Good"}</option>
+                      <option value="Fair">{isTelugu ? "సాధారణం (Fair)" : "Fair"}</option>
+                    </select>
+                  </div>
+
+                  <div className="sm:col-span-2">
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1.5">
+                      {isTelugu ? "ముఖ్య స్పెసిఫికేషన్లు" : "Specifications"}
+                    </label>
+                    <input
+                      type="text"
+                      value={specifications}
+                      onChange={(e) => setSpecifications(e.target.value)}
+                      placeholder={
+                        isTelugu
+                          ? "ఉదా: 45 HP, డీజిల్, పవర్ స్టీరింగ్"
+                          : "e.g. 45 HP, Diesel, Power Steering, Dual Clutch"
+                      }
+                      className="w-full rounded-2xl border border-slate-300 bg-slate-50/80 p-3.5 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981] focus:bg-white focus:ring-2 focus:ring-[#10B981]/20 transition"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* SECTION 3: OWNER CONTACT INFO */}
+              <div className="space-y-4">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[#0D6E48] border-b border-[#1E6446]/10 pb-2 flex items-center gap-2">
+                  <User className="h-4 w-4" />
+                  {isTelugu ? "3. యజమాని సంప్రదింపుల వివరాలు" : "3. Owner Contact Information"}
+                </h3>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1.5">
+                      {isTelugu ? "యజమాని / రైతు పేరు" : "Owner / Farmer Name"} *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={ownerName}
+                      onChange={(e) => setOwnerName(e.target.value)}
+                      placeholder={isTelugu ? "ఉదా: రమేష్ వర్మ" : "e.g. Ramesh Varma"}
+                      className="w-full rounded-2xl border border-slate-300 bg-slate-50/80 p-3.5 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981] focus:bg-white focus:ring-2 focus:ring-[#10B981]/20 transition"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-[#123F2D] uppercase tracking-wider mb-1.5">
+                      {isTelugu ? "ఫోన్ నంబర్" : "Mobile / Phone Number"} *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={ownerPhone}
+                      onChange={(e) => setOwnerPhone(e.target.value)}
+                      placeholder="9876543210"
+                      className="w-full rounded-2xl border border-slate-300 bg-slate-50/80 p-3.5 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981] focus:bg-white focus:ring-2 focus:ring-[#10B981]/20 transition"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* ACTION BUTTONS */}
+              <div className="pt-4 border-t border-slate-200 flex items-center justify-end gap-4">
+                <Link
+                  to="/machines-tools"
+                  className="rounded-2xl border border-slate-300 bg-slate-100 hover:bg-slate-200 px-6 py-3.5 text-sm font-bold text-[#123F2D] transition cursor-pointer"
+                >
+                  {isTelugu ? "రద్దు చేయి" : "Cancel"}
+                </Link>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="inline-flex items-center gap-2 rounded-2xl bg-[#123F2D] hover:bg-[#0D6E48] px-8 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:scale-[1.02] cursor-pointer disabled:opacity-50"
+                >
+                  <Wrench className="h-4 w-4" />
+                  <span>
+                    {isSubmitting
+                      ? isTelugu
+                        ? "ప్రచురించబడుతోంది..."
+                        : "Publishing..."
+                      : isTelugu
+                        ? "అద్దెకు జాబితా చేయండి"
+                        : "List for Rent"}
+                  </span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </PageShell>
     </RoleGuard>
   );

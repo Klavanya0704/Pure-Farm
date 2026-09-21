@@ -35,6 +35,7 @@ import { Route as SchemesRouteImport } from './routes/schemes'
 import { Route as SellerRouteImport } from './routes/seller'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as WeatherRouteImport } from './routes/weather'
+import { Route as MachinesToolsListRouteImport } from './routes/machines-tools.list'
 import { Route as ProductIdRouteImport } from './routes/product/$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -167,6 +168,11 @@ const WeatherRoute = WeatherRouteImport.update({
   path: '/weather',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MachinesToolsListRoute = MachinesToolsListRouteImport.update({
+  id: '/list',
+  path: '/list',
+  getParentRoute: () => MachinesToolsRoute,
+} as any)
 const ProductIdRoute = ProductIdRouteImport.update({
   id: '/product/$id',
   path: '/product/$id',
@@ -187,7 +193,7 @@ export interface FileRoutesByFullPath {
   '/internships': typeof InternshipsRoute
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
-  '/machines-tools': typeof MachinesToolsRoute
+  '/machines-tools': typeof MachinesToolsRouteWithChildren
   '/market': typeof MarketRoute
   '/market-prices': typeof MarketPricesRoute
   '/marketplace': typeof MarketplaceRoute
@@ -200,6 +206,7 @@ export interface FileRoutesByFullPath {
   '/seller': typeof SellerRoute
   '/support': typeof SupportRoute
   '/weather': typeof WeatherRoute
+  '/machines-tools/list': typeof MachinesToolsListRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRoutesByTo {
@@ -216,7 +223,7 @@ export interface FileRoutesByTo {
   '/internships': typeof InternshipsRoute
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
-  '/machines-tools': typeof MachinesToolsRoute
+  '/machines-tools': typeof MachinesToolsRouteWithChildren
   '/market': typeof MarketRoute
   '/market-prices': typeof MarketPricesRoute
   '/marketplace': typeof MarketplaceRoute
@@ -229,6 +236,7 @@ export interface FileRoutesByTo {
   '/seller': typeof SellerRoute
   '/support': typeof SupportRoute
   '/weather': typeof WeatherRoute
+  '/machines-tools/list': typeof MachinesToolsListRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRoutesById {
@@ -246,7 +254,7 @@ export interface FileRoutesById {
   '/internships': typeof InternshipsRoute
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
-  '/machines-tools': typeof MachinesToolsRoute
+  '/machines-tools': typeof MachinesToolsRouteWithChildren
   '/market': typeof MarketRoute
   '/market-prices': typeof MarketPricesRoute
   '/marketplace': typeof MarketplaceRoute
@@ -259,6 +267,7 @@ export interface FileRoutesById {
   '/seller': typeof SellerRoute
   '/support': typeof SupportRoute
   '/weather': typeof WeatherRoute
+  '/machines-tools/list': typeof MachinesToolsListRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRouteTypes {
@@ -290,6 +299,7 @@ export interface FileRouteTypes {
     | '/seller'
     | '/support'
     | '/weather'
+    | '/machines-tools/list'
     | '/product/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -319,6 +329,7 @@ export interface FileRouteTypes {
     | '/seller'
     | '/support'
     | '/weather'
+    | '/machines-tools/list'
     | '/product/$id'
   id:
     | '__root__'
@@ -348,6 +359,7 @@ export interface FileRouteTypes {
     | '/seller'
     | '/support'
     | '/weather'
+    | '/machines-tools/list'
     | '/product/$id'
   fileRoutesById: FileRoutesById
 }
@@ -365,7 +377,7 @@ export interface RootRouteChildren {
   InternshipsRoute: typeof InternshipsRoute
   LearnRoute: typeof LearnRoute
   LoginRoute: typeof LoginRoute
-  MachinesToolsRoute: typeof MachinesToolsRoute
+  MachinesToolsRoute: typeof MachinesToolsRouteWithChildren
   MarketRoute: typeof MarketRoute
   MarketPricesRoute: typeof MarketPricesRoute
   MarketplaceRoute: typeof MarketplaceRoute
@@ -565,6 +577,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WeatherRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/machines-tools/list': {
+      id: '/machines-tools/list'
+      path: '/list'
+      fullPath: '/machines-tools/list'
+      preLoaderRoute: typeof MachinesToolsListRouteImport
+      parentRoute: typeof MachinesToolsRoute
+    }
     '/product/$id': {
       id: '/product/$id'
       path: '/product/$id'
@@ -574,6 +593,18 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface MachinesToolsRouteChildren {
+  MachinesToolsListRoute: typeof MachinesToolsListRoute
+}
+
+const MachinesToolsRouteChildren: MachinesToolsRouteChildren = {
+  MachinesToolsListRoute: MachinesToolsListRoute,
+}
+
+const MachinesToolsRouteWithChildren = MachinesToolsRoute._addFileChildren(
+  MachinesToolsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -589,7 +620,7 @@ const rootRouteChildren: RootRouteChildren = {
   InternshipsRoute: InternshipsRoute,
   LearnRoute: LearnRoute,
   LoginRoute: LoginRoute,
-  MachinesToolsRoute: MachinesToolsRoute,
+  MachinesToolsRoute: MachinesToolsRouteWithChildren,
   MarketRoute: MarketRoute,
   MarketPricesRoute: MarketPricesRoute,
   MarketplaceRoute: MarketplaceRoute,
