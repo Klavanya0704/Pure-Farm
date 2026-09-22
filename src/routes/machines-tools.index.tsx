@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MachinesToolsPage } from "@/components/pages";
 
-export const Route = createFileRoute("/machines-tools")({
+export const Route = createFileRoute("/machines-tools/")({
   head: () => ({
     meta: [
       { title: "Machines & Tools Rental | PureFarm" },
