@@ -6755,8 +6755,7 @@ export function MachinesToolsPage() {
       specs: "45 HP, Diesel, Power Steering, Dual Clutch",
       description:
         "Multi-purpose 45 HP red diesel agricultural tractor with power steering and dual clutch. Ideal for tilling, ploughing, and transport.",
-      image:
-        "https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=1000",
+      image: "/images/machines/tractor.jpg",
       phone: "9848012345",
     },
     {
@@ -6771,8 +6770,7 @@ export function MachinesToolsPage() {
       specs: "Paddy & Wheat Combine, 68 HP Diesel Engine",
       description:
         "High performance paddy & wheat combine harvester operating in field with 68 HP diesel engine for quick harvesting.",
-      image:
-        "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1000",
+      image: "/images/machines/harvester.jpg",
       phone: "9848023456",
     },
     {
@@ -6787,8 +6785,7 @@ export function MachinesToolsPage() {
       specs: "48 Blades, Heavy Duty PTO Driven",
       description:
         "Heavy duty 7-foot tractor-mounted rotary tiller with 48 blades for fine seedbed preparation.",
-      image:
-        "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1000",
+      image: "/images/machines/rotavator.jpg",
       phone: "9848034567",
     },
     {
@@ -6803,8 +6800,7 @@ export function MachinesToolsPage() {
       specs: "12V Battery Operated, Dual Brass Nozzle, 20L Tank",
       description:
         "12V battery-operated 20L backpack power sprayer with dual brass nozzles for pesticide spray.",
-      image:
-        "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=1000",
+      image: "/images/machines/sprayer.jpg",
       phone: "9848045678",
     },
     {
@@ -6819,8 +6815,7 @@ export function MachinesToolsPage() {
       specs: "4-Stroke Petrol Engine, 3 Inch Delivery Pipe",
       description:
         "4-stroke petrol 3-inch agricultural irrigation water pump for high volume field watering.",
-      image:
-        "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1000",
+      image: "/images/machines/water_pump.jpg",
       phone: "9848056789",
     },
     {
@@ -6835,8 +6830,7 @@ export function MachinesToolsPage() {
       specs: "7.5 HP Petrol, Reverse Gear, Tillage Depth 6-8 inch",
       description:
         "Heavy duty petrol power tiller cultivator with visible tines for orchard tilling and weeding.",
-      image:
-        "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1000",
+      image: "/images/machines/cultivator.jpg",
       phone: "9848067890",
     },
     {
@@ -6851,8 +6845,7 @@ export function MachinesToolsPage() {
       specs: "9 Tines, Double Box Seed & Fertilizer, Adjustable Depth",
       description:
         "Tractor-mounted 9-row automatic seed drill and fertilizer applicator for precise sowing.",
-      image:
-        "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1000",
+      image: "/images/machines/seeder.jpg",
       phone: "9848078901",
     },
     {
@@ -6867,8 +6860,7 @@ export function MachinesToolsPage() {
       specs: "30 Brass Sprinklers, 75mm HDPE Pipes, 2 Acre Kit",
       description:
         "Portable agricultural sprinkler set with 30 nozzles and quick-fit HDPE pipes for 2-acre coverage.",
-      image:
-        "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=1000",
+      image: "/images/machines/irrigation.jpg",
       phone: "9848089012",
     },
     {
@@ -6883,8 +6875,7 @@ export function MachinesToolsPage() {
       specs: "2.2 HP 40cc Petrol, 3-Tooth Blade, Double Shoulder Harness",
       description:
         "Heavy duty 2-stroke petrol brush cutter tool with 3-tooth metal blade and tap-and-go nylon head.",
-      image:
-        "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=1000",
+      image: "/images/machines/power_tools.jpg",
       phone: "9848090123",
     },
     {
@@ -6899,13 +6890,38 @@ export function MachinesToolsPage() {
       specs: "5-Ton Capacity, Single Axle, Hydraulic Ram Lift",
       description:
         "Heavy duty 5-tonne hydraulic tipping tractor trailer for agricultural crop haulage and transport.",
-      image:
-        "https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&w=1000",
+      image: "/images/machines/trolley.jpg",
       phone: "9848091234",
     },
   ];
 
   const [equipmentList, setEquipmentList] = useState(initialEquipmentList);
+
+  useEffect(() => {
+    getMachines()
+      .then((data) => {
+        if (data && data.length > 0) {
+          const mapped = data.map((item) => ({
+            id: item.id,
+            name: item.name,
+            category: item.category,
+            owner: item.owner_name,
+            location: item.location,
+            rate: `₹${item.rental_rate}`,
+            rateUnit: item.rate_unit || "hr",
+            available: item.availability === "available",
+            specs: item.specifications || "",
+            description: item.description || "",
+            image: getEquipmentImage(item.name, item.category, item.image_url),
+            phone: item.owner_phone || "9848012345",
+          }));
+          setEquipmentList(mapped);
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to load machines:", err);
+      });
+  }, []);
 
   useEffect(() => {
     getMachines()
@@ -7582,23 +7598,23 @@ export function MachinesToolsListPage() {
   const sampleImages = [
     {
       label: "Tractor",
-      url: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=1000",
+      url: "/images/machines/tractor.jpg",
     },
     {
       label: "Harvester",
-      url: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1000",
+      url: "/images/machines/harvester.jpg",
     },
     {
       label: "Rotavator",
-      url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000",
+      url: "/images/machines/rotavator.jpg",
     },
     {
       label: "Sprayer",
-      url: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=1000",
+      url: "/images/machines/sprayer.jpg",
     },
     {
       label: "Water Pump",
-      url: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1000",
+      url: "/images/machines/water_pump.jpg",
     },
   ];
 

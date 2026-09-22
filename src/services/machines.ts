@@ -30,8 +30,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     category: "Tractor",
     description:
       "Multi-purpose 45 HP red diesel agricultural tractor with power steering and dual clutch. Ideal for tilling, ploughing, and transport.",
-    image_url:
-      "https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=1000",
+    image_url: "/images/machines/tractor.jpg",
     location: "Rajahmundry",
     rental_rate: 500,
     rate_unit: "hr",
@@ -51,8 +50,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     category: "Harvester",
     description:
       "High performance paddy & wheat combine harvester operating in field with 68 HP diesel engine for quick harvesting.",
-    image_url:
-      "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1000",
+    image_url: "/images/machines/harvester.jpg",
     location: "Kakinada",
     rental_rate: 1800,
     rate_unit: "hr",
@@ -72,8 +70,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     category: "Rotavator",
     description:
       "Heavy duty 7-foot tractor-mounted rotary tiller with 48 blades for fine seedbed preparation.",
-    image_url:
-      "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1000",
+    image_url: "/images/machines/rotavator.jpg",
     location: "Eluru",
     rental_rate: 450,
     rate_unit: "hr",
@@ -93,8 +90,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     category: "Sprayer",
     description:
       "12V battery-operated 20L backpack power sprayer with dual brass nozzles for pesticide spray.",
-    image_url:
-      "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=1000",
+    image_url: "/images/machines/sprayer.jpg",
     location: "Rajahmundry",
     rental_rate: 250,
     rate_unit: "day",
@@ -114,8 +110,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     category: "Water Pump",
     description:
       "4-stroke petrol 3-inch agricultural irrigation water pump for high volume field watering.",
-    image_url:
-      "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1000",
+    image_url: "/images/machines/water_pump.jpg",
     location: "Tanuku",
     rental_rate: 300,
     rate_unit: "day",
@@ -135,8 +130,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     category: "Cultivator",
     description:
       "Heavy duty petrol power tiller cultivator with visible tines for orchard tilling and weeding.",
-    image_url:
-      "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1000",
+    image_url: "/images/machines/cultivator.jpg",
     location: "Mandapeta",
     rental_rate: 350,
     rate_unit: "hr",
@@ -156,8 +150,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     category: "Seeder",
     description:
       "Tractor-mounted 9-row automatic seed drill and fertilizer applicator for precise sowing.",
-    image_url:
-      "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1000",
+    image_url: "/images/machines/seeder.jpg",
     location: "Vijayawada",
     rental_rate: 400,
     rate_unit: "hr",
@@ -177,8 +170,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     category: "Irrigation Equipment",
     description:
       "Portable agricultural sprinkler set with 30 nozzles and quick-fit HDPE pipes for 2-acre coverage.",
-    image_url:
-      "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=1000",
+    image_url: "/images/machines/irrigation.jpg",
     location: "Kakinada",
     rental_rate: 600,
     rate_unit: "day",
@@ -198,8 +190,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     category: "Power Tool",
     description:
       "Heavy duty 2-stroke petrol brush cutter tool with 3-tooth metal blade and tap-and-go nylon head.",
-    image_url:
-      "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=1000",
+    image_url: "/images/machines/power_tools.jpg",
     location: "Eluru",
     rental_rate: 200,
     rate_unit: "day",
@@ -219,8 +210,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     category: "Other",
     description:
       "Heavy duty 5-tonne hydraulic tipping tractor trailer for agricultural crop haulage and transport.",
-    image_url:
-      "https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&w=1000",
+    image_url: "/images/machines/trolley.jpg",
     location: "Rajahmundry",
     rental_rate: 500,
     rate_unit: "day",
@@ -233,6 +223,27 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
   },
 ];
 
+export function getEquipmentImage(name?: string | null, category?: string | null, currentUrl?: string | null): string {
+  const lowerName = (name || "").toLowerCase();
+  const lowerCat = (category || "").toLowerCase();
+
+  if (lowerName.includes("tractor") || lowerCat.includes("tractor")) return "/images/machines/tractor.jpg";
+  if (lowerName.includes("harvester") || lowerCat.includes("harvester")) return "/images/machines/harvester.jpg";
+  if (lowerName.includes("rotavator") || lowerCat.includes("rotavator")) return "/images/machines/rotavator.jpg";
+  if (lowerName.includes("sprayer") || lowerCat.includes("sprayer")) return "/images/machines/sprayer.jpg";
+  if (lowerName.includes("pump") || lowerCat.includes("water pump")) return "/images/machines/water_pump.jpg";
+  if (lowerName.includes("cultivator") || lowerCat.includes("cultivator") || lowerName.includes("tiller")) return "/images/machines/cultivator.jpg";
+  if (lowerName.includes("seed") || lowerCat.includes("seeder")) return "/images/machines/seeder.jpg";
+  if (lowerName.includes("irrigation") || lowerCat.includes("irrigation") || lowerName.includes("drip") || lowerName.includes("sprinkler")) return "/images/machines/irrigation.jpg";
+  if (lowerName.includes("brush") || lowerName.includes("weeder") || lowerCat.includes("power tool") || lowerCat.includes("power_tool")) return "/images/machines/power_tools.jpg";
+  if (lowerName.includes("trolley") || lowerName.includes("trailer") || lowerCat.includes("other")) return "/images/machines/trolley.jpg";
+
+  if (currentUrl && currentUrl.startsWith("/images/machines/")) {
+    return currentUrl;
+  }
+  return "/images/machines/tractor.jpg";
+}
+
 function getLocalMachines(): DbMachine[] {
   if (typeof window === "undefined") return INITIAL_STATIC_MACHINES;
   try {
@@ -240,13 +251,12 @@ function getLocalMachines(): DbMachine[] {
     if (data) {
       const parsed = JSON.parse(data);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        // Fix any outdated/broken image URLs in cached local storage
+        // Force replace any legacy cached URLs in user localStorage with verified local equipment image assets
         return parsed.map((item: DbMachine) => {
-          const match = INITIAL_STATIC_MACHINES.find((m) => m.id === item.id);
-          if (match) {
-            return { ...item, image_url: match.image_url };
-          }
-          return item;
+          return {
+            ...item,
+            image_url: getEquipmentImage(item.name, item.category, item.image_url)
+          };
         });
       }
     }
