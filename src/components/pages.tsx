@@ -6746,7 +6746,7 @@ export function MachinesToolsPage() {
     {
       id: "eq-1",
       name: "Mahindra 575 DI Tractor (45 HP)",
-      category: "Tractors",
+      category: "Tractor",
       owner: "Ramesh Varma",
       location: "Rajahmundry",
       rate: "₹500",
@@ -6754,15 +6754,15 @@ export function MachinesToolsPage() {
       available: true,
       specs: "45 HP, Diesel, Power Steering, Dual Clutch",
       description:
-        "Well maintained Mahindra tractor available with experienced driver for tilling, plowing, and haulage.",
+        "Multi-purpose 45 HP red diesel agricultural tractor with power steering and dual clutch. Ideal for tilling, ploughing, and transport.",
       image:
-        "https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&w=800",
-      phone: "9876543210",
+        "https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=1000",
+      phone: "9848012345",
     },
     {
       id: "eq-2",
       name: "Kubota Harvester DC-68G",
-      category: "Harvesters",
+      category: "Harvester",
       owner: "Venkat Rao",
       location: "Kakinada",
       rate: "₹1,800",
@@ -6770,15 +6770,15 @@ export function MachinesToolsPage() {
       available: true,
       specs: "Paddy & Wheat Combine, 68 HP Diesel Engine",
       description:
-        "High capacity rubber crawler harvester for wet paddy fields. Minimal grain loss during harvesting.",
+        "High performance paddy & wheat combine harvester operating in field with 68 HP diesel engine for quick harvesting.",
       image:
-        "https://images.unsplash.com/photo-1592417817098-8f3d6ef23a63?auto=format&fit=crop&w=800",
-      phone: "9876543211",
+        "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1000",
+      phone: "9848023456",
     },
     {
       id: "eq-3",
       name: "Shaktiman Rotavator 7 Feet",
-      category: "Rotavators",
+      category: "Rotavator",
       owner: "Appa Rao",
       location: "Eluru",
       rate: "₹450",
@@ -6786,15 +6786,15 @@ export function MachinesToolsPage() {
       available: true,
       specs: "48 Blades, Heavy Duty PTO Driven",
       description:
-        "Ideal for secondary tillage, soil pulverization, and stubble incorporation after paddy harvest.",
+        "Heavy duty 7-foot tractor-mounted rotary tiller with 48 blades for fine seedbed preparation.",
       image:
-        "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=800",
-      phone: "9876543212",
+        "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1000",
+      phone: "9848034567",
     },
     {
       id: "eq-4",
       name: "Multi-Crop Power Sprayer 20L",
-      category: "Sprayers",
+      category: "Sprayer",
       owner: "Satyanarayana",
       location: "Rajahmundry",
       rate: "₹250",
@@ -6802,15 +6802,15 @@ export function MachinesToolsPage() {
       available: true,
       specs: "12V Battery Operated, Dual Brass Nozzle, 20L Tank",
       description:
-        "Lightweight battery sprayer with adjustable pressure for pesticide and liquid fertilizer application.",
+        "12V battery-operated 20L backpack power sprayer with dual brass nozzles for pesticide spray.",
       image:
-        "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=800",
-      phone: "9876543213",
+        "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=1000",
+      phone: "9848045678",
     },
     {
       id: "eq-5",
       name: "Honda 5 HP High Pressure Water Pump",
-      category: "Water Pumps",
+      category: "Water Pump",
       owner: "Krishna Reddy",
       location: "Tanuku",
       rate: "₹300",
@@ -6818,15 +6818,15 @@ export function MachinesToolsPage() {
       available: true,
       specs: "4-Stroke Petrol Engine, 3 Inch Delivery Pipe",
       description:
-        "High discharge water pump for canal irrigation and emergency dewatering. Easy recoil start.",
+        "4-stroke petrol 3-inch agricultural irrigation water pump for high volume field watering.",
       image:
-        "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800",
-      phone: "9876543214",
+        "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1000",
+      phone: "9848056789",
     },
     {
       id: "eq-6",
       name: "STIHL Heavy Duty Power Tiller 7.5 HP",
-      category: "Cultivators",
+      category: "Cultivator",
       owner: "Rambabu",
       location: "Mandapeta",
       rate: "₹350",
@@ -6834,10 +6834,74 @@ export function MachinesToolsPage() {
       available: true,
       specs: "7.5 HP Petrol, Reverse Gear, Tillage Depth 6-8 inch",
       description:
-        "Compact inter-cultivator for sugarcane, banana, and horticulture crops weeding and soil loosening.",
+        "Heavy duty petrol power tiller cultivator with visible tines for orchard tilling and weeding.",
       image:
-        "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800",
-      phone: "9876543215",
+        "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1000",
+      phone: "9848067890",
+    },
+    {
+      id: "eq-7",
+      name: "National Automatic 9-Row Seed Drill",
+      category: "Seeder",
+      owner: "Subba Rao",
+      location: "Vijayawada",
+      rate: "₹400",
+      rateUnit: "hr",
+      available: true,
+      specs: "9 Tines, Double Box Seed & Fertilizer, Adjustable Depth",
+      description:
+        "Tractor-mounted 9-row automatic seed drill and fertilizer applicator for precise sowing.",
+      image:
+        "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1000",
+      phone: "9848078901",
+    },
+    {
+      id: "eq-8",
+      name: "Jain Drip & Sprinkler Irrigation System",
+      category: "Irrigation Equipment",
+      owner: "Narasimha Rao",
+      location: "Kakinada",
+      rate: "₹600",
+      rateUnit: "day",
+      available: true,
+      specs: "30 Brass Sprinklers, 75mm HDPE Pipes, 2 Acre Kit",
+      description:
+        "Portable agricultural sprinkler set with 30 nozzles and quick-fit HDPE pipes for 2-acre coverage.",
+      image:
+        "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=1000",
+      phone: "9848089012",
+    },
+    {
+      id: "eq-9",
+      name: "STIHL Power Weeder & Brush Cutter 2.2 HP",
+      category: "Power Tool",
+      owner: "Venkatesh",
+      location: "Eluru",
+      rate: "₹200",
+      rateUnit: "day",
+      available: true,
+      specs: "2.2 HP 40cc Petrol, 3-Tooth Blade, Double Shoulder Harness",
+      description:
+        "Heavy duty 2-stroke petrol brush cutter tool with 3-tooth metal blade and tap-and-go nylon head.",
+      image:
+        "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=1000",
+      phone: "9848090123",
+    },
+    {
+      id: "eq-10",
+      name: "Hydraulic Tipping Tractor Trolley 5-Ton",
+      category: "Other",
+      owner: "Suryanarayana",
+      location: "Rajahmundry",
+      rate: "₹500",
+      rateUnit: "day",
+      available: true,
+      specs: "5-Ton Capacity, Single Axle, Hydraulic Ram Lift",
+      description:
+        "Heavy duty 5-tonne hydraulic tipping tractor trailer for agricultural crop haulage and transport.",
+      image:
+        "https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&w=1000",
+      phone: "9848091234",
     },
   ];
 
@@ -6876,7 +6940,10 @@ export function MachinesToolsPage() {
           .toLowerCase()
           .includes(query.toLowerCase());
 
-      const matchesCat = selectedCategory === "all" || item.category === selectedCategory;
+      const matchesCat =
+        selectedCategory === "all" ||
+        item.category.toLowerCase().includes(selectedCategory.toLowerCase().replace(/s$/, "")) ||
+        selectedCategory.toLowerCase().includes(item.category.toLowerCase());
       const matchesLoc = selectedLocation === "all" || item.location === selectedLocation;
 
       return matchesQuery && matchesCat && matchesLoc;

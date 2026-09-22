@@ -28,8 +28,10 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     owner_phone: "9848012345",
     name: "Mahindra 575 DI Tractor (45 HP)",
     category: "Tractor",
-    description: "Multi-purpose 45 HP diesel tractor with power steering and dual clutch. Ideal for tilling, ploughing, and transport.",
-    image_url: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=1000",
+    description:
+      "Multi-purpose 45 HP red diesel agricultural tractor with power steering and dual clutch. Ideal for tilling, ploughing, and transport.",
+    image_url:
+      "https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=1000",
     location: "Rajahmundry",
     rental_rate: 500,
     rate_unit: "hr",
@@ -47,8 +49,10 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     owner_phone: "9848023456",
     name: "Kubota Harvester DC-68G",
     category: "Harvester",
-    description: "High performance paddy & wheat combine harvester with 68 HP diesel engine for quick harvesting.",
-    image_url: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1000",
+    description:
+      "High performance paddy & wheat combine harvester operating in field with 68 HP diesel engine for quick harvesting.",
+    image_url:
+      "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1000",
     location: "Kakinada",
     rental_rate: 1800,
     rate_unit: "hr",
@@ -66,8 +70,10 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     owner_phone: "9848034567",
     name: "Shaktiman Rotavator 7 Feet",
     category: "Rotavator",
-    description: "Heavy duty 7-foot rotary tiller with 48 blades for fine seedbed preparation.",
-    image_url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000",
+    description:
+      "Heavy duty 7-foot tractor-mounted rotary tiller with 48 blades for fine seedbed preparation.",
+    image_url:
+      "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1000",
     location: "Eluru",
     rental_rate: 450,
     rate_unit: "hr",
@@ -85,8 +91,10 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     owner_phone: "9848045678",
     name: "Multi-Crop Power Sprayer 20L",
     category: "Sprayer",
-    description: "12V battery-operated 20L backpack power sprayer with dual brass nozzles for pesticide spray.",
-    image_url: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=1000",
+    description:
+      "12V battery-operated 20L backpack power sprayer with dual brass nozzles for pesticide spray.",
+    image_url:
+      "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=1000",
     location: "Rajahmundry",
     rental_rate: 250,
     rate_unit: "day",
@@ -104,8 +112,10 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     owner_phone: "9848056789",
     name: "Honda 5 HP High Pressure Water Pump",
     category: "Water Pump",
-    description: "4-stroke petrol 3-inch irrigation water pump for high volume agricultural field watering.",
-    image_url: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1000",
+    description:
+      "4-stroke petrol 3-inch agricultural irrigation water pump for high volume field watering.",
+    image_url:
+      "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1000",
     location: "Tanuku",
     rental_rate: 300,
     rate_unit: "day",
@@ -123,14 +133,100 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     owner_phone: "9848067890",
     name: "STIHL Heavy Duty Power Tiller 7.5 HP",
     category: "Cultivator",
-    description: "Heavy duty petrol power tiller with reverse gear for orchard tilling and weeding.",
-    image_url: "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1000",
+    description:
+      "Heavy duty petrol power tiller cultivator with visible tines for orchard tilling and weeding.",
+    image_url:
+      "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1000",
     location: "Mandapeta",
     rental_rate: 350,
     rate_unit: "hr",
     availability: "available",
     condition: "Good",
     specifications: "7.5 HP Petrol, Reverse Gear, Tillage Depth 6-8 inch",
+    status: "active",
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: "m-7",
+    farmer_id: "farmer-107",
+    owner_name: "Subba Rao",
+    owner_phone: "9848078901",
+    name: "National Automatic 9-Row Seed Drill",
+    category: "Seeder",
+    description:
+      "Tractor-mounted 9-row automatic seed drill and fertilizer applicator for precise sowing.",
+    image_url:
+      "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1000",
+    location: "Vijayawada",
+    rental_rate: 400,
+    rate_unit: "hr",
+    availability: "available",
+    condition: "Excellent",
+    specifications: "9 Tines, Double Box Seed & Fertilizer, Adjustable Depth",
+    status: "active",
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: "m-8",
+    farmer_id: "farmer-108",
+    owner_name: "Narasimha Rao",
+    owner_phone: "9848089012",
+    name: "Jain Drip & Sprinkler Irrigation System",
+    category: "Irrigation Equipment",
+    description:
+      "Portable agricultural sprinkler set with 30 nozzles and quick-fit HDPE pipes for 2-acre coverage.",
+    image_url:
+      "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=1000",
+    location: "Kakinada",
+    rental_rate: 600,
+    rate_unit: "day",
+    availability: "available",
+    condition: "Excellent",
+    specifications: "30 Brass Sprinklers, 75mm HDPE Pipes, 2 Acre Kit",
+    status: "active",
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: "m-9",
+    farmer_id: "farmer-109",
+    owner_name: "Venkatesh",
+    owner_phone: "9848090123",
+    name: "STIHL Power Weeder & Brush Cutter 2.2 HP",
+    category: "Power Tool",
+    description:
+      "Heavy duty 2-stroke petrol brush cutter tool with 3-tooth metal blade and tap-and-go nylon head.",
+    image_url:
+      "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=1000",
+    location: "Eluru",
+    rental_rate: 200,
+    rate_unit: "day",
+    availability: "available",
+    condition: "Good",
+    specifications: "2.2 HP 40cc Petrol, 3-Tooth Blade, Double Shoulder Harness",
+    status: "active",
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: "m-10",
+    farmer_id: "farmer-110",
+    owner_name: "Suryanarayana",
+    owner_phone: "9848091234",
+    name: "Hydraulic Tipping Tractor Trolley 5-Ton",
+    category: "Other",
+    description:
+      "Heavy duty 5-tonne hydraulic tipping tractor trailer for agricultural crop haulage and transport.",
+    image_url:
+      "https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&w=1000",
+    location: "Rajahmundry",
+    rental_rate: 500,
+    rate_unit: "day",
+    availability: "available",
+    condition: "Excellent",
+    specifications: "5-Ton Capacity, Single Axle, Hydraulic Ram Lift",
     status: "active",
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
@@ -143,7 +239,16 @@ function getLocalMachines(): DbMachine[] {
     const data = localStorage.getItem(LOCAL_MACHINES_KEY);
     if (data) {
       const parsed = JSON.parse(data);
-      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        // Fix any outdated/broken image URLs in cached local storage
+        return parsed.map((item: DbMachine) => {
+          const match = INITIAL_STATIC_MACHINES.find((m) => m.id === item.id);
+          if (match) {
+            return { ...item, image_url: match.image_url };
+          }
+          return item;
+        });
+      }
     }
   } catch (e) {
     console.error("Failed to read local machines:", e);
