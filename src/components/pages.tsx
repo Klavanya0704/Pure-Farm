@@ -6731,6 +6731,20 @@ export function MachinesToolsPage() {
     "Other Farm Equipment",
   ];
 
+  const catNamesTe: Record<string, string> = {
+    all: "అన్నీ",
+    Tractors: "ట్రాక్టర్లు",
+    Harvesters: "హార్వెస్టర్లు",
+    Rotavators: "రోటావేటర్లు",
+    Cultivators: "కల్టివేటర్లు",
+    Seeders: "సీడర్లు",
+    Sprayers: "స్ప్రేయర్లు",
+    "Water Pumps": "వాటర్ పంపులు",
+    "Irrigation Equipment": "నీటి పారుదల పరికరాలు",
+    "Power Tools": "పావర్ టూల్స్",
+    "Other Farm Equipment": "ఇతర పరికరాలు",
+  };
+
   const locations = [
     "all",
     "Rajahmundry",
@@ -6743,6 +6757,7 @@ export function MachinesToolsPage() {
   ];
 
   const initialEquipmentList = [
+    // 1. TRACTORS (4 items)
     {
       id: "eq-1",
       name: "Mahindra 575 DI Tractor (45 HP)",
@@ -6752,12 +6767,55 @@ export function MachinesToolsPage() {
       rate: "₹500",
       rateUnit: "hr",
       available: true,
-      specs: "45 HP, Diesel, Power Steering, Dual Clutch",
-      description:
-        "Multi-purpose 45 HP red diesel agricultural tractor with power steering and dual clutch. Ideal for tilling, ploughing, and transport.",
+      specs: "45 HP, Diesel Engine, Dual Clutch, Heavy Tow Hitch",
+      description: "Multi-purpose 45 HP red diesel agricultural tractor with power steering and dual clutch. Ideal for tilling, ploughing, and transport.",
       image: "/images/machines/tractor.jpg",
       phone: "9848012345",
     },
+    {
+      id: "eq-1b",
+      name: "John Deere 5310 GearPro Tractor (55 HP)",
+      category: "Tractor",
+      owner: "K. Srinivasa Rao",
+      location: "Vijayawada",
+      rate: "₹650",
+      rateUnit: "hr",
+      available: true,
+      specs: "55 HP Power Steering, 12F+4R Gearbox, Oil Immersed Brakes",
+      description: "High power 55 HP heavy-duty tractor equipped with 12F+4R gear transmission, oil immersed disc brakes, and high torque output.",
+      image: "/images/machines/tractor.jpg",
+      phone: "9848011223",
+    },
+    {
+      id: "eq-1c",
+      name: "Swaraj 744 FE Multi-Speed Tractor (48 HP)",
+      category: "Tractor",
+      owner: "M. Nageswara Rao",
+      location: "Guntur",
+      rate: "₹520",
+      rateUnit: "hr",
+      available: true,
+      specs: "48 HP 3-Cylinder Diesel, Direction Control Valve, 2000kg Lift",
+      description: "Reliable 48 HP 3-cylinder diesel tractor with multi-speed PTO, dual clutch, and 2000kg hydraulic lift capacity for heavy soil tilling.",
+      image: "/images/machines/tractor.jpg",
+      phone: "9848011334",
+    },
+    {
+      id: "eq-1d",
+      name: "Sonalika DI 745 III Sikander (50 HP)",
+      category: "Tractor",
+      owner: "P. Venkateswarlu",
+      location: "Eluru",
+      rate: "₹550",
+      rateUnit: "hr",
+      available: true,
+      specs: "50 HP Engine, High Torque, Power Steering, Constant Mesh",
+      description: "50 HP heavy-duty agricultural tractor engineered for low fuel consumption and high pulling force with subsoilers and haulage.",
+      image: "/images/machines/tractor.jpg",
+      phone: "9848011445",
+    },
+
+    // 2. HARVESTERS (4 items)
     {
       id: "eq-2",
       name: "Kubota Harvester DC-68G",
@@ -6767,12 +6825,55 @@ export function MachinesToolsPage() {
       rate: "₹1,800",
       rateUnit: "hr",
       available: true,
-      specs: "Paddy & Wheat Combine, 68 HP Diesel Engine",
-      description:
-        "High performance paddy & wheat combine harvester operating in field with 68 HP diesel engine for quick harvesting.",
+      specs: "68 HP, Paddy & Wheat Combine, Hydrostatic Drive",
+      description: "High performance paddy & wheat combine harvester operating in field with 68 HP diesel engine for quick harvesting.",
       image: "/images/machines/harvester.jpg",
       phone: "9848023456",
     },
+    {
+      id: "eq-2b",
+      name: "John Deere W70 Grain Combine Harvester",
+      category: "Harvester",
+      owner: "B. Appala Naidu",
+      location: "Vijayawada",
+      rate: "₹2,100",
+      rateUnit: "hr",
+      available: true,
+      specs: "100 HP Turbocharged, 14-ft Cutter Bar, Grain Loss Monitor",
+      description: "100 HP turbocharged self-propelled combine harvester with 14-foot cutter bar and active grain loss monitor for large fields.",
+      image: "/images/machines/harvester.jpg",
+      phone: "9848022334",
+    },
+    {
+      id: "eq-2c",
+      name: "Preet 987 Paddy Combine Harvester",
+      category: "Harvester",
+      owner: "Ch. Satyanarayana",
+      location: "Tanuku",
+      rate: "₹1,950",
+      rateUnit: "hr",
+      available: true,
+      specs: "101 HP Engine, Straw Chopper Attachment, Rubber Tracks",
+      description: "Heavy duty 101 HP paddy crawler combine with heavy-duty rubber tracks for harvesting in wet muddy paddy fields.",
+      image: "/images/machines/harvester.jpg",
+      phone: "9848022445",
+    },
+    {
+      id: "eq-2d",
+      name: "New Holland TC5.30 Combine Harvester",
+      category: "Harvester",
+      owner: "T. Rama Krishna",
+      location: "Guntur",
+      rate: "₹2,200",
+      rateUnit: "hr",
+      available: true,
+      specs: "130 HP Engine, Rotary Separator, Dual Drum Threshing",
+      description: "130 HP multi-crop combine harvester with rotary separator and dual drum paddy threshing mechanism.",
+      image: "/images/machines/harvester.jpg",
+      phone: "9848022556",
+    },
+
+    // 3. ROTAVATORS (4 items)
     {
       id: "eq-3",
       name: "Shaktiman Rotavator 7 Feet",
@@ -6782,42 +6883,55 @@ export function MachinesToolsPage() {
       rate: "₹450",
       rateUnit: "hr",
       available: true,
-      specs: "48 Blades, Heavy Duty PTO Driven",
-      description:
-        "Heavy duty 7-foot tractor-mounted rotary tiller with 48 blades for fine seedbed preparation.",
+      specs: "48 Blades, Multi-speed Gearbox, PTO Driven",
+      description: "Heavy duty 7-foot tractor-mounted rotary tiller with 48 blades for fine seedbed preparation.",
       image: "/images/machines/rotavator.jpg",
       phone: "9848034567",
     },
     {
-      id: "eq-4",
-      name: "Multi-Crop Power Sprayer 20L",
-      category: "Sprayer",
-      owner: "Satyanarayana",
-      location: "Rajahmundry",
-      rate: "₹250",
-      rateUnit: "day",
+      id: "eq-3b",
+      name: "Maschio Gaspardo Virtus 6-Foot Rotavator",
+      category: "Rotavator",
+      owner: "V. Sambasiva Rao",
+      location: "Mandapeta",
+      rate: "₹420",
+      rateUnit: "hr",
       available: true,
-      specs: "12V Battery Operated, Dual Brass Nozzle, 20L Tank",
-      description:
-        "12V battery-operated 20L backpack power sprayer with dual brass nozzles for pesticide spray.",
-      image: "/images/machines/sprayer.jpg",
-      phone: "9848045678",
+      specs: "42 Boron Steel Blades, Heavy Duty Side Gear Drive",
+      description: "Italian boron steel 42-blade rotavator engineered for smooth soil pulverization and residue incorporation.",
+      image: "/images/machines/rotavator.jpg",
+      phone: "9848033445",
     },
     {
-      id: "eq-5",
-      name: "Honda 5 HP High Pressure Water Pump",
-      category: "Water Pump",
-      owner: "Krishna Reddy",
-      location: "Tanuku",
-      rate: "₹300",
-      rateUnit: "day",
+      id: "eq-3c",
+      name: "Fieldking Heavy Duty 8-Foot Rotavator",
+      category: "Rotavator",
+      owner: "K. Subrahmanyam",
+      location: "Rajahmundry",
+      rate: "₹480",
+      rateUnit: "hr",
       available: true,
-      specs: "4-Stroke Petrol Engine, 3 Inch Delivery Pipe",
-      description:
-        "4-stroke petrol 3-inch agricultural irrigation water pump for high volume field watering.",
-      image: "/images/machines/water_pump.jpg",
-      phone: "9848056789",
+      specs: "54 L-Type Blades, Dual Crown Multi-Speed Gearbox",
+      description: "Wide 8-foot tractor rotavator with 54 L-type blades suitable for tractors above 50 HP for fast land preparation.",
+      image: "/images/machines/rotavator.jpg",
+      phone: "9848033556",
     },
+    {
+      id: "eq-3d",
+      name: "Dasmesh 642 Heavy Duty Paddy Rotavator",
+      category: "Rotavator",
+      owner: "G. Trimurtulu",
+      location: "Kakinada",
+      rate: "₹440",
+      rateUnit: "hr",
+      available: true,
+      specs: "Waterproof Bearing Seal, 36 C-Type Blades for Wet Tillage",
+      description: "Specialized wet land paddy rotavator with waterproof bearing seals and 36 C-type blades for thorough puddling.",
+      image: "/images/machines/rotavator.jpg",
+      phone: "9848033667",
+    },
+
+    // 4. CULTIVATORS (4 items)
     {
       id: "eq-6",
       name: "STIHL Heavy Duty Power Tiller 7.5 HP",
@@ -6828,11 +6942,54 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "7.5 HP Petrol, Reverse Gear, Tillage Depth 6-8 inch",
-      description:
-        "Heavy duty petrol power tiller cultivator with visible tines for orchard tilling and weeding.",
+      description: "Heavy duty petrol power tiller cultivator with visible tines for orchard tilling and weeding.",
       image: "/images/machines/cultivator.jpg",
       phone: "9848067890",
     },
+    {
+      id: "eq-6b",
+      name: "Swan 9-Tyne Rigid Frame Field Cultivator",
+      category: "Cultivator",
+      owner: "D. Prasad",
+      location: "Rajahmundry",
+      rate: "₹300",
+      rateUnit: "hr",
+      available: true,
+      specs: "9 Forged Steel Tynes, Heavy Channel Frame, 35+ HP Mount",
+      description: "Tractor-mounted 9-tyne rigid cultivator with forged steel tynes for hard soil loosening and primary tillage.",
+      image: "/images/machines/cultivator.jpg",
+      phone: "9848066778",
+    },
+    {
+      id: "eq-6c",
+      name: "Fieldking 11-Tyne Spring Loaded Cultivator",
+      category: "Cultivator",
+      owner: "Y. Ramana",
+      location: "Vijayawada",
+      rate: "₹380",
+      rateUnit: "hr",
+      available: true,
+      specs: "High-Tensile Springs, Reversible Carbon Shovels, 11 Tynes",
+      description: "Heavy-duty 11-tyne spring-loaded cultivator designed for stony soils with high clearance and reversible carbon shovels.",
+      image: "/images/machines/cultivator.jpg",
+      phone: "9848066889",
+    },
+    {
+      id: "eq-6d",
+      name: "VST Shakti 13 HP Power Tiller / Cultivator",
+      category: "Cultivator",
+      owner: "S. V. Ramana",
+      location: "Tanuku",
+      rate: "₹320",
+      rateUnit: "hr",
+      available: true,
+      specs: "13 HP Diesel Engine, 18-Blade Rotary Tiller",
+      description: "13 HP diesel water-cooled power tiller equipped with 18-blade rotary tiller for inter-cultivation and vegetable plots.",
+      image: "/images/machines/cultivator.jpg",
+      phone: "9848066990",
+    },
+
+    // 5. SEEDERS (4 items)
     {
       id: "eq-7",
       name: "National Automatic 9-Row Seed Drill",
@@ -6843,11 +7000,170 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "9 Tines, Double Box Seed & Fertilizer, Adjustable Depth",
-      description:
-        "Tractor-mounted 9-row automatic seed drill and fertilizer applicator for precise sowing.",
+      description: "Tractor-mounted 9-row automatic seed drill and fertilizer applicator for precise sowing.",
       image: "/images/machines/seeder.jpg",
       phone: "9848078901",
     },
+    {
+      id: "eq-7b",
+      name: "Khedut 11-Row Zero Tillage Seed Drill",
+      category: "Seeder",
+      owner: "N. Veeraiah",
+      location: "Guntur",
+      rate: "₹450",
+      rateUnit: "hr",
+      available: true,
+      specs: "11 Rows, Fluted Roller Metering, Zero Tillage",
+      description: "Direct seed drill allowing sowing without prior tilling, saving fuel and conserving soil moisture.",
+      image: "/images/machines/seeder.jpg",
+      phone: "9848077889",
+    },
+    {
+      id: "eq-7c",
+      name: "Landforce Paddy Drum Seeder (Manual 8-Row)",
+      category: "Seeder",
+      owner: "K. Tirupati Rao",
+      location: "Eluru",
+      rate: "₹150",
+      rateUnit: "day",
+      available: true,
+      specs: "8 Rows Direct Sowing, Fiber Drums, Lightweight Pull",
+      description: "Lightweight 8-row direct paddy drum seeder for sprouted paddy seeds in prepared puddled fields.",
+      image: "/images/machines/seeder.jpg",
+      phone: "9848077990",
+    },
+    {
+      id: "eq-7d",
+      name: "Pneumatic Precision Planter & Maize Seeder",
+      category: "Seeder",
+      owner: "M. Durga Prasad",
+      location: "Kakinada",
+      rate: "₹600",
+      rateUnit: "hr",
+      available: true,
+      specs: "Vacuum Precision Metering, 4 Rows, Adjustable Spacing",
+      description: "Pneumatic vacuum precision planter for single-seed placement of maize, cotton, and sunflower seeds.",
+      image: "/images/machines/seeder.jpg",
+      phone: "9848077101",
+    },
+
+    // 6. SPRAYERS (4 items)
+    {
+      id: "eq-4",
+      name: "Multi-Crop Power Sprayer 20L",
+      category: "Sprayer",
+      owner: "Satyanarayana",
+      location: "Rajahmundry",
+      rate: "₹250",
+      rateUnit: "day",
+      available: true,
+      specs: "12V 12Ah Battery, 20L Tank, Adjustable Brass Nozzle",
+      description: "12V battery-operated 20L backpack power sprayer with dual brass nozzles for pesticide spray.",
+      image: "/images/machines/sprayer.jpg",
+      phone: "9848045678",
+    },
+    {
+      id: "eq-4b",
+      name: "Fieldking 400L Tractor Boom Sprayer",
+      category: "Sprayer",
+      owner: "B. Srinivas",
+      location: "Guntur",
+      rate: "₹800",
+      rateUnit: "day",
+      available: true,
+      specs: "400L Polyethylene Tank, 12m Folding Boom, PTO Pump",
+      description: "400-litre tractor PTO-driven boom sprayer with 12-meter folding spray booms for fast field chemical treatment.",
+      image: "/images/machines/sprayer.jpg",
+      phone: "9848044556",
+    },
+    {
+      id: "eq-4c",
+      name: "Aspee Marut Foot-Operated Orchard Sprayer",
+      category: "Sprayer",
+      owner: "K. Babu",
+      location: "Mandapeta",
+      rate: "₹180",
+      rateUnit: "day",
+      available: true,
+      specs: "Brass Pump Barrel, 2m Extension Rod, High Pressure Hose",
+      description: "High-pressure foot sprayer with brass pump cylinder and long delivery hose for orchard trees.",
+      image: "/images/machines/sprayer.jpg",
+      phone: "9848044667",
+    },
+    {
+      id: "eq-4d",
+      name: "KisanKraft 4-Stroke Petrol Engine Power Sprayer",
+      category: "Sprayer",
+      owner: "G. Krishna",
+      location: "Vijayawada",
+      rate: "₹350",
+      rateUnit: "day",
+      available: true,
+      specs: "31cc 4-Stroke Engine, 50m Hose Reel, High Jet Pressure",
+      description: "Portable 31cc 4-stroke petrol engine power sprayer with 50-meter hose reel for spraying fruit gardens and field crops.",
+      image: "/images/machines/sprayer.jpg",
+      phone: "9848044778",
+    },
+
+    // 7. WATER PUMPS (4 items)
+    {
+      id: "eq-5",
+      name: "Honda 5 HP High Pressure Water Pump",
+      category: "Water Pump",
+      owner: "Krishna Reddy",
+      location: "Tanuku",
+      rate: "₹300",
+      rateUnit: "day",
+      available: true,
+      specs: "5 HP Engine, 3-inch Delivery Pipe, 1000L/min Flow",
+      description: "4-stroke petrol 3-inch agricultural irrigation water pump for high volume field watering.",
+      image: "/images/machines/water_pump.jpg",
+      phone: "9848056789",
+    },
+    {
+      id: "eq-5b",
+      name: "Kirloskar 7.5 HP Diesel Agricultural Pump",
+      category: "Water Pump",
+      owner: "P. Satyanarayana",
+      location: "Eluru",
+      rate: "₹400",
+      rateUnit: "day",
+      available: true,
+      specs: "7.5 HP Air-Cooled Diesel, 4-inch Suction & Delivery",
+      description: "Heavy duty single cylinder diesel water pump coupled with 4-inch high discharge centrifugal pump.",
+      image: "/images/machines/water_pump.jpg",
+      phone: "9848055667",
+    },
+    {
+      id: "eq-5c",
+      name: "Crompton 5 HP Submersible Farm Well Pump",
+      category: "Water Pump",
+      owner: "V. Chalapathi",
+      location: "Rajahmundry",
+      rate: "₹350",
+      rateUnit: "day",
+      available: true,
+      specs: "5 HP 3-Phase Motor, Stainless Steel Impellers, High Head",
+      description: "5 HP 3-phase open well submersible pump set engineered for continuous agricultural irrigation from open wells.",
+      image: "/images/machines/water_pump.jpg",
+      phone: "9848055778",
+    },
+    {
+      id: "eq-5d",
+      name: "Texmo 3 HP Monoblock Irrigation Water Pump",
+      category: "Water Pump",
+      owner: "K. Adinarayana",
+      location: "Kakinada",
+      rate: "₹280",
+      rateUnit: "day",
+      available: true,
+      specs: "3 HP Single Phase, Heavy Cast Iron Body, High Discharge",
+      description: "Single-phase 3 HP monoblock pump suitable for lifting water from canals, ponds, and shallow borewells.",
+      image: "/images/machines/water_pump.jpg",
+      phone: "9848055889",
+    },
+
+    // 8. IRRIGATION EQUIPMENT (4 items)
     {
       id: "eq-8",
       name: "Jain Drip & Sprinkler Irrigation System",
@@ -6858,11 +7174,54 @@ export function MachinesToolsPage() {
       rateUnit: "day",
       available: true,
       specs: "30 Brass Sprinklers, 75mm HDPE Pipes, 2 Acre Kit",
-      description:
-        "Portable agricultural sprinkler set with 30 nozzles and quick-fit HDPE pipes for 2-acre coverage.",
+      description: "Portable agricultural sprinkler set with 30 nozzles and quick-fit HDPE pipes for 2-acre coverage.",
       image: "/images/machines/irrigation.jpg",
       phone: "9848089012",
     },
+    {
+      id: "eq-8b",
+      name: "Netafim Micro Drip Irrigation Kit 1-Acre",
+      category: "Irrigation Equipment",
+      owner: "S. Govind",
+      location: "Guntur",
+      rate: "₹500",
+      rateUnit: "day",
+      available: true,
+      specs: "Inline Dripper Tubes, Screen Filter, Venturi Injector",
+      description: "Complete 1-acre drip irrigation kit featuring inline pressure compensating drippers, screen filter, and venturi injector.",
+      image: "/images/machines/irrigation.jpg",
+      phone: "9848088990",
+    },
+    {
+      id: "eq-8c",
+      name: "Finolex Rain Gun Sprinkler Irrigation System",
+      category: "Irrigation Equipment",
+      owner: "Ch. Subbaiah",
+      location: "Vijayawada",
+      rate: "₹750",
+      rateUnit: "day",
+      available: true,
+      specs: "1.5-inch Heavy Brass Rain Gun, 30m Radius, Quick Latch",
+      description: "High-throw 1.5-inch brass rain gun sprinkler capable of 30-meter spray radius for sugarcane and maize fields.",
+      image: "/images/machines/irrigation.jpg",
+      phone: "9848088101",
+    },
+    {
+      id: "eq-8d",
+      name: "Kritika Portable HDPE Hose Reel Sprinkler Set",
+      category: "Irrigation Equipment",
+      owner: "R. Jagannadham",
+      location: "Tanuku",
+      rate: "₹550",
+      rateUnit: "day",
+      available: true,
+      specs: "60mm Quick Latch Pipes, 20 Brass Impact Heads",
+      description: "Portable sprinkler pipeline kit with 20 brass impact sprinklers and 60mm quick-couple latch pipes.",
+      image: "/images/machines/irrigation.jpg",
+      phone: "9848088212",
+    },
+
+    // 9. POWER TOOLS (4 items)
     {
       id: "eq-9",
       name: "STIHL Power Weeder & Brush Cutter 2.2 HP",
@@ -6872,12 +7231,55 @@ export function MachinesToolsPage() {
       rate: "₹200",
       rateUnit: "day",
       available: true,
-      specs: "2.2 HP 40cc Petrol, 3-Tooth Blade, Double Shoulder Harness",
-      description:
-        "Heavy duty 2-stroke petrol brush cutter tool with 3-tooth metal blade and tap-and-go nylon head.",
+      specs: "2.2 HP 40cc Petrol, 3-Tooth Blade, Double Harness",
+      description: "Heavy duty 2-stroke petrol brush cutter tool with 3-tooth metal blade and tap-and-go nylon head.",
       image: "/images/machines/power_tools.jpg",
       phone: "9848090123",
     },
+    {
+      id: "eq-9b",
+      name: "Husqvarna 455 Rancher Chainsaw 3.5 HP",
+      category: "Power Tool",
+      owner: "T. Anjaneyulu",
+      location: "Rajahmundry",
+      rate: "₹300",
+      rateUnit: "day",
+      available: true,
+      specs: "55.5cc Engine, 20-inch Guide Bar, AutoTune Carburetor",
+      description: "Professional 55.5cc petrol chainsaw with 20-inch guide bar for farm tree pruning, timber cutting, and land clearing.",
+      image: "/images/machines/power_tools.jpg",
+      phone: "9848099001",
+    },
+    {
+      id: "eq-9c",
+      name: "KisanKraft Earth Auger Hole Digger 52cc",
+      category: "Power Tool",
+      owner: "B. Mohan Rao",
+      location: "Mandapeta",
+      rate: "₹250",
+      rateUnit: "day",
+      available: true,
+      specs: "52cc 2-Stroke Petrol, 8-inch & 10-inch Bits, Plantation Digger",
+      description: "One-man petrol earth auger with 8-inch and 10-inch heavy steel bits for fencing posts and tree sapling plantations.",
+      image: "/images/machines/power_tools.jpg",
+      phone: "9848099112",
+    },
+    {
+      id: "eq-9d",
+      name: "Honda Petrol Engine Sugarcane & Crop Cutter",
+      category: "Power Tool",
+      owner: "M. Ramu",
+      location: "Kakinada",
+      rate: "₹350",
+      rateUnit: "day",
+      available: true,
+      specs: "4-Stroke Engine, Carbide Tipped Blade, Lightweight Frame",
+      description: "Portable 4-stroke crop harvester cutter tool for fast harvesting of sugarcane, paddy stalks, and fodder grass.",
+      image: "/images/machines/power_tools.jpg",
+      phone: "9848099223",
+    },
+
+    // 10. OTHER FARM EQUIPMENT (4 items)
     {
       id: "eq-10",
       name: "Hydraulic Tipping Tractor Trolley 5-Ton",
@@ -6888,10 +7290,51 @@ export function MachinesToolsPage() {
       rateUnit: "day",
       available: true,
       specs: "5-Ton Capacity, Single Axle, Hydraulic Ram Lift",
-      description:
-        "Heavy duty 5-tonne hydraulic tipping tractor trailer for agricultural crop haulage and transport.",
+      description: "Heavy duty 5-tonne hydraulic tipping tractor trailer for agricultural crop haulage and transport.",
       image: "/images/machines/trolley.jpg",
       phone: "9848091234",
+    },
+    {
+      id: "eq-10b",
+      name: "Fieldking 3-Bottom Hydraulic Reversible MB Plough",
+      category: "Other",
+      owner: "K. Venkatadri",
+      location: "Guntur",
+      rate: "₹600",
+      rateUnit: "hr",
+      available: true,
+      specs: "3 Bottom MB Plough, High Carbon Steel, Hydraulic Turnover",
+      description: "Hydraulic reversible mouldboard plough for deep tillage, soil inversion, and breaking hard pan layers.",
+      image: "/images/machines/trolley.jpg",
+      phone: "9848091122",
+    },
+    {
+      id: "eq-10c",
+      name: "Redlands Sugarcane Trash Shredder & Mulcher",
+      category: "Other",
+      owner: "P. Subbaraju",
+      location: "Tanuku",
+      rate: "₹700",
+      rateUnit: "hr",
+      available: true,
+      specs: "Tractor PTO Shaft Driven, Heavy Flail Blades, Organic Mulch",
+      description: "PTO driven crop residue flail shredder for crushing sugarcane trash and crop straw into organic soil mulch.",
+      image: "/images/machines/trolley.jpg",
+      phone: "9848091233",
+    },
+    {
+      id: "eq-10d",
+      name: "Grain Solar Dryer Portable Chamber 500kg",
+      category: "Other",
+      owner: "D. Ramakrishna",
+      location: "Vijayawada",
+      rate: "₹400",
+      rateUnit: "day",
+      available: true,
+      specs: "500kg Batch Capacity, Solar Powered Fans, UV Sheet",
+      description: "Solar powered grain & spice drying chamber with forced air ventilation for hygienic drying of agricultural produce.",
+      image: "/images/machines/trolley.jpg",
+      phone: "9848091344",
     },
   ];
 
@@ -6923,31 +7366,21 @@ export function MachinesToolsPage() {
       });
   }, []);
 
-  useEffect(() => {
-    getMachines()
-      .then((data) => {
-        if (data && data.length > 0) {
-          const mapped = data.map((item) => ({
-            id: item.id,
-            name: item.name,
-            category: item.category,
-            owner: item.owner_name,
-            location: item.location,
-            rate: `₹${item.rental_rate}`,
-            rateUnit: item.rate_unit,
-            available: item.availability === "available",
-            specs: item.specifications || "Standard Farm Equipment Specs",
-            description: item.description || "Listed for rent on PureFarm.",
-            image:
-              item.image_url ||
-              "https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=800",
-            phone: item.owner_phone || "9876543210",
-          }));
-          setEquipmentList(mapped);
-        }
-      })
-      .catch((err) => console.error("Error loading machines:", err));
-  }, []);
+  const normalizeCategoryKey = (cat: string) => {
+    const c = (cat || "").toLowerCase().trim();
+    if (c === "all") return "all";
+    if (c.includes("tractor")) return "tractor";
+    if (c.includes("harvester")) return "harvester";
+    if (c.includes("rotavator")) return "rotavator";
+    if (c.includes("cultivator") || c.includes("tiller")) return "cultivator";
+    if (c.includes("seeder") || c.includes("seed")) return "seeder";
+    if (c.includes("sprayer")) return "sprayer";
+    if (c.includes("water pump") || c.includes("pump")) return "water pump";
+    if (c.includes("irrigation")) return "irrigation";
+    if (c.includes("power tool") || c.includes("tool")) return "power tool";
+    if (c.includes("other")) return "other";
+    return c;
+  };
 
   const filteredEquipment = useMemo(() => {
     return equipmentList.filter((item) => {
@@ -6958,8 +7391,8 @@ export function MachinesToolsPage() {
 
       const matchesCat =
         selectedCategory === "all" ||
-        item.category.toLowerCase().includes(selectedCategory.toLowerCase().replace(/s$/, "")) ||
-        selectedCategory.toLowerCase().includes(item.category.toLowerCase());
+        normalizeCategoryKey(item.category) === normalizeCategoryKey(selectedCategory);
+
       const matchesLoc = selectedLocation === "all" || item.location === selectedLocation;
 
       return matchesQuery && matchesCat && matchesLoc;
@@ -7183,6 +7616,22 @@ export function MachinesToolsPage() {
                   {cat === "all" ? (isTelugu ? "అన్నీ" : "All") : t(cat)}
                 </button>
               ))}
+            </div>
+          </div>
+
+          {/* Results Count Header */}
+          <div className="flex items-center justify-between px-2 pt-1">
+            <div className="flex items-center gap-2 text-sm sm:text-base font-extrabold text-[#123F2D]">
+              <span className="flex h-2.5 w-2.5 rounded-full bg-[#10B981] animate-pulse" />
+              <span>
+                {isTelugu
+                  ? selectedCategory === "all"
+                    ? `మొత్తం ${filteredEquipment.length} యంత్రాలు & పరికరాలు అందుబాటులో ఉన్నాయి`
+                    : `${filteredEquipment.length} ${catNamesTe[selectedCategory] || selectedCategory} అందుబాటులో ఉన్నాయి`
+                  : selectedCategory === "all"
+                    ? `Showing ${filteredEquipment.length} Equipment Listings`
+                    : `Showing ${filteredEquipment.length} ${selectedCategory} Available`}
+              </span>
             </div>
           </div>
 
