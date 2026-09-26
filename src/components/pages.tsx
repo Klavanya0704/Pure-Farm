@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { useTranslation } from "@/i18n/LanguageContext";
 import { LanguageSelector } from "./AppShell";
 import { getColdStorageFacilities, type ColdStorageFacility } from "@/services/coldStorage";
@@ -865,7 +865,7 @@ export function FarmerHomePage() {
   ];
 
   return (
-    <RoleGuard allowedRoles={["farmer", "admin"]}>
+    <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <div className="px-4 py-6 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
         {/* 2-Column Desktop Layout */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_310px] items-start">
@@ -1020,6 +1020,7 @@ export function FarmerHomePage() {
                   <Link
                     key={idx}
                     to="/marketplace"
+                    search={{ category: cat.name }}
                     className="flex flex-col rounded-xl border border-border bg-white p-2.5 shadow-sm hover:shadow-md transition-all duration-200 text-center hover:scale-[1.02] aspect-square justify-between"
                   >
                     <div className="h-[65%] w-full rounded-lg overflow-hidden bg-muted flex items-center justify-center">
@@ -1294,27 +1295,112 @@ export function FarmerHomePage() {
   );
 }
 
+export function normalizeCategoryParam(param?: string | null): Category | "all" {
+  if (!param) return "all";
+  const p = param.toLowerCase().trim();
+  if (p === "all") return "all";
+  if (p === "fruits" || p === "fruit") return "fruits";
+  if (p === "vegetables" || p === "vegetable" || p === "veggies") return "vegetables";
+  if (p === "seeds" || p === "seed") return "seeds";
+  if (p === "fertilizers" || p === "fertilizer" || p === "fertilisers" || p === "fertiliser") return "fertilizers";
+  if (p === "pesticides" || p === "pesticide" || p === "crop-protection") return "pesticides";
+  if (p === "farm-tools" || p === "farm tools" || p === "farm_tools" || p === "tools" || p === "tool") return "farm-tools";
+  if (p === "equipment" || p === "equipments" || p === "machinery") return "equipment";
+  return "all";
+}
+
 export function MarketplacePage() {
-  const { t } = useTranslation();
-  // Read search query from URL search parameters on initialization
-  const initialQuery = useMemo(() => {
+  const { language, t } = useTranslation();
+  const isTelugu = language === "te";
+  const navigate = useNavigate();
+
+  // Read search query parameters reactively from TanStack Router search state
+  let searchState: { category?: string; cat?: string; query?: string } = {};
+  try {
+    searchState = useSearch({ strict: false }) as any;
+  } catch {
+    // fallback if outside router context
+  }
+
+  const routeCategoryParam = searchState?.category || searchState?.cat;
+  const routeQueryParam = searchState?.query;
+
+  const [query, setQuery] = useState(() => {
+    if (routeQueryParam !== undefined) return routeQueryParam;
     if (typeof window === "undefined") return "";
     return new URL(window.location.href).searchParams.get("query") || "";
-  }, []);
-  const [query, setQuery] = useState(initialQuery);
-  const [category, setCategory] = useState<Category | "all">("all");
+  });
+
+  const [category, setCategory] = useState<Category | "all">(() => {
+    if (routeCategoryParam !== undefined) return normalizeCategoryParam(routeCategoryParam);
+    if (typeof window === "undefined") return "all";
+    const sp = new URL(window.location.href).searchParams;
+    return normalizeCategoryParam(sp.get("category") || sp.get("cat"));
+  });
+
   const [sort, setSort] = useState("featured");
   const [maxPrice, setMaxPrice] = useState(200000);
   const [dbProducts, setDbProducts] = useState<Product[]>([]);
   const [loadingProducts, setLoadingProducts] = useState(true);
 
-  const urlQuery =
-    typeof window !== "undefined" ? new URL(window.location.href).searchParams.get("query") : null;
+  // Sync category state whenever TanStack Router search state OR window URL search parameters change
   useEffect(() => {
-    if (urlQuery !== null) {
-      setQuery(urlQuery);
+    const syncFromUrl = () => {
+      let rawCat: string | null = null;
+      let rawQuery: string | null = null;
+
+      if (routeCategoryParam !== undefined) {
+        rawCat = routeCategoryParam;
+      } else if (typeof window !== "undefined") {
+        const sp = new URL(window.location.href).searchParams;
+        rawCat = sp.get("category") || sp.get("cat");
+      }
+
+      if (routeQueryParam !== undefined) {
+        rawQuery = routeQueryParam;
+      } else if (typeof window !== "undefined") {
+        rawQuery = new URL(window.location.href).searchParams.get("query");
+      }
+
+      setCategory(normalizeCategoryParam(rawCat));
+      if (rawQuery !== null && rawQuery !== undefined) {
+        setQuery(rawQuery);
+      }
+    };
+
+    syncFromUrl();
+    window.addEventListener("popstate", syncFromUrl);
+    return () => window.removeEventListener("popstate", syncFromUrl);
+  }, [routeCategoryParam, routeQueryParam]);
+
+  const handleCategoryChange = (newCat: Category | "all") => {
+    setCategory(newCat);
+    if (typeof window !== "undefined") {
+      const catObj = CATEGORIES.find((c) => c.id === newCat);
+      const catLabel = newCat === "all" ? undefined : (catObj ? catObj.label : newCat);
+
+      try {
+        navigate({
+          to: "/marketplace",
+          search: (prev: any) => ({
+            ...(prev || {}),
+            category: catLabel,
+            cat: undefined,
+          }),
+          replace: true,
+        });
+      } catch {
+        const url = new URL(window.location.href);
+        if (newCat === "all") {
+          url.searchParams.delete("category");
+          url.searchParams.delete("cat");
+        } else {
+          url.searchParams.set("category", catLabel || newCat);
+        }
+        window.history.replaceState({}, "", url.toString());
+      }
     }
-  }, [urlQuery]);
+  };
 
   useEffect(() => {
     async function loadMarketplaceProducts() {
@@ -1353,9 +1439,13 @@ export function MarketplacePage() {
       const matchesQuery = `${product.name} ${product.brand} ${product.description}`
         .toLowerCase()
         .includes(query.toLowerCase());
+
+      const normProductCat = normalizeCategoryParam(product.category);
+      const matchesCat = category === "all" || normProductCat === category;
+
       return (
         matchesQuery &&
-        (category === "all" || product.category === category) &&
+        matchesCat &&
         product.price <= maxPrice
       );
     });
@@ -1368,7 +1458,7 @@ export function MarketplacePage() {
   }, [allProducts, category, maxPrice, query, sort]);
 
   return (
-    <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
+    <RoleGuard allowedRoles={["buyer", "farmer", "admin"]} allowGuest={true}>
       <PageShell
         eyebrow={t("Marketplace")}
         title={t("Farm input marketplace")}
@@ -1388,7 +1478,7 @@ export function MarketplacePage() {
           </label>
           <select
             value={category}
-            onChange={(e) => setCategory(e.target.value as Category | "all")}
+            onChange={(e) => handleCategoryChange(e.target.value as Category | "all")}
             className="h-10 rounded-xl border border-input bg-background px-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
           >
             {CATEGORIES.map((cat) => (
@@ -1422,8 +1512,12 @@ export function MarketplacePage() {
             <span className="w-16 text-right font-bold">{formatRupees(maxPrice)}</span>
           </label>
         </div>
-        <p className="mb-4 text-sm text-muted-foreground">
-          {filtered.length} {t("products found")}
+        <p className="mb-4 text-sm font-bold text-[#1b4332]">
+          {isTelugu
+            ? `${filtered.length} ఉత్పత్తులు కనుగొనబడ్డాయి`
+            : category === "all"
+            ? `${filtered.length} products found`
+            : `${filtered.length} ${CATEGORIES.find((c) => c.id === category)?.label || category} products found`}
         </p>
         {filtered.length ? (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">

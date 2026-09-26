@@ -1,4 +1,17 @@
-export type Category = "seeds" | "fertilizers" | "tools";
+export type Category =
+  | "seeds"
+  | "fertilizers"
+  | "tools"
+  | "fruits"
+  | "vegetables"
+  | "pesticides"
+  | "farm-tools"
+  | "equipment"
+  | "grains"
+  | "pulses"
+  | "oilseeds"
+  | "spices"
+  | "other";
 
 export interface Product {
   id: string;

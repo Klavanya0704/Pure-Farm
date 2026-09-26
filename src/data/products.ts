@@ -327,7 +327,7 @@ const ROWS: Row[] = [
   [
     "Hybrid Tomato Seed (10 g)",
     "Syngenta Seeds",
-    "seeds",
+    "vegetables",
     "pack",
     95,
     4.3,
@@ -337,7 +337,7 @@ const ROWS: Row[] = [
   [
     "Onion Seed Agrifound Dark Red (50 g)",
     "NHRDF",
-    "seeds",
+    "vegetables",
     "pack",
     320,
     4.5,
@@ -348,7 +348,7 @@ const ROWS: Row[] = [
   [
     "Hybrid Brinjal Seed (10 g)",
     "East-West Seeds",
-    "seeds",
+    "vegetables",
     "pack",
     85,
     4.2,
@@ -358,7 +358,7 @@ const ROWS: Row[] = [
   [
     "Chilli Seed Byadgi Dabbi (50 g)",
     "Karnataka Seeds Corp.",
-    "seeds",
+    "vegetables",
     "pack",
     420,
     4.4,
@@ -368,7 +368,7 @@ const ROWS: Row[] = [
   [
     "Okra Seed Arka Anamika (250 g)",
     "IIHR Seeds",
-    "seeds",
+    "vegetables",
     "pack",
     260,
     4.3,
@@ -429,7 +429,7 @@ const ROWS: Row[] = [
   [
     "Potato Seed Tuber Kufri Jyoti (50 kg)",
     "CPRI Shimla",
-    "seeds",
+    "vegetables",
     "bag",
     1850,
     4.5,
@@ -459,7 +459,7 @@ const ROWS: Row[] = [
   [
     "Cabbage Seed Golden Acre (100 g)",
     "Namdhari Seeds",
-    "seeds",
+    "vegetables",
     "pack",
     340,
     4.2,
@@ -469,7 +469,7 @@ const ROWS: Row[] = [
   [
     "Cauliflower Seed Snowball-16 (50 g)",
     "Namdhari Seeds",
-    "seeds",
+    "vegetables",
     "pack",
     380,
     4.3,
@@ -479,7 +479,7 @@ const ROWS: Row[] = [
   [
     "Cucumber Seed Hybrid Malini (25 g)",
     "East-West Seeds",
-    "seeds",
+    "vegetables",
     "pack",
     290,
     4.1,
@@ -489,7 +489,7 @@ const ROWS: Row[] = [
   [
     "Bottle Gourd Seed Pusa Naveen (100 g)",
     "IARI Seeds",
-    "seeds",
+    "vegetables",
     "pack",
     180,
     4.0,
@@ -499,7 +499,7 @@ const ROWS: Row[] = [
   [
     "Bitter Gourd Seed Hybrid (50 g)",
     "Syngenta Seeds",
-    "seeds",
+    "vegetables",
     "pack",
     320,
     4.2,
@@ -509,7 +509,7 @@ const ROWS: Row[] = [
   [
     "Watermelon Seed Sugar Baby (100 g)",
     "Nunhems India",
-    "seeds",
+    "fruits",
     "pack",
     460,
     4.4,
@@ -519,7 +519,7 @@ const ROWS: Row[] = [
   [
     "Muskmelon Seed Hara Madhu (100 g)",
     "Punjab Seeds Corp.",
-    "seeds",
+    "fruits",
     "pack",
     410,
     4.1,
@@ -529,7 +529,7 @@ const ROWS: Row[] = [
   [
     "Carrot Seed Pusa Rudhira (250 g)",
     "IARI Seeds",
-    "seeds",
+    "vegetables",
     "pack",
     520,
     4.3,
@@ -539,7 +539,7 @@ const ROWS: Row[] = [
   [
     "Spinach Seed All Green (500 g)",
     "Namdhari Seeds",
-    "seeds",
+    "vegetables",
     "pack",
     210,
     4.0,
@@ -659,7 +659,7 @@ const ROWS: Row[] = [
   [
     "Marigold Seed African Orange (50 g)",
     "Namdhari Seeds",
-    "seeds",
+    "fruits",
     "pack",
     350,
     4.1,
@@ -680,7 +680,7 @@ const ROWS: Row[] = [
   [
     "Ginger Rhizome Seed Varada (25 kg)",
     "Kerala Agri Board",
-    "seeds",
+    "vegetables",
     "bag",
     2300,
     4.3,
@@ -690,7 +690,7 @@ const ROWS: Row[] = [
   [
     "Garlic Seed Bulb G-282 (10 kg)",
     "NHRDF",
-    "seeds",
+    "vegetables",
     "bag",
     1650,
     4.2,
@@ -700,7 +700,7 @@ const ROWS: Row[] = [
   [
     "Papaya Seed Red Lady (10 g)",
     "Known-You Seeds",
-    "seeds",
+    "fruits",
     "pack",
     780,
     4.6,
@@ -711,7 +711,7 @@ const ROWS: Row[] = [
   [
     "Banana Tissue Culture Plant G-9",
     "Jain Tissue Culture",
-    "seeds",
+    "fruits",
     "plant",
     28,
     4.7,
@@ -722,7 +722,7 @@ const ROWS: Row[] = [
   [
     "Guava Grafted Plant Allahabad Safeda",
     "Punjab Nursery",
-    "seeds",
+    "fruits",
     "plant",
     145,
     4.4,
@@ -732,7 +732,7 @@ const ROWS: Row[] = [
   [
     "Mango Grafted Plant Dasheri",
     "UP Horticulture Nursery",
-    "seeds",
+    "fruits",
     "plant",
     220,
     4.5,
@@ -742,7 +742,7 @@ const ROWS: Row[] = [
   [
     "Drumstick Seed PKM-1 (250 g)",
     "TNAU Certified",
-    "seeds",
+    "vegetables",
     "pack",
     380,
     4.3,
@@ -752,7 +752,7 @@ const ROWS: Row[] = [
   [
     "Curry Leaf Plant Sapling",
     "Kerala Agri Board",
-    "seeds",
+    "vegetables",
     "plant",
     90,
     4.2,
@@ -875,7 +875,7 @@ const ROWS: Row[] = [
   [
     "Potassium Schoenite (25 kg)",
     "IFFCO",
-    "fertilizers",
+    "farm-tools",
     "bag",
     1240,
     4.1,
@@ -966,7 +966,7 @@ const ROWS: Row[] = [
   [
     "Trichoderma Viride Bio-fungicide (1 kg)",
     "Multiplex",
-    "fertilizers",
+    "pesticides",
     "pack",
     280,
     4.5,
@@ -976,7 +976,7 @@ const ROWS: Row[] = [
   [
     "Pseudomonas Fluorescens (1 kg)",
     "Multiplex",
-    "fertilizers",
+    "pesticides",
     "pack",
     290,
     4.3,
@@ -1118,7 +1118,7 @@ const ROWS: Row[] = [
   [
     "Battery Knapsack Sprayer 16 L",
     "Neptune Agri",
-    "tools",
+    "equipment",
     "unit",
     2650,
     4.5,
@@ -1129,7 +1129,7 @@ const ROWS: Row[] = [
   [
     "Manual Knapsack Sprayer 16 L",
     "Aspee",
-    "tools",
+    "equipment",
     "unit",
     1180,
     4.2,
@@ -1139,7 +1139,7 @@ const ROWS: Row[] = [
   [
     "Power Weeder 5 HP",
     "VST Shakti",
-    "tools",
+    "equipment",
     "unit",
     48500,
     4.4,
@@ -1149,7 +1149,7 @@ const ROWS: Row[] = [
   [
     "Brush Cutter 2-Stroke 43 CC",
     "Honda Power",
-    "tools",
+    "equipment",
     "unit",
     8900,
     4.3,
@@ -1159,7 +1159,7 @@ const ROWS: Row[] = [
   [
     "Rotavator 5 Feet",
     "Shaktiman",
-    "tools",
+    "farm-tools",
     "unit",
     78500,
     4.5,
@@ -1169,7 +1169,7 @@ const ROWS: Row[] = [
   [
     "Seed Drill 9 Tyne",
     "Landforce",
-    "tools",
+    "farm-tools",
     "unit",
     42000,
     4.2,
@@ -1179,7 +1179,7 @@ const ROWS: Row[] = [
   [
     "Drip Irrigation Kit 1 Acre",
     "Jain Irrigation",
-    "tools",
+    "equipment",
     "kit",
     24500,
     4.6,
@@ -1190,7 +1190,7 @@ const ROWS: Row[] = [
   [
     "Sprinkler Set 1 Acre",
     "Finolex Plasson",
-    "tools",
+    "equipment",
     "kit",
     18500,
     4.3,
@@ -1200,7 +1200,7 @@ const ROWS: Row[] = [
   [
     "HDPE Mulching Film 25 Micron (400 m)",
     "Garware",
-    "tools",
+    "farm-tools",
     "roll",
     3200,
     4.4,
@@ -1210,7 +1210,7 @@ const ROWS: Row[] = [
   [
     "Shade Net 50% Green (3 x 50 m)",
     "Garware",
-    "tools",
+    "farm-tools",
     "roll",
     4300,
     4.3,
@@ -1220,7 +1220,7 @@ const ROWS: Row[] = [
   [
     "Insect Net 40 Mesh (3 x 50 m)",
     "Garware",
-    "tools",
+    "farm-tools",
     "roll",
     5600,
     4.2,
@@ -1230,7 +1230,7 @@ const ROWS: Row[] = [
   [
     "Soil Testing Kit Digital",
     "AgriLab India",
-    "tools",
+    "farm-tools",
     "kit",
     3400,
     4.1,
@@ -1240,7 +1240,7 @@ const ROWS: Row[] = [
   [
     "Grain Moisture Meter",
     "AgriLab India",
-    "tools",
+    "farm-tools",
     "unit",
     2900,
     4.4,
@@ -1250,7 +1250,7 @@ const ROWS: Row[] = [
   [
     "Sickle Serrated Steel",
     "Falcon Tools",
-    "tools",
+    "farm-tools",
     "unit",
     180,
     4.3,
@@ -1260,7 +1260,7 @@ const ROWS: Row[] = [
   [
     "Kudali / Hoe 1.5 kg",
     "Falcon Tools",
-    "tools",
+    "farm-tools",
     "unit",
     420,
     4.2,
@@ -1270,7 +1270,7 @@ const ROWS: Row[] = [
   [
     "Garden Spade Steel",
     "Falcon Tools",
-    "tools",
+    "farm-tools",
     "unit",
     480,
     4.1,
@@ -1280,7 +1280,7 @@ const ROWS: Row[] = [
   [
     "Pruning Secateur Bypass",
     "Falcon Tools",
-    "tools",
+    "farm-tools",
     "unit",
     620,
     4.5,
@@ -1290,7 +1290,7 @@ const ROWS: Row[] = [
   [
     "Chaff Cutter Electric 2 HP",
     "Kisankraft",
-    "tools",
+    "equipment",
     "unit",
     22500,
     4.3,
@@ -1300,7 +1300,7 @@ const ROWS: Row[] = [
   [
     "Water Pump 5 HP Diesel",
     "Kirloskar",
-    "tools",
+    "equipment",
     "unit",
     32500,
     4.4,
@@ -1310,7 +1310,7 @@ const ROWS: Row[] = [
   [
     "Submersible Pump 3 HP",
     "Crompton",
-    "tools",
+    "equipment",
     "unit",
     18900,
     4.3,
@@ -1320,7 +1320,7 @@ const ROWS: Row[] = [
   [
     "Solar Pump Controller 5 HP",
     "Shakti Solar",
-    "tools",
+    "equipment",
     "unit",
     26500,
     4.2,
@@ -1330,7 +1330,7 @@ const ROWS: Row[] = [
   [
     "Tarpaulin Sheet 200 GSM (18 x 24 ft)",
     "Tirupati Plastics",
-    "tools",
+    "farm-tools",
     "unit",
     1650,
     4.2,
@@ -1340,7 +1340,7 @@ const ROWS: Row[] = [
   [
     "Jute Gunny Bags (Pack of 50)",
     "Bengal Jute Mills",
-    "tools",
+    "farm-tools",
     "pack",
     2200,
     4.1,
@@ -1350,7 +1350,7 @@ const ROWS: Row[] = [
   [
     "Grain Storage Silo 1 Tonne",
     "Agrosaw",
-    "tools",
+    "equipment",
     "unit",
     14500,
     4.3,
@@ -1360,7 +1360,7 @@ const ROWS: Row[] = [
   [
     "Weighing Scale Platform 300 kg",
     "Essae Digitronics",
-    "tools",
+    "equipment",
     "unit",
     9800,
     4.4,
@@ -1370,7 +1370,7 @@ const ROWS: Row[] = [
   [
     "Cattle Feed Trough Plastic 60 L",
     "Tirupati Plastics",
-    "tools",
+    "farm-tools",
     "unit",
     1450,
     4.0,
@@ -1380,7 +1380,7 @@ const ROWS: Row[] = [
   [
     "Milking Machine Single Bucket",
     "Delaval India",
-    "tools",
+    "equipment",
     "unit",
     42500,
     4.5,
@@ -1390,7 +1390,7 @@ const ROWS: Row[] = [
   [
     "Poultry Automatic Drinker (Pack of 10)",
     "Kisankraft",
-    "tools",
+    "farm-tools",
     "pack",
     1850,
     4.2,
@@ -1400,7 +1400,7 @@ const ROWS: Row[] = [
   [
     "Wheelbarrow Steel 100 L",
     "Falcon Tools",
-    "tools",
+    "farm-tools",
     "unit",
     3400,
     4.1,
@@ -1410,7 +1410,7 @@ const ROWS: Row[] = [
   [
     "Fogger Machine Portable",
     "Neptune Agri",
-    "tools",
+    "pesticides",
     "unit",
     6800,
     4.3,
@@ -1420,7 +1420,7 @@ const ROWS: Row[] = [
   [
     "Solar Insect Light Trap",
     "Shakti Solar",
-    "tools",
+    "pesticides",
     "unit",
     2450,
     4.6,
@@ -1431,7 +1431,7 @@ const ROWS: Row[] = [
   [
     "Pheromone Trap Set (Pack of 10)",
     "Multiplex",
-    "tools",
+    "pesticides",
     "pack",
     640,
     4.3,
@@ -1441,7 +1441,7 @@ const ROWS: Row[] = [
   [
     "Farm Safety Kit (Mask, Gloves, Goggles)",
     "Karam Safety",
-    "tools",
+    "farm-tools",
     "kit",
     890,
     4.4,
@@ -1451,7 +1451,7 @@ const ROWS: Row[] = [
   [
     "Weather Station Mini Digital",
     "AgriLab India",
-    "tools",
+    "farm-tools",
     "unit",
     15500,
     4.2,
@@ -1461,7 +1461,7 @@ const ROWS: Row[] = [
   [
     "Tractor Trolley Tipping 5 Tonne",
     "Shaktiman",
-    "tools",
+    "equipment",
     "unit",
     168000,
     4.5,
@@ -1496,10 +1496,14 @@ export const PRODUCTS: Product[] = ROWS.map((r, i) => {
 });
 
 export const CATEGORIES: { id: Category | "all"; label: string }[] = [
-  { id: "all", label: "All" },
+  { id: "all", label: "All Categories" },
+  { id: "fruits", label: "Fruits" },
+  { id: "vegetables", label: "Vegetables" },
   { id: "seeds", label: "Seeds" },
   { id: "fertilizers", label: "Fertilizers" },
-  { id: "tools", label: "Agriculture Tools" },
+  { id: "pesticides", label: "Pesticides" },
+  { id: "farm-tools", label: "Farm Tools" },
+  { id: "equipment", label: "Equipment" },
 ];
 
 export function getProduct(id: string) {
