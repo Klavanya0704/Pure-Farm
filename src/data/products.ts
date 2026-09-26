@@ -24,291 +24,291 @@ type Row = [string, string, Category, string, number, number, number, string, st
 
 const IMAGE_MAPPINGS: Record<string, string> = {
   "Fresh Alphonso Mangoes (1 kg)":
-    "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=600",
+    "/products/fresh-alphonso-mangoes-1-kg.jpg",
   "Fresh Grand Naine Bananas (1 Dozen)":
-    "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=600",
+    "/products/fresh-grand-naine-bananas-1-dozen.jpg",
   "Fresh Red Lady Papaya (1 kg)":
-    "https://images.unsplash.com/photo-1617112848923-cc2234396a8d?auto=format&fit=crop&w=600",
+    "/products/fresh-red-lady-papaya-1-kg.jpg",
   "Fresh Sugar Baby Watermelon (1 pc / 3-4 kg)":
-    "https://images.unsplash.com/photo-1589984662646-e7b2e4962f18?auto=format&fit=crop&w=600",
+    "/products/fresh-sugar-baby-watermelon-1-pc-3-4-kg.jpg",
   "Fresh Hara Madhu Muskmelon (1 pc)":
-    "https://images.unsplash.com/photo-1571575173700-afb9492e6a50?auto=format&fit=crop&w=600",
+    "/products/fresh-hara-madhu-muskmelon-1-pc.jpg",
   "Fresh Nagpur Oranges (1 kg)":
-    "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600",
+    "/products/fresh-nagpur-oranges-1-kg.jpg",
   "Fresh Shimla Apples (1 kg)":
-    "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=600",
+    "/products/fresh-shimla-apples-1-kg.jpg",
   "Fresh Thompson Seedless Grapes (500 g)":
-    "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=600",
+    "/products/fresh-thompson-seedless-grapes-500-g.jpg",
   "Fresh Allahabad Safeda Guava (1 kg)":
-    "https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=600",
+    "/products/fresh-allahabad-safeda-guava-1-kg.jpg",
   "Fresh Kesar Pomegranate (1 kg)":
-    "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600",
+    "/products/fresh-kesar-pomegranate-1-kg.jpg",
   "Fresh Red Tomatoes (1 kg)":
-    "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=600",
+    "/products/fresh-red-tomatoes-1-kg.jpg",
   "Fresh Nashik Red Onions (1 kg)":
-    "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=600",
+    "/products/fresh-nashik-red-onions-1-kg.jpg",
   "Fresh Agra Potatoes (1 kg)":
-    "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600",
+    "/products/fresh-agra-potatoes-1-kg.jpg",
   "Fresh Purple Brinjal (1 kg)":
-    "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600",
+    "/products/fresh-purple-brinjal-1-kg.jpg",
   "Fresh Green Chilli (250 g)":
-    "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=600",
+    "/products/fresh-green-chilli-250-g.jpg",
   "Fresh Ooty Carrots (1 kg)":
-    "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600",
+    "/products/fresh-ooty-carrots-1-kg.jpg",
   "Fresh Green Cabbage (1 pc)":
-    "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=600",
+    "/products/fresh-green-cabbage-1-pc.jpg",
   "Fresh White Cauliflower (1 pc)":
-    "https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?auto=format&fit=crop&w=600",
+    "/products/fresh-white-cauliflower-1-pc.jpg",
   "Fresh Green Capsicum (500 g)":
-    "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=600",
+    "/products/fresh-green-capsicum-500-g.jpg",
   "Fresh Farm Spinach / Palak (250 g)":
-    "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=600",
+    "/products/fresh-farm-spinach-palak-250-g.jpg",
   "Paddy Seed PR-126 (5 kg)":
-    "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600",
+    "/products/paddy-seed-pr-126-5-kg.jpg",
   "Wheat Seed PBW-343 (5 kg)":
-    "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=600",
+    "/products/wheat-seed-pbw-343-5-kg.jpg",
   "BT Cotton Seed (450 g)":
-    "https://images.unsplash.com/photo-1606041008023-472dfb5e530f?auto=format&fit=crop&w=600",
+    "/products/bt-cotton-seed-450-g.jpg",
   "Groundnut Seed TAG-24 (10 kg)":
-    "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600",
+    "/products/groundnut-seed-tag-24-10-kg.jpg",
   "Hybrid Maize Seed DKC-9108 (5 kg)":
-    "https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=600",
+    "/products/hybrid-maize-seed-dkc-9108-5-kg.jpg",
   "Sunflower Seed KBSH-44 (5 kg)":
-    "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=600",
+    "/products/sunflower-seed-kbsh-44-5-kg.jpg",
   "Pearl Millet Seed HHB-67 (5 kg)":
-    "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600",
+    "/products/pearl-millet-seed-hhb-67-5-kg.jpg",
   "Hybrid Tomato Seed (10 g)":
-    "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=600",
+    "/products/hybrid-tomato-seed-10-g.jpg",
   "Onion Seed Agrifound Dark Red (50 g)":
-    "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=600",
+    "/products/onion-seed-agrifound-dark-red-50-g.jpg",
   "Hybrid Brinjal Seed (10 g)":
-    "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600",
+    "/products/hybrid-brinjal-seed-10-g.jpg",
   "Chilli Seed Byadgi Dabbi (50 g)":
-    "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=600",
+    "/products/chilli-seed-byadgi-dabbi-50-g.jpg",
   "Okra Seed Arka Anamika (250 g)":
-    "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600",
+    "/products/okra-seed-arka-anamika-250-g.jpg",
   "Mustard Seed Pusa Bold (2 kg)":
-    "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600",
+    "/products/mustard-seed-pusa-bold-2-kg.jpg",
   "Chickpea Seed JG-11 (10 kg)":
-    "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=600",
+    "/products/chickpea-seed-jg-11-10-kg.jpg",
   "Pigeon Pea Seed ICPL-87 (5 kg)":
-    "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=600",
+    "/products/pigeon-pea-seed-icpl-87-5-kg.jpg",
   "Soybean Seed JS-9560 (20 kg)":
-    "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600",
+    "/products/soybean-seed-js-9560-20-kg.jpg",
   "Sugarcane Seed Sett Co-0238 (100 setts)":
-    "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=600",
+    "/products/sugarcane-seed-sett-co-0238-100-setts.jpg",
   "Potato Seed Tuber Kufri Jyoti (50 kg)":
-    "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600",
+    "/products/potato-seed-tuber-kufri-jyoti-50-kg.jpg",
   "Green Gram Seed IPM-02-3 (5 kg)":
-    "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=600",
+    "/products/green-gram-seed-ipm-02-3-5-kg.jpg",
   "Black Gram Seed Pant U-31 (5 kg)":
-    "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=600",
+    "/products/black-gram-seed-pant-u-31-5-kg.jpg",
   "Cabbage Seed Golden Acre (100 g)":
-    "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=600",
+    "/products/cabbage-seed-golden-acre-100-g.jpg",
   "Cauliflower Seed Snowball-16 (50 g)":
-    "https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?auto=format&fit=crop&w=600",
+    "/products/cauliflower-seed-snowball-16-50-g.jpg",
   "Cucumber Seed Hybrid Malini (25 g)":
-    "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600",
+    "/products/cucumber-seed-hybrid-malini-25-g.jpg",
   "Bottle Gourd Seed Pusa Naveen (100 g)":
-    "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600",
+    "/products/bottle-gourd-seed-pusa-naveen-100-g.jpg",
   "Bitter Gourd Seed Hybrid (50 g)":
-    "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600",
+    "/products/bitter-gourd-seed-hybrid-50-g.jpg",
   "Watermelon Seed Sugar Baby (100 g)":
-    "https://images.unsplash.com/photo-1589984662646-e7b2e4962f18?auto=format&fit=crop&w=600",
+    "/products/watermelon-seed-sugar-baby-100-g.jpg",
   "Muskmelon Seed Hara Madhu (100 g)":
-    "https://images.unsplash.com/photo-1571575173700-afb9492e6a50?auto=format&fit=crop&w=600",
+    "/products/muskmelon-seed-hara-madhu-100-g.jpg",
   "Carrot Seed Pusa Rudhira (250 g)":
-    "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600",
+    "/products/carrot-seed-pusa-rudhira-250-g.jpg",
   "Spinach Seed All Green (500 g)":
-    "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=600",
+    "/products/spinach-seed-all-green-500-g.jpg",
   "Coriander Seed Local (1 kg)":
-    "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600",
+    "/products/coriander-seed-local-1-kg.jpg",
   "Fenugreek Seed Pusa Early Bunching (1 kg)":
-    "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600",
+    "/products/fenugreek-seed-pusa-early-bunching-1-kg.jpg",
   "Barley Seed BH-946 (20 kg)":
-    "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=600",
+    "/products/barley-seed-bh-946-20-kg.jpg",
   "Sorghum Seed CSH-16 (5 kg)":
-    "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600",
+    "/products/sorghum-seed-csh-16-5-kg.jpg",
   "Finger Millet Seed GPU-28 (5 kg)":
-    "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600",
+    "/products/finger-millet-seed-gpu-28-5-kg.jpg",
   "Sesame Seed GT-10 (2 kg)":
-    "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600",
+    "/products/sesame-seed-gt-10-2-kg.jpg",
   "Castor Seed GCH-7 (5 kg)":
-    "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600",
+    "/products/castor-seed-gch-7-5-kg.jpg",
   "Lentil Seed IPL-406 (5 kg)":
-    "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=600",
+    "/products/lentil-seed-ipl-406-5-kg.jpg",
   "Field Pea Seed HFP-4 (10 kg)":
-    "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=600",
+    "/products/field-pea-seed-hfp-4-10-kg.jpg",
   "Berseem Fodder Seed (10 kg)":
-    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600",
+    "/products/berseem-fodder-seed-10-kg.jpg",
   "Napier Grass Root Slips (100 slips)":
-    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600",
+    "/products/napier-grass-root-slips-100-slips.jpg",
   "Marigold Seed African Orange (50 g)":
-    "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=600",
+    "/products/marigold-seed-african-orange-50-g.jpg",
   "Turmeric Rhizome Seed Salem (25 kg)":
-    "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600",
+    "/products/turmeric-rhizome-seed-salem-25-kg.jpg",
   "Ginger Rhizome Seed Varada (25 kg)":
-    "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600",
+    "/products/ginger-rhizome-seed-varada-25-kg.jpg",
   "Garlic Seed Bulb G-282 (10 kg)":
-    "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=600",
+    "/products/garlic-seed-bulb-g-282-10-kg.jpg",
   "Papaya Seed Red Lady (10 g)":
-    "https://images.unsplash.com/photo-1617112848923-cc2234396a8d?auto=format&fit=crop&w=600",
+    "/products/papaya-seed-red-lady-10-g.jpg",
   "Banana Tissue Culture Plant G-9":
-    "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=600",
+    "/products/banana-tissue-culture-plant-g-9.jpg",
   "Guava Grafted Plant Allahabad Safeda":
-    "https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=600",
+    "/products/guava-grafted-plant-allahabad-safeda.jpg",
   "Mango Grafted Plant Dasheri":
-    "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=600",
+    "/products/mango-grafted-plant-dasheri.jpg",
   "Drumstick Seed PKM-1 (250 g)":
-    "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600",
+    "/products/drumstick-seed-pkm-1-250-g.jpg",
   "Curry Leaf Plant Sapling":
-    "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=600",
+    "/products/curry-leaf-plant-sapling.jpg",
   "Urea 46% N (45 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/urea-46-n-45-kg.jpg",
   "DAP 18-46-0 (50 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/dap-18-46-0-50-kg.jpg",
   "MOP Muriate of Potash (50 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/mop-muriate-of-potash-50-kg.jpg",
   "NPK 10:26:26 Complex (50 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/npk-102626-complex-50-kg.jpg",
   "NPK 20:20:0:13 (50 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/npk-2020013-50-kg.jpg",
   "Single Super Phosphate (50 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/single-super-phosphate-50-kg.jpg",
   "Zinc Sulphate 21% (5 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/zinc-sulphate-21-5-kg.jpg",
   "Ammonium Sulphate (50 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/ammonium-sulphate-50-kg.jpg",
   "Calcium Nitrate (25 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/calcium-nitrate-25-kg.jpg",
   "Water Soluble NPK 19:19:19 (1 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/water-soluble-npk-191919-1-kg.jpg",
   "Water Soluble NPK 0:52:34 (1 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/water-soluble-npk-05234-1-kg.jpg",
   "Potassium Schoenite (25 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/potassium-schoenite-25-kg.jpg",
   "Vermicompost Organic (30 kg)":
-    "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=600",
+    "/products/vermicompost-organic-30-kg.jpg",
   "Neem Cake Powder (25 kg)":
-    "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=600",
+    "/products/neem-cake-powder-25-kg.jpg",
   "Bone Meal Organic (10 kg)":
-    "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=600",
+    "/products/bone-meal-organic-10-kg.jpg",
   "Cow Dung Manure Composted (40 kg)":
-    "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=600",
+    "/products/cow-dung-manure-composted-40-kg.jpg",
   "Rhizobium Biofertiliser (500 g)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/rhizobium-biofertiliser-500-g.jpg",
   "Azotobacter Biofertiliser (500 g)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/azotobacter-biofertiliser-500-g.jpg",
   "PSB Phosphate Solubilising Bacteria (500 g)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/psb-phosphate-solubilising-bacteria-500-g.jpg",
   "Mycorrhiza VAM Granules (4 kg)":
-    "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=600",
+    "/products/mycorrhiza-vam-granules-4-kg.jpg",
   "Humic Acid Granules (5 kg)":
-    "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=600",
+    "/products/humic-acid-granules-5-kg.jpg",
   "Seaweed Extract Liquid (1 litre)":
-    "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=600",
+    "/products/seaweed-extract-liquid-1-litre.jpg",
   "Micronutrient Mixture Grade-II (5 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/micronutrient-mixture-grade-ii-5-kg.jpg",
   "Boron 20% Powder (1 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/boron-20-powder-1-kg.jpg",
   "Ferrous Sulphate (10 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/ferrous-sulphate-10-kg.jpg",
   "Gypsum Agricultural Grade (50 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/gypsum-agricultural-grade-50-kg.jpg",
   "Sulphur 90% WDG (5 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/sulphur-90-wdg-5-kg.jpg",
   "Liquid Consortia Biofertiliser (1 litre)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/liquid-consortia-biofertiliser-1-litre.jpg",
   "Nano Urea Liquid (500 ml)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/nano-urea-liquid-500-ml.jpg",
   "Nano DAP Liquid (500 ml)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/nano-dap-liquid-500-ml.jpg",
   "Potassium Humate Shiny Flakes (2 kg)":
-    "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=600",
+    "/products/potassium-humate-shiny-flakes-2-kg.jpg",
   "Panchagavya Organic Tonic (5 litre)":
-    "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=600",
+    "/products/panchagavya-organic-tonic-5-litre.jpg",
   "Jeevamrut Concentrate (5 litre)":
-    "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=600",
+    "/products/jeevamrut-concentrate-5-litre.jpg",
   "Trichoderma Viride Bio-fungicide (1 kg)":
-    "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=600",
+    "/products/trichoderma-viride-bio-fungicide-1-kg.jpg",
   "Pseudomonas Fluorescens (1 kg)":
-    "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=600",
+    "/products/pseudomonas-fluorescens-1-kg.jpg",
   "Neem Oil 10000 PPM Azadirachtin (1 litre)":
-    "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600",
+    "/products/neem-oil-10000-ppm-azadirachtin-1-litre.jpg",
   "Chlorpyrifos 20% EC (1 litre)":
-    "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600",
+    "/products/chlorpyrifos-20-ec-1-litre.jpg",
   "Mancozeb 75% WP Fungicide (1 kg)":
-    "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=600",
+    "/products/mancozeb-75-wp-fungicide-1-kg.jpg",
   "Sickle Serrated Steel":
-    "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600",
+    "/products/sickle-serrated-steel.jpg",
   "Kudali / Hoe 1.5 kg":
-    "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600",
+    "/products/kudali-hoe-15-kg.jpg",
   "Garden Spade Steel":
-    "https://images.unsplash.com/photo-1617576683096-00fc8eecb3af?auto=format&fit=crop&w=600",
+    "/products/garden-spade-steel.jpg",
   "Pruning Secateur Bypass":
-    "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600",
+    "/products/pruning-secateur-bypass.jpg",
   "Soil Testing Kit Digital":
-    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600",
+    "/products/soil-testing-kit-digital.jpg",
   "Grain Moisture Meter":
-    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600",
+    "/products/grain-moisture-meter.jpg",
   "HDPE Mulching Film 25 Micron (400 m)":
-    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600",
+    "/products/hdpe-mulching-film-25-micron-400-m.jpg",
   "Shade Net 50% Green (3 x 50 m)":
-    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600",
+    "/products/shade-net-50-green-3-x-50-m.jpg",
   "Insect Net 40 Mesh (3 x 50 m)":
-    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600",
+    "/products/insect-net-40-mesh-3-x-50-m.jpg",
   "Tarpaulin Sheet 200 GSM (18 x 24 ft)":
-    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600",
+    "/products/tarpaulin-sheet-200-gsm-18-x-24-ft.jpg",
   "Jute Gunny Bags (Pack of 50)":
-    "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600",
+    "/products/jute-gunny-bags-pack-of-50.jpg",
   "Cattle Feed Trough Plastic 60 L":
-    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600",
+    "/products/cattle-feed-trough-plastic-60-l.jpg",
   "Poultry Automatic Drinker (Pack of 10)":
-    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600",
+    "/products/poultry-automatic-drinker-pack-of-10.jpg",
   "Wheelbarrow Steel 100 L":
-    "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600",
+    "/products/wheelbarrow-steel-100-l.jpg",
   "Pheromone Trap Set (Pack of 10)":
-    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600",
+    "/products/pheromone-trap-set-pack-of-10.jpg",
   "Farm Safety Kit (Mask, Gloves, Goggles)":
-    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600",
+    "/products/farm-safety-kit-mask-gloves-goggles.jpg",
   "Weather Station Mini Digital":
-    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600",
+    "/products/weather-station-mini-digital.jpg",
   "Battery Knapsack Sprayer 16 L":
-    "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=600",
+    "/products/battery-knapsack-sprayer-16-l.jpg",
   "Manual Knapsack Sprayer 16 L":
-    "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=600",
+    "/products/manual-knapsack-sprayer-16-l.jpg",
   "Power Weeder 5 HP":
-    "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=600",
+    "/products/power-weeder-5-hp.jpg",
   "Brush Cutter 2-Stroke 43 CC":
-    "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=600",
+    "/products/brush-cutter-2-stroke-43-cc.jpg",
   "Rotavator 5 Feet":
-    "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=600",
+    "/products/rotavator-5-feet.jpg",
   "Seed Drill 9 Tyne":
-    "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=600",
+    "/products/seed-drill-9-tyne.jpg",
   "Drip Irrigation Kit 1 Acre":
-    "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=600",
+    "/products/drip-irrigation-kit-1-acre.jpg",
   "Sprinkler Set 1 Acre":
-    "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=600",
+    "/products/sprinkler-set-1-acre.jpg",
   "Chaff Cutter Electric 2 HP":
-    "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=600",
+    "/products/chaff-cutter-electric-2-hp.jpg",
   "Water Pump 5 HP Diesel":
-    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600",
+    "/products/water-pump-5-hp-diesel.jpg",
   "Submersible Pump 3 HP":
-    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600",
+    "/products/submersible-pump-3-hp.jpg",
   "Solar Pump Controller 5 HP":
-    "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=600",
+    "/products/solar-pump-controller-5-hp.jpg",
   "Grain Storage Silo 1 Tonne":
-    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600",
+    "/products/grain-storage-silo-1-tonne.jpg",
   "Weighing Scale Platform 300 kg":
-    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600",
+    "/products/weighing-scale-platform-300-kg.jpg",
   "Milking Machine Single Bucket":
-    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600",
+    "/products/milking-machine-single-bucket.jpg",
   "Fogger Machine Portable":
-    "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=600",
+    "/products/fogger-machine-portable.jpg",
   "Solar Insect Light Trap":
-    "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=600",
+    "/products/solar-insect-light-trap.jpg",
   "Tractor Trolley Tipping 5 Tonne":
-    "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=600",
+    "/products/tractor-trolley-tipping-5-tonne.jpg",
 };
 
 const ROWS: Row[] = [
