@@ -835,32 +835,46 @@ export function FarmerHomePage() {
   // Categories list
   const categoriesList = [
     {
+      id: "fruits",
       name: "Fruits",
       img: "/categories/fruits.jpg",
+      href: "/category/fruits",
     },
     {
+      id: "vegetables",
       name: "Vegetables",
       img: "/categories/vegetables.jpg",
+      href: "/category/vegetables",
     },
     {
+      id: "seeds",
       name: "Seeds",
       img: "/categories/seeds.jpg",
+      href: "/category/seeds",
     },
     {
+      id: "fertilizers",
       name: "Fertilizers",
       img: "/categories/fertilizers.jpg",
+      href: "/category/fertilizers",
     },
     {
+      id: "pesticides",
       name: "Pesticides",
       img: "/categories/pesticides.jpg",
+      href: "/category/pesticides",
     },
     {
+      id: "farm-tools",
       name: "Farm Tools",
       img: "/categories/farm-tools.jpg",
+      href: "/category/farm-tools",
     },
     {
+      id: "equipment",
       name: "Equipment",
       img: "/categories/equipment.jpg",
+      href: "/category/equipment",
     },
   ];
 
@@ -1019,8 +1033,7 @@ export function FarmerHomePage() {
                 {categoriesList.map((cat, idx) => (
                   <Link
                     key={idx}
-                    to="/marketplace"
-                    search={{ category: cat.name }}
+                    to={cat.href}
                     className="flex flex-col rounded-xl border border-border bg-white p-2.5 shadow-sm hover:shadow-md transition-all duration-200 text-center hover:scale-[1.02] aspect-square justify-between"
                   >
                     <div className="h-[65%] w-full rounded-lg overflow-hidden bg-muted flex items-center justify-center">
@@ -1529,6 +1542,214 @@ export function MarketplacePage() {
           <EmptyState
             title={t("No matching products")}
             body={t("Try another crop input, category, or raise the max price filter.")}
+          />
+        )}
+      </PageShell>
+    </RoleGuard>
+  );
+}
+
+export const CATEGORY_DETAILS: Record<
+  Category,
+  { title: string; subtitle: string; teTitle: string; teSubtitle: string }
+> = {
+  fruits: {
+    title: "Fruits",
+    subtitle: "Fresh fruits and fruit-related products for your farm and home",
+    teTitle: "పండ్లు",
+    teSubtitle: "మీ తోట మరియు ఇంటికి తాజా పండ్లు మరియు ఉత్పత్తులు",
+  },
+  vegetables: {
+    title: "Vegetables",
+    subtitle: "Fresh farm-grown vegetables and vegetable crop inputs",
+    teTitle: "కూరగాయలు",
+    teSubtitle: "తాజా కూరగాయలు మరియు కూరగాయల సాగు ఉత్పత్తులు",
+  },
+  seeds: {
+    title: "Seeds",
+    subtitle: "High-yielding certified crop seeds and hybrid varieties",
+    teTitle: "విత్తనాలు",
+    teSubtitle: "అధిక దిగుబడినిచ్చే ప్రమాణిక విత్తనాలు మరియు హైబ్రిడ్ రకాలు",
+  },
+  fertilizers: {
+    title: "Fertilizers",
+    subtitle: "Organic and NPK fertilizers to enrich soil and boost yield",
+    teTitle: "ఎరువులు",
+    teSubtitle: "భూమిసారం మరియు దిగుబడి పెంపొందించే సేంద్రీయ ఎరువులు",
+  },
+  pesticides: {
+    title: "Pesticides",
+    subtitle: "Crop protection, insecticides, and pest control solutions",
+    teTitle: "పురుగుమందులు",
+    teSubtitle: "పంట సంరక్షణ, కీటక నాశినులు మరియు తెగుళ్ల నివారణ ఉత్పత్తులు",
+  },
+  "farm-tools": {
+    title: "Farm Tools",
+    subtitle: "Essential manual and handheld farming tools and field equipment",
+    teTitle: "వ్యవసాయ పరికరాలు",
+    teSubtitle: "అవసరమైన చేతి వ్యవసాయ పరికరాలు మరియు క్షేత్ర సామగ్రి",
+  },
+  equipment: {
+    title: "Equipment",
+    subtitle: "Heavy farm machinery, power equipment, pumps, and irrigation kits",
+    teTitle: "యంత్రాలు & సామగ్రి",
+    teSubtitle: "ట్రాక్టర్లు, హార్వెస్టర్లు, పంపులు మరియు నీటి పారుదల పరికరాలు",
+  },
+  tools: {
+    title: "Farm Tools",
+    subtitle: "Essential farming tools and equipment",
+    teTitle: "వ్యవసాయ పరికరాలు",
+    teSubtitle: "అవసరమైన వ్యవసాయ పరికరాలు",
+  },
+  grains: { title: "Grains", subtitle: "Quality grains", teTitle: "ధాన్యాలు", teSubtitle: "నాణ్యమైన ధాన్యాలు" },
+  pulses: { title: "Pulses", subtitle: "Quality pulses", teTitle: "పప్పుధాన్యాలు", teSubtitle: "నాణ్యమైన పప్పుధాన్యాలు" },
+  oilseeds: { title: "Oilseeds", subtitle: "Quality oilseeds", teTitle: "నూనెగింజలు", teSubtitle: "నాణ్యమైన నూనెగింజలు" },
+  spices: { title: "Spices", subtitle: "Quality spices", teTitle: "మసాలా దినుసులు", teSubtitle: "నాణ్యమైన మసాలా దినుసులు" },
+  other: { title: "Farm Inputs", subtitle: "Quality farm inputs", teTitle: "వ్యవసాయ ఉత్పత్తులు", teSubtitle: "నాణ్యమైన ఉత్పత్తులు" },
+};
+
+export function CategoryProductsPage({ categorySlug }: { categorySlug: string }) {
+  const { language, t } = useTranslation();
+  const isTelugu = language === "te";
+  const canonicalCategory = normalizeCategoryParam(categorySlug);
+  
+  const catKey = canonicalCategory === "all" ? "fruits" : canonicalCategory;
+  const info = CATEGORY_DETAILS[catKey as Category] || CATEGORY_DETAILS.fruits;
+
+  const [query, setQuery] = useState("");
+  const [sort, setSort] = useState("featured");
+  const [maxPrice, setMaxPrice] = useState(200000);
+  const [dbProducts, setDbProducts] = useState<Product[]>([]);
+  const [loadingProducts, setLoadingProducts] = useState(true);
+
+  useEffect(() => {
+    async function loadCategoryProducts() {
+      setLoadingProducts(true);
+      try {
+        const data = await getProducts();
+        const mapped: Product[] = data.map((p) => ({
+          id: p.id,
+          name: p.name,
+          category: (p.category as Category) || "other",
+          description: p.description || "",
+          price: p.price,
+          unit: p.unit,
+          stock: p.available_quantity,
+          image:
+            p.image_url ||
+            "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=600",
+          rating: p.rating || 4.5,
+          brand: p.location ? `Farmer (${p.location})` : "PureFarm Direct",
+          ...(p.badge ? { badge: p.badge as any } : {}),
+        }));
+        setDbProducts(mapped);
+      } catch (err) {
+        console.error("Error loading category products:", err);
+      } finally {
+        setLoadingProducts(false);
+      }
+    }
+    loadCategoryProducts();
+  }, []);
+
+  const allProducts = dbProducts.length > 0 ? dbProducts : PRODUCTS;
+
+  // Filter ONLY products in this specific category
+  const categoryProducts = useMemo(() => {
+    return allProducts.filter((product) => {
+      const normCat = normalizeCategoryParam(product.category);
+      return normCat === canonicalCategory;
+    });
+  }, [allProducts, canonicalCategory]);
+
+  // Further filter within category by search query & maxPrice, then sort
+  const filtered = useMemo(() => {
+    const next = categoryProducts.filter((product) => {
+      const matchesQuery = `${product.name} ${product.brand} ${product.description}`
+        .toLowerCase()
+        .includes(query.toLowerCase());
+
+      return matchesQuery && product.price <= maxPrice;
+    });
+
+    return next.sort((a, b) => {
+      if (sort === "price-low") return a.price - b.price;
+      if (sort === "price-high") return b.price - a.price;
+      if (sort === "rating") return b.rating - a.rating;
+      return Number(Boolean(b.badge)) - Number(Boolean(a.badge));
+    });
+  }, [categoryProducts, maxPrice, query, sort]);
+
+  const displayTitle = isTelugu ? info.teTitle : info.title;
+  const displaySubtitle = isTelugu ? info.teSubtitle : info.subtitle;
+
+  return (
+    <RoleGuard allowedRoles={["buyer", "farmer", "admin", "student", "seller"]} allowGuest={true}>
+      <PageShell
+        eyebrow={t("Category Catalogue")}
+        title={t(displayTitle)}
+        intro={t(displaySubtitle)}
+      >
+        <div className="mb-6 grid gap-3 rounded-2xl border border-border bg-card p-4 shadow-soft lg:grid-cols-[1fr_12rem_14rem]">
+          <label className="relative block">
+            <Search className="absolute left-3 top-3 h-4 w-4 text-[#2d6a4f]" />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={`${t("Search within")} ${t(displayTitle)}...`}
+              className="h-10 w-full rounded-xl border border-input bg-background pl-9 pr-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
+            />
+          </label>
+          <select
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+            className="h-10 rounded-xl border border-input bg-background px-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
+          >
+            <option value="featured">{t("Featured first")}</option>
+            <option value="rating">{t("Top rated")}</option>
+            <option value="price-low">{t("Price low to high")}</option>
+            <option value="price-high">{t("Price high to low")}</option>
+          </select>
+          <label className="flex items-center gap-3 text-sm">
+            <Filter className="h-4 w-4 text-primary" />
+            <span className="shrink-0">{t("Max")}</span>
+            <input
+              type="range"
+              min="100"
+              max="200000"
+              step="500"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(Number(e.target.value))}
+              className="min-w-0 flex-1"
+            />
+            <span className="w-16 text-right font-bold">{formatRupees(maxPrice)}</span>
+          </label>
+        </div>
+
+        <div className="mb-4 flex items-center justify-between">
+          <p className="text-sm font-bold text-[#1b4332]">
+            {isTelugu
+              ? `${filtered.length} ${displayTitle} ఉత్పత్తులు కనుగొనబడ్డాయి`
+              : `${filtered.length} ${displayTitle} products found`}
+          </p>
+          <Link
+            to="/marketplace"
+            className="inline-flex items-center gap-1 text-xs font-bold text-[#2d6a4f] hover:underline"
+          >
+            {t("View All Categories")} →
+          </Link>
+        </div>
+
+        {filtered.length ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+            {filtered.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        ) : (
+          <EmptyState
+            title={t("No matching products")}
+            body={t("No products found matching your search within this category.")}
           />
         )}
       </PageShell>
