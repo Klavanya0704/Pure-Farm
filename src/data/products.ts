@@ -8,11 +8,63 @@ const IMAGES: Record<Category, string[]> = {
   seeds: [seedsImg, cropImg],
   fertilizers: [fertImg, cropImg],
   tools: [toolsImg, fertImg],
+  fruits: [cropImg, seedsImg],
+  vegetables: [cropImg, fertImg],
+  pesticides: [fertImg, toolsImg],
+  "farm-tools": [toolsImg, cropImg],
+  equipment: [toolsImg, fertImg],
+  grains: [cropImg],
+  pulses: [cropImg],
+  oilseeds: [cropImg],
+  spices: [cropImg],
+  other: [cropImg],
 };
 
 type Row = [string, string, Category, string, number, number, number, string, string?];
 
 const IMAGE_MAPPINGS: Record<string, string> = {
+  "Fresh Alphonso Mangoes (1 kg)":
+    "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=600",
+  "Fresh Grand Naine Bananas (1 Dozen)":
+    "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=600",
+  "Fresh Red Lady Papaya (1 kg)":
+    "https://images.unsplash.com/photo-1617112848923-cc2234396a8d?auto=format&fit=crop&w=600",
+  "Fresh Sugar Baby Watermelon (1 pc / 3-4 kg)":
+    "https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=600",
+  "Fresh Hara Madhu Muskmelon (1 pc)":
+    "https://images.unsplash.com/photo-1598170845058-12ef4a45753b?auto=format&fit=crop&w=600",
+  "Fresh Nagpur Oranges (1 kg)":
+    "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600",
+  "Fresh Shimla Apples (1 kg)":
+    "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=600",
+  "Fresh Thompson Seedless Grapes (500 g)":
+    "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=600",
+  "Fresh Allahabad Safeda Guava (1 kg)":
+    "https://images.unsplash.com/photo-1536511135764-500b561c28c8?auto=format&fit=crop&w=600",
+  "Fresh Kesar Pomegranate (1 kg)":
+    "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600",
+
+  "Fresh Red Tomatoes (1 kg)":
+    "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=600",
+  "Fresh Nashik Red Onions (1 kg)":
+    "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=600",
+  "Fresh Agra Potatoes (1 kg)":
+    "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600",
+  "Fresh Purple Brinjal (1 kg)":
+    "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600",
+  "Fresh Green Chilli (250 g)":
+    "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=600",
+  "Fresh Ooty Carrots (1 kg)":
+    "https://images.unsplash.com/photo-1598170845058-12ef4a45753b?auto=format&fit=crop&w=600",
+  "Fresh Green Cabbage (1 pc)":
+    "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=600",
+  "Fresh White Cauliflower (1 pc)":
+    "https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?auto=format&fit=crop&w=600",
+  "Fresh Green Capsicum (500 g)":
+    "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=600",
+  "Fresh Farm Spinach / Palak (250 g)":
+    "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=600",
+
   "Paddy Seed PR-126 (5 kg)":
     "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/20201102.Hengnan.Hybrid_rice_Sanyou-1.6.jpg/960px-20201102.Hengnan.Hybrid_rice_Sanyou-1.6.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "Wheat Seed PBW-343 (5 kg)":
@@ -33,225 +85,218 @@ const IMAGE_MAPPINGS: Record<string, string> = {
     "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Nsativa001Wien.jpg/960px-Nsativa001Wien.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "Hybrid Brinjal Seed (10 g)":
     "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Solanum_melongena_24_08_2012_%281%29.JPG/960px-Solanum_melongena_24_08_2012_%281%29.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "Chilli Seed Byadgi Dabbi (50 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Chilli%20Seed%20Byadgi%20Dabbi%20(50%20g)",
-  "Okra Seed Arka Anamika (250 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Okra%20Seed%20Arka%20Anamika%20(250%20g)",
-  "Mustard Seed Pusa Bold (2 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Mustard%20Seed%20Pusa%20Bold%20(2%20kg)",
-  "Chickpea Seed JG-11 (10 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Chickpea%20Seed%20JG-11%20(10%20kg)",
-  "Pigeon Pea Seed ICPL-87 (5 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Pigeon%20Pea%20Seed%20ICPL-87%20(5%20kg)",
-  "Soybean Seed JS-9560 (20 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Soybean%20Seed%20JS-9560%20(20%20kg)",
-  "Sugarcane Seed Sett Co-0238 (100 setts)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Sugarcane%20Seed%20Sett%20Co-0238%20(100%20setts)",
-  "Potato Seed Tuber Kufri Jyoti (50 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Potato%20Seed%20Tuber%20Kufri%20Jyoti%20(50%20kg)",
-  "Green Gram Seed IPM-02-3 (5 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Green%20Gram%20Seed%20IPM-02-3%20(5%20kg)",
-  "Black Gram Seed Pant U-31 (5 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Black%20Gram%20Seed%20Pant%20U-31%20(5%20kg)",
-  "Cabbage Seed Golden Acre (100 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Cabbage%20Seed%20Golden%20Acre%20(100%20g)",
-  "Cauliflower Seed Snowball-16 (50 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Cauliflower%20Seed%20Snowball-16%20(50%20g)",
-  "Cucumber Seed Hybrid Malini (25 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Cucumber%20Seed%20Hybrid%20Malini%20(25%20g)",
-  "Bottle Gourd Seed Pusa Naveen (100 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Bottle%20Gourd%20Seed%20Pusa%20Naveen%20(100%20g)",
-  "Bitter Gourd Seed Hybrid (50 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Bitter%20Gourd%20Seed%20Hybrid%20(50%20g)",
-  "Watermelon Seed Sugar Baby (100 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Watermelon%20Seed%20Sugar%20Baby%20(100%20g)",
-  "Muskmelon Seed Hara Madhu (100 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Muskmelon%20Seed%20Hara%20Madhu%20(100%20g)",
-  "Carrot Seed Pusa Rudhira (250 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Carrot%20Seed%20Pusa%20Rudhira%20(250%20g)",
-  "Spinach Seed All Green (500 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Spinach%20Seed%20All%20Green%20(500%20g)",
-  "Coriander Seed Local (1 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Coriander%20Seed%20Local%20(1%20kg)",
-  "Fenugreek Seed Pusa Early Bunching (1 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Fenugreek%20Seed%20Pusa%20Early%20Bunching%20(1%20kg)",
-  "Barley Seed BH-946 (20 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Barley%20Seed%20BH-946%20(20%20kg)",
-  "Sorghum Seed CSH-16 (5 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Sorghum%20Seed%20CSH-16%20(5%20kg)",
-  "Finger Millet Seed GPU-28 (5 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Finger%20Millet%20Seed%20GPU-28%20(5%20kg)",
-  "Sesame Seed GT-10 (2 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Sesame%20Seed%20GT-10%20(2%20kg)",
-  "Castor Seed GCH-7 (5 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Castor%20Seed%20GCH-7%20(5%20kg)",
-  "Lentil Seed IPL-406 (5 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Lentil%20Seed%20IPL-406%20(5%20kg)",
-  "Field Pea Seed HFP-4 (10 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Field%20Pea%20Seed%20HFP-4%20(10%20kg)",
-  "Berseem Fodder Seed (10 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Berseem%20Fodder%20Seed%20(10%20kg)",
-  "Napier Grass Root Slips (100 slips)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Napier%20Grass%20Root%20Slips%20(100%20slips)",
-  "Marigold Seed African Orange (50 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Marigold%20Seed%20African%20Orange%20(50%20g)",
-  "Turmeric Rhizome Seed Salem (25 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Turmeric%20Rhizome%20Seed%20Salem%20(25%20kg)",
-  "Ginger Rhizome Seed Varada (25 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Ginger%20Rhizome%20Seed%20Varada%20(25%20kg)",
-  "Garlic Seed Bulb G-282 (10 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Garlic%20Seed%20Bulb%20G-282%20(10%20kg)",
-  "Papaya Seed Red Lady (10 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Papaya%20Seed%20Red%20Lady%20(10%20g)",
-  "Banana Tissue Culture Plant G-9":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Banana%20Tissue%20Culture%20Plant%20G-9",
-  "Guava Grafted Plant Allahabad Safeda":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Guava%20Grafted%20Plant%20Allahabad%20Safeda",
-  "Mango Grafted Plant Dasheri":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Mango%20Grafted%20Plant%20Dasheri",
-  "Drumstick Seed PKM-1 (250 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Drumstick%20Seed%20PKM-1%20(250%20g)",
-  "Curry Leaf Plant Sapling":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Curry%20Leaf%20Plant%20Sapling",
-  "Urea 46% N (45 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Urea%2046%25%20N%20(45%20kg)",
-  "DAP 18-46-0 (50 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=DAP%2018-46-0%20(50%20kg)",
-  "MOP Muriate of Potash (50 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=MOP%20Muriate%20of%20Potash%20(50%20kg)",
-  "NPK 10:26:26 Complex (50 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=NPK%2010%3A26%3A26%20Complex%20(50%20kg)",
-  "NPK 20:20:0:13 (50 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=NPK%2020%3A20%3A0%3A13%20(50%20kg)",
-  "Single Super Phosphate (50 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Single%20Super%20Phosphate%20(50%20kg)",
-  "Zinc Sulphate 21% (5 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Zinc%20Sulphate%2021%25%20(5%20kg)",
-  "Ammonium Sulphate (50 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Ammonium%20Sulphate%20(50%20kg)",
-  "Calcium Nitrate (25 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Calcium%20Nitrate%20(25%20kg)",
-  "Water Soluble NPK 19:19:19 (1 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Water%20Soluble%20NPK%2019%3A19%3A19%20(1%20kg)",
-  "Water Soluble NPK 0:52:34 (1 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Water%20Soluble%20NPK%200%3A52%3A34%20(1%20kg)",
-  "Potassium Schoenite (25 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Potassium%20Schoenite%20(25%20kg)",
-  "Vermicompost Organic (30 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Vermicompost%20Organic%20(30%20kg)",
-  "Neem Cake Powder (25 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Neem%20Cake%20Powder%20(25%20kg)",
-  "Bone Meal Organic (10 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Bone%20Meal%20Organic%20(10%20kg)",
-  "Cow Dung Manure Composted (40 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Cow%20Dung%20Manure%20Composted%20(40%20kg)",
-  "Rhizobium Biofertiliser (500 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Rhizobium%20Biofertiliser%20(500%20g)",
-  "Azotobacter Biofertiliser (500 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Azotobacter%20Biofertiliser%20(500%20g)",
-  "PSB Phosphate Solubilising Bacteria (500 g)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=PSB%20Phosphate%20Solubilising%20Bacteria%20(500%20g)",
-  "Mycorrhiza VAM Granules (4 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Mycorrhiza%20VAM%20Granules%20(4%20kg)",
-  "Trichoderma Viride Bio-fungicide (1 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Trichoderma%20Viride%20Bio-fungicide%20(1%20kg)",
-  "Pseudomonas Fluorescens (1 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Pseudomonas%20Fluorescens%20(1%20kg)",
-  "Humic Acid Granules (5 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Humic%20Acid%20Granules%20(5%20kg)",
-  "Seaweed Extract Liquid (1 litre)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Seaweed%20Extract%20Liquid%20(1%20litre)",
-  "Micronutrient Mixture Grade-II (5 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Micronutrient%20Mixture%20Grade-II%20(5%20kg)",
-  "Boron 20% Powder (1 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Boron%2020%25%20Powder%20(1%20kg)",
-  "Ferrous Sulphate (10 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Ferrous%20Sulphate%20(10%20kg)",
-  "Gypsum Agricultural Grade (50 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Gypsum%20Agricultural%20Grade%20(50%20kg)",
-  "Sulphur 90% WDG (5 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Sulphur%2090%25%20WDG%20(5%20kg)",
-  "Liquid Consortia Biofertiliser (1 litre)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Liquid%20Consortia%20Biofertiliser%20(1%20litre)",
-  "Nano Urea Liquid (500 ml)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Nano%20Urea%20Liquid%20(500%20ml)",
-  "Nano DAP Liquid (500 ml)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Nano%20DAP%20Liquid%20(500%20ml)",
-  "Potassium Humate Shiny Flakes (2 kg)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Potassium%20Humate%20Shiny%20Flakes%20(2%20kg)",
-  "Panchagavya Organic Tonic (5 litre)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Panchagavya%20Organic%20Tonic%20(5%20litre)",
-  "Jeevamrut Concentrate (5 litre)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Jeevamrut%20Concentrate%20(5%20litre)",
-  "Battery Knapsack Sprayer 16 L":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Battery%20Knapsack%20Sprayer%2016%20L",
-  "Manual Knapsack Sprayer 16 L":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Manual%20Knapsack%20Sprayer%2016%20L",
-  "Power Weeder 5 HP": "https://placehold.co/600x450/eef2ff/3730a3?text=Power%20Weeder%205%20HP",
-  "Brush Cutter 2-Stroke 43 CC":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Brush%20Cutter%202-Stroke%2043%20CC",
-  "Rotavator 5 Feet": "https://placehold.co/600x450/eef2ff/3730a3?text=Rotavator%205%20Feet",
-  "Seed Drill 9 Tyne": "https://placehold.co/600x450/eef2ff/3730a3?text=Seed%20Drill%209%20Tyne",
-  "Drip Irrigation Kit 1 Acre":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Drip%20Irrigation%20Kit%201%20Acre",
-  "Sprinkler Set 1 Acre":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Sprinkler%20Set%201%20Acre",
-  "HDPE Mulching Film 25 Micron (400 m)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=HDPE%20Mulching%20Film%2025%20Micron%20(400%20m)",
-  "Shade Net 50% Green (3 x 50 m)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Shade%20Net%2050%25%20Green%20(3%20x%2050%20m)",
-  "Insect Net 40 Mesh (3 x 50 m)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Insect%20Net%2040%20Mesh%20(3%20x%2050%20m)",
-  "Soil Testing Kit Digital":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Soil%20Testing%20Kit%20Digital",
-  "Grain Moisture Meter":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Grain%20Moisture%20Meter",
-  "Sickle Serrated Steel":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Sickle%20Serrated%20Steel",
-  "Kudali / Hoe 1.5 kg":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Kudali%20%2F%20Hoe%201.5%20kg",
-  "Garden Spade Steel": "https://placehold.co/600x450/eef2ff/3730a3?text=Garden%20Spade%20Steel",
-  "Pruning Secateur Bypass":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Pruning%20Secateur%20Bypass",
-  "Chaff Cutter Electric 2 HP":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Chaff%20Cutter%20Electric%202%20HP",
-  "Water Pump 5 HP Diesel":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Water%20Pump%205%20HP%20Diesel",
-  "Submersible Pump 3 HP":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Submersible%20Pump%203%20HP",
-  "Solar Pump Controller 5 HP":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Solar%20Pump%20Controller%205%20HP",
-  "Tarpaulin Sheet 200 GSM (18 x 24 ft)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Tarpaulin%20Sheet%20200%20GSM%20(18%20x%2024%20ft)",
-  "Jute Gunny Bags (Pack of 50)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Jute%20Gunny%20Bags%20(Pack%20of%2050)",
-  "Grain Storage Silo 1 Tonne":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Grain%20Storage%20Silo%201%20Tonne",
-  "Weighing Scale Platform 300 kg":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Weighing%20Scale%20Platform%20300%20kg",
-  "Cattle Feed Trough Plastic 60 L":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Cattle%20Feed%20Trough%20Plastic%2060%20L",
-  "Milking Machine Single Bucket":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Milking%20Machine%20Single%20Bucket",
-  "Poultry Automatic Drinker (Pack of 10)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Poultry%20Automatic%20Drinker%20(Pack%20of%2010)",
-  "Wheelbarrow Steel 100 L":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Wheelbarrow%20Steel%20100%20L",
-  "Fogger Machine Portable":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Fogger%20Machine%20Portable",
-  "Solar Insect Light Trap":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Solar%20Insect%20Light%20Trap",
-  "Pheromone Trap Set (Pack of 10)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Pheromone%20Trap%20Set%20(Pack%20of%2010)",
-  "Farm Safety Kit (Mask, Gloves, Goggles)":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Farm%20Safety%20Kit%20(Mask%2C%20Gloves%2C%20Goggles)",
-  "Weather Station Mini Digital":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Weather%20Station%20Mini%20Digital",
-  "Tractor Trolley Tipping 5 Tonne":
-    "https://placehold.co/600x450/eef2ff/3730a3?text=Tractor%20Trolley%20Tipping%205%20Tonne",
 };
 
 const ROWS: Row[] = [
+  // --- FRESH FRUITS ---
+  [
+    "Fresh Alphonso Mangoes (1 kg)",
+    "Ratnagiri Farm Direct",
+    "fruits",
+    "kg",
+    350,
+    4.8,
+    450,
+    "GI-tagged naturally ripened Alphonso mangoes with rich aroma and sweet pulp.",
+    "Best Seller",
+  ],
+  [
+    "Fresh Grand Naine Bananas (1 Dozen)",
+    "Anantapur Farmers Producer Co.",
+    "fruits",
+    "dozen",
+    65,
+    4.6,
+    800,
+    "Farm-fresh premium Grand Naine bananas rich in potassium and nutrients.",
+  ],
+  [
+    "Fresh Red Lady Papaya (1 kg)",
+    "Godavari Delta Farms",
+    "fruits",
+    "kg",
+    45,
+    4.7,
+    600,
+    "Tree-ripened sweet Red Lady papaya with deep orange flesh and high Brix value.",
+    "Top Rated",
+  ],
+  [
+    "Fresh Sugar Baby Watermelon (1 pc / 3-4 kg)",
+    "Kurnool Agri Producer",
+    "fruits",
+    "piece",
+    120,
+    4.5,
+    350,
+    "Crisp and juicy sweet dark-skinned Sugar Baby watermelon.",
+  ],
+  [
+    "Fresh Hara Madhu Muskmelon (1 pc)",
+    "Punjab Organic Orchards",
+    "fruits",
+    "piece",
+    85,
+    4.4,
+    400,
+    "Highly aromatic green-fleshed muskmelon harvested at peak ripeness.",
+  ],
+  [
+    "Fresh Nagpur Oranges (1 kg)",
+    "Vidarbha Citrus Co-op",
+    "fruits",
+    "kg",
+    90,
+    4.6,
+    550,
+    "Juicy and sweet-sour fresh Nagpur mandarin oranges.",
+  ],
+  [
+    "Fresh Shimla Apples (1 kg)",
+    "Kinnaur Valley Orchards",
+    "fruits",
+    "kg",
+    180,
+    4.7,
+    650,
+    "Crisp, sweet, and juicy Royal Delicious Shimla apples.",
+    "Featured",
+  ],
+  [
+    "Fresh Thompson Seedless Grapes (500 g)",
+    "Nashik Grape Growers",
+    "fruits",
+    "pack",
+    75,
+    4.6,
+    500,
+    "Sweet, seedless green table grapes harvested fresh from Nashik vineyards.",
+  ],
+  [
+    "Fresh Allahabad Safeda Guava (1 kg)",
+    "Varanasi Fruit Farms",
+    "fruits",
+    "kg",
+    80,
+    4.5,
+    420,
+    "Sweet white-fleshed Allahabad Safeda guava rich in Vitamin C.",
+  ],
+  [
+    "Fresh Kesar Pomegranate (1 kg)",
+    "Solapur Organic Growers",
+    "fruits",
+    "kg",
+    160,
+    4.8,
+    380,
+    "Deep red arils with soft seeds and high juice yield.",
+  ],
+
+  // --- FRESH VEGETABLES ---
+  [
+    "Fresh Red Tomatoes (1 kg)",
+    "Madanapalle Farm Direct",
+    "vegetables",
+    "kg",
+    32,
+    4.5,
+    1200,
+    "Firm, ripe field tomatoes ideal for curries, salads and cooking.",
+    "Best Seller",
+  ],
+  [
+    "Fresh Nashik Red Onions (1 kg)",
+    "Nashik Farmer Producer",
+    "vegetables",
+    "kg",
+    28,
+    4.6,
+    1500,
+    "Dry-skinned, pungent red onions with excellent shelf life.",
+  ],
+  [
+    "Fresh Agra Potatoes (1 kg)",
+    "UP Vegetable Co-op",
+    "vegetables",
+    "kg",
+    25,
+    4.4,
+    1800,
+    "Clean, firm table potatoes perfect for daily cooking.",
+  ],
+  [
+    "Fresh Purple Brinjal (1 kg)",
+    "Local Farm Direct",
+    "vegetables",
+    "kg",
+    40,
+    4.3,
+    600,
+    "Tender purple eggplant with soft seeds and smooth texture.",
+  ],
+  [
+    "Fresh Green Chilli (250 g)",
+    "Guntur Chilli Growers",
+    "vegetables",
+    "pack",
+    20,
+    4.5,
+    800,
+    "Fresh spicy green chillies for daily kitchen seasoning.",
+  ],
+  [
+    "Fresh Ooty Carrots (1 kg)",
+    "Nilgiri Organic Farms",
+    "vegetables",
+    "kg",
+    55,
+    4.7,
+    500,
+    "Sweet, crunchy orange carrots grown in high-altitude soil.",
+  ],
+  [
+    "Fresh Green Cabbage (1 pc)",
+    "Local Farm Direct",
+    "vegetables",
+    "piece",
+    30,
+    4.2,
+    700,
+    "Compact green cabbage head harvested fresh from the field.",
+  ],
+  [
+    "Fresh White Cauliflower (1 pc)",
+    "Local Farm Direct",
+    "vegetables",
+    "piece",
+    35,
+    4.4,
+    650,
+    "Tight white curd cauliflower with crisp florets.",
+  ],
+  [
+    "Fresh Green Capsicum (500 g)",
+    "Polyhouse Fresh",
+    "vegetables",
+    "pack",
+    45,
+    4.6,
+    450,
+    "Crisp, thick-walled green bell peppers.",
+  ],
+  [
+    "Fresh Farm Spinach / Palak (250 g)",
+    "Organic Green Farms",
+    "vegetables",
+    "pack",
+    18,
+    4.5,
+    900,
+    "Fresh tender spinach leaves rich in iron and minerals.",
+  ],
+
+  // --- SEEDS & PLANTING MATERIAL ---
   [
     "Paddy Seed PR-126 (5 kg)",
     "Punjab Seeds Corp.",
@@ -327,7 +372,7 @@ const ROWS: Row[] = [
   [
     "Hybrid Tomato Seed (10 g)",
     "Syngenta Seeds",
-    "vegetables",
+    "seeds",
     "pack",
     95,
     4.3,
@@ -337,7 +382,7 @@ const ROWS: Row[] = [
   [
     "Onion Seed Agrifound Dark Red (50 g)",
     "NHRDF",
-    "vegetables",
+    "seeds",
     "pack",
     320,
     4.5,
@@ -348,7 +393,7 @@ const ROWS: Row[] = [
   [
     "Hybrid Brinjal Seed (10 g)",
     "East-West Seeds",
-    "vegetables",
+    "seeds",
     "pack",
     85,
     4.2,
@@ -358,7 +403,7 @@ const ROWS: Row[] = [
   [
     "Chilli Seed Byadgi Dabbi (50 g)",
     "Karnataka Seeds Corp.",
-    "vegetables",
+    "seeds",
     "pack",
     420,
     4.4,
@@ -368,7 +413,7 @@ const ROWS: Row[] = [
   [
     "Okra Seed Arka Anamika (250 g)",
     "IIHR Seeds",
-    "vegetables",
+    "seeds",
     "pack",
     260,
     4.3,
@@ -429,7 +474,7 @@ const ROWS: Row[] = [
   [
     "Potato Seed Tuber Kufri Jyoti (50 kg)",
     "CPRI Shimla",
-    "vegetables",
+    "seeds",
     "bag",
     1850,
     4.5,
@@ -459,7 +504,7 @@ const ROWS: Row[] = [
   [
     "Cabbage Seed Golden Acre (100 g)",
     "Namdhari Seeds",
-    "vegetables",
+    "seeds",
     "pack",
     340,
     4.2,
@@ -469,7 +514,7 @@ const ROWS: Row[] = [
   [
     "Cauliflower Seed Snowball-16 (50 g)",
     "Namdhari Seeds",
-    "vegetables",
+    "seeds",
     "pack",
     380,
     4.3,
@@ -479,7 +524,7 @@ const ROWS: Row[] = [
   [
     "Cucumber Seed Hybrid Malini (25 g)",
     "East-West Seeds",
-    "vegetables",
+    "seeds",
     "pack",
     290,
     4.1,
@@ -489,7 +534,7 @@ const ROWS: Row[] = [
   [
     "Bottle Gourd Seed Pusa Naveen (100 g)",
     "IARI Seeds",
-    "vegetables",
+    "seeds",
     "pack",
     180,
     4.0,
@@ -499,7 +544,7 @@ const ROWS: Row[] = [
   [
     "Bitter Gourd Seed Hybrid (50 g)",
     "Syngenta Seeds",
-    "vegetables",
+    "seeds",
     "pack",
     320,
     4.2,
@@ -509,42 +554,42 @@ const ROWS: Row[] = [
   [
     "Watermelon Seed Sugar Baby (100 g)",
     "Nunhems India",
-    "fruits",
+    "seeds",
     "pack",
     460,
     4.4,
     280,
-    "Sweet 3-4 kg fruit with deep red flesh and 12% TSS.",
+    "Sweet 3-4 kg fruit seed with deep red flesh and 12% TSS.",
   ],
   [
     "Muskmelon Seed Hara Madhu (100 g)",
     "Punjab Seeds Corp.",
-    "fruits",
+    "seeds",
     "pack",
     410,
     4.1,
     240,
-    "Aromatic green-fleshed melon well suited to river-bed cultivation.",
+    "Aromatic green-fleshed melon seed well suited to river-bed cultivation.",
   ],
   [
     "Carrot Seed Pusa Rudhira (250 g)",
     "IARI Seeds",
-    "vegetables",
+    "seeds",
     "pack",
     520,
     4.3,
     260,
-    "Red-cored tropical carrot rich in lycopene. Sow October to November.",
+    "Red-cored tropical carrot seed rich in lycopene. Sow October to November.",
   ],
   [
     "Spinach Seed All Green (500 g)",
     "Namdhari Seeds",
-    "vegetables",
+    "seeds",
     "pack",
     210,
     4.0,
     640,
-    "Multi-cut leafy spinach with quick regrowth after each harvest.",
+    "Multi-cut leafy spinach seed with quick regrowth after each harvest.",
   ],
   [
     "Coriander Seed Local (1 kg)",
@@ -554,7 +599,7 @@ const ROWS: Row[] = [
     240,
     4.1,
     720,
-    "Dual purpose coriander for leafy harvest and seed production.",
+    "Dual purpose coriander seed for leafy harvest and seed production.",
   ],
   [
     "Fenugreek Seed Pusa Early Bunching (1 kg)",
@@ -564,7 +609,7 @@ const ROWS: Row[] = [
     230,
     4.0,
     610,
-    "Quick bunching methi giving 3-4 cuttings during the rabi season.",
+    "Quick bunching methi seed giving 3-4 cuttings during the rabi season.",
   ],
   [
     "Barley Seed BH-946 (20 kg)",
@@ -574,7 +619,7 @@ const ROWS: Row[] = [
     1180,
     4.2,
     200,
-    "Feed and malt barley tolerant to salinity and late sowing.",
+    "Feed and malt barley seed tolerant to salinity and late sowing.",
   ],
   [
     "Sorghum Seed CSH-16 (5 kg)",
@@ -584,7 +629,7 @@ const ROWS: Row[] = [
     560,
     4.1,
     330,
-    "Dual purpose jowar hybrid producing high grain and fodder yield.",
+    "Dual purpose jowar seed hybrid producing high grain and fodder yield.",
   ],
   [
     "Finger Millet Seed GPU-28 (5 kg)",
@@ -594,7 +639,7 @@ const ROWS: Row[] = [
     380,
     4.2,
     290,
-    "Blast resistant ragi with 110-day duration and high calcium grain.",
+    "Blast resistant ragi seed with 110-day duration and high calcium grain.",
   ],
   [
     "Sesame Seed GT-10 (2 kg)",
@@ -604,7 +649,7 @@ const ROWS: Row[] = [
     460,
     4.0,
     250,
-    "White seeded til for kharif with 48% oil recovery.",
+    "White seeded til seed for kharif with 48% oil recovery.",
   ],
   [
     "Castor Seed GCH-7 (5 kg)",
@@ -614,7 +659,7 @@ const ROWS: Row[] = [
     850,
     4.1,
     180,
-    "Wilt tolerant castor hybrid with high bean yield in light soils.",
+    "Wilt tolerant castor seed hybrid with high bean yield in light soils.",
   ],
   [
     "Lentil Seed IPL-406 (5 kg)",
@@ -624,7 +669,7 @@ const ROWS: Row[] = [
     810,
     4.3,
     300,
-    "Bold-seeded masoor with rust resistance and 120-day maturity.",
+    "Bold-seeded masoor seed with rust resistance and 120-day maturity.",
   ],
   [
     "Field Pea Seed HFP-4 (10 kg)",
@@ -634,7 +679,7 @@ const ROWS: Row[] = [
     1250,
     4.0,
     170,
-    "Powdery mildew tolerant pea for grain and green pod harvest.",
+    "Powdery mildew tolerant pea seed for grain and green pod harvest.",
   ],
   [
     "Berseem Fodder Seed (10 kg)",
@@ -644,7 +689,7 @@ const ROWS: Row[] = [
     1450,
     4.4,
     210,
-    "Multi-cut winter fodder giving 6-7 cuttings of nutritious green matter.",
+    "Multi-cut winter fodder seed giving 6-7 cuttings of nutritious green matter.",
   ],
   [
     "Napier Grass Root Slips (100 slips)",
@@ -654,17 +699,17 @@ const ROWS: Row[] = [
     620,
     4.2,
     140,
-    "Perennial fodder grass producing 200+ tonnes of green fodder per ha.",
+    "Perennial fodder grass root slips producing 200+ tonnes of green fodder per ha.",
   ],
   [
     "Marigold Seed African Orange (50 g)",
     "Namdhari Seeds",
-    "fruits",
+    "seeds",
     "pack",
     350,
     4.1,
     260,
-    "Large double blooms for cut flower and border planting.",
+    "Large double blooms flower seed for cut flower and border planting.",
   ],
   [
     "Turmeric Rhizome Seed Salem (25 kg)",
@@ -680,7 +725,7 @@ const ROWS: Row[] = [
   [
     "Ginger Rhizome Seed Varada (25 kg)",
     "Kerala Agri Board",
-    "vegetables",
+    "seeds",
     "bag",
     2300,
     4.3,
@@ -690,76 +735,77 @@ const ROWS: Row[] = [
   [
     "Garlic Seed Bulb G-282 (10 kg)",
     "NHRDF",
-    "vegetables",
+    "seeds",
     "bag",
     1650,
     4.2,
     160,
-    "Large bold cloves with strong pungency and long storage life.",
+    "Large bold garlic seed cloves with strong pungency and long storage life.",
   ],
   [
     "Papaya Seed Red Lady (10 g)",
     "Known-You Seeds",
-    "fruits",
+    "seeds",
     "pack",
     780,
     4.6,
     200,
-    "Dwarf gynodioecious papaya bearing 1.5-2 kg fruit within 9 months.",
+    "Dwarf gynodioecious papaya seed bearing 1.5-2 kg fruit within 9 months.",
     "Top Rated",
   ],
   [
     "Banana Tissue Culture Plant G-9",
     "Jain Tissue Culture",
-    "fruits",
+    "seeds",
     "plant",
     28,
     4.7,
     5000,
-    "Disease-free tissue culture banana with uniform bunch maturity.",
+    "Disease-free tissue culture banana plant sapling with uniform bunch maturity.",
     "Best Seller",
   ],
   [
     "Guava Grafted Plant Allahabad Safeda",
     "Punjab Nursery",
-    "fruits",
+    "seeds",
     "plant",
     145,
     4.4,
     800,
-    "Grafted guava sapling bearing sweet white-fleshed fruit in 2 years.",
+    "Grafted guava plant sapling bearing sweet white-fleshed fruit in 2 years.",
   ],
   [
     "Mango Grafted Plant Dasheri",
     "UP Horticulture Nursery",
-    "fruits",
+    "seeds",
     "plant",
     220,
     4.5,
     650,
-    "Grafted mango sapling of the popular Dasheri variety.",
+    "Grafted mango plant sapling of the popular Dasheri variety.",
   ],
   [
     "Drumstick Seed PKM-1 (250 g)",
     "TNAU Certified",
-    "vegetables",
+    "seeds",
     "pack",
     380,
     4.3,
     340,
-    "Annual moringa yielding 200+ pods per tree from the first year.",
+    "Annual moringa seed yielding 200+ pods per tree from the first year.",
   ],
   [
     "Curry Leaf Plant Sapling",
     "Kerala Agri Board",
-    "vegetables",
+    "seeds",
     "plant",
     90,
     4.2,
     900,
-    "Hardy kadi patta sapling for kitchen garden and commercial planting.",
+    "Hardy kadi patta plant sapling for kitchen garden and commercial planting.",
   ],
 
+  // --- FERTILIZERS ---
   [
     "Urea 46% N (45 kg)",
     "IFFCO",
@@ -875,7 +921,7 @@ const ROWS: Row[] = [
   [
     "Potassium Schoenite (25 kg)",
     "IFFCO",
-    "farm-tools",
+    "fertilizers",
     "bag",
     1240,
     4.1,
@@ -898,54 +944,54 @@ const ROWS: Row[] = [
     "PureFarm Organics",
     "fertilizers",
     "bag",
-    620,
-    4.5,
-    1400,
-    "Organic nitrogen source that also suppresses soil nematodes.",
+    450,
+    4.4,
+    1200,
+    "Organic neem cake powder protecting roots from soil nematodes.",
   ],
   [
     "Bone Meal Organic (10 kg)",
     "Green Earth Agri",
     "fertilizers",
     "bag",
-    480,
+    380,
     4.2,
-    620,
-    "Slow-release phosphorus and calcium for orchards and vegetables.",
+    800,
+    "Slow-release organic phosphorus source for flowering and fruiting.",
   ],
   [
     "Cow Dung Manure Composted (40 kg)",
     "PureFarm Organics",
     "fertilizers",
     "bag",
-    260,
+    240,
     4.3,
-    2600,
-    "Fully decomposed FYM ready for basal soil incorporation.",
+    2500,
+    "Aged, fully composted cow dung manure enriched with beneficial microbes.",
   ],
   [
     "Rhizobium Biofertiliser (500 g)",
-    "NBAIM Certified",
+    "Kribhco",
     "fertilizers",
     "pack",
-    120,
-    4.4,
-    1900,
-    "Nitrogen fixing culture for gram, soybean, groundnut and pulses.",
+    110,
+    4.5,
+    1800,
+    "Nitrogen-fixing bio-inoculant for pulse crop seed treatment.",
   ],
   [
     "Azotobacter Biofertiliser (500 g)",
-    "NBAIM Certified",
+    "Kribhco",
     "fertilizers",
     "pack",
-    130,
+    115,
     4.2,
-    1700,
-    "Free-living nitrogen fixer for cereals, cotton and vegetables.",
+    1500,
+    "Free-living nitrogen fixer for non-leguminous crops like cereals.",
   ],
   [
     "PSB Phosphate Solubilising Bacteria (500 g)",
-    "NBAIM Certified",
+    "Kribhco",
     "fertilizers",
     "pack",
     130,
@@ -962,26 +1008,6 @@ const ROWS: Row[] = [
     4.4,
     480,
     "Root-symbiont fungi improving nutrient and water uptake.",
-  ],
-  [
-    "Trichoderma Viride Bio-fungicide (1 kg)",
-    "Multiplex",
-    "pesticides",
-    "pack",
-    280,
-    4.5,
-    1250,
-    "Controls wilt, root rot and damping off in a wide range of crops.",
-  ],
-  [
-    "Pseudomonas Fluorescens (1 kg)",
-    "Multiplex",
-    "pesticides",
-    "pack",
-    290,
-    4.3,
-    980,
-    "Biocontrol agent against bacterial blight and sheath blight.",
   ],
   [
     "Humic Acid Granules (5 kg)",
@@ -1099,133 +1125,114 @@ const ROWS: Row[] = [
     "PureFarm Organics",
     "fertilizers",
     "can",
-    450,
-    4.4,
-    460,
-    "Traditional organic growth tonic prepared from five cow products.",
+    650,
+    4.6,
+    420,
+    "Traditional organic growth promoter and immunity booster.",
   ],
   [
     "Jeevamrut Concentrate (5 litre)",
     "PureFarm Organics",
     "fertilizers",
     "can",
-    380,
-    4.2,
-    520,
-    "Microbial culture for natural farming and soil revival.",
+    420,
+    4.5,
+    500,
+    "Fermented bio-enhancer rich in beneficial soil microorganisms.",
   ],
 
+  // --- PESTICIDES & CROP PROTECTION ---
   [
-    "Battery Knapsack Sprayer 16 L",
-    "Neptune Agri",
-    "equipment",
-    "unit",
-    2650,
+    "Trichoderma Viride Bio-fungicide (1 kg)",
+    "Multiplex",
+    "pesticides",
+    "pack",
+    280,
     4.5,
-    320,
-    "12V rechargeable sprayer with adjustable nozzle and 8-hour backup.",
-    "Best Seller",
+    1250,
+    "Controls wilt, root rot and damping off in a wide range of crops.",
   ],
   [
-    "Manual Knapsack Sprayer 16 L",
-    "Aspee",
-    "equipment",
-    "unit",
-    1180,
-    4.2,
-    540,
-    "Durable lever-operated sprayer with brass lance and four nozzles.",
-  ],
-  [
-    "Power Weeder 5 HP",
-    "VST Shakti",
-    "equipment",
-    "unit",
-    48500,
-    4.4,
-    25,
-    "Petrol weeder with 600 mm tilling width for row crops and orchards.",
-  ],
-  [
-    "Brush Cutter 2-Stroke 43 CC",
-    "Honda Power",
-    "equipment",
-    "unit",
-    8900,
+    "Pseudomonas Fluorescens (1 kg)",
+    "Multiplex",
+    "pesticides",
+    "pack",
+    290,
     4.3,
-    90,
-    "Backpack brush cutter with metal blade and nylon trimmer head.",
+    980,
+    "Biocontrol agent against bacterial blight and sheath blight.",
   ],
   [
-    "Rotavator 5 Feet",
-    "Shaktiman",
-    "farm-tools",
-    "unit",
-    78500,
-    4.5,
-    12,
-    "42-blade rotavator for tractor 45 HP and above. Heavy-duty gearbox.",
-  ],
-  [
-    "Seed Drill 9 Tyne",
-    "Landforce",
-    "farm-tools",
-    "unit",
-    42000,
-    4.2,
-    18,
-    "Fertiliser cum seed drill with fluted roller metering for wheat.",
-  ],
-  [
-    "Drip Irrigation Kit 1 Acre",
-    "Jain Irrigation",
-    "equipment",
-    "kit",
-    24500,
+    "Neem Oil 10000 PPM Azadirachtin (1 litre)",
+    "PureFarm Bio",
+    "pesticides",
+    "bottle",
+    550,
     4.6,
-    60,
-    "Inline lateral kit with filter, venturi and fittings for one acre.",
-    "Top Rated",
+    850,
+    "Broad-spectrum organic botanical insecticide and mite control.",
   ],
   [
-    "Sprinkler Set 1 Acre",
-    "Finolex Plasson",
-    "equipment",
-    "kit",
-    18500,
+    "Chlorpyrifos 20% EC (1 litre)",
+    "Coromandel",
+    "pesticides",
+    "bottle",
+    420,
     4.3,
-    55,
-    "Portable HDPE sprinkler set covering one acre of field crops.",
+    600,
+    "Effective control against termites, stem borer and soil insects.",
   ],
   [
-    "HDPE Mulching Film 25 Micron (400 m)",
-    "Garware",
-    "farm-tools",
-    "roll",
-    3200,
+    "Mancozeb 75% WP Fungicide (1 kg)",
+    "UPL India",
+    "pesticides",
+    "pack",
+    480,
     4.4,
-    210,
-    "Silver-black mulch film reducing weeds and conserving soil moisture.",
+    900,
+    "Contact fungicide controlling late blight, leaf spots and rusts.",
   ],
+
+  // --- FARM TOOLS ---
   [
-    "Shade Net 50% Green (3 x 50 m)",
-    "Garware",
+    "Sickle Serrated Steel",
+    "Falcon Tools",
     "farm-tools",
-    "roll",
-    4300,
+    "unit",
+    180,
     4.3,
-    140,
-    "UV-stabilised knitted shade net for nursery and vegetable cultivation.",
+    1200,
+    "High-carbon steel serrated sickle for paddy and wheat harvesting.",
   ],
   [
-    "Insect Net 40 Mesh (3 x 50 m)",
-    "Garware",
+    "Kudali / Hoe 1.5 kg",
+    "Falcon Tools",
     "farm-tools",
-    "roll",
-    5600,
+    "unit",
+    420,
     4.2,
-    95,
-    "Fine mesh net protecting polyhouse crops from sucking pests.",
+    850,
+    "Forged steel hoe for weeding, digging and bed preparation.",
+  ],
+  [
+    "Garden Spade Steel",
+    "Falcon Tools",
+    "farm-tools",
+    "unit",
+    480,
+    4.1,
+    750,
+    "Durable steel spade with ergonomic wooden handle.",
+  ],
+  [
+    "Pruning Secateur Bypass",
+    "Falcon Tools",
+    "farm-tools",
+    "unit",
+    620,
+    4.5,
+    950,
+    "Bypass pruner for fruit tree pruning and branch trimming.",
   ],
   [
     "Soil Testing Kit Digital",
@@ -1235,7 +1242,7 @@ const ROWS: Row[] = [
     3400,
     4.1,
     180,
-    "Measures pH, moisture, N, P and K with a rechargeable digital meter.",
+    "Portable digital kit measuring soil N, P, K, pH and EC.",
   ],
   [
     "Grain Moisture Meter",
@@ -1245,87 +1252,37 @@ const ROWS: Row[] = [
     2900,
     4.4,
     220,
-    "Instant moisture reading for wheat, paddy, maize and pulses.",
+    "Handheld digital grain moisture meter for paddy, wheat and pulses.",
   ],
   [
-    "Sickle Serrated Steel",
-    "Falcon Tools",
+    "HDPE Mulching Film 25 Micron (400 m)",
+    "Garware",
     "farm-tools",
-    "unit",
-    180,
-    4.3,
-    1800,
-    "Forged serrated sickle with hardwood handle for harvesting.",
-  ],
-  [
-    "Kudali / Hoe 1.5 kg",
-    "Falcon Tools",
-    "farm-tools",
-    "unit",
-    420,
-    4.2,
-    1200,
-    "Heavy forged hoe head with polished wooden handle.",
-  ],
-  [
-    "Garden Spade Steel",
-    "Falcon Tools",
-    "farm-tools",
-    "unit",
-    480,
-    4.1,
-    900,
-    "Tempered steel spade for digging, levelling and channel making.",
-  ],
-  [
-    "Pruning Secateur Bypass",
-    "Falcon Tools",
-    "farm-tools",
-    "unit",
-    620,
-    4.5,
-    760,
-    "Non-stick blade secateur for orchards, grapes and pomegranate.",
-  ],
-  [
-    "Chaff Cutter Electric 2 HP",
-    "Kisankraft",
-    "equipment",
-    "unit",
-    22500,
-    4.3,
-    40,
-    "Fodder chopper with 1.5 quintal per hour capacity and safety guard.",
-  ],
-  [
-    "Water Pump 5 HP Diesel",
-    "Kirloskar",
-    "equipment",
-    "unit",
-    32500,
+    "roll",
+    3200,
     4.4,
-    35,
-    "Self-priming diesel pump set with 3-inch suction and delivery.",
+    400,
+    "Silver-black UV-stabilised mulching film for weed suppression.",
   ],
   [
-    "Submersible Pump 3 HP",
-    "Crompton",
-    "equipment",
-    "unit",
-    18900,
+    "Shade Net 50% Green (3 x 50 m)",
+    "Garware",
+    "farm-tools",
+    "roll",
+    4300,
     4.3,
-    48,
-    "Borewell submersible with copper winding and dry-run protection.",
+    300,
+    "UV-stabilised green shade net for nursery and polyhouse shading.",
   ],
   [
-    "Solar Pump Controller 5 HP",
-    "Shakti Solar",
-    "equipment",
-    "unit",
-    26500,
+    "Insect Net 40 Mesh (3 x 50 m)",
+    "Garware",
+    "farm-tools",
+    "roll",
+    5600,
     4.2,
-    22,
-    "MPPT controller for solar borewell pumps with mobile monitoring.",
+    250,
+    "Fine mesh insect protection net preventing whitefly and thrips entry.",
   ],
   [
     "Tarpaulin Sheet 200 GSM (18 x 24 ft)",
@@ -1334,8 +1291,8 @@ const ROWS: Row[] = [
     "unit",
     1650,
     4.2,
-    480,
-    "UV-treated waterproof tarpaulin for grain drying and storage.",
+    600,
+    "Heavy-duty waterproof tarpaulin for grain protection and grain drying.",
   ],
   [
     "Jute Gunny Bags (Pack of 50)",
@@ -1344,28 +1301,8 @@ const ROWS: Row[] = [
     "pack",
     2200,
     4.1,
-    300,
-    "Standard 50 kg capacity food-grade jute bags for grain storage.",
-  ],
-  [
-    "Grain Storage Silo 1 Tonne",
-    "Agrosaw",
-    "equipment",
-    "unit",
-    14500,
-    4.3,
-    28,
-    "Galvanised steel silo with airtight lid and moisture-proof base.",
-  ],
-  [
-    "Weighing Scale Platform 300 kg",
-    "Essae Digitronics",
-    "equipment",
-    "unit",
-    9800,
-    4.4,
-    65,
-    "Digital platform scale with stainless top plate and battery backup.",
+    500,
+    "Standard 50 kg capacity food-grade jute gunny storage bags.",
   ],
   [
     "Cattle Feed Trough Plastic 60 L",
@@ -1374,18 +1311,8 @@ const ROWS: Row[] = [
     "unit",
     1450,
     4.0,
-    260,
-    "UV-stabilised feeding trough for dairy and goat units.",
-  ],
-  [
-    "Milking Machine Single Bucket",
-    "Delaval India",
-    "equipment",
-    "unit",
-    42500,
-    4.5,
-    15,
-    "Vacuum milking unit for 8-10 cows with stainless steel bucket.",
+    350,
+    "Heavy plastic feeding trough for dairy cattle.",
   ],
   [
     "Poultry Automatic Drinker (Pack of 10)",
@@ -1394,8 +1321,8 @@ const ROWS: Row[] = [
     "pack",
     1850,
     4.2,
-    190,
-    "Nipple drinkers with anti-leak valve for broiler and layer sheds.",
+    400,
+    "Automatic nipple drinker set for poultry farms.",
   ],
   [
     "Wheelbarrow Steel 100 L",
@@ -1404,39 +1331,18 @@ const ROWS: Row[] = [
     "unit",
     3400,
     4.1,
-    150,
-    "Powder-coated tray with pneumatic tyre for farm transport.",
-  ],
-  [
-    "Fogger Machine Portable",
-    "Neptune Agri",
-    "pesticides",
-    "unit",
-    6800,
-    4.3,
-    70,
-    "Thermal fogger for orchard pest control and livestock shed hygiene.",
-  ],
-  [
-    "Solar Insect Light Trap",
-    "Shakti Solar",
-    "pesticides",
-    "unit",
-    2450,
-    4.6,
-    340,
-    "Solar powered trap reducing pesticide use in paddy and cotton.",
-    "Featured",
+    280,
+    "Single-wheel heavy steel wheelbarrow for farm transport.",
   ],
   [
     "Pheromone Trap Set (Pack of 10)",
     "Multiplex",
-    "pesticides",
+    "farm-tools",
     "pack",
     640,
     4.3,
-    620,
-    "Delta traps with lures for pink bollworm and fruit borer monitoring.",
+    800,
+    "Funnel traps with lures for bollworm and fall armyworm monitoring.",
   ],
   [
     "Farm Safety Kit (Mask, Gloves, Goggles)",
@@ -1445,8 +1351,8 @@ const ROWS: Row[] = [
     "kit",
     890,
     4.4,
-    700,
-    "Complete PPE set for safe handling of agrochemicals.",
+    950,
+    "Personal protective safety kit for pesticide spraying and handling.",
   ],
   [
     "Weather Station Mini Digital",
@@ -1455,8 +1361,181 @@ const ROWS: Row[] = [
     "unit",
     15500,
     4.2,
-    20,
-    "Records rainfall, temperature, humidity and wind at farm level.",
+    90,
+    "Solar-powered micro weather station measuring temp, humidity, rainfall.",
+  ],
+
+  // --- FARM EQUIPMENT & MACHINERY ---
+  [
+    "Battery Knapsack Sprayer 16 L",
+    "Aspee",
+    "equipment",
+    "unit",
+    3250,
+    4.5,
+    800,
+    "12V battery-operated knapsack sprayer with dual nozzle system.",
+    "Best Seller",
+  ],
+  [
+    "Manual Knapsack Sprayer 16 L",
+    "Aspee",
+    "equipment",
+    "unit",
+    1180,
+    4.2,
+    1100,
+    "High-density polyethylene manual brass pump sprayer.",
+  ],
+  [
+    "Power Weeder 5 HP",
+    "VST Shakti",
+    "equipment",
+    "unit",
+    48500,
+    4.4,
+    150,
+    "Petrol power tiller / weeder for inter-cultivation in cotton and sugarcane.",
+  ],
+  [
+    "Brush Cutter 2-Stroke 43 CC",
+    "Honda Power",
+    "equipment",
+    "unit",
+    8900,
+    4.3,
+    400,
+    "Heavy-duty petrol brush cutter with 3-blade metal cutter.",
+  ],
+  [
+    "Rotavator 5 Feet",
+    "Shaktiman",
+    "equipment",
+    "unit",
+    78500,
+    4.5,
+    90,
+    "Tractor-mounted 5 ft rotavator for fine soil seedbed preparation.",
+  ],
+  [
+    "Seed Drill 9 Tyne",
+    "Landforce",
+    "equipment",
+    "unit",
+    42000,
+    4.2,
+    120,
+    "Automatic tractor-drawn seed-cum-fertiliser drill 9 tyne.",
+  ],
+  [
+    "Drip Irrigation Kit 1 Acre",
+    "Jain Irrigation",
+    "equipment",
+    "kit",
+    24500,
+    4.6,
+    250,
+    "Complete 16 mm inline drip lateral kit with screen filter and venturi.",
+  ],
+  [
+    "Sprinkler Set 1 Acre",
+    "Finolex Plasson",
+    "equipment",
+    "kit",
+    18500,
+    4.3,
+    300,
+    "Portable HDPE sprinkler pipe set with 3/4 inch brass sprinkler heads.",
+  ],
+  [
+    "Chaff Cutter Electric 2 HP",
+    "Kisankraft",
+    "equipment",
+    "unit",
+    22500,
+    4.3,
+    200,
+    "Electric fodder cutter for green and dry cattle fodder.",
+  ],
+  [
+    "Water Pump 5 HP Diesel",
+    "Kirloskar",
+    "equipment",
+    "unit",
+    32500,
+    4.4,
+    180,
+    "High-head centrifugal diesel water pump for field irrigation.",
+  ],
+  [
+    "Submersible Pump 3 HP",
+    "Crompton",
+    "equipment",
+    "unit",
+    18900,
+    4.3,
+    280,
+    "Borewell submersible pump set with copper winding motor.",
+  ],
+  [
+    "Solar Pump Controller 5 HP",
+    "Shakti Solar",
+    "equipment",
+    "unit",
+    26500,
+    4.2,
+    140,
+    "MPPT solar pump drive controller for AC/DC submersible pumps.",
+  ],
+  [
+    "Grain Storage Silo 1 Tonne",
+    "Agrosaw",
+    "equipment",
+    "unit",
+    14500,
+    4.3,
+    160,
+    "Galvanised steel airtight grain silo for safe long-term storage.",
+  ],
+  [
+    "Weighing Scale Platform 300 kg",
+    "Essae Digitronics",
+    "equipment",
+    "unit",
+    9800,
+    4.4,
+    300,
+    "Heavy-duty industrial digital platform scale for mandi bag weighing.",
+  ],
+  [
+    "Milking Machine Single Bucket",
+    "Delaval India",
+    "equipment",
+    "unit",
+    42500,
+    4.5,
+    110,
+    "Single bucket trolley milking machine with vacuum pump.",
+  ],
+  [
+    "Fogger Machine Portable",
+    "Neptune Agri",
+    "equipment",
+    "unit",
+    6800,
+    4.3,
+    350,
+    "Thermal fogging machine for orchard disease and mosquito control.",
+  ],
+  [
+    "Solar Insect Light Trap",
+    "Shakti Solar",
+    "equipment",
+    "unit",
+    2450,
+    4.6,
+    650,
+    "Automatic solar light trap attracting and killing crop pest moths.",
   ],
   [
     "Tractor Trolley Tipping 5 Tonne",
@@ -1465,34 +1544,29 @@ const ROWS: Row[] = [
     "unit",
     168000,
     4.5,
-    8,
-    "Hydraulic tipping trolley with heavy-duty axle and tyres.",
+    60,
+    "Hydraulic tipping 2-wheel tractor trailer 5 tonne capacity.",
   ],
 ];
 
 export const PRODUCTS: Product[] = ROWS.map((r, i) => {
-  const id = `p-${String(i + 1).padStart(3, "0")}`;
-  const name = r[0];
-
-  let imageUrl = `/images/products/${id}.jpg`;
-
-  const p: Product = {
-    id,
+  const [name, brand, category, unit, price, rating, stock, description, badge] = r;
+  return {
+    id: `prod-${i + 1}`,
     name,
-    brand: r[1],
-    category: r[2],
-    unit: r[3],
-    price: r[4],
-    rating: r[5],
-    stock: r[6],
-    description: r[7],
-    image: imageUrl,
+    brand,
+    category,
+    unit,
+    price,
+    rating,
+    stock,
+    description,
+    image:
+      IMAGE_MAPPINGS[name] ||
+      IMAGES[category]?.[i % (IMAGES[category]?.length || 1)] ||
+      cropImg,
+    badge: badge as Product["badge"],
   };
-
-  if (r[8]) {
-    p.badge = r[8] as "Best Seller" | "Top Rated" | "Featured";
-  }
-  return p;
 });
 
 export const CATEGORIES: { id: Category | "all"; label: string }[] = [
@@ -1508,4 +1582,8 @@ export const CATEGORIES: { id: Category | "all"; label: string }[] = [
 
 export function getProduct(id: string) {
   return PRODUCTS.find((p) => p.id === id);
+}
+
+export function getProducts() {
+  return Promise.resolve(PRODUCTS);
 }
