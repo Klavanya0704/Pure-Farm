@@ -250,13 +250,13 @@ export function HomePage() {
 export function BuyerHomePage() {
   const { t } = useTranslation();
   const categoriesList = [
-    { name: "Fruits", img: "/categories/fruits.jpg" },
-    { name: "Vegetables", img: "/categories/vegetables.jpg" },
-    { name: "Seeds", img: "/categories/seeds.jpg" },
-    { name: "Fertilizers", img: "/categories/fertilizers.jpg" },
-    { name: "Pesticides", img: "/categories/pesticides.jpg" },
-    { name: "Farm Tools", img: "/categories/farm-tools.jpg" },
-    { name: "Equipment", img: "/categories/equipment.jpg" },
+    { name: "Fruits", img: "/categories/fruits.jpg", href: "/category/fruits" },
+    { name: "Vegetables", img: "/categories/vegetables.jpg", href: "/category/vegetables" },
+    { name: "Seeds", img: "/categories/seeds.jpg", href: "/category/seeds" },
+    { name: "Fertilizers", img: "/categories/fertilizers.jpg", href: "/category/fertilizers" },
+    { name: "Pesticides", img: "/categories/pesticides.jpg", href: "/category/pesticides" },
+    { name: "Farm Tools", img: "/categories/farm-tools.jpg", href: "/category/farm-tools" },
+    { name: "Equipment", img: "/categories/equipment.jpg", href: "/category/equipment" },
   ];
 
   const featuredProducts = useMemo(() => PRODUCTS.slice(0, 8), []);
@@ -336,7 +336,7 @@ export function BuyerHomePage() {
             {categoriesList.map((cat, idx) => (
               <Link
                 key={idx}
-                to="/marketplace"
+                to={cat.href}
                 className="flex flex-col rounded-xl border border-border bg-white p-2.5 shadow-sm hover:shadow-md transition-all duration-200 text-center hover:scale-[1.02] aspect-square justify-between"
               >
                 <div className="h-[65%] w-full rounded-lg overflow-hidden bg-muted flex items-center justify-center">
@@ -1561,37 +1561,37 @@ export const CATEGORY_DETAILS: Record<
   },
   vegetables: {
     title: "Vegetables",
-    subtitle: "Fresh farm-grown vegetables and vegetable crop inputs",
+    subtitle: "Fresh vegetables and produce for your daily farming and household needs",
     teTitle: "కూరగాయలు",
     teSubtitle: "తాజా కూరగాయలు మరియు కూరగాయల సాగు ఉత్పత్తులు",
   },
   seeds: {
     title: "Seeds",
-    subtitle: "High-yielding certified crop seeds and hybrid varieties",
+    subtitle: "Quality seeds and planting materials for better crop production",
     teTitle: "విత్తనాలు",
     teSubtitle: "అధిక దిగుబడినిచ్చే ప్రమాణిక విత్తనాలు మరియు హైబ్రిడ్ రకాలు",
   },
   fertilizers: {
     title: "Fertilizers",
-    subtitle: "Organic and NPK fertilizers to enrich soil and boost yield",
+    subtitle: "Fertilizers and nutrients to support healthy soil and stronger crops",
     teTitle: "ఎరువులు",
     teSubtitle: "భూమిసారం మరియు దిగుబడి పెంపొందించే సేంద్రీయ ఎరువులు",
   },
   pesticides: {
     title: "Pesticides",
-    subtitle: "Crop protection, insecticides, and pest control solutions",
+    subtitle: "Crop protection products to help manage pests, diseases, and weeds",
     teTitle: "పురుగుమందులు",
     teSubtitle: "పంట సంరక్షణ, కీటక నాశినులు మరియు తెగుళ్ల నివారణ ఉత్పత్తులు",
   },
   "farm-tools": {
     title: "Farm Tools",
-    subtitle: "Essential manual and handheld farming tools and field equipment",
+    subtitle: "Essential tools for planting, cultivation, maintenance, and harvesting",
     teTitle: "వ్యవసాయ పరికరాలు",
     teSubtitle: "అవసరమైన చేతి వ్యవసాయ పరికరాలు మరియు క్షేత్ర సామగ్రి",
   },
   equipment: {
     title: "Equipment",
-    subtitle: "Heavy farm machinery, power equipment, pumps, and irrigation kits",
+    subtitle: "Farm machinery and equipment to make agricultural work easier and more efficient",
     teTitle: "యంత్రాలు & సామగ్రి",
     teSubtitle: "ట్రాక్టర్లు, హార్వెస్టర్లు, పంపులు మరియు నీటి పారుదల పరికరాలు",
   },
