@@ -4,6 +4,7 @@ import { LanguageSelector } from "./AppShell";
 import { getColdStorageFacilities, type ColdStorageFacility } from "@/services/coldStorage";
 import { getMarketPrices, syncLiveMarketPrices, type SyncResult } from "@/services/marketPrices";
 import { getMachines, createMachine } from "@/services/machines";
+import { fetchWeatherData, WeatherError, type WeatherData } from "@/services/weather";
 import type {
   MarketPrice,
   DbMachine,
@@ -77,7 +78,7 @@ import {
   PlusCircle,
   DollarSign,
 } from "lucide-react";
-import { useMemo, useState, useEffect, useRef } from "react";
+import { useMemo, useState, useEffect, useRef, useCallback } from "react";
 import {
   ADMIN_STATS,
   COURSES,
@@ -3540,30 +3541,229 @@ export function LivestockDetailPage() {
 
 export function WeatherPage() {
   const { t } = useTranslation();
+  const { user } = useAuth();
+  
+  const defaultLoc = user?.location || "Tadepalligudem, AP";
+  const [selectedLocation, setSelectedLocation] = useState(defaultLoc);
+  const [searchInput, setSearchInput] = useState(defaultLoc);
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const popularLocations = [
+    "Tadepalligudem, AP",
+    "Rajahmundry, AP",
+    "Guntur, AP",
+    "Vijayawada, AP",
+    "Eluru, AP",
+    "Visakhapatnam, AP",
+    "Ludhiana, Punjab",
+    "Nashik, Maharashtra",
+    "Hyderabad, Telangana",
+    "Delhi",
+  ];
+
+  const loadWeather = useCallback((loc: string) => {
+    setLoading(true);
+    setErrorMessage(null);
+    fetchWeatherData(loc)
+      .then((data) => {
+        setWeatherData(data);
+        setLoading(false);
+      })
+      .catch((err: any) => {
+        setWeatherData(null);
+        setLoading(false);
+        if (err instanceof WeatherError && err.code === "MISSING_KEY") {
+          setErrorMessage("Weather service is not configured.");
+        } else {
+          setErrorMessage("Unable to load weather data. Please try again.");
+        }
+      });
+  }, []);
+
+  useEffect(() => {
+    loadWeather(selectedLocation);
+  }, [selectedLocation, loadWeather]);
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchInput.trim()) {
+      setSelectedLocation(searchInput.trim());
+    }
+  };
+
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         bgImage="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=2000"
         eyebrow={t("Weather")}
         title={t("Farm weather advisory")}
-        intro={t("Five-day local forecast with field action notes.")}
+        intro={t("Real-time local forecast and field action advisories powered by OpenWeather.")}
       >
-        <div className="grid gap-4 md:grid-cols-5">
-          {WEATHER.map((day) => (
-            <div key={day.day} className={glassCardClass}>
-              <CloudSun className="h-8 w-8 text-primary" />
-              <p className="mt-3 font-black">{t(day.day)}</p>
-              <p className="text-sm text-muted-foreground">{t(day.condition)}</p>
-              <p className="mt-3 text-2xl font-black">
-                {day.high}° / {day.low}°
-              </p>
-              <p className="mt-1 text-sm font-bold text-primary">
-                {day.rain}% {t("rain")}
-              </p>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">{t(day.advisory)}</p>
-            </div>
-          ))}
+        {/* Location selector & search bar */}
+        <div className="mb-6 flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between bg-card p-4 rounded-2xl border border-border shadow-sm">
+          <div className="flex items-center gap-2 text-[#1b4332] font-black text-sm">
+            <MapPin className="h-5 w-5 text-primary" />
+            <span>{t("Agricultural Location:")}</span>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2 flex-1 max-w-2xl">
+            {popularLocations.map((loc) => (
+              <button
+                key={loc}
+                type="button"
+                onClick={() => {
+                  setSelectedLocation(loc);
+                  setSearchInput(loc);
+                }}
+                className={`px-3 py-1.5 text-xs font-bold rounded-xl transition ${
+                  selectedLocation === loc
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "bg-muted text-muted-foreground hover:bg-muted/80"
+                }`}
+              >
+                {t(loc)}
+              </button>
+            ))}
+          </div>
+
+          <form onSubmit={handleSearchSubmit} className="flex items-center gap-2">
+            <input
+              type="text"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              placeholder={t("Enter city name...")}
+              className="h-9 px-3 text-xs rounded-xl border border-border bg-background outline-none focus:ring-1 focus:ring-primary w-36 sm:w-48"
+            />
+            <button
+              type="submit"
+              className="h-9 px-4 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:bg-[#1b4332] transition"
+            >
+              {t("Search")}
+            </button>
+          </form>
         </div>
+
+        {/* Loading State */}
+        {loading && (
+          <div className="p-12 text-center bg-card rounded-2xl border border-border shadow-sm">
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" />
+            <p className="mt-4 text-base font-bold text-muted-foreground">{t("Loading weather...")}</p>
+          </div>
+        )}
+
+        {/* Error State */}
+        {!loading && errorMessage && (
+          <div className="p-8 text-center bg-red-50/80 border border-red-200 rounded-2xl shadow-sm text-red-700">
+            <CloudRain className="mx-auto h-10 w-10 text-red-500 mb-2" />
+            <p className="text-lg font-black">{t(errorMessage)}</p>
+            <button
+              type="button"
+              onClick={() => loadWeather(selectedLocation)}
+              className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-bold text-xs rounded-xl hover:bg-red-700 transition"
+            >
+              {t("Retry")}
+            </button>
+          </div>
+        )}
+
+        {/* Real Weather Data Display */}
+        {!loading && !errorMessage && weatherData && (
+          <div className="space-y-6">
+            {/* Hero Current Weather Card */}
+            <div className="rounded-3xl border border-border bg-gradient-to-br from-[#1b4332] to-[#2d6a4f] p-6 sm:p-8 text-white shadow-lg relative overflow-hidden">
+              <div className="absolute right-0 top-0 opacity-10 translate-x-1/4 -translate-y-1/4 pointer-events-none">
+                <CloudSun className="h-96 w-96 text-white" />
+              </div>
+
+              <div className="relative z-10 flex flex-col md:flex-row justify-between gap-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-3 py-1 text-xs font-bold text-emerald-200">
+                    <MapPin className="h-3.5 w-3.5" />
+                    <span>{weatherData.locationName}</span>
+                  </div>
+                  <div className="mt-4 flex items-center gap-4">
+                    <img src={weatherData.iconUrl} alt={weatherData.condition} className="h-20 w-20 object-contain drop-shadow-md" />
+                    <div>
+                      <h2 className="text-5xl font-black tracking-tight">{weatherData.temp}°C</h2>
+                      <p className="text-lg font-semibold text-emerald-100 capitalize">{weatherData.description}</p>
+                    </div>
+                  </div>
+                  <p className="mt-2 text-sm text-emerald-200/90 font-medium">
+                    {t("Feels like")} {weatherData.feelsLike}°C · {t("High")} {weatherData.tempMax}°C / {t("Low")} {weatherData.tempMin}°C
+                  </p>
+                </div>
+
+                {/* Metrics Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:self-end">
+                  <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/10">
+                    <Droplets className="mx-auto h-5 w-5 text-emerald-300" />
+                    <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Humidity")}</p>
+                    <p className="text-base font-black">{weatherData.humidity}%</p>
+                  </div>
+
+                  <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/10">
+                    <Wind className="mx-auto h-5 w-5 text-emerald-300" />
+                    <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Wind Speed")}</p>
+                    <p className="text-base font-black">{weatherData.windSpeed} km/h</p>
+                  </div>
+
+                  <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/10">
+                    <Sun className="mx-auto h-5 w-5 text-amber-300" />
+                    <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Sunrise")}</p>
+                    <p className="text-base font-black">{weatherData.sunrise}</p>
+                  </div>
+
+                  <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/10">
+                    <CloudSun className="mx-auto h-5 w-5 text-amber-300" />
+                    <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Sunset")}</p>
+                    <p className="text-base font-black">{weatherData.sunset}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 5-Day Forecast Title */}
+            <div>
+              <h3 className="text-xl font-black text-[#1b4332] mb-1">{t("5-Day Field Advisory Forecast")}</h3>
+              <p className="text-sm text-muted-foreground">{t("Daily agricultural recommendations based on live atmospheric data.")}</p>
+            </div>
+
+            {/* 5-Day Cards Grid */}
+            <div className="grid gap-4 md:grid-cols-5">
+              {weatherData.forecast.map((day) => (
+                <div key={day.dateStr} className={glassCardClass}>
+                  <div className="flex items-center justify-between">
+                    <p className="font-black text-base text-[#1b4332]">{t(day.day)}</p>
+                    <span className="text-[10px] font-bold text-muted-foreground uppercase">{day.dateStr.slice(5)}</span>
+                  </div>
+                  
+                  <div className="mt-2 flex items-center gap-2">
+                    <img src={day.iconUrl} alt={day.condition} className="h-10 w-10 object-contain" />
+                    <div>
+                      <p className="text-xs font-bold capitalize text-foreground">{t(day.condition)}</p>
+                      <p className="text-xs text-muted-foreground">{day.description}</p>
+                    </div>
+                  </div>
+
+                  <p className="mt-3 text-2xl font-black text-foreground">
+                    {day.high}° <span className="text-base font-medium text-muted-foreground">/ {day.low}°C</span>
+                  </p>
+
+                  <p className="mt-1 text-xs font-bold text-primary flex items-center gap-1">
+                    <Droplets className="h-3 w-3 text-blue-500 fill-blue-100" />
+                    <span>{day.rainProb}% {t("rain prob.")}</span>
+                  </p>
+
+                  <div className="mt-3 rounded-xl bg-muted/60 p-2.5 border border-border/50">
+                    <p className="text-xs leading-normal text-muted-foreground font-medium">{t(day.advisory)}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </PageShell>
     </RoleGuard>
   );

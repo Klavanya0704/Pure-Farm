@@ -28,11 +28,12 @@ import {
   Award,
   Wrench,
 } from "lucide-react";
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { SITE, waLink } from "@/data/site";
 import { useCart } from "./CartContext";
 import { useAuth } from "./AuthContext";
 import { useTranslation } from "@/i18n/LanguageContext";
+import { fetchWeatherData } from "@/services/weather";
 
 export function LanguageSelector() {
   const { language, setLanguage } = useTranslation();
@@ -86,6 +87,25 @@ export function AppShell({ children }: { children: ReactNode }) {
   const { user, logout } = useAuth();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [headerWeather, setHeaderWeather] = useState<{ temp: number; condition: string; iconUrl: string } | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    fetchWeatherData(user?.location || "Tadepalligudem, AP")
+      .then((data) => {
+        if (isMounted) {
+          setHeaderWeather({
+            temp: data.temp,
+            condition: data.condition,
+            iconUrl: data.iconUrl,
+          });
+        }
+      })
+      .catch(() => {});
+    return () => {
+      isMounted = false;
+    };
+  }, [user?.location]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -316,10 +336,22 @@ export function AppShell({ children }: { children: ReactNode }) {
               </div>
 
               {/* Weather */}
-              <div className="hidden sm:flex items-center gap-1 text-xs font-semibold text-foreground/80 border-l border-border pl-3">
-                <Sun className="h-3.5 w-3.5 text-amber-500 fill-amber-100" />
-                <span>28°C, {t("Sunny")}</span>
-              </div>
+              <Link
+                to="/weather"
+                className="hidden sm:flex items-center gap-1 text-xs font-semibold text-foreground/80 border-l border-border pl-3 hover:text-primary transition"
+              >
+                {headerWeather ? (
+                  <>
+                    <img src={headerWeather.iconUrl} alt={headerWeather.condition} className="h-4 w-4 object-contain" />
+                    <span>{headerWeather.temp}°C, {t(headerWeather.condition)}</span>
+                  </>
+                ) : (
+                  <>
+                    <Sun className="h-3.5 w-3.5 text-amber-500 fill-amber-100" />
+                    <span>{t("Weather")}</span>
+                  </>
+                )}
+              </Link>
 
               {/* Language Selector */}
               <div className="border-l border-border pl-3">
