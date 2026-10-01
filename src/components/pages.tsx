@@ -7072,12 +7072,83 @@ export function CardGridPage({
 // COLD STORAGE FINDER PAGE
 // ============================================================================
 
+export const DEV_TEST_COLD_STORAGE_FIXTURES: ColdStorageFacility[] = [
+  {
+    id: "dev-test-available",
+    name: "[DEV TEST] Available Storage Facility",
+    address: "Test Industrial Zone, Guntur, Andhra Pradesh - 522004 [State: Andhra Pradesh | District: Guntur | City: Guntur | Source: Dev Test Fixture | SourceURL: https://purefarm.org | Type: verification_sample | Status: Operational]",
+    district: "Guntur",
+    city: "Guntur",
+    state: "Andhra Pradesh",
+    latitude: 16.3067,
+    longitude: 80.4365,
+    distance: 2.5,
+    capacity: 10000,
+    available_capacity: 4000,
+    occupied_capacity: 6000,
+    utilization_percentage: 60,
+    contact_number: "+91 99999 11111",
+    status: "Operational",
+    source: "Dev Test Fixture",
+    source_url: null,
+    source_type: "verification_sample",
+  },
+  {
+    id: "dev-test-full",
+    name: "[DEV TEST] Full Storage Facility",
+    address: "Test APMC Market, Nizamabad, Telangana - 503003 [State: Telangana | District: Nizamabad | City: Nizamabad | Source: Dev Test Fixture | SourceURL: https://purefarm.org | Type: verification_sample | Status: Full]",
+    district: "Nizamabad",
+    city: "Nizamabad",
+    state: "Telangana",
+    latitude: 18.6725,
+    longitude: 78.0941,
+    distance: 5.0,
+    capacity: 7500,
+    available_capacity: 0,
+    occupied_capacity: 7500,
+    utilization_percentage: 100,
+    contact_number: "+91 99999 22222",
+    status: "Full",
+    source: "Dev Test Fixture",
+    source_url: null,
+    source_type: "verification_sample",
+  },
+  {
+    id: "dev-test-unknown",
+    name: "[DEV TEST] Unknown Availability Facility",
+    address: "Test Highway, Prakasam, Andhra Pradesh - 523001 [State: Andhra Pradesh | District: Prakasam | City: Ongole | Source: Dev Test Fixture | SourceURL: https://purefarm.org | Type: verification_sample | Status: Current status not published]",
+    district: "Prakasam",
+    city: "Ongole",
+    state: "Andhra Pradesh",
+    latitude: 15.5057,
+    longitude: 80.0499,
+    distance: 8.0,
+    capacity: 23000,
+    available_capacity: null,
+    occupied_capacity: null,
+    utilization_percentage: null,
+    contact_number: "Not available",
+    status: "Current status not published",
+    source: "Dev Test Fixture",
+    source_url: null,
+    source_type: "verification_sample",
+  },
+];
+
 export function ColdStoragePage() {
   const { user } = useAuth();
   const { t } = useTranslation();
   const [facilities, setFacilities] = useState<ColdStorageFacility[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Dev Test Fixtures state
+  const [showDevTestFixtures, setShowDevTestFixtures] = useState<boolean>(() => {
+    if (typeof window !== "undefined") {
+      return window.location.search.includes("test_fixture=true");
+    }
+    return false;
+  });
 
   // Admin Live Capacity Update modal state
   const [adminModalFacility, setAdminModalFacility] = useState<ColdStorageFacility | null>(null);
@@ -7228,11 +7299,18 @@ export function ColdStoragePage() {
     setExpandedId((prev) => (prev === id ? null : id));
   };
 
-  const visibleFacilities = useMemo(() => {
-    return facilities.slice(0, page * pageSize);
-  }, [facilities, page]);
+  const displayFacilities = useMemo(() => {
+    if (showDevTestFixtures) {
+      return [...DEV_TEST_COLD_STORAGE_FIXTURES, ...facilities];
+    }
+    return facilities;
+  }, [showDevTestFixtures, facilities]);
 
-  const hasMore = visibleFacilities.length < facilities.length;
+  const visibleFacilities = useMemo(() => {
+    return displayFacilities.slice(0, page * pageSize);
+  }, [displayFacilities, page]);
+
+  const hasMore = visibleFacilities.length < displayFacilities.length;
 
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "admin", "student", "seller"]} allowGuest={true}>
@@ -7366,18 +7444,44 @@ export function ColdStoragePage() {
             </div>
           </div>
 
-          <div className="flex items-center justify-between pt-2 border-t border-border/40 text-xs font-bold text-muted-foreground">
-            <span>
-              {t("Showing")} {visibleFacilities.length} {t("of")} {facilities.length} {t("facilities")}
-              {stateFilter !== "all" ? ` (${stateFilter})` : ""}
-              {districtFilter !== "all" ? ` - ${districtFilter} District` : ""}
-            </span>
-            <button
-              onClick={fetchFacilities}
-              className="inline-flex items-center gap-1.5 text-[#087F5B] hover:underline"
-            >
-              <RefreshCw className="h-3.5 w-3.5" /> {t("Refresh Directory")}
-            </button>
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-border/40 text-xs font-bold text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-2.5 text-[11px]">
+              <span className="font-extrabold text-foreground">{t("Legend")}:</span>
+              <span className="inline-flex items-center gap-1 text-emerald-800 bg-emerald-50/90 px-2.5 py-0.5 rounded-full border border-emerald-200 shadow-2xs">
+                🟢 {t("Available (>0 MT)")}
+              </span>
+              <span className="inline-flex items-center gap-1 text-rose-800 bg-rose-50/90 px-2.5 py-0.5 rounded-full border border-rose-200 shadow-2xs">
+                🔴 {t("Full (0 MT)")}
+              </span>
+              <span className="inline-flex items-center gap-1 text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200 shadow-2xs">
+                ⚪ {t("Availability Unknown")}
+              </span>
+              <button
+                type="button"
+                onClick={() => setShowDevTestFixtures((prev) => !prev)}
+                className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold border transition flex items-center gap-1 cursor-pointer ${
+                  showDevTestFixtures
+                    ? "bg-amber-100 text-amber-900 border-amber-300 shadow-2xs"
+                    : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200"
+                }`}
+              >
+                🧪 {showDevTestFixtures ? "Hide Test Fixtures" : "Test Fixtures (3 States)"}
+              </button>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <span>
+                {t("Showing")} {visibleFacilities.length} {t("of")} {displayFacilities.length} {t("facilities")}
+                {stateFilter !== "all" ? ` (${stateFilter})` : ""}
+                {districtFilter !== "all" ? ` - ${districtFilter} District` : ""}
+              </span>
+              <button
+                onClick={fetchFacilities}
+                className="inline-flex items-center gap-1.5 text-[#087F5B] hover:underline"
+              >
+                <RefreshCw className="h-3.5 w-3.5" /> {t("Refresh Directory")}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -7435,7 +7539,6 @@ export function ColdStoragePage() {
                 const hasAvailableCap = facility.available_capacity !== null && facility.available_capacity !== undefined;
                 const isFullCap = hasAvailableCap && Number(facility.available_capacity) === 0;
                 const isAvailCap = hasAvailableCap && Number(facility.available_capacity) > 0;
-                const isUnknownCap = !hasAvailableCap;
 
                 const isFull = isFullCap || facility.status.toLowerCase().includes("full");
                 const isOperational = facility.status.toLowerCase().includes("operational");
@@ -7480,7 +7583,7 @@ export function ColdStoragePage() {
                         <span>{facility.address}</span>
                       </p>
 
-                      {/* Compact Capacity Section (~90-120px tall) */}
+                      {/* Capacity Section */}
                       <div className={`p-3 rounded-xl border space-y-2 ${
                         isFullCap
                           ? "bg-[#fff5f5] border-rose-200"
@@ -7521,7 +7624,7 @@ export function ColdStoragePage() {
                                 </div>
 
                                 {/* Visual Progress Bar */}
-                                <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden flex">
+                                <div className="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden flex">
                                   <div
                                     className="h-full bg-[#087F5B] rounded-full transition-all duration-300"
                                     style={{ width: `${Math.min(100, Math.max(0, usedPct))}%` }}
@@ -7549,7 +7652,7 @@ export function ColdStoragePage() {
                             </div>
 
                             {/* Visual Progress Bar (100% Full) */}
-                            <div className="w-full h-2 bg-rose-200 rounded-full overflow-hidden flex">
+                            <div className="w-full h-2.5 bg-rose-200 rounded-full overflow-hidden flex">
                               <div className="h-full bg-rose-600 w-full rounded-full" />
                             </div>
 
@@ -7564,8 +7667,9 @@ export function ColdStoragePage() {
                               <span className="text-base font-black text-[#073B2A]">{facility.capacity.toLocaleString()} MT</span>
                               <span className="text-[10px] text-muted-foreground font-semibold">Total Installed</span>
                             </div>
-                            <div className="text-[11px] font-semibold text-slate-500 bg-white/70 rounded-md py-1 px-2 border border-dashed border-slate-200 text-center">
-                              {t("Live availability not published")}
+                            <div className="text-[11px] font-semibold text-slate-500 bg-white/70 rounded-md py-1.5 px-2 border border-dashed border-slate-200 text-center flex items-center justify-center gap-1.5">
+                              <span>🔒</span>
+                              <span>{t("Live availability not published")}</span>
                             </div>
                           </div>
                         )}

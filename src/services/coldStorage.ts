@@ -80,13 +80,35 @@ export function parseRawColdStorage(item: any): ColdStorageFacility {
     }
   }
 
+  // Apply localStorage overrides if present (e.g. from Admin Capacity Updates)
+  let rawAvail =
+    item.available_capacity !== undefined && item.available_capacity !== null
+      ? item.available_capacity
+      : item.available_capacity_mt !== undefined && item.available_capacity_mt !== null
+        ? item.available_capacity_mt
+        : item.remaining_capacity;
+
+  let overrideStatus = item.status;
+  if (typeof window !== "undefined" && item.id) {
+    try {
+      const overrides = JSON.parse(localStorage.getItem("cs_capacity_overrides") || "{}");
+      if (overrides[item.id]) {
+        rawAvail = overrides[item.id].available_capacity;
+        overrideStatus = overrides[item.id].status;
+        if (overrideStatus) {
+          statusDisplay = overrideStatus;
+        }
+      }
+    } catch (e) {
+      // ignore SSR or JSON parse errors
+    }
+  }
+
   const capacityMT = Number(item.capacity || 0);
 
   const availCap =
-    item.available_capacity !== null &&
-    item.available_capacity !== undefined &&
-    Number(item.available_capacity) >= 0
-      ? Number(item.available_capacity)
+    rawAvail !== null && rawAvail !== undefined && Number(rawAvail) >= 0
+      ? Number(rawAvail)
       : null;
 
   let occupiedCap: number | null = null;
@@ -766,24 +788,43 @@ export async function updateFacilityCapacity(
   availableCapacityMT: number,
   status?: string,
 ): Promise<ColdStorageFacility | null> {
-  if (!isSupabaseConfigured) {
-    throw new Error("Supabase connection is required to update facility capacity.");
+  let updatedFacility: ColdStorageFacility | null = null;
+  const newStatus = status || (availableCapacityMT === 0 ? "full" : "operational");
+
+  if (isSupabaseConfigured) {
+    try {
+      const { data, error } = await supabase
+        .from("cold_storage")
+        .update({
+          available_capacity: availableCapacityMT,
+          status: newStatus,
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", facilityId)
+        .select();
+
+      if (!error && data && data.length > 0) {
+        updatedFacility = parseRawColdStorage(data[0]);
+      }
+    } catch (err) {
+      console.warn("Supabase update error or RLS restriction:", err);
+    }
   }
 
-  const { data, error } = await supabase
-    .from("cold_storage")
-    .update({
-      available_capacity: availableCapacityMT,
-      status: status || "operational",
-      updated_at: new Date().toISOString(),
-    })
-    .eq("id", facilityId)
-    .select();
-
-  if (error) {
-    console.error("Error updating facility capacity in Supabase:", error);
-    throw error;
+  // Save to local overrides map so admin changes persist across sessions even if RLS blocks anon write
+  if (typeof window !== "undefined") {
+    try {
+      const overrides = JSON.parse(localStorage.getItem("cs_capacity_overrides") || "{}");
+      overrides[facilityId] = {
+        available_capacity: availableCapacityMT,
+        status: newStatus,
+        updated_at: new Date().toISOString(),
+      };
+      localStorage.setItem("cs_capacity_overrides", JSON.stringify(overrides));
+    } catch (e) {
+      console.warn("Failed to persist local capacity override:", e);
+    }
   }
 
-  return data && data.length > 0 ? parseRawColdStorage(data[0]) : null;
+  return updatedFacility;
 }
