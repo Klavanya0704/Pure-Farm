@@ -76,6 +76,8 @@ export interface Scheme {
 export interface InsuranceScheme {
   code: string;
   name: string;
+  department?: string;
+  category?: string;
   description: string;
   premium: string;
   managedBy: string;
@@ -84,6 +86,7 @@ export interface InsuranceScheme {
   crops?: string[];
   coverage?: string;
   url: string;
+  officialSource?: string;
 }
 
 export interface Course {

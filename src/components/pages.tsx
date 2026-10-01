@@ -3246,23 +3246,241 @@ function SchemeCard({ scheme, isTelugu }: { scheme: Scheme; isTelugu: boolean })
 
 export function InsurancePage() {
   const { t } = useTranslation();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const categories = [
+    "All",
+    "Crop Insurance",
+    "Weather-Based Insurance",
+    "Government Portal",
+    "State Resources",
+    "Insurance Services",
+  ];
+
+  const filteredSchemes = useMemo(() => {
+    return INSURANCE_SCHEMES.filter((scheme) => {
+      const matchesCategory =
+        selectedCategory === "All" || scheme.category === selectedCategory;
+      const q = searchQuery.toLowerCase().trim();
+      const matchesSearch =
+        !q ||
+        scheme.name.toLowerCase().includes(q) ||
+        scheme.description.toLowerCase().includes(q) ||
+        (scheme.department && scheme.department.toLowerCase().includes(q)) ||
+        scheme.states.toLowerCase().includes(q) ||
+        (scheme.crops && scheme.crops.some((c) => c.toLowerCase().includes(q)));
+
+      return matchesCategory && matchesSearch;
+    });
+  }, [searchQuery, selectedCategory]);
+
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
-      <CardGridPage
+      <PageShell
         bgImage="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=2000"
-        eyebrow={t("Insurance")}
-        title={t("Crop insurance")}
+        eyebrow={t("Government Schemes & Insurance")}
+        title={t("Crop Insurance & Government Directory")}
         intro={t(
-          "Compare crop, weather, and allied farming insurance options. Click any card to open official scheme website.",
+          "Verified official government portals, crop insurance schemes, premium calculators, and state agricultural resources. Click any card to access the official government portal.",
         )}
-        items={INSURANCE_SCHEMES.map((s) => ({
-          title: t(s.name),
-          meta: `${t(s.type)} · ${t(s.premium)}`,
-          body: t(s.description),
-          footer: `${s.coverage ? t(s.coverage) + " · " : ""}${t("Crops")}: ${(s.crops || []).map((c) => t(c)).join(", ")}`,
-          url: s.url,
-        }))}
-      />
+      >
+        {/* Information Gateway Disclaimer Banner */}
+        <div className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50/80 p-4 sm:p-5 text-emerald-900 shadow-sm flex items-start gap-3">
+          <Info className="h-5 w-5 text-emerald-700 shrink-0 mt-0.5" />
+          <div className="text-xs sm:text-sm leading-relaxed">
+            <span className="font-bold">{t("PureFarm Informational Gateway Disclaimer:")} </span>
+            {t(
+              "PureFarm serves exclusively as an informational directory connecting farmers to official Government of India and State Government portals. PureFarm is not an insurance company or government authority. Please verify eligibility, notified crops, premium rates, and application details directly on official government websites.",
+            )}
+          </div>
+        </div>
+
+        {/* Search & Category Filter Controls */}
+        <div className="mb-8 space-y-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 bg-card p-4 rounded-2xl border border-border shadow-sm">
+            {/* Search Input */}
+            <div className="relative flex-1">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={t("Search insurance schemes, portals, calculators, or states...")}
+                className="w-full h-10 rounded-xl border border-border bg-background pl-10 pr-4 text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-muted-foreground hover:text-foreground"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+
+            {/* Total Results Counter */}
+            <div className="text-xs font-bold text-muted-foreground text-right shrink-0">
+              {t("Showing")} {filteredSchemes.length} {t("of")} {INSURANCE_SCHEMES.length} {t("resources")}
+            </div>
+          </div>
+
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap items-center gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition shadow-sm ${
+                  selectedCategory === cat
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-card border border-border text-foreground hover:bg-muted"
+                }`}
+              >
+                {t(cat)}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Insurance Cards Grid */}
+        {filteredSchemes.length === 0 ? (
+          <div className="p-12 text-center bg-card rounded-2xl border border-border shadow-sm">
+            <Info className="mx-auto h-8 w-8 text-muted-foreground mb-3" />
+            <p className="text-base font-bold">{t("No insurance resources found matching your search.")}</p>
+            <p className="text-xs text-muted-foreground mt-1">
+              {t("Try clearing your search query or selecting a different category filter.")}
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedCategory("All");
+              }}
+              className="mt-4 px-4 py-2 bg-primary text-primary-foreground font-bold text-xs rounded-xl hover:bg-[#1b4332] transition"
+            >
+              {t("Reset Filters")}
+            </button>
+          </div>
+        ) : (
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredSchemes.map((scheme) => (
+              <div
+                key={scheme.code}
+                className={`${glassCardClass} flex flex-col justify-between hover:border-primary/50 transition-all duration-200 shadow-sm hover:shadow-md`}
+              >
+                <div>
+                  {/* Category Tag & Department */}
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="inline-block px-2.5 py-1 rounded-lg text-[10px] font-black uppercase tracking-wider bg-primary/10 text-primary">
+                      {t(scheme.category || scheme.type)}
+                    </span>
+                    <span className="text-[10px] font-bold text-muted-foreground truncate">
+                      {scheme.states}
+                    </span>
+                  </div>
+
+                  {/* Scheme Title */}
+                  <h3 className="text-lg font-black text-[#1b4332] leading-snug">
+                    {t(scheme.name)}
+                  </h3>
+
+                  {/* Government Department */}
+                  {scheme.department && (
+                    <p className="mt-1 text-xs font-bold text-emerald-700 flex items-center gap-1">
+                      <Building2 className="h-3.5 w-3.5 shrink-0" />
+                      <span className="truncate">{scheme.department}</span>
+                    </p>
+                  )}
+
+                  {/* Description */}
+                  <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                    {t(scheme.description)}
+                  </p>
+
+                  {/* Coverage Box */}
+                  {scheme.coverage && (
+                    <div className="mt-3 rounded-xl bg-muted/60 p-2.5 border border-border/50 text-xs">
+                      <span className="font-bold text-foreground">{t("Coverage Scope")}: </span>
+                      <span className="text-muted-foreground">{t(scheme.coverage)}</span>
+                    </div>
+                  )}
+
+                  {/* Eligible Crops */}
+                  {scheme.crops && scheme.crops.length > 0 && (
+                    <div className="mt-3 text-xs">
+                      <span className="font-bold text-foreground">{t("Notified Crops / Categories")}: </span>
+                      <span className="text-primary font-medium">{scheme.crops.join(", ")}</span>
+                    </div>
+                  )}
+
+                  {/* Premium / Cost Info */}
+                  {scheme.premium && (
+                    <div className="mt-2 text-xs font-semibold text-emerald-800">
+                      <span className="font-bold">{t("Premium / Fee")}: </span>
+                      {t(scheme.premium)}
+                    </div>
+                  )}
+                </div>
+
+                {/* External Action Button */}
+                <div className="mt-6 pt-4 border-t border-border">
+                  <a
+                    href={scheme.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#2d6a4f] px-4 py-2.5 text-xs font-bold text-white hover:bg-[#1b4332] transition shadow-sm"
+                  >
+                    <span>{t("Visit Official Website")}</span>
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Official Government Sources Section */}
+        <div className="mt-12 rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+          <div className="flex items-center gap-2 mb-2">
+            <ShieldCheck className="h-6 w-6 text-primary" />
+            <h3 className="text-xl font-black text-[#1b4332]">
+              {t("Official Government Sources & Verified Portals")}
+            </h3>
+          </div>
+          <p className="text-xs sm:text-sm text-muted-foreground mb-6">
+            {t(
+              "Below is the complete, verified list of official Government of India and State Government portals linked within this directory.",
+            )}
+          </p>
+
+          <div className="divide-y divide-border rounded-2xl border border-border overflow-hidden bg-background">
+            {INSURANCE_SCHEMES.map((scheme) => (
+              <div
+                key={scheme.code}
+                className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-muted/30 transition"
+              >
+                <div>
+                  <h4 className="font-black text-sm text-[#1b4332]">{scheme.name}</h4>
+                  <p className="text-xs text-muted-foreground font-medium">{scheme.department}</p>
+                  <p className="text-[11px] text-emerald-700 font-mono mt-0.5">{scheme.url}</p>
+                </div>
+                <a
+                  href={scheme.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-muted text-foreground hover:bg-primary hover:text-white transition text-xs font-bold shrink-0 self-start sm:self-center"
+                >
+                  <span>{t("Visit Portal")}</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </PageShell>
     </RoleGuard>
   );
 }
