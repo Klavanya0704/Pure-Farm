@@ -7429,7 +7429,7 @@ export function ColdStoragePage() {
           </div>
         ) : (
           <div className="space-y-8">
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {visibleFacilities.map((facility) => {
                 const isFull = facility.status.toLowerCase().includes("full");
                 const isOperational = facility.status.toLowerCase().includes("operational");
@@ -7437,27 +7437,23 @@ export function ColdStoragePage() {
                 return (
                   <div
                     key={facility.id}
-                    className="rounded-2xl border border-white/60 bg-card/95 backdrop-blur-md p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4"
+                    className="rounded-2xl border border-border/80 bg-card p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-3.5"
                   >
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                       {/* Header */}
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="flex items-center gap-2.5">
-                          <span className="p-2 rounded-xl bg-emerald-100/80 text-[#087F5B]">
-                            <Snowflake className="h-5 w-5" />
-                          </span>
-                          <div>
-                            <h3 className="font-bold text-foreground text-base leading-snug">
-                              {t(facility.name)}
-                            </h3>
-                            <span className="text-xs font-semibold text-emerald-800 flex items-center gap-1 mt-0.5">
-                              <Building2 className="h-3 w-3 text-[#087F5B]" /> {facility.district}, {facility.state}
-                            </span>
-                          </div>
+                      <div className="flex items-start justify-between gap-2.5">
+                        <div className="space-y-0.5">
+                          <h3 className="font-bold text-foreground text-sm sm:text-base leading-snug line-clamp-1">
+                            {t(facility.name)}
+                          </h3>
+                          <p className="text-xs font-semibold text-emerald-800 flex items-center gap-1">
+                            <Building2 className="h-3 w-3 text-[#087F5B] shrink-0" />
+                            <span>{facility.district}, {facility.state}</span>
+                          </p>
                         </div>
 
                         <span
-                          className={`px-2.5 py-1 rounded-full text-[11px] font-bold whitespace-nowrap shadow-2xs ${
+                          className={`px-2 py-0.5 rounded-full text-[10px] font-bold whitespace-nowrap shadow-2xs ${
                             isFull
                               ? "bg-rose-100 text-rose-800 border border-rose-200"
                               : isOperational
@@ -7473,166 +7469,112 @@ export function ColdStoragePage() {
                         </span>
                       </div>
 
-                      <p className="text-xs text-muted-foreground leading-relaxed flex items-start gap-1.5">
-                        <MapPin className="h-4 w-4 shrink-0 text-muted-foreground/70 mt-0.5" />
+                      <p className="text-xs text-muted-foreground flex items-start gap-1 line-clamp-1">
+                        <MapPin className="h-3.5 w-3.5 shrink-0 text-muted-foreground/70 mt-0.5" />
                         <span>{facility.address}</span>
                       </p>
 
-                      {/* Prominent Primary Visual Focus Block: Verified Installed Capacity */}
-                      <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-50 to-teal-50/80 border border-emerald-200/90 shadow-2xs space-y-1">
+                      {/* Compact Capacity Section (~90-120px tall) */}
+                      <div className="p-3 rounded-xl bg-[#f4fbf7] border border-emerald-200/80 space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-black uppercase tracking-wider text-emerald-900 flex items-center gap-1">
-                            <CheckCircle2 className="h-3.5 w-3.5 text-[#087F5B]" />
-                            {t("VERIFIED INSTALLED CAPACITY")}
+                          <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-900">
+                            {t("CAPACITY")}
                           </span>
-                          <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">
-                            {facility.source}
-                          </span>
-                        </div>
-                        <div className="flex items-baseline gap-2 pt-0.5">
-                          <span className="text-2xl font-black text-[#073B2A] tracking-tight">
-                            {facility.capacity.toLocaleString()} MT
-                          </span>
-                          <span className="text-xs font-semibold text-emerald-800">
-                            ({t("Total Registry Rating")})
-                          </span>
-                        </div>
-                        <p className="text-[10px] text-emerald-700 font-medium pt-0.5">
-                          {t("Official Government Registry Installed Capacity")}
-                        </p>
-                      </div>
-
-                      {/* Live Occupancy & Utilization Block */}
-                      <div className="p-3.5 rounded-xl bg-muted/50 border border-border/60 space-y-3">
-                        <div className="flex items-center justify-between">
-                          <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-                            {t("Live Occupancy & Utilization")}
-                          </span>
-                          {facility.available_capacity !== null ? (
-                            <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded">
-                              🟢 {t("Live Data Active")}
-                            </span>
-                          ) : (
-                            <span className="text-[10px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">
-                              🔒 {t("Publicly Unlisted")}
+                          {facility.calculatedDistance !== undefined && facility.calculatedDistance !== null && (
+                            <span className="text-[10px] font-bold text-emerald-800 flex items-center gap-1">
+                              <Navigation className="h-3 w-3 text-[#087F5B]" /> {facility.calculatedDistance} km
                             </span>
                           )}
                         </div>
 
-                        {facility.available_capacity !== null ? (
-                          <div className="space-y-2">
-                            <div className="grid grid-cols-2 gap-2 text-xs">
-                              <div className="bg-background p-2 rounded-lg border">
-                                <span className="block text-[10px] text-muted-foreground font-semibold">
-                                  {t("Available Space")}
-                                </span>
-                                <span className="font-bold text-emerald-700 text-sm">
-                                  {facility.available_capacity.toLocaleString()} MT
-                                </span>
-                                <span className="block text-[10px] text-emerald-600">
-                                  {Math.round((facility.available_capacity / facility.capacity) * 100)}% {t("free")}
-                                </span>
+                        {facility.available_capacity !== null && facility.available_capacity >= 0 ? (
+                          (() => {
+                            const avail = facility.available_capacity;
+                            const total = facility.capacity;
+                            const used = Math.max(0, total - avail);
+                            const usedPct = Math.round((used / total) * 100);
+                            const remainingPct = Math.round((avail / total) * 100);
+
+                            return (
+                              <div className="space-y-1.5">
+                                <div className="flex items-baseline justify-between">
+                                  <div>
+                                    <span className="text-base font-black text-[#073B2A]">{total.toLocaleString()} MT</span>
+                                    <span className="text-[10px] text-muted-foreground font-semibold ml-1">Total</span>
+                                  </div>
+                                  <div className="text-right">
+                                    <span className="text-base font-black text-[#087F5B]">{avail.toLocaleString()} MT</span>
+                                    <span className="text-[10px] text-muted-foreground font-semibold ml-1">Remaining</span>
+                                  </div>
+                                </div>
+
+                                {/* Visual Progress Bar */}
+                                <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden flex">
+                                  <div
+                                    className="h-full bg-[#087F5B] rounded-full transition-all duration-300"
+                                    style={{ width: `${Math.min(100, Math.max(0, usedPct))}%` }}
+                                  />
+                                </div>
+
+                                <div className="flex justify-between items-center text-[10px] font-bold text-emerald-900">
+                                  <span>{usedPct}% Used</span>
+                                  <span>{remainingPct}% Remaining</span>
+                                </div>
                               </div>
-                              <div className="bg-background p-2 rounded-lg border">
-                                <span className="block text-[10px] text-muted-foreground font-semibold">
-                                  {t("Occupied Space")}
-                                </span>
-                                <span className="font-bold text-slate-800 text-sm">
-                                  {facility.occupied_capacity?.toLocaleString()} MT
-                                </span>
-                                <span className="block text-[10px] text-slate-600">
-                                  {facility.utilization_percentage}% {t("utilized")}
-                                </span>
-                              </div>
-                            </div>
-                            <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
-                              <div
-                                className="h-full bg-[#087F5B] rounded-full transition-all duration-300"
-                                style={{ width: `${Math.min(100, Math.max(0, facility.utilization_percentage || 0))}%` }}
-                              />
-                            </div>
-                            {facility.updated_at && (
-                              <p className="text-[10px] text-muted-foreground text-right font-medium">
-                                {t("Updated")}: {new Date(facility.updated_at).toLocaleDateString()}
-                              </p>
-                            )}
-                          </div>
+                            );
+                          })()
                         ) : (
-                          <div className="bg-background p-3 rounded-lg border space-y-1.5">
-                            <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700">
-                              <Phone className="h-3.5 w-3.5 text-[#087F5B]" />
-                              <span>{t("Contact facility for current availability")}</span>
+                          <div className="space-y-1">
+                            <div className="flex items-baseline justify-between">
+                              <span className="text-base font-black text-[#073B2A]">{facility.capacity.toLocaleString()} MT</span>
+                              <span className="text-[10px] text-muted-foreground font-semibold">Total Installed</span>
                             </div>
-                            <p className="text-[10px] text-muted-foreground leading-normal">
-                              {t("Current daily occupancy is not publicly published on government registries.")}
-                            </p>
+                            <div className="text-[11px] font-semibold text-slate-500 bg-white/70 rounded-md py-1 px-2 border border-dashed border-slate-200 text-center">
+                              {t("Live availability not published")}
+                            </div>
                           </div>
                         )}
                       </div>
 
-                      {/* Calculated Distance badge */}
-                      {facility.calculatedDistance !== undefined && facility.calculatedDistance !== null && (
-                        <div className="text-xs font-bold text-emerald-800 bg-emerald-50 p-2.5 rounded-lg border border-emerald-200/60 flex items-center justify-between">
-                          <span className="flex items-center gap-1">
-                            <Navigation className="h-3.5 w-3.5 text-[#087F5B]" /> {t("Calculated Distance")}:
+                      {/* Compact Source Line */}
+                      <div className="flex items-center justify-between text-[11px] text-muted-foreground font-medium pt-0.5">
+                        <span className="truncate">
+                          ✓ {t("Source")}: <strong className="text-foreground">{facility.source}</strong>
+                        </span>
+                        {facility.source_type === "verification_sample" && (
+                          <span className="bg-amber-100 text-amber-800 text-[9px] px-1.5 py-0.5 rounded font-bold shrink-0">
+                            Sample
                           </span>
-                          <span>{facility.calculatedDistance} {t("km away")}</span>
-                        </div>
-                      )}
-
-                      {/* Data Transparency Footer */}
-                      <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-[11px] space-y-1">
-                        <div className="flex items-center justify-between font-semibold text-slate-700">
-                          <span>Source: <strong>{facility.source}</strong></span>
-                          {facility.source_type === "verification_sample" ? (
-                            <span className="bg-amber-100 text-amber-800 text-[10px] px-1.5 py-0.5 rounded font-bold">
-                              Sample Record
-                            </span>
-                          ) : (
-                            <span className="text-emerald-700 text-[10px] font-bold flex items-center gap-1">
-                              <CheckCircle2 className="h-3 w-3" /> Verified Directory
-                            </span>
-                          )}
-                        </div>
-                        <div className="text-slate-500 text-[10px]">
-                          Data type: <strong>Verified Installed Capacity (Government Registry)</strong>
-                        </div>
+                        )}
                       </div>
 
                       {/* Expanded Details Drawer */}
                       {expandedId === facility.id && (
-                        <div className="pt-3 border-t text-xs space-y-2 text-muted-foreground">
-                          <p className="font-bold text-foreground">{t("Facility Directory Details:")}</p>
-                          <ul className="space-y-1 list-disc list-inside">
-                            <li>
-                              <strong>{t("State")}:</strong> {facility.state}
-                            </li>
-                            <li>
-                              <strong>{t("District")}:</strong> {facility.district}
-                            </li>
-                            <li>
-                              <strong>{t("City/Town")}:</strong> {facility.city}
-                            </li>
+                        <div className="pt-2 border-t text-xs space-y-1.5 text-muted-foreground">
+                          <p className="font-bold text-foreground text-[11px]">{t("Facility Directory Details:")}</p>
+                          <ul className="space-y-0.5 text-[11px]">
+                            <li><strong>{t("State")}:</strong> {facility.state}</li>
+                            <li><strong>{t("District")}:</strong> {facility.district}</li>
+                            <li><strong>{t("City/Town")}:</strong> {facility.city}</li>
                             <li>
                               <strong>{t("Coordinates")}:</strong>{" "}
                               {facility.latitude && facility.longitude
                                 ? `${facility.latitude.toFixed(4)}, ${facility.longitude.toFixed(4)}`
                                 : t("Coordinates unavailable")}
                             </li>
-                            <li>
-                              <strong>{t("Operating Status")}:</strong> {t(facility.status)}
-                            </li>
+                            <li><strong>{t("Operating Status")}:</strong> {t(facility.status)}</li>
+                            <li><strong>{t("Data Type")}:</strong> Verified Installed Capacity (Government Registry)</li>
                           </ul>
 
                           {facility.source_url && (
-                            <div className="pt-2">
+                            <div className="pt-1">
                               <a
                                 href={facility.source_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-xs font-bold text-[#087F5B] hover:underline bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200"
+                                className="inline-flex items-center gap-1 text-[11px] font-bold text-[#087F5B] hover:underline"
                               >
-                                <ExternalLink className="h-3.5 w-3.5" /> {t("View Official Source")} ({facility.source})
+                                <ExternalLink className="h-3 w-3" /> {t("View Official Source Page")}
                               </a>
                             </div>
                           )}
@@ -7640,30 +7582,27 @@ export function ColdStoragePage() {
                       )}
                     </div>
 
-                    <div className="pt-4 border-t mt-4 flex flex-col gap-2">
-                      <div className="flex items-center justify-between gap-3">
-                        {facility.contact_number ? (
+                    {/* Footer Action Buttons */}
+                    <div className="pt-2.5 border-t flex flex-col gap-2">
+                      <div className="flex items-center justify-between gap-2">
+                        {facility.contact_number && (
                           <a
                             href={`tel:${facility.contact_number.replace(/\s+/g, "")}`}
-                            className="flex-1 h-10 px-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-1.5"
+                            className="flex-1 h-8 px-3 rounded-lg bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-xs transition flex items-center justify-center gap-1 shadow-2xs"
                           >
-                            <Phone className="h-3.5 w-3.5" /> {t("Call")} ({facility.contact_number})
+                            <Phone className="h-3 w-3" /> {t("Call")}
                           </a>
-                        ) : (
-                          <span className="text-xs font-semibold text-muted-foreground py-2 flex items-center gap-1">
-                            <Phone className="h-3.5 w-3.5 opacity-40" /> {t("Contact unavailable")}
-                          </span>
                         )}
 
                         <button
                           onClick={() => toggleExpand(facility.id)}
-                          className="h-10 px-3.5 rounded-xl border bg-background hover:bg-muted font-bold text-xs text-foreground transition flex items-center gap-1"
+                          className="h-8 px-3 rounded-lg border bg-background hover:bg-muted font-bold text-xs text-foreground transition flex items-center gap-1 ml-auto"
                         >
                           {expandedId === facility.id ? t("Hide Details") : t("Details")}
                           {expandedId === facility.id ? (
-                            <ChevronUp className="h-3.5 w-3.5" />
+                            <ChevronUp className="h-3 w-3" />
                           ) : (
-                            <ChevronDown className="h-3.5 w-3.5" />
+                            <ChevronDown className="h-3 w-3" />
                           )}
                         </button>
                       </div>
@@ -7676,9 +7615,9 @@ export function ColdStoragePage() {
                             setAdminStatusInput(facility.status.toLowerCase().includes("operational") ? "operational" : facility.status);
                             setAdminError(null);
                           }}
-                          className="w-full h-8 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-[11px] shadow-xs transition flex items-center justify-center gap-1"
+                          className="w-full h-7 rounded-md bg-amber-500 hover:bg-amber-600 text-white font-bold text-[10px] transition flex items-center justify-center gap-1"
                         >
-                          <Wrench className="h-3.5 w-3.5" /> {t("Admin: Update Live Capacity")}
+                          <Wrench className="h-3 w-3" /> {t("Admin: Update Live Capacity")}
                         </button>
                       )}
                     </div>
