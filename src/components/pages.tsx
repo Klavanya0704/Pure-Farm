@@ -7083,6 +7083,8 @@ export function ColdStoragePage() {
   const [search, setSearch] = useState("");
   const [stateFilter, setStateFilter] = useState<string>("all");
   const [districtFilter, setDistrictFilter] = useState<string>("all");
+  const [capacityRange, setCapacityRange] = useState<string>("all");
+  const [availabilityFilter, setAvailabilityFilter] = useState<string>("all");
   const [sourceTypeFilter, setSourceTypeFilter] = useState<"verified_directory" | "verification_sample" | "all">("verified_directory");
   const [sortOrder, setSortOrder] = useState<
     "nearest" | "name_asc" | "name_desc" | "capacity_high" | "capacity_low"
@@ -7137,6 +7139,8 @@ export function ColdStoragePage() {
         search,
         stateFilter,
         districtFilter,
+        capacityRange,
+        availabilityFilter,
         sourceTypeFilter,
         userLat,
         userLng,
@@ -7154,7 +7158,7 @@ export function ColdStoragePage() {
   useEffect(() => {
     fetchFacilities();
     setPage(1);
-  }, [search, stateFilter, districtFilter, sourceTypeFilter, sortOrder, userLat, userLng]);
+  }, [search, stateFilter, districtFilter, capacityRange, availabilityFilter, sourceTypeFilter, sortOrder, userLat, userLng]);
 
   const handleUseMyLocation = () => {
     if (!navigator.geolocation) {
@@ -7206,7 +7210,7 @@ export function ColdStoragePage() {
         eyebrow={t("Government Verified Infrastructure Directory")}
         title={t("Cold Storage Directory — AP & Telangana")}
         intro={t(
-          "Comprehensive verified database of cold storage facilities across Andhra Pradesh & Telangana sourced from NHB, MoFPI, and State Agriculture Departments.",
+          "Comprehensive verified database of cold storage facilities across Andhra Pradesh & Telangana. Government registries provide verified total installed capacity; live occupancy data is displayed where published.",
         )}
         bgImage="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop"
       >
@@ -7240,7 +7244,7 @@ export function ColdStoragePage() {
             </div>
           )}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2 border-t border-border/60">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 pt-2 border-t border-border/60">
             <div>
               <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">
                 {t("State")}
@@ -7253,7 +7257,7 @@ export function ColdStoragePage() {
                 }}
                 className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
               >
-                <option value="all">{t("All States (AP & Telangana)")}</option>
+                <option value="all">{t("All States (AP & TS)")}</option>
                 <option value="Andhra Pradesh">{t("Andhra Pradesh")}</option>
                 <option value="Telangana">{t("Telangana")}</option>
               </select>
@@ -7279,16 +7283,32 @@ export function ColdStoragePage() {
 
             <div>
               <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">
-                {t("Data Source Filter")}
+                {t("Capacity Range")}
               </label>
               <select
-                value={sourceTypeFilter}
-                onChange={(e) => setSourceTypeFilter(e.target.value as any)}
+                value={capacityRange}
+                onChange={(e) => setCapacityRange(e.target.value)}
                 className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
               >
-                <option value="verified_directory">🏛️ {t("Verified Directory Data Only")}</option>
-                <option value="verification_sample">🧪 {t("Sample Records Only")}</option>
-                <option value="all">{t("All Records (Verified + Sample)")}</option>
+                <option value="all">{t("All Capacities")}</option>
+                <option value="small">{t("Small (< 5,000 MT)")}</option>
+                <option value="medium">{t("Medium (5,000 - 10,000 MT)")}</option>
+                <option value="large">{t("Large (> 10,000 MT)")}</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                {t("Live Availability Data")}
+              </label>
+              <select
+                value={availabilityFilter}
+                onChange={(e) => setAvailabilityFilter(e.target.value)}
+                className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
+              >
+                <option value="all">{t("All Facilities")}</option>
+                <option value="published">🟢 {t("Live Availability Published")}</option>
+                <option value="not_published">🔒 {t("Live Availability Not Published")}</option>
               </select>
             </div>
 
@@ -7358,13 +7378,15 @@ export function ColdStoragePage() {
               {t("No matching cold storage facilities found")}
             </h3>
             <p className="text-sm text-emerald-800/80">
-              {t("Try clearing your search query or adjusting your state/district filters.")}
+              {t("Try clearing your search query or adjusting your state/district/capacity filters.")}
             </p>
             <button
               onClick={() => {
                 setSearch("");
                 setStateFilter("all");
                 setDistrictFilter("all");
+                setCapacityRange("all");
+                setAvailabilityFilter("all");
                 setSourceTypeFilter("verified_directory");
               }}
               className="px-5 py-2.5 rounded-xl bg-[#087F5B] text-white font-bold text-xs shadow-md"
@@ -7376,15 +7398,16 @@ export function ColdStoragePage() {
           <div className="space-y-8">
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {visibleFacilities.map((facility) => {
-                const isFull = facility.status.toLowerCase() === "full" || facility.available_capacity === 0;
-                const isOperational = facility.status.toLowerCase() === "operational";
+                const isFull = facility.status.toLowerCase().includes("full");
+                const isOperational = facility.status.toLowerCase().includes("operational");
 
                 return (
                   <div
                     key={facility.id}
-                    className="rounded-2xl border border-white/60 bg-card/95 backdrop-blur-md p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                    className="rounded-2xl border border-white/60 bg-card/95 backdrop-blur-md p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4"
                   >
                     <div className="space-y-4">
+                      {/* Header */}
                       <div className="flex items-start justify-between gap-3">
                         <div className="flex items-center gap-2.5">
                           <span className="p-2 rounded-xl bg-emerald-100/80 text-[#087F5B]">
@@ -7401,7 +7424,7 @@ export function ColdStoragePage() {
                         </div>
 
                         <span
-                          className={`px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap shadow-2xs ${
+                          className={`px-2.5 py-1 rounded-full text-[11px] font-bold whitespace-nowrap shadow-2xs ${
                             isFull
                               ? "bg-rose-100 text-rose-800 border border-rose-200"
                               : isOperational
@@ -7422,50 +7445,77 @@ export function ColdStoragePage() {
                         <span>{facility.address}</span>
                       </p>
 
-                      {/* Capacity details container */}
-                      <div className="p-4 rounded-xl bg-muted/60 border space-y-2">
-                        <div className="flex items-center justify-between text-xs font-bold">
-                          <span className="text-foreground">{t("Total Installed Capacity")}</span>
-                          <span className="text-[#087F5B] text-sm font-extrabold">
+                      {/* Clear Three-Block Capacity & Utilization Grid */}
+                      <div className="grid grid-cols-2 gap-2 p-3.5 rounded-xl bg-muted/50 border border-border/60">
+                        {/* Block 1: Total Installed Capacity */}
+                        <div className="col-span-2 sm:col-span-1 p-2.5 rounded-lg bg-background border border-border/40">
+                          <span className="block text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                            {t("Installed Capacity")}
+                          </span>
+                          <span className="text-base font-extrabold text-[#087F5B]">
                             {facility.capacity.toLocaleString()} MT
+                          </span>
+                          <span className="block text-[10px] text-muted-foreground">
+                            {t("Verified registry value")}
                           </span>
                         </div>
 
-                        {facility.available_capacity !== null ? (
-                          <>
-                            <div className="flex items-center justify-between text-xs font-semibold pt-1">
-                              <span className="text-muted-foreground">{t("Current Availability")}</span>
-                              <span className="text-emerald-700 font-bold">
-                                {facility.available_capacity.toLocaleString()} MT (
-                                {Math.round((facility.available_capacity / facility.capacity) * 100)}%)
+                        {/* Block 2: Current Availability */}
+                        <div className="col-span-2 sm:col-span-1 p-2.5 rounded-lg bg-background border border-border/40">
+                          <span className="block text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                            {t("Current Availability")}
+                          </span>
+                          {facility.available_capacity !== null ? (
+                            <div>
+                              <span className="text-sm font-bold text-emerald-700">
+                                {facility.available_capacity.toLocaleString()} MT
+                              </span>
+                              <span className="block text-[10px] text-emerald-600 font-semibold">
+                                {Math.round((facility.available_capacity / facility.capacity) * 100)}% {t("free space")}
                               </span>
                             </div>
+                          ) : (
+                            <div>
+                              <span className="text-xs font-semibold text-slate-600">
+                                {t("Not published")}
+                              </span>
+                              <span className="block text-[10px] text-muted-foreground">
+                                {t("Live occupancy unlisted")}
+                              </span>
+                            </div>
+                          )}
+                        </div>
 
-                            <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
+                        {/* Block 3: Current Utilization */}
+                        <div className="col-span-2 p-2.5 rounded-lg bg-background border border-border/40 flex items-center justify-between">
+                          <div>
+                            <span className="block text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                              {t("Current Utilization")}
+                            </span>
+                            {facility.utilization_percentage !== undefined && facility.utilization_percentage !== null ? (
+                              <span className="text-xs font-bold text-slate-800">
+                                {facility.occupied_capacity?.toLocaleString()} MT ({facility.utilization_percentage}% {t("utilized")})
+                              </span>
+                            ) : (
+                              <span className="text-xs font-semibold text-slate-600">
+                                {t("Not published")}
+                              </span>
+                            )}
+                          </div>
+
+                          {facility.utilization_percentage !== undefined && facility.utilization_percentage !== null ? (
+                            <div className="w-20 h-2 bg-slate-200 rounded-full overflow-hidden">
                               <div
-                                className={`h-full rounded-full transition-all ${
-                                  facility.available_capacity === 0 ? "bg-rose-500" : "bg-[#087F5B]"
-                                }`}
-                                style={{
-                                  width: `${Math.min(
-                                    100,
-                                    Math.max(
-                                      0,
-                                      Math.round((facility.available_capacity / facility.capacity) * 100)
-                                    )
-                                  )}%`
-                                }}
+                                className="h-full bg-[#087F5B] rounded-full"
+                                style={{ width: `${Math.min(100, Math.max(0, facility.utilization_percentage))}%` }}
                               />
                             </div>
-                          </>
-                        ) : (
-                          <div className="flex items-center justify-between text-xs text-muted-foreground pt-1 border-t border-border/40">
-                            <span>{t("Current availability")}</span>
-                            <span className="font-semibold text-slate-600 bg-slate-200/80 px-2 py-0.5 rounded text-[11px]">
-                              {t("Not available")}
+                          ) : (
+                            <span className="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-semibold">
+                              🔒 {t("Live data unlisted")}
                             </span>
-                          </div>
-                        )}
+                          )}
+                        </div>
                       </div>
 
                       {/* Calculated Distance badge */}
@@ -7478,16 +7528,23 @@ export function ColdStoragePage() {
                         </div>
                       )}
 
-                      {/* Verified Source info */}
-                      <div className="flex items-center justify-between text-[11px] text-muted-foreground font-semibold pt-1">
-                        <span className="flex items-center gap-1 text-slate-600">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" /> Source: {facility.source}
-                        </span>
-                        {facility.source_type === "verification_sample" && (
-                          <span className="bg-amber-100 text-amber-800 px-2 py-0.5 rounded text-[10px] font-bold">
-                            Sample Record
-                          </span>
-                        )}
+                      {/* Verified Source & Data Type */}
+                      <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-[11px] space-y-1">
+                        <div className="flex items-center justify-between font-semibold text-slate-700">
+                          <span>Source: <strong>{facility.source}</strong></span>
+                          {facility.source_type === "verification_sample" ? (
+                            <span className="bg-amber-100 text-amber-800 text-[10px] px-1.5 py-0.5 rounded font-bold">
+                              Sample Record
+                            </span>
+                          ) : (
+                            <span className="text-emerald-700 text-[10px] font-bold flex items-center gap-1">
+                              <CheckCircle2 className="h-3 w-3" /> Verified Directory
+                            </span>
+                          )}
+                        </div>
+                        <div className="text-slate-500 text-[10px]">
+                          Data type: <strong>Verified Installed Capacity (Government Registry)</strong>
+                        </div>
                       </div>
 
                       {/* Expanded Details Drawer */}
@@ -7531,7 +7588,7 @@ export function ColdStoragePage() {
                       )}
                     </div>
 
-                    <div className="pt-5 border-t mt-4 flex items-center justify-between gap-3">
+                    <div className="pt-4 border-t mt-4 flex items-center justify-between gap-3">
                       {facility.contact_number ? (
                         <a
                           href={`tel:${facility.contact_number.replace(/\s+/g, "")}`}
