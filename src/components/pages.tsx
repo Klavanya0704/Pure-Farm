@@ -7092,7 +7092,7 @@ export function ColdStoragePage() {
   const [districtFilter, setDistrictFilter] = useState<string>("all");
   const [capacityRange, setCapacityRange] = useState<string>("all");
   const [availabilityFilter, setAvailabilityFilter] = useState<string>("all");
-  const [sourceTypeFilter, setSourceTypeFilter] = useState<"verified_directory" | "verification_sample" | "all">("verified_directory");
+  const [sourceTypeFilter, setSourceTypeFilter] = useState<"verified_directory" | "verification_sample" | "all">("all");
   const [sortOrder, setSortOrder] = useState<
     "nearest" | "name_asc" | "name_desc" | "capacity_high" | "capacity_low" | "utilization_high" | "utilization_low"
   >("capacity_high");
