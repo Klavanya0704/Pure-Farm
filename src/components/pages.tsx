@@ -1,7 +1,7 @@
 import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { useTranslation } from "@/i18n/LanguageContext";
 import { LanguageSelector } from "./AppShell";
-import { getColdStorageFacilities, type ColdStorageFacility } from "@/services/coldStorage";
+import { getColdStorageFacilities, updateFacilityCapacity, type ColdStorageFacility } from "@/services/coldStorage";
 import { getMarketPrices, syncLiveMarketPrices, type SyncResult } from "@/services/marketPrices";
 import { getMachines, createMachine } from "@/services/machines";
 import { fetchWeatherData, WeatherError, type WeatherData } from "@/services/weather";
@@ -7079,6 +7079,13 @@ export function ColdStoragePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  // Admin Live Capacity Update modal state
+  const [adminModalFacility, setAdminModalFacility] = useState<ColdStorageFacility | null>(null);
+  const [adminAvailInput, setAdminAvailInput] = useState<string>("");
+  const [adminStatusInput, setAdminStatusInput] = useState<string>("operational");
+  const [adminSubmitting, setAdminSubmitting] = useState<boolean>(false);
+  const [adminError, setAdminError] = useState<string | null>(null);
+
   // Filters & Location
   const [search, setSearch] = useState("");
   const [stateFilter, setStateFilter] = useState<string>("all");
@@ -7087,7 +7094,7 @@ export function ColdStoragePage() {
   const [availabilityFilter, setAvailabilityFilter] = useState<string>("all");
   const [sourceTypeFilter, setSourceTypeFilter] = useState<"verified_directory" | "verification_sample" | "all">("verified_directory");
   const [sortOrder, setSortOrder] = useState<
-    "nearest" | "name_asc" | "name_desc" | "capacity_high" | "capacity_low"
+    "nearest" | "name_asc" | "name_desc" | "capacity_high" | "capacity_low" | "utilization_high" | "utilization_low"
   >("capacity_high");
   
   const [userLat, setUserLat] = useState<number | null>(null);
@@ -7159,6 +7166,29 @@ export function ColdStoragePage() {
     fetchFacilities();
     setPage(1);
   }, [search, stateFilter, districtFilter, capacityRange, availabilityFilter, sourceTypeFilter, sortOrder, userLat, userLng]);
+
+  const handleAdminUpdateCapacity = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!adminModalFacility) return;
+    setAdminSubmitting(true);
+    setAdminError(null);
+    try {
+      const availVal = parseFloat(adminAvailInput);
+      if (isNaN(availVal) || availVal < 0) {
+        throw new Error("Please enter a valid non-negative available capacity number in MT.");
+      }
+      if (availVal > adminModalFacility.capacity) {
+        throw new Error(`Available capacity cannot exceed total installed capacity (${adminModalFacility.capacity} MT).`);
+      }
+      await updateFacilityCapacity(adminModalFacility.id, availVal, adminStatusInput);
+      setAdminModalFacility(null);
+      await fetchFacilities();
+    } catch (err: any) {
+      setAdminError(err.message || "Failed to update facility capacity.");
+    } finally {
+      setAdminSubmitting(false);
+    }
+  };
 
   const handleUseMyLocation = () => {
     if (!navigator.geolocation) {
@@ -7291,9 +7321,10 @@ export function ColdStoragePage() {
                 className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
               >
                 <option value="all">{t("All Capacities")}</option>
-                <option value="small">{t("Small (< 5,000 MT)")}</option>
-                <option value="medium">{t("Medium (5,000 - 10,000 MT)")}</option>
-                <option value="large">{t("Large (> 10,000 MT)")}</option>
+                <option value="under_1k">{t("Small (< 1,000 MT)")}</option>
+                <option value="1k_5k">{t("Medium-Small (1,000 - 5,000 MT)")}</option>
+                <option value="5k_10k">{t("Medium-Large (5,000 - 10,000 MT)")}</option>
+                <option value="above_10k">{t("Large (> 10,000 MT)")}</option>
               </select>
             </div>
 
@@ -7323,6 +7354,8 @@ export function ColdStoragePage() {
               >
                 <option value="capacity_high">{t("Capacity: High to Low")}</option>
                 <option value="capacity_low">{t("Capacity: Low to High")}</option>
+                <option value="utilization_high">{t("Utilization: High to Low")}</option>
+                <option value="utilization_low">{t("Utilization: Low to High")}</option>
                 <option value="name_asc">{t("Name: A to Z")}</option>
                 <option value="name_desc">{t("Name: Z to A")}</option>
                 <option value="nearest" disabled={!userLat || !userLng}>
@@ -7445,77 +7478,96 @@ export function ColdStoragePage() {
                         <span>{facility.address}</span>
                       </p>
 
-                      {/* Clear Three-Block Capacity & Utilization Grid */}
-                      <div className="grid grid-cols-2 gap-2 p-3.5 rounded-xl bg-muted/50 border border-border/60">
-                        {/* Block 1: Total Installed Capacity */}
-                        <div className="col-span-2 sm:col-span-1 p-2.5 rounded-lg bg-background border border-border/40">
-                          <span className="block text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                            {t("Installed Capacity")}
+                      {/* Prominent Primary Visual Focus Block: Verified Installed Capacity */}
+                      <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-50 to-teal-50/80 border border-emerald-200/90 shadow-2xs space-y-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-black uppercase tracking-wider text-emerald-900 flex items-center gap-1">
+                            <CheckCircle2 className="h-3.5 w-3.5 text-[#087F5B]" />
+                            {t("VERIFIED INSTALLED CAPACITY")}
                           </span>
-                          <span className="text-base font-extrabold text-[#087F5B]">
+                          <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">
+                            {facility.source}
+                          </span>
+                        </div>
+                        <div className="flex items-baseline gap-2 pt-0.5">
+                          <span className="text-2xl font-black text-[#073B2A] tracking-tight">
                             {facility.capacity.toLocaleString()} MT
                           </span>
-                          <span className="block text-[10px] text-muted-foreground">
-                            {t("Verified registry value")}
+                          <span className="text-xs font-semibold text-emerald-800">
+                            ({t("Total Registry Rating")})
                           </span>
                         </div>
+                        <p className="text-[10px] text-emerald-700 font-medium pt-0.5">
+                          {t("Official Government Registry Installed Capacity")}
+                        </p>
+                      </div>
 
-                        {/* Block 2: Current Availability */}
-                        <div className="col-span-2 sm:col-span-1 p-2.5 rounded-lg bg-background border border-border/40">
-                          <span className="block text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                            {t("Current Availability")}
+                      {/* Live Occupancy & Utilization Block */}
+                      <div className="p-3.5 rounded-xl bg-muted/50 border border-border/60 space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+                            {t("Live Occupancy & Utilization")}
                           </span>
                           {facility.available_capacity !== null ? (
-                            <div>
-                              <span className="text-sm font-bold text-emerald-700">
-                                {facility.available_capacity.toLocaleString()} MT
-                              </span>
-                              <span className="block text-[10px] text-emerald-600 font-semibold">
-                                {Math.round((facility.available_capacity / facility.capacity) * 100)}% {t("free space")}
-                              </span>
-                            </div>
+                            <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded">
+                              🟢 {t("Live Data Active")}
+                            </span>
                           ) : (
-                            <div>
-                              <span className="text-xs font-semibold text-slate-600">
-                                {t("Not published")}
-                              </span>
-                              <span className="block text-[10px] text-muted-foreground">
-                                {t("Live occupancy unlisted")}
-                              </span>
-                            </div>
+                            <span className="text-[10px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">
+                              🔒 {t("Publicly Unlisted")}
+                            </span>
                           )}
                         </div>
 
-                        {/* Block 3: Current Utilization */}
-                        <div className="col-span-2 p-2.5 rounded-lg bg-background border border-border/40 flex items-center justify-between">
-                          <div>
-                            <span className="block text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                              {t("Current Utilization")}
-                            </span>
-                            {facility.utilization_percentage !== undefined && facility.utilization_percentage !== null ? (
-                              <span className="text-xs font-bold text-slate-800">
-                                {facility.occupied_capacity?.toLocaleString()} MT ({facility.utilization_percentage}% {t("utilized")})
-                              </span>
-                            ) : (
-                              <span className="text-xs font-semibold text-slate-600">
-                                {t("Not published")}
-                              </span>
-                            )}
-                          </div>
-
-                          {facility.utilization_percentage !== undefined && facility.utilization_percentage !== null ? (
-                            <div className="w-20 h-2 bg-slate-200 rounded-full overflow-hidden">
+                        {facility.available_capacity !== null ? (
+                          <div className="space-y-2">
+                            <div className="grid grid-cols-2 gap-2 text-xs">
+                              <div className="bg-background p-2 rounded-lg border">
+                                <span className="block text-[10px] text-muted-foreground font-semibold">
+                                  {t("Available Space")}
+                                </span>
+                                <span className="font-bold text-emerald-700 text-sm">
+                                  {facility.available_capacity.toLocaleString()} MT
+                                </span>
+                                <span className="block text-[10px] text-emerald-600">
+                                  {Math.round((facility.available_capacity / facility.capacity) * 100)}% {t("free")}
+                                </span>
+                              </div>
+                              <div className="bg-background p-2 rounded-lg border">
+                                <span className="block text-[10px] text-muted-foreground font-semibold">
+                                  {t("Occupied Space")}
+                                </span>
+                                <span className="font-bold text-slate-800 text-sm">
+                                  {facility.occupied_capacity?.toLocaleString()} MT
+                                </span>
+                                <span className="block text-[10px] text-slate-600">
+                                  {facility.utilization_percentage}% {t("utilized")}
+                                </span>
+                              </div>
+                            </div>
+                            <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
                               <div
-                                className="h-full bg-[#087F5B] rounded-full"
-                                style={{ width: `${Math.min(100, Math.max(0, facility.utilization_percentage))}%` }}
+                                className="h-full bg-[#087F5B] rounded-full transition-all duration-300"
+                                style={{ width: `${Math.min(100, Math.max(0, facility.utilization_percentage || 0))}%` }}
                               />
                             </div>
-                          ) : (
-                            <span className="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-semibold">
-                              🔒 {t("Live data unlisted")}
-                            </span>
-                          )}
-                        </div>
+                            {facility.updated_at && (
+                              <p className="text-[10px] text-muted-foreground text-right font-medium">
+                                {t("Updated")}: {new Date(facility.updated_at).toLocaleDateString()}
+                              </p>
+                            )}
+                          </div>
+                        ) : (
+                          <div className="bg-background p-3 rounded-lg border space-y-1.5">
+                            <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700">
+                              <Phone className="h-3.5 w-3.5 text-[#087F5B]" />
+                              <span>{t("Contact facility for current availability")}</span>
+                            </div>
+                            <p className="text-[10px] text-muted-foreground leading-normal">
+                              {t("Current daily occupancy is not publicly published on government registries.")}
+                            </p>
+                          </div>
+                        )}
                       </div>
 
                       {/* Calculated Distance badge */}
@@ -7528,7 +7580,7 @@ export function ColdStoragePage() {
                         </div>
                       )}
 
-                      {/* Verified Source & Data Type */}
+                      {/* Data Transparency Footer */}
                       <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-[11px] space-y-1">
                         <div className="flex items-center justify-between font-semibold text-slate-700">
                           <span>Source: <strong>{facility.source}</strong></span>
@@ -7588,31 +7640,47 @@ export function ColdStoragePage() {
                       )}
                     </div>
 
-                    <div className="pt-4 border-t mt-4 flex items-center justify-between gap-3">
-                      {facility.contact_number ? (
-                        <a
-                          href={`tel:${facility.contact_number.replace(/\s+/g, "")}`}
-                          className="flex-1 h-10 px-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-1.5"
-                        >
-                          <Phone className="h-3.5 w-3.5" /> {t("Call")} ({facility.contact_number})
-                        </a>
-                      ) : (
-                        <span className="text-xs font-semibold text-muted-foreground py-2 flex items-center gap-1">
-                          <Phone className="h-3.5 w-3.5 opacity-40" /> {t("Contact unavailable")}
-                        </span>
-                      )}
-
-                      <button
-                        onClick={() => toggleExpand(facility.id)}
-                        className="h-10 px-3.5 rounded-xl border bg-background hover:bg-muted font-bold text-xs text-foreground transition flex items-center gap-1"
-                      >
-                        {expandedId === facility.id ? t("Hide Details") : t("Details")}
-                        {expandedId === facility.id ? (
-                          <ChevronUp className="h-3.5 w-3.5" />
+                    <div className="pt-4 border-t mt-4 flex flex-col gap-2">
+                      <div className="flex items-center justify-between gap-3">
+                        {facility.contact_number ? (
+                          <a
+                            href={`tel:${facility.contact_number.replace(/\s+/g, "")}`}
+                            className="flex-1 h-10 px-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-1.5"
+                          >
+                            <Phone className="h-3.5 w-3.5" /> {t("Call")} ({facility.contact_number})
+                          </a>
                         ) : (
-                          <ChevronDown className="h-3.5 w-3.5" />
+                          <span className="text-xs font-semibold text-muted-foreground py-2 flex items-center gap-1">
+                            <Phone className="h-3.5 w-3.5 opacity-40" /> {t("Contact unavailable")}
+                          </span>
                         )}
-                      </button>
+
+                        <button
+                          onClick={() => toggleExpand(facility.id)}
+                          className="h-10 px-3.5 rounded-xl border bg-background hover:bg-muted font-bold text-xs text-foreground transition flex items-center gap-1"
+                        >
+                          {expandedId === facility.id ? t("Hide Details") : t("Details")}
+                          {expandedId === facility.id ? (
+                            <ChevronUp className="h-3.5 w-3.5" />
+                          ) : (
+                            <ChevronDown className="h-3.5 w-3.5" />
+                          )}
+                        </button>
+                      </div>
+
+                      {user?.role === "admin" && (
+                        <button
+                          onClick={() => {
+                            setAdminModalFacility(facility);
+                            setAdminAvailInput(facility.available_capacity !== null ? String(facility.available_capacity) : "");
+                            setAdminStatusInput(facility.status.toLowerCase().includes("operational") ? "operational" : facility.status);
+                            setAdminError(null);
+                          }}
+                          className="w-full h-8 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-[11px] shadow-xs transition flex items-center justify-center gap-1"
+                        >
+                          <Wrench className="h-3.5 w-3.5" /> {t("Admin: Update Live Capacity")}
+                        </button>
+                      )}
                     </div>
                   </div>
                 );
@@ -7629,6 +7697,95 @@ export function ColdStoragePage() {
                 </button>
               </div>
             )}
+          </div>
+        )}
+
+        {/* Admin Live Capacity Update Modal */}
+        {adminModalFacility && (
+          <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
+            <div className="bg-card border rounded-2xl p-6 max-w-md w-full shadow-2xl space-y-4">
+              <div className="flex items-center justify-between border-b pb-3">
+                <h3 className="font-extrabold text-foreground text-base flex items-center gap-2">
+                  <Wrench className="h-4 w-4 text-amber-500" />
+                  {t("Update Live Capacity")}
+                </h3>
+                <button
+                  onClick={() => setAdminModalFacility(null)}
+                  className="text-muted-foreground hover:text-foreground text-sm font-bold"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div className="text-xs space-y-1 text-muted-foreground">
+                <p className="font-bold text-foreground">{adminModalFacility.name}</p>
+                <p>{adminModalFacility.district}, {adminModalFacility.state}</p>
+                <p className="text-emerald-700 font-semibold">
+                  Installed Capacity: {adminModalFacility.capacity.toLocaleString()} MT
+                </p>
+              </div>
+
+              {adminError && (
+                <div className="p-2.5 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold">
+                  {adminError}
+                </div>
+              )}
+
+              <form onSubmit={handleAdminUpdateCapacity} className="space-y-4 pt-2">
+                <div>
+                  <label className="block text-xs font-bold text-foreground mb-1">
+                    {t("Available Capacity (MT)")}
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    max={adminModalFacility.capacity}
+                    step="1"
+                    value={adminAvailInput}
+                    onChange={(e) => setAdminAvailInput(e.target.value)}
+                    placeholder={`0 - ${adminModalFacility.capacity}`}
+                    required
+                    className="w-full h-10 px-3 rounded-xl border bg-background text-sm font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
+                  />
+                  <p className="text-[10px] text-muted-foreground mt-1">
+                    Enter current available MT space. Occupied MT and Utilization % will be automatically calculated.
+                  </p>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-foreground mb-1">
+                    {t("Operating Status")}
+                  </label>
+                  <select
+                    value={adminStatusInput}
+                    onChange={(e) => setAdminStatusInput(e.target.value)}
+                    className="w-full h-10 px-3 rounded-xl border bg-background text-sm font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
+                  >
+                    <option value="operational">Operational</option>
+                    <option value="full">Full</option>
+                    <option value="maintenance">Maintenance</option>
+                    <option value="closed">Closed</option>
+                  </select>
+                </div>
+
+                <div className="flex items-center gap-3 pt-3 border-t">
+                  <button
+                    type="button"
+                    onClick={() => setAdminModalFacility(null)}
+                    className="flex-1 h-10 rounded-xl border font-bold text-xs hover:bg-muted"
+                  >
+                    {t("Cancel")}
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={adminSubmitting}
+                    className="flex-1 h-10 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-xs shadow-sm transition disabled:opacity-50"
+                  >
+                    {adminSubmitting ? t("Saving...") : t("Save Live Data")}
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         )}
       </PageShell>

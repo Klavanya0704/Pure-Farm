@@ -584,13 +584,13 @@ export async function getColdStorageFacilities(options?: {
   search?: string;
   stateFilter?: string; // "all" | "Andhra Pradesh" | "Telangana"
   districtFilter?: string; // "all" | district name
-  capacityRange?: string; // "all" | "small" (<5000) | "medium" (5000-10000) | "large" (>10000)
+  capacityRange?: string; // "all" | "under_1k" | "1k_5k" | "5k_10k" | "above_10k" | "small" | "medium" | "large"
   statusFilter?: string; // "all" | "Operational" | "Full" | "Maintenance" | "not_published"
   availabilityFilter?: string; // "all" | "published" | "not_published"
   sourceTypeFilter?: "all" | "verified_directory" | "verification_sample";
   userLat?: number | null;
   userLng?: number | null;
-  sortOrder?: "nearest" | "name_asc" | "name_desc" | "capacity_high" | "capacity_low";
+  sortOrder?: "nearest" | "name_asc" | "name_desc" | "capacity_high" | "capacity_low" | "utilization_high" | "utilization_low";
 }): Promise<ColdStorageFacility[]> {
   let facilities: ColdStorageFacility[] = [];
 
@@ -656,6 +656,10 @@ export async function getColdStorageFacilities(options?: {
   // Filter by Capacity Range
   if (options?.capacityRange && options.capacityRange !== "all") {
     facilities = facilities.filter((f) => {
+      if (options.capacityRange === "under_1k") return f.capacity < 1000;
+      if (options.capacityRange === "1k_5k") return f.capacity >= 1000 && f.capacity < 5000;
+      if (options.capacityRange === "5k_10k") return f.capacity >= 5000 && f.capacity <= 10000;
+      if (options.capacityRange === "above_10k") return f.capacity > 10000;
       if (options.capacityRange === "small") return f.capacity < 5000;
       if (options.capacityRange === "medium") return f.capacity >= 5000 && f.capacity <= 10000;
       if (options.capacityRange === "large") return f.capacity > 10000;
@@ -698,6 +702,18 @@ export async function getColdStorageFacilities(options?: {
 
   // Sorting
   facilities.sort((a, b) => {
+    if (options?.sortOrder === "utilization_high") {
+      const uA = a.utilization_percentage ?? -1;
+      const uB = b.utilization_percentage ?? -1;
+      if (uA !== uB) return uB - uA;
+      return b.capacity - a.capacity;
+    }
+    if (options?.sortOrder === "utilization_low") {
+      const uA = a.utilization_percentage ?? 999;
+      const uB = b.utilization_percentage ?? 999;
+      if (uA !== uB) return uA - uB;
+      return b.capacity - a.capacity;
+    }
     if (options?.sortOrder === "name_asc") {
       return a.name.localeCompare(b.name);
     }
