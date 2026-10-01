@@ -14,7 +14,7 @@ async def verify_images():
         page.on("pageerror", lambda err: page_errors.append(str(err)))
 
         print("1. Opening /machines-tools on production...")
-        await page.goto("https://fresh-produce-connect-main.vercel.app/machines-tools", wait_until="networkidle")
+        await page.goto("https://fresh-produce-connect-main-gujrph1uj-klavanya0704s-projects.vercel.app/machines-tools", wait_until="networkidle")
         await page.wait_for_timeout(3000)
 
         # Scroll to ensure images load

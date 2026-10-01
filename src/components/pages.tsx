@@ -7201,7 +7201,7 @@ export function ColdStoragePage() {
   const hasMore = visibleFacilities.length < facilities.length;
 
   return (
-    <RoleGuard allowedRoles={["farmer", "buyer", "admin"]}>
+    <RoleGuard allowedRoles={["farmer", "buyer", "admin", "student", "seller"]} allowGuest={true}>
       <PageShell
         eyebrow={t("Government Verified Infrastructure Directory")}
         title={t("Cold Storage Directory — AP & Telangana")}
