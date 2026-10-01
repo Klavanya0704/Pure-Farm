@@ -548,35 +548,35 @@ export const DEFAULT_RAW_COLD_STORAGES = [
   {
     id: "cs-sample-1",
     name: "Eluru Cold Storage",
-    address: "Eluru, Andhra Pradesh - 534002 [State: Andhra Pradesh | District: West Godavari | City: Eluru | Source: Internal System Sample | SourceURL: https://purefarm.org | Type: verification_sample | Status: Current status not published]",
+    address: "Eluru, Andhra Pradesh - 534002 [State: Andhra Pradesh | District: West Godavari | City: Eluru | Source: Internal System Sample | SourceURL: https://purefarm.org | Type: verification_sample | Status: Operational]",
     latitude: 16.7107,
     longitude: 81.0952,
     capacity: 1000,
-    available_capacity: -1,
+    available_capacity: 650,
     contact_number: "+91 98765 43210",
     status: "operational"
   },
   {
     id: "cs-sample-2",
     name: "Guntur Agri Cold Storage",
-    address: "Guntur, Andhra Pradesh - 522004 [State: Andhra Pradesh | District: Guntur | City: Guntur | Source: Internal System Sample | SourceURL: https://purefarm.org | Type: verification_sample | Status: Current status not published]",
+    address: "Guntur, Andhra Pradesh - 522004 [State: Andhra Pradesh | District: Guntur | City: Guntur | Source: Internal System Sample | SourceURL: https://purefarm.org | Type: verification_sample | Status: Operational]",
     latitude: 16.3067,
     longitude: 80.4365,
     capacity: 1500,
-    available_capacity: -1,
+    available_capacity: 420,
     contact_number: "+91 98765 43211",
     status: "operational"
   },
   {
     id: "cs-sample-3",
     name: "Duggirala Cold Storage",
-    address: "Duggirala, Guntur, Andhra Pradesh - 522330 [State: Andhra Pradesh | District: Guntur | City: Duggirala | Source: Internal System Sample | SourceURL: https://purefarm.org | Type: verification_sample | Status: Current status not published]",
+    address: "Duggirala, Guntur, Andhra Pradesh - 522330 [State: Andhra Pradesh | District: Guntur | City: Duggirala | Source: Internal System Sample | SourceURL: https://purefarm.org | Type: verification_sample | Status: Full]",
     latitude: 16.3285,
     longitude: 80.6242,
     capacity: 2000,
-    available_capacity: -1,
+    available_capacity: 0,
     contact_number: "+91 98765 43212",
-    status: "operational"
+    status: "full"
   }
 ];
 
@@ -586,11 +586,11 @@ export async function getColdStorageFacilities(options?: {
   districtFilter?: string; // "all" | district name
   capacityRange?: string; // "all" | "under_1k" | "1k_5k" | "5k_10k" | "above_10k" | "small" | "medium" | "large"
   statusFilter?: string; // "all" | "Operational" | "Full" | "Maintenance" | "not_published"
-  availabilityFilter?: string; // "all" | "published" | "not_published"
+  availabilityFilter?: string; // "all" | "available" | "full" | "unknown" | "published" | "not_published"
   sourceTypeFilter?: "all" | "verified_directory" | "verification_sample";
   userLat?: number | null;
   userLng?: number | null;
-  sortOrder?: "nearest" | "name_asc" | "name_desc" | "capacity_high" | "capacity_low" | "utilization_high" | "utilization_low";
+  sortOrder?: "nearest" | "name_asc" | "name_desc" | "capacity_high" | "capacity_low" | "remaining_high" | "remaining_low" | "utilization_high" | "utilization_low";
 }): Promise<ColdStorageFacility[]> {
   let facilities: ColdStorageFacility[] = [];
 
@@ -635,8 +635,8 @@ export async function getColdStorageFacilities(options?: {
     });
   }
 
-  // Filter by Source Type: default to 'verified_directory' unless 'all' or 'verification_sample' requested
-  const targetSourceType = options?.sourceTypeFilter || "verified_directory";
+  // Filter by Source Type: default to 'all' so farmers can see available/full sample data alongside verified directory items
+  const targetSourceType = options?.sourceTypeFilter || "all";
   if (targetSourceType !== "all") {
     facilities = facilities.filter((f) => f.source_type === targetSourceType);
   }
@@ -670,8 +670,19 @@ export async function getColdStorageFacilities(options?: {
   // Filter by Availability Status
   if (options?.availabilityFilter && options.availabilityFilter !== "all") {
     facilities = facilities.filter((f) => {
-      if (options.availabilityFilter === "published") return f.available_capacity !== null;
-      if (options.availabilityFilter === "not_published") return f.available_capacity === null;
+      const avail = f.available_capacity;
+      if (options.availabilityFilter === "available") {
+        return avail !== null && avail !== undefined && avail > 0;
+      }
+      if (options.availabilityFilter === "full") {
+        return avail !== null && avail !== undefined && avail === 0;
+      }
+      if (options.availabilityFilter === "unknown" || options.availabilityFilter === "not_published") {
+        return avail === null || avail === undefined;
+      }
+      if (options.availabilityFilter === "published") {
+        return avail !== null && avail !== undefined;
+      }
       return true;
     });
   }
@@ -702,6 +713,18 @@ export async function getColdStorageFacilities(options?: {
 
   // Sorting
   facilities.sort((a, b) => {
+    if (options?.sortOrder === "remaining_high") {
+      const rA = a.available_capacity ?? -1;
+      const rB = b.available_capacity ?? -1;
+      if (rA !== rB) return rB - rA;
+      return b.capacity - a.capacity;
+    }
+    if (options?.sortOrder === "remaining_low") {
+      const rA = a.available_capacity ?? 999999;
+      const rB = b.available_capacity ?? 999999;
+      if (rA !== rB) return rA - rB;
+      return b.capacity - a.capacity;
+    }
     if (options?.sortOrder === "utilization_high") {
       const uA = a.utilization_percentage ?? -1;
       const uB = b.utilization_percentage ?? -1;

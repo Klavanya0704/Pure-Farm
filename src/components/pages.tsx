@@ -7338,8 +7338,9 @@ export function ColdStoragePage() {
                 className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
               >
                 <option value="all">{t("All Facilities")}</option>
-                <option value="published">🟢 {t("Live Availability Published")}</option>
-                <option value="not_published">🔒 {t("Live Availability Not Published")}</option>
+                <option value="available">🟢 {t("Available (Space > 0 MT)")}</option>
+                <option value="full">🔴 {t("Full (0 MT Remaining)")}</option>
+                <option value="unknown">⚪ {t("Availability Unknown")}</option>
               </select>
             </div>
 
@@ -7354,8 +7355,8 @@ export function ColdStoragePage() {
               >
                 <option value="capacity_high">{t("Capacity: High to Low")}</option>
                 <option value="capacity_low">{t("Capacity: Low to High")}</option>
-                <option value="utilization_high">{t("Utilization: High to Low")}</option>
-                <option value="utilization_low">{t("Utilization: Low to High")}</option>
+                <option value="remaining_high">{t("Remaining Space: High to Low")}</option>
+                <option value="remaining_low">{t("Remaining Space: Low to High")}</option>
                 <option value="name_asc">{t("Name: A to Z")}</option>
                 <option value="name_desc">{t("Name: Z to A")}</option>
                 <option value="nearest" disabled={!userLat || !userLng}>
@@ -7420,7 +7421,7 @@ export function ColdStoragePage() {
                 setDistrictFilter("all");
                 setCapacityRange("all");
                 setAvailabilityFilter("all");
-                setSourceTypeFilter("verified_directory");
+                setSourceTypeFilter("all");
               }}
               className="px-5 py-2.5 rounded-xl bg-[#087F5B] text-white font-bold text-xs shadow-md"
             >
@@ -7431,7 +7432,12 @@ export function ColdStoragePage() {
           <div className="space-y-8">
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {visibleFacilities.map((facility) => {
-                const isFull = facility.status.toLowerCase().includes("full");
+                const hasAvailableCap = facility.available_capacity !== null && facility.available_capacity !== undefined;
+                const isFullCap = hasAvailableCap && Number(facility.available_capacity) === 0;
+                const isAvailCap = hasAvailableCap && Number(facility.available_capacity) > 0;
+                const isUnknownCap = !hasAvailableCap;
+
+                const isFull = isFullCap || facility.status.toLowerCase().includes("full");
                 const isOperational = facility.status.toLowerCase().includes("operational");
 
                 return (
@@ -7454,18 +7460,18 @@ export function ColdStoragePage() {
 
                         <span
                           className={`px-2 py-0.5 rounded-full text-[10px] font-bold whitespace-nowrap shadow-2xs ${
-                            isFull
+                            isFullCap || isFull
                               ? "bg-rose-100 text-rose-800 border border-rose-200"
-                              : isOperational
+                              : isAvailCap
                                 ? "bg-emerald-100 text-emerald-800 border border-emerald-200"
                                 : "bg-slate-100 text-slate-700 border border-slate-200"
                           }`}
                         >
-                          {isFull
-                            ? `🔴 ${t("Full")}`
-                            : isOperational
-                              ? `🟢 ${t("Operational")}`
-                              : `⚪ ${t(facility.status)}`}
+                          {isFullCap || isFull
+                            ? `🔴 ${t("FULL")}`
+                            : isAvailCap
+                              ? `🟢 ${t("AVAILABLE")}`
+                              : `⚪ ${t("UNKNOWN")}`}
                         </span>
                       </div>
 
@@ -7475,7 +7481,13 @@ export function ColdStoragePage() {
                       </p>
 
                       {/* Compact Capacity Section (~90-120px tall) */}
-                      <div className="p-3 rounded-xl bg-[#f4fbf7] border border-emerald-200/80 space-y-2">
+                      <div className={`p-3 rounded-xl border space-y-2 ${
+                        isFullCap
+                          ? "bg-[#fff5f5] border-rose-200"
+                          : isAvailCap
+                            ? "bg-[#f4fbf7] border-emerald-200/80"
+                            : "bg-muted/40 border-border/60"
+                      }`}>
                         <div className="flex items-center justify-between">
                           <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-900">
                             {t("CAPACITY")}
@@ -7487,9 +7499,9 @@ export function ColdStoragePage() {
                           )}
                         </div>
 
-                        {facility.available_capacity !== null && facility.available_capacity >= 0 ? (
+                        {isAvailCap ? (
                           (() => {
-                            const avail = facility.available_capacity;
+                            const avail = Number(facility.available_capacity);
                             const total = facility.capacity;
                             const used = Math.max(0, total - avail);
                             const usedPct = Math.round((used / total) * 100);
@@ -7523,6 +7535,29 @@ export function ColdStoragePage() {
                               </div>
                             );
                           })()
+                        ) : isFullCap ? (
+                          <div className="space-y-1.5">
+                            <div className="flex items-baseline justify-between">
+                              <div>
+                                <span className="text-base font-black text-[#073B2A]">{facility.capacity.toLocaleString()} MT</span>
+                                <span className="text-[10px] text-muted-foreground font-semibold ml-1">Total</span>
+                              </div>
+                              <div className="text-right">
+                                <span className="text-base font-black text-rose-600">0 MT</span>
+                                <span className="text-[10px] text-muted-foreground font-semibold ml-1">Remaining</span>
+                              </div>
+                            </div>
+
+                            {/* Visual Progress Bar (100% Full) */}
+                            <div className="w-full h-2 bg-rose-200 rounded-full overflow-hidden flex">
+                              <div className="h-full bg-rose-600 w-full rounded-full" />
+                            </div>
+
+                            <div className="flex justify-between items-center text-[10px] font-extrabold text-rose-800">
+                              <span>100% Used</span>
+                              <span>🔴 No remaining storage capacity</span>
+                            </div>
+                          </div>
                         ) : (
                           <div className="space-y-1">
                             <div className="flex items-baseline justify-between">
