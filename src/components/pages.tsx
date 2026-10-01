@@ -7081,10 +7081,13 @@ export function ColdStoragePage() {
 
   // Filters & Location
   const [search, setSearch] = useState("");
-  const [statusFilter, setStatusFilter] = useState("all");
+  const [stateFilter, setStateFilter] = useState<string>("all");
+  const [districtFilter, setDistrictFilter] = useState<string>("all");
+  const [sourceTypeFilter, setSourceTypeFilter] = useState<"verified_directory" | "verification_sample" | "all">("verified_directory");
   const [sortOrder, setSortOrder] = useState<
-    "nearest" | "farthest" | "capacity_high" | "capacity_low"
-  >("nearest");
+    "nearest" | "name_asc" | "name_desc" | "capacity_high" | "capacity_low"
+  >("capacity_high");
+  
   const [userLat, setUserLat] = useState<number | null>(null);
   const [userLng, setUserLng] = useState<number | null>(null);
   const [locationLoading, setLocationLoading] = useState(false);
@@ -7093,13 +7096,48 @@ export function ColdStoragePage() {
   // Expanded Facility Details state
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
+  // Pagination state
+  const [page, setPage] = useState(1);
+  const pageSize = 12;
+
+  // Available districts for AP and Telangana
+  const apDistricts = [
+    "Anantapur",
+    "Chittoor",
+    "East Godavari",
+    "Guntur",
+    "Krishna",
+    "Kurnool",
+    "Prakasam",
+    "Visakhapatnam",
+    "West Godavari",
+  ];
+  const tsDistricts = [
+    "Karimnagar",
+    "Khammam",
+    "Mahabubnagar",
+    "Medak",
+    "Nalgonda",
+    "Nizamabad",
+    "Rangareddy",
+    "Warangal",
+  ];
+
+  const availableDistricts = useMemo(() => {
+    if (stateFilter === "Andhra Pradesh") return apDistricts;
+    if (stateFilter === "Telangana") return tsDistricts;
+    return Array.from(new Set([...apDistricts, ...tsDistricts])).sort();
+  }, [stateFilter]);
+
   const fetchFacilities = async () => {
     setLoading(true);
     setError(null);
     try {
       const data = await getColdStorageFacilities({
         search,
-        statusFilter,
+        stateFilter,
+        districtFilter,
+        sourceTypeFilter,
         userLat,
         userLng,
         sortOrder,
@@ -7115,7 +7153,8 @@ export function ColdStoragePage() {
 
   useEffect(() => {
     fetchFacilities();
-  }, [search, statusFilter, sortOrder, userLat, userLng]);
+    setPage(1);
+  }, [search, stateFilter, districtFilter, sourceTypeFilter, sortOrder, userLat, userLng]);
 
   const handleUseMyLocation = () => {
     if (!navigator.geolocation) {
@@ -7132,18 +7171,19 @@ export function ColdStoragePage() {
         setUserLng(pos.coords.longitude);
         setLocationLoading(false);
         setLocationStatus(
-          "Location set: Coordinates (" +
+          "Location set: (" +
             pos.coords.latitude.toFixed(2) +
             ", " +
             pos.coords.longitude.toFixed(2) +
-            ")",
+            ") - Distances calculated for nearby facilities.",
         );
+        setSortOrder("nearest");
       },
       (err) => {
         console.warn("Geolocation permission error:", err.message);
         setLocationLoading(false);
         setLocationStatus(
-          "Location permission denied. Showing facilities by default regional distance.",
+          "Location permission denied. Distances unavailable. Showing default directory view.",
         );
       },
       { timeout: 10000 },
@@ -7154,13 +7194,19 @@ export function ColdStoragePage() {
     setExpandedId((prev) => (prev === id ? null : id));
   };
 
+  const visibleFacilities = useMemo(() => {
+    return facilities.slice(0, page * pageSize);
+  }, [facilities, page]);
+
+  const hasMore = visibleFacilities.length < facilities.length;
+
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "admin"]}>
       <PageShell
-        eyebrow={t("Produce Preservation & Logistics")}
-        title={t("Cold Storage Finder")}
+        eyebrow={t("Government Verified Infrastructure Directory")}
+        title={t("Cold Storage Directory — AP & Telangana")}
         intro={t(
-          "Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation.",
+          "Comprehensive verified database of cold storage facilities across Andhra Pradesh & Telangana sourced from NHB, MoFPI, and State Agriculture Departments.",
         )}
         bgImage="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop"
       >
@@ -7172,7 +7218,7 @@ export function ColdStoragePage() {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder={t("Search by facility name or address...")}
+                placeholder={t("Search by facility name, district, city, or address...")}
                 className="w-full h-11 pl-10 pr-4 rounded-xl border bg-background text-sm outline-none focus:ring-2 focus:ring-[#087F5B]"
               />
             </div>
@@ -7197,17 +7243,52 @@ export function ColdStoragePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2 border-t border-border/60">
             <div>
               <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">
-                {t("Status")}
+                {t("State")}
               </label>
               <select
-                value={statusFilter}
-                onChange={(e) => setStatusFilter(e.target.value)}
+                value={stateFilter}
+                onChange={(e) => {
+                  setStateFilter(e.target.value);
+                  setDistrictFilter("all");
+                }}
                 className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
               >
-                <option value="all">{t("All Statuses")}</option>
-                <option value="available">🟢 {t("Available")}</option>
-                <option value="full">🔴 {t("Full")}</option>
-                <option value="maintenance">🟠 {t("Maintenance")}</option>
+                <option value="all">{t("All States (AP & Telangana)")}</option>
+                <option value="Andhra Pradesh">{t("Andhra Pradesh")}</option>
+                <option value="Telangana">{t("Telangana")}</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                {t("District")}
+              </label>
+              <select
+                value={districtFilter}
+                onChange={(e) => setDistrictFilter(e.target.value)}
+                className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
+              >
+                <option value="all">{t("All Districts")}</option>
+                {availableDistricts.map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                {t("Data Source Filter")}
+              </label>
+              <select
+                value={sourceTypeFilter}
+                onChange={(e) => setSourceTypeFilter(e.target.value as any)}
+                className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
+              >
+                <option value="verified_directory">🏛️ {t("Verified Directory Data Only")}</option>
+                <option value="verification_sample">🧪 {t("Sample Records Only")}</option>
+                <option value="all">{t("All Records (Verified + Sample)")}</option>
               </select>
             </div>
 
@@ -7220,30 +7301,35 @@ export function ColdStoragePage() {
                 onChange={(e) => setSortOrder(e.target.value as any)}
                 className="w-full h-9 px-3 rounded-lg border bg-background text-xs font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
               >
-                <option value="nearest">{t("Nearest Distance First")}</option>
-                <option value="farthest">{t("Farthest First")}</option>
                 <option value="capacity_high">{t("Capacity: High to Low")}</option>
                 <option value="capacity_low">{t("Capacity: Low to High")}</option>
+                <option value="name_asc">{t("Name: A to Z")}</option>
+                <option value="name_desc">{t("Name: Z to A")}</option>
+                <option value="nearest" disabled={!userLat || !userLng}>
+                  {userLat && userLng ? t("Nearest Distance First") : t("Nearest (Detect Location First)")}
+                </option>
               </select>
             </div>
+          </div>
 
-            <div className="sm:col-span-2 lg:col-span-2 flex items-end justify-between sm:justify-end gap-3 pb-1 text-xs font-bold text-muted-foreground">
-              <span>
-                {t("Showing")} {facilities.length} {t("facilities")}
-              </span>
-              <button
-                onClick={fetchFacilities}
-                className="inline-flex items-center gap-1.5 text-[#087F5B] hover:underline"
-              >
-                <RefreshCw className="h-3.5 w-3.5" /> {t("Refresh")}
-              </button>
-            </div>
+          <div className="flex items-center justify-between pt-2 border-t border-border/40 text-xs font-bold text-muted-foreground">
+            <span>
+              {t("Showing")} {visibleFacilities.length} {t("of")} {facilities.length} {t("facilities")}
+              {stateFilter !== "all" ? ` (${stateFilter})` : ""}
+              {districtFilter !== "all" ? ` - ${districtFilter} District` : ""}
+            </span>
+            <button
+              onClick={fetchFacilities}
+              className="inline-flex items-center gap-1.5 text-[#087F5B] hover:underline"
+            >
+              <RefreshCw className="h-3.5 w-3.5" /> {t("Refresh Directory")}
+            </button>
           </div>
         </div>
 
         {loading ? (
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {[1, 2, 3].map((n) => (
+            {[1, 2, 3, 4, 5, 6].map((n) => (
               <div key={n} className="h-64 rounded-2xl border bg-card p-6 animate-pulse space-y-4">
                 <div className="h-6 w-3/4 bg-muted rounded"></div>
                 <div className="h-4 w-1/2 bg-muted rounded"></div>
@@ -7255,7 +7341,7 @@ export function ColdStoragePage() {
           <div className="rounded-2xl border border-rose-200 bg-rose-50/80 p-8 text-center max-w-xl mx-auto my-8 space-y-4">
             <AlertTriangle className="h-12 w-12 text-rose-600 mx-auto" />
             <h3 className="text-lg font-bold text-rose-900">
-              {t("Unable to load cold storage facilities")}
+              {t("Unable to load cold storage directory")}
             </h3>
             <p className="text-xs text-rose-700">{error}</p>
             <button
@@ -7269,150 +7355,223 @@ export function ColdStoragePage() {
           <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/60 p-12 text-center max-w-xl mx-auto my-8 space-y-4">
             <Snowflake className="h-12 w-12 text-[#087F5B] mx-auto mb-2 opacity-80" />
             <h3 className="text-xl font-bold text-[#073B2A]">
-              {t("No cold storage facilities found")}
+              {t("No matching cold storage facilities found")}
             </h3>
             <p className="text-sm text-emerald-800/80">
-              {t("Try changing your location or search filters.")}
+              {t("Try clearing your search query or adjusting your state/district filters.")}
             </p>
             <button
               onClick={() => {
                 setSearch("");
-                setStatusFilter("all");
+                setStateFilter("all");
+                setDistrictFilter("all");
+                setSourceTypeFilter("verified_directory");
               }}
               className="px-5 py-2.5 rounded-xl bg-[#087F5B] text-white font-bold text-xs shadow-md"
             >
-              {t("Reset Filters")}
+              {t("Reset All Filters")}
             </button>
           </div>
         ) : (
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {facilities.map((facility) => {
-              const displayDistance = facility.calculatedDistance ?? facility.distance ?? null;
-              const isFull =
-                facility.status.toLowerCase() === "full" || facility.available_capacity === 0;
-              const isMaintenance = facility.status.toLowerCase() === "maintenance";
-              const percentAvailable =
-                facility.capacity > 0
-                  ? Math.round((facility.available_capacity / facility.capacity) * 100)
-                  : 0;
+          <div className="space-y-8">
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {visibleFacilities.map((facility) => {
+                const isFull = facility.status.toLowerCase() === "full" || facility.available_capacity === 0;
+                const isOperational = facility.status.toLowerCase() === "operational";
 
-              return (
-                <div
-                  key={facility.id}
-                  className="rounded-2xl border border-white/60 bg-card/95 backdrop-blur-md p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-center gap-2.5">
-                        <span className="p-2 rounded-xl bg-emerald-100/80 text-[#087F5B]">
-                          <Snowflake className="h-5 w-5" />
-                        </span>
-                        <div>
-                          <h3 className="font-bold text-foreground text-base leading-snug">
-                            {t(facility.name)}
-                          </h3>
-                          {displayDistance !== null && (
-                            <span className="text-xs font-bold text-emerald-800 flex items-center gap-1 mt-0.5">
-                              <MapPin className="h-3 w-3" /> {displayDistance} {t("km away")}
+                return (
+                  <div
+                    key={facility.id}
+                    className="rounded-2xl border border-white/60 bg-card/95 backdrop-blur-md p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                  >
+                    <div className="space-y-4">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex items-center gap-2.5">
+                          <span className="p-2 rounded-xl bg-emerald-100/80 text-[#087F5B]">
+                            <Snowflake className="h-5 w-5" />
+                          </span>
+                          <div>
+                            <h3 className="font-bold text-foreground text-base leading-snug">
+                              {t(facility.name)}
+                            </h3>
+                            <span className="text-xs font-semibold text-emerald-800 flex items-center gap-1 mt-0.5">
+                              <Building2 className="h-3 w-3 text-[#087F5B]" /> {facility.district}, {facility.state}
                             </span>
+                          </div>
+                        </div>
+
+                        <span
+                          className={`px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap shadow-2xs ${
+                            isFull
+                              ? "bg-rose-100 text-rose-800 border border-rose-200"
+                              : isOperational
+                                ? "bg-emerald-100 text-emerald-800 border border-emerald-200"
+                                : "bg-slate-100 text-slate-700 border border-slate-200"
+                          }`}
+                        >
+                          {isFull
+                            ? `🔴 ${t("Full")}`
+                            : isOperational
+                              ? `🟢 ${t("Operational")}`
+                              : `⚪ ${t(facility.status)}`}
+                        </span>
+                      </div>
+
+                      <p className="text-xs text-muted-foreground leading-relaxed flex items-start gap-1.5">
+                        <MapPin className="h-4 w-4 shrink-0 text-muted-foreground/70 mt-0.5" />
+                        <span>{facility.address}</span>
+                      </p>
+
+                      {/* Capacity details container */}
+                      <div className="p-4 rounded-xl bg-muted/60 border space-y-2">
+                        <div className="flex items-center justify-between text-xs font-bold">
+                          <span className="text-foreground">{t("Total Installed Capacity")}</span>
+                          <span className="text-[#087F5B] text-sm font-extrabold">
+                            {facility.capacity.toLocaleString()} MT
+                          </span>
+                        </div>
+
+                        {facility.available_capacity !== null ? (
+                          <>
+                            <div className="flex items-center justify-between text-xs font-semibold pt-1">
+                              <span className="text-muted-foreground">{t("Current Availability")}</span>
+                              <span className="text-emerald-700 font-bold">
+                                {facility.available_capacity.toLocaleString()} MT (
+                                {Math.round((facility.available_capacity / facility.capacity) * 100)}%)
+                              </span>
+                            </div>
+
+                            <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
+                              <div
+                                className={`h-full rounded-full transition-all ${
+                                  facility.available_capacity === 0 ? "bg-rose-500" : "bg-[#087F5B]"
+                                }`}
+                                style={{
+                                  width: `${Math.min(
+                                    100,
+                                    Math.max(
+                                      0,
+                                      Math.round((facility.available_capacity / facility.capacity) * 100)
+                                    )
+                                  )}%`
+                                }}
+                              />
+                            </div>
+                          </>
+                        ) : (
+                          <div className="flex items-center justify-between text-xs text-muted-foreground pt-1 border-t border-border/40">
+                            <span>{t("Current availability")}</span>
+                            <span className="font-semibold text-slate-600 bg-slate-200/80 px-2 py-0.5 rounded text-[11px]">
+                              {t("Not available")}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Calculated Distance badge */}
+                      {facility.calculatedDistance !== undefined && facility.calculatedDistance !== null && (
+                        <div className="text-xs font-bold text-emerald-800 bg-emerald-50 p-2.5 rounded-lg border border-emerald-200/60 flex items-center justify-between">
+                          <span className="flex items-center gap-1">
+                            <Navigation className="h-3.5 w-3.5 text-[#087F5B]" /> {t("Calculated Distance")}:
+                          </span>
+                          <span>{facility.calculatedDistance} {t("km away")}</span>
+                        </div>
+                      )}
+
+                      {/* Verified Source info */}
+                      <div className="flex items-center justify-between text-[11px] text-muted-foreground font-semibold pt-1">
+                        <span className="flex items-center gap-1 text-slate-600">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" /> Source: {facility.source}
+                        </span>
+                        {facility.source_type === "verification_sample" && (
+                          <span className="bg-amber-100 text-amber-800 px-2 py-0.5 rounded text-[10px] font-bold">
+                            Sample Record
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Expanded Details Drawer */}
+                      {expandedId === facility.id && (
+                        <div className="pt-3 border-t text-xs space-y-2 text-muted-foreground">
+                          <p className="font-bold text-foreground">{t("Facility Directory Details:")}</p>
+                          <ul className="space-y-1 list-disc list-inside">
+                            <li>
+                              <strong>{t("State")}:</strong> {facility.state}
+                            </li>
+                            <li>
+                              <strong>{t("District")}:</strong> {facility.district}
+                            </li>
+                            <li>
+                              <strong>{t("City/Town")}:</strong> {facility.city}
+                            </li>
+                            <li>
+                              <strong>{t("Coordinates")}:</strong>{" "}
+                              {facility.latitude && facility.longitude
+                                ? `${facility.latitude.toFixed(4)}, ${facility.longitude.toFixed(4)}`
+                                : t("Coordinates unavailable")}
+                            </li>
+                            <li>
+                              <strong>{t("Operating Status")}:</strong> {t(facility.status)}
+                            </li>
+                          </ul>
+
+                          {facility.source_url && (
+                            <div className="pt-2">
+                              <a
+                                href={facility.source_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 text-xs font-bold text-[#087F5B] hover:underline bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200"
+                              >
+                                <ExternalLink className="h-3.5 w-3.5" /> {t("View Official Source")} ({facility.source})
+                              </a>
+                            </div>
                           )}
                         </div>
-                      </div>
-
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap shadow-2xs ${
-                          isFull
-                            ? "bg-rose-100 text-rose-800 border border-rose-200"
-                            : isMaintenance
-                              ? "bg-amber-100 text-amber-800 border border-amber-200"
-                              : "bg-emerald-100 text-emerald-800 border border-emerald-200"
-                        }`}
-                      >
-                        {isFull
-                          ? `🔴 ${t("Full")}`
-                          : isMaintenance
-                            ? `🟠 ${t("Maintenance")}`
-                            : `🟢 ${t("Available")}`}
-                      </span>
-                    </div>
-
-                    <p className="text-xs text-muted-foreground leading-relaxed flex items-start gap-1.5">
-                      <Building2 className="h-4 w-4 shrink-0 text-muted-foreground/70 mt-0.5" />
-                      <span>{t(facility.address)}</span>
-                    </p>
-
-                    <div className="p-4 rounded-xl bg-muted/60 border space-y-2">
-                      <div className="flex items-center justify-between text-xs font-bold">
-                        <span className="text-foreground">{t("Available Capacity")}</span>
-                        <span className="text-[#087F5B]">
-                          {facility.available_capacity.toLocaleString()} MT /{" "}
-                          {facility.capacity.toLocaleString()} MT
-                        </span>
-                      </div>
-
-                      <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
-                        <div
-                          className={`h-full rounded-full transition-all ${
-                            isFull ? "bg-rose-500" : isMaintenance ? "bg-amber-500" : "bg-[#087F5B]"
-                          }`}
-                          style={{ width: `${Math.min(100, Math.max(0, percentAvailable))}%` }}
-                        />
-                      </div>
-
-                      <div className="flex items-center justify-between text-[11px] text-muted-foreground font-semibold">
-                        <span>
-                          {percentAvailable}% {t("available space")}
-                        </span>
-                        <span>
-                          {t("Total")}: {facility.capacity.toLocaleString()} MT
-                        </span>
-                      </div>
-                    </div>
-
-                    {expandedId === facility.id && (
-                      <div className="pt-3 border-t text-xs space-y-2 text-muted-foreground">
-                        <p className="font-bold text-foreground">{t("Facility Specifications:")}</p>
-                        <ul className="space-y-1 list-disc list-inside">
-                          <li>{t("Temperature range: -2°C to +8°C (Multi-commodity)")}</li>
-                          <li>{t("Humidity control: Automated 85%-95% RH")}</li>
-                          <li>
-                            {t("Coordinates:")} {facility.latitude ?? "N/A"},{" "}
-                            {facility.longitude ?? "N/A"}
-                          </li>
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="pt-5 border-t mt-4 flex items-center justify-between gap-3">
-                    {facility.contact_number ? (
-                      <a
-                        href={`tel:${facility.contact_number.replace(/\s+/g, "")}`}
-                        className="flex-1 h-10 px-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-1.5"
-                      >
-                        <Phone className="h-3.5 w-3.5" /> {t("Call")} ({facility.contact_number})
-                      </a>
-                    ) : (
-                      <span className="text-xs font-bold text-muted-foreground py-2">
-                        {t("Contact unavailable")}
-                      </span>
-                    )}
-
-                    <button
-                      onClick={() => toggleExpand(facility.id)}
-                      className="h-10 px-3.5 rounded-xl border bg-background hover:bg-muted font-bold text-xs text-foreground transition flex items-center gap-1"
-                    >
-                      {expandedId === facility.id ? t("Hide Details") : t("Details")}
-                      {expandedId === facility.id ? (
-                        <ChevronUp className="h-3.5 w-3.5" />
-                      ) : (
-                        <ChevronDown className="h-3.5 w-3.5" />
                       )}
-                    </button>
+                    </div>
+
+                    <div className="pt-5 border-t mt-4 flex items-center justify-between gap-3">
+                      {facility.contact_number ? (
+                        <a
+                          href={`tel:${facility.contact_number.replace(/\s+/g, "")}`}
+                          className="flex-1 h-10 px-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-1.5"
+                        >
+                          <Phone className="h-3.5 w-3.5" /> {t("Call")} ({facility.contact_number})
+                        </a>
+                      ) : (
+                        <span className="text-xs font-semibold text-muted-foreground py-2 flex items-center gap-1">
+                          <Phone className="h-3.5 w-3.5 opacity-40" /> {t("Contact unavailable")}
+                        </span>
+                      )}
+
+                      <button
+                        onClick={() => toggleExpand(facility.id)}
+                        className="h-10 px-3.5 rounded-xl border bg-background hover:bg-muted font-bold text-xs text-foreground transition flex items-center gap-1"
+                      >
+                        {expandedId === facility.id ? t("Hide Details") : t("Details")}
+                        {expandedId === facility.id ? (
+                          <ChevronUp className="h-3.5 w-3.5" />
+                        ) : (
+                          <ChevronDown className="h-3.5 w-3.5" />
+                        )}
+                      </button>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+
+            {hasMore && (
+              <div className="text-center pt-4">
+                <button
+                  onClick={() => setPage((p) => p + 1)}
+                  className="px-8 py-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-md transition inline-flex items-center gap-2"
+                >
+                  {t("Load More Facilities")} ({facilities.length - visibleFacilities.length} {t("remaining")})
+                </button>
+              </div>
+            )}
           </div>
         )}
       </PageShell>
