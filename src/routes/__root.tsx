@@ -13,6 +13,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AppShell } from "../components/AppShell";
 import { CartProvider } from "../components/CartContext";
+import { WishlistProvider } from "../components/WishlistContext";
+import { ToastProvider } from "../components/ToastContext";
 import { AuthProvider } from "../components/AuthContext";
 import { LanguageProvider } from "../i18n/LanguageContext";
 
@@ -142,16 +144,20 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <AuthProvider>
-          <CartProvider>
-            {isAuthRoute ? (
-              <Outlet />
-            ) : (
-              <AppShell>
-                {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-                <Outlet />
-              </AppShell>
-            )}
-          </CartProvider>
+          <WishlistProvider>
+            <ToastProvider>
+              <CartProvider>
+                {isAuthRoute ? (
+                  <Outlet />
+                ) : (
+                  <AppShell>
+                    {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+                    <Outlet />
+                  </AppShell>
+                )}
+              </CartProvider>
+            </ToastProvider>
+          </WishlistProvider>
         </AuthProvider>
       </LanguageProvider>
     </QueryClientProvider>

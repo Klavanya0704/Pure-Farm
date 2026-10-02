@@ -5,6 +5,7 @@ import {
   CloudSun,
   Snowflake,
   Home,
+  Heart,
   Leaf,
   LifeBuoy,
   Menu,
@@ -31,6 +32,7 @@ import {
 import { useState, useEffect, type ReactNode } from "react";
 import { SITE, waLink } from "@/data/site";
 import { useCart } from "./CartContext";
+import { useWishlist } from "./WishlistContext";
 import { useAuth } from "./AuthContext";
 import { useTranslation } from "@/i18n/LanguageContext";
 import { fetchWeatherData } from "@/services/weather";
@@ -84,6 +86,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { count } = useCart();
+  const { wishlistCount } = useWishlist();
   const { user, logout } = useAuth();
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -176,6 +179,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       return [
         { to: "/order", label: t("My Orders"), icon: ShoppingBag },
         { to: "/cart", label: t("My Cart"), icon: ShoppingCart },
+        { to: "/wishlist", label: t("My Wishlist"), icon: Heart },
         { to: "/marketplace", label: t("Browse Catalog"), icon: Store },
         { to: "/notifications", label: t("Notifications"), icon: Bell },
       ];
@@ -195,6 +199,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       { to: "/seller", label: t("My Products (Sell)"), icon: Store },
       { to: "/order", label: t("My Orders"), icon: ShoppingBag },
       { to: "/cart", label: t("My Cart"), icon: ShoppingCart },
+      { to: "/wishlist", label: t("My Wishlist"), icon: Heart },
       { to: "/marketplace", label: t("Browse Catalog"), icon: Store },
     ];
   };
@@ -366,6 +371,20 @@ export function AppShell({ children }: { children: ReactNode }) {
               >
                 <Bell className="h-5 w-5" />
                 <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-amber-500 ring-2 ring-background" />
+              </Link>
+
+              {/* Wishlist */}
+              <Link
+                to="/wishlist"
+                className="relative inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card hover:bg-muted/50 transition text-foreground"
+                aria-label="Wishlist"
+              >
+                <Heart className="h-5 w-5 text-red-500 fill-red-50" />
+                {wishlistCount > 0 ? (
+                  <span className="absolute -right-1 -top-1 min-w-5 rounded-full bg-red-500 px-1.5 text-center text-[10px] font-black text-white shadow-sm">
+                    {wishlistCount}
+                  </span>
+                ) : null}
               </Link>
 
               {/* Cart */}

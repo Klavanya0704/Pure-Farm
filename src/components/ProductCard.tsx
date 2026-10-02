@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { IndianRupee, ShoppingCart, Star } from "lucide-react";
+import { Heart, ShoppingCart, Star } from "lucide-react";
 import type { Product } from "@/data/types";
 import { useCart } from "./CartContext";
+import { useWishlist } from "./WishlistContext";
+import { useToast } from "./ToastContext";
 import { useTranslation } from "@/i18n/LanguageContext";
 
 export function formatRupees(value: number) {
@@ -18,8 +20,12 @@ export const NEUTRAL_PRODUCT_FALLBACK =
 
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
+  const { isInWishlist, toggleWishlist } = useWishlist();
+  const { showCartSuccessToast, showToast } = useToast();
   const { t } = useTranslation();
   const [imageError, setImageError] = useState(false);
+
+  const activeWishlist = isInWishlist(product.id);
 
   // Compute deterministic discount, old price, and review count based on product ID/price, or use custom overrides
   const discountStr = product.customDiscount
@@ -38,7 +44,7 @@ export function ProductCard({ product }: { product: Product }) {
   const badgeText = product.customBadgeText || product.badge;
 
   return (
-    <article className="group flex w-full flex-col overflow-hidden transition-all duration-250 ease-out bg-[#FFFFFF] rounded-[20px] border border-[#E5E7EB] shadow-[0_3px_12px_rgba(0,0,0,0.06)] hover:-translate-y-[5px] hover:shadow-[0_10px_28px_rgba(0,0,0,0.12)]">
+    <article className="group flex w-full flex-col overflow-hidden transition-all duration-250 ease-out bg-[#FFFFFF] rounded-[20px] border border-[#E5E7EB] shadow-[0_3px_12px_rgba(0,0,0,0.06)] hover:-translate-y-[5px] hover:shadow-[0_10px_28px_rgba(0,0,0,0.12)] relative">
       {/* Upper Half: Large Product Image Area */}
       <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-[18px] bg-white">
         <Link to="/product/$id" params={{ id: product.id }} className="block h-full w-full">
@@ -68,22 +74,22 @@ export function ProductCard({ product }: { product: Product }) {
 
         {/* Floating Wishlist Heart */}
         <button
-          className="absolute right-3 top-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-full shadow-sm text-gray-400 hover:text-red-500 transition-colors z-10"
-          aria-label="Add to wishlist"
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleWishlist(product.id);
+          }}
+          className={`absolute right-3 top-3 p-2 rounded-full shadow-sm backdrop-blur-md transition-all duration-200 z-10 cursor-pointer ${
+            activeWishlist
+              ? "bg-red-50 text-red-500 scale-105 shadow-md ring-1 ring-red-200"
+              : "bg-white/90 text-gray-400 hover:text-red-500 hover:bg-white"
+          }`}
+          aria-label={activeWishlist ? "Remove from wishlist" : "Add to wishlist"}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-          </svg>
+          <Heart
+            className={`h-4.5 w-4.5 transition-transform ${activeWishlist ? "fill-red-500 text-red-500" : ""}`}
+          />
         </button>
       </div>
 
@@ -136,12 +142,18 @@ export function ProductCard({ product }: { product: Product }) {
                 farmerId: (product as any).farmer_id,
                 availableQuantity: product.stock,
               });
-              if (!res.success && res.message) {
-                alert(res.message);
+              if (res.success) {
+                showCartSuccessToast(product.name, product.image);
+              } else {
+                showToast({
+                  type: "error",
+                  title: t("Unable to Add to Cart"),
+                  message: res.message || t("Product is currently unavailable."),
+                });
               }
             }}
             disabled={product.stock <= 0}
-            className="w-full h-[44px] flex items-center justify-center gap-2 rounded-[12px] bg-[#145A43] text-white font-[700] text-sm transition-all hover:bg-[#0D3B2E] hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
+            className="w-full h-[44px] flex items-center justify-center gap-2 rounded-[12px] bg-[#145A43] text-white font-[700] text-sm transition-all hover:bg-[#0D3B2E] hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm cursor-pointer"
             aria-label={`Add ${product.name} to cart`}
           >
             <ShoppingCart className="h-4 w-4" />

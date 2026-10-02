@@ -107,6 +107,8 @@ import { SITE, waLink } from "@/data/site";
 import type { Category, Course, NotificationItem, Product } from "@/data/types";
 import { cardClass, glassCardClass, PageShell } from "./AppShell";
 import { getCartProducts, useCart } from "./CartContext";
+import { useWishlist } from "./WishlistContext";
+import { useToast } from "./ToastContext";
 import { useAuth, type UserRole } from "./AuthContext";
 import { formatRupees, ProductCard, NEUTRAL_PRODUCT_FALLBACK } from "./ProductCard";
 import {
@@ -1830,6 +1832,8 @@ export function ProductDetailPage({ id }: { id: string }) {
   const product = getProduct(id);
   const [qty, setQty] = useState(1);
   const { addItem } = useCart();
+  const { isInWishlist, toggleWishlist } = useWishlist();
+  const { showCartSuccessToast, showToast } = useToast();
   const navigate = useNavigate();
 
   if (!product) {
@@ -1860,6 +1864,8 @@ export function ProductDetailPage({ id }: { id: string }) {
     (item) => item.category === product.category && item.id !== product.id,
   ).slice(0, 4);
 
+  const activeWishlist = isInWishlist(product.id);
+
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
       <PageShell
@@ -1874,18 +1880,35 @@ export function ProductDetailPage({ id }: { id: string }) {
             className="h-80 w-full rounded-2xl object-cover shadow-soft lg:h-[32rem]"
           />
           <div className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-6">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded-lg bg-emerald-50 border border-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-800">
-                {t(product.brand)}
-              </span>
-              {product.badge ? (
-                <span className="rounded-lg bg-amber-50 border border-amber-100 px-2.5 py-1 text-xs font-bold text-amber-800">
-                  {t(product.badge)}
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded-lg bg-emerald-50 border border-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-800">
+                  {t(product.brand)}
                 </span>
-              ) : null}
-              <span className="rounded-lg bg-accent px-2.5 py-1 text-xs font-bold text-accent-foreground">
-                {product.rating} ★ {t("rating")}
-              </span>
+                {product.badge ? (
+                  <span className="rounded-lg bg-amber-50 border border-amber-100 px-2.5 py-1 text-xs font-bold text-amber-800">
+                    {t(product.badge)}
+                  </span>
+                ) : null}
+                <span className="rounded-lg bg-accent px-2.5 py-1 text-xs font-bold text-accent-foreground">
+                  {product.rating} ★ {t("rating")}
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => toggleWishlist(product.id)}
+                className={`p-2.5 rounded-xl flex items-center gap-1.5 transition border cursor-pointer ${
+                  activeWishlist
+                    ? "bg-red-50 text-red-600 border-red-200"
+                    : "bg-slate-50 text-slate-500 border-slate-200 hover:text-red-500"
+                }`}
+                aria-label={activeWishlist ? "Remove from wishlist" : "Add to wishlist"}
+              >
+                <Heart className={`h-4.5 w-4.5 ${activeWishlist ? "fill-red-500 text-red-500" : ""}`} />
+                <span className="text-xs font-bold">
+                  {activeWishlist ? t("Saved in Wishlist") : t("Save to Wishlist")}
+                </span>
+              </button>
             </div>
             <p className="text-4xl font-black text-[#1b4332]">
               {formatRupees(product.price)}{" "}
@@ -1934,18 +1957,54 @@ export function ProductDetailPage({ id }: { id: string }) {
               </div>
               <button
                 type="button"
-                onClick={() => addItem(product.id, qty)}
-                className="rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-6 py-3 font-black text-sm shadow-sm transition hover:scale-105 duration-200"
+                disabled={product.stock <= 0}
+                onClick={() => {
+                  const res = addItem(product.id, qty, {
+                    name: product.name,
+                    price: product.price,
+                    unit: product.unit,
+                    imageUrl: product.image,
+                    farmerId: (product as any).farmer_id,
+                    availableQuantity: product.stock,
+                  });
+                  if (res.success) {
+                    showCartSuccessToast(product.name, product.image);
+                  } else {
+                    showToast({
+                      type: "error",
+                      title: t("Unable to Add to Cart"),
+                      message: res.message || t("Product is currently unavailable."),
+                    });
+                  }
+                }}
+                className="rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-6 py-3 font-black text-sm shadow-sm transition hover:scale-105 duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {t("Add to Cart")}
+                {product.stock <= 0 ? t("Out of Stock") : t("Add to Cart")}
               </button>
               <button
                 type="button"
+                disabled={product.stock <= 0}
                 onClick={() => {
-                  addItem(product.id, qty);
-                  void navigate({ to: "/order" });
+                  const res = addItem(product.id, qty, {
+                    name: product.name,
+                    price: product.price,
+                    unit: product.unit,
+                    imageUrl: product.image,
+                    farmerId: (product as any).farmer_id,
+                    availableQuantity: product.stock,
+                  });
+                  if (res.success) {
+                    showCartSuccessToast(product.name, product.image);
+                    void navigate({ to: "/order" });
+                  } else {
+                    showToast({
+                      type: "error",
+                      title: t("Unable to Add to Cart"),
+                      message: res.message || t("Product is currently unavailable."),
+                    });
+                  }
                 }}
-                className="rounded-xl bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 font-black text-sm shadow-sm transition hover:scale-105 duration-200"
+                className="rounded-xl bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 font-black text-sm shadow-sm transition hover:scale-105 duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {t("Buy now")}
               </button>
@@ -2145,6 +2204,176 @@ export function CartPage() {
             >
               {t("Browse Marketplace")} <ArrowRight className="h-4 w-4" />
             </Link>
+          </div>
+        )}
+      </PageShell>
+    </RoleGuard>
+  );
+}
+
+export function WishlistPage() {
+  const { t } = useTranslation();
+  const { wishlistIds, wishlistCount, removeFromWishlist, clearWishlist } = useWishlist();
+  const { addItem } = useCart();
+  const { showCartSuccessToast, showToast } = useToast();
+
+  // Retrieve products for all wishlist IDs
+  const wishlistProducts = useMemo(() => {
+    return wishlistIds
+      .map((id) => getProduct(id))
+      .filter((p): p is Product => p !== undefined);
+  }, [wishlistIds]);
+
+  return (
+    <RoleGuard allowedRoles={["buyer", "farmer", "student", "seller", "admin"]} allowGuest={true}>
+      <PageShell
+        eyebrow={t("Saved Products")}
+        title={t("My Wishlist")}
+        intro={t("Manage products you've saved for later or quick purchase.")}
+      >
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-border/60 pb-4">
+          <div className="flex items-center gap-2">
+            <Heart className="h-6 w-6 text-red-500 fill-red-500" />
+            <h2 className="text-xl font-black text-[#1b4332]">{t("Wishlist Items")}</h2>
+            <span className="ml-1 rounded-full bg-red-100 text-red-700 px-3 py-0.5 text-xs font-bold border border-red-200">
+              {wishlistCount} {t("Items")}
+            </span>
+          </div>
+
+          {wishlistCount > 0 && (
+            <button
+              type="button"
+              onClick={clearWishlist}
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-red-600 transition cursor-pointer"
+            >
+              <Trash2 className="h-4 w-4" />
+              {t("Clear Wishlist")}
+            </button>
+          )}
+        </div>
+
+        {wishlistProducts.length === 0 ? (
+          <div className="rounded-2xl border border-white/60 bg-white/85 backdrop-blur-md p-12 text-center space-y-4 max-w-md mx-auto shadow-soft my-8">
+            <div className="h-16 w-16 rounded-full bg-red-50 text-red-500 flex items-center justify-center mx-auto border border-red-100 shadow-xs">
+              <Heart className="h-8 w-8" />
+            </div>
+            <h3 className="text-xl font-black text-[#1b4332]">{t("Your Wishlist is Empty")}</h3>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              {t("You haven't saved any items to your wishlist yet. Explore our marketplace to find fresh produce, high-quality seeds, fertilizers, and modern farm tools.")}
+            </p>
+            <div className="pt-2">
+              <Link
+                to="/marketplace"
+                className="inline-flex items-center justify-center gap-2 h-11 px-6 rounded-xl bg-[#145A43] hover:bg-[#0D3B2E] text-white text-xs font-black transition shadow-md cursor-pointer"
+              >
+                <Store className="h-4 w-4" />
+                {t("Browse Marketplace")}
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {wishlistProducts.map((product) => (
+              <div
+                key={product.id}
+                className="rounded-2xl border border-white/70 bg-white/90 backdrop-blur-md p-4 shadow-soft flex flex-col justify-between space-y-3 hover:shadow-md transition group"
+              >
+                <div className="space-y-3">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100">
+                    <Link to="/product/$id" params={{ id: product.id }} className="block h-full w-full">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = NEUTRAL_PRODUCT_FALLBACK;
+                        }}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => removeFromWishlist(product.id)}
+                      className="absolute right-2.5 top-2.5 p-1.5 rounded-full bg-white/90 text-slate-400 hover:text-red-500 hover:bg-white transition shadow-xs cursor-pointer"
+                      aria-label="Remove from wishlist"
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </button>
+                    <span className="absolute left-2.5 top-2.5 rounded-md bg-emerald-700 text-white px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider shadow-2xs">
+                      {t(product.category)}
+                    </span>
+                  </div>
+
+                  <div>
+                    <Link
+                      to="/product/$id"
+                      params={{ id: product.id }}
+                      className="font-black text-sm text-[#1b4332] hover:text-[#2d6a4f] transition line-clamp-2 leading-snug"
+                    >
+                      {t(product.name)}
+                    </Link>
+                    <p className="mt-1 text-xs text-muted-foreground font-semibold">
+                      {product.brand}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-3 pt-3 border-t border-border/60">
+                  <div className="flex items-center justify-between">
+                    <span className="text-base font-black text-[#145A43]">
+                      ₹{product.price} <span className="text-xs font-normal text-muted-foreground">/{product.unit}</span>
+                    </span>
+                    <span
+                      className={`text-[11px] font-bold px-2 py-0.5 rounded-md ${
+                        product.stock > 0
+                          ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                          : "bg-red-50 text-red-600 border border-red-200"
+                      }`}
+                    >
+                      {product.stock > 0 ? `${product.stock} ${t("in stock")}` : t("Out of stock")}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      type="button"
+                      onClick={() => removeFromWishlist(product.id)}
+                      className="h-10 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center justify-center gap-1 cursor-pointer"
+                    >
+                      <X className="h-3.5 w-3.5" />
+                      {t("Remove")}
+                    </button>
+
+                    <button
+                      type="button"
+                      disabled={product.stock <= 0}
+                      onClick={() => {
+                        const res = addItem(product.id, 1, {
+                          name: product.name,
+                          price: product.price,
+                          unit: product.unit,
+                          imageUrl: product.image,
+                          farmerId: (product as any).farmer_id,
+                          availableQuantity: product.stock,
+                        });
+                        if (res.success) {
+                          showCartSuccessToast(product.name, product.image);
+                        } else {
+                          showToast({
+                            type: "error",
+                            title: t("Unable to Add to Cart"),
+                            message: res.message || t("Product is currently unavailable."),
+                          });
+                        }
+                      }}
+                      className="h-10 rounded-xl bg-[#145A43] hover:bg-[#0D3B2E] text-white text-xs font-black transition flex items-center justify-center gap-1 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shadow-xs"
+                    >
+                      <ShoppingCart className="h-3.5 w-3.5" />
+                      {t("Add to Cart")}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </PageShell>

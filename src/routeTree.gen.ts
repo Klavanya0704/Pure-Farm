@@ -34,6 +34,7 @@ import { Route as SchemesRouteImport } from './routes/schemes'
 import { Route as SellerRouteImport } from './routes/seller'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as WeatherRouteImport } from './routes/weather'
+import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as CategoryCategoryRouteImport } from './routes/category/$category'
 import { Route as MachinesToolsIndexRouteImport } from './routes/machines-tools.index'
 import { Route as MachinesToolsListRouteImport } from './routes/machines-tools.list'
@@ -164,6 +165,11 @@ const WeatherRoute = WeatherRouteImport.update({
   path: '/weather',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WishlistRoute = WishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CategoryCategoryRoute = CategoryCategoryRouteImport.update({
   id: '/category/$category',
   path: '/category/$category',
@@ -211,6 +217,7 @@ export interface FileRoutesByFullPath {
   '/seller': typeof SellerRoute
   '/support': typeof SupportRoute
   '/weather': typeof WeatherRoute
+  '/wishlist': typeof WishlistRoute
   '/category/$category': typeof CategoryCategoryRoute
   '/machines-tools/list': typeof MachinesToolsListRoute
   '/product/$id': typeof ProductIdRoute
@@ -242,6 +249,7 @@ export interface FileRoutesByTo {
   '/seller': typeof SellerRoute
   '/support': typeof SupportRoute
   '/weather': typeof WeatherRoute
+  '/wishlist': typeof WishlistRoute
   '/category/$category': typeof CategoryCategoryRoute
   '/machines-tools/list': typeof MachinesToolsListRoute
   '/product/$id': typeof ProductIdRoute
@@ -274,6 +282,7 @@ export interface FileRoutesById {
   '/seller': typeof SellerRoute
   '/support': typeof SupportRoute
   '/weather': typeof WeatherRoute
+  '/wishlist': typeof WishlistRoute
   '/category/$category': typeof CategoryCategoryRoute
   '/machines-tools/list': typeof MachinesToolsListRoute
   '/product/$id': typeof ProductIdRoute
@@ -307,6 +316,7 @@ export interface FileRouteTypes {
     | '/seller'
     | '/support'
     | '/weather'
+    | '/wishlist'
     | '/category/$category'
     | '/machines-tools/list'
     | '/product/$id'
@@ -338,6 +348,7 @@ export interface FileRouteTypes {
     | '/seller'
     | '/support'
     | '/weather'
+    | '/wishlist'
     | '/category/$category'
     | '/machines-tools/list'
     | '/product/$id'
@@ -369,6 +380,7 @@ export interface FileRouteTypes {
     | '/seller'
     | '/support'
     | '/weather'
+    | '/wishlist'
     | '/category/$category'
     | '/machines-tools/list'
     | '/product/$id'
@@ -401,6 +413,7 @@ export interface RootRouteChildren {
   SellerRoute: typeof SellerRoute
   SupportRoute: typeof SupportRoute
   WeatherRoute: typeof WeatherRoute
+  WishlistRoute: typeof WishlistRoute
   CategoryCategoryRoute: typeof CategoryCategoryRoute
   MachinesToolsListRoute: typeof MachinesToolsListRoute
   ProductIdRoute: typeof ProductIdRoute
@@ -584,6 +597,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WeatherRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/wishlist': {
+      id: '/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/category/$category': {
       id: '/category/$category'
       path: '/category/$category'
@@ -641,6 +661,7 @@ const rootRouteChildren: RootRouteChildren = {
   SellerRoute: SellerRoute,
   SupportRoute: SupportRoute,
   WeatherRoute: WeatherRoute,
+  WishlistRoute: WishlistRoute,
   CategoryCategoryRoute: CategoryCategoryRoute,
   MachinesToolsListRoute: MachinesToolsListRoute,
   ProductIdRoute: ProductIdRoute,
