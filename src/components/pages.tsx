@@ -1425,14 +1425,15 @@ export function MarketplacePage() {
       try {
         navigate({
           to: "/marketplace",
-          search: {},
+          search: () => ({}),
           replace: true,
         });
       } catch {
-        const url = new URL(window.location.href);
-        url.search = "";
-        window.history.replaceState({}, "", url.toString());
+        // fallback
       }
+      const url = new URL(window.location.href);
+      url.search = "";
+      window.history.replaceState({}, "", url.pathname);
     }
   };
 
