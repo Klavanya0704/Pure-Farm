@@ -2674,7 +2674,7 @@ export function MarketPage() {
   const tsCount = useMemo(() => filteredRecords.filter(r => r.state === "Telangana").length, [filteredRecords]);
 
   return (
-    <RoleGuard allowedRoles={["farmer", "buyer", "admin"]}>
+    <RoleGuard allowedRoles={["farmer", "buyer", "admin", "student", "seller"]} allowGuest={true}>
       <div className="min-h-screen bg-[#f3f9f5] p-4 sm:p-6 lg:p-8 relative">
         <div className="max-w-7xl mx-auto space-y-6">
           {/* HERO BANNER */}
