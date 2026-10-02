@@ -2213,16 +2213,34 @@ export function CartPage() {
 
 export function WishlistPage() {
   const { t } = useTranslation();
-  const { wishlistIds, wishlistCount, removeFromWishlist, clearWishlist } = useWishlist();
+  const { items, wishlistCount, removeFromWishlist, clearWishlist } = useWishlist();
   const { addItem } = useCart();
   const { showCartSuccessToast, showToast } = useToast();
 
-  // Retrieve products for all wishlist IDs
+  // Retrieve products for all wishlist items (merging static data if present or fallback to stored details)
   const wishlistProducts = useMemo(() => {
-    return wishlistIds
-      .map((id) => getProduct(id))
-      .filter((p): p is Product => p !== undefined);
-  }, [wishlistIds]);
+    return items.map((item) => {
+      const staticProduct = getProduct(item.id);
+      if (staticProduct) {
+        return {
+          ...staticProduct,
+          stock: item.stock !== undefined ? item.stock : staticProduct.stock,
+        };
+      }
+      return {
+        id: item.id,
+        name: item.name || "Produce Item",
+        brand: item.brand || "PureFarm Direct",
+        category: (item.category || "vegetables") as Category,
+        unit: item.unit || "kg",
+        price: item.price || 0,
+        rating: 4.8,
+        stock: item.stock !== undefined ? item.stock : 99,
+        description: item.description || "Saved produce item from PureFarm marketplace.",
+        image: item.image || NEUTRAL_PRODUCT_FALLBACK,
+      };
+    });
+  }, [items]);
 
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "student", "seller", "admin"]} allowGuest={true}>

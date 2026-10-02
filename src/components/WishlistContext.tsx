@@ -9,12 +9,25 @@ import {
 } from "react";
 import { useAuth } from "./AuthContext";
 
+export interface WishlistProductItem {
+  id: string;
+  name: string;
+  price: number;
+  unit: string;
+  image?: string;
+  category?: string;
+  stock?: number;
+  brand?: string;
+  description?: string;
+}
+
 export interface WishlistContextValue {
+  items: WishlistProductItem[];
   wishlistIds: string[];
   wishlistCount: number;
   isInWishlist: (productId: string) => boolean;
-  toggleWishlist: (productId: string) => void;
-  addToWishlist: (productId: string) => void;
+  toggleWishlist: (product: WishlistProductItem) => void;
+  addToWishlist: (product: WishlistProductItem) => void;
   removeFromWishlist: (productId: string) => void;
   clearWishlist: () => void;
 }
@@ -25,75 +38,95 @@ function getStorageKey(userId?: string | null): string {
   return userId ? `purefarm_wishlist_${userId}` : "purefarm_wishlist_guest";
 }
 
-function readStoredWishlist(key: string): string[] {
+function readStoredWishlist(key: string): WishlistProductItem[] {
   if (typeof window === "undefined") return [];
   try {
     const raw = window.localStorage.getItem(key);
     if (!raw) return [];
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed.filter((id) => typeof id === "string") : [];
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((item) => item && typeof item.id === "string" && item.id.length > 0);
   } catch {
     return [];
   }
 }
 
-function writeStoredWishlist(key: string, ids: string[]): void {
+function writeStoredWishlist(key: string, items: WishlistProductItem[]): void {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(key, JSON.stringify(ids));
+    window.localStorage.setItem(key, JSON.stringify(idsToCleanItems(items)));
   } catch (err) {
     console.error("Failed to save wishlist", err);
   }
 }
 
+function idsToCleanItems(items: WishlistProductItem[]): WishlistProductItem[] {
+  return items.map((i) => ({
+    id: i.id,
+    name: i.name || "Produce Item",
+    price: Number(i.price) || 0,
+    unit: i.unit || "kg",
+    image: i.image,
+    category: i.category || "vegetables",
+    stock: i.stock !== undefined ? Number(i.stock) : 99,
+    brand: i.brand || "PureFarm Direct",
+    description: i.description,
+  }));
+}
+
 export function WishlistProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth();
   const storageKey = useMemo(() => getStorageKey(user?.id), [user?.id]);
-  const [wishlistIds, setWishlistIds] = useState<string[]>([]);
+  const [items, setItems] = useState<WishlistProductItem[]>([]);
   const [isReady, setIsReady] = useState(false);
 
   // Load wishlist whenever active user changes
   useEffect(() => {
-    setWishlistIds(readStoredWishlist(storageKey));
+    setItems(readStoredWishlist(storageKey));
     setIsReady(true);
   }, [storageKey]);
 
   // Save wishlist on changes once loaded
   useEffect(() => {
     if (isReady && typeof window !== "undefined") {
-      writeStoredWishlist(storageKey, wishlistIds);
+      writeStoredWishlist(storageKey, items);
     }
-  }, [isReady, storageKey, wishlistIds]);
+  }, [isReady, storageKey, items]);
 
   const value = useMemo<WishlistContextValue>(() => {
+    const wishlistIds = items.map((i) => i.id);
+
     const isInWishlist = (productId: string) => wishlistIds.includes(productId);
 
-    const toggleWishlist = (productId: string) => {
-      setWishlistIds((prev) =>
-        prev.includes(productId) ? prev.filter((id) => id !== productId) : [...prev, productId],
+    const toggleWishlist = (product: WishlistProductItem) => {
+      setItems((prev) =>
+        prev.some((i) => i.id === product.id)
+          ? prev.filter((i) => i.id !== product.id)
+          : [...prev, product],
       );
     };
 
-    const addToWishlist = (productId: string) => {
-      setWishlistIds((prev) => (prev.includes(productId) ? prev : [...prev, productId]));
+    const addToWishlist = (product: WishlistProductItem) => {
+      setItems((prev) => (prev.some((i) => i.id === product.id) ? prev : [...prev, product]));
     };
 
     const removeFromWishlist = (productId: string) => {
-      setWishlistIds((prev) => prev.filter((id) => id !== productId));
+      setItems((prev) => prev.filter((i) => i.id !== productId));
     };
 
-    const clearWishlist = () => setWishlistIds([]);
+    const clearWishlist = () => setItems([]);
 
     return {
+      items,
       wishlistIds,
-      wishlistCount: wishlistIds.length,
+      wishlistCount: items.length,
       isInWishlist,
       toggleWishlist,
       addToWishlist,
       removeFromWishlist,
       clearWishlist,
     };
-  }, [wishlistIds]);
+  }, [items]);
 
   return <WishlistContext.Provider value={value}>{children}</WishlistContext.Provider>;
 }

@@ -78,7 +78,17 @@ export function ProductCard({ product }: { product: Product }) {
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
-            toggleWishlist(product.id);
+            toggleWishlist({
+              id: product.id,
+              name: product.name,
+              price: product.price,
+              unit: product.unit,
+              image: product.image,
+              category: product.category,
+              stock: product.stock,
+              brand: product.brand,
+              description: product.description,
+            });
           }}
           className={`absolute right-3 top-3 p-2 rounded-full shadow-sm backdrop-blur-md transition-all duration-200 z-10 cursor-pointer ${
             activeWishlist
