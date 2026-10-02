@@ -2,7 +2,7 @@ import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { useTranslation } from "@/i18n/LanguageContext";
 import { LanguageSelector } from "./AppShell";
 import { getColdStorageFacilities, updateFacilityCapacity, type ColdStorageFacility } from "@/services/coldStorage";
-import { getMarketPrices, syncLiveMarketPrices, type SyncResult } from "@/services/marketPrices";
+import { getMarketPrices, syncLiveMarketPrices, INITIAL_AGMARKNET_PRICES, type SyncResult } from "@/services/marketPrices";
 import { getMachines, createMachine } from "@/services/machines";
 import { fetchWeatherData, WeatherError, type WeatherData } from "@/services/weather";
 import type {
