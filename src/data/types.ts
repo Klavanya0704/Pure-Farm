@@ -71,6 +71,9 @@ export interface Scheme {
   url: string;
   icon?: string;
   benefit?: string;
+  department?: string;
+  state?: string;
+  applicationMode?: string;
 }
 
 export interface InsuranceScheme {
@@ -98,8 +101,11 @@ export interface Course {
   lessons: number;
   progress: number;
   topic: string;
+  category?: string;
   description?: string;
   format?: string;
+  youtubeUrl?: string;
+  youtubeChannel?: string;
 }
 
 export interface CourseLesson {

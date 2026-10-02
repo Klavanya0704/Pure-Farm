@@ -3,8 +3,16 @@ import { useTranslation } from "@/i18n/LanguageContext";
 import { LanguageSelector } from "./AppShell";
 import { getColdStorageFacilities, updateFacilityCapacity, type ColdStorageFacility } from "@/services/coldStorage";
 import { getMarketPrices, syncLiveMarketPrices, INITIAL_AGMARKNET_PRICES, type SyncResult } from "@/services/marketPrices";
-import { getMachines, createMachine } from "@/services/machines";
-import { fetchWeatherData, WeatherError, type WeatherData } from "@/services/weather";
+import { getMachines, createMachine, getEquipmentImage } from "@/services/machines";
+import {
+  fetchWeatherData,
+  fetchWeatherByCoords,
+  CROP_PROFILES,
+  getCropWeatherAdvisories,
+  WeatherError,
+  type WeatherData,
+  type CropAdvisory,
+} from "@/services/weather";
 import type {
   MarketPrice,
   DbMachine,
@@ -77,6 +85,8 @@ import {
   Wrench,
   PlusCircle,
   DollarSign,
+  X,
+  Video,
 } from "lucide-react";
 import { useMemo, useState, useEffect, useRef, useCallback } from "react";
 import {
@@ -3066,34 +3076,71 @@ export function SchemesPage() {
   const isTelugu = language === "te";
   const [query, setQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
+  const [stateFilter, setStateFilter] = useState("all");
+  const [departmentFilter, setDepartmentFilter] = useState("all");
+  const [selectedScheme, setSelectedScheme] = useState<Scheme | null>(null);
 
   const categories = [
     "all",
-    "Direct Benefit",
-    "Soil Advisory",
-    "Credit",
+    "Crop Insurance",
+    "Financial Support",
+    "Agriculture",
     "Irrigation",
-    "Insurance",
-    "Mechanization",
-    "Organic Farming",
-    "Infrastructure",
+    "Soil & Fertilizer",
+    "Seeds",
+    "Farm Mechanization",
+    "Horticulture",
+    "Farmer Welfare",
+    "Livestock",
+    "Fisheries",
+    "Other Support",
+  ];
+
+  const states = [
+    { value: "all", label: isTelugu ? "అన్ని ప్రాంతాలు" : "All Coverage" },
+    { value: "Central Government", label: isTelugu ? "కేంద్ర ప్రభుత్వం" : "Central Government" },
+    { value: "Andhra Pradesh", label: isTelugu ? "ఆంధ్రప్రదేశ్" : "Andhra Pradesh" },
+    { value: "Telangana", label: isTelugu ? "తెలంగాణ" : "Telangana" },
+  ];
+
+  const departments = [
+    { value: "all", label: isTelugu ? "అన్ని ప్రభుత్వ శాఖలు" : "All Government Departments" },
+    { value: "Ministry of Agriculture & Farmers Welfare", label: "Ministry of Agriculture & Farmers Welfare" },
+    { value: "Ministry of Finance / NABARD", label: "Ministry of Finance / NABARD" },
+    { value: "Ministry of New and Renewable Energy", label: "Ministry of New and Renewable Energy" },
+    { value: "Ministry of Fisheries, Animal Husbandry & Dairying", label: "Ministry of Fisheries & Animal Husbandry" },
+    { value: "Ministry of Food Processing Industries", label: "Ministry of Food Processing Industries" },
+    { value: "Government of Andhra Pradesh", label: "Government of Andhra Pradesh" },
+    { value: "Government of Telangana", label: "Government of Telangana" },
   ];
 
   const filteredSchemes = SCHEMES.filter((s) => {
-    const matchesQuery =
-      `${s.name} ${s.category} ${s.eligibility} ${s.description} ${s.benefit || ""}`
-        .toLowerCase()
-        .includes(query.toLowerCase());
+    const searchTarget = `${s.name} ${s.category} ${s.eligibility} ${s.description} ${s.issuer} ${s.department || ""} ${s.state || ""} ${s.benefit || ""}`.toLowerCase();
+    const matchesQuery = searchTarget.includes(query.toLowerCase());
     const matchesCategory = categoryFilter === "all" || s.category === categoryFilter;
-    return matchesQuery && matchesCategory;
+    const matchesState = stateFilter === "all" || s.state === stateFilter;
+    const matchesDepartment =
+      departmentFilter === "all" ||
+      (s.department && s.department.toLowerCase().includes(departmentFilter.toLowerCase())) ||
+      (s.issuer && s.issuer.toLowerCase().includes(departmentFilter.toLowerCase()));
+    return matchesQuery && matchesCategory && matchesState && matchesDepartment;
   });
 
+  const hasActiveFilters = query !== "" || categoryFilter !== "all" || stateFilter !== "all" || departmentFilter !== "all";
+
+  const clearFilters = () => {
+    setQuery("");
+    setCategoryFilter("all");
+    setStateFilter("all");
+    setDepartmentFilter("all");
+  };
+
   const pageSubtitle = isTelugu
-    ? "రైతులకు సహాయపడే ప్రభుత్వ పథకాలు, అర్హతలు మరియు అధికారిక వివరాలను తెలుసుకోండి."
-    : "Find farmer support programmes, eligibility, and official application links.";
+    ? "రైతులకు సహాయపడే అధికారిక ప్రభుత్వ పథకాలు, అర్హతలు మరియు అధికారిక వెబ్‌సైట్ లింక్‌లు."
+    : "Verified directory of real government agricultural schemes, eligibility criteria, and official application portals.";
   const searchPlaceholder = isTelugu
-    ? "పథకాలను వెతకండి..."
-    : "Search schemes by name, category, or eligibility...";
+    ? "పథకాల పేరు, శాఖ, లేదా అర్హతల ద్వారా వెతకండి..."
+    : "Search schemes by name, department, category, or eligibility...";
 
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
@@ -3105,8 +3152,25 @@ export function SchemesPage() {
         intro={pageSubtitle}
       >
         <div className="mx-auto max-w-6xl space-y-7">
-          {/* Search Bar & Category Filter Controls (High-Opacity Light Card) */}
-          <div className="flex flex-col gap-4 rounded-3xl border border-[#1E6446]/20 bg-white/96 p-5 sm:p-6 shadow-xl shadow-emerald-950/5 backdrop-blur-md">
+          {/* PureFarm Disclaimer Banner */}
+          <div className="rounded-3xl border border-[#1E6446]/25 bg-emerald-50/95 p-5 shadow-lg backdrop-blur-md">
+            <div className="flex items-start gap-3.5">
+              <Info className="h-6 w-6 text-[#0D6E48] shrink-0 mt-0.5" />
+              <div className="space-y-1">
+                <h4 className="font-bold text-[#123F2D] text-base">
+                  {isTelugu ? "అధికారిక ప్రభుత్వ పథకాల మార్గదర్శి" : "Verified Government Schemes Directory"}
+                </h4>
+                <p className="text-xs sm:text-sm text-[#315A49] font-semibold leading-relaxed">
+                  {isTelugu
+                    ? "ప్యూర్ ఫార్మ్ రైతుల అవగాహన కోసం ఈ సరిచూసిన ప్రభుత్వ పథకాల సమాచారాన్ని అందిస్తుంది. అన్ని దరఖాస్తులు, అర్హత పరిశీలన మరియు లబ్ధిని అధికారిక ప్రభుత్వ వెబ్‌సైట్‌లు (.gov.in / .nic.in లేదా రాష్ట్ర ప్రభుత్వ శాఖల ద్వారా) నేరుగా సమర్పించాలి. ప్యూర్ ఫార్మ్ ఎలాంటి రుసుములను వసూలు చేయదు."
+                    : "PureFarm provides this verified directory for farmer informational guidance. All applications, eligibility verification, and benefit claims must be submitted directly through official government portals (.gov.in / .nic.in or State Agriculture portals). PureFarm does not collect application fees or process third-party submissions."}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Search Bar & Filter Controls Card */}
+          <div className="flex flex-col gap-5 rounded-3xl border border-[#1E6446]/20 bg-white/96 p-5 sm:p-6 shadow-xl shadow-emerald-950/5 backdrop-blur-md">
             {/* Search Input */}
             <div className="relative w-full">
               <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#10B981]" />
@@ -3128,25 +3192,89 @@ export function SchemesPage() {
               )}
             </div>
 
+            {/* State & Department Dropdowns Row */}
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {/* State / Coverage Filter */}
+              <div className="space-y-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-[#0D6E48] flex items-center gap-1.5">
+                  <MapPin className="h-3.5 w-3.5" />
+                  {isTelugu ? "ప్రాంతం / కవరేజ్:" : "State / Coverage:"}
+                </label>
+                <select
+                  value={stateFilter}
+                  onChange={(e) => setStateFilter(e.target.value)}
+                  className="w-full rounded-xl border border-[#1E6446]/25 bg-slate-50 py-2.5 px-3 text-sm font-semibold text-[#123F2D] focus:border-[#10B981] focus:outline-none focus:ring-2 focus:ring-[#10B981]/20"
+                >
+                  {states.map((st) => (
+                    <option key={st.value} value={st.value}>
+                      {st.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Department Filter */}
+              <div className="space-y-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-[#0D6E48] flex items-center gap-1.5">
+                  <Building2 className="h-3.5 w-3.5" />
+                  {isTelugu ? "ప్రభుత్వ శాఖ:" : "Department:"}
+                </label>
+                <select
+                  value={departmentFilter}
+                  onChange={(e) => setDepartmentFilter(e.target.value)}
+                  className="w-full rounded-xl border border-[#1E6446]/25 bg-slate-50 py-2.5 px-3 text-sm font-semibold text-[#123F2D] focus:border-[#10B981] focus:outline-none focus:ring-2 focus:ring-[#10B981]/20"
+                >
+                  {departments.map((dept) => (
+                    <option key={dept.value} value={dept.value}>
+                      {dept.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Reset Filters button */}
+              {hasActiveFilters && (
+                <div className="flex items-end sm:col-span-2 lg:col-span-1">
+                  <button
+                    type="button"
+                    onClick={clearFilters}
+                    className="w-full rounded-xl border border-red-200 bg-red-50 py-2.5 px-4 text-xs font-bold text-red-700 hover:bg-red-100 transition-colors"
+                  >
+                    {isTelugu ? "ఫిల్టర్లు రీసెట్ చేయండి" : "Reset All Filters"}
+                  </button>
+                </div>
+              )}
+            </div>
+
             {/* Category Filter Badges */}
             <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-[#1E6446]/10">
               <span className="text-xs font-bold uppercase tracking-wider text-[#0D6E48] mr-1">
                 {isTelugu ? "వర్గాలు:" : "Categories:"}
               </span>
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setCategoryFilter(cat)}
-                  className={`rounded-xl px-3.5 py-1.5 text-xs sm:text-sm transition-all ${
-                    categoryFilter === cat
-                      ? "bg-[#123F2D] text-white font-bold shadow-md shadow-emerald-950/20"
-                      : "bg-white/95 border border-[#1E6446]/20 text-[#123F2D] font-semibold hover:bg-emerald-50 hover:text-[#10B981]"
-                  }`}
-                >
-                  {cat === "all" ? (isTelugu ? "అన్నీ" : "All") : t(cat)}
-                </button>
-              ))}
+              {categories.map((cat) => {
+                const count = cat === "all" ? SCHEMES.length : SCHEMES.filter((s) => s.category === cat).length;
+                return (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setCategoryFilter(cat)}
+                    className={`rounded-xl px-3 py-1.5 text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 ${
+                      categoryFilter === cat
+                        ? "bg-[#123F2D] text-white shadow-md shadow-emerald-950/20"
+                        : "bg-white border border-[#1E6446]/20 text-[#123F2D] hover:bg-emerald-50 hover:text-[#10B981]"
+                    }`}
+                  >
+                    <span>{cat === "all" ? (isTelugu ? "అన్నీ" : "All") : t(cat)}</span>
+                    <span
+                      className={`rounded-full px-1.5 py-0.2 text-[10px] ${
+                        categoryFilter === cat ? "bg-emerald-500 text-white" : "bg-emerald-100 text-[#0D6E48]"
+                      }`}
+                    >
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -3155,20 +3283,41 @@ export function SchemesPage() {
             <div className="rounded-3xl border border-[#1E6446]/20 bg-white/96 p-10 text-center shadow-xl">
               <Search className="mx-auto h-12 w-12 text-emerald-600/40" />
               <p className="mt-3 text-lg font-bold text-[#123F2D]">
-                {isTelugu ? "పథకాలు ఏవీ కనుగొనబడలేదు" : "No schemes found"}
+                {isTelugu ? "పథకాలు ఏవీ కనుగొనబడలేదు" : "No government schemes match your criteria"}
               </p>
               <p className="mt-1 text-sm font-medium text-[#315A49]">
                 {isTelugu
-                  ? "మీ సెర్చ్‌కి సరిపోలే ప్రభుత్వ పథకాలు ఏవీ లేవు. దయచేసి మరొక పదాన్ని ప్రయత్నించండి."
-                  : "No government schemes matched your search query. Try resetting your search filter."}
+                  ? "మీ సెర్చ్ లేదా ఫిల్టర్లకు సరిపోలే పథకాలు ఏవీ లేవు. దయచేసి రీసెట్ చేయండి."
+                  : "Try adjusting your search query, state selection, or department filter."}
               </p>
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="mt-4 inline-flex items-center rounded-xl bg-[#123F2D] px-4 py-2 text-xs font-bold text-white shadow hover:bg-[#0D6E48]"
+              >
+                {isTelugu ? "అన్ని పథకాలను చూపించు" : "Show All Verified Schemes"}
+              </button>
             </div>
           ) : (
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
               {filteredSchemes.map((scheme) => (
-                <SchemeCard key={scheme.id} scheme={scheme} isTelugu={isTelugu} />
+                <SchemeCard
+                  key={scheme.id}
+                  scheme={scheme}
+                  isTelugu={isTelugu}
+                  onViewDetails={() => setSelectedScheme(scheme)}
+                />
               ))}
             </div>
+          )}
+
+          {/* Modal for Scheme Details */}
+          {selectedScheme && (
+            <SchemeDetailsModal
+              scheme={selectedScheme}
+              isTelugu={isTelugu}
+              onClose={() => setSelectedScheme(null)}
+            />
           )}
         </div>
       </PageShell>
@@ -3176,93 +3325,226 @@ export function SchemesPage() {
   );
 }
 
-function SchemeCard({ scheme, isTelugu }: { scheme: Scheme; isTelugu: boolean }) {
+function SchemeCard({
+  scheme,
+  isTelugu,
+  onViewDetails,
+}: {
+  scheme: Scheme;
+  isTelugu: boolean;
+  onViewDetails: () => void;
+}) {
   const { t } = useTranslation();
 
   return (
-    <div
-      className={`group relative flex flex-col justify-between rounded-3xl border transition-all duration-300 ${
-        isTelugu ? "p-6 sm:p-7" : "p-6 sm:p-7"
-      } bg-white/96 border-[#1E6446]/20 shadow-xl shadow-emerald-950/5 hover:bg-white hover:border-[#1E6446]/40 hover:-translate-y-1`}
-    >
+    <div className="group relative flex flex-col justify-between rounded-3xl border transition-all duration-300 p-6 sm:p-7 bg-white/96 border-[#1E6446]/20 shadow-xl shadow-emerald-950/5 hover:bg-white hover:border-[#1E6446]/40 hover:-translate-y-1">
       <div>
-        {/* Header Row: Icon, Category Badge & Issuer */}
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex items-center gap-3 min-w-0">
-            <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#1E6446]/30 bg-[#F0FDF4] text-2xl shadow-sm flex-shrink-0">
-              {scheme.icon || "🌾"}
+        {/* Header Badges: Category & State */}
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <span className="inline-flex items-center rounded-full border border-[#1E6446]/30 bg-[#E6F4ED] px-3 py-1 font-bold text-[#0D6E48] text-xs">
+            {t(scheme.category)}
+          </span>
+          {scheme.state && (
+            <span className="inline-flex items-center gap-1 rounded-full border border-[#10B981]/30 bg-emerald-50 px-2.5 py-0.5 font-bold text-[#0D6E48] text-[11px]">
+              <MapPin className="h-3 w-3" />
+              {scheme.state}
             </span>
-            <div className="min-w-0">
-              <span className="inline-flex items-center rounded-full border border-[#1E6446]/30 bg-[#E6F4ED] px-3 py-1 font-bold text-[#0D6E48] text-xs sm:text-[14px]">
-                {t(scheme.category)}
-              </span>
-              <p className="mt-1 text-xs sm:text-sm font-semibold text-[#527064] truncate">
-                {t(scheme.issuer)}
-              </p>
-            </div>
+          )}
+        </div>
+
+        {/* Icon & Department */}
+        <div className="flex items-start gap-3">
+          <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#1E6446]/30 bg-[#F0FDF4] text-2xl shadow-sm flex-shrink-0">
+            {scheme.icon || "🌾"}
+          </span>
+          <div className="min-w-0">
+            <h3 className="font-bold text-[#123F2D] text-lg sm:text-xl leading-snug group-hover:text-[#0D6E48] transition-colors">
+              {scheme.name}
+            </h3>
+            <p className="mt-0.5 text-xs font-semibold text-[#527064] flex items-center gap-1 truncate">
+              <Building2 className="h-3.5 w-3.5 shrink-0 text-[#10B981]" />
+              <span className="truncate">{scheme.issuer}</span>
+            </p>
           </div>
         </div>
 
-        {/* Scheme Name: BOLDER, HIGH-CONTRAST DARK GREEN TITLE */}
-        <h3
-          className={`font-bold text-[#123F2D] transition-colors group-hover:text-[#0D6E48] ${
-            isTelugu
-              ? "text-xl sm:text-[22px] leading-snug mt-3.5"
-              : "text-lg sm:text-xl leading-snug mt-3.5"
-          }`}
-        >
-          {t(scheme.name)}
-        </h3>
-
-        {/* Description: CLEAR BOLD DARK GREEN/GRAY TELUGU TEXT */}
-        <p
-          className={`mt-2.5 text-[#315A49] font-bold transition-colors ${
-            isTelugu
-              ? "text-base sm:text-[17px] leading-[1.65]"
-              : "text-sm sm:text-[15px] leading-relaxed"
-          }`}
-        >
-          {t(scheme.description)}
+        {/* Description */}
+        <p className="mt-3 text-[#315A49] font-medium text-xs sm:text-sm leading-relaxed line-clamp-2">
+          {scheme.description}
         </p>
 
-        {/* Eligibility & Benefit Highlight Box */}
-        <div className="mt-4 rounded-2xl border border-[#BBF7D0] bg-[#F0FDF4] p-4 space-y-2">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0D6E48]">
-              {isTelugu ? "అర్హత & ప్రయోజనాలు" : "Eligibility & Benefit"}
-            </span>
-            {scheme.benefit && (
+        {/* Eligibility & Benefit Box */}
+        <div className="mt-4 rounded-2xl border border-[#BBF7D0] bg-[#F0FDF4] p-3.5 space-y-2">
+          {scheme.benefit && (
+            <div className="flex items-center gap-1.5">
               <span className="inline-flex items-center rounded-md bg-[#10B981]/15 px-2.5 py-0.5 text-xs font-bold text-[#0D6E48] border border-[#10B981]/30">
-                {t(scheme.benefit)}
+                ✨ {scheme.benefit}
               </span>
-            )}
-          </div>
-          <p
-            className={`text-[#123F2D] font-semibold ${
-              isTelugu
-                ? "text-sm sm:text-[15px] leading-relaxed"
-                : "text-xs sm:text-sm leading-normal"
-            }`}
-          >
-            {t(scheme.eligibility)}
+            </div>
+          )}
+          <p className="text-[#123F2D] font-semibold text-xs sm:text-sm leading-normal line-clamp-2">
+            <strong className="text-[#0D6E48]">{isTelugu ? "అర్హత: " : "Eligibility: "}</strong>
+            {scheme.eligibility}
           </p>
         </div>
       </div>
 
-      {/* Footer & Action Button */}
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-[#1E6446]/10 pt-4">
-        <span className="text-xs sm:text-sm font-semibold text-[#527064]">
-          {t(scheme.deadline)}
-        </span>
+      {/* Footer & Action Buttons */}
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-[#1E6446]/10 pt-4">
+        <button
+          type="button"
+          onClick={onViewDetails}
+          className="inline-flex items-center gap-1.5 rounded-xl border border-[#123F2D] bg-white px-4 py-2 text-xs sm:text-sm font-bold text-[#123F2D] hover:bg-[#F0FDF4] hover:text-[#0D6E48] transition-all"
+        >
+          <FileText className="h-4 w-4" />
+          <span>{isTelugu ? "వివరాలు చూడండి" : "View Details"}</span>
+        </button>
+
         <a
           href={scheme.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#10B981] px-5 py-2.5 text-sm sm:text-[15px] font-bold text-white shadow-md transition-all hover:bg-[#0D9668] hover:shadow-lg hover:shadow-emerald-900/20"
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#10B981] px-4 py-2 text-xs sm:text-sm font-bold text-white shadow-md transition-all hover:bg-[#0D9668] hover:shadow-lg hover:shadow-emerald-900/20"
         >
-          <span>{isTelugu ? "మరింత తెలుసుకోండి" : "Learn More"}</span>
+          <span>{isTelugu ? "అధికారిక వెబ్‌సైట్" : "Visit Official Website"}</span>
           <ExternalLink className="h-4 w-4" />
         </a>
+      </div>
+    </div>
+  );
+}
+
+function SchemeDetailsModal({
+  scheme,
+  isTelugu,
+  onClose,
+}: {
+  scheme: Scheme;
+  isTelugu: boolean;
+  onClose: () => void;
+}) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm overflow-y-auto">
+      <div className="relative w-full max-w-2xl rounded-3xl border border-emerald-900/10 bg-white p-6 sm:p-8 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
+        {/* Close Button */}
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute top-5 right-5 rounded-full p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-700 transition-colors"
+        >
+          <X className="h-6 w-6" />
+        </button>
+
+        {/* Modal Header */}
+        <div className="space-y-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#1E6446]/30 bg-[#F0FDF4] text-2xl shadow-sm">
+              {scheme.icon || "🌾"}
+            </span>
+            <span className="inline-flex items-center rounded-full border border-[#1E6446]/30 bg-[#E6F4ED] px-3 py-1 font-bold text-[#0D6E48] text-xs">
+              {scheme.category}
+            </span>
+            {scheme.state && (
+              <span className="inline-flex items-center gap-1 rounded-full border border-[#10B981]/30 bg-emerald-50 px-2.5 py-1 font-bold text-[#0D6E48] text-xs">
+                <MapPin className="h-3.5 w-3.5" />
+                {scheme.state}
+              </span>
+            )}
+          </div>
+
+          <h2 className="text-xl sm:text-2xl font-bold text-[#123F2D] leading-tight">
+            {scheme.name}
+          </h2>
+
+          <div className="flex items-center gap-2 text-sm font-semibold text-[#527064]">
+            <Building2 className="h-4 w-4 text-[#10B981] shrink-0" />
+            <span>{scheme.issuer}</span>
+          </div>
+        </div>
+
+        {/* Benefit Highlight */}
+        {scheme.benefit && (
+          <div className="rounded-2xl border border-emerald-300 bg-emerald-50/90 p-4 flex items-center gap-3">
+            <Sparkles className="h-6 w-6 text-[#10B981] shrink-0" />
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-[#0D6E48]">
+                {isTelugu ? "ప్రధాన ప్రయోజనం" : "Key Benefit"}
+              </p>
+              <p className="text-sm font-bold text-[#123F2D]">{scheme.benefit}</p>
+            </div>
+          </div>
+        )}
+
+        {/* Scheme Details Grid */}
+        <div className="space-y-4 divide-y divide-slate-100">
+          {/* Description */}
+          <div className="pt-2 space-y-1">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#0D6E48]">
+              {isTelugu ? "పథకం వివరణ" : "Scheme Description"}
+            </h4>
+            <p className="text-sm text-[#315A49] font-medium leading-relaxed">
+              {scheme.description}
+            </p>
+          </div>
+
+          {/* Eligibility */}
+          <div className="pt-4 space-y-1">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#0D6E48] flex items-center gap-1.5">
+              <CheckCircle2 className="h-4 w-4 text-[#10B981]" />
+              {isTelugu ? "అర్హత నిబంధనలు" : "Eligibility Criteria"}
+            </h4>
+            <p className="text-sm text-[#123F2D] font-semibold leading-relaxed">
+              {scheme.eligibility}
+            </p>
+          </div>
+
+          {/* Application Mode */}
+          {scheme.applicationMode && (
+            <div className="pt-4 space-y-1">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#0D6E48] flex items-center gap-1.5">
+                <FileText className="h-4 w-4 text-[#10B981]" />
+                {isTelugu ? "దరఖాస్తు విధానం" : "Application Channel"}
+              </h4>
+              <p className="text-sm text-[#123F2D] font-semibold leading-relaxed">
+                {scheme.applicationMode}
+              </p>
+            </div>
+          )}
+
+          {/* Deadline / Application Window */}
+          <div className="pt-4 space-y-1">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#0D6E48]">
+              {isTelugu ? "దరఖాస్తు గడువు / సమయం" : "Application Deadline / Calendar"}
+            </h4>
+            <p className="text-sm text-[#315A49] font-semibold">{scheme.deadline}</p>
+          </div>
+        </div>
+
+        {/* Modal Footer / Official Link Button */}
+        <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-xs font-semibold text-slate-500 truncate max-w-xs">
+            🌐 {scheme.url}
+          </div>
+
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            <button
+              type="button"
+              onClick={onClose}
+              className="flex-1 sm:flex-none rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-50"
+            >
+              {isTelugu ? "మూసివేయి" : "Close"}
+            </button>
+            <a
+              href={scheme.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-xl bg-[#10B981] px-6 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-[#0D9668]"
+            >
+              <span>{isTelugu ? "అధికారిక పోర్టల్‌ని సందర్శించండి" : "Visit Official Website"}</span>
+              <ExternalLink className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -3784,13 +4066,15 @@ export function LivestockDetailPage() {
 export function WeatherPage() {
   const { t } = useTranslation();
   const { user } = useAuth();
-  
+
   const defaultLoc = user?.location || "Tadepalligudem, AP";
+  const [selectedCrop, setSelectedCrop] = useState<string>("Paddy");
   const [selectedLocation, setSelectedLocation] = useState(defaultLoc);
   const [searchInput, setSearchInput] = useState(defaultLoc);
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isLocating, setIsLocating] = useState(false);
 
   const popularLocations = [
     "Tadepalligudem, AP",
@@ -3799,11 +4083,14 @@ export function WeatherPage() {
     "Vijayawada, AP",
     "Eluru, AP",
     "Visakhapatnam, AP",
+    "Kakinada, AP",
+    "Hyderabad, TS",
     "Ludhiana, Punjab",
     "Nashik, Maharashtra",
-    "Hyderabad, Telangana",
     "Delhi",
   ];
+
+  const availableCrops = Object.values(CROP_PROFILES);
 
   const loadWeather = useCallback((loc: string) => {
     setLoading(true);
@@ -3817,12 +4104,44 @@ export function WeatherPage() {
         setWeatherData(null);
         setLoading(false);
         if (err instanceof WeatherError && err.code === "MISSING_KEY") {
-          setErrorMessage("Weather service is not configured.");
+          setErrorMessage("Weather service is not configured. Please provide VITE_OPENWEATHER_API_KEY.");
         } else {
-          setErrorMessage("Unable to load weather data. Please try again.");
+          setErrorMessage("Unable to load weather data. Please verify your location or internet connection.");
         }
       });
   }, []);
+
+  const handleGeolocation = () => {
+    if (!navigator.geolocation) {
+      alert("Geolocation is not supported by your browser.");
+      return;
+    }
+    setIsLocating(true);
+    setLoading(true);
+    setErrorMessage(null);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        fetchWeatherByCoords(pos.coords.latitude, pos.coords.longitude)
+          .then((data) => {
+            setWeatherData(data);
+            setSelectedLocation(data.locationName);
+            setSearchInput(data.locationName);
+            setLoading(false);
+            setIsLocating(false);
+          })
+          .catch(() => {
+            setLoading(false);
+            setIsLocating(false);
+            loadWeather(selectedLocation);
+          });
+      },
+      () => {
+        setIsLocating(false);
+        loadWeather(selectedLocation);
+      },
+      { timeout: 10000 }
+    );
+  };
 
   useEffect(() => {
     loadWeather(selectedLocation);
@@ -3835,177 +4154,306 @@ export function WeatherPage() {
     }
   };
 
+  const cropAdvisories: CropAdvisory[] = weatherData
+    ? getCropWeatherAdvisories(selectedCrop, weatherData)
+    : [];
+
+  const currentProfile = CROP_PROFILES[selectedCrop] || CROP_PROFILES["Paddy"];
+
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         bgImage="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=2000"
-        eyebrow={t("Weather")}
-        title={t("Farm weather advisory")}
-        intro={t("Real-time local forecast and field action advisories powered by OpenWeather.")}
+        eyebrow={t("Crop Weather")}
+        title={t("Crop Weather & Field Advisory")}
+        intro={t("Real-time meteorological forecast and crop-specific field action guidance for Indian farming.")}
       >
-        {/* Location selector & search bar */}
-        <div className="mb-6 flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between bg-card p-4 rounded-2xl border border-border shadow-sm">
-          <div className="flex items-center gap-2 text-[#1b4332] font-black text-sm">
-            <MapPin className="h-5 w-5 text-primary" />
-            <span>{t("Agricultural Location:")}</span>
+        <div className="space-y-6">
+          {/* Crop & Location Selection Control Panel */}
+          <div className="flex flex-col gap-5 rounded-3xl border border-[#1E6446]/20 bg-white/96 p-5 sm:p-6 shadow-xl shadow-emerald-950/5 backdrop-blur-md">
+            {/* 1. Crop Selection Row */}
+            <div className="space-y-2">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#0D6E48] flex items-center gap-1.5">
+                <Sprout className="h-4 w-4 text-[#10B981]" />
+                <span>{t("Select Target Crop for Advisory:")}</span>
+              </label>
+
+              <div className="flex flex-wrap items-center gap-2">
+                {availableCrops.map((c) => (
+                  <button
+                    key={c.name}
+                    type="button"
+                    onClick={() => setSelectedCrop(c.name)}
+                    className={`rounded-xl px-3.5 py-2 text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 ${
+                      selectedCrop === c.name
+                        ? "bg-[#123F2D] text-white shadow-md shadow-emerald-950/20 scale-105"
+                        : "bg-slate-50 border border-[#1E6446]/20 text-[#123F2D] hover:bg-emerald-50 hover:text-[#10B981]"
+                    }`}
+                  >
+                    <span>{c.emoji}</span>
+                    <span>{t(c.name)}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="border-t border-[#1E6446]/10 pt-4 flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
+              {/* 2. Popular Locations Row */}
+              <div className="flex flex-wrap items-center gap-1.5 flex-1">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#0D6E48] mr-1 flex items-center gap-1">
+                  <MapPin className="h-3.5 w-3.5" />
+                  {t("Location:")}
+                </span>
+                {popularLocations.map((loc) => (
+                  <button
+                    key={loc}
+                    type="button"
+                    onClick={() => {
+                      setSelectedLocation(loc);
+                      setSearchInput(loc);
+                    }}
+                    className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${
+                      selectedLocation === loc
+                        ? "bg-[#10B981] text-white shadow-sm"
+                        : "bg-slate-100 text-[#315A49] hover:bg-emerald-50"
+                    }`}
+                  >
+                    {t(loc)}
+                  </button>
+                ))}
+              </div>
+
+              {/* 3. Search Bar & Geolocation Button */}
+              <div className="flex items-center gap-2">
+                <form onSubmit={handleSearchSubmit} className="flex items-center gap-2 flex-1 sm:flex-none">
+                  <input
+                    type="text"
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                    placeholder={t("Search city/mandi...")}
+                    className="h-10 px-3.5 text-xs font-semibold rounded-xl border border-[#1E6446]/25 bg-slate-50 text-[#123F2D] outline-none focus:border-[#10B981] focus:ring-2 focus:ring-[#10B981]/20 w-36 sm:w-48"
+                  />
+                  <button
+                    type="submit"
+                    className="h-10 px-4 rounded-xl bg-[#123F2D] text-white font-bold text-xs hover:bg-[#0D6E48] transition shadow"
+                  >
+                    {t("Search")}
+                  </button>
+                </form>
+
+                <button
+                  type="button"
+                  onClick={handleGeolocation}
+                  disabled={isLocating}
+                  className="h-10 px-3.5 rounded-xl border border-[#10B981]/40 bg-emerald-50 text-[#0D6E48] font-bold text-xs hover:bg-emerald-100 transition flex items-center gap-1.5 shrink-0"
+                  title="Use current GPS position"
+                >
+                  <Navigation className={`h-3.5 w-3.5 ${isLocating ? "animate-spin text-emerald-600" : ""}`} />
+                  <span className="hidden sm:inline">{isLocating ? "Locating..." : "My Location"}</span>
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 flex-1 max-w-2xl">
-            {popularLocations.map((loc) => (
+          {/* Loading State */}
+          {loading && (
+            <div className="rounded-3xl border border-[#1E6446]/20 bg-white/96 p-12 text-center shadow-xl">
+              <div className="inline-block h-10 w-10 animate-spin rounded-full border-4 border-solid border-[#10B981] border-r-transparent align-[-0.125em]" />
+              <p className="mt-4 text-base font-bold text-[#123F2D]">{t("Loading live meteorological forecast...")}</p>
+            </div>
+          )}
+
+          {/* Error State */}
+          {!loading && errorMessage && (
+            <div className="rounded-3xl border border-red-300 bg-red-50 p-8 text-center shadow-lg text-red-900">
+              <CloudRain className="mx-auto h-12 w-12 text-red-600 mb-3" />
+              <h3 className="text-lg font-bold text-red-900">{t("Weather Service Notice")}</h3>
+              <p className="mt-1 text-sm font-semibold text-red-700 max-w-md mx-auto">{t(errorMessage)}</p>
               <button
-                key={loc}
                 type="button"
-                onClick={() => {
-                  setSelectedLocation(loc);
-                  setSearchInput(loc);
-                }}
-                className={`px-3 py-1.5 text-xs font-bold rounded-xl transition ${
-                  selectedLocation === loc
-                    ? "bg-primary text-primary-foreground shadow-sm"
-                    : "bg-muted text-muted-foreground hover:bg-muted/80"
-                }`}
+                onClick={() => loadWeather(selectedLocation)}
+                className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-red-700 text-white font-bold text-xs rounded-xl hover:bg-red-800 transition shadow"
               >
-                {t(loc)}
+                {t("Retry Weather Request")}
               </button>
-            ))}
-          </div>
+            </div>
+          )}
 
-          <form onSubmit={handleSearchSubmit} className="flex items-center gap-2">
-            <input
-              type="text"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              placeholder={t("Enter city name...")}
-              className="h-9 px-3 text-xs rounded-xl border border-border bg-background outline-none focus:ring-1 focus:ring-primary w-36 sm:w-48"
-            />
-            <button
-              type="submit"
-              className="h-9 px-4 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:bg-[#1b4332] transition"
-            >
-              {t("Search")}
-            </button>
-          </form>
-        </div>
+          {/* Real Weather & Crop Advisory Display */}
+          {!loading && !errorMessage && weatherData && (
+            <div className="space-y-6">
+              {/* Hero Current Weather Card */}
+              <div className="rounded-3xl border border-[#1E6446]/20 bg-gradient-to-br from-[#123F2D] via-[#1b4332] to-[#0D6E48] p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+                <div className="absolute right-0 top-0 opacity-10 translate-x-1/4 -translate-y-1/4 pointer-events-none">
+                  <CloudSun className="h-96 w-96 text-white" />
+                </div>
 
-        {/* Loading State */}
-        {loading && (
-          <div className="p-12 text-center bg-card rounded-2xl border border-border shadow-sm">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" />
-            <p className="mt-4 text-base font-bold text-muted-foreground">{t("Loading weather...")}</p>
-          </div>
-        )}
+                <div className="relative z-10 flex flex-col lg:flex-row justify-between gap-6">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <div className="inline-flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur-md px-3.5 py-1 text-xs font-bold text-emerald-100 border border-white/20">
+                        <MapPin className="h-3.5 w-3.5" />
+                        <span>{weatherData.locationName}</span>
+                      </div>
 
-        {/* Error State */}
-        {!loading && errorMessage && (
-          <div className="p-8 text-center bg-red-50/80 border border-red-200 rounded-2xl shadow-sm text-red-700">
-            <CloudRain className="mx-auto h-10 w-10 text-red-500 mb-2" />
-            <p className="text-lg font-black">{t(errorMessage)}</p>
-            <button
-              type="button"
-              onClick={() => loadWeather(selectedLocation)}
-              className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-bold text-xs rounded-xl hover:bg-red-700 transition"
-            >
-              {t("Retry")}
-            </button>
-          </div>
-        )}
+                      <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/25 backdrop-blur-md px-3.5 py-1 text-xs font-bold text-emerald-200 border border-emerald-400/30">
+                        <span>{currentProfile.emoji}</span>
+                        <span>{currentProfile.name} ({currentProfile.season})</span>
+                      </div>
+                    </div>
 
-        {/* Real Weather Data Display */}
-        {!loading && !errorMessage && weatherData && (
-          <div className="space-y-6">
-            {/* Hero Current Weather Card */}
-            <div className="rounded-3xl border border-border bg-gradient-to-br from-[#1b4332] to-[#2d6a4f] p-6 sm:p-8 text-white shadow-lg relative overflow-hidden">
-              <div className="absolute right-0 top-0 opacity-10 translate-x-1/4 -translate-y-1/4 pointer-events-none">
-                <CloudSun className="h-96 w-96 text-white" />
+                    <div className="mt-4 flex items-center gap-4">
+                      <img src={weatherData.iconUrl} alt={weatherData.condition} className="h-20 w-20 object-contain drop-shadow-md" />
+                      <div>
+                        <h2 className="text-5xl font-black tracking-tight">{weatherData.temp}°C</h2>
+                        <p className="text-lg font-bold text-emerald-100 capitalize">{weatherData.description}</p>
+                      </div>
+                    </div>
+                    <p className="mt-2 text-sm text-emerald-200/90 font-semibold">
+                      {t("Feels like")} {weatherData.feelsLike}°C · {t("High")} {weatherData.tempMax}°C / {t("Low")} {weatherData.tempMin}°C
+                    </p>
+                  </div>
+
+                  {/* Metrics Grid */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 lg:self-end">
+                    <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/15">
+                      <Droplets className="mx-auto h-5 w-5 text-emerald-300" />
+                      <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Humidity")}</p>
+                      <p className="text-base font-black">{weatherData.humidity}%</p>
+                    </div>
+
+                    <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/15">
+                      <Wind className="mx-auto h-5 w-5 text-emerald-300" />
+                      <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Wind Speed")}</p>
+                      <p className="text-base font-black">{weatherData.windSpeed} km/h</p>
+                    </div>
+
+                    <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/15">
+                      <Sun className="mx-auto h-5 w-5 text-amber-300" />
+                      <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Sunrise")}</p>
+                      <p className="text-base font-black">{weatherData.sunrise}</p>
+                    </div>
+
+                    <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/15">
+                      <CloudSun className="mx-auto h-5 w-5 text-amber-300" />
+                      <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Sunset")}</p>
+                      <p className="text-base font-black">{weatherData.sunset}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="relative z-10 flex flex-col md:flex-row justify-between gap-6">
+              {/* Crop Weather Guidance Section */}
+              <div className="space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#1E6446]/10 pb-3">
+                  <div>
+                    <h3 className="text-xl font-bold text-[#123F2D] flex items-center gap-2">
+                      <span>{currentProfile.emoji}</span>
+                      <span>{t("Crop Weather Guidance")} — {currentProfile.name}</span>
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#315A49] font-medium mt-0.5">
+                      {t("Live atmospheric evaluation against agronomic growth parameters for")} {currentProfile.name}.
+                    </p>
+                  </div>
+                  <span className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-[#0D6E48] border border-emerald-300">
+                    Water Need: {currentProfile.waterNeed}
+                  </span>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  {cropAdvisories.map((adv, idx) => {
+                    const statusBg =
+                      adv.status === "optimal"
+                        ? "bg-emerald-50 border-emerald-300 text-[#0D6E48]"
+                        : adv.status === "alert"
+                        ? "bg-red-50 border-red-300 text-red-800"
+                        : adv.status === "warning"
+                        ? "bg-amber-50 border-amber-300 text-amber-900"
+                        : "bg-blue-50 border-blue-300 text-blue-900";
+
+                    const badgeColor =
+                      adv.status === "optimal"
+                        ? "bg-emerald-600 text-white"
+                        : adv.status === "alert"
+                        ? "bg-red-600 text-white"
+                        : adv.status === "warning"
+                        ? "bg-amber-600 text-white"
+                        : "bg-blue-600 text-white";
+
+                    return (
+                      <div
+                        key={idx}
+                        className={`rounded-2xl border p-4.5 space-y-2.5 shadow-sm transition-all hover:shadow-md ${statusBg}`}
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="text-xs font-bold uppercase tracking-wider opacity-90">
+                            {adv.category}
+                          </span>
+                          <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-black uppercase ${badgeColor}`}>
+                            {adv.status}
+                          </span>
+                        </div>
+
+                        <h4 className="font-bold text-sm leading-snug">{adv.title}</h4>
+
+                        <p className="text-xs sm:text-sm font-semibold leading-relaxed opacity-95">
+                          {adv.recommendation}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* 5-Day Field Advisory Forecast */}
+              <div className="space-y-4 pt-2">
                 <div>
-                  <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-3 py-1 text-xs font-bold text-emerald-200">
-                    <MapPin className="h-3.5 w-3.5" />
-                    <span>{weatherData.locationName}</span>
-                  </div>
-                  <div className="mt-4 flex items-center gap-4">
-                    <img src={weatherData.iconUrl} alt={weatherData.condition} className="h-20 w-20 object-contain drop-shadow-md" />
-                    <div>
-                      <h2 className="text-5xl font-black tracking-tight">{weatherData.temp}°C</h2>
-                      <p className="text-lg font-semibold text-emerald-100 capitalize">{weatherData.description}</p>
-                    </div>
-                  </div>
-                  <p className="mt-2 text-sm text-emerald-200/90 font-medium">
-                    {t("Feels like")} {weatherData.feelsLike}°C · {t("High")} {weatherData.tempMax}°C / {t("Low")} {weatherData.tempMin}°C
+                  <h3 className="text-xl font-bold text-[#123F2D]">{t("5-Day Field Advisory Forecast")}</h3>
+                  <p className="text-xs sm:text-sm text-[#315A49] font-medium">
+                    {t("Daily agricultural field action recommendations based on live forecast models.")}
                   </p>
                 </div>
 
-                {/* Metrics Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:self-end">
-                  <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/10">
-                    <Droplets className="mx-auto h-5 w-5 text-emerald-300" />
-                    <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Humidity")}</p>
-                    <p className="text-base font-black">{weatherData.humidity}%</p>
-                  </div>
+                <div className="grid gap-4 md:grid-cols-5">
+                  {weatherData.forecast.map((day) => (
+                    <div
+                      key={day.dateStr}
+                      className="rounded-2xl border border-[#1E6446]/20 bg-white/96 p-4 shadow-md flex flex-col justify-between space-y-3"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <p className="font-bold text-base text-[#123F2D]">{t(day.day)}</p>
+                          <span className="text-[10px] font-bold text-[#527064] uppercase">{day.dateStr.slice(5)}</span>
+                        </div>
 
-                  <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/10">
-                    <Wind className="mx-auto h-5 w-5 text-emerald-300" />
-                    <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Wind Speed")}</p>
-                    <p className="text-base font-black">{weatherData.windSpeed} km/h</p>
-                  </div>
+                        <div className="mt-2 flex items-center gap-2">
+                          <img src={day.iconUrl} alt={day.condition} className="h-10 w-10 object-contain" />
+                          <div>
+                            <p className="text-xs font-bold capitalize text-[#123F2D]">{t(day.condition)}</p>
+                            <p className="text-[11px] font-semibold text-[#527064]">{day.description}</p>
+                          </div>
+                        </div>
 
-                  <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/10">
-                    <Sun className="mx-auto h-5 w-5 text-amber-300" />
-                    <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Sunrise")}</p>
-                    <p className="text-base font-black">{weatherData.sunrise}</p>
-                  </div>
+                        <p className="mt-3 text-xl font-black text-[#123F2D]">
+                          {day.high}° <span className="text-sm font-medium text-[#527064]">/ {day.low}°C</span>
+                        </p>
 
-                  <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/10">
-                    <CloudSun className="mx-auto h-5 w-5 text-amber-300" />
-                    <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Sunset")}</p>
-                    <p className="text-base font-black">{weatherData.sunset}</p>
-                  </div>
+                        <p className="mt-1 text-xs font-bold text-[#0D6E48] flex items-center gap-1">
+                          <Droplets className="h-3 w-3 text-blue-500 fill-blue-100" />
+                          <span>{day.rainProb}% {t("rain prob.")}</span>
+                        </p>
+                      </div>
+
+                      <div className="rounded-xl bg-emerald-50/80 p-2.5 border border-emerald-200/60">
+                        <p className="text-[11px] leading-relaxed text-[#123F2D] font-semibold">{t(day.advisory)}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-
-            {/* 5-Day Forecast Title */}
-            <div>
-              <h3 className="text-xl font-black text-[#1b4332] mb-1">{t("5-Day Field Advisory Forecast")}</h3>
-              <p className="text-sm text-muted-foreground">{t("Daily agricultural recommendations based on live atmospheric data.")}</p>
-            </div>
-
-            {/* 5-Day Cards Grid */}
-            <div className="grid gap-4 md:grid-cols-5">
-              {weatherData.forecast.map((day) => (
-                <div key={day.dateStr} className={glassCardClass}>
-                  <div className="flex items-center justify-between">
-                    <p className="font-black text-base text-[#1b4332]">{t(day.day)}</p>
-                    <span className="text-[10px] font-bold text-muted-foreground uppercase">{day.dateStr.slice(5)}</span>
-                  </div>
-                  
-                  <div className="mt-2 flex items-center gap-2">
-                    <img src={day.iconUrl} alt={day.condition} className="h-10 w-10 object-contain" />
-                    <div>
-                      <p className="text-xs font-bold capitalize text-foreground">{t(day.condition)}</p>
-                      <p className="text-xs text-muted-foreground">{day.description}</p>
-                    </div>
-                  </div>
-
-                  <p className="mt-3 text-2xl font-black text-foreground">
-                    {day.high}° <span className="text-base font-medium text-muted-foreground">/ {day.low}°C</span>
-                  </p>
-
-                  <p className="mt-1 text-xs font-bold text-primary flex items-center gap-1">
-                    <Droplets className="h-3 w-3 text-blue-500 fill-blue-100" />
-                    <span>{day.rainProb}% {t("rain prob.")}</span>
-                  </p>
-
-                  <div className="mt-3 rounded-xl bg-muted/60 p-2.5 border border-border/50">
-                    <p className="text-xs leading-normal text-muted-foreground font-medium">{t(day.advisory)}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </PageShell>
     </RoleGuard>
   );
@@ -4078,7 +4526,8 @@ export function CropCalendarPage() {
 export function LearnPage() {
   const { t } = useTranslation();
   const [query, setQuery] = useState("");
-  const [levelFilter, setLevelFilter] = useState("All Courses");
+  const [categoryFilter, setCategoryFilter] = useState("All Topics");
+  const [levelFilter, setLevelFilter] = useState("All Levels");
 
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(() => {
     if (typeof window !== "undefined") {
@@ -4159,6 +4608,12 @@ export function LearnPage() {
     return Math.round((completedCount / courseLessons.length) * 100);
   };
 
+  const clearFilters = () => {
+    setQuery("");
+    setCategoryFilter("All Topics");
+    setLevelFilter("All Levels");
+  };
+
   if (selectedCourseId !== null) {
     const course = COURSES.find((c) => c.id === selectedCourseId);
 
@@ -4170,14 +4625,14 @@ export function LearnPage() {
         >
           <PageShell
             eyebrow={t("Learning")}
-            title={t("Course Not Found")}
-            intro={t("The requested course could not be found or does not exist.")}
+            title={t("Topic Not Found")}
+            intro={t("The requested learning topic could not be found.")}
           >
             <div className="rounded-2xl border border-amber-200 bg-amber-50/80 p-8 text-center space-y-4 max-w-lg mx-auto">
               <AlertTriangle className="h-12 w-12 text-amber-600 mx-auto" />
-              <h2 className="text-xl font-black text-amber-900">{t("Course Not Found")}</h2>
+              <h2 className="text-xl font-black text-amber-900">{t("Topic Not Found")}</h2>
               <p className="text-sm text-amber-800">
-                {t("The requested course could not be found or does not exist.")}
+                {t("The requested learning topic could not be found or does not exist.")}
               </p>
               <button
                 type="button"
@@ -4185,7 +4640,7 @@ export function LearnPage() {
                 className="inline-flex items-center gap-2 h-11 px-6 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-sm font-bold transition shadow-md cursor-pointer"
               >
                 <ArrowLeft className="h-4 w-4" />
-                {t("Back to Learning")}
+                {t("Back to Learning Hub")}
               </button>
             </div>
           </PageShell>
@@ -4208,7 +4663,7 @@ export function LearnPage() {
           intro={t(course.description ?? "")}
         >
           <div className="space-y-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-wrap items-center justify-between gap-3">
               <button
                 type="button"
                 onClick={() => handleSelectCourse(null)}
@@ -4218,11 +4673,62 @@ export function LearnPage() {
                 {t("Back to Learning Hub")}
               </button>
 
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-[#1b4332] text-xs font-bold border border-emerald-300">
-                <GraduationCap className="h-4 w-4" />
-                {t(course.topic)} · {t(course.level)}
-              </span>
+              <div className="flex flex-wrap items-center gap-2">
+                {course.category && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-100 text-[#1b4332] text-xs font-bold border border-emerald-300">
+                    {t(course.category)}
+                  </span>
+                )}
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold border border-slate-300">
+                  <GraduationCap className="h-4 w-4" />
+                  {t(course.level)}
+                </span>
+                {course.youtubeUrl && (
+                  <a
+                    href={course.youtubeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold shadow-xs hover:bg-red-700 transition"
+                  >
+                    <Video className="h-3.5 w-3.5" />
+                    {t("Watch on YouTube")}
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                )}
+              </div>
             </div>
+
+            {/* YouTube Educational Content Banner */}
+            {course.youtubeUrl && (
+              <div className="rounded-2xl border border-red-200 bg-red-50/90 backdrop-blur-md p-5 shadow-soft flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-3.5">
+                  <div className="p-3 rounded-xl bg-red-600 text-white shrink-0 shadow-sm">
+                    <Video className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-black uppercase tracking-wider text-red-700 bg-red-100/80 px-2 py-0.5 rounded border border-red-200">
+                      {t("Verified Educational Video")}
+                    </span>
+                    <h3 className="text-base font-black text-red-950 mt-1">
+                      {t("Watch Course Lectures on YouTube")}
+                    </h3>
+                    <p className="text-xs text-red-800 font-medium">
+                      {t("Official channel resource:")} <span className="font-bold">{course.youtubeChannel ?? course.instructor}</span>
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href={course.youtubeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition shadow-md shrink-0 cursor-pointer"
+                >
+                  <Video className="h-4 w-4" />
+                  {t("Watch on YouTube")}
+                  <ExternalLink className="h-3.5 w-3.5 ml-0.5" />
+                </a>
+              </div>
+            )}
 
             <div className="rounded-2xl border border-white/60 bg-white/90 backdrop-blur-md p-6 shadow-soft space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/60 pb-4">
@@ -4339,7 +4845,7 @@ export function LearnPage() {
                     <div className="space-y-3">
                       <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-                        {t("Key Field Takeaways")}
+                        {t("Key Learning Takeaways")}
                       </h3>
                       <ul className="space-y-2">
                         {currentLesson.keyPoints.map((pt, idx) => (
@@ -4357,7 +4863,7 @@ export function LearnPage() {
                     <div className="rounded-xl border border-emerald-300 bg-emerald-50/90 p-4 space-y-2 shadow-2xs">
                       <div className="flex items-center gap-2 text-xs font-black text-[#1b4332]">
                         <Leaf className="h-4 w-4 text-emerald-600 fill-emerald-200" />
-                        {t("Farming Tip & Practical Action")}
+                        {t("Practical Action & Field Tip")}
                       </div>
                       <p className="text-xs text-[#1b4332] font-semibold leading-relaxed">
                         {t(currentLesson.farmingTip)}
@@ -4428,106 +4934,210 @@ export function LearnPage() {
     );
   }
 
+  const categoriesList = ["All Topics", "Agriculture", "Computer Science", "Programming", "Data Science & AI", "AgriTech"];
+  const levelsList = ["All Levels", "Beginner", "Intermediate", "Advanced"];
+
   const filtered = COURSES.filter((c) => {
-    const matchesQuery = `${t(c.title)} ${t(c.topic)} ${t(c.level)} ${t(c.description ?? "")}`
-      .toLowerCase()
-      .includes(query.toLowerCase());
-    const matchesLevel = levelFilter === "All Courses" || c.level === levelFilter;
-    return matchesQuery && matchesLevel;
+    const searchString = `${t(c.title)} ${t(c.topic)} ${t(c.level)} ${c.category ?? ""} ${t(c.instructor)} ${t(c.description ?? "")}`
+      .toLowerCase();
+    const matchesQuery = !query.trim() || searchString.includes(query.toLowerCase());
+    const matchesCategory =
+      categoryFilter === "All Topics" ||
+      (c.category && c.category.toLowerCase() === categoryFilter.toLowerCase());
+    const matchesLevel = levelFilter === "All Levels" || c.level === levelFilter;
+
+    return matchesQuery && matchesCategory && matchesLevel;
   });
+
+  const hasActiveFilters = query.trim() !== "" || categoryFilter !== "All Topics" || levelFilter !== "All Levels";
 
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         bgImage="https://upload.wikimedia.org/wikipedia/commons/f/fc/Farmer_working_in_the_field_with_their_tractor.jpg"
-        eyebrow={t("Learning")}
-        title={t("Agriculture Learning Hub")}
+        eyebrow={t("Education & Knowledge")}
+        title={t("PureFarm Learning Hub")}
         intro={t(
-          "Learn practical farming skills, modern agricultural technologies, crop management, and sustainable farming practices.",
+          "Explore agricultural field guides, modern tech courses, university topics, and verified YouTube video lectures.",
         )}
       >
         <div className="mb-6 space-y-4">
-          <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
+          <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
             <div className="relative flex-1 max-w-md">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <input
                 type="text"
-                placeholder={t("Search courses...")}
+                placeholder={t("Search courses, CS topics, YouTube resources...")}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="w-full h-11 pl-10 pr-4 rounded-xl border border-white/50 bg-white/80 backdrop-blur-md shadow-sm text-sm outline-none focus:bg-white focus:ring-2 focus:ring-emerald-600"
+                className="w-full h-11 pl-10 pr-9 rounded-xl border border-white/50 bg-white/80 backdrop-blur-md shadow-sm text-sm outline-none focus:bg-white focus:ring-2 focus:ring-emerald-600"
               />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
             </div>
-            <div className="flex flex-wrap gap-2">
-              {["All Courses", "Beginner", "Intermediate", "Advanced"].map((lvl) => (
+
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs font-bold text-slate-700 flex items-center gap-1 shrink-0 mr-1">
+                <Filter className="h-3.5 w-3.5 text-emerald-700" />
+                {t("Category:")}
+              </span>
+              {categoriesList.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setCategoryFilter(cat)}
+                  className={`h-9 px-3 rounded-xl text-xs font-bold transition shadow-2xs cursor-pointer ${
+                    categoryFilter === cat
+                      ? "bg-[#1b4332] text-white"
+                      : "bg-white/80 border border-white/60 text-[#1b4332] hover:bg-white"
+                  }`}
+                >
+                  {t(cat)}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-1 border-t border-white/40">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs font-bold text-slate-700 shrink-0 mr-1">
+                {t("Difficulty Level:")}
+              </span>
+              {levelsList.map((lvl) => (
                 <button
                   key={lvl}
                   type="button"
                   onClick={() => setLevelFilter(lvl)}
-                  className={`h-10 px-4 rounded-xl text-xs font-bold transition shadow-xs cursor-pointer ${
+                  className={`h-8 px-3 rounded-lg text-[11px] font-bold transition cursor-pointer ${
                     levelFilter === lvl
-                      ? "bg-[#1b4332] text-white"
-                      : "bg-white/80 border border-white/60 text-[#1b4332] hover:bg-white"
+                      ? "bg-emerald-700 text-white"
+                      : "bg-white/60 border border-white/50 text-slate-700 hover:bg-white"
                   }`}
                 >
                   {t(lvl)}
                 </button>
               ))}
             </div>
+
+            {hasActiveFilters && (
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700 bg-red-50/80 hover:bg-red-100 px-3 py-1.5 rounded-lg border border-red-200 transition cursor-pointer"
+              >
+                <X className="h-3.5 w-3.5" />
+                {t("Clear All Filters")}
+              </button>
+            )}
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((c) => {
-            const courseLessons = AGRICULTURE_LESSONS.filter((l) => l.courseId === c.id);
-            const totalLessons = courseLessons.length > 0 ? courseLessons.length : c.lessons;
-            const progressPct = getCourseProgressPct(c.id);
+        {filtered.length === 0 ? (
+          <div className="rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-12 text-center space-y-4 max-w-md mx-auto shadow-soft">
+            <BookOpen className="h-12 w-12 text-slate-400 mx-auto" />
+            <h3 className="text-lg font-black text-[#1b4332]">{t("No Topics Found")}</h3>
+            <p className="text-xs text-muted-foreground">
+              {t("No educational topics or courses match your current search query or filter selection.")}
+            </p>
+            <button
+              type="button"
+              onClick={clearFilters}
+              className="inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-bold transition shadow-sm cursor-pointer"
+            >
+              <X className="h-4 w-4" />
+              {t("Clear All Filters")}
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filtered.map((c) => {
+              const courseLessons = AGRICULTURE_LESSONS.filter((l) => l.courseId === c.id);
+              const totalLessons = courseLessons.length > 0 ? courseLessons.length : c.lessons;
+              const progressPct = getCourseProgressPct(c.id);
 
-            return (
-              <div
-                key={c.id}
-                className="rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-5 shadow-soft flex flex-col justify-between space-y-4 hover:shadow-md transition"
-              >
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
-                      {t(c.level)}
-                    </span>
-                    <span className="text-xs text-muted-foreground font-semibold">
-                      {c.hours} {t("hrs")} · {totalLessons} {t("lessons")}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {t(c.description ?? "")}
-                  </p>
-                </div>
+              return (
+                <div
+                  key={c.id}
+                  className="rounded-2xl border border-white/60 bg-white/85 backdrop-blur-md p-5 shadow-soft flex flex-col justify-between space-y-4 hover:shadow-md transition"
+                >
+                  <div className="space-y-3">
+                    <div className="flex flex-wrap items-center justify-between gap-1.5">
+                      <div className="flex items-center gap-1.5">
+                        {c.category && (
+                          <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
+                            {t(c.category)}
+                          </span>
+                        )}
+                        <span className="inline-flex rounded-full bg-slate-100 text-slate-700 px-2 py-0.5 text-[10px] font-bold border border-slate-200">
+                          {t(c.level)}
+                        </span>
+                      </div>
+                      <span className="text-[11px] text-muted-foreground font-semibold">
+                        {c.hours} {t("hrs")} · {totalLessons} {t("lessons")}
+                      </span>
+                    </div>
 
-                <div className="space-y-3 pt-3 border-t border-border/60">
-                  <div className="flex justify-between text-xs font-bold">
-                    <span className="text-muted-foreground">{t(c.instructor)}</span>
-                    <span className="text-[#2d6a4f]">
-                      {progressPct}% {t("completed")}
-                    </span>
+                    <h3 className="text-base font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
+                    <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
+                      {t(c.description ?? "")}
+                    </p>
                   </div>
-                  <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
-                    <div
-                      className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
-                      style={{ width: `${progressPct}%` }}
-                    />
+
+                  <div className="space-y-3 pt-3 border-t border-border/60">
+                    <div className="flex items-center justify-between text-xs font-bold">
+                      <span className="text-muted-foreground truncate max-w-[60%]">{t(c.instructor)}</span>
+                      <span className="text-[#2d6a4f] shrink-0">
+                        {progressPct}% {t("completed")}
+                      </span>
+                    </div>
+
+                    <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
+                      <div
+                        className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
+                        style={{ width: `${progressPct}%` }}
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2 pt-1">
+                      {c.youtubeUrl ? (
+                        <a
+                          href={c.youtubeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="h-10 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
+                        >
+                          <Video className="h-3.5 w-3.5" />
+                          {t("Watch YouTube")}
+                          <ExternalLink className="h-3 w-3" />
+                        </a>
+                      ) : (
+                        <div />
+                      )}
+
+                      <button
+                        type="button"
+                        onClick={() => handleSelectCourse(c.id)}
+                        className={`h-10 rounded-xl ${
+                          c.youtubeUrl ? "bg-[#2d6a4f] hover:bg-[#1b4332]" : "col-span-2 bg-[#2d6a4f] hover:bg-[#1b4332]"
+                        } text-white text-xs font-black transition shadow-sm cursor-pointer flex items-center justify-center gap-1`}
+                      >
+                        <BookOpen className="h-3.5 w-3.5" />
+                        {progressPct > 0 ? t("Continue") : t("Lessons")}
+                      </button>
+                    </div>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => handleSelectCourse(c.id)}
-                    className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm cursor-pointer"
-                  >
-                    {progressPct > 0 ? t("Continue Learning") : t("Start Learning")}
-                  </button>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        )}
       </PageShell>
     </RoleGuard>
   );
@@ -7977,7 +8587,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "45 HP, Diesel Engine, Dual Clutch, Heavy Tow Hitch",
       description: "Multi-purpose 45 HP red diesel agricultural tractor with power steering and dual clutch. Ideal for tilling, ploughing, and transport.",
-      image: "/images/machines/tractor.jpg",
+      image: "/images/machines/mahindra_575_tractor.jpg",
       phone: "9848012345",
     },
     {
@@ -7991,7 +8601,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "55 HP Power Steering, 12F+4R Gearbox, Oil Immersed Brakes",
       description: "High power 55 HP heavy-duty tractor equipped with 12F+4R gear transmission, oil immersed disc brakes, and high torque output.",
-      image: "/images/machines/tractor.jpg",
+      image: "/images/machines/john_deere_5310_tractor.jpg",
       phone: "9848011223",
     },
     {
@@ -8005,7 +8615,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "48 HP 3-Cylinder Diesel, Direction Control Valve, 2000kg Lift",
       description: "Reliable 48 HP 3-cylinder diesel tractor with multi-speed PTO, dual clutch, and 2000kg hydraulic lift capacity for heavy soil tilling.",
-      image: "/images/machines/tractor.jpg",
+      image: "/images/machines/swaraj_744_tractor.jpg",
       phone: "9848011334",
     },
     {
@@ -8019,7 +8629,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "50 HP Engine, High Torque, Power Steering, Constant Mesh",
       description: "50 HP heavy-duty agricultural tractor engineered for low fuel consumption and high pulling force with subsoilers and haulage.",
-      image: "/images/machines/tractor.jpg",
+      image: "/images/machines/sonalika_745_tractor.jpg",
       phone: "9848011445",
     },
 
@@ -8035,7 +8645,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "68 HP, Paddy & Wheat Combine, Hydrostatic Drive",
       description: "High performance paddy & wheat combine harvester operating in field with 68 HP diesel engine for quick harvesting.",
-      image: "/images/machines/harvester.jpg",
+      image: "/images/machines/kubota_dc68g_harvester.jpg",
       phone: "9848023456",
     },
     {
@@ -8049,7 +8659,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "100 HP Turbocharged, 14-ft Cutter Bar, Grain Loss Monitor",
       description: "100 HP turbocharged self-propelled combine harvester with 14-foot cutter bar and active grain loss monitor for large fields.",
-      image: "/images/machines/harvester.jpg",
+      image: "/images/machines/john_deere_w70_harvester.jpg",
       phone: "9848022334",
     },
     {
@@ -8063,7 +8673,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "101 HP Engine, Straw Chopper Attachment, Rubber Tracks",
       description: "Heavy duty 101 HP paddy crawler combine with heavy-duty rubber tracks for harvesting in wet muddy paddy fields.",
-      image: "/images/machines/harvester.jpg",
+      image: "/images/machines/preet_987_harvester.jpg",
       phone: "9848022445",
     },
     {
@@ -8077,7 +8687,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "130 HP Engine, Rotary Separator, Dual Drum Threshing",
       description: "130 HP multi-crop combine harvester with rotary separator and dual drum paddy threshing mechanism.",
-      image: "/images/machines/harvester.jpg",
+      image: "/images/machines/new_holland_tc530_harvester.jpg",
       phone: "9848022556",
     },
 
@@ -8093,7 +8703,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "48 Blades, Multi-speed Gearbox, PTO Driven",
       description: "Heavy duty 7-foot tractor-mounted rotary tiller with 48 blades for fine seedbed preparation.",
-      image: "/images/machines/rotavator.jpg",
+      image: "/images/machines/shaktiman_rotavator_7ft.jpg",
       phone: "9848034567",
     },
     {
@@ -8107,7 +8717,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "42 Boron Steel Blades, Heavy Duty Side Gear Drive",
       description: "Italian boron steel 42-blade rotavator engineered for smooth soil pulverization and residue incorporation.",
-      image: "/images/machines/rotavator.jpg",
+      image: "/images/machines/maschio_rotavator_6ft.jpg",
       phone: "9848033445",
     },
     {
@@ -8121,7 +8731,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "54 L-Type Blades, Dual Crown Multi-Speed Gearbox",
       description: "Wide 8-foot tractor rotavator with 54 L-type blades suitable for tractors above 50 HP for fast land preparation.",
-      image: "/images/machines/rotavator.jpg",
+      image: "/images/machines/fieldking_rotavator_8ft.jpg",
       phone: "9848033556",
     },
     {
@@ -8135,7 +8745,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "Waterproof Bearing Seal, 36 C-Type Blades for Wet Tillage",
       description: "Specialized wet land paddy rotavator with waterproof bearing seals and 36 C-type blades for thorough puddling.",
-      image: "/images/machines/rotavator.jpg",
+      image: "/images/machines/dasmesh_paddy_rotavator.jpg",
       phone: "9848033667",
     },
 
@@ -8151,7 +8761,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "7.5 HP Petrol, Reverse Gear, Tillage Depth 6-8 inch",
       description: "Heavy duty petrol power tiller cultivator with visible tines for orchard tilling and weeding.",
-      image: "/images/machines/cultivator.jpg",
+      image: "/images/machines/stihl_power_tiller_7hp.jpg",
       phone: "9848067890",
     },
     {
@@ -8165,7 +8775,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "9 Forged Steel Tynes, Heavy Channel Frame, 35+ HP Mount",
       description: "Tractor-mounted 9-tyne rigid cultivator with forged steel tynes for hard soil loosening and primary tillage.",
-      image: "/images/machines/cultivator.jpg",
+      image: "/images/machines/swan_9tyne_cultivator.jpg",
       phone: "9848066778",
     },
     {
@@ -8179,7 +8789,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "High-Tensile Springs, Reversible Carbon Shovels, 11 Tynes",
       description: "Heavy-duty 11-tyne spring-loaded cultivator designed for stony soils with high clearance and reversible carbon shovels.",
-      image: "/images/machines/cultivator.jpg",
+      image: "/images/machines/fieldking_11tyne_cultivator.jpg",
       phone: "9848066889",
     },
     {
@@ -8193,7 +8803,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "13 HP Diesel Engine, 18-Blade Rotary Tiller",
       description: "13 HP diesel water-cooled power tiller equipped with 18-blade rotary tiller for inter-cultivation and vegetable plots.",
-      image: "/images/machines/cultivator.jpg",
+      image: "/images/machines/vst_shakti_13hp_tiller.jpg",
       phone: "9848066990",
     },
 
@@ -8209,7 +8819,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "9 Tines, Double Box Seed & Fertilizer, Adjustable Depth",
       description: "Tractor-mounted 9-row automatic seed drill and fertilizer applicator for precise sowing.",
-      image: "/images/machines/seeder.jpg",
+      image: "/images/machines/national_seed_drill_9row.jpg",
       phone: "9848078901",
     },
     {
@@ -8223,7 +8833,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "11 Rows, Fluted Roller Metering, Zero Tillage",
       description: "Direct seed drill allowing sowing without prior tilling, saving fuel and conserving soil moisture.",
-      image: "/images/machines/seeder.jpg",
+      image: "/images/machines/khedut_zero_till_drill.jpg",
       phone: "9848077889",
     },
     {
@@ -8237,7 +8847,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "8 Rows Direct Sowing, Fiber Drums, Lightweight Pull",
       description: "Lightweight 8-row direct paddy drum seeder for sprouted paddy seeds in prepared puddled fields.",
-      image: "/images/machines/seeder.jpg",
+      image: "/images/machines/landforce_paddy_drum_seeder.jpg",
       phone: "9848077990",
     },
     {
@@ -8251,7 +8861,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "Vacuum Precision Metering, 4 Rows, Adjustable Spacing",
       description: "Pneumatic vacuum precision planter for single-seed placement of maize, cotton, and sunflower seeds.",
-      image: "/images/machines/seeder.jpg",
+      image: "/images/machines/pneumatic_precision_planter.jpg",
       phone: "9848077101",
     },
 
@@ -8267,7 +8877,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "12V 12Ah Battery, 20L Tank, Adjustable Brass Nozzle",
       description: "12V battery-operated 20L backpack power sprayer with dual brass nozzles for pesticide spray.",
-      image: "/images/machines/sprayer.jpg",
+      image: "/images/machines/knapsack_power_sprayer_20l.jpg",
       phone: "9848045678",
     },
     {
@@ -8281,7 +8891,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "400L Polyethylene Tank, 12m Folding Boom, PTO Pump",
       description: "400-litre tractor PTO-driven boom sprayer with 12-meter folding spray booms for fast field chemical treatment.",
-      image: "/images/machines/sprayer.jpg",
+      image: "/images/machines/fieldking_400l_boom_sprayer.jpg",
       phone: "9848044556",
     },
     {
@@ -8295,7 +8905,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "Brass Pump Barrel, 2m Extension Rod, High Pressure Hose",
       description: "High-pressure foot sprayer with brass pump cylinder and long delivery hose for orchard trees.",
-      image: "/images/machines/sprayer.jpg",
+      image: "/images/machines/aspee_foot_orchard_sprayer.jpg",
       phone: "9848044667",
     },
     {
@@ -8309,7 +8919,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "31cc 4-Stroke Engine, 50m Hose Reel, High Jet Pressure",
       description: "Portable 31cc 4-stroke petrol engine power sprayer with 50-meter hose reel for spraying fruit gardens and field crops.",
-      image: "/images/machines/sprayer.jpg",
+      image: "/images/machines/kisankraft_petrol_sprayer.jpg",
       phone: "9848044778",
     },
 
@@ -8325,7 +8935,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "5 HP Engine, 3-inch Delivery Pipe, 1000L/min Flow",
       description: "4-stroke petrol 3-inch agricultural irrigation water pump for high volume field watering.",
-      image: "/images/machines/water_pump.jpg",
+      image: "/images/machines/honda_5hp_water_pump.jpg",
       phone: "9848056789",
     },
     {
@@ -8339,7 +8949,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "7.5 HP Air-Cooled Diesel, 4-inch Suction & Delivery",
       description: "Heavy duty single cylinder diesel water pump coupled with 4-inch high discharge centrifugal pump.",
-      image: "/images/machines/water_pump.jpg",
+      image: "/images/machines/kirloskar_7hp_diesel_pump.jpg",
       phone: "9848055667",
     },
     {
@@ -8353,7 +8963,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "5 HP 3-Phase Motor, Stainless Steel Impellers, High Head",
       description: "5 HP 3-phase open well submersible pump set engineered for continuous agricultural irrigation from open wells.",
-      image: "/images/machines/water_pump.jpg",
+      image: "/images/machines/crompton_submersible_pump.jpg",
       phone: "9848055778",
     },
     {
@@ -8367,7 +8977,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "3 HP Single Phase, Heavy Cast Iron Body, High Discharge",
       description: "Single-phase 3 HP monoblock pump suitable for lifting water from canals, ponds, and shallow borewells.",
-      image: "/images/machines/water_pump.jpg",
+      image: "/images/machines/texmo_monoblock_pump.jpg",
       phone: "9848055889",
     },
 
@@ -8383,7 +8993,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "30 Brass Sprinklers, 75mm HDPE Pipes, 2 Acre Kit",
       description: "Portable agricultural sprinkler set with 30 nozzles and quick-fit HDPE pipes for 2-acre coverage.",
-      image: "/images/machines/irrigation.jpg",
+      image: "/images/machines/jain_sprinkler_system.jpg",
       phone: "9848089012",
     },
     {
@@ -8397,7 +9007,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "Inline Dripper Tubes, Screen Filter, Venturi Injector",
       description: "Complete 1-acre drip irrigation kit featuring inline pressure compensating drippers, screen filter, and venturi injector.",
-      image: "/images/machines/irrigation.jpg",
+      image: "/images/machines/netafim_drip_irrigation_kit.jpg",
       phone: "9848088990",
     },
     {
@@ -8411,7 +9021,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "1.5-inch Heavy Brass Rain Gun, 30m Radius, Quick Latch",
       description: "High-throw 1.5-inch brass rain gun sprinkler capable of 30-meter spray radius for sugarcane and maize fields.",
-      image: "/images/machines/irrigation.jpg",
+      image: "/images/machines/finolex_raingun_sprinkler.jpg",
       phone: "9848088101",
     },
     {
@@ -8425,7 +9035,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "60mm Quick Latch Pipes, 20 Brass Impact Heads",
       description: "Portable sprinkler pipeline kit with 20 brass impact sprinklers and 60mm quick-couple latch pipes.",
-      image: "/images/machines/irrigation.jpg",
+      image: "/images/machines/kritika_hdpe_sprinkler_pipes.jpg",
       phone: "9848088212",
     },
 
@@ -8441,7 +9051,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "2.2 HP 40cc Petrol, 3-Tooth Blade, Double Harness",
       description: "Heavy duty 2-stroke petrol brush cutter tool with 3-tooth metal blade and tap-and-go nylon head.",
-      image: "/images/machines/power_tools.jpg",
+      image: "/images/machines/stihl_brush_cutter.jpg",
       phone: "9848090123",
     },
     {
@@ -8455,7 +9065,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "55.5cc Engine, 20-inch Guide Bar, AutoTune Carburetor",
       description: "Professional 55.5cc petrol chainsaw with 20-inch guide bar for farm tree pruning, timber cutting, and land clearing.",
-      image: "/images/machines/power_tools.jpg",
+      image: "/images/machines/husqvarna_455_chainsaw.jpg",
       phone: "9848099001",
     },
     {
@@ -8469,7 +9079,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "52cc 2-Stroke Petrol, 8-inch & 10-inch Bits, Plantation Digger",
       description: "One-man petrol earth auger with 8-inch and 10-inch heavy steel bits for fencing posts and tree sapling plantations.",
-      image: "/images/machines/power_tools.jpg",
+      image: "/images/machines/kisankraft_earth_auger.jpg",
       phone: "9848099112",
     },
     {
@@ -8483,7 +9093,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "4-Stroke Engine, Carbide Tipped Blade, Lightweight Frame",
       description: "Portable 4-stroke crop harvester cutter tool for fast harvesting of sugarcane, paddy stalks, and fodder grass.",
-      image: "/images/machines/power_tools.jpg",
+      image: "/images/machines/honda_sugarcane_crop_cutter.jpg",
       phone: "9848099223",
     },
 
@@ -8499,7 +9109,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "5-Ton Capacity, Single Axle, Hydraulic Ram Lift",
       description: "Heavy duty 5-tonne hydraulic tipping tractor trailer for agricultural crop haulage and transport.",
-      image: "/images/machines/trolley.jpg",
+      image: "/images/machines/hydraulic_tipping_trolley.jpg",
       phone: "9848091234",
     },
     {
@@ -8513,7 +9123,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "3 Bottom MB Plough, High Carbon Steel, Hydraulic Turnover",
       description: "Hydraulic reversible mouldboard plough for deep tillage, soil inversion, and breaking hard pan layers.",
-      image: "/images/machines/trolley.jpg",
+      image: "/images/machines/fieldking_3bottom_mb_plough.jpg",
       phone: "9848091122",
     },
     {
@@ -8527,7 +9137,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "Tractor PTO Shaft Driven, Heavy Flail Blades, Organic Mulch",
       description: "PTO driven crop residue flail shredder for crushing sugarcane trash and crop straw into organic soil mulch.",
-      image: "/images/machines/trolley.jpg",
+      image: "/images/machines/redlands_trash_mulcher.jpg",
       phone: "9848091233",
     },
     {
@@ -8541,7 +9151,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "500kg Batch Capacity, Solar Powered Fans, UV Sheet",
       description: "Solar powered grain & spice drying chamber with forced air ventilation for hygienic drying of agricultural produce.",
-      image: "/images/machines/trolley.jpg",
+      image: "/images/machines/grain_solar_dryer_chamber.jpg",
       phone: "9848091344",
     },
   ];
