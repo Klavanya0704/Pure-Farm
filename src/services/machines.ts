@@ -18,7 +18,7 @@ export interface CreateMachineInput {
   status?: string;
 }
 
-const LOCAL_MACHINES_KEY = "purefarm_local_machines_listings_v2";
+const LOCAL_MACHINES_KEY = "purefarm_local_machines_listings_v3";
 
 const INITIAL_STATIC_MACHINES: DbMachine[] = [
   // 1. TRACTORS (4 items)
@@ -30,7 +30,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Mahindra 575 DI Tractor (45 HP)",
     category: "Tractor",
     description: "Multi-purpose 45 HP red diesel agricultural tractor with power steering and dual clutch. Ideal for tilling, ploughing, and transport.",
-    image_url: "/images/machines/tractor.jpg",
+    image_url: "/images/machines/mahindra_575_tractor.jpg",
     location: "Rajahmundry",
     rental_rate: 500,
     rate_unit: "hr",
@@ -49,7 +49,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "John Deere 5310 GearPro Tractor (55 HP)",
     category: "Tractor",
     description: "High power 55 HP heavy-duty tractor equipped with 12F+4R gear transmission, oil immersed disc brakes, and high torque output.",
-    image_url: "/images/machines/tractor.jpg",
+    image_url: "/images/machines/john_deere_5310_tractor.jpg",
     location: "Vijayawada",
     rental_rate: 650,
     rate_unit: "hr",
@@ -68,7 +68,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Swaraj 744 FE Multi-Speed Tractor (48 HP)",
     category: "Tractor",
     description: "Reliable 48 HP 3-cylinder diesel tractor with multi-speed PTO, dual clutch, and 2000kg hydraulic lift capacity for heavy soil tilling.",
-    image_url: "/images/machines/tractor.jpg",
+    image_url: "/images/machines/swaraj_744_tractor.jpg",
     location: "Guntur",
     rental_rate: 520,
     rate_unit: "hr",
@@ -87,7 +87,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Sonalika DI 745 III Sikander (50 HP)",
     category: "Tractor",
     description: "50 HP heavy-duty agricultural tractor engineered for low fuel consumption and high pulling force with subsoilers and haulage.",
-    image_url: "/images/machines/tractor.jpg",
+    image_url: "/images/machines/sonalika_745_tractor.jpg",
     location: "Eluru",
     rental_rate: 550,
     rate_unit: "hr",
@@ -108,7 +108,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Kubota Harvester DC-68G",
     category: "Harvester",
     description: "High performance paddy & wheat combine harvester operating in field with 68 HP diesel engine for quick harvesting.",
-    image_url: "/images/machines/harvester.jpg",
+    image_url: "/images/machines/kubota_dc68g_harvester.jpg",
     location: "Kakinada",
     rental_rate: 1800,
     rate_unit: "hr",
@@ -127,7 +127,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "John Deere W70 Grain Combine Harvester",
     category: "Harvester",
     description: "100 HP turbocharged self-propelled combine harvester with 14-foot cutter bar and active grain loss monitor for large fields.",
-    image_url: "/images/machines/harvester.jpg",
+    image_url: "/images/machines/john_deere_w70_harvester.jpg",
     location: "Vijayawada",
     rental_rate: 2100,
     rate_unit: "hr",
@@ -146,7 +146,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Preet 987 Paddy Combine Harvester",
     category: "Harvester",
     description: "Heavy duty 101 HP paddy crawler combine with heavy-duty rubber tracks for harvesting in wet muddy paddy fields.",
-    image_url: "/images/machines/harvester.jpg",
+    image_url: "/images/machines/preet_987_harvester.jpg",
     location: "Tanuku",
     rental_rate: 1950,
     rate_unit: "hr",
@@ -165,7 +165,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "New Holland TC5.30 Combine Harvester",
     category: "Harvester",
     description: "130 HP multi-crop combine harvester with rotary separator and dual drum paddy threshing mechanism.",
-    image_url: "/images/machines/harvester.jpg",
+    image_url: "/images/machines/new_holland_tc530_harvester.jpg",
     location: "Guntur",
     rental_rate: 2200,
     rate_unit: "hr",
@@ -186,7 +186,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Shaktiman Rotavator 7 Feet",
     category: "Rotavator",
     description: "Heavy duty 7-foot tractor-mounted rotary tiller with 48 blades for fine seedbed preparation.",
-    image_url: "/images/machines/rotavator.jpg",
+    image_url: "/images/machines/shaktiman_rotavator_7ft.jpg",
     location: "Eluru",
     rental_rate: 450,
     rate_unit: "hr",
@@ -205,7 +205,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Maschio Gaspardo Virtus 6-Foot Rotavator",
     category: "Rotavator",
     description: "Italian boron steel 42-blade rotavator engineered for smooth soil pulverization and residue incorporation.",
-    image_url: "/images/machines/rotavator.jpg",
+    image_url: "/images/machines/maschio_rotavator_6ft.jpg",
     location: "Mandapeta",
     rental_rate: 420,
     rate_unit: "hr",
@@ -224,7 +224,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Fieldking Heavy Duty 8-Foot Rotavator",
     category: "Rotavator",
     description: "Wide 8-foot tractor rotavator with 54 L-type blades suitable for tractors above 50 HP for fast land preparation.",
-    image_url: "/images/machines/rotavator.jpg",
+    image_url: "/images/machines/fieldking_rotavator_8ft.jpg",
     location: "Rajahmundry",
     rental_rate: 480,
     rate_unit: "hr",
@@ -243,7 +243,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Dasmesh 642 Heavy Duty Paddy Rotavator",
     category: "Rotavator",
     description: "Specialized wet land paddy rotavator with waterproof bearing seals and 36 C-type blades for thorough puddling.",
-    image_url: "/images/machines/rotavator.jpg",
+    image_url: "/images/machines/dasmesh_paddy_rotavator.jpg",
     location: "Kakinada",
     rental_rate: 440,
     rate_unit: "hr",
@@ -264,7 +264,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "STIHL Heavy Duty Power Tiller 7.5 HP",
     category: "Cultivator",
     description: "Heavy duty petrol power tiller cultivator with visible tines for orchard tilling and weeding.",
-    image_url: "/images/machines/cultivator.jpg",
+    image_url: "/images/machines/stihl_power_tiller_7hp.jpg",
     location: "Mandapeta",
     rental_rate: 350,
     rate_unit: "hr",
@@ -283,7 +283,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Swan 9-Tyne Rigid Frame Field Cultivator",
     category: "Cultivator",
     description: "Tractor-mounted 9-tyne rigid cultivator with forged steel tynes for hard soil loosening and primary tillage.",
-    image_url: "/images/machines/cultivator.jpg",
+    image_url: "/images/machines/swan_9tyne_cultivator.jpg",
     location: "Rajahmundry",
     rental_rate: 300,
     rate_unit: "hr",
@@ -302,7 +302,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Fieldking 11-Tyne Spring Loaded Cultivator",
     category: "Cultivator",
     description: "Heavy-duty 11-tyne spring-loaded cultivator designed for stony soils with high clearance and reversible carbon shovels.",
-    image_url: "/images/machines/cultivator.jpg",
+    image_url: "/images/machines/fieldking_11tyne_cultivator.jpg",
     location: "Vijayawada",
     rental_rate: 380,
     rate_unit: "hr",
@@ -321,7 +321,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "VST Shakti 13 HP Power Tiller / Cultivator",
     category: "Cultivator",
     description: "13 HP diesel water-cooled power tiller equipped with 18-blade rotary tiller for inter-cultivation and vegetable plots.",
-    image_url: "/images/machines/cultivator.jpg",
+    image_url: "/images/machines/vst_shakti_13hp_tiller.jpg",
     location: "Tanuku",
     rental_rate: 320,
     rate_unit: "hr",
@@ -342,7 +342,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "National Automatic 9-Row Seed Drill",
     category: "Seeder",
     description: "Tractor-mounted 9-row automatic seed drill and fertilizer applicator for precise sowing.",
-    image_url: "/images/machines/seeder.jpg",
+    image_url: "/images/machines/national_seed_drill_9row.jpg",
     location: "Vijayawada",
     rental_rate: 400,
     rate_unit: "hr",
@@ -361,7 +361,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Khedut 11-Row Zero Tillage Seed Drill",
     category: "Seeder",
     description: "Direct seed drill allowing sowing without prior tilling, saving fuel and conserving soil moisture.",
-    image_url: "/images/machines/seeder.jpg",
+    image_url: "/images/machines/khedut_zero_till_drill.jpg",
     location: "Guntur",
     rental_rate: 450,
     rate_unit: "hr",
@@ -380,7 +380,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Landforce Paddy Drum Seeder (Manual 8-Row)",
     category: "Seeder",
     description: "Lightweight 8-row direct paddy drum seeder for sprouted paddy seeds in prepared puddled fields.",
-    image_url: "/images/machines/seeder.jpg",
+    image_url: "/images/machines/landforce_paddy_drum_seeder.jpg",
     location: "Eluru",
     rental_rate: 150,
     rate_unit: "day",
@@ -399,7 +399,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Pneumatic Precision Planter & Maize Seeder",
     category: "Seeder",
     description: "Pneumatic vacuum precision planter for single-seed placement of maize, cotton, and sunflower seeds.",
-    image_url: "/images/machines/seeder.jpg",
+    image_url: "/images/machines/pneumatic_precision_planter.jpg",
     location: "Kakinada",
     rental_rate: 600,
     rate_unit: "hr",
@@ -420,7 +420,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Multi-Crop Power Sprayer 20L",
     category: "Sprayer",
     description: "12V battery-operated 20L backpack power sprayer with dual brass nozzles for pesticide spray.",
-    image_url: "/images/machines/sprayer.jpg",
+    image_url: "/images/machines/knapsack_power_sprayer_20l.jpg",
     location: "Rajahmundry",
     rental_rate: 250,
     rate_unit: "day",
@@ -439,7 +439,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Fieldking 400L Tractor Boom Sprayer",
     category: "Sprayer",
     description: "400-litre tractor PTO-driven boom sprayer with 12-meter folding spray booms for fast field chemical treatment.",
-    image_url: "/images/machines/sprayer.jpg",
+    image_url: "/images/machines/fieldking_400l_boom_sprayer.jpg",
     location: "Guntur",
     rental_rate: 800,
     rate_unit: "day",
@@ -458,7 +458,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Aspee Marut Foot-Operated Orchard Sprayer",
     category: "Sprayer",
     description: "High-pressure foot sprayer with brass pump cylinder and long delivery hose for orchard trees.",
-    image_url: "/images/machines/sprayer.jpg",
+    image_url: "/images/machines/aspee_foot_orchard_sprayer.jpg",
     location: "Mandapeta",
     rental_rate: 180,
     rate_unit: "day",
@@ -477,7 +477,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "KisanKraft 4-Stroke Petrol Engine Power Sprayer",
     category: "Sprayer",
     description: "Portable 31cc 4-stroke petrol engine power sprayer with 50-meter hose reel for spraying fruit gardens and field crops.",
-    image_url: "/images/machines/sprayer.jpg",
+    image_url: "/images/machines/kisankraft_petrol_sprayer.jpg",
     location: "Vijayawada",
     rental_rate: 350,
     rate_unit: "day",
@@ -498,7 +498,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Honda 5 HP High Pressure Water Pump",
     category: "Water Pump",
     description: "4-stroke petrol 3-inch agricultural irrigation water pump for high volume field watering.",
-    image_url: "/images/machines/water_pump.jpg",
+    image_url: "/images/machines/honda_5hp_water_pump.jpg",
     location: "Tanuku",
     rental_rate: 300,
     rate_unit: "day",
@@ -517,7 +517,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Kirloskar 7.5 HP Diesel Agricultural Pump",
     category: "Water Pump",
     description: "Heavy duty single cylinder diesel water pump coupled with 4-inch high discharge centrifugal pump.",
-    image_url: "/images/machines/water_pump.jpg",
+    image_url: "/images/machines/kirloskar_7hp_diesel_pump.jpg",
     location: "Eluru",
     rental_rate: 400,
     rate_unit: "day",
@@ -536,7 +536,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Crompton 5 HP Submersible Farm Well Pump",
     category: "Water Pump",
     description: "5 HP 3-phase open well submersible pump set engineered for continuous agricultural irrigation from open wells.",
-    image_url: "/images/machines/water_pump.jpg",
+    image_url: "/images/machines/crompton_submersible_pump.jpg",
     location: "Rajahmundry",
     rental_rate: 350,
     rate_unit: "day",
@@ -555,7 +555,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Texmo 3 HP Monoblock Irrigation Water Pump",
     category: "Water Pump",
     description: "Single-phase 3 HP monoblock pump suitable for lifting water from canals, ponds, and shallow borewells.",
-    image_url: "/images/machines/water_pump.jpg",
+    image_url: "/images/machines/texmo_monoblock_pump.jpg",
     location: "Kakinada",
     rental_rate: 280,
     rate_unit: "day",
@@ -576,7 +576,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Jain Drip & Sprinkler Irrigation System",
     category: "Irrigation Equipment",
     description: "Portable agricultural sprinkler set with 30 nozzles and quick-fit HDPE pipes for 2-acre coverage.",
-    image_url: "/images/machines/irrigation.jpg",
+    image_url: "/images/machines/jain_sprinkler_system.jpg",
     location: "Kakinada",
     rental_rate: 600,
     rate_unit: "day",
@@ -595,7 +595,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Netafim Micro Drip Irrigation Kit 1-Acre",
     category: "Irrigation Equipment",
     description: "Complete 1-acre drip irrigation kit featuring inline pressure compensating drippers, screen filter, and venturi injector.",
-    image_url: "/images/machines/irrigation.jpg",
+    image_url: "/images/machines/netafim_drip_irrigation_kit.jpg",
     location: "Guntur",
     rental_rate: 500,
     rate_unit: "day",
@@ -614,7 +614,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Finolex Rain Gun Sprinkler Irrigation System",
     category: "Irrigation Equipment",
     description: "High-throw 1.5-inch brass rain gun sprinkler capable of 30-meter spray radius for sugarcane and maize fields.",
-    image_url: "/images/machines/irrigation.jpg",
+    image_url: "/images/machines/finolex_raingun_sprinkler.jpg",
     location: "Vijayawada",
     rental_rate: 750,
     rate_unit: "day",
@@ -633,7 +633,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Kritika Portable HDPE Hose Reel Sprinkler Set",
     category: "Irrigation Equipment",
     description: "Portable sprinkler pipeline kit with 20 brass impact sprinklers and 60mm quick-couple latch pipes.",
-    image_url: "/images/machines/irrigation.jpg",
+    image_url: "/images/machines/kritika_hdpe_sprinkler_pipes.jpg",
     location: "Tanuku",
     rental_rate: 550,
     rate_unit: "day",
@@ -654,7 +654,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "STIHL Power Weeder & Brush Cutter 2.2 HP",
     category: "Power Tool",
     description: "Heavy duty 2-stroke petrol brush cutter tool with 3-tooth metal blade and tap-and-go nylon head.",
-    image_url: "/images/machines/power_tools.jpg",
+    image_url: "/images/machines/stihl_brush_cutter.jpg",
     location: "Eluru",
     rental_rate: 200,
     rate_unit: "day",
@@ -673,7 +673,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Husqvarna 455 Rancher Chainsaw 3.5 HP",
     category: "Power Tool",
     description: "Professional 55.5cc petrol chainsaw with 20-inch guide bar for farm tree pruning, timber cutting, and land clearing.",
-    image_url: "/images/machines/power_tools.jpg",
+    image_url: "/images/machines/husqvarna_455_chainsaw.jpg",
     location: "Rajahmundry",
     rental_rate: 300,
     rate_unit: "day",
@@ -692,7 +692,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "KisanKraft Earth Auger Hole Digger 52cc",
     category: "Power Tool",
     description: "One-man petrol earth auger with 8-inch and 10-inch heavy steel bits for fencing posts and tree sapling plantations.",
-    image_url: "/images/machines/power_tools.jpg",
+    image_url: "/images/machines/kisankraft_earth_auger.jpg",
     location: "Mandapeta",
     rental_rate: 250,
     rate_unit: "day",
@@ -711,7 +711,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Honda Petrol Engine Sugarcane & Crop Cutter",
     category: "Power Tool",
     description: "Portable 4-stroke crop harvester cutter tool for fast harvesting of sugarcane, paddy stalks, and fodder grass.",
-    image_url: "/images/machines/power_tools.jpg",
+    image_url: "/images/machines/honda_sugarcane_crop_cutter.jpg",
     location: "Kakinada",
     rental_rate: 350,
     rate_unit: "day",
@@ -732,7 +732,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Hydraulic Tipping Tractor Trolley 5-Ton",
     category: "Other",
     description: "Heavy duty 5-tonne hydraulic tipping tractor trailer for agricultural crop haulage and transport.",
-    image_url: "/images/machines/trolley.jpg",
+    image_url: "/images/machines/hydraulic_tipping_trolley.jpg",
     location: "Rajahmundry",
     rental_rate: 500,
     rate_unit: "day",
@@ -751,7 +751,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Fieldking 3-Bottom Hydraulic Reversible MB Plough",
     category: "Other",
     description: "Hydraulic reversible mouldboard plough for deep tillage, soil inversion, and breaking hard pan layers.",
-    image_url: "/images/machines/trolley.jpg",
+    image_url: "/images/machines/fieldking_3bottom_mb_plough.jpg",
     location: "Guntur",
     rental_rate: 600,
     rate_unit: "hr",
@@ -770,7 +770,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Redlands Sugarcane Trash Shredder & Mulcher",
     category: "Other",
     description: "PTO driven crop residue flail shredder for crushing sugarcane trash and crop straw into organic soil mulch.",
-    image_url: "/images/machines/trolley.jpg",
+    image_url: "/images/machines/redlands_trash_mulcher.jpg",
     location: "Tanuku",
     rental_rate: 700,
     rate_unit: "hr",
@@ -789,7 +789,7 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     name: "Grain Solar Dryer Portable Chamber 500kg",
     category: "Other",
     description: "Solar powered grain & spice drying chamber with forced air ventilation for hygienic drying of agricultural produce.",
-    image_url: "/images/machines/trolley.jpg",
+    image_url: "/images/machines/grain_solar_dryer_chamber.jpg",
     location: "Vijayawada",
     rental_rate: 400,
     rate_unit: "day",
@@ -802,25 +802,102 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
   },
 ];
 
+const GENERIC_MACHINE_IMAGES = [
+  "/images/machines/tractor.jpg",
+  "/images/machines/harvester.jpg",
+  "/images/machines/rotavator.jpg",
+  "/images/machines/cultivator.jpg",
+  "/images/machines/seeder.jpg",
+  "/images/machines/sprayer.jpg",
+  "/images/machines/water_pump.jpg",
+  "/images/machines/irrigation.jpg",
+  "/images/machines/power_tools.jpg",
+  "/images/machines/trolley.jpg"
+];
+
+const SPECIFIC_MACHINE_IMAGES: Record<string, string> = {
+  "Mahindra 575 DI Tractor (45 HP)": "/images/machines/mahindra_575_tractor.jpg",
+  "John Deere 5310 GearPro Tractor (55 HP)": "/images/machines/john_deere_5310_tractor.jpg",
+  "Swaraj 744 FE Multi-Speed Tractor (48 HP)": "/images/machines/swaraj_744_tractor.jpg",
+  "Sonalika DI 745 III Sikander (50 HP)": "/images/machines/sonalika_745_tractor.jpg",
+  "Kubota Harvester DC-68G": "/images/machines/kubota_dc68g_harvester.jpg",
+  "John Deere W70 Grain Combine Harvester": "/images/machines/john_deere_w70_harvester.jpg",
+  "Preet 987 Paddy Combine Harvester": "/images/machines/preet_987_harvester.jpg",
+  "New Holland TC5.30 Combine Harvester": "/images/machines/new_holland_tc530_harvester.jpg",
+  "Shaktiman Rotavator 7 Feet": "/images/machines/shaktiman_rotavator_7ft.jpg",
+  "Maschio Gaspardo Virtus 6-Foot Rotavator": "/images/machines/maschio_rotavator_6ft.jpg",
+  "Fieldking Heavy Duty 8-Foot Rotavator": "/images/machines/fieldking_rotavator_8ft.jpg",
+  "Dasmesh 642 Heavy Duty Paddy Rotavator": "/images/machines/dasmesh_paddy_rotavator.jpg",
+  "STIHL Heavy Duty Power Tiller 7.5 HP": "/images/machines/stihl_power_tiller_7hp.jpg",
+  "Swan 9-Tyne Rigid Frame Field Cultivator": "/images/machines/swan_9tyne_cultivator.jpg",
+  "Fieldking 11-Tyne Spring Loaded Cultivator": "/images/machines/fieldking_11tyne_cultivator.jpg",
+  "VST Shakti 13 HP Power Tiller / Cultivator": "/images/machines/vst_shakti_13hp_tiller.jpg",
+  "National Automatic 9-Row Seed Drill": "/images/machines/national_seed_drill_9row.jpg",
+  "Khedut 11-Row Zero Tillage Seed Drill": "/images/machines/khedut_zero_till_drill.jpg",
+  "Landforce Paddy Drum Seeder (Manual 8-Row)": "/images/machines/landforce_paddy_drum_seeder.jpg",
+  "Pneumatic Precision Planter & Maize Seeder": "/images/machines/pneumatic_precision_planter.jpg",
+  "Multi-Crop Power Sprayer 20L": "/images/machines/knapsack_power_sprayer_20l.jpg",
+  "Fieldking 400L Tractor Boom Sprayer": "/images/machines/fieldking_400l_boom_sprayer.jpg",
+  "Aspee Marut Foot-Operated Orchard Sprayer": "/images/machines/aspee_foot_orchard_sprayer.jpg",
+  "KisanKraft 4-Stroke Petrol Engine Power Sprayer": "/images/machines/kisankraft_petrol_sprayer.jpg",
+  "Honda 5 HP High Pressure Water Pump": "/images/machines/honda_5hp_water_pump.jpg",
+  "Kirloskar 7.5 HP Diesel Agricultural Pump": "/images/machines/kirloskar_7hp_diesel_pump.jpg",
+  "Crompton 5 HP Submersible Farm Well Pump": "/images/machines/crompton_submersible_pump.jpg",
+  "Texmo 3 HP Monoblock Irrigation Water Pump": "/images/machines/texmo_monoblock_pump.jpg",
+  "Jain Drip & Sprinkler Irrigation System": "/images/machines/jain_sprinkler_system.jpg",
+  "Netafim Micro Drip Irrigation Kit 1-Acre": "/images/machines/netafim_drip_irrigation_kit.jpg",
+  "Finolex Rain Gun Sprinkler Irrigation System": "/images/machines/finolex_raingun_sprinkler.jpg",
+  "Kritika Portable HDPE Hose Reel Sprinkler Set": "/images/machines/kritika_hdpe_sprinkler_pipes.jpg",
+  "STIHL Power Weeder & Brush Cutter 2.2 HP": "/images/machines/stihl_brush_cutter.jpg",
+  "Husqvarna 455 Rancher Chainsaw 3.5 HP": "/images/machines/husqvarna_455_chainsaw.jpg",
+  "KisanKraft Earth Auger Hole Digger 52cc": "/images/machines/kisankraft_earth_auger.jpg",
+  "Honda Petrol Engine Sugarcane & Crop Cutter": "/images/machines/honda_sugarcane_crop_cutter.jpg",
+  "Hydraulic Tipping Tractor Trolley 5-Ton": "/images/machines/hydraulic_tipping_trolley.jpg",
+  "Fieldking 3-Bottom Hydraulic Reversible MB Plough": "/images/machines/fieldking_3bottom_mb_plough.jpg",
+  "Redlands Sugarcane Trash Shredder & Mulcher": "/images/machines/redlands_trash_mulcher.jpg",
+  "Grain Solar Dryer Portable Chamber 500kg": "/images/machines/grain_solar_dryer_chamber.jpg"
+};
+
 export function getEquipmentImage(name?: string | null, category?: string | null, currentUrl?: string | null): string {
+  if (name) {
+    const titleTrimmed = name.trim();
+    if (SPECIFIC_MACHINE_IMAGES[titleTrimmed]) {
+      return SPECIFIC_MACHINE_IMAGES[titleTrimmed];
+    }
+  }
+
+  if (currentUrl && currentUrl.startsWith("/images/machines/") && !GENERIC_MACHINE_IMAGES.includes(currentUrl)) {
+    return currentUrl;
+  }
+
   const lowerName = (name || "").toLowerCase();
   const lowerCat = (category || "").toLowerCase();
 
-  if (lowerName.includes("tractor") || lowerCat.includes("tractor")) return "/images/machines/tractor.jpg";
-  if (lowerName.includes("harvester") || lowerCat.includes("harvester")) return "/images/machines/harvester.jpg";
-  if (lowerName.includes("rotavator") || lowerCat.includes("rotavator")) return "/images/machines/rotavator.jpg";
-  if (lowerName.includes("sprayer") || lowerCat.includes("sprayer")) return "/images/machines/sprayer.jpg";
-  if (lowerName.includes("pump") || lowerCat.includes("water pump")) return "/images/machines/water_pump.jpg";
-  if (lowerName.includes("cultivator") || lowerCat.includes("cultivator") || lowerName.includes("tiller")) return "/images/machines/cultivator.jpg";
-  if (lowerName.includes("seed") || lowerCat.includes("seeder")) return "/images/machines/seeder.jpg";
-  if (lowerName.includes("irrigation") || lowerCat.includes("irrigation") || lowerName.includes("drip") || lowerName.includes("sprinkler") || lowerName.includes("rain gun")) return "/images/machines/irrigation.jpg";
-  if (lowerName.includes("brush") || lowerName.includes("weeder") || lowerName.includes("auger") || lowerName.includes("saw") || lowerName.includes("cutter") || lowerCat.includes("power tool") || lowerCat.includes("power_tool")) return "/images/machines/power_tools.jpg";
-  if (lowerName.includes("trolley") || lowerName.includes("trailer") || lowerName.includes("plough") || lowerName.includes("shredder") || lowerName.includes("dryer") || lowerCat.includes("other")) return "/images/machines/trolley.jpg";
+  if (lowerName.includes("mahindra")) return "/images/machines/mahindra_575_tractor.jpg";
+  if (lowerName.includes("john deere 5310")) return "/images/machines/john_deere_5310_tractor.jpg";
+  if (lowerName.includes("swaraj")) return "/images/machines/swaraj_744_tractor.jpg";
+  if (lowerName.includes("sonalika")) return "/images/machines/sonalika_745_tractor.jpg";
+  if (lowerName.includes("kubota")) return "/images/machines/kubota_dc68g_harvester.jpg";
+  if (lowerName.includes("john deere w70")) return "/images/machines/john_deere_w70_harvester.jpg";
+  if (lowerName.includes("preet")) return "/images/machines/preet_987_harvester.jpg";
+  if (lowerName.includes("new holland")) return "/images/machines/new_holland_tc530_harvester.jpg";
+  if (lowerName.includes("shaktiman")) return "/images/machines/shaktiman_rotavator_7ft.jpg";
+  if (lowerName.includes("maschio")) return "/images/machines/maschio_rotavator_6ft.jpg";
+  if (lowerName.includes("fieldking") && lowerName.includes("rotavator")) return "/images/machines/fieldking_rotavator_8ft.jpg";
+  if (lowerName.includes("dasmesh")) return "/images/machines/dasmesh_paddy_rotavator.jpg";
 
-  if (currentUrl && currentUrl.startsWith("/images/machines/")) {
-    return currentUrl;
-  }
-  return "/images/machines/tractor.jpg";
+  if (lowerName.includes("tractor") || lowerCat.includes("tractor")) return "/images/machines/mahindra_575_tractor.jpg";
+  if (lowerName.includes("harvester") || lowerCat.includes("harvester")) return "/images/machines/kubota_dc68g_harvester.jpg";
+  if (lowerName.includes("rotavator") || lowerCat.includes("rotavator")) return "/images/machines/shaktiman_rotavator_7ft.jpg";
+  if (lowerName.includes("sprayer") || lowerCat.includes("sprayer")) return "/images/machines/knapsack_power_sprayer_20l.jpg";
+  if (lowerName.includes("pump") || lowerCat.includes("water pump")) return "/images/machines/honda_5hp_water_pump.jpg";
+  if (lowerName.includes("cultivator") || lowerCat.includes("cultivator") || lowerName.includes("tiller")) return "/images/machines/stihl_power_tiller_7hp.jpg";
+  if (lowerName.includes("seed") || lowerCat.includes("seeder")) return "/images/machines/national_seed_drill_9row.jpg";
+  if (lowerName.includes("irrigation") || lowerCat.includes("irrigation") || lowerName.includes("drip") || lowerName.includes("sprinkler")) return "/images/machines/jain_sprinkler_system.jpg";
+  if (lowerName.includes("brush") || lowerName.includes("weeder") || lowerName.includes("auger") || lowerName.includes("saw") || lowerName.includes("cutter") || lowerCat.includes("power tool")) return "/images/machines/stihl_brush_cutter.jpg";
+  if (lowerName.includes("trolley") || lowerName.includes("trailer") || lowerName.includes("plough") || lowerName.includes("shredder") || lowerName.includes("dryer") || lowerCat.includes("other")) return "/images/machines/hydraulic_tipping_trolley.jpg";
+
+  return "/images/machines/mahindra_575_tractor.jpg";
 }
 
 function getLocalMachines(): DbMachine[] {

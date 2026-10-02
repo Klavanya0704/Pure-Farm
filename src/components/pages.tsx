@@ -4526,7 +4526,7 @@ export function CropCalendarPage() {
 export function LearnPage() {
   const { t } = useTranslation();
   const [query, setQuery] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState("All Topics");
+  const [categoryFilter, setCategoryFilter] = useState("All Agriculture");
   const [levelFilter, setLevelFilter] = useState("All Levels");
 
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(() => {
@@ -4610,7 +4610,7 @@ export function LearnPage() {
 
   const clearFilters = () => {
     setQuery("");
-    setCategoryFilter("All Topics");
+    setCategoryFilter("All Agriculture");
     setLevelFilter("All Levels");
   };
 
@@ -4624,15 +4624,15 @@ export function LearnPage() {
           allowGuest={true}
         >
           <PageShell
-            eyebrow={t("Learning")}
+            eyebrow={t("Agriculture Learning")}
             title={t("Topic Not Found")}
-            intro={t("The requested learning topic could not be found.")}
+            intro={t("The requested agriculture course could not be found.")}
           >
             <div className="rounded-2xl border border-amber-200 bg-amber-50/80 p-8 text-center space-y-4 max-w-lg mx-auto">
               <AlertTriangle className="h-12 w-12 text-amber-600 mx-auto" />
               <h2 className="text-xl font-black text-amber-900">{t("Topic Not Found")}</h2>
               <p className="text-sm text-amber-800">
-                {t("The requested learning topic could not be found or does not exist.")}
+                {t("The requested course could not be found or does not exist.")}
               </p>
               <button
                 type="button"
@@ -4640,7 +4640,7 @@ export function LearnPage() {
                 className="inline-flex items-center gap-2 h-11 px-6 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-sm font-bold transition shadow-md cursor-pointer"
               >
                 <ArrowLeft className="h-4 w-4" />
-                {t("Back to Learning Hub")}
+                {t("Back to Agriculture Learning Hub")}
               </button>
             </div>
           </PageShell>
@@ -4658,7 +4658,7 @@ export function LearnPage() {
       <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
         <PageShell
           bgImage="https://upload.wikimedia.org/wikipedia/commons/f/fc/Farmer_working_in_the_field_with_their_tractor.jpg"
-          eyebrow={t("Learning")}
+          eyebrow={t("Agriculture Education")}
           title={t(course.title)}
           intro={t(course.description ?? "")}
         >
@@ -4670,7 +4670,7 @@ export function LearnPage() {
                 className="inline-flex items-center gap-2 h-10 px-4 rounded-xl bg-white/80 border border-white/60 text-[#1b4332] text-xs font-black hover:bg-white transition shadow-sm cursor-pointer"
               >
                 <ArrowLeft className="h-4 w-4" />
-                {t("Back to Learning Hub")}
+                {t("Back to Agriculture Learning Hub")}
               </button>
 
               <div className="flex flex-wrap items-center gap-2">
@@ -4710,7 +4710,7 @@ export function LearnPage() {
                       {t("Verified Educational Video")}
                     </span>
                     <h3 className="text-base font-black text-red-950 mt-1">
-                      {t("Watch Course Lectures on YouTube")}
+                      {t("Watch Course Video Resource on YouTube")}
                     </h3>
                     <p className="text-xs text-red-800 font-medium">
                       {t("Official channel resource:")} <span className="font-bold">{course.youtubeChannel ?? course.instructor}</span>
@@ -4761,7 +4761,7 @@ export function LearnPage() {
               <div className="lg:col-span-4 rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-4 shadow-soft space-y-3">
                 <h3 className="text-sm font-black text-[#1b4332] px-2 flex items-center gap-2">
                   <BookOpen className="h-4 w-4 text-emerald-600" />
-                  {t("Course Details & Lessons")}
+                  {t("Course Modules & Lessons")}
                 </h3>
                 <div className="space-y-2">
                   {courseLessons.map((l) => {
@@ -4835,7 +4835,7 @@ export function LearnPage() {
                     <div className="space-y-4">
                       <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
                         <FileText className="h-4 w-4 text-emerald-600" />
-                        {t("Overview & Guidance")}
+                        {t("Overview & Field Guidance")}
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-white/80 p-4 rounded-xl border border-slate-200/80 shadow-2xs">
                         {t(currentLesson.content)}
@@ -4845,7 +4845,7 @@ export function LearnPage() {
                     <div className="space-y-3">
                       <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-                        {t("Key Learning Takeaways")}
+                        {t("Key Takeaways")}
                       </h3>
                       <ul className="space-y-2">
                         {currentLesson.keyPoints.map((pt, idx) => (
@@ -4863,7 +4863,7 @@ export function LearnPage() {
                     <div className="rounded-xl border border-emerald-300 bg-emerald-50/90 p-4 space-y-2 shadow-2xs">
                       <div className="flex items-center gap-2 text-xs font-black text-[#1b4332]">
                         <Leaf className="h-4 w-4 text-emerald-600 fill-emerald-200" />
-                        {t("Practical Action & Field Tip")}
+                        {t("Practical Action & Pro Tip")}
                       </div>
                       <p className="text-xs text-[#1b4332] font-semibold leading-relaxed">
                         {t(currentLesson.farmingTip)}
@@ -4934,31 +4934,51 @@ export function LearnPage() {
     );
   }
 
-  const categoriesList = ["All Topics", "Agriculture", "Computer Science", "Programming", "Data Science & AI", "AgriTech"];
+  const agriCategoriesList = [
+    "All Agriculture",
+    "Farming Basics",
+    "Soil & Fertility",
+    "Crop Management",
+    "Irrigation",
+    "Pest & Disease",
+    "Sustainable Farming",
+    "AgriTech",
+    "Post-Harvest",
+    "Markets & Schemes",
+    "University & CS",
+  ];
+
   const levelsList = ["All Levels", "Beginner", "Intermediate", "Advanced"];
 
   const filtered = COURSES.filter((c) => {
     const searchString = `${t(c.title)} ${t(c.topic)} ${t(c.level)} ${c.category ?? ""} ${t(c.instructor)} ${t(c.description ?? "")}`
       .toLowerCase();
     const matchesQuery = !query.trim() || searchString.includes(query.toLowerCase());
-    const matchesCategory =
-      categoryFilter === "All Topics" ||
-      (c.category && c.category.toLowerCase() === categoryFilter.toLowerCase());
+
+    let matchesCategory = true;
+    if (categoryFilter === "All Agriculture") {
+      matchesCategory = c.category !== "University & CS";
+    } else if (categoryFilter === "University & CS") {
+      matchesCategory = c.category === "University & CS";
+    } else {
+      matchesCategory = c.category && c.category.toLowerCase() === categoryFilter.toLowerCase();
+    }
+
     const matchesLevel = levelFilter === "All Levels" || c.level === levelFilter;
 
     return matchesQuery && matchesCategory && matchesLevel;
   });
 
-  const hasActiveFilters = query.trim() !== "" || categoryFilter !== "All Topics" || levelFilter !== "All Levels";
+  const hasActiveFilters = query.trim() !== "" || categoryFilter !== "All Agriculture" || levelFilter !== "All Levels";
 
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         bgImage="https://upload.wikimedia.org/wikipedia/commons/f/fc/Farmer_working_in_the_field_with_their_tractor.jpg"
-        eyebrow={t("Education & Knowledge")}
-        title={t("PureFarm Learning Hub")}
+        eyebrow={t("Agriculture Education & Knowledge")}
+        title={t("PureFarm Agriculture Learning Hub")}
         intro={t(
-          "Explore agricultural field guides, modern tech courses, university topics, and verified YouTube video lectures.",
+          "Learn practical farming skills, soil fertility, modern irrigation, pest management, crop planning, and agricultural technologies.",
         )}
       >
         <div className="mb-6 space-y-4">
@@ -4967,7 +4987,7 @@ export function LearnPage() {
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <input
                 type="text"
-                placeholder={t("Search courses, CS topics, YouTube resources...")}
+                placeholder={t("Search agriculture courses, soil guides, pest control...")}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 className="w-full h-11 pl-10 pr-9 rounded-xl border border-white/50 bg-white/80 backdrop-blur-md shadow-sm text-sm outline-none focus:bg-white focus:ring-2 focus:ring-emerald-600"
@@ -4983,12 +5003,12 @@ export function LearnPage() {
               )}
             </div>
 
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap items-center gap-1.5">
               <span className="text-xs font-bold text-slate-700 flex items-center gap-1 shrink-0 mr-1">
                 <Filter className="h-3.5 w-3.5 text-emerald-700" />
                 {t("Category:")}
               </span>
-              {categoriesList.map((cat) => (
+              {agriCategoriesList.map((cat) => (
                 <button
                   key={cat}
                   type="button"
@@ -5039,12 +5059,25 @@ export function LearnPage() {
           </div>
         </div>
 
+        {/* Primary Catalog Header */}
+        <div className="mb-4 flex items-center justify-between border-b border-emerald-900/10 pb-2">
+          <h2 className="text-lg font-black text-[#1b4332] flex items-center gap-2">
+            <GraduationCap className="h-5 w-5 text-emerald-600" />
+            {categoryFilter === "University & CS"
+              ? t("University & Technical Education Resources")
+              : t("Agriculture & Farmer Education Courses")}
+          </h2>
+          <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
+            {filtered.length} {t("Courses Available")}
+          </span>
+        </div>
+
         {filtered.length === 0 ? (
           <div className="rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-12 text-center space-y-4 max-w-md mx-auto shadow-soft">
             <BookOpen className="h-12 w-12 text-slate-400 mx-auto" />
-            <h3 className="text-lg font-black text-[#1b4332]">{t("No Topics Found")}</h3>
+            <h3 className="text-lg font-black text-[#1b4332]">{t("No Agriculture Courses Found")}</h3>
             <p className="text-xs text-muted-foreground">
-              {t("No educational topics or courses match your current search query or filter selection.")}
+              {t("No courses match your current search or category filter.")}
             </p>
             <button
               type="button"
@@ -5136,6 +5169,31 @@ export function LearnPage() {
                 </div>
               );
             })}
+          </div>
+        )}
+
+        {/* Secondary Optional Section: University & Technical Education Resources */}
+        {categoryFilter !== "University & CS" && (
+          <div className="mt-12 rounded-2xl border border-white/60 bg-white/70 backdrop-blur-md p-6 shadow-soft space-y-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-border/60 pb-3">
+              <div>
+                <h3 className="text-sm font-black text-[#1b4332] uppercase tracking-wider flex items-center gap-2">
+                  <BookOpen className="h-4 w-4 text-emerald-600" />
+                  {t("University & Technical Resources (Optional)")}
+                </h3>
+                <p className="text-xs text-muted-foreground font-medium mt-0.5">
+                  {t("Access computer science, programming, and software engineering course links.")}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setCategoryFilter("University & CS")}
+                className="h-9 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 text-xs font-bold transition cursor-pointer shrink-0 flex items-center gap-1.5"
+              >
+                {t("View Technical & CS Resources")}
+                <ArrowRight className="h-3.5 w-3.5" />
+              </button>
+            </div>
           </div>
         )}
       </PageShell>
