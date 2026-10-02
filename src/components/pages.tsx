@@ -1416,6 +1416,26 @@ export function MarketplacePage() {
     }
   };
 
+  const handleClearFilters = () => {
+    setQuery("");
+    setCategory("all");
+    setSort("featured");
+    setMaxPrice(200000);
+    if (typeof window !== "undefined") {
+      try {
+        navigate({
+          to: "/marketplace",
+          search: {},
+          replace: true,
+        });
+      } catch {
+        const url = new URL(window.location.href);
+        url.search = "";
+        window.history.replaceState({}, "", url.toString());
+      }
+    }
+  };
+
   useEffect(() => {
     async function loadMarketplaceProducts() {
       setLoadingProducts(true);
@@ -1449,10 +1469,12 @@ export function MarketplacePage() {
   const allProducts = dbProducts.length > 0 ? dbProducts : PRODUCTS;
 
   const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+
     const next = allProducts.filter((product) => {
-      const matchesQuery = `${product.name} ${product.brand} ${product.description}`
-        .toLowerCase()
-        .includes(query.toLowerCase());
+      const locationText = (product as any).location || "";
+      const searchableText = `${product.name} ${product.category} ${product.brand || ""} ${product.description || ""} ${locationText}`.toLowerCase();
+      const matchesQuery = !q || searchableText.includes(q);
 
       const normProductCat = normalizeCategoryParam(product.category);
       const matchesCat = category === "all" || normProductCat === category;
@@ -1463,13 +1485,23 @@ export function MarketplacePage() {
         product.price <= maxPrice
       );
     });
+
     return next.sort((a, b) => {
       if (sort === "price-low") return a.price - b.price;
       if (sort === "price-high") return b.price - a.price;
       if (sort === "rating") return b.rating - a.rating;
+      if (sort === "name-asc") return a.name.localeCompare(b.name);
+      if (sort === "name-desc") return b.name.localeCompare(a.name);
+      if (sort === "newest") {
+        const numA = parseInt(a.id.replace(/\D/g, ""), 10) || 0;
+        const numB = parseInt(b.id.replace(/\D/g, ""), 10) || 0;
+        return numB - numA;
+      }
       return Number(Boolean(b.badge)) - Number(Boolean(a.badge));
     });
   }, [allProducts, category, maxPrice, query, sort]);
+
+  const hasActiveFilters = query.trim() !== "" || category !== "all" || maxPrice < 200000 || sort !== "featured";
 
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "admin"]} allowGuest={true}>
@@ -1477,7 +1509,7 @@ export function MarketplacePage() {
         eyebrow={t("Marketplace")}
         title={t("Farm input marketplace")}
         intro={t(
-          "Search the full 100-product catalogue, compare prices, filter categories, and add products to your cart.",
+          "Browse our full 143-product verified agricultural catalogue. Search crops, seeds, fertilisers or machinery, filter categories, compare prices, and order direct.",
         )}
       >
         <div className="mb-6 grid gap-3 rounded-2xl border border-border bg-card p-4 shadow-soft lg:grid-cols-[1fr_12rem_12rem_14rem]">
@@ -1486,7 +1518,7 @@ export function MarketplacePage() {
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder={t("Search seeds, fertiliser, tools...")}
+              placeholder={t("Search seeds, fertiliser, tools, location...")}
               className="h-10 w-full rounded-xl border border-input bg-background pl-9 pr-3 text-sm outline-none focus:ring-1 focus:ring-[#2d6a4f] focus:border-[#2d6a4f]"
             />
           </label>
@@ -1510,6 +1542,8 @@ export function MarketplacePage() {
             <option value="rating">{t("Top rated")}</option>
             <option value="price-low">{t("Price low to high")}</option>
             <option value="price-high">{t("Price high to low")}</option>
+            <option value="newest">{t("Newest first")}</option>
+            <option value="name-asc">{t("Name: A to Z")}</option>
           </select>
           <label className="flex items-center gap-3 text-sm">
             <Filter className="h-4 w-4 text-primary" />
@@ -1526,24 +1560,46 @@ export function MarketplacePage() {
             <span className="w-16 text-right font-bold">{formatRupees(maxPrice)}</span>
           </label>
         </div>
-        <p className="mb-4 text-sm font-bold text-[#1b4332]">
-          {isTelugu
-            ? `${filtered.length} ఉత్పత్తులు కనుగొనబడ్డాయి`
-            : category === "all"
-            ? `${filtered.length} products found`
-            : `${filtered.length} ${CATEGORIES.find((c) => c.id === category)?.label || category} products found`}
-        </p>
+
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <p className="text-sm font-bold text-[#1b4332]">
+            {isTelugu
+              ? `${filtered.length} ఉత్పత్తులు కనుగొనబడ్డాయి`
+              : category === "all"
+              ? `${filtered.length} products found`
+              : `${filtered.length} ${CATEGORIES.find((c) => c.id === category)?.label || category} products found`}
+          </p>
+
+          {hasActiveFilters && (
+            <button
+              onClick={handleClearFilters}
+              className="px-3 py-1.5 rounded-lg bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200 text-xs font-bold transition flex items-center gap-1.5"
+            >
+              <span>✕</span> {t("Clear All Filters")}
+            </button>
+          )}
+        </div>
+
         {filtered.length ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
             {filtered.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
         ) : (
-          <EmptyState
-            title={t("No matching products")}
-            body={t("Try another crop input, category, or raise the max price filter.")}
-          />
+          <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/60 p-12 text-center max-w-xl mx-auto my-8 space-y-4">
+            <Filter className="h-12 w-12 text-[#087F5B] mx-auto opacity-80" />
+            <h3 className="text-xl font-bold text-[#073B2A]">{t("No matching products found")}</h3>
+            <p className="text-sm text-emerald-800/80">
+              {t("Try clearing your search query, selecting another category, or adjusting your price limit.")}
+            </p>
+            <button
+              onClick={handleClearFilters}
+              className="px-5 py-2.5 rounded-xl bg-[#087F5B] text-white font-bold text-xs shadow-md transition"
+            >
+              {t("Clear All Filters")}
+            </button>
+          </div>
         )}
       </PageShell>
     </RoleGuard>
