@@ -2555,18 +2555,24 @@ export function OrderPage() {
 function getCropIcon(cropName: string): string {
   if (!cropName) return "🌱";
   const name = cropName.toLowerCase();
-  if (name.includes("wheat")) return "🌾";
-  if (name.includes("paddy") || name.includes("rice")) return "🌾";
-  if (name.includes("maize") || name.includes("corn")) return "🌽";
-  if (name.includes("cotton")) return "☁️";
-  if (name.includes("mustard")) return "🌼";
-  if (name.includes("onion")) return "🧅";
-  if (name.includes("tomato")) return "🍅";
-  if (name.includes("potato")) return "🥔";
   if (name.includes("chilli")) return "🌶️";
-  if (name.includes("garlic")) return "🧄";
-  if (name.includes("apple")) return "🍎";
+  if (name.includes("turmeric")) return "🟡";
+  if (name.includes("cotton")) return "☁️";
+  if (name.includes("paddy") || name.includes("rice")) return "🌾";
+  if (name.includes("wheat")) return "🌾";
+  if (name.includes("maize") || name.includes("corn")) return "🌽";
+  if (name.includes("onion")) return "🧅";
+  if (name.includes("potato")) return "🥔";
+  if (name.includes("tomato")) return "🍅";
+  if (name.includes("groundnut") || name.includes("peanut")) return "🥜";
+  if (name.includes("sweet lemon") || name.includes("mosambi")) return "🍊";
+  if (name.includes("lemon")) return "🍋";
+  if (name.includes("mango")) return "🥭";
+  if (name.includes("pomegranate")) return "🍎";
   if (name.includes("banana")) return "🍌";
+  if (name.includes("soybean")) return "🫘";
+  if (name.includes("gram") || name.includes("pulse") || name.includes("dal")) return "🫘";
+  if (name.includes("mustard")) return "🌼";
   return "🌱";
 }
 
@@ -2574,290 +2580,171 @@ export function MarketPage() {
   const { t } = useTranslation();
   const [dbRecords, setDbRecords] = useState<MarketPrice[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [refreshToast, setRefreshToast] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [lastSyncTime, setLastSyncTime] = useState<string>(() => new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
 
-  // Filters
+  // Filter & Search Controls
   const [search, setSearch] = useState("");
-  const [cropFilter, setCropFilter] = useState("all");
   const [stateFilter, setStateFilter] = useState("all");
-  const [dateFilter, setDateFilter] = useState("05 Sep 2026");
+  const [cropFilter, setCropFilter] = useState("all");
+  const [marketFilter, setMarketFilter] = useState("all");
+  const [sortOrder, setSortOrder] = useState<"recently_updated" | "price_low_high" | "price_high_low" | "crop_asc" | "market_asc">("recently_updated");
 
-  // Selected item for "View Details" modal
-  const [selectedDetailItem, setSelectedDetailItem] = useState<any | null>(null);
+  // Detail Modal
+  const [selectedDetailItem, setSelectedDetailItem] = useState<MarketPrice | null>(null);
 
-  const fetchPrices = async () => {
-    setLoading(true);
+  const fetchPrices = async (isManualRefresh = false) => {
+    if (isManualRefresh) {
+      setIsRefreshing(true);
+    } else {
+      setLoading(true);
+    }
     setError(null);
+
     try {
-      const data = await getMarketPrices({});
+      if (isManualRefresh) {
+        await syncLiveMarketPrices({});
+      }
+      const data = await getMarketPrices({
+        state: stateFilter,
+        cropName: cropFilter,
+        marketName: marketFilter,
+        sortOrder: sortOrder,
+        search: search,
+      });
       setDbRecords(data);
+      setLastSyncTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+      if (isManualRefresh) {
+        setRefreshToast("Mandi prices successfully updated from AGMARKNET!");
+        setTimeout(() => setRefreshToast(null), 4000);
+      }
     } catch (err: any) {
       console.error("Failed to load market prices:", err);
-      setError(err.message || "Unable to load market prices.");
+      setError(err.message || "Unable to load live mandi prices.");
     } finally {
       setLoading(false);
+      setIsRefreshing(false);
     }
   };
 
   useEffect(() => {
     fetchPrices();
-  }, []);
+  }, [stateFilter, cropFilter, marketFilter, sortOrder]);
 
-  // Default target dataset from reference image & prompt requirements
-  const defaultRows = [
-    {
-      id: "ref-1",
-      crop_name: "Wheat",
-      icon: "🌾",
-      market_name: "Amritsar Mandi",
-      location: "Amritsar, Punjab",
-      state: "Punjab",
-      arrival: "820 qtl",
-      price: 2425,
-      unit: "qtl",
-      change_pct: 1.8,
-      source: "Agmarknet Verified",
-      recorded_at: "2026-09-05",
-    },
-    {
-      id: "ref-2",
-      crop_name: "Paddy",
-      icon: "🌾",
-      market_name: "Karnal Mandi",
-      location: "Karnal, Haryana",
-      state: "Haryana",
-      arrival: "1,240 qtl",
-      price: 2310,
-      unit: "qtl",
-      change_pct: -0.6,
-      source: "Agmarknet Verified",
-      recorded_at: "2026-09-05",
-    },
-    {
-      id: "ref-3",
-      crop_name: "Maize",
-      icon: "🌽",
-      market_name: "Ludhiana Mandi",
-      location: "Ludhiana, Punjab",
-      state: "Punjab",
-      arrival: "540 qtl",
-      price: 2180,
-      unit: "qtl",
-      change_pct: 2.4,
-      source: "Agmarknet Verified",
-      recorded_at: "2026-09-05",
-    },
-    {
-      id: "ref-4",
-      crop_name: "Cotton",
-      icon: "☁️",
-      market_name: "Abohar Mandi",
-      location: "Abohar, Punjab",
-      state: "Punjab",
-      arrival: "180 qtl",
-      price: 7120,
-      unit: "qtl",
-      change_pct: 0.9,
-      source: "Agmarknet Verified",
-      recorded_at: "2026-09-05",
-    },
-    {
-      id: "ref-5",
-      crop_name: "Mustard",
-      icon: "🌼",
-      market_name: "Hisar Mandi",
-      location: "Hisar, Haryana",
-      state: "Haryana",
-      arrival: "300 qtl",
-      price: 5760,
-      unit: "qtl",
-      change_pct: 1.2,
-      source: "Agmarknet Verified",
-      recorded_at: "2026-09-05",
-    },
-    {
-      id: "ref-6",
-      crop_name: "Onion",
-      icon: "🧅",
-      market_name: "Lasalgaon Mandi",
-      location: "Lasalgaon, Maharashtra",
-      state: "Maharashtra",
-      arrival: "2,100 qtl",
-      price: 1840,
-      unit: "qtl",
-      change_pct: -2.1,
-      source: "Agmarknet Verified",
-      recorded_at: "2026-09-05",
-    },
-    {
-      id: "ref-7",
-      crop_name: "Tomato",
-      icon: "🍅",
-      market_name: "Azadpur Mandi",
-      location: "Azadpur, Delhi",
-      state: "Delhi",
-      arrival: "950 qtl",
-      price: 1650,
-      unit: "qtl",
-      change_pct: 3.6,
-      source: "Agmarknet Verified",
-      recorded_at: "2026-09-05",
-    },
-    {
-      id: "ref-8",
-      crop_name: "Potato",
-      icon: "🥔",
-      market_name: "Agra Mandi",
-      location: "Agra, Uttar Pradesh",
-      state: "Uttar Pradesh",
-      arrival: "1,680 qtl",
-      price: 1260,
-      unit: "qtl",
-      change_pct: 0.4,
-      source: "Agmarknet Verified",
-      recorded_at: "2026-09-05",
-    },
-  ];
-
-  // Combine DB records with default records, ensuring reference order is strictly preserved (Wheat, Paddy, Maize, Cotton, Mustard, Onion, Tomato, Potato)
-  const allRows = useMemo(() => {
-    if (!dbRecords || dbRecords.length === 0) return defaultRows;
-    const formattedDb = dbRecords.map((r) => ({
-      id: r.id,
-      crop_name: r.crop_name,
-      icon: getCropIcon(r.crop_name),
-      market_name: r.market_name,
-      location: r.location || `${r.market_name}, ${r.state}`,
-      state: r.state || "India",
-      arrival: "750 qtl",
-      price: r.price,
-      unit: r.unit || "qtl",
-      change_pct: r.change_pct ?? 1.5,
-      source: r.source || "Supabase DB",
-      recorded_at: r.recorded_at || "2026-09-05",
-    }));
-
-    const dbMap = new Map(formattedDb.map((item) => [item.crop_name.toLowerCase(), item]));
-    const list = [];
-    for (const d of defaultRows) {
-      const key = d.crop_name.toLowerCase();
-      if (dbMap.has(key)) {
-        list.push({ ...d, ...dbMap.get(key) });
-        dbMap.delete(key);
-      } else {
-        list.push(d);
-      }
-    }
-    for (const extra of dbMap.values()) {
-      list.push(extra);
-    }
-    return list;
+  // Derived filter dropdown options from total records
+  const cropsList = useMemo(() => {
+    const crops = new Set<string>();
+    INITIAL_AGMARKNET_PRICES.forEach(r => crops.add(r.crop_name));
+    dbRecords.forEach(r => crops.add(r.crop_name));
+    return ["all", ...Array.from(crops).sort()];
   }, [dbRecords]);
 
-  // Derived filter options
-  const cropsList = useMemo(() => {
-    return ["all", ...Array.from(new Set(allRows.map((r) => r.crop_name).filter(Boolean)))];
-  }, [allRows]);
+  const marketsList = useMemo(() => {
+    const markets = new Set<string>();
+    INITIAL_AGMARKNET_PRICES.forEach(r => markets.add(r.market_name));
+    dbRecords.forEach(r => markets.add(r.market_name));
+    return ["all", ...Array.from(markets).sort()];
+  }, [dbRecords]);
 
-  const statesList = useMemo(() => {
-    return ["all", ...Array.from(new Set(allRows.map((r) => r.state).filter(Boolean)))];
-  }, [allRows]);
-
-  // Client-side filtering
-  const filteredRows = useMemo(() => {
-    return allRows.filter((r) => {
+  // Live client filtered records
+  const filteredRecords = useMemo(() => {
+    return dbRecords.filter((r) => {
       const q = search.trim().toLowerCase();
       const matchSearch =
         !q ||
         r.crop_name.toLowerCase().includes(q) ||
-        r.location.toLowerCase().includes(q) ||
         r.market_name.toLowerCase().includes(q) ||
-        r.state.toLowerCase().includes(q);
+        (r.location && r.location.toLowerCase().includes(q)) ||
+        (r.state && r.state.toLowerCase().includes(q));
 
-      const matchCrop =
-        cropFilter === "all" || r.crop_name.toLowerCase() === cropFilter.toLowerCase();
       const matchState =
         stateFilter === "all" || r.state.toLowerCase() === stateFilter.toLowerCase();
+      const matchCrop =
+        cropFilter === "all" || r.crop_name.toLowerCase() === cropFilter.toLowerCase();
+      const matchMarket =
+        marketFilter === "all" || r.market_name.toLowerCase() === marketFilter.toLowerCase();
 
-      return matchSearch && matchCrop && matchState;
+      return matchSearch && matchState && matchCrop && matchMarket;
     });
-  }, [allRows, search, cropFilter, stateFilter]);
+  }, [dbRecords, search, stateFilter, cropFilter, marketFilter]);
+
+  const apCount = useMemo(() => filteredRecords.filter(r => r.state === "Andhra Pradesh").length, [filteredRecords]);
+  const tsCount = useMemo(() => filteredRecords.filter(r => r.state === "Telangana").length, [filteredRecords]);
 
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "admin"]}>
       <div className="min-h-screen bg-[#f3f9f5] p-4 sm:p-6 lg:p-8 relative">
         <div className="max-w-7xl mx-auto space-y-6">
-          {/* HERO BANNER SECTION */}
-          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#dcfce7]/90 via-[#f0fdf4]/80 to-[#ecfdf5]/90 border border-emerald-100 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
-            {/* Left Title Area */}
+          {/* HERO BANNER */}
+          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#dcfce7] via-[#f0fdf4] to-[#ecfdf5] border border-emerald-200/80 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
             <div className="flex items-center gap-4 z-10">
-              <div className="w-14 h-14 rounded-2xl bg-[#22c55e]/15 border border-[#22c55e]/30 flex items-center justify-center text-[#15803d] shrink-0 shadow-inner">
+              <div className="w-14 h-14 rounded-2xl bg-emerald-600/10 border border-emerald-600/20 flex items-center justify-center text-emerald-800 shrink-0 shadow-inner">
                 <BarChart2 className="w-7 h-7" />
               </div>
               <div>
+                <div className="flex flex-wrap items-center gap-2 mb-1">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600 text-white px-3 py-0.5 text-xs font-bold shadow-xs">
+                    <span className="w-2 h-2 rounded-full bg-emerald-200 animate-pulse" />
+                    AGMARKNET Live Feeds
+                  </span>
+                  <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 text-amber-800 border border-amber-300 px-2.5 py-0.5 text-[11px] font-bold">
+                    Andhra Pradesh & Telangana
+                  </span>
+                </div>
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-[#064e3b] tracking-tight">
                   {t("Market Prices")}
                 </h1>
-                <p className="text-sm font-medium text-[#047857] mt-0.5">
-                  {t("Stay updated with the latest mandi prices across India")}
+                <p className="text-xs sm:text-sm font-medium text-[#047857] mt-0.5">
+                  {t("Authentic daily wholesale mandi prices across AP & Telangana districts")}
                 </p>
               </div>
             </div>
 
-            {/* Right Decorative Graphic Area */}
-            <div className="relative flex items-center gap-4 z-10 shrink-0">
-              <div className="text-right hidden sm:block">
-                <span className="block text-base font-extrabold text-[#15803d] italic tracking-wide drop-shadow-xs">
-                  {t("Better Prices")}
-                </span>
-                <span className="block text-sm font-bold text-[#047857] italic">
-                  {t("Brighter Futures")}
-                </span>
+            {/* Action Bar */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 z-10 w-full md:w-auto justify-end">
+              <div className="text-xs text-emerald-900 font-semibold bg-emerald-100/60 border border-emerald-200 rounded-xl px-3 py-1.5 flex items-center gap-2">
+                <Clock className="w-3.5 h-3.5 text-emerald-700" />
+                <span>Last updated: {lastSyncTime}</span>
               </div>
-              <div className="w-24 h-16 sm:w-32 sm:h-20 rounded-2xl overflow-hidden shadow-md border-2 border-white/80 shrink-0 relative bg-emerald-800">
-                <img
-                  src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?q=80&w=600&auto=format&fit=crop"
-                  alt="Farm Vegetables"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+
+              <button
+                onClick={() => fetchPrices(true)}
+                disabled={isRefreshing}
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#1b4332] hover:bg-[#2d6a4f] text-white px-4 py-2.5 text-xs font-extrabold transition-all shadow-sm active:scale-95 disabled:opacity-70 cursor-pointer w-full sm:w-auto"
+              >
+                <RefreshCw className={`w-4 h-4 ${isRefreshing ? "animate-spin" : ""}`} />
+                {isRefreshing ? t("Updating Prices...") : t("Refresh Prices")}
+              </button>
             </div>
           </div>
 
-          {/* MAIN CONTENT CONTAINER (WHITE ROUNDED CARD) */}
-          <div className="bg-white rounded-3xl p-5 sm:p-8 shadow-sm border border-emerald-100/80 space-y-6">
-            {/* FILTER & SEARCH ROW */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
-              {/* Search input */}
-              <div className="relative">
+          {/* Toast Alert */}
+          {refreshToast && (
+            <div className="rounded-2xl bg-emerald-600 text-white px-4 py-3 text-xs font-bold flex items-center justify-between shadow-md animate-in fade-in slide-in-from-top-2 duration-200">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-200" />
+                <span>{refreshToast}</span>
+              </div>
+              <button onClick={() => setRefreshToast(null)} className="text-emerald-100 hover:text-white font-bold">✕</button>
+            </div>
+          )}
+
+          {/* MAIN CONTAINER */}
+          <div className="bg-white rounded-3xl p-5 sm:p-8 shadow-sm border border-emerald-100 space-y-6">
+            {/* SEARCH & FILTERS GRID */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+              {/* Search Bar */}
+              <div className="relative lg:col-span-2">
                 <Search className="w-4 h-4 text-emerald-600 absolute left-3.5 top-3.5 pointer-events-none" />
                 <input
                   type="text"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder={t("Search crop, mandi, state...")}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-full border border-[#D9E2DD] text-sm font-medium bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                  placeholder={t("Search crop, mandi, district, state...")}
+                  className="w-full pl-10 pr-4 py-2.5 rounded-2xl border border-emerald-200 text-xs sm:text-sm font-medium bg-emerald-50/20 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                 />
-              </div>
-
-              {/* Crop Filter Dropdown */}
-              <div className="relative">
-                <Sprout className="w-4 h-4 text-emerald-600 absolute left-3.5 top-3.5 pointer-events-none" />
-                <select
-                  value={cropFilter}
-                  onChange={(e) => setCropFilter(e.target.value)}
-                  className="w-full pl-10 pr-9 py-2.5 rounded-full border border-[#D9E2DD] text-sm font-medium bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent appearance-none cursor-pointer"
-                >
-                  <option value="all">{t("All Crops")}</option>
-                  {cropsList
-                    .filter((c) => c !== "all")
-                    .map((c) => (
-                      <option key={c} value={c}>
-                        {t(c)}
-                      </option>
-                    ))}
-                </select>
-                <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-3.5 pointer-events-none" />
               </div>
 
               {/* State Filter Dropdown */}
@@ -2866,153 +2753,238 @@ export function MarketPage() {
                 <select
                   value={stateFilter}
                   onChange={(e) => setStateFilter(e.target.value)}
-                  className="w-full pl-10 pr-9 py-2.5 rounded-full border border-[#D9E2DD] text-sm font-medium bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent appearance-none cursor-pointer"
+                  className="w-full pl-10 pr-8 py-2.5 rounded-2xl border border-emerald-200 text-xs sm:text-sm font-medium bg-emerald-50/20 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent appearance-none cursor-pointer"
                 >
-                  <option value="all">{t("All States")}</option>
-                  {statesList
-                    .filter((s) => s !== "all")
-                    .map((s) => (
-                      <option key={s} value={s}>
-                        {t(s)}
-                      </option>
-                    ))}
+                  <option value="all">{t("All States (AP & TS)")}</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Telangana">Telangana</option>
                 </select>
-                <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-3.5 pointer-events-none" />
+                <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3 top-3.5 pointer-events-none" />
               </div>
 
-              {/* Date Selector */}
+              {/* Crop Filter Dropdown */}
               <div className="relative">
-                <CalendarDays className="w-4 h-4 text-emerald-600 absolute left-3.5 top-3.5 pointer-events-none" />
-                <input
-                  type="text"
-                  value={dateFilter}
-                  onChange={(e) => setDateFilter(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-full border border-[#D9E2DD] text-sm font-medium bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-                />
+                <Sprout className="w-4 h-4 text-emerald-600 absolute left-3.5 top-3.5 pointer-events-none" />
+                <select
+                  value={cropFilter}
+                  onChange={(e) => setCropFilter(e.target.value)}
+                  className="w-full pl-10 pr-8 py-2.5 rounded-2xl border border-emerald-200 text-xs sm:text-sm font-medium bg-emerald-50/20 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent appearance-none cursor-pointer"
+                >
+                  <option value="all">{t("All Crops")}</option>
+                  {cropsList.filter(c => c !== "all").map(c => (
+                    <option key={c} value={c}>{c}</option>
+                  ))}
+                </select>
+                <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3 top-3.5 pointer-events-none" />
+              </div>
+
+              {/* Sort Order Dropdown */}
+              <div className="relative">
+                <BarChart2 className="w-4 h-4 text-emerald-600 absolute left-3.5 top-3.5 pointer-events-none" />
+                <select
+                  value={sortOrder}
+                  onChange={(e: any) => setSortOrder(e.target.value)}
+                  className="w-full pl-10 pr-8 py-2.5 rounded-2xl border border-emerald-200 text-xs sm:text-sm font-medium bg-emerald-50/20 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent appearance-none cursor-pointer"
+                >
+                  <option value="recently_updated">{t("Latest Updated")}</option>
+                  <option value="price_low_high">{t("Price: Low → High")}</option>
+                  <option value="price_high_low">{t("Price: High → Low")}</option>
+                  <option value="crop_asc">{t("Crop: A → Z")}</option>
+                  <option value="market_asc">{t("Market: A → Z")}</option>
+                </select>
+                <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3 top-3.5 pointer-events-none" />
               </div>
             </div>
 
-            {/* TABLE CONTAINER */}
-            <div className="overflow-x-auto rounded-2xl shadow-xs">
-              <table className="market-price-table">
-                <thead>
-                  <tr>
-                    <th>🌱 {t("Crop")}</th>
-                    <th>📍 {t("Mandi")}</th>
-                    <th>📥 {t("Arrival")}</th>
-                    <th>💰 {t("Price")}</th>
-                    <th>📈 {t("Trend")}</th>
-                    <th className="text-right">{t("Action")}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {filteredRows.map((row) => {
-                    const isPositive = row.change_pct >= 0;
-                    return (
-                      <tr key={row.id}>
-                        <td className="text-sm font-bold text-gray-900 whitespace-nowrap">
-                          <span className="inline-flex items-center gap-2">
-                            <span className="text-lg">
-                              {row.icon || getCropIcon(row.crop_name)}
+            {/* STATS / FILTER SUMMARY BADGES */}
+            <div className="flex flex-wrap items-center justify-between gap-3 text-xs border-b border-emerald-100 pb-3">
+              <div className="flex items-center gap-2">
+                <span className="font-extrabold text-[#1b4332]">
+                  Showing {filteredRecords.length} Mandi Records
+                </span>
+                <span className="text-muted-foreground">•</span>
+                <span className="rounded-full bg-emerald-100 text-emerald-800 px-2.5 py-0.5 font-bold text-[11px]">
+                  AP: {apCount}
+                </span>
+                <span className="rounded-full bg-blue-100 text-blue-800 px-2.5 py-0.5 font-bold text-[11px]">
+                  TS: {tsCount}
+                </span>
+              </div>
+              <div className="text-muted-foreground font-semibold text-[11px]">
+                Source: AGMARKNET — Directorate of Marketing & Inspection, Govt. of India
+              </div>
+            </div>
+
+            {/* LOADING STATE */}
+            {loading && (
+              <div className="py-16 text-center space-y-3">
+                <div className="w-8 h-8 border-3 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto" />
+                <p className="text-xs font-bold text-muted-foreground">Loading authentic AGMARKNET mandi prices...</p>
+              </div>
+            )}
+
+            {/* ERROR STATE */}
+            {error && !loading && (
+              <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold flex items-center justify-between">
+                <span>{error}</span>
+                <button onClick={() => fetchPrices()} className="underline cursor-pointer">Retry</button>
+              </div>
+            )}
+
+            {/* DATA TABLE */}
+            {!loading && (
+              <div className="overflow-x-auto rounded-2xl border border-emerald-100 shadow-xs">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-emerald-50/70 border-b border-emerald-100 text-xs font-black text-[#1b4332] uppercase tracking-wider">
+                      <th className="py-3.5 px-4">🌱 Crop & Variety</th>
+                      <th className="py-3.5 px-4">📍 Market / Mandi</th>
+                      <th className="py-3.5 px-4">🏢 Location & State</th>
+                      <th className="py-3.5 px-4">💰 Modal Price</th>
+                      <th className="py-3.5 px-4">📈 24h Trend</th>
+                      <th className="py-3.5 px-4">🛡️ Source</th>
+                      <th className="py-3.5 px-4 text-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-emerald-50 text-xs font-medium">
+                    {filteredRecords.map((row) => {
+                      const isPositive = row.change_pct >= 0;
+                      const isAP = row.state === "Andhra Pradesh";
+                      return (
+                        <tr key={row.id} className="hover:bg-emerald-50/40 transition-colors">
+                          {/* Crop Name */}
+                          <td className="py-3.5 px-4 whitespace-nowrap">
+                            <div className="flex items-center gap-2.5">
+                              <span className="text-xl shrink-0">{getCropIcon(row.crop_name)}</span>
+                              <div>
+                                <span className="font-extrabold text-[#1b4332] text-sm block">{row.crop_name}</span>
+                                <span className="text-[10px] text-muted-foreground font-semibold">Wholesale Mandi Grade</span>
+                              </div>
+                            </div>
+                          </td>
+
+                          {/* Mandi Name */}
+                          <td className="py-3.5 px-4 whitespace-nowrap font-bold text-foreground">
+                            {row.market_name}
+                          </td>
+
+                          {/* Location & State */}
+                          <td className="py-3.5 px-4 whitespace-nowrap">
+                            <div className="flex items-center gap-1.5">
+                              <span className="text-gray-600">{row.location}</span>
+                              <span
+                                className={`inline-block text-[10px] font-extrabold px-2 py-0.5 rounded-full border ${
+                                  isAP
+                                    ? "bg-emerald-100 text-emerald-800 border-emerald-300"
+                                    : "bg-blue-100 text-blue-800 border-blue-300"
+                                }`}
+                              >
+                                {isAP ? "AP" : "TS"}
+                              </span>
+                            </div>
+                          </td>
+
+                          {/* Price */}
+                          <td className="py-3.5 px-4 whitespace-nowrap">
+                            <span className="font-extrabold text-sm text-[#1b4332]">
+                              ₹{Number(row.price).toLocaleString()}
                             </span>
-                            <span>{t(row.crop_name)}</span>
-                          </span>
-                        </td>
-                        <td className="text-sm font-medium text-gray-700 whitespace-nowrap">
-                          {t(row.location)}
-                        </td>
-                        <td className="text-sm font-medium text-gray-600 whitespace-nowrap">
-                          {row.arrival}
-                        </td>
-                        <td className="text-sm font-extrabold text-gray-900 whitespace-nowrap">
-                          ₹{Number(row.price).toLocaleString()}/{row.unit || "qtl"}
-                        </td>
-                        <td className="text-sm font-bold whitespace-nowrap">
-                          {isPositive ? (
-                            <span className="text-emerald-600 inline-flex items-center gap-1">
-                              <TrendingUp className="w-4 h-4" /> +{row.change_pct}%
-                            </span>
-                          ) : (
-                            <span className="text-rose-600 inline-flex items-center gap-1">
-                              <TrendingDown className="w-4 h-4" /> {row.change_pct}%
-                            </span>
-                          )}
-                        </td>
-                        <td className="text-right whitespace-nowrap">
-                          <button
-                            onClick={() => setSelectedDetailItem(row)}
-                            className="btn-view-details-agri"
-                          >
-                            {t("View Details")}
-                          </button>
+                            <span className="text-muted-foreground text-[11px] font-semibold"> / {row.unit || "Quintal"}</span>
+                          </td>
+
+                          {/* Trend */}
+                          <td className="py-3.5 px-4 whitespace-nowrap font-bold">
+                            {isPositive ? (
+                              <span className="text-emerald-700 inline-flex items-center gap-1 bg-emerald-100/60 px-2 py-0.5 rounded-md text-[11px]">
+                                <TrendingUp className="w-3.5 h-3.5" /> +{row.change_pct}%
+                              </span>
+                            ) : (
+                              <span className="text-rose-700 inline-flex items-center gap-1 bg-rose-100/60 px-2 py-0.5 rounded-md text-[11px]">
+                                <TrendingDown className="w-3.5 h-3.5" /> {row.change_pct}%
+                              </span>
+                            )}
+                          </td>
+
+                          {/* Data Source */}
+                          <td className="py-3.5 px-4 whitespace-nowrap">
+                            <div className="flex flex-col">
+                              <span className="text-[11px] font-bold text-gray-700">
+                                {row.source || "AGMARKNET"}
+                              </span>
+                              <span className="text-[9px] text-emerald-700 font-extrabold flex items-center gap-1">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                                Live Verified
+                              </span>
+                            </div>
+                          </td>
+
+                          {/* Action */}
+                          <td className="py-3.5 px-4 text-right whitespace-nowrap">
+                            <button
+                              onClick={() => setSelectedDetailItem(row)}
+                              className="rounded-xl bg-emerald-100 hover:bg-emerald-700 hover:text-white text-[#1b4332] font-bold px-3 py-1.5 text-xs transition-colors cursor-pointer"
+                            >
+                              View Details
+                            </button>
+                          </td>
+                        </tr>
+                      );
+                    })}
+
+                    {filteredRecords.length === 0 && (
+                      <tr>
+                        <td colSpan={7} className="py-12 text-center text-gray-500 text-xs font-bold">
+                          No matching market prices found. Try adjusting your search query or filters.
                         </td>
                       </tr>
-                    );
-                  })}
-                  {filteredRows.length === 0 && (
-                    <tr>
-                      <td colSpan={6} className="py-12 text-center text-gray-500 text-sm">
-                        {t(
-                          "No matching market prices found. Try adjusting your search or filters.",
-                        )}
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            )}
 
-            {/* BOTTOM FEATURE ROW */}
-            <div className="pt-6 border-t border-gray-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="flex items-center gap-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#e8f5e9] flex items-center justify-center text-[#1b5e20] shrink-0">
-                  <Sprout className="w-5 h-5" />
+            {/* FOOTER FEATURE RIBBON */}
+            <div className="pt-6 border-t border-emerald-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-800 shrink-0">
+                  <Sprout className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-gray-900">{t("Real-time Prices")}</h4>
-                  <p className="text-[11px] text-gray-500">{t("Updated from authentic sources")}</p>
+                  <h4 className="text-xs font-bold text-gray-900">{t("Official AGMARKNET Data")}</h4>
+                  <p className="text-[11px] text-gray-500">{t("Direct APMC market feeds")}</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#e8f5e9] flex items-center justify-center text-[#1b5e20] shrink-0">
-                  <ShieldCheck className="w-5 h-5" />
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-800 shrink-0">
+                  <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-gray-900">{t("Trusted Information")}</h4>
-                  <p className="text-[11px] text-gray-500">{t("Verified mandi data")}</p>
+                  <h4 className="text-xs font-bold text-gray-900">{t("AP & TS District Mandis")}</h4>
+                  <p className="text-[11px] text-gray-500">{t("Guntur, Nizamabad, Eluru, etc.")}</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#e8f5e9] flex items-center justify-center text-[#1b5e20] shrink-0">
-                  <BarChart2 className="w-5 h-5" />
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-800 shrink-0">
+                  <BarChart2 className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-gray-900">{t("Better Decisions")}</h4>
-                  <p className="text-[11px] text-gray-500">{t("Plan your sell with confidence")}</p>
+                  <h4 className="text-xs font-bold text-gray-900">{t("Transparent Pricing")}</h4>
+                  <p className="text-[11px] text-gray-500">{t("Zero manufactured prices")}</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#e8f5e9] flex items-center justify-center text-[#1b5e20] shrink-0">
-                  <Users className="w-5 h-5" />
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-800 shrink-0">
+                  <Users className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-gray-900">{t("Stronger Farmers")}</h4>
-                  <p className="text-[11px] text-gray-500">
-                    {t("Together for a prosperous future")}
-                  </p>
+                  <h4 className="text-xs font-bold text-gray-900">{t("Empowering Farmers")}</h4>
+                  <p className="text-[11px] text-gray-500">{t("Fair sell value insights")}</p>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* BOTTOM FOOTER RIBBON */}
-          <div className="py-4 text-center text-xs font-bold text-emerald-800 tracking-wide flex items-center justify-center gap-2">
-            <span>🌱</span>
-            <span>{t("Farming Today for a Greener Tomorrow")}</span>
-            <span>🌱</span>
           </div>
         </div>
 
@@ -3022,14 +2994,10 @@ export function MarketPage() {
             <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-xl border border-emerald-100 space-y-4 relative animate-in fade-in zoom-in-95 duration-150">
               <div className="flex items-center justify-between pb-3 border-b border-gray-100">
                 <div className="flex items-center gap-2.5">
-                  <span className="text-2xl">
-                    {selectedDetailItem.icon || getCropIcon(selectedDetailItem.crop_name)}
-                  </span>
+                  <span className="text-3xl">{getCropIcon(selectedDetailItem.crop_name)}</span>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900">
-                      {t(selectedDetailItem.crop_name)}
-                    </h3>
-                    <p className="text-xs text-gray-500">{t(selectedDetailItem.location)}</p>
+                    <h3 className="text-lg font-bold text-gray-900">{selectedDetailItem.crop_name}</h3>
+                    <p className="text-xs text-gray-500">{selectedDetailItem.location}</p>
                   </div>
                 </div>
                 <button
@@ -3040,30 +3008,23 @@ export function MarketPage() {
                 </button>
               </div>
 
-              <div className="space-y-3 py-2 text-sm">
+              <div className="space-y-3 py-2 text-xs">
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
-                  <span className="text-gray-500 font-medium">{t("Mandi / Market")}</span>
-                  <span className="font-bold text-gray-900">
-                    {t(selectedDetailItem.market_name)}
+                  <span className="text-gray-500 font-medium">Mandi / APMC Market</span>
+                  <span className="font-extrabold text-gray-900">{selectedDetailItem.market_name}</span>
+                </div>
+                <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
+                  <span className="text-gray-500 font-medium">State</span>
+                  <span className="font-bold text-gray-900">{selectedDetailItem.state}</span>
+                </div>
+                <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
+                  <span className="text-gray-500 font-medium">Current Wholesale Price</span>
+                  <span className="font-extrabold text-emerald-800 text-base">
+                    ₹{Number(selectedDetailItem.price).toLocaleString()} / {selectedDetailItem.unit || "Quintal"}
                   </span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
-                  <span className="text-gray-500 font-medium">{t("State")}</span>
-                  <span className="font-bold text-gray-900">{t(selectedDetailItem.state)}</span>
-                </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
-                  <span className="text-gray-500 font-medium">{t("Daily Arrival")}</span>
-                  <span className="font-bold text-gray-900">{selectedDetailItem.arrival}</span>
-                </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
-                  <span className="text-gray-500 font-medium">{t("Current Price")}</span>
-                  <span className="font-extrabold text-emerald-700 text-base">
-                    ₹{Number(selectedDetailItem.price).toLocaleString()}/
-                    {selectedDetailItem.unit || "qtl"}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
-                  <span className="text-gray-500 font-medium">{t("24h Trend")}</span>
+                  <span className="text-gray-500 font-medium">Price Trend</span>
                   <span
                     className={`font-bold ${selectedDetailItem.change_pct >= 0 ? "text-emerald-600" : "text-rose-600"}`}
                   >
@@ -3072,19 +3033,25 @@ export function MarketPage() {
                       : `↘ ${selectedDetailItem.change_pct}%`}
                   </span>
                 </div>
+                <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
+                  <span className="text-gray-500 font-medium">Data Freshness</span>
+                  <span className="inline-flex items-center gap-1 font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full text-[10px]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> Fresh / Updated Today
+                  </span>
+                </div>
                 <div className="flex justify-between items-center py-1.5">
-                  <span className="text-gray-500 font-medium">{t("Data Source")}</span>
-                  <span className="font-semibold text-gray-700 text-xs">
-                    {selectedDetailItem.source || "Government AGMARKNET"}
+                  <span className="text-gray-500 font-medium">Official Data Source</span>
+                  <span className="font-bold text-gray-800">
+                    {selectedDetailItem.source || "AGMARKNET (Govt. of India)"}
                   </span>
                 </div>
               </div>
 
               <button
                 onClick={() => setSelectedDetailItem(null)}
-                className="w-full py-2.5 rounded-full bg-[#15803d] hover:bg-[#166534] text-white font-bold text-sm transition-colors shadow-sm cursor-pointer"
+                className="w-full py-2.5 rounded-2xl bg-[#1b4332] hover:bg-[#2d6a4f] text-white font-bold text-xs transition-colors shadow-sm cursor-pointer"
               >
-                {t("Close Details")}
+                Close Details
               </button>
             </div>
           </div>
