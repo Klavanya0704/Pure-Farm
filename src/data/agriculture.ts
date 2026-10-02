@@ -595,6 +595,38 @@ export const COURSES: Course[] = [
     description: "Learn modern farming practices, crop planning, farm management, and efficient use of agricultural resources.",
     youtubeUrl: "https://www.youtube.com/watch?v=xFqecEtdGZ0",
     youtubeChannel: "TED-Ed",
+    youtubeResources: [
+      {
+            "title": "Can we create the \"perfect\" farm? - Brent Loken",
+            "url": "https://www.youtube.com/watch?v=xFqecEtdGZ0",
+            "channel": "TED-Ed",
+            "description": "Educational guide covering modern farming basics practices and practical agricultural methods."
+      },
+      {
+            "title": "15 Modern Farming Technologies that are NEXT LEVEL",
+            "url": "https://www.youtube.com/watch?v=DoVGbPa0jHw",
+            "channel": "Top Fives",
+            "description": "Educational guide covering modern farming basics practices and practical agricultural methods."
+      },
+      {
+            "title": "Modern Agriculture Machines on Another Level – Farmers Reap Millions Tons in Massive Harvests",
+            "url": "https://www.youtube.com/watch?v=N-BpKLHSYE4",
+            "channel": "Agriculture Insight",
+            "description": "Educational guide covering modern farming basics practices and practical agricultural methods."
+      },
+      {
+            "title": "CAN-Agri – Vertical Farming. Amazing Modern Farming Technology",
+            "url": "https://www.youtube.com/watch?v=DrK9bm4jujs",
+            "channel": "Africa Luxury Travel and Wildlife",
+            "description": "Educational guide covering modern farming basics practices and practical agricultural methods."
+      },
+      {
+            "title": "Kisan Samachar | Agriculture News | Latest Agriculture News Today | DD Kisan | 04/17/2026",
+            "url": "https://www.youtube.com/watch?v=vrxz_ayYVyg",
+            "channel": "DD Kisan",
+            "description": "Educational guide covering modern farming basics practices and practical agricultural methods."
+      }
+]
   },
   {
     id: "agri-2",
@@ -610,6 +642,38 @@ export const COURSES: Course[] = [
     description: "Learn how to test soil, understand soil nutrients, improve soil fertility, and use fertilizers properly.",
     youtubeUrl: "https://www.youtube.com/watch?v=4vBBkOMASB8",
     youtubeChannel: "ICAR-IIOR",
+    youtubeResources: [
+      {
+            "title": "Balanced Fertilizer Use Awareness Campaign at Ibrahimpur | ICAR-IIOR | Siddipet",
+            "url": "https://www.youtube.com/watch?v=4vBBkOMASB8",
+            "channel": "ICAR-IIOR",
+            "description": "Educational guide covering soil health & fertility management practices and practical agricultural methods."
+      },
+      {
+            "title": "Soil Health Management in Different Crops",
+            "url": "https://www.youtube.com/watch?v=BGaqL74_9fE",
+            "channel": "ICAR CPCRI",
+            "description": "Educational guide covering soil health & fertility management practices and practical agricultural methods."
+      },
+      {
+            "title": "EP-31 || Podcast on \"Soil Health Card based Nutrient Application\"|| ICAR RC NEH, Umiam",
+            "url": "https://www.youtube.com/watch?v=E0-Dua2eWNQ",
+            "channel": "ICAR RC NEH_Podcast",
+            "description": "Educational guide covering soil health & fertility management practices and practical agricultural methods."
+      },
+      {
+            "title": "Spring Scientific | Soil Testing:Boost Your Crop Yield and Soil Health with Sustainable Farming Tips",
+            "url": "https://www.youtube.com/watch?v=tuFIzbmtghU",
+            "channel": "Spring Scientific | Systems Explained",
+            "description": "Educational guide covering soil health & fertility management practices and practical agricultural methods."
+      },
+      {
+            "title": "Soil Health & Fertilizer Management | Khet Bachao Abhiyan 2026 | Important for UPSC, AFO, ADO, ICAR",
+            "url": "https://www.youtube.com/watch?v=bb55N2kHfqc",
+            "channel": "AGRIMENTORS CHANDIGARH",
+            "description": "Educational guide covering soil health & fertility management practices and practical agricultural methods."
+      }
+]
   },
   {
     id: "agri-3",
@@ -625,6 +689,38 @@ export const COURSES: Course[] = [
     description: "Learn how to select crops, plan sowing schedules, and choose crops according to seasons and local conditions.",
     youtubeUrl: "https://www.youtube.com/watch?v=zLHhVqZEQNQ",
     youtubeChannel: "Josh Sattin Farming",
+    youtubeResources: [
+      {
+            "title": "Crop Planning Tips for Market Gardening",
+            "url": "https://www.youtube.com/watch?v=zLHhVqZEQNQ",
+            "channel": "Josh Sattin Farming",
+            "description": "Educational guide covering crop planning & seasonal farming practices and practical agricultural methods."
+      },
+      {
+            "title": "Crop Rotation Made Simple - Rotate Your Vegetable Beds for Healthier Produce",
+            "url": "https://www.youtube.com/watch?v=XeNA6XdMoF8",
+            "channel": "GrowVeg",
+            "description": "Educational guide covering crop planning & seasonal farming practices and practical agricultural methods."
+      },
+      {
+            "title": "LECTURE 15: Contingent crop planning for aberrant weather conditions - Rainfed Agriculture",
+            "url": "https://www.youtube.com/watch?v=u1cY70eU1u0",
+            "channel": "EDHILL AGRICULTURE CLASSES",
+            "description": "Educational guide covering crop planning & seasonal farming practices and practical agricultural methods."
+      },
+      {
+            "title": "How To Grow Potatoes | The Complete Guide!",
+            "url": "https://www.youtube.com/watch?v=CEEiP-DfOfY",
+            "channel": "William Melia",
+            "description": "Educational guide covering crop planning & seasonal farming practices and practical agricultural methods."
+      },
+      {
+            "title": "How to maximise your vegetable gardens produce year-round 🍅🍆🥒🥕 | Gardening 101 | Gardening Australia",
+            "url": "https://www.youtube.com/watch?v=KxzXSQI-O28",
+            "channel": "Gardening Australia",
+            "description": "Educational guide covering crop planning & seasonal farming practices and practical agricultural methods."
+      }
+]
   },
   {
     id: "agri-4",
@@ -640,6 +736,38 @@ export const COURSES: Course[] = [
     description: "Learn efficient irrigation methods, water conservation, drip irrigation, and proper watering schedules.",
     youtubeUrl: "https://www.youtube.com/watch?v=Sha_yw4JZSo",
     youtubeChannel: "PMKSY / SwitchON",
+    youtubeResources: [
+      {
+            "title": "Micro Irrigation Scheme - PMKSY | ENG",
+            "url": "https://www.youtube.com/watch?v=Sha_yw4JZSo",
+            "channel": "SwitchON Foundation",
+            "description": "Educational guide covering irrigation & water management practices and practical agricultural methods."
+      },
+      {
+            "title": "Modern Irrigation | Macmillan Education India",
+            "url": "https://www.youtube.com/watch?v=rXT5HwH-l9w",
+            "channel": "Agriculture Education",
+            "description": "Educational guide covering irrigation & water management practices and practical agricultural methods."
+      },
+      {
+            "title": "Innovative Water Management Solutions for Irrigation for Agriculture Sector.",
+            "url": "https://www.youtube.com/watch?v=QtG1-MKVU-s",
+            "channel": "Ramanora Global Pvt. Ltd.",
+            "description": "Educational guide covering irrigation & water management practices and practical agricultural methods."
+      },
+      {
+            "title": "drip irrigation agriculture working model for science project exhibition | DIY | howtofunda",
+            "url": "https://www.youtube.com/watch?v=7CYkfwke9tU",
+            "channel": "howtofunda",
+            "description": "Educational guide covering irrigation & water management practices and practical agricultural methods."
+      },
+      {
+            "title": "Water Conservation in Agriculture: Best Practices for Farmers",
+            "url": "https://www.youtube.com/watch?v=-evivoRwUZw",
+            "channel": "Agri Knowledge Corridor",
+            "description": "Educational guide covering irrigation & water management practices and practical agricultural methods."
+      }
+]
   },
   {
     id: "agri-5",
@@ -655,6 +783,38 @@ export const COURSES: Course[] = [
     description: "Identify common crop pests and diseases and learn safe and effective methods to manage them.",
     youtubeUrl: "https://www.youtube.com/watch?v=kT73Zm4Xk1U",
     youtubeChannel: "ICAR IIHR",
+    youtubeResources: [
+      {
+            "title": "Integrated Pest Management in Protected Cultivation of Vegetable Crops",
+            "url": "https://www.youtube.com/watch?v=kT73Zm4Xk1U",
+            "channel": "Agriculture Education",
+            "description": "Educational guide covering pest & disease management practices and practical agricultural methods."
+      },
+      {
+            "title": "Integrated Pest Management in Vegetable Crops | UPASI - KVK",
+            "url": "https://www.youtube.com/watch?v=IzjFJ_3iEB0",
+            "channel": "Agriculture Education",
+            "description": "Educational guide covering pest & disease management practices and practical agricultural methods."
+      },
+      {
+            "title": "5 Phases of crop protection | Integrated pest Management",
+            "url": "https://www.youtube.com/watch?v=95TyufN2u2c",
+            "channel": "AgriAdda 24*7",
+            "description": "Educational guide covering pest & disease management practices and practical agricultural methods."
+      },
+      {
+            "title": "Pest Control | Ecology & Environment | Biology | FuseSchool",
+            "url": "https://www.youtube.com/watch?v=g6LMw9I6rxU",
+            "channel": "FuseSchool - Global Education",
+            "description": "Educational guide covering pest & disease management practices and practical agricultural methods."
+      },
+      {
+            "title": "IPM practices in vegetables for efficient control of pests | ETV",
+            "url": "https://www.youtube.com/watch?v=tVR1HMfP7ms",
+            "channel": "ETV Annadata",
+            "description": "Educational guide covering pest & disease management practices and practical agricultural methods."
+      }
+]
   },
   {
     id: "agri-6",
@@ -670,6 +830,38 @@ export const COURSES: Course[] = [
     description: "Learn organic farming practices, natural inputs, composting, crop rotation, and sustainable agriculture methods.",
     youtubeUrl: "https://www.youtube.com/watch?v=6gRU9ERUUA4",
     youtubeChannel: "AskPrep Education",
+    youtubeResources: [
+      {
+            "title": "Sustainable Agriculture Explained | Biofertilizers & Organic Farming | Class 12 Biology + NEET",
+            "url": "https://www.youtube.com/watch?v=6gRU9ERUUA4",
+            "channel": "AskPrep",
+            "description": "Educational guide covering organic & sustainable farming practices and practical agricultural methods."
+      },
+      {
+            "title": "Organic Farming | ICAR JRF | SRF | ASRB NET 2025",
+            "url": "https://www.youtube.com/watch?v=Yu7D0wQs8Yo",
+            "channel": "IARI Wala",
+            "description": "Educational guide covering organic & sustainable farming practices and practical agricultural methods."
+      },
+      {
+            "title": "#11 Sustainable Agriculture and Organic Farming || AGRONOMY IN BRIEF || ICAR JRF/SRF/NET/CET",
+            "url": "https://www.youtube.com/watch?v=J9x0ovd56A4",
+            "channel": "Jagadish Jena",
+            "description": "Educational guide covering organic & sustainable farming practices and practical agricultural methods."
+      },
+      {
+            "title": "Organic Farming | ICAR JRF | SRF | ASRB NET 2025",
+            "url": "https://www.youtube.com/watch?v=Yu7D0wQs8Yo",
+            "channel": "IARI Wala",
+            "description": "Educational guide covering organic & sustainable farming practices and practical agricultural methods."
+      },
+      {
+            "title": "How To Make Compost At Home (WITH FULL UPDATES)",
+            "url": "https://www.youtube.com/watch?v=mDIVpJgjoXQ",
+            "channel": "Urban Gardening",
+            "description": "Educational guide covering organic & sustainable farming practices and practical agricultural methods."
+      }
+]
   },
   {
     id: "agri-7",
@@ -685,6 +877,38 @@ export const COURSES: Course[] = [
     description: "Learn how technology, sensors, drones, weather information, and digital tools can improve farm productivity.",
     youtubeUrl: "https://www.youtube.com/watch?v=EyNLQgJopvU",
     youtubeChannel: "Discover Agriculture",
+    youtubeResources: [
+      {
+            "title": "Revolutionizing Farming with Precision Agriculture and Drone AI Technology",
+            "url": "https://www.youtube.com/watch?v=EyNLQgJopvU",
+            "channel": "Discover Agriculture",
+            "description": "Educational guide covering smart farming & agri technology practices and practical agricultural methods."
+      },
+      {
+            "title": "DJI Mavic 3 Multispectral I Precision Agriculture",
+            "url": "https://www.youtube.com/watch?v=WeDvNscRRPE",
+            "channel": "DJI Agriculture",
+            "description": "Educational guide covering smart farming & agri technology practices and practical agricultural methods."
+      },
+      {
+            "title": "Smart Farming का Future | Agri-Robotics, AI & Drones Explained in Hindi #iotgyaan",
+            "url": "https://www.youtube.com/watch?v=AcukSILlvuU",
+            "channel": "IoTGyaan",
+            "description": "Educational guide covering smart farming & agri technology practices and practical agricultural methods."
+      },
+      {
+            "title": "What is Precision Agriculture Farming? Modern Technology",
+            "url": "https://www.youtube.com/watch?v=3Mk4iCOghso",
+            "channel": "Smart Farming Inside",
+            "description": "Educational guide covering smart farming & agri technology practices and practical agricultural methods."
+      },
+      {
+            "title": "Agri Drone Demo in Karnataka 🚁 | Smart Farming with EagleEye Drones",
+            "url": "https://www.youtube.com/watch?v=jtNdNX6WnQI",
+            "channel": "EagleEye Drones",
+            "description": "Educational guide covering smart farming & agri technology practices and practical agricultural methods."
+      }
+]
   },
   {
     id: "agri-8",
@@ -700,6 +924,38 @@ export const COURSES: Course[] = [
     description: "Learn harvesting, grading, drying, storage, cold storage, and methods to reduce post-harvest losses.",
     youtubeUrl: "https://www.youtube.com/watch?v=EVVwtuv4lRc",
     youtubeChannel: "ICAR-CIPHET",
+    youtubeResources: [
+      {
+            "title": "Evaporative Cooling Storage Room",
+            "url": "https://www.youtube.com/watch?v=EVVwtuv4lRc",
+            "channel": "ICAR - CIPHET",
+            "description": "Educational guide covering post-harvest management & storage practices and practical agricultural methods."
+      },
+      {
+            "title": "Symposium on Solar Energy in Post-Harvest Sector",
+            "url": "https://www.youtube.com/watch?v=ZhrwdY93Aeg",
+            "channel": "ICAR CIPHET",
+            "description": "Educational guide covering post-harvest management & storage practices and practical agricultural methods."
+      },
+      {
+            "title": "The Challenges of Cold Storage",
+            "url": "https://www.youtube.com/watch?v=fzPNb27w1-k",
+            "channel": "PostHarvest",
+            "description": "Educational guide covering post-harvest management & storage practices and practical agricultural methods."
+      },
+      {
+            "title": "Crop-Aware Cold Storage | Smart Post-Harvest Management | SIH 2026",
+            "url": "https://www.youtube.com/watch?v=681BQNTPD14",
+            "channel": "ALOK'S_ IMAGINATION",
+            "description": "Educational guide covering post-harvest management & storage practices and practical agricultural methods."
+      },
+      {
+            "title": "The Ultimate Farmhand: How Cold Storage Cuts Cost & Wastage",
+            "url": "https://www.youtube.com/watch?v=Fb_2yp1zALQ",
+            "channel": "The Better India",
+            "description": "Educational guide covering post-harvest management & storage practices and practical agricultural methods."
+      }
+]
   },
   {
     id: "agri-9",
@@ -715,6 +971,38 @@ export const COURSES: Course[] = [
     description: "Learn how to understand mandi prices, compare markets, choose the right time to sell, and improve selling decisions.",
     youtubeUrl: "https://www.youtube.com/watch?v=6-dpn_sUQ1U",
     youtubeChannel: "Amit Sengupta Educational",
+    youtubeResources: [
+      {
+            "title": "What is e-Nam national agriculture market, APMC \"mandi\" | Agriculture Infrastructure Funds | UPSC",
+            "url": "https://www.youtube.com/watch?v=6-dpn_sUQ1U",
+            "channel": "Amit Sengupta",
+            "description": "Educational guide covering market prices & better selling practices and practical agricultural methods."
+      },
+      {
+            "title": "No More Middlemen – How Farmers Can Sell Their Produce with Transparent Pricing | Explained",
+            "url": "https://www.youtube.com/watch?v=HqkKxPVj8oE",
+            "channel": "moneycontrol",
+            "description": "Educational guide covering market prices & better selling practices and practical agricultural methods."
+      },
+      {
+            "title": "Agriculture Mandi Price || eNAM || Live Market Price || National Agriculture Marketing|| Agriculture",
+            "url": "https://www.youtube.com/watch?v=b_UuxXLcwzU",
+            "channel": "NavaYuva Raithulam",
+            "description": "Educational guide covering market prices & better selling practices and practical agricultural methods."
+      },
+      {
+            "title": "e-NAM क्या है? | किसान अपनी मंडी Online कैसे बेचते हैं? | National Agriculture Market",
+            "url": "https://www.youtube.com/watch?v=u4ccAktxzLM",
+            "channel": "Agri Coaching Chandigarh",
+            "description": "Educational guide covering market prices & better selling practices and practical agricultural methods."
+      },
+      {
+            "title": "#eNAM has revolutionized agriculture, farmers are getting the best prices for their produce",
+            "url": "https://www.youtube.com/watch?v=pE0g4YAwPL4",
+            "channel": "PIB India",
+            "description": "Educational guide covering market prices & better selling practices and practical agricultural methods."
+      }
+]
   },
   {
     id: "agri-10",
@@ -730,6 +1018,38 @@ export const COURSES: Course[] = [
     description: "Learn about important government schemes, financial support, crop insurance, farmer benefits, and eligibility.",
     youtubeUrl: "https://www.youtube.com/watch?v=UXwWqTPmptU",
     youtubeChannel: "Parcham Classes",
+    youtubeResources: [
+      {
+            "title": "PM KISAN | Complete Details | Important Govt Schemes for All Exams",
+            "url": "https://www.youtube.com/watch?v=UXwWqTPmptU",
+            "channel": "Parcham Classes",
+            "description": "Educational guide covering government schemes for farmers practices and practical agricultural methods."
+      },
+      {
+            "title": "Top 6 Central Govt Schemes For Farmers | PM Kisan ₹6000 & More Explained",
+            "url": "https://www.youtube.com/watch?v=xRETTodB184",
+            "channel": "ETV Telangana and ETV Andhra Pradesh",
+            "description": "Educational guide covering government schemes for farmers practices and practical agricultural methods."
+      },
+      {
+            "title": "PM Kisan Samman Nidhi Scheme Explained | Complete Guide for 2026 | Govt Schemes",
+            "url": "https://www.youtube.com/watch?v=TgthBblEEnU",
+            "channel": "Adda247 Banking Exams",
+            "description": "Educational guide covering government schemes for farmers practices and practical agricultural methods."
+      },
+      {
+            "title": "How to Apply for PM Kisan Online 2026 | New PM Kisan Registration Process | AgriStack Farmer Regi...",
+            "url": "https://www.youtube.com/watch?v=bjTXsu4CeV4",
+            "channel": "Mr Miush",
+            "description": "Educational guide covering government schemes for farmers practices and practical agricultural methods."
+      },
+      {
+            "title": "Important Government Schemes for UPSC Prelims 2026 | Ministry of Agriculture | Drishti IAS English",
+            "url": "https://www.youtube.com/watch?v=V6DehyWqZ5k",
+            "channel": "Drishti IAS : English",
+            "description": "Educational guide covering government schemes for farmers practices and practical agricultural methods."
+      }
+]
   },
   {
     id: "agri-11",
@@ -745,6 +1065,38 @@ export const COURSES: Course[] = [
     description: "Learn precision farming techniques, drip irrigation, efficient fertilizer application, and resource management.",
     youtubeUrl: "https://www.youtube.com/watch?v=aMPRw71MIyw",
     youtubeChannel: "NPTEL IIT Kharagpur",
+    youtubeResources: [
+      {
+            "title": "Lecture 23: Drip Irrigation system",
+            "url": "https://www.youtube.com/watch?v=aMPRw71MIyw",
+            "channel": "NPTEL IIT Kharagpur",
+            "description": "Educational guide covering drip irrigation & precision farming practices and practical agricultural methods."
+      },
+      {
+            "title": "Lec 39: Precision Farming & Protected Cultivation (Part-2)",
+            "url": "https://www.youtube.com/watch?v=Z4xiBCJFDLE",
+            "channel": "NPTEL IIT Guwahati",
+            "description": "Educational guide covering drip irrigation & precision farming practices and practical agricultural methods."
+      },
+      {
+            "title": "Micro Irrigation Systems For Crops || EtvAnnadata",
+            "url": "https://www.youtube.com/watch?v=giHiZkGIIls",
+            "channel": "ETV Annadata",
+            "description": "Educational guide covering drip irrigation & precision farming practices and practical agricultural methods."
+      },
+      {
+            "title": "Lec 40: Precision Farming & Protected Cultivation (Part-3)",
+            "url": "https://www.youtube.com/watch?v=IaUHQLf1yfM",
+            "channel": "NPTEL IIT Guwahati",
+            "description": "Educational guide covering drip irrigation & precision farming practices and practical agricultural methods."
+      },
+      {
+            "title": "Lec 38: Precision Farming & Protected Cultivation (Part-1)",
+            "url": "https://www.youtube.com/watch?v=xT1Nlyo_CxI",
+            "channel": "NPTEL IIT Guwahati",
+            "description": "Educational guide covering drip irrigation & precision farming practices and practical agricultural methods."
+      }
+]
   },
   {
     id: "agri-12",
@@ -760,6 +1112,38 @@ export const COURSES: Course[] = [
     description: "Learn farming practices that help farmers adapt to changing weather conditions and reduce climate-related risks.",
     youtubeUrl: "https://www.youtube.com/watch?v=KYeFNnPJVEg",
     youtubeChannel: "FAO (United Nations)",
+    youtubeResources: [
+      {
+            "title": "FAO Policy Series: Climate Smart Agriculture",
+            "url": "https://www.youtube.com/watch?v=KYeFNnPJVEg",
+            "channel": "Agriculture Education",
+            "description": "Educational guide covering climate-smart agriculture practices and practical agricultural methods."
+      },
+      {
+            "title": "\"National Initiative on Climate Resilient Agriculture (NICRA) Scheme\"",
+            "url": "https://www.youtube.com/watch?v=t6T_x0xjse4",
+            "channel": "Pudhuyugam Academy",
+            "description": "Educational guide covering climate-smart agriculture practices and practical agricultural methods."
+      },
+      {
+            "title": "Climate Smart Farming Story: Adaptation and Agriculture",
+            "url": "https://www.youtube.com/watch?v=B6FMbB6Vh1c",
+            "channel": "Cornell Climate Smart Farming",
+            "description": "Educational guide covering climate-smart agriculture practices and practical agricultural methods."
+      },
+      {
+            "title": "Climate-Smart Agriculture: Helping the World Produce More Food",
+            "url": "https://www.youtube.com/watch?v=i0V2xzEw44Y",
+            "channel": "World Bank Group",
+            "description": "Educational guide covering climate-smart agriculture practices and practical agricultural methods."
+      },
+      {
+            "title": "Understanding Climate Smart Agriculture",
+            "url": "https://www.youtube.com/watch?v=ykJOXcHJ6sw",
+            "channel": "Climate Smart Agriculture",
+            "description": "Educational guide covering climate-smart agriculture practices and practical agricultural methods."
+      }
+]
   },
 
   // SECONDARY: University & Computer Science Resources (Optional)

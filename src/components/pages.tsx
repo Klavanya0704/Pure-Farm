@@ -104,7 +104,7 @@ import {
 import { AGRICULTURE_LESSONS } from "@/data/lessons";
 import { CATEGORIES, getProduct, PRODUCTS } from "@/data/products";
 import { SITE, waLink } from "@/data/site";
-import type { Category, NotificationItem, Product } from "@/data/types";
+import type { Category, Course, NotificationItem, Product } from "@/data/types";
 import { cardClass, glassCardClass, PageShell } from "./AppShell";
 import { getCartProducts, useCart } from "./CartContext";
 import { useAuth, type UserRole } from "./AuthContext";
@@ -4528,6 +4528,7 @@ export function LearnPage() {
   const [query, setQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("All Agriculture");
   const [levelFilter, setLevelFilter] = useState("All Levels");
+  const [selectedResourcesCourse, setSelectedResourcesCourse] = useState<Course | null>(null);
 
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(() => {
     if (typeof window !== "undefined") {
@@ -4951,7 +4952,10 @@ export function LearnPage() {
   const levelsList = ["All Levels", "Beginner", "Intermediate", "Advanced"];
 
   const filtered = COURSES.filter((c) => {
-    const searchString = `${t(c.title)} ${t(c.topic)} ${t(c.level)} ${c.category ?? ""} ${t(c.instructor)} ${t(c.description ?? "")}`
+    const resourcesText = c.youtubeResources
+      ? c.youtubeResources.map((r) => `${r.title} ${r.channel} ${r.description}`).join(" ")
+      : "";
+    const searchString = `${t(c.title)} ${t(c.topic)} ${t(c.level)} ${c.category ?? ""} ${t(c.instructor)} ${t(c.description ?? "")} ${resourcesText}`
       .toLowerCase();
     const matchesQuery = !query.trim() || searchString.includes(query.toLowerCase());
 
@@ -5094,6 +5098,7 @@ export function LearnPage() {
               const courseLessons = AGRICULTURE_LESSONS.filter((l) => l.courseId === c.id);
               const totalLessons = courseLessons.length > 0 ? courseLessons.length : c.lessons;
               const progressPct = getCourseProgressPct(c.id);
+              const resourceCount = c.youtubeResources?.length || 0;
 
               return (
                 <div
@@ -5139,7 +5144,19 @@ export function LearnPage() {
                     </div>
 
                     <div className="grid grid-cols-2 gap-2 pt-1">
-                      {c.youtubeUrl ? (
+                      {resourceCount > 0 ? (
+                        <button
+                          type="button"
+                          onClick={() => setSelectedResourcesCourse(c)}
+                          className="h-10 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
+                        >
+                          <Video className="h-3.5 w-3.5" />
+                          {t("Learning Resources")}
+                          <span className="ml-0.5 rounded-full bg-red-800/90 px-1.5 py-0.2 text-[10px] font-extrabold text-red-100">
+                            {resourceCount}
+                          </span>
+                        </button>
+                      ) : c.youtubeUrl ? (
                         <a
                           href={c.youtubeUrl}
                           target="_blank"
@@ -5158,7 +5175,9 @@ export function LearnPage() {
                         type="button"
                         onClick={() => handleSelectCourse(c.id)}
                         className={`h-10 rounded-xl ${
-                          c.youtubeUrl ? "bg-[#2d6a4f] hover:bg-[#1b4332]" : "col-span-2 bg-[#2d6a4f] hover:bg-[#1b4332]"
+                          resourceCount > 0 || c.youtubeUrl
+                            ? "bg-[#2d6a4f] hover:bg-[#1b4332]"
+                            : "col-span-2 bg-[#2d6a4f] hover:bg-[#1b4332]"
                         } text-white text-xs font-black transition shadow-sm cursor-pointer flex items-center justify-center gap-1`}
                       >
                         <BookOpen className="h-3.5 w-3.5" />
@@ -5193,6 +5212,92 @@ export function LearnPage() {
                 {t("View Technical & CS Resources")}
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
+            </div>
+          </div>
+        )}
+
+        {/* Video Learning Resources Modal */}
+        {selectedResourcesCourse && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 overflow-y-auto">
+            <div className="relative w-full max-w-2xl rounded-2xl border border-white/40 bg-white p-6 shadow-2xl space-y-5 my-8 max-h-[90vh] flex flex-col">
+              {/* Modal Header */}
+              <div className="flex items-start justify-between border-b border-slate-100 pb-4 shrink-0">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 text-[10px] font-black border border-red-200 uppercase tracking-wide">
+                      <Video className="h-3 w-3" />
+                      {t("YouTube Learning Resources")}
+                    </span>
+                    <span className="text-xs font-bold text-slate-500">
+                      {selectedResourcesCourse.youtubeResources?.length || 0} {t("Verified Videos")}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-black text-[#1b4332] leading-snug">
+                    {t(selectedResourcesCourse.title)}
+                  </h3>
+                  <p className="text-xs text-slate-600 line-clamp-2">
+                    {t(selectedResourcesCourse.description ?? "")}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedResourcesCourse(null)}
+                  className="rounded-full p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition cursor-pointer shrink-0 ml-2"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              {/* Modal Video List */}
+              <div className="space-y-3 overflow-y-auto pr-1 flex-1">
+                {selectedResourcesCourse.youtubeResources?.map((res, idx) => (
+                  <div
+                    key={res.id || idx}
+                    className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 hover:border-red-300 hover:bg-red-50/30 transition space-y-2 group"
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="space-y-1 min-w-0 flex-1">
+                        <div className="flex items-center gap-2">
+                          <span className="h-5 w-5 rounded-full bg-red-100 text-red-700 text-[10px] font-black flex items-center justify-center shrink-0">
+                            {idx + 1}
+                          </span>
+                          <h4 className="text-sm font-black text-slate-900 group-hover:text-red-700 transition leading-snug">
+                            {res.title}
+                          </h4>
+                        </div>
+                        <p className="text-xs font-bold text-emerald-800 flex items-center gap-1.5 pl-7">
+                          <span>{t("Channel:")} {res.channel}</span>
+                        </p>
+                        <p className="text-xs text-slate-600 leading-relaxed pl-7">
+                          {res.description}
+                        </p>
+                      </div>
+
+                      <a
+                        href={res.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-1.5 h-9 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition shadow-xs shrink-0 cursor-pointer w-full sm:w-auto"
+                      >
+                        <Video className="h-3.5 w-3.5" />
+                        {t("Watch on YouTube")}
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Modal Footer */}
+              <div className="pt-3 border-t border-slate-100 flex justify-end shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setSelectedResourcesCourse(null)}
+                  className="h-10 px-5 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold transition cursor-pointer"
+                >
+                  {t("Close")}
+                </button>
+              </div>
             </div>
           </div>
         )}

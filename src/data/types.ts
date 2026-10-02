@@ -92,6 +92,14 @@ export interface InsuranceScheme {
   officialSource?: string;
 }
 
+export interface YouTubeResource {
+  id?: string;
+  title: string;
+  url: string;
+  channel: string;
+  description: string;
+}
+
 export interface Course {
   id: string;
   title: string;
@@ -106,6 +114,7 @@ export interface Course {
   format?: string;
   youtubeUrl?: string;
   youtubeChannel?: string;
+  youtubeResources?: YouTubeResource[];
 }
 
 export interface CourseLesson {
