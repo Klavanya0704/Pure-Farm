@@ -210,7 +210,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <Link to="/" onClick={onItemClick} className="flex items-center gap-3 px-2 shrink-0 group">
           <div className="h-11 w-11 rounded-xl overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center shrink-0 p-0.5 group-hover:scale-105 transition-transform duration-200">
             <img
-              src="/images/pure-farm-logo.png"
+              src="/images/pure-farm-farmer-illustration.png"
               alt="Pure Farm"
               className="h-full w-full object-contain"
             />
@@ -345,7 +345,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               <Link to="/" className="flex items-center gap-2 lg:hidden shrink-0">
                 <div className="h-9 w-9 rounded-lg overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center p-0.5">
                   <img
-                    src="/images/pure-farm-logo.png"
+                    src="/images/pure-farm-farmer-illustration.png"
                     alt="Pure Farm"
                     className="h-full w-full object-contain"
                   />
@@ -546,7 +546,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               <Link to="/" className="inline-flex items-center gap-3 group">
                 <div className="h-12 w-12 rounded-xl overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform duration-200">
                   <img
-                    src="/images/pure-farm-logo.png"
+                    src="/images/pure-farm-farmer-illustration.png"
                     alt="Pure Farm"
                     className="h-full w-full object-contain"
                   />
@@ -590,7 +590,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
                 <div className="h-9 w-9 rounded-lg overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center p-0.5">
                   <img
-                    src="/images/pure-farm-logo.png"
+                    src="/images/pure-farm-farmer-illustration.png"
                     alt="Pure Farm"
                     className="h-full w-full object-contain"
                   />
