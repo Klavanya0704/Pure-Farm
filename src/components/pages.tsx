@@ -1139,8 +1139,8 @@ export function FarmerHomePage() {
               </div>
               <div className="shrink-0 flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-[#f7f4ed] border border-white/20 shadow-inner overflow-hidden p-1.5">
                 <img
-                  src="/images/pure-farm-farmer-illustration.png"
-                  alt="Pure Farm Farmer"
+                  src="/images/pure-farm-logo.png"
+                  alt="Pure Farm"
                   className="w-full h-full object-contain"
                 />
               </div>
