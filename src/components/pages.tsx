@@ -1127,13 +1127,12 @@ export function FarmerHomePage() {
                   </button>
                 </div>
               </div>
-              <div className="shrink-0 flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white/5 border border-white/10 backdrop-blur shadow-inner">
-                <div className="text-center">
-                  <span className="block text-2xl font-black text-amber-400">App</span>
-                  <span className="block text-[10px] uppercase font-bold tracking-widest">
-                    PureFarm
-                  </span>
-                </div>
+              <div className="shrink-0 flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#f7f4ed] border border-white/20 shadow-inner overflow-hidden p-1.5">
+                <img
+                  src="/images/pure-farm-logo.png"
+                  alt="Pure Farm"
+                  className="w-full h-full object-contain"
+                />
               </div>
             </div>
           </div>
@@ -6697,9 +6696,13 @@ export function LoginPage() {
       {/* Top Bar / Header Branding */}
       <header className="relative z-20 w-full px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl glass-card-dark text-[#19C37D] shadow-md group-hover:scale-105 transition duration-200 border border-white/40">
-            <Leaf className="h-5 w-5 text-[#19C37D]" />
-          </span>
+          <div className="h-11 w-11 rounded-2xl overflow-hidden bg-[#f7f4ed] border border-white/40 shadow-md group-hover:scale-105 transition duration-200 flex items-center justify-center p-0.5">
+            <img
+              src="/images/pure-farm-logo.png"
+              alt="Pure Farm"
+              className="h-full w-full object-contain"
+            />
+          </div>
           <div>
             <span className="block text-lg font-extrabold text-[#FFFFFF] drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] leading-none">
               Pure Farm
@@ -6756,6 +6759,15 @@ export function LoginPage() {
           <div className="lg:col-span-6 flex justify-center">
             <div className="w-full max-w-md glass-card-dark p-6 sm:p-8 rounded-3xl border border-white/30 shadow-2xl">
               <div className="text-center mb-6">
+                <div className="inline-flex justify-center mb-3">
+                  <div className="h-16 w-16 rounded-2xl overflow-hidden bg-[#f7f4ed] shadow-lg border border-white/30 flex items-center justify-center p-0.5">
+                    <img
+                      src="/images/pure-farm-logo.png"
+                      alt="Pure Farm"
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                </div>
                 <h2 className="text-2xl sm:text-3xl font-black text-white">Sign In to PureFarm</h2>
                 <p className="text-xs text-white/80 mt-1.5">
                   {t("Enter your account credentials to access your dashboard")}
@@ -6938,9 +6950,13 @@ export function RegisterPage() {
       {/* Top Left Branding */}
       <div className="absolute top-6 left-6 lg:top-10 lg:left-12 z-10 flex items-center gap-3">
         <Link to="/" className="flex items-center gap-3">
-          <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-lg">
-            <Leaf className="h-6 w-6" />
-          </span>
+          <div className="h-12 w-12 rounded-2xl overflow-hidden bg-[#f7f4ed] border border-white/30 shadow-lg flex items-center justify-center p-0.5">
+            <img
+              src="/images/pure-farm-logo.png"
+              alt="Pure Farm"
+              className="h-full w-full object-contain"
+            />
+          </div>
           <div>
             <span className="block text-2xl font-black tracking-wide leading-none text-white drop-shadow-md">
               PureFarm
@@ -7018,6 +7034,15 @@ export function RegisterPage() {
             className="py-8 px-6 sm:px-10"
           >
             <div className="mb-6 text-center">
+              <div className="inline-flex justify-center mb-3">
+                <div className="h-16 w-16 rounded-2xl overflow-hidden bg-[#f7f4ed] shadow-md border border-[#2d6a4f]/20 flex items-center justify-center p-0.5">
+                  <img
+                    src="/images/pure-farm-logo.png"
+                    alt="Pure Farm"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+              </div>
               <h3 className="text-2xl font-extrabold text-[#073B2A] drop-shadow-sm">
                 Create Account
               </h3>
@@ -7402,7 +7427,13 @@ export function SellerPage() {
     return (
       <PageShell eyebrow="Seller Portal" title="Farmer Product Management">
         <div className="rounded-2xl border bg-card p-8 text-center shadow-sm max-w-xl mx-auto my-12">
-          <Leaf className="h-12 w-12 text-[#087F5B] mx-auto mb-4" />
+          <div className="h-16 w-16 rounded-2xl overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs mx-auto mb-4 flex items-center justify-center p-1">
+            <img
+              src="/images/pure-farm-logo.png"
+              alt="Pure Farm"
+              className="h-full w-full object-contain"
+            />
+          </div>
           <h2 className="text-xl font-bold text-foreground mb-2">
             {t("Farmer Authentication Required")}
           </h2>

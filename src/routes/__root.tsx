@@ -22,6 +22,15 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
+        <Link to="/" className="inline-flex justify-center mb-4">
+          <div className="h-16 w-16 rounded-2xl overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs p-1">
+            <img
+              src="/images/pure-farm-logo.png"
+              alt="Pure Farm"
+              className="h-full w-full object-contain"
+            />
+          </div>
+        </Link>
         <h1 className="text-7xl font-bold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
         <p className="mt-2 text-sm text-muted-foreground">
@@ -50,6 +59,15 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
+        <Link to="/" className="inline-flex justify-center mb-4">
+          <div className="h-16 w-16 rounded-2xl overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs p-1">
+            <img
+              src="/images/pure-farm-logo.png"
+              alt="Pure Farm"
+              className="h-full w-full object-contain"
+            />
+          </div>
+        </Link>
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
           This page didn't load
         </h1>
@@ -96,9 +114,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Marketplace, mandi prices, crop advisories, learning, and support for Indian farmers.",
       },
-      { property: "og:type", content: "website" },
+      { property: "og:image", content: "/images/pure-farm-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@purefarm" },
+      { name: "twitter:image", content: "/images/pure-farm-logo.png" },
     ],
     links: [
       {
@@ -112,6 +131,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "apple-touch-icon", href: "/images/pure-farm-logo.png" },
     ],
   }),
   shellComponent: RootShell,

@@ -217,13 +217,17 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div className="flex h-full flex-col justify-between min-h-0">
       <div className="flex flex-1 flex-col space-y-5 min-h-0 overflow-hidden">
         {/* Logo */}
-        <Link to="/" onClick={onItemClick} className="flex items-center gap-3 px-2 shrink-0">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#2d6a4f] text-white shadow-sm">
-            <Leaf className="h-5 w-5" aria-hidden="true" />
-          </span>
-          <div>
-            <span className="block text-lg font-black text-[#1b4332]">PureFarm</span>
-            <span className="block text-[10px] font-semibold text-[#2d6a4f]/70 uppercase tracking-wider">
+        <Link to="/" onClick={onItemClick} className="flex items-center gap-3 px-2 shrink-0 group">
+          <div className="h-11 w-11 rounded-xl overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center shrink-0 p-0.5 group-hover:scale-105 transition-transform duration-200">
+            <img
+              src="/images/pure-farm-logo.png"
+              alt="Pure Farm"
+              className="h-full w-full object-contain"
+            />
+          </div>
+          <div className="min-w-0">
+            <span className="block text-lg font-black text-[#1b4332] leading-tight tracking-tight">PureFarm</span>
+            <span className="block text-[10px] font-semibold text-[#2d6a4f]/70 uppercase tracking-wider truncate">
               {t("Connect - Grow - Prosper")}
             </span>
           </div>
@@ -304,15 +308,27 @@ export function AppShell({ children }: { children: ReactNode }) {
         {/* Header Topbar */}
         <header className="sticky top-0 z-20 border-b border-border bg-background/95 backdrop-blur-md">
           <div className="flex h-16 items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-1 items-center gap-3 min-w-0">
+            <div className="flex flex-1 items-center gap-2.5 min-w-0">
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-foreground lg:hidden"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-foreground lg:hidden shrink-0"
                 aria-label="Open navigation"
               >
                 <Menu className="h-5 w-5" />
               </button>
+
+              {/* Mobile Brand Logo */}
+              <Link to="/" className="flex items-center gap-2 lg:hidden shrink-0">
+                <div className="h-9 w-9 rounded-lg overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center p-0.5">
+                  <img
+                    src="/images/pure-farm-logo.png"
+                    alt="Pure Farm"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <span className="font-black text-[#1b4332] text-sm tracking-tight hidden sm:inline">PureFarm</span>
+              </Link>
 
               {/* Large search input */}
               <form onSubmit={handleSearch} className="hidden md:flex flex-1 max-w-md relative">
@@ -333,7 +349,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             </div>
 
             {/* Right details */}
-            <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+            <div className="flex items-center gap-2 sm:gap-4 shrink-0">
               {/* Location */}
               <div className="hidden sm:flex items-center gap-1 text-xs font-semibold text-foreground/80">
                 <MapPin className="h-3.5 w-3.5 text-[#2d6a4f]" />
@@ -359,14 +375,14 @@ export function AppShell({ children }: { children: ReactNode }) {
               </Link>
 
               {/* Language Selector */}
-              <div className="border-l border-border pl-3">
+              <div className="border-l border-border pl-2 sm:pl-3">
                 <LanguageSelector />
               </div>
 
               {/* Notifications */}
               <Link
                 to="/notifications"
-                className="relative inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card hover:bg-muted/50 transition text-foreground"
+                className="relative hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card hover:bg-muted/50 transition text-foreground"
                 aria-label="Notifications"
               >
                 <Bell className="h-5 w-5" />
@@ -376,7 +392,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               {/* Wishlist */}
               <Link
                 to="/wishlist"
-                className="relative inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card hover:bg-muted/50 transition text-foreground"
+                className="relative hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card hover:bg-muted/50 transition text-foreground"
                 aria-label="Wishlist"
               >
                 <Heart className="h-5 w-5 text-red-500 fill-red-50" />
@@ -437,7 +453,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                   </Link>
                   <Link
                     to="/register"
-                    className="inline-flex h-9 items-center justify-center rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-3.5 text-xs font-bold shadow-sm transition"
+                    className="hidden sm:inline-flex h-9 items-center justify-center rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-3.5 text-xs font-bold shadow-sm transition"
                   >
                     {t("Register")}
                   </Link>
@@ -454,8 +470,22 @@ export function AppShell({ children }: { children: ReactNode }) {
         <footer className="border-t border-border bg-card px-4 py-8 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-[1.4fr_1fr_1fr]">
             <div>
-              <p className="text-lg font-black text-[#1b4332]">{SITE.name}</p>
-              <p className="mt-2 max-w-xl text-sm text-muted-foreground leading-relaxed">
+              <Link to="/" className="inline-flex items-center gap-3 group">
+                <div className="h-12 w-12 rounded-xl overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform duration-200">
+                  <img
+                    src="/images/pure-farm-logo.png"
+                    alt="Pure Farm"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <div>
+                  <p className="text-lg font-black text-[#1b4332] leading-tight">{SITE.name}</p>
+                  <p className="text-[10px] font-semibold text-[#2d6a4f]/80 uppercase tracking-wider">
+                    {t("A Digital Path for Future Farming")}
+                  </p>
+                </div>
+              </Link>
+              <p className="mt-3 max-w-xl text-sm text-muted-foreground leading-relaxed">
                 {t(
                   "Digital Agriculture Platform for farm inputs, mandi prices, crop advisories, schemes, and local support.",
                 )}
@@ -484,9 +514,16 @@ export function AppShell({ children }: { children: ReactNode }) {
           />
           <div className="relative h-full w-[240px] overflow-y-auto bg-sidebar p-5 text-sidebar-foreground shadow-2xl transition-transform duration-300">
             <div className="mb-6 flex items-center justify-between">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#2d6a4f] text-white">
-                <Leaf className="h-4.5 w-4.5" />
-              </span>
+              <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
+                <div className="h-9 w-9 rounded-lg overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center p-0.5">
+                  <img
+                    src="/images/pure-farm-logo.png"
+                    alt="Pure Farm"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <span className="text-base font-black text-[#1b4332]">PureFarm</span>
+              </Link>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
