@@ -17,6 +17,7 @@ import { WishlistProvider } from "../components/WishlistContext";
 import { ToastProvider } from "../components/ToastContext";
 import { AuthProvider } from "../components/AuthContext";
 import { LanguageProvider } from "../i18n/LanguageContext";
+import { WeatherProvider } from "../components/WeatherContext";
 
 function NotFoundComponent() {
   return (
@@ -167,14 +168,16 @@ function RootComponent() {
           <WishlistProvider>
             <ToastProvider>
               <CartProvider>
-                {isAuthRoute ? (
-                  <Outlet />
-                ) : (
-                  <AppShell>
-                    {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+                <WeatherProvider>
+                  {isAuthRoute ? (
                     <Outlet />
-                  </AppShell>
-                )}
+                  ) : (
+                    <AppShell>
+                      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+                      <Outlet />
+                    </AppShell>
+                  )}
+                </WeatherProvider>
               </CartProvider>
             </ToastProvider>
           </WishlistProvider>

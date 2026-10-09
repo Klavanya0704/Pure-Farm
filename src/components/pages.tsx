@@ -21,6 +21,7 @@ import type {
   MachineRateUnit,
   MachineAvailability,
 } from "@/types/database";
+import { useWeather } from "./WeatherContext";
 import {
   ArrowRight,
   ArrowLeft,
@@ -801,10 +802,19 @@ export function FarmerHomePage() {
     });
   }, []);
 
+  const { selectedLocation, weatherData: liveWeather, setIsSelectorOpen } = useWeather();
+
   // Map Weather forecast
-  const weatherData = WEATHER.length >= 5 ? WEATHER : [];
-  const forecastDays = ["Sat", "Sun", "Mon", "Tue"];
   const weatherForecast = useMemo(() => {
+    if (liveWeather && Array.isArray(liveWeather.forecast) && liveWeather.forecast.length > 1) {
+      return liveWeather.forecast.slice(1, 5).map((fc) => ({
+        day: fc.day,
+        temp: `${fc.high}°/${fc.low}°`,
+        condition: fc.condition,
+      }));
+    }
+    const weatherData = WEATHER.length >= 5 ? WEATHER : [];
+    const forecastDays = ["Sat", "Sun", "Mon", "Tue"];
     return forecastDays.map((d, i) => {
       const dbItem = weatherData[i + 1];
       return {
@@ -813,7 +823,7 @@ export function FarmerHomePage() {
         condition: dbItem ? dbItem.condition : "Sunny",
       };
     });
-  }, []);
+  }, [liveWeather]);
 
   // Map Schemes
   const displaySchemes = [
@@ -1127,10 +1137,10 @@ export function FarmerHomePage() {
                   </button>
                 </div>
               </div>
-              <div className="shrink-0 flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#f7f4ed] border border-white/20 shadow-inner overflow-hidden p-1.5">
+              <div className="shrink-0 flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-[#f7f4ed] border border-white/20 shadow-inner overflow-hidden p-1.5">
                 <img
-                  src="/images/pure-farm-logo.png"
-                  alt="Pure Farm"
+                  src="/images/pure-farm-farmer-illustration.png"
+                  alt="Pure Farm Farmer"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -1145,13 +1155,33 @@ export function FarmerHomePage() {
                 <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                   {t("Weather Update")}
                 </p>
-                <Sun className="h-5 w-5 text-amber-500 fill-amber-100" />
+                <button
+                  type="button"
+                  onClick={() => setIsSelectorOpen(true)}
+                  className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2d6a4f] hover:underline cursor-pointer"
+                  title={t("Click to change weather location")}
+                >
+                  <MapPin className="h-3 w-3" />
+                  <span>{t("Change")}</span>
+                </button>
               </div>
               <div className="mt-3">
-                <p className="text-sm font-black text-[#1b4332]">{t("Rajahmundry, AP")}</p>
+                <button
+                  type="button"
+                  onClick={() => setIsSelectorOpen(true)}
+                  className="text-left text-sm font-black text-[#1b4332] hover:underline flex items-center gap-1 cursor-pointer"
+                  title={t("Click to change weather location")}
+                >
+                  <span>{t(selectedLocation)}</span>
+                  <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
+                </button>
                 <div className="mt-2 flex items-baseline gap-2">
-                  <span className="text-4xl font-black text-[#1b4332]">28{"\u00B0"}C</span>
-                  <span className="text-sm font-bold text-muted-foreground">{t("Sunny")}</span>
+                  <span className="text-4xl font-black text-[#1b4332]">
+                    {liveWeather ? `${liveWeather.temp}°C` : "28°C"}
+                  </span>
+                  <span className="text-sm font-bold text-muted-foreground">
+                    {t(liveWeather?.condition || "Sunny")}
+                  </span>
                 </div>
 
                 <div className="mt-4 grid grid-cols-3 gap-2 border-t border-b border-border/60 py-3 text-center">
@@ -1159,15 +1189,21 @@ export function FarmerHomePage() {
                     <p className="text-[10px] text-muted-foreground font-semibold">
                       {t("Humidity")}
                     </p>
-                    <p className="text-xs font-black text-[#1b4332] mt-0.5">62%</p>
+                    <p className="text-xs font-black text-[#1b4332] mt-0.5">
+                      {liveWeather ? `${liveWeather.humidity}%` : "62%"}
+                    </p>
                   </div>
                   <div>
                     <p className="text-[10px] text-muted-foreground font-semibold">{t("Wind")}</p>
-                    <p className="text-xs font-black text-[#1b4332] mt-0.5">{t("12 km/h")}</p>
+                    <p className="text-xs font-black text-[#1b4332] mt-0.5">
+                      {liveWeather ? `${liveWeather.windSpeed} km/h` : "12 km/h"}
+                    </p>
                   </div>
                   <div>
                     <p className="text-[10px] text-muted-foreground font-semibold">{t("Rain")}</p>
-                    <p className="text-xs font-black text-[#1b4332] mt-0.5">10%</p>
+                    <p className="text-xs font-black text-[#1b4332] mt-0.5">
+                      {liveWeather && liveWeather.forecast[0] ? `${liveWeather.forecast[0].rainProb}%` : "10%"}
+                    </p>
                   </div>
                 </div>
 
@@ -4312,24 +4348,31 @@ export function LivestockDetailPage() {
 export function WeatherPage() {
   const { t } = useTranslation();
   const { user } = useAuth();
+  const {
+    selectedLocation: globalLocation,
+    setSelectedLocation: setGlobalLocation,
+    weatherData: globalWeather,
+    loading: globalLoading,
+    selectCoordsLocation,
+  } = useWeather();
 
-  const defaultLoc = user?.location || "Tadepalligudem, AP";
   const [selectedCrop, setSelectedCrop] = useState<string>("Paddy");
-  const [selectedLocation, setSelectedLocation] = useState(defaultLoc);
-  const [searchInput, setSearchInput] = useState(defaultLoc);
-  const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [selectedLocation, setSelectedLocation] = useState(globalLocation);
+  const [searchInput, setSearchInput] = useState(globalLocation);
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(globalWeather);
+  const [loading, setLoading] = useState(globalLoading && !globalWeather);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isLocating, setIsLocating] = useState(false);
 
   const popularLocations = [
-    "Tadepalligudem, AP",
     "Rajahmundry, AP",
+    "Tadepalligudem, AP",
     "Guntur, AP",
     "Vijayawada, AP",
     "Eluru, AP",
     "Visakhapatnam, AP",
     "Kakinada, AP",
+    "Tirupati, AP",
     "Hyderabad, TS",
     "Ludhiana, Punjab",
     "Nashik, Maharashtra",
@@ -4372,6 +4415,7 @@ export function WeatherPage() {
             setWeatherData(data);
             setSelectedLocation(data.locationName);
             setSearchInput(data.locationName);
+            setGlobalLocation(data.locationName);
             setLoading(false);
             setIsLocating(false);
           })
@@ -4389,6 +4433,22 @@ export function WeatherPage() {
     );
   };
 
+  // Sync when global location changes (e.g. from header selector)
+  useEffect(() => {
+    if (globalLocation && globalLocation !== selectedLocation) {
+      setSelectedLocation(globalLocation);
+      setSearchInput(globalLocation);
+    }
+  }, [globalLocation]);
+
+  // Sync live weather from context
+  useEffect(() => {
+    if (globalWeather && (!weatherData || globalWeather.locationName.toLowerCase().includes(selectedLocation.split(",")[0].toLowerCase()))) {
+      setWeatherData(globalWeather);
+      setLoading(false);
+    }
+  }, [globalWeather]);
+
   useEffect(() => {
     loadWeather(selectedLocation);
   }, [selectedLocation, loadWeather]);
@@ -4396,7 +4456,9 @@ export function WeatherPage() {
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchInput.trim()) {
-      setSelectedLocation(searchInput.trim());
+      const newLoc = searchInput.trim();
+      setSelectedLocation(newLoc);
+      setGlobalLocation(newLoc);
     }
   };
 
@@ -4457,6 +4519,7 @@ export function WeatherPage() {
                     onClick={() => {
                       setSelectedLocation(loc);
                       setSearchInput(loc);
+                      setGlobalLocation(loc);
                     }}
                     className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${
                       selectedLocation === loc
@@ -6696,9 +6759,9 @@ export function LoginPage() {
       {/* Top Bar / Header Branding */}
       <header className="relative z-20 w-full px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="h-11 w-11 rounded-2xl overflow-hidden bg-[#f7f4ed] border border-white/40 shadow-md group-hover:scale-105 transition duration-200 flex items-center justify-center p-0.5">
+          <div className="h-12 w-12 rounded-2xl overflow-hidden bg-[#f7f4ed] border border-white/40 shadow-md group-hover:scale-105 transition duration-200 flex items-center justify-center p-0.5">
             <img
-              src="/images/pure-farm-logo.png"
+              src="/images/pure-farm-farmer-illustration.png"
               alt="Pure Farm"
               className="h-full w-full object-contain"
             />
@@ -6760,10 +6823,10 @@ export function LoginPage() {
             <div className="w-full max-w-md glass-card-dark p-6 sm:p-8 rounded-3xl border border-white/30 shadow-2xl">
               <div className="text-center mb-6">
                 <div className="inline-flex justify-center mb-3">
-                  <div className="h-16 w-16 rounded-2xl overflow-hidden bg-[#f7f4ed] shadow-lg border border-white/30 flex items-center justify-center p-0.5">
+                  <div className="h-24 w-24 sm:h-28 sm:w-28 rounded-2xl overflow-hidden bg-[#f7f4ed] shadow-xl border border-white/40 flex items-center justify-center p-1">
                     <img
-                      src="/images/pure-farm-logo.png"
-                      alt="Pure Farm"
+                      src="/images/pure-farm-farmer-illustration.png"
+                      alt="Pure Farm Farmer"
                       className="h-full w-full object-contain"
                     />
                   </div>
@@ -6949,20 +7012,20 @@ export function RegisterPage() {
 
       {/* Top Left Branding */}
       <div className="absolute top-6 left-6 lg:top-10 lg:left-12 z-10 flex items-center gap-3">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="h-12 w-12 rounded-2xl overflow-hidden bg-[#f7f4ed] border border-white/30 shadow-lg flex items-center justify-center p-0.5">
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="h-12 w-12 rounded-2xl overflow-hidden bg-[#f7f4ed] border border-white/40 shadow-lg group-hover:scale-105 transition duration-200 flex items-center justify-center p-0.5">
             <img
-              src="/images/pure-farm-logo.png"
+              src="/images/pure-farm-farmer-illustration.png"
               alt="Pure Farm"
               className="h-full w-full object-contain"
             />
           </div>
           <div>
-            <span className="block text-2xl font-black tracking-wide leading-none text-white drop-shadow-md">
-              PureFarm
+            <span className="block text-xl sm:text-2xl font-black tracking-wide leading-none text-white drop-shadow-md">
+              Pure Farm
             </span>
-            <span className="block text-[10px] font-bold text-white uppercase tracking-widest leading-none mt-1.5 drop-shadow-md">
-              Connect • Grow • Prosper
+            <span className="block text-[9px] sm:text-[10px] font-bold text-[#E8F5EE] uppercase tracking-wider leading-none mt-1 drop-shadow-md">
+              {t("Agri Portal")}
             </span>
           </div>
         </Link>

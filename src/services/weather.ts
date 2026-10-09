@@ -45,6 +45,13 @@ export class WeatherError extends Error {
   }
 }
 
+export interface LocationResult {
+  name: string;
+  state?: string;
+  lat?: number;
+  lon?: number;
+}
+
 export const LOCATION_COORDS: Record<string, { lat: number; lon: number; name: string }> = {
   rajahmundry: { lat: 16.9833, lon: 81.7833, name: "Rajahmundry, AP" },
   tadepalligudem: { lat: 16.8333, lon: 81.5333, name: "Tadepalligudem, AP" },
@@ -57,14 +64,101 @@ export const LOCATION_COORDS: Record<string, { lat: number; lon: number; name: s
   nellore: { lat: 14.4426, lon: 79.9865, name: "Nellore, AP" },
   anantapur: { lat: 14.6819, lon: 77.6006, name: "Anantapur, AP" },
   tirupati: { lat: 13.6288, lon: 79.4192, name: "Tirupati, AP" },
+  kadapa: { lat: 14.4673, lon: 78.8242, name: "Kadapa, AP" },
+  chittoor: { lat: 13.2172, lon: 79.1003, name: "Chittoor, AP" },
+  ongole: { lat: 15.5057, lon: 80.0499, name: "Ongole, AP" },
+  srikakulam: { lat: 18.2969, lon: 83.8967, name: "Srikakulam, AP" },
+  vizianagaram: { lat: 18.1133, lon: 83.4029, name: "Vizianagaram, AP" },
+  machilipatnam: { lat: 16.1875, lon: 81.1389, name: "Machilipatnam, AP" },
+  bhimavaram: { lat: 16.5449, lon: 81.5212, name: "Bhimavaram, AP" },
+  tenali: { lat: 16.2437, lon: 80.6400, name: "Tenali, AP" },
+  nandyal: { lat: 15.4886, lon: 78.4836, name: "Nandyal, AP" },
   hyderabad: { lat: 17.3850, lon: 78.4867, name: "Hyderabad, TS" },
   warangal: { lat: 17.9689, lon: 79.5941, name: "Warangal, TS" },
   karimnagar: { lat: 18.4386, lon: 79.1288, name: "Karimnagar, TS" },
-  ludhiana: { lat: 30.9010, lon: 75.8573, name: "Ludhiana, Punjab" },
+  khammam: { lat: 17.2473, lon: 80.1514, name: "Khammam, TS" },
+  nizamabad: { lat: 18.6725, lon: 78.0941, name: "Nizamabad, TS" },
+  mahbubnagar: { lat: 16.7488, lon: 77.9856, name: "Mahbubnagar, TS" },
+  nalgonda: { lat: 17.0577, lon: 79.2684, name: "Nalgonda, TS" },
+  bengaluru: { lat: 12.9716, lon: 77.5946, name: "Bengaluru, KA" },
+  mysuru: { lat: 12.2958, lon: 76.6394, name: "Mysuru, KA" },
+  hubli: { lat: 15.3647, lon: 75.1240, name: "Hubli, KA" },
+  chennai: { lat: 13.0827, lon: 80.2707, name: "Chennai, TN" },
+  coimbatore: { lat: 11.0168, lon: 76.9558, name: "Coimbatore, TN" },
+  madurai: { lat: 9.9252, lon: 78.1198, name: "Madurai, TN" },
+  pune: { lat: 18.5204, lon: 73.8567, name: "Pune, Maharashtra" },
   nashik: { lat: 19.9975, lon: 73.7898, name: "Nashik, Maharashtra" },
-  delhi: { lat: 28.6139, lon: 77.2090, name: "Delhi" },
+  nagpur: { lat: 21.1458, lon: 79.0882, name: "Nagpur, Maharashtra" },
+  mumbai: { lat: 19.0760, lon: 72.8777, name: "Mumbai, Maharashtra" },
+  ahmedabad: { lat: 23.0225, lon: 72.5714, name: "Ahmedabad, Gujarat" },
+  surat: { lat: 21.1702, lon: 72.8311, name: "Surat, Gujarat" },
+  jaipur: { lat: 26.9124, lon: 75.7873, name: "Jaipur, Rajasthan" },
+  ludhiana: { lat: 30.9010, lon: 75.8573, name: "Ludhiana, Punjab" },
+  amritsar: { lat: 31.6340, lon: 74.8723, name: "Amritsar, Punjab" },
+  chandigarh: { lat: 30.7333, lon: 76.7794, name: "Chandigarh" },
+  lucknow: { lat: 26.8467, lon: 80.9462, name: "Lucknow, UP" },
   agra: { lat: 27.1767, lon: 78.0081, name: "Agra, UP" },
+  varanasi: { lat: 25.3176, lon: 82.9739, name: "Varanasi, UP" },
+  delhi: { lat: 28.6139, lon: 77.2090, name: "Delhi" },
+  patna: { lat: 25.5941, lon: 85.1376, name: "Patna, Bihar" },
+  kolkata: { lat: 22.5726, lon: 88.3639, name: "Kolkata, WB" },
+  bhopal: { lat: 23.2599, lon: 77.4126, name: "Bhopal, MP" },
+  indore: { lat: 22.7196, lon: 75.8577, name: "Indore, MP" },
 };
+
+export async function searchLocations(query: string): Promise<LocationResult[]> {
+  const clean = query.trim().toLowerCase();
+
+  const localMatches: LocationResult[] = [];
+  for (const [key, val] of Object.entries(LOCATION_COORDS)) {
+    if (!clean || key.includes(clean) || val.name.toLowerCase().includes(clean)) {
+      const parts = val.name.split(",");
+      localMatches.push({
+        name: val.name,
+        state: parts.length > 1 ? parts[1].trim() : undefined,
+        lat: val.lat,
+        lon: val.lon,
+      });
+    }
+  }
+
+  if (!clean || clean.length < 2) {
+    return localMatches.slice(0, 25);
+  }
+
+  try {
+    const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(clean)}&count=6&language=en&format=json`;
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 2500);
+    const res = await fetch(geoUrl, { signal: controller.signal });
+    clearTimeout(timer);
+
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data.results)) {
+        for (const r of data.results) {
+          const regionStr = [r.admin1, r.country_code?.toUpperCase()].filter(Boolean).join(", ");
+          const fullName = regionStr ? `${r.name}, ${regionStr}` : r.name;
+          const exists = localMatches.some(
+            (m) => m.name.toLowerCase() === fullName.toLowerCase() || m.name.toLowerCase().startsWith(r.name.toLowerCase()),
+          );
+          if (!exists) {
+            localMatches.push({
+              name: fullName,
+              state: r.admin1 || r.country,
+              lat: r.latitude,
+              lon: r.longitude,
+            });
+          }
+        }
+      }
+    }
+  } catch {
+    // Graceful offline fallback
+  }
+
+  return localMatches.slice(0, 30);
+}
 
 function generateAdvisory(condition: string, temp: number, humidity: number, rainProb: number): string {
   if (rainProb > 50 || condition.toLowerCase().includes("rain")) {
