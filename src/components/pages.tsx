@@ -9784,7 +9784,7 @@ export function MachinesToolsPage() {
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
-        bgImage="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=2000"
+        bgImage="/hero-tractor.jpg"
         lightTheme={true}
         eyebrow="Agricultural Equipment"
         title="Machines & Tools"
@@ -10444,7 +10444,7 @@ export function MachinesToolsListPage() {
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
-        bgImage="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=2000"
+        bgImage="/hero-tractor.jpg"
         lightTheme={true}
         eyebrow={isTelugu ? "వ్యవసాయ పరికరాలు" : "Agricultural Equipment"}
         title={
