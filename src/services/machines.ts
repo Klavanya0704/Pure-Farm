@@ -955,7 +955,10 @@ export async function getMachines(options?: {
 
       const { data, error } = await query;
       if (!error && data && data.length > 0) {
-        return data as DbMachine[];
+        return (data as DbMachine[]).map((item) => ({
+          ...item,
+          image_url: getEquipmentImage(item.name, item.category, item.image_url)
+        }));
       }
     } catch (err) {
       console.warn("Supabase fetch failed for machines_tools, using local storage", err);
