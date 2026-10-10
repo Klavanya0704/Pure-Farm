@@ -18,7 +18,7 @@ export interface CreateMachineInput {
   status?: string;
 }
 
-const LOCAL_MACHINES_KEY = "purefarm_local_machines_listings_v3";
+const LOCAL_MACHINES_KEY = "purefarm_local_machines_listings_v4";
 
 const INITIAL_STATIC_MACHINES: DbMachine[] = [
   // 1. TRACTORS (4 items)
