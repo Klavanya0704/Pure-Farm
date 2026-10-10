@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Heart, ShoppingCart, Star } from "lucide-react";
-import type { Product } from "@/data/types";
+import type { Category, Product } from "@/data/types";
+import {
+  CATEGORY_FALLBACK_IMAGES,
+  getCategoryPlaceholder,
+  getProductImage,
+} from "@/data/products";
 import { useCart } from "./CartContext";
 import { useWishlist } from "./WishlistContext";
 import { useToast } from "./ToastContext";
@@ -15,8 +20,7 @@ export function formatRupees(value: number) {
   }).format(value);
 }
 
-export const NEUTRAL_PRODUCT_FALLBACK =
-  "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300' fill='%23f3f4f6'><rect width='400' height='300' fill='%23f3f4f6'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='%239ca3af'>Image Unavailable</text><text x='50%' y='58%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='12' fill='%239ca3af'>PureFarm Produce</text></svg>";
+export const NEUTRAL_PRODUCT_FALLBACK = getCategoryPlaceholder("Produce");
 
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
@@ -26,6 +30,13 @@ export function ProductCard({ product }: { product: Product }) {
   const [imageError, setImageError] = useState(false);
 
   const activeWishlist = isInWishlist(product.id);
+
+  const fallbackCategoryImg =
+    CATEGORY_FALLBACK_IMAGES[product.category as Category] ||
+    getCategoryPlaceholder(product.category, product.name);
+
+  const initialSrc = product.image || getProductImage(product.name, product.category, null);
+  const displaySrc = imageError ? fallbackCategoryImg : initialSrc;
 
   // Compute deterministic discount, old price, and review count based on product ID/price, or use custom overrides
   const discountStr = product.customDiscount
@@ -46,12 +57,18 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <article className="group flex w-full flex-col overflow-hidden transition-all duration-250 ease-out bg-[#FFFFFF] rounded-[20px] border border-[#E5E7EB] shadow-[0_3px_12px_rgba(0,0,0,0.06)] hover:-translate-y-[5px] hover:shadow-[0_10px_28px_rgba(0,0,0,0.12)] relative">
       {/* Upper Half: Large Product Image Area */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-[18px] bg-white">
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-[18px] bg-[#F0FDF4]">
         <Link to="/product/$id" params={{ id: product.id }} className="block h-full w-full">
           <img
-            src={imageError || !product.image ? NEUTRAL_PRODUCT_FALLBACK : product.image}
+            src={displaySrc}
             alt={product.name}
-            onError={() => setImageError(true)}
+            onError={(e) => {
+              if (!imageError) {
+                setImageError(true);
+              } else {
+                (e.currentTarget as HTMLImageElement).src = getCategoryPlaceholder(product.category, product.name);
+              }
+            }}
             className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
           />
         </Link>

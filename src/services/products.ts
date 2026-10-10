@@ -1,6 +1,6 @@
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import type { DbProduct, ProductCategory, ProductStatus } from "@/types/database";
-import { PRODUCTS as STATIC_PRODUCTS } from "@/data/products";
+import { PRODUCTS as STATIC_PRODUCTS, getProductImage } from "@/data/products";
 import type { Product as LegacyProduct } from "@/data/types";
 
 export interface CreateProductInput {
@@ -58,7 +58,10 @@ export async function getProducts(options?: {
     return mapStaticToDbProducts(options);
   }
 
-  return data;
+  return (data as DbProduct[]).map((p) => ({
+    ...p,
+    image_url: getProductImage(p.name, p.category, p.image_url),
+  }));
 }
 
 /**
@@ -81,7 +84,10 @@ export async function getFarmerProducts(farmerId: string): Promise<DbProduct[]> 
     throw error;
   }
 
-  return data || [];
+  return ((data || []) as DbProduct[]).map((p) => ({
+    ...p,
+    image_url: getProductImage(p.name, p.category, p.image_url),
+  }));
 }
 
 export async function getProductById(id: string): Promise<DbProduct | null> {
@@ -92,11 +98,14 @@ export async function getProductById(id: string): Promise<DbProduct | null> {
 
   const { data, error } = await supabase.from("products").select("*").eq("id", id).single();
 
-  if (error) {
+  if (error || !data) {
     const staticP = STATIC_PRODUCTS.find((p) => p.id === id);
     return staticP ? convertSingleStatic(staticP) : null;
   }
-  return data;
+  return {
+    ...data,
+    image_url: getProductImage(data.name, data.category, data.image_url),
+  };
 }
 
 export async function createProduct(input: CreateProductInput): Promise<DbProduct> {

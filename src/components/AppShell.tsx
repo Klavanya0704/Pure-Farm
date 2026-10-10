@@ -399,6 +399,9 @@ export function AppShell({ children }: { children: ReactNode }) {
                     <img
                       src={weatherData.iconUrl}
                       alt={weatherData.condition}
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).style.display = "none";
+                      }}
                       className="h-4 w-4 object-contain group-hover:scale-110 transition-transform"
                     />
                     <span>
@@ -524,6 +527,9 @@ export function AppShell({ children }: { children: ReactNode }) {
                 <img
                   src={weatherData.iconUrl}
                   alt={weatherData.condition}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).style.display = "none";
+                  }}
                   className="h-4 w-4 object-contain"
                 />
                 <span>

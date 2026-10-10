@@ -103,7 +103,7 @@ import {
   WEATHER,
 } from "@/data/agriculture";
 import { AGRICULTURE_LESSONS } from "@/data/lessons";
-import { CATEGORIES, getProduct, PRODUCTS, CATEGORY_FALLBACK_IMAGES } from "@/data/products";
+import { CATEGORIES, getProduct, PRODUCTS, CATEGORY_FALLBACK_IMAGES, getProductImage, getCategoryPlaceholder } from "@/data/products";
 import { SITE, waLink } from "@/data/site";
 import type { Category, Course, NotificationItem, Product } from "@/data/types";
 import { cardClass, glassCardClass, PageShell } from "./AppShell";
@@ -1497,10 +1497,7 @@ export function MarketplacePage() {
           price: p.price,
           unit: p.unit,
           stock: p.available_quantity,
-          image:
-            p.image_url ||
-            CATEGORY_FALLBACK_IMAGES[p.category as Category] ||
-            NEUTRAL_PRODUCT_FALLBACK,
+          image: getProductImage(p.name, p.category, p.image_url),
           rating: p.rating || 4.5,
           brand: p.location ? `Farmer (${p.location})` : "PureFarm Direct",
           ...(p.badge ? { badge: p.badge as any } : {}),
@@ -1741,10 +1738,7 @@ export function CategoryProductsPage({ categorySlug }: { categorySlug: string })
           price: p.price,
           unit: p.unit,
           stock: p.available_quantity,
-          image:
-            p.image_url ||
-            CATEGORY_FALLBACK_IMAGES[p.category as Category] ||
-            NEUTRAL_PRODUCT_FALLBACK,
+          image: getProductImage(p.name, p.category, p.image_url),
           rating: p.rating || 4.5,
           brand: p.location ? `Farmer (${p.location})` : "PureFarm Direct",
           ...(p.badge ? { badge: p.badge as any } : {}),
@@ -1912,10 +1906,12 @@ export function ProductDetailPage({ id }: { id: string }) {
       >
         <div className="grid gap-7 lg:grid-cols-[0.9fr_1.1fr]">
           <img
-            src={product.image}
+            src={product.image || getProductImage(product.name, product.category, null)}
             alt={product.name}
             onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = NEUTRAL_PRODUCT_FALLBACK;
+              (e.currentTarget as HTMLImageElement).src =
+                CATEGORY_FALLBACK_IMAGES[product.category as Category] ||
+                getCategoryPlaceholder(product.category, product.name);
             }}
             className="h-80 w-full rounded-2xl object-cover shadow-soft lg:h-[32rem]"
           />
@@ -2133,10 +2129,12 @@ export function CartPage() {
                     className="grid gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm sm:grid-cols-[7rem_1fr_auto] items-center"
                   >
                     <img
-                      src={product.image}
+                      src={product.image || getProductImage(product.name, product.category, null)}
                       alt={product.name}
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = NEUTRAL_PRODUCT_FALLBACK;
+                        (e.target as HTMLImageElement).src =
+                          CATEGORY_FALLBACK_IMAGES[product.category as Category] ||
+                          getCategoryPlaceholder(product.category, product.name);
                       }}
                       className="h-24 w-full rounded-xl object-cover bg-muted"
                     />
@@ -2340,10 +2338,12 @@ export function WishlistPage() {
                   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100">
                     <Link to="/product/$id" params={{ id: product.id }} className="block h-full w-full">
                       <img
-                        src={product.image}
+                        src={product.image || getProductImage(product.name, product.category, null)}
                         alt={product.name}
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src = NEUTRAL_PRODUCT_FALLBACK;
+                          (e.target as HTMLImageElement).src =
+                            CATEGORY_FALLBACK_IMAGES[product.category as Category] ||
+                            getCategoryPlaceholder(product.category, product.name);
                         }}
                         className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
@@ -7739,10 +7739,12 @@ export function SellerPage() {
                   <div>
                     <div className="relative h-44 bg-muted overflow-hidden">
                       <img
-                        src={product.image_url || NEUTRAL_PRODUCT_FALLBACK}
+                        src={getProductImage(product.name, product.category, product.image_url)}
                         alt={product.name || (product as any).title}
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src = NEUTRAL_PRODUCT_FALLBACK;
+                          (e.target as HTMLImageElement).src =
+                            CATEGORY_FALLBACK_IMAGES[product.category as Category] ||
+                            getCategoryPlaceholder(product.category, product.name);
                         }}
                         className="w-full h-full object-cover"
                       />
@@ -9741,8 +9743,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: newEquipSpecs || "Standard Farm Equipment Specs",
       description: newEquipDesc || "Listed for rent by verified farmer on PureFarm.",
-      image:
-        "https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&w=800",
+      image: getEquipmentImage(newEquipName, newEquipCategory, null),
       phone: newEquipPhone || "9876543210",
     };
 
@@ -9984,10 +9985,16 @@ export function MachinesToolsPage() {
                 >
                   <div>
                     {/* Image Header */}
-                    <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+                    <div className="relative h-48 w-full overflow-hidden bg-[#F0FDF4]">
                       <img
-                        src={item.image}
+                        src={item.image || getEquipmentImage(item.name, item.category, null)}
                         alt={item.name}
+                        onError={(e) => {
+                          const fallback = getEquipmentImage(item.name, item.category, null);
+                          if ((e.currentTarget as HTMLImageElement).src !== fallback) {
+                            (e.currentTarget as HTMLImageElement).src = fallback;
+                          }
+                        }}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <span className="absolute top-3 left-3 rounded-full bg-[#123F2D]/90 px-3 py-1 text-xs font-bold text-white backdrop-blur-md">
@@ -10408,7 +10415,7 @@ export function MachinesToolsListPage() {
         category,
         description,
         image_url:
-          imageUrl || sampleImages.find((i) => i.label === category)?.url || sampleImages[0].url,
+          imageUrl || getEquipmentImage(name, category, null),
         location,
         rental_rate: Number(rentalRate),
         rate_unit: rateUnit,
