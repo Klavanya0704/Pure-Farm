@@ -4,20 +4,20 @@ import toolsImg from "@/assets/cat-tools.jpg";
 import cropImg from "@/assets/cat-crop.jpg";
 import type { Category, Product } from "./types";
 
-const IMAGES: Record<Category, string[]> = {
-  seeds: [seedsImg, cropImg],
-  fertilizers: [fertImg, cropImg],
-  tools: [toolsImg, fertImg],
-  fruits: [cropImg, seedsImg],
-  vegetables: [cropImg, fertImg],
-  pesticides: [fertImg, toolsImg],
-  "farm-tools": [toolsImg, cropImg],
-  equipment: [toolsImg, fertImg],
-  grains: [cropImg],
-  pulses: [cropImg],
-  oilseeds: [cropImg],
-  spices: [cropImg],
-  other: [cropImg],
+export const CATEGORY_FALLBACK_IMAGES: Record<Category, string> = {
+  seeds: "/categories/seeds.jpg",
+  fertilizers: "/categories/fertilizers.jpg",
+  tools: "/categories/farm-tools.jpg",
+  "farm-tools": "/categories/farm-tools.jpg",
+  equipment: "/categories/equipment.jpg",
+  pesticides: "/categories/pesticides.jpg",
+  vegetables: "/categories/vegetables.jpg",
+  fruits: "/categories/fruits.jpg",
+  grains: "/categories/seeds.jpg",
+  pulses: "/categories/seeds.jpg",
+  oilseeds: "/categories/seeds.jpg",
+  spices: "/categories/vegetables.jpg",
+  other: cropImg,
 };
 
 type Row = [string, string, Category, string, number, number, number, string, string?];
@@ -1787,7 +1787,7 @@ export const PRODUCTS: Product[] = ROWS.map((r, i) => {
     description,
     image:
       IMAGE_MAPPINGS[name] ||
-      IMAGES[category]?.[i % (IMAGES[category]?.length || 1)] ||
+      CATEGORY_FALLBACK_IMAGES[category] ||
       cropImg,
     badge: badge as Product["badge"],
   };

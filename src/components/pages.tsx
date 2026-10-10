@@ -103,7 +103,7 @@ import {
   WEATHER,
 } from "@/data/agriculture";
 import { AGRICULTURE_LESSONS } from "@/data/lessons";
-import { CATEGORIES, getProduct, PRODUCTS } from "@/data/products";
+import { CATEGORIES, getProduct, PRODUCTS, CATEGORY_FALLBACK_IMAGES } from "@/data/products";
 import { SITE, waLink } from "@/data/site";
 import type { Category, Course, NotificationItem, Product } from "@/data/types";
 import { cardClass, glassCardClass, PageShell } from "./AppShell";
@@ -1499,7 +1499,8 @@ export function MarketplacePage() {
           stock: p.available_quantity,
           image:
             p.image_url ||
-            "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=600",
+            CATEGORY_FALLBACK_IMAGES[p.category as Category] ||
+            NEUTRAL_PRODUCT_FALLBACK,
           rating: p.rating || 4.5,
           brand: p.location ? `Farmer (${p.location})` : "PureFarm Direct",
           ...(p.badge ? { badge: p.badge as any } : {}),
@@ -1742,7 +1743,8 @@ export function CategoryProductsPage({ categorySlug }: { categorySlug: string })
           stock: p.available_quantity,
           image:
             p.image_url ||
-            "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=600",
+            CATEGORY_FALLBACK_IMAGES[p.category as Category] ||
+            NEUTRAL_PRODUCT_FALLBACK,
           rating: p.rating || 4.5,
           brand: p.location ? `Farmer (${p.location})` : "PureFarm Direct",
           ...(p.badge ? { badge: p.badge as any } : {}),
@@ -1912,6 +1914,9 @@ export function ProductDetailPage({ id }: { id: string }) {
           <img
             src={product.image}
             alt={product.name}
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).src = NEUTRAL_PRODUCT_FALLBACK;
+            }}
             className="h-80 w-full rounded-2xl object-cover shadow-soft lg:h-[32rem]"
           />
           <div className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-6">
@@ -4967,7 +4972,7 @@ export function LearnPage() {
     return (
       <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
         <PageShell
-          bgImage="https://upload.wikimedia.org/wikipedia/commons/f/fc/Farmer_working_in_the_field_with_their_tractor.jpg"
+          bgImage="/hero-tractor.jpg"
           eyebrow={t("Agriculture Education")}
           title={t(course.title)}
           intro={t(course.description ?? "")}
@@ -5287,7 +5292,7 @@ export function LearnPage() {
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
-        bgImage="https://upload.wikimedia.org/wikipedia/commons/f/fc/Farmer_working_in_the_field_with_their_tractor.jpg"
+        bgImage="/hero-tractor.jpg"
         eyebrow={t("Agriculture Education & Knowledge")}
         title={t("PureFarm Agriculture Learning Hub")}
         intro={t(
@@ -7004,7 +7009,7 @@ export function RegisterPage() {
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url(https://upload.wikimedia.org/wikipedia/commons/5/56/Two_farmers_driving_a_tractor_towing_a_raft_loaded_with_green_rice_sheaves_in_a_paddy_field_of_Vang_Vieng_Laos.jpg)",
+            "url(/login-bg.jpg)",
         }}
       >
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(0, 35, 25, 0.35)" }} />
