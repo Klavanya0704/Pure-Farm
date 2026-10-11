@@ -25,7 +25,7 @@ export interface CreateMachineInput {
   status?: string;
 }
 
-const LOCAL_MACHINES_KEY = "purefarm_local_machines_listings_v7";
+const LOCAL_MACHINES_KEY = "purefarm_local_machines_listings_v8";
 
 const INITIAL_STATIC_MACHINES: DbMachine[] = [
   // 1. TRACTORS (4 items)
@@ -72,16 +72,16 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     farmer_id: "farmer-101c",
     owner_name: "M. Nageswara Rao",
     owner_phone: "9848011334",
-    name: "Swaraj 744 FE Multi-Speed Tractor (48 HP)",
+    name: "Swaraj 735 FE Tractor (40 HP)",
     category: "Tractor",
-    description: "Reliable 48 HP 3-cylinder diesel tractor with multi-speed PTO, dual clutch, and 2000kg hydraulic lift capacity for heavy soil tilling.",
-    image_url: getEquipmentPlaceholder("Tractor", "Swaraj 744 FE Multi-Speed Tractor (48 HP)"),
+    description: "Reliable 40 HP 3-cylinder diesel tractor with multi-speed PTO, dual clutch, and heavy hydraulic lift capacity for field tilling and haulage.",
+    image_url: "/images/machines/swaraj_735_fe_tractor.jpg",
     location: "Guntur",
     rental_rate: 520,
     rate_unit: "hr",
     availability: "available",
     condition: "Good",
-    specifications: "48 HP 3-Cylinder Diesel, Direction Control Valve, 2000kg Lift",
+    specifications: "40 HP 3-Cylinder Diesel, Dual Clutch, High Torque Transmission",
     status: "active",
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
@@ -91,16 +91,16 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     farmer_id: "farmer-101d",
     owner_name: "P. Venkateswarlu",
     owner_phone: "9848011445",
-    name: "Sonalika DI 745 III Sikander (50 HP)",
+    name: "Sonalika Baagban DI-30 RX Tractor (30 HP)",
     category: "Tractor",
-    description: "50 HP heavy-duty agricultural tractor engineered for low fuel consumption and high pulling force with subsoilers and haulage.",
-    image_url: getEquipmentPlaceholder("Tractor", "Sonalika DI 745 III Sikander (50 HP)"),
+    description: "30 HP compact agricultural tractor engineered for orchard spraying, inter-cultivation, and row-crop farming.",
+    image_url: "/images/machines/sonalika_di30_tractor.jpg",
     location: "Eluru",
     rental_rate: 550,
     rate_unit: "hr",
     availability: "available",
     condition: "Excellent",
-    specifications: "50 HP Engine, High Torque, Power Steering, Constant Mesh",
+    specifications: "30 HP HDM Engine, Compact Track Width, Power Steering",
     status: "active",
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
@@ -112,16 +112,16 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     farmer_id: "farmer-102",
     owner_name: "Venkat Rao",
     owner_phone: "9848023456",
-    name: "Kubota Harvester DC-68G",
+    name: "Kubota Harvester DC-60 (60 HP)",
     category: "Harvester",
-    description: "High performance paddy & wheat combine harvester operating in field with 68 HP diesel engine for quick harvesting.",
-    image_url: getEquipmentPlaceholder("Harvester", "Kubota Harvester DC-68G"),
+    description: "High-efficiency rubber-track paddy combine harvester with 60 HP diesel engine and wide cutter reel for wet and dry field harvesting.",
+    image_url: "/images/machines/kubota_dc60_harvester.jpg",
     location: "Kakinada",
     rental_rate: 1800,
     rate_unit: "hr",
     availability: "available",
     condition: "Excellent",
-    specifications: "68 HP, Paddy & Wheat Combine, Hydrostatic Drive",
+    specifications: "60 HP Diesel, Rubber Crawler Tracks, 2m Cutter Reel",
     status: "active",
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
@@ -131,16 +131,16 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     farmer_id: "farmer-102b",
     owner_name: "B. Appala Naidu",
     owner_phone: "9848022334",
-    name: "John Deere W70 Grain Combine Harvester",
+    name: "John Deere 2266 Extra Combine Harvester (240 HP)",
     category: "Harvester",
-    description: "100 HP turbocharged self-propelled combine harvester with 14-foot cutter bar and active grain loss monitor for large fields.",
-    image_url: getEquipmentPlaceholder("Harvester", "John Deere W70 Grain Combine Harvester"),
+    description: "Heavy-duty 240 HP self-propelled grain combine harvester with high-capacity grain tank and wide cutter bar for large acreages.",
+    image_url: "/images/machines/john_deere_combine_harvester.jpg",
     location: "Vijayawada",
     rental_rate: 2100,
     rate_unit: "hr",
     availability: "available",
     condition: "Excellent",
-    specifications: "100 HP Turbocharged, 14-ft Cutter Bar, Grain Loss Monitor",
+    specifications: "240 HP Turbo Diesel, High-Capacity Grain Tank, Straw Chopper",
     status: "active",
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
@@ -523,14 +523,14 @@ const INITIAL_STATIC_MACHINES: DbMachine[] = [
     owner_phone: "9848055667",
     name: "Kirloskar 7.5 HP Diesel Agricultural Pump",
     category: "Water Pump",
-    description: "Heavy duty single cylinder diesel water pump coupled with 4-inch high discharge centrifugal pump.",
-    image_url: getEquipmentPlaceholder("Water Pump", "Kirloskar 7.5 HP Diesel Agricultural Pump"),
+    description: "Heavy duty single-cylinder diesel water pump coupled with centrifugal pump for reliable field irrigation.",
+    image_url: "/images/machines/kirloskar_diesel_water_pump.jpg",
     location: "Eluru",
     rental_rate: 400,
     rate_unit: "day",
     availability: "available",
     condition: "Excellent",
-    specifications: "7.5 HP Air-Cooled Diesel, 4-inch Suction & Delivery",
+    specifications: "7.5 HP Single Cylinder Diesel, High Discharge Centrifugal Pump",
     status: "active",
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
@@ -835,6 +835,15 @@ const GENERIC_MACHINE_IMAGES = [
 const SPECIFIC_MACHINE_IMAGES: Record<string, string> = {
   "Mahindra E350-DI Tractor (35 HP)": "/images/machines/mahindra_575_tractor.jpg",
   "John Deere 6310 Tractor with Front Loader (100 HP)": "/images/machines/john_deere_5310_tractor.jpg",
+  "Swaraj 735 FE Tractor (40 HP)": "/images/machines/swaraj_735_fe_tractor.jpg",
+  "Swaraj 744 FE Multi-Speed Tractor (48 HP)": "/images/machines/swaraj_735_fe_tractor.jpg",
+  "Sonalika Baagban DI-30 RX Tractor (30 HP)": "/images/machines/sonalika_di30_tractor.jpg",
+  "Sonalika DI 745 III Sikander (50 HP)": "/images/machines/sonalika_di30_tractor.jpg",
+  "Kubota Harvester DC-60 (60 HP)": "/images/machines/kubota_dc60_harvester.jpg",
+  "Kubota Harvester DC-68G": "/images/machines/kubota_dc60_harvester.jpg",
+  "John Deere 2266 Extra Combine Harvester (240 HP)": "/images/machines/john_deere_combine_harvester.jpg",
+  "John Deere W70 Grain Combine Harvester": "/images/machines/john_deere_combine_harvester.jpg",
+  "Kirloskar 7.5 HP Diesel Agricultural Pump": "/images/machines/kirloskar_diesel_water_pump.jpg",
   "Shaktiman Rotavator 7 Feet": "/images/machines/shaktiman_rotavator_7ft.jpg",
   "Husqvarna T-550 R Power Tiller (5.5 HP)": "/images/machines/husqvarna_t550r_power_tiller.jpg",
   "Multi-Crop Power Sprayer 20L": "/images/machines/knapsack_power_sprayer_20l.jpg",
@@ -859,7 +868,12 @@ export function getEquipmentImage(name?: string | null, category?: string | null
   const lowerName = (name || "").toLowerCase();
 
   if (lowerName.includes("mahindra")) return "/images/machines/mahindra_575_tractor.jpg";
+  if ((lowerName.includes("combine") || lowerName.includes("harvester")) && lowerName.includes("john deere")) return "/images/machines/john_deere_combine_harvester.jpg";
   if (lowerName.includes("john deere")) return "/images/machines/john_deere_5310_tractor.jpg";
+  if (lowerName.includes("swaraj")) return "/images/machines/swaraj_735_fe_tractor.jpg";
+  if (lowerName.includes("sonalika")) return "/images/machines/sonalika_di30_tractor.jpg";
+  if (lowerName.includes("kubota")) return "/images/machines/kubota_dc60_harvester.jpg";
+  if (lowerName.includes("kirloskar")) return "/images/machines/kirloskar_diesel_water_pump.jpg";
   if (lowerName.includes("shaktiman") && lowerName.includes("rotavator")) return "/images/machines/shaktiman_rotavator_7ft.jpg";
   if (lowerName.includes("husqvarna t-550") || (lowerName.includes("tiller") && lowerName.includes("husqvarna"))) return "/images/machines/husqvarna_t550r_power_tiller.jpg";
   if (lowerName.includes("knapsack") || (lowerName.includes("power sprayer") && lowerName.includes("20l"))) return "/images/machines/knapsack_power_sprayer_20l.jpg";

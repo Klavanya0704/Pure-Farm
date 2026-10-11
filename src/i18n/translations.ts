@@ -1691,6 +1691,21 @@ export const translations: Record<Language, Record<string, string>> = {
     "Upload crop leaf photos for instant AI disease identification":
       "Upload crop leaf photos for instant AI disease identification",
     "Urea 46% N (45 kg)": "Urea 46% N (45 kg)",
+    "Urea Fertilizer — 45 kg bag": "Urea Fertilizer — 45 kg bag",
+    "DAP Fertilizer (18-46-0) — 50 kg bag": "DAP Fertilizer (18-46-0) — 50 kg bag",
+    "NPK Complex Fertilizer (10-26-26) — 50 kg bag": "NPK Complex Fertilizer (10-26-26) — 50 kg bag",
+    "MOP / Potassium Chloride Fertilizer — 50 kg bag": "MOP / Potassium Chloride Fertilizer — 50 kg bag",
+    "Single Super Phosphate (SSP) — 50 kg bag": "Single Super Phosphate (SSP) — 50 kg bag",
+    "Water-Soluble NPK Fertilizer (19-19-19) — 1 kg pack": "Water-Soluble NPK Fertilizer (19-19-19) — 1 kg pack",
+    "Zinc Sulphate Fertilizer — 5 kg pack": "Zinc Sulphate Fertilizer — 5 kg pack",
+    "Organic Vermicompost — 30 kg bag": "Organic Vermicompost — 30 kg bag",
+    "Rhizobium Biofertilizer — 500 g pack": "Rhizobium Biofertilizer — 500 g pack",
+    "Neem-Based Bio-Pesticide / Neem Oil — 1 litre": "Neem-Based Bio-Pesticide / Neem Oil — 1 litre",
+    "Swaraj 735 FE Tractor (40 HP)": "Swaraj 735 FE Tractor (40 HP)",
+    "Sonalika Baagban DI-30 RX Tractor (30 HP)": "Sonalika Baagban DI-30 RX Tractor (30 HP)",
+    "Kubota Harvester DC-60 (60 HP)": "Kubota Harvester DC-60 (60 HP)",
+    "John Deere 2266 Extra Combine Harvester (240 HP)": "John Deere 2266 Extra Combine Harvester (240 HP)",
+    "Kirloskar 7.5 HP Diesel Agricultural Pump": "Kirloskar 7.5 HP Diesel Agricultural Pump",
     "Use 0.1% Hydrochloric acid solution and let it sit in laterals for 24 hours before flushing":
       "Use 0.1% Hydrochloric acid solution and let it sit in laterals for 24 hours before flushing",
     "Use 100% water-soluble fertilizers to prevent line clogging":
@@ -4225,6 +4240,36 @@ export const translations: Record<Language, Record<string, string>> = {
       "AI \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c24\u0c46\u0c17\u0c41\u0c32\u0c41\u0c28\u0c41 \u0c17\u0c41\u0c30\u0c4d\u0c24\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c06\u0c15\u0c41 \u0c2b\u0c4b\u0c1f\u0c4b\u0c32\u0c28\u0c41 \u0c05\u0c2a\u0c4d\u200c\u0c32\u0c4b\u0c21\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
     "Urea 46% N (45 kg)":
       "\u0c2f\u0c42\u0c30\u0c3f\u0c2f\u0c3e 46% N (45 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
+    "Urea Fertilizer — 45 kg bag":
+      "యూరియా ఎరువు — 45 కేజీల బ్యాగ్",
+    "DAP Fertilizer (18-46-0) — 50 kg bag":
+      "డిఎపి ఎరువు (18-46-0) — 50 కేజీల బ్యాగ్",
+    "NPK Complex Fertilizer (10-26-26) — 50 kg bag":
+      "ఎన్‌పికె కాంప్లెక్స్ ఎరువు (10-26-26) — 50 కేజీల బ్యాగ్",
+    "MOP / Potassium Chloride Fertilizer — 50 kg bag":
+      "ఎంఓపి / పొటాషియం క్లోరైడ్ ఎరువు — 50 కేజీల బ్యాగ్",
+    "Single Super Phosphate (SSP) — 50 kg bag":
+      "సింగిల్ సూపర్ ఫాస్ఫేట్ (SSP) — 50 కేజీల బ్యాగ్",
+    "Water-Soluble NPK Fertilizer (19-19-19) — 1 kg pack":
+      "నీటిలో కరిగే ఎన్‌పికె ఎరువు (19-19-19) — 1 కేజీ ప్యాక్",
+    "Zinc Sulphate Fertilizer — 5 kg pack":
+      "జింక్ సల్ఫేట్ ఎరువు — 5 కేజీల ప్యాక్",
+    "Organic Vermicompost — 30 kg bag":
+      "సేంద్రీయ వర్మీకంపోస్ట్ — 30 కేజీల బ్యాగ్",
+    "Rhizobium Biofertilizer — 500 g pack":
+      "రైజోబియం జీవ ఎరువు — 500 గ్రాముల ప్యాక్",
+    "Neem-Based Bio-Pesticide / Neem Oil — 1 litre":
+      "వేప ఆధారిత బయో-పురుగుమందు / వేప నూనె — 1 లీటరు",
+    "Swaraj 735 FE Tractor (40 HP)":
+      "స్వరాజ్ 735 ఎఫ్ఈ ట్రాక్టర్ (40 హెచ్‌పి)",
+    "Sonalika Baagban DI-30 RX Tractor (30 HP)":
+      "సోనాలికా బాగ్బాన్ DI-30 RX ట్రాక్టర్ (30 హెచ్‌పి)",
+    "Kubota Harvester DC-60 (60 HP)":
+      "కుబోటా హార్వెస్టర్ DC-60 (60 హెచ్‌పి)",
+    "John Deere 2266 Extra Combine Harvester (240 HP)":
+      "జాన్ డీర్ 2266 ఎక్స్‌ట్రా కంబైన్ హార్వెస్టర్ (240 హెచ్‌పి)",
+    "Kirloskar 7.5 HP Diesel Agricultural Pump":
+      "కిర్లోస్కర్ 7.5 హెచ్‌పి డీజిల్ వ్యవసాయ పంపు",
     "Use 0.1% Hydrochloric acid solution and let it sit in laterals for 24 hours before flushing":
       "0.1% \u0c39\u0c46\u0c1a\u0c4d\u200c\u0c38\u0c3f\u0c0e\u0c32\u0c4d (HCl) \u0c26\u0c4d\u0c30\u0c3e\u0c35\u0c23\u0c3e\u0c28\u0c4d\u0c28\u0c3f 24 \u0c17\u0c02\u0c1f\u0c32\u0c41 \u0c2a\u0c48\u0c2a\u0c41\u0c32\u0c32\u0c4b \u0c09\u0c02\u0c1a\u0c3f \u0c24\u0c30\u0c4d\u0c35\u0c3e\u0c24 \u0c15\u0c21\u0c17\u0c02\u0c21\u0c3f",
     "Use 100% water-soluble fertilizers to prevent line clogging":

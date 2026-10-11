@@ -127,6 +127,12 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/sprinkler-set-1-acre.jpg",
   "Submersible Pump 3 HP":
     "/products/submersible-pump-3-hp.jpg",
+  "Urea Fertilizer — 45 kg bag":
+    "/products/urea-fertilizer-45-kg.jpg",
+  "Organic Vermicompost — 30 kg bag":
+    "/products/organic-vermicompost-30-kg.jpg",
+  "Neem-Based Bio-Pesticide / Neem Oil — 1 litre":
+    "/products/neem-oil-bio-pesticide-1-litre.jpg",
 };
 
 const ROWS: Row[] = [
@@ -665,6 +671,115 @@ const ROWS: Row[] = [
     4.3,
     280,
     "Borewell submersible pump set with copper winding motor.",
+  ],
+
+  // --- FERTILIZERS & SOIL NUTRIENTS ---
+  [
+    "Urea Fertilizer — 45 kg bag",
+    "IFFCO",
+    "fertilizers",
+    "bag",
+    266,
+    4.8,
+    600,
+    "Nitrogen fertilizer commonly used to support leafy growth and crop development. Apply according to crop requirements and local agricultural recommendations.",
+    "Best Seller",
+  ],
+  [
+    "DAP Fertilizer (18-46-0) — 50 kg bag",
+    "IFFCO",
+    "fertilizers",
+    "bag",
+    1350,
+    4.7,
+    450,
+    "Nitrogen- and phosphorus-containing fertilizer used to support root establishment and early vegetative development.",
+    "Top Rated",
+  ],
+  [
+    "NPK Complex Fertilizer (10-26-26) — 50 kg bag",
+    "Coromandel Gromor",
+    "fertilizers",
+    "bag",
+    1470,
+    4.6,
+    380,
+    "Balanced complex fertilizer with high phosphorus and potassium content for root strength, flowering, and grain filling.",
+  ],
+  [
+    "MOP / Potassium Chloride Fertilizer — 50 kg bag",
+    "IPL Potash",
+    "fertilizers",
+    "bag",
+    1650,
+    4.5,
+    320,
+    "High-potash fertilizer formulated to strengthen stalks, enhance disease resistance, and improve grain and fruit quality.",
+  ],
+  [
+    "Single Super Phosphate (SSP) — 50 kg bag",
+    "Khaitan Chemicals",
+    "fertilizers",
+    "bag",
+    540,
+    4.4,
+    400,
+    "Phosphate fertilizer supplying phosphorus, calcium, and sulphur to encourage root growth and improve soil structure.",
+  ],
+  [
+    "Water-Soluble NPK Fertilizer (19-19-19) — 1 kg pack",
+    "Mahadhan",
+    "fertilizers",
+    "pack",
+    195,
+    4.7,
+    500,
+    "Fully water-soluble 19-19-19 fertilizer suitable for drip fertigation and foliar spray to provide uniform crop nutrition.",
+    "Popular",
+  ],
+  [
+    "Zinc Sulphate Fertilizer — 5 kg pack",
+    "Aries Agro",
+    "fertilizers",
+    "pack",
+    390,
+    4.5,
+    300,
+    "Micronutrient fertilizer providing zinc and sulphur to prevent deficiency symptoms and support chlorophyll formation.",
+  ],
+  [
+    "Organic Vermicompost — 30 kg bag",
+    "Green Harvest Organics",
+    "fertilizers",
+    "bag",
+    350,
+    4.8,
+    550,
+    "Nutrient-rich organic vermicompost produced with earthworms to enhance soil organic matter, aeration, and moisture retention.",
+    "Organic",
+  ],
+  [
+    "Rhizobium Biofertilizer — 500 g pack",
+    "Multiplex Bio",
+    "fertilizers",
+    "pack",
+    130,
+    4.6,
+    420,
+    "Beneficial bacterial inoculant that promotes biological nitrogen fixation in pulse and legume crops.",
+  ],
+
+  // --- CROP PROTECTION & PESTICIDES ---
+  [
+    "Neem-Based Bio-Pesticide / Neem Oil — 1 litre",
+    "PureFarm Bio",
+    "pesticides",
+    "bottle",
+    490,
+    4.7,
+    350,
+    "Cold-pressed neem oil formulation for organic pest management and broad-spectrum insect repelling in field and horticulture crops.",
+    "Eco Friendly",
   ],
 ];
 

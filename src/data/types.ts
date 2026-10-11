@@ -23,7 +23,7 @@ export interface Product {
   rating: number;
   stock: number;
   description: string;
-  badge?: "Best Seller" | "Top Rated" | "Featured";
+  badge?: "Best Seller" | "Top Rated" | "Featured" | "Popular" | "Organic" | "Eco Friendly";
   image: string;
   customDiscount?: string;
   customOldPrice?: number;
