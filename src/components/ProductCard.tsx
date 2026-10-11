@@ -31,9 +31,7 @@ export function ProductCard({ product }: { product: Product }) {
 
   const activeWishlist = isInWishlist(product.id);
 
-  const fallbackCategoryImg =
-    CATEGORY_FALLBACK_IMAGES[product.category as Category] ||
-    getCategoryPlaceholder(product.category, product.name);
+  const fallbackCategoryImg = getCategoryPlaceholder(product.category, product.name);
 
   const initialSrc = product.image || getProductImage(product.name, product.category, null);
   const displaySrc = imageError ? fallbackCategoryImg : initialSrc;

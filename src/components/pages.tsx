@@ -1910,7 +1910,6 @@ export function ProductDetailPage({ id }: { id: string }) {
             alt={product.name}
             onError={(e) => {
               (e.currentTarget as HTMLImageElement).src =
-                CATEGORY_FALLBACK_IMAGES[product.category as Category] ||
                 getCategoryPlaceholder(product.category, product.name);
             }}
             className="h-80 w-full rounded-2xl object-cover shadow-soft lg:h-[32rem]"
@@ -2133,7 +2132,6 @@ export function CartPage() {
                       alt={product.name}
                       onError={(e) => {
                         (e.target as HTMLImageElement).src =
-                          CATEGORY_FALLBACK_IMAGES[product.category as Category] ||
                           getCategoryPlaceholder(product.category, product.name);
                       }}
                       className="h-24 w-full rounded-xl object-cover bg-muted"
@@ -2342,7 +2340,6 @@ export function WishlistPage() {
                         alt={product.name}
                         onError={(e) => {
                           (e.target as HTMLImageElement).src =
-                            CATEGORY_FALLBACK_IMAGES[product.category as Category] ||
                             getCategoryPlaceholder(product.category, product.name);
                         }}
                         className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -7743,7 +7740,6 @@ export function SellerPage() {
                         alt={product.name || (product as any).title}
                         onError={(e) => {
                           (e.target as HTMLImageElement).src =
-                            CATEGORY_FALLBACK_IMAGES[product.category as Category] ||
                             getCategoryPlaceholder(product.category, product.name);
                         }}
                         className="w-full h-full object-cover"

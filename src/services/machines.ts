@@ -18,7 +18,7 @@ export interface CreateMachineInput {
   status?: string;
 }
 
-const LOCAL_MACHINES_KEY = "purefarm_local_machines_listings_v4";
+const LOCAL_MACHINES_KEY = "purefarm_local_machines_listings_v5";
 
 const INITIAL_STATIC_MACHINES: DbMachine[] = [
   // 1. TRACTORS (4 items)
@@ -894,8 +894,13 @@ export function getEquipmentImage(name?: string | null, category?: string | null
   if (lowerName.includes("cultivator") || lowerCat.includes("cultivator") || lowerName.includes("tiller")) return "/images/machines/stihl_power_tiller_7hp.jpg";
   if (lowerName.includes("seed") || lowerCat.includes("seeder")) return "/images/machines/national_seed_drill_9row.jpg";
   if (lowerName.includes("irrigation") || lowerCat.includes("irrigation") || lowerName.includes("drip") || lowerName.includes("sprinkler")) return "/images/machines/jain_sprinkler_system.jpg";
-  if (lowerName.includes("brush") || lowerName.includes("weeder") || lowerName.includes("auger") || lowerName.includes("saw") || lowerName.includes("cutter") || lowerCat.includes("power tool")) return "/images/machines/stihl_brush_cutter.jpg";
-  if (lowerName.includes("trolley") || lowerName.includes("trailer") || lowerName.includes("plough") || lowerName.includes("shredder") || lowerName.includes("dryer") || lowerCat.includes("other")) return "/images/machines/hydraulic_tipping_trolley.jpg";
+  if (lowerName.includes("auger")) return "/images/machines/kisankraft_earth_auger.jpg";
+  if (lowerName.includes("saw")) return "/images/machines/husqvarna_455_chainsaw.jpg";
+  if (lowerName.includes("dryer")) return "/images/machines/grain_solar_dryer_chamber.jpg";
+  if (lowerName.includes("plough") || lowerName.includes("plow")) return "/images/machines/fieldking_3bottom_mb_plough.jpg";
+  if (lowerName.includes("mulcher") || lowerName.includes("shredder")) return "/images/machines/redlands_trash_mulcher.jpg";
+  if (lowerName.includes("brush") || lowerName.includes("weeder") || lowerName.includes("cutter") || lowerCat.includes("power tool")) return "/images/machines/stihl_brush_cutter.jpg";
+  if (lowerName.includes("trolley") || lowerName.includes("trailer") || lowerCat.includes("other")) return "/images/machines/hydraulic_tipping_trolley.jpg";
 
   return "/images/machines/mahindra_575_tractor.jpg";
 }

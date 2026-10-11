@@ -1813,7 +1813,7 @@ export function getCategoryPlaceholder(category?: string, name?: string): string
   const catLabel = category
     ? category.charAt(0).toUpperCase() + category.slice(1).replace("-", " ")
     : "Agricultural Product";
-  return `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='450' viewBox='0 0 600 450' fill='%23F0FDF4'><rect width='600' height='450' fill='%23F0FDF4'/><rect x='20' y='20' width='560' height='410' rx='20' fill='%23E8F5EE' stroke='%23A7F3D0' stroke-width='2'/><circle cx='300' cy='190' r='54' fill='%23D1FAE5'/><path d='M300 156 C280 180 280 214 300 224 C320 214 320 180 300 156 Z' fill='%23059669'/><path d='M300 176 L300 218' stroke='%23FFFFFF' stroke-width='3' stroke-linecap='round'/><text x='300' y='280' dominant-baseline='middle' text-anchor='middle' font-family='system-ui, -apple-system, sans-serif' font-size='18' font-weight='700' fill='%23064E3B'>${catLabel}</text><text x='300' y='312' dominant-baseline='middle' text-anchor='middle' font-family='system-ui, -apple-system, sans-serif' font-size='13' font-weight='500' fill='%23047857'>PureFarm Verified Listing</text></svg>`;
+  return `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='450' viewBox='0 0 600 450' fill='%23F0FDF4'><rect width='600' height='450' fill='%23F0FDF4'/><rect x='20' y='20' width='560' height='410' rx='20' fill='%23E8F5EE' stroke='%23A7F3D0' stroke-width='2'/><circle cx='300' cy='190' r='54' fill='%23D1FAE5'/><path d='M300 156 C280 180 280 214 300 224 C320 214 320 180 300 156 Z' fill='%23059669'/><path d='M300 176 L300 218' stroke='%23FFFFFF' stroke-width='3' stroke-linecap='round'/><text x='300' y='280' dominant-baseline='middle' text-anchor='middle' font-family='system-ui, -apple-system, sans-serif' font-size='18' font-weight='700' fill='%23064E3B'>${catLabel}</text><text x='300' y='312' dominant-baseline='middle' text-anchor='middle' font-family='system-ui, -apple-system, sans-serif' font-size='13' font-weight='500' fill='%23047857'>Image Unavailable • PureFarm</text></svg>`;
 }
 
 export function getProductImage(
@@ -1841,11 +1841,6 @@ export function getProductImage(
     !currentUrl.includes("placeholder")
   ) {
     return currentUrl;
-  }
-
-  const catKey = (category || "").toLowerCase() as Category;
-  if (CATEGORY_FALLBACK_IMAGES[catKey]) {
-    return CATEGORY_FALLBACK_IMAGES[catKey];
   }
 
   return getCategoryPlaceholder(category || "Produce", name || undefined);
