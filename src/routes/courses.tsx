@@ -7,7 +7,7 @@ export const Route = createFileRoute("/courses")({
       { title: "Courses | PureFarm Student" },
       {
         name: "description",
-        content: "Explore tech and agricultural courses for student learners.",
+        content: "Explore agriculture, farming, and AgriTech courses for student learners.",
       },
     ],
   }),

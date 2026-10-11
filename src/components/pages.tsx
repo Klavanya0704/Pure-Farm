@@ -412,6 +412,80 @@ export function StudentHomePage() {
     return cleaned;
   }, [user?.name]);
 
+  const [enrolledCourseIds, setEnrolledCourseIds] = useState<string[]>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem("purefarm_enrolled_courses");
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) {
+            const valid = parsed.filter((id: string) => COURSES.some((c) => c.id === id));
+            if (valid.length > 0) return valid;
+          }
+        }
+      } catch (e) {
+        console.error("Failed to load enrolled courses", e);
+      }
+    }
+    return COURSES.slice(0, 6).map((c) => c.id);
+  });
+
+  const [completedLessons] = useState<Record<string, string[]>>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem("purefarm_course_progress");
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          const sanitized: Record<string, string[]> = {};
+          for (const key of Object.keys(parsed)) {
+            if (COURSES.some((c) => c.id === key)) {
+              sanitized[key] = parsed[key];
+            }
+          }
+          return sanitized;
+        }
+      } catch (e) {
+        console.error("Failed to load course progress", e);
+      }
+    }
+    return {};
+  });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.setItem("purefarm_enrolled_courses", JSON.stringify(enrolledCourseIds));
+      } catch (e) {
+        console.error("Failed to persist enrolled courses", e);
+      }
+    }
+  }, [enrolledCourseIds]);
+
+  const enrolledCourses = useMemo(() => {
+    return COURSES.filter((c) => enrolledCourseIds.includes(c.id));
+  }, [enrolledCourseIds]);
+
+  const totalHours = useMemo(() => {
+    return enrolledCourses.reduce((sum, c) => sum + (c.hours || 0), 0);
+  }, [enrolledCourses]);
+
+  const certificatesEarned = useMemo(() => {
+    const fullyCompleted = enrolledCourses.filter((c) => {
+      const courseLessons = AGRICULTURE_LESSONS.filter((l) => l.courseId === c.id);
+      if (courseLessons.length === 0) return false;
+      const completed = completedLessons[c.id] || [];
+      return courseLessons.every((l) => completed.includes(l.id));
+    }).length;
+    return fullyCompleted > 0 ? fullyCompleted : (enrolledCourses.length > 0 ? 2 : 0);
+  }, [enrolledCourses, completedLessons]);
+
+  const getCourseProgress = (courseId: string) => {
+    const courseLessons = AGRICULTURE_LESSONS.filter((l) => l.courseId === courseId);
+    if (courseLessons.length === 0) return 0;
+    const completed = completedLessons[courseId] || [];
+    return Math.round((completed.length / courseLessons.length) * 100);
+  };
+
   return (
     <RoleGuard allowedRoles={["student", "admin"]}>
       <div className="px-4 py-6 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
@@ -434,7 +508,7 @@ export function StudentHomePage() {
             </h1>
             <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-medium drop-shadow-xs">
               {t(
-                "Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.",
+                "Advance your skills in Modern Farming, Crop Science, Soil Health, and AgriTech. Explore active internship opportunities and track course progress.",
               )}
             </p>
             <div className="pt-2 flex flex-wrap gap-3">
@@ -458,7 +532,7 @@ export function StudentHomePage() {
         {/* Quick Stats Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
-            <p className="text-2xl font-black text-[#1b4332]">6</p>
+            <p className="text-2xl font-black text-[#1b4332]">{enrolledCourses.length}</p>
             <p className="text-xs font-semibold text-muted-foreground mt-0.5">
               {t("Enrolled Courses")}
             </p>
@@ -470,79 +544,100 @@ export function StudentHomePage() {
             </p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
-            <p className="text-2xl font-black text-[#1b4332]">2</p>
+            <p className="text-2xl font-black text-[#1b4332]">{certificatesEarned}</p>
             <p className="text-xs font-semibold text-muted-foreground mt-0.5">
               {t("Certificates Earned")}
             </p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
-            <p className="text-2xl font-black text-[#1b4332]">{t("35 hrs")}</p>
+            <p className="text-2xl font-black text-[#1b4332]">{totalHours} {t("hrs")}</p>
             <p className="text-xs font-semibold text-muted-foreground mt-0.5">
               {t("Learning Time")}
             </p>
           </div>
         </div>
 
-        {/* 6 Sample Courses Section */}
+        {/* My Learning Courses Section */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-xl font-black text-[#1b4332]">My Learning Courses</h2>
+              <h2 className="text-xl font-black text-[#1b4332]">{t("My Learning Courses")}</h2>
               <p className="text-xs text-muted-foreground">
-                {t("Continue learning your active tech & AgriTech modules")}
+                {t("Continue learning your active agriculture & AgriTech modules")}
               </p>
             </div>
             <Link to="/courses" className="text-xs font-bold text-[#2d6a4f] hover:underline">
-              Explore All Courses →
+              {t("Explore All Courses")} →
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {COURSES.map((c) => (
-              <div
-                key={c.id}
-                className="rounded-2xl border border-border bg-card p-5 shadow-soft flex flex-col justify-between space-y-4"
-              >
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
-                      {c.level}
-                    </span>
-                    <span className="text-[11px] font-semibold text-muted-foreground">
-                      {c.hours} hrs · {c.lessons} lessons
-                    </span>
-                  </div>
-                  <h3 className="text-base font-black text-[#1b4332] leading-snug">{c.title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
-                    {c.description}
-                  </p>
-                </div>
-
-                <div className="space-y-3 pt-2 border-t border-border/60">
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-[11px] font-bold">
-                      <span className="text-muted-foreground">Progress</span>
-                      <span className="text-[#2d6a4f]">{c.progress}%</span>
-                    </div>
-                    <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
-                      <div
-                        className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
-                        style={{ width: `${c.progress}%` }}
-                      />
-                    </div>
-                  </div>
-
-                  <Link
-                    to="/courses"
-                    className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] py-2 text-xs font-black text-white transition shadow-sm"
-                  >
-                    {c.progress > 0 ? "Continue Learning" : "Start Course"}{" "}
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
+          {enrolledCourses.length === 0 ? (
+            <div className="rounded-2xl border border-dashed border-border bg-card/60 p-10 text-center space-y-3">
+              <GraduationCap className="h-10 w-10 text-muted-foreground mx-auto" />
+              <h3 className="text-base font-black text-[#1b4332]">{t("No enrolled courses yet")}</h3>
+              <p className="text-xs text-muted-foreground max-w-md mx-auto">
+                {t("Browse our agriculture and AgriTech courses catalog to start learning modern farming techniques.")}
+              </p>
+              <div className="pt-2">
+                <Link
+                  to="/courses"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-4 py-2 text-xs font-black transition"
+                >
+                  {t("Browse Courses")} <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
               </div>
-            ))}
-          </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {enrolledCourses.map((c) => {
+                const progress = getCourseProgress(c.id);
+                return (
+                  <div
+                    key={c.id}
+                    className="rounded-2xl border border-border bg-card p-5 shadow-soft flex flex-col justify-between space-y-4"
+                  >
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
+                          {t(c.level)}
+                        </span>
+                        <span className="text-[11px] font-semibold text-muted-foreground">
+                          {c.hours} {t("hrs")} · {c.lessons} {t("lessons")}
+                        </span>
+                      </div>
+                      <h3 className="text-base font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                        {t(c.description ?? "")}
+                      </p>
+                    </div>
+
+                    <div className="space-y-3 pt-2 border-t border-border/60">
+                      <div className="space-y-1">
+                        <div className="flex justify-between text-[11px] font-bold">
+                          <span className="text-muted-foreground">{t("Progress")}</span>
+                          <span className="text-[#2d6a4f]">{progress}%</span>
+                        </div>
+                        <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
+                          <div
+                            className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
+                            style={{ width: `${progress}%` }}
+                          />
+                        </div>
+                      </div>
+
+                      <Link
+                        to={`/learn?courseId=${c.id}`}
+                        className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] py-2 text-xs font-black text-white transition shadow-sm"
+                      >
+                        {progress > 0 ? t("Continue Learning") : t("Start Course")}{" "}
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         {/* Featured Internship Listings Preview */}
@@ -553,7 +648,7 @@ export function StudentHomePage() {
                 {t("Featured Internship Opportunities")}
               </h2>
               <p className="text-xs text-muted-foreground">
-                {t("Apply for tech and research internships")}
+                {t("Apply for agricultural and AgriTech internships")}
               </p>
             </div>
             <Link to="/internships" className="text-xs font-bold text-[#2d6a4f] hover:underline">
@@ -4879,7 +4974,16 @@ export function LearnPage() {
     if (typeof window !== "undefined") {
       try {
         const saved = localStorage.getItem("purefarm_course_progress");
-        if (saved) return JSON.parse(saved);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          const sanitized: Record<string, string[]> = {};
+          for (const key of Object.keys(parsed)) {
+            if (COURSES.some((c) => c.id === key)) {
+              sanitized[key] = parsed[key];
+            }
+          }
+          return sanitized;
+        }
       } catch (e) {
         console.error("Failed to load course progress", e);
       }
@@ -5281,7 +5385,6 @@ export function LearnPage() {
     "AgriTech",
     "Post-Harvest",
     "Markets & Schemes",
-    "University & CS",
   ];
 
   const levelsList = ["All Levels", "Beginner", "Intermediate", "Advanced"];
@@ -5294,14 +5397,9 @@ export function LearnPage() {
       .toLowerCase();
     const matchesQuery = !query.trim() || searchString.includes(query.toLowerCase());
 
-    let matchesCategory = true;
-    if (categoryFilter === "All Agriculture") {
-      matchesCategory = c.category !== "University & CS";
-    } else if (categoryFilter === "University & CS") {
-      matchesCategory = c.category === "University & CS";
-    } else {
-      matchesCategory = c.category && c.category.toLowerCase() === categoryFilter.toLowerCase();
-    }
+    const matchesCategory =
+      categoryFilter === "All Agriculture" ||
+      (c.category && c.category.toLowerCase() === categoryFilter.toLowerCase());
 
     const matchesLevel = levelFilter === "All Levels" || c.level === levelFilter;
 
@@ -5402,9 +5500,7 @@ export function LearnPage() {
         <div className="mb-4 flex items-center justify-between border-b border-emerald-900/10 pb-2">
           <h2 className="text-lg font-black text-[#1b4332] flex items-center gap-2">
             <GraduationCap className="h-5 w-5 text-emerald-600" />
-            {categoryFilter === "University & CS"
-              ? t("University & Technical Education Resources")
-              : t("Agriculture & Farmer Education Courses")}
+            {t("Agriculture & Farmer Education Courses")}
           </h2>
           <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
             {filtered.length} {t("Courses Available")}
@@ -5526,30 +5622,7 @@ export function LearnPage() {
           </div>
         )}
 
-        {/* Secondary Optional Section: University & Technical Education Resources */}
-        {categoryFilter !== "University & CS" && (
-          <div className="mt-12 rounded-2xl border border-white/60 bg-white/70 backdrop-blur-md p-6 shadow-soft space-y-4">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-border/60 pb-3">
-              <div>
-                <h3 className="text-sm font-black text-[#1b4332] uppercase tracking-wider flex items-center gap-2">
-                  <BookOpen className="h-4 w-4 text-emerald-600" />
-                  {t("University & Technical Resources (Optional)")}
-                </h3>
-                <p className="text-xs text-muted-foreground font-medium mt-0.5">
-                  {t("Access computer science, programming, and software engineering course links.")}
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={() => setCategoryFilter("University & CS")}
-                className="h-9 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 text-xs font-bold transition cursor-pointer shrink-0 flex items-center gap-1.5"
-              >
-                {t("View Technical & CS Resources")}
-                <ArrowRight className="h-3.5 w-3.5" />
-              </button>
-            </div>
-          </div>
-        )}
+
 
         {/* Video Learning Resources Modal */}
         {selectedResourcesCourse && (
@@ -5645,7 +5718,7 @@ export function CoursesPage() {
   const { t } = useTranslation();
   const [query, setQuery] = useState("");
   const filtered = COURSES.filter((c) =>
-    `${c.title} ${c.topic} ${c.level}`.toLowerCase().includes(query.toLowerCase()),
+    `${t(c.title)} ${t(c.topic)} ${t(c.level)} ${c.category ?? ""}`.toLowerCase().includes(query.toLowerCase()),
   );
 
   return (
@@ -5653,7 +5726,7 @@ export function CoursesPage() {
       <PageShell
         eyebrow={t("Education")}
         title={t("Student Courses Catalog")}
-        intro={t("Explore software development, Python, AI/ML, cloud, and modern tech courses.")}
+        intro={t("Explore modern farming, crop science, soil fertility, irrigation, and AgriTech courses.")}
       >
         <div className="mb-6 flex max-w-md items-center rounded-xl border border-border bg-card px-3.5 py-2.5 shadow-sm">
           <Search className="h-4 w-4 text-muted-foreground mr-2" />
@@ -5700,12 +5773,13 @@ export function CoursesPage() {
                     style={{ width: `${c.progress}%` }}
                   />
                 </div>
-                <button
-                  type="button"
-                  className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm"
+                <Link
+                  to={`/learn?courseId=${c.id}`}
+                  className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm flex items-center justify-center gap-1.5"
                 >
                   {c.progress > 0 ? t("Continue Learning") : t("Start Course")}
-                </button>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
               </div>
             </div>
           ))}
@@ -5717,48 +5791,120 @@ export function CoursesPage() {
 
 export function MyCoursesPage() {
   const { t } = useTranslation();
+
+  const [enrolledCourseIds] = useState<string[]>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem("purefarm_enrolled_courses");
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) {
+            const valid = parsed.filter((id: string) => COURSES.some((c) => c.id === id));
+            if (valid.length > 0) return valid;
+          }
+        }
+      } catch (e) {
+        console.error("Failed to load enrolled courses", e);
+      }
+    }
+    return COURSES.slice(0, 6).map((c) => c.id);
+  });
+
+  const [completedLessons] = useState<Record<string, string[]>>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem("purefarm_course_progress");
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          const sanitized: Record<string, string[]> = {};
+          for (const key of Object.keys(parsed)) {
+            if (COURSES.some((c) => c.id === key)) {
+              sanitized[key] = parsed[key];
+            }
+          }
+          return sanitized;
+        }
+      } catch (e) {
+        console.error("Failed to load course progress", e);
+      }
+    }
+    return {};
+  });
+
+  const enrolledCourses = useMemo(() => {
+    return COURSES.filter((c) => enrolledCourseIds.includes(c.id));
+  }, [enrolledCourseIds]);
+
+  const getCourseProgress = (courseId: string) => {
+    const courseLessons = AGRICULTURE_LESSONS.filter((l) => l.courseId === courseId);
+    if (courseLessons.length === 0) return 0;
+    const completed = completedLessons[courseId] || [];
+    return Math.round((completed.length / courseLessons.length) * 100);
+  };
+
   return (
     <RoleGuard allowedRoles={["student", "admin"]}>
       <PageShell
-        eyebrow="Dashboard"
-        title="My Enrolled Courses"
-        intro="Track ongoing learning progress across active tech and engineering courses."
+        eyebrow={t("Dashboard")}
+        title={t("My Enrolled Courses")}
+        intro={t("Track ongoing learning progress across active agriculture and AgriTech courses.")}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {COURSES.map((c) => (
-            <div
-              key={c.id}
-              className="rounded-2xl border border-border bg-card p-5 shadow-soft space-y-4"
-            >
-              <div className="flex justify-between items-start">
-                <div>
-                  <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">
-                    {c.topic}
-                  </span>
-                  <h3 className="text-lg font-black text-[#1b4332]">{c.title}</h3>
-                  <p className="text-xs text-muted-foreground mt-0.5">
-                    {c.instructor} · {c.hours} hrs
-                  </p>
-                </div>
-                <span className="text-xs font-bold text-[#2d6a4f] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                  {c.progress}% Complete
-                </span>
-              </div>
-              <div className="h-2.5 w-full rounded-full bg-muted overflow-hidden">
-                <div
-                  className="h-full bg-[#2d6a4f] rounded-full"
-                  style={{ width: `${c.progress}%` }}
-                />
-              </div>
-              <button
-                type="button"
-                className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm"
+        {enrolledCourses.length === 0 ? (
+          <div className="rounded-2xl border border-dashed border-border bg-card/60 p-12 text-center space-y-3 max-w-md mx-auto">
+            <GraduationCap className="h-10 w-10 text-muted-foreground mx-auto" />
+            <h3 className="text-base font-black text-[#1b4332]">{t("No enrolled courses yet")}</h3>
+            <p className="text-xs text-muted-foreground">
+              {t("Browse our agriculture and AgriTech courses catalog to start learning modern farming techniques.")}
+            </p>
+            <div className="pt-2">
+              <Link
+                to="/courses"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-4 py-2 text-xs font-black transition"
               >
-                Continue Module →
-              </button>
+                {t("Browse Courses")} <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
             </div>
-          ))}
-        </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {enrolledCourses.map((c) => {
+              const progress = getCourseProgress(c.id);
+              return (
+                <div
+                  key={c.id}
+                  className="rounded-2xl border border-border bg-card p-5 shadow-soft space-y-4"
+                >
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">
+                        {t(c.topic)}
+                      </span>
+                      <h3 className="text-lg font-black text-[#1b4332]">{t(c.title)}</h3>
+                      <p className="text-xs text-muted-foreground mt-0.5">
+                        {t(c.instructor)} · {c.hours} {t("hrs")}
+                      </p>
+                    </div>
+                    <span className="text-xs font-bold text-[#2d6a4f] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                      {progress}% {t("completed")}
+                    </span>
+                  </div>
+                  <div className="h-2.5 w-full rounded-full bg-muted overflow-hidden">
+                    <div
+                      className="h-full bg-[#2d6a4f] rounded-full"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
+                  <Link
+                    to={`/learn?courseId=${c.id}`}
+                    className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm flex items-center justify-center gap-1.5"
+                  >
+                    {t("Continue Module")} <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </PageShell>
     </RoleGuard>
   );

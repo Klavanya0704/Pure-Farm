@@ -55,6 +55,8 @@ export const translations: Record<Language, Record<string, string>> = {
       "Adopt crop rotation to maintain soil microbial balance",
     "Adopt short-duration varieties in drought-prone districts":
       "Adopt short-duration varieties in drought-prone districts",
+    "Advance your skills in Modern Farming, Crop Science, Soil Health, and AgriTech. Explore active internship opportunities and track course progress.":
+      "Advance your skills in Modern Farming, Crop Science, Soil Health, and AgriTech. Explore active internship opportunities and track course progress.",
     "Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.":
       "Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.",
     Advanced: "Advanced",
@@ -134,6 +136,8 @@ export const translations: Record<Language, Record<string, string>> = {
       "Apply agricultural lime for acidic soils (pH < 6.0)",
     "Apply chemical pesticides only when pest population exceeds ETL limit":
       "Apply chemical pesticides only when pest population exceeds ETL limit",
+    "Apply for agricultural and AgriTech internships":
+      "Apply for agricultural and AgriTech internships",
     "Apply for frontend, python, AI/ML, full-stack, and data science internships.":
       "Apply for frontend, python, AI/ML, full-stack, and data science internships.",
     "Apply for tech and research internships": "Apply for tech and research internships",
@@ -225,6 +229,9 @@ export const translations: Record<Language, Record<string, string>> = {
     "Brighter Futures": "Brighter Futures",
     Brinjal: "Brinjal",
     "Browse All Courses": "Browse All Courses",
+    "Browse Courses": "Browse Courses",
+    "Browse our agriculture and AgriTech courses catalog to start learning modern farming techniques.":
+      "Browse our agriculture and AgriTech courses catalog to start learning modern farming techniques.",
     "Browse Catalog": "Browse Catalog",
     "Browse Marketplace": "Browse Marketplace",
     "Browse directly from verified local farmers and certified suppliers. High quality, fair prices, direct sourcing.":
@@ -372,8 +379,11 @@ export const translations: Record<Language, Record<string, string>> = {
     "Contact Us": "Contact Us",
     "Contact unavailable": "Contact unavailable",
     "Continue Learning": "Continue Learning",
+    "Continue learning your active agriculture & AgriTech modules":
+      "Continue learning your active agriculture & AgriTech modules",
     "Continue learning your active tech & AgriTech modules":
       "Continue learning your active tech & AgriTech modules",
+    "Continue Module": "Continue Module",
     "Coordinates:": "Coordinates:",
     "Coriander Seed Local (1 kg)": "Coriander Seed Local (1 kg)",
     Cotton: "Cotton",
@@ -575,6 +585,8 @@ export const translations: Record<Language, Record<string, string>> = {
       "Explore machine learning algorithms, scikit-learn, neural networks, and model deployment.",
     "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.":
       "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.",
+    "Explore modern farming, crop science, soil fertility, irrigation, and AgriTech courses.":
+      "Explore modern farming, crop science, soil fertility, irrigation, and AgriTech courses.",
     "Explore software development, Python, AI/ML, cloud, and modern tech courses.":
       "Explore software development, Python, AI/ML, cloud, and modern tech courses.",
     "Extreme Weather Mitigation (Floods & Heatwaves)":
@@ -1097,6 +1109,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "Nitrogen promotes vegetative leaf growth, Phosphorus boosts root development, and Potassium enhances crop disease resistance and grain filling. Split application of Nitrogen reduces leaching losses.":
       "Nitrogen promotes vegetative leaf growth, Phosphorus boosts root development, and Potassium enhances crop disease resistance and grain filling. Split application of Nitrogen reduces leaching losses.",
     "No Individual Loss Assessment": "No Individual Loss Assessment",
+    "No enrolled courses yet": "No enrolled courses yet",
     "No collateral required for crop loans up to Rs. 1.6 Lakh":
       "No collateral required for crop loans up to Rs. 1.6 Lakh",
     "No matching market prices found. Try adjusting your search or filters.":
@@ -1660,6 +1673,8 @@ export const translations: Record<Language, Record<string, string>> = {
       "Track crop growth stages, tillering, and leaf phenology in field plots",
     "Track market arrival statistics on Agmarknet or PureFarm portal":
       "Track market arrival statistics on Agmarknet or PureFarm portal",
+    "Track ongoing learning progress across active agriculture and AgriTech courses.":
+      "Track ongoing learning progress across active agriculture and AgriTech courses.",
     "Tracking Code": "Tracking Code",
     "Tractor Trolley Tipping 5 Tonne": "Tractor Trolley Tipping 5 Tonne",
     "Trading Hub": "Trading Hub",
@@ -2044,6 +2059,8 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c28\u0c47\u0c32 \u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e\u0c1c\u0c40\u0c35\u0c41\u0c32 \u0c38\u0c2e\u0c24\u0c41\u0c32\u0c4d\u0c2f\u0c24\u0c28\u0c41 \u0c15\u0c3e\u0c2a\u0c3e\u0c21\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c02\u0c1f \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c3f\u0c21\u0c3f\u0c28\u0c3f \u0c05\u0c35\u0c32\u0c02\u0c2c\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
     "Adopt short-duration varieties in drought-prone districts":
       "\u0c15\u0c30\u0c41\u0c35\u0c41 \u0c2a\u0c4d\u0c30\u0c3e\u0c02\u0c24\u0c3e\u0c32\u0c32\u0c4b \u0c38\u0c4d\u0c35\u0c32\u0c4d\u0c2a\u0c15\u0c3e\u0c32\u0c3f\u0c15 \u0c30\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
+    "Advance your skills in Modern Farming, Crop Science, Soil Health, and AgriTech. Explore active internship opportunities and track course progress.":
+      "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02, \u0c2a\u0c02\u0c1f\u0c32 \u0c35\u0c3f\u0c1c\u0c4d\u0c1e\u0c3e\u0c28\u0c02, \u0c28\u0c47\u0c32 \u0c06\u0c30\u0c4b\u0c17\u0c4d\u0c2f\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d\u200c\u0c32\u0c32\u0c4b \u0c2e\u0c40 \u0c28\u0c48\u0c2a\u0c41\u0c23\u0c4d\u0c2f\u0c3e\u0c32\u0c28\u0c41 \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c41\u0c2a\u0c30\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f. \u0c15\u0c4d\u0c30\u0c3f\u0c2f\u0c3e\u0c36\u0c40\u0c32 \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d \u0c05\u0c35\u0c15\u0c3e\u0c36\u0c3e\u0c32\u0c28\u0c41 \u0c05\u0c28\u0c4d\u0c35\u0c47\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41 \u0c2a\u0c41\u0c30\u0c4b\u0c17\u0c24\u0c3f\u0c28\u0c41 \u0c1f\u0c4d\u0c30\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
     "Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.":
       "\u0c35\u0c46\u0c2c\u0c4d \u0c21\u0c46\u0c35\u0c32\u0c2a\u0c4d\u200c\u0c2e\u0c46\u0c02\u0c1f\u0c4d, \u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d, AI/ML \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d\u200c\u0c32\u0c32\u0c4b \u0c2e\u0c40 \u0c28\u0c48\u0c2a\u0c41\u0c23\u0c4d\u0c2f\u0c3e\u0c32\u0c28\u0c41 \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c41\u0c2a\u0c30\u0c1a\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
     Advanced: "\u0c05\u0c27\u0c41\u0c28\u0c3e\u0c24\u0c28 \u0c38\u0c4d\u0c25\u0c3e\u0c2f\u0c3f",
@@ -2157,6 +2174,8 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c06\u0c2e\u0c4d\u0c32 \u0c28\u0c47\u0c32\u0c32\u0c15\u0c41 (pH < 6.0) \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
     "Apply chemical pesticides only when pest population exceeds ETL limit":
       "\u0c09\u0c27\u0c43\u0c24\u0c3f \u0c2a\u0c30\u0c3f\u0c2e\u0c3f\u0c24\u0c3f \u0c26\u0c3e\u0c1f\u0c3f\u0c28\u0c2a\u0c4d\u0c2a\u0c41\u0c21\u0c41 \u0c2e\u0c3e\u0c24\u0c4d\u0c30\u0c2e\u0c47 \u0c30\u0c38\u0c3e\u0c2f\u0c28 \u0c2e\u0c02\u0c26\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c3e\u0c21\u0c02\u0c21\u0c3f",
+    "Apply for agricultural and AgriTech internships":
+      "\u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d\u200c\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
     "Apply for frontend, python, AI/ML, full-stack, and data science internships.":
       "\u0c2b\u0c4d\u0c30\u0c02\u0c1f\u0c46\u0c02\u0c21\u0c4d, \u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d, AI/ML \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2b\u0c41\u0c32\u0c4d-\u0c38\u0c4d\u0c1f\u0c3e\u0c15\u0c4d \u0c07\u0c02\u0c1f\u0c30\u0c4d\u0c28\u0c4d\u200c\u0c37\u0c3f\u0c2a\u0c4d\u200c\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c26\u0c30\u0c16\u0c3e\u0c38\u0c4d\u0c24\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
     "Apply for tech and research internships":
@@ -2280,6 +2299,10 @@ export const translations: Record<Language, Record<string, string>> = {
     Brinjal: "\u0c35\u0c02\u0c15\u0c3e\u0c2f",
     "Browse All Courses":
       "\u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
+    "Browse Courses":
+      "\u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c2c\u0c4d\u0c30\u0c4c\u0c1c\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Browse our agriculture and AgriTech courses catalog to start learning modern farming techniques.":
+      "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c2a\u0c26\u0c4d\u0c27\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32 \u0c15\u0c47\u0c1f\u0c32\u0c3e\u0c17\u0c4d\u200c\u0c28\u0c41 \u0c2c\u0c4d\u0c30\u0c4c\u0c1c\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
     "Browse Catalog":
       "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e \u0c1a\u0c42\u0c21\u0c02\u0c21\u0c3f",
     "Browse Marketplace":
@@ -2474,8 +2497,12 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c38\u0c02\u0c2a\u0c4d\u0c30\u0c26\u0c3f\u0c02\u0c2a\u0c41 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41 \u0c32\u0c47\u0c35\u0c41",
     "Continue Learning":
       "\u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c15\u0c4a\u0c28\u0c38\u0c3e\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Continue learning your active agriculture & AgriTech modules":
+      "\u0c2e\u0c40 \u0c15\u0c4d\u0c30\u0c3f\u0c2f\u0c3e\u0c36\u0c40\u0c32 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f & \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c2e\u0c3e\u0c21\u0c4d\u0c2f\u0c42\u0c33\u0c4d\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c15\u0c4a\u0c28\u0c38\u0c3e\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
     "Continue learning your active tech & AgriTech modules":
       "\u0c2e\u0c40 \u0c38\u0c15\u0c4d\u0c30\u0c3f\u0c2f \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15 & \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c2e\u0c3e\u0c21\u0c4d\u0c2f\u0c42\u0c33\u0c4d\u0c32\u0c28\u0c41 \u0c28\u0c47\u0c30\u0c4d\u0c1a\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c15\u0c4a\u0c28\u0c38\u0c3e\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
+    "Continue Module":
+      "\u0c2e\u0c3e\u0c21\u0c4d\u0c2f\u0c42\u0c32\u0c4d\u200c\u0c28\u0c41 \u0c15\u0c4a\u0c28\u0c38\u0c3e\u0c17\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
     "Coordinates:":
       "\u0c15\u0c4b\u0c06\u0c30\u0c4d\u0c21\u0c3f\u0c28\u0c47\u0c1f\u0c4d\u0c32\u0c41:",
     "Coriander Seed Local (1 kg)":
@@ -2754,6 +2781,8 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c2e\u0c46\u0c37\u0c3f\u0c28\u0c4d \u0c32\u0c46\u0c30\u0c4d\u0c28\u0c3f\u0c02\u0c17\u0c4d \u0c06\u0c32\u0c4d\u0c17\u0c3e\u0c30\u0c3f\u0c25\u0c2e\u0c4d\u200c\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c4d\u0c2f\u0c42\u0c30\u0c32\u0c4d \u0c28\u0c46\u0c1f\u0c4d\u200c\u0c35\u0c30\u0c4d\u0c15\u0c4d\u200c\u0c32\u0c28\u0c41 \u0c05\u0c27\u0c4d\u0c2f\u0c2f\u0c28\u0c02 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
     "Explore modern agricultural technology that helps farmers monitor, protect and manage their crops efficiently.":
       "\u0c30\u0c48\u0c24\u0c41\u0c32\u0c41 \u0c24\u0c2e \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c02\u0c17\u0c3e \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f, \u0c38\u0c02\u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c3f\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c38\u0c39\u0c3e\u0c2f\u0c2a\u0c21\u0c47 \u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c38\u0c3e\u0c02\u0c15\u0c47\u0c24\u0c3f\u0c15\u0c24\u0c28\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c02\u0c21\u0c3f.",
+    "Explore modern farming, crop science, soil fertility, irrigation, and AgriTech courses.":
+      "\u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02, \u0c2a\u0c02\u0c1f\u0c32 \u0c35\u0c3f\u0c1c\u0c4d\u0c1e\u0c3e\u0c28\u0c02, \u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c35\u0c02\u0c24\u0c02, \u0c28\u0c40\u0c1f\u0c3f\u0c2a\u0c3e\u0c30\u0c41\u0c26\u0c32 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c05\u0c28\u0c4d\u0c35\u0c47\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
     "Explore software development, Python, AI/ML, cloud, and modern tech courses.":
       "\u0c38\u0c3e\u0c2b\u0c4d\u0c1f\u0c4d\u200c\u0c35\u0c47\u0c30\u0c4d \u0c05\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f, \u0c2a\u0c48\u0c25\u0c3e\u0c28\u0c4d, AI/ML, \u0c15\u0c4d\u0c32\u0c4c\u0c21\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c27\u0c41\u0c28\u0c3f\u0c15 \u0c1f\u0c46\u0c15\u0c4d \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c28\u0c41 \u0c05\u0c28\u0c4d\u0c35\u0c47\u0c37\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f.",
     "Extreme Weather Mitigation (Floods & Heatwaves)":
@@ -3433,6 +3462,8 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f \u0c06\u0c15\u0c41\u0c32 \u0c0e\u0c26\u0c41\u0c17\u0c41\u0c26\u0c32\u0c15\u0c41, \u0c2d\u0c3e\u0c38\u0c4d\u0c35\u0c30\u0c02 \u0c35\u0c47\u0c30\u0c4d\u0c32 \u0c05\u0c2d\u0c3f\u0c35\u0c43\u0c26\u0c4d\u0c27\u0c3f\u0c15\u0c3f, \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c24\u0c46\u0c17\u0c41\u0c33\u0c4d\u0c32 \u0c28\u0c3f\u0c30\u0c4b\u0c27\u0c15\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c17\u0c3f\u0c02\u0c1c \u0c2a\u0c15\u0c4d\u0c35\u0c24\u0c15\u0c41 \u0c24\u0c4b\u0c21\u0c4d\u0c2a\u0c21\u0c24\u0c3e\u0c2f\u0c3f. \u0c28\u0c24\u0c4d\u0c30\u0c1c\u0c28\u0c3f\u0c28\u0c3f \u0c35\u0c3f\u0c21\u0c24\u0c32 \u0c35\u0c3e\u0c30\u0c40\u0c17\u0c3e \u0c35\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c35\u0c4d\u0c2f\u0c30\u0c4d\u0c25\u0c02 \u0c15\u0c3e\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c28\u0c3f\u0c30\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
     "No Individual Loss Assessment":
       "\u0c35\u0c4d\u0c2f\u0c15\u0c4d\u0c24\u0c3f\u0c17\u0c24 \u0c28\u0c37\u0c4d\u0c1f \u0c05\u0c02\u0c1a\u0c28\u0c3e \u0c32\u0c47\u0c26\u0c41",
+    "No enrolled courses yet":
+      "\u0c07\u0c02\u0c15\u0c3e \u0c28\u0c2e\u0c4b\u0c26\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c41\u0c28\u0c4d\u0c28 \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41 \u0c32\u0c47\u0c35\u0c41",
     "No collateral required for crop loans up to Rs. 1.6 Lakh":
       "\u0c30\u0c42. 1.6 \u0c32\u0c15\u0c4d\u0c37\u0c32 \u0c35\u0c30\u0c15\u0c41 \u0c0e\u0c32\u0c3e\u0c02\u0c1f\u0c3f \u0c37\u0c42\u0c30\u0c3f\u0c1f\u0c40 \u0c05\u0c35\u0c38\u0c30\u0c02 \u0c32\u0c47\u0c26\u0c41",
     "No matching market prices found. Try adjusting your search or filters.":
@@ -4205,6 +4236,8 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c2a\u0c02\u0c1f \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c26\u0c32 \u0c26\u0c36\u0c32\u0c41, \u0c2a\u0c3f\u0c32\u0c15\u0c32\u0c41 \u0c24\u0c4a\u0c21\u0c3f\u0c17\u0c47 \u0c26\u0c36 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c15\u0c41\u0c32 \u0c2a\u0c30\u0c3f\u0c23\u0c3e\u0c2e\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c1f\u0c4d\u0c30\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c2f\u0c21\u0c02",
     "Track market arrival statistics on Agmarknet or PureFarm portal":
       "\u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c30\u0c3e\u0c2c\u0c21\u0c3f \u0c17\u0c23\u0c3e\u0c02\u0c15\u0c3e\u0c32\u0c28\u0c41 \u0c06\u0c28\u0c4d\u200c\u0c32\u0c48\u0c28\u0c4d\u200c\u0c32\u0c4b \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
+    "Track ongoing learning progress across active agriculture and AgriTech courses.":
+      "\u0c15\u0c4d\u0c30\u0c3f\u0c2f\u0c3e\u0c36\u0c40\u0c32 \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c05\u0c17\u0c4d\u0c30\u0c3f\u0c1f\u0c46\u0c15\u0c4d \u0c15\u0c4b\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c32\u0c4b \u0c15\u0c4a\u0c28\u0c38\u0c3e\u0c17\u0c41\u0c24\u0c41\u0c28\u0c4d\u0c28 \u0c05\u0c2d\u0c4d\u0c2f\u0c3e\u0c38 \u0c2a\u0c41\u0c30\u0c4b\u0c17\u0c24\u0c3f\u0c28\u0c41 \u0c1f\u0c4d\u0c30\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f.",
     "Tracking Code":
       "\u0c1f\u0c4d\u0c30\u0c3e\u0c15\u0c3f\u0c02\u0c17\u0c4d \u0c15\u0c4b\u0c21\u0c4d",
     "Tractor Trolley Tipping 5 Tonne":
