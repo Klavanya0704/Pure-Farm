@@ -223,41 +223,8 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
         </Link>
 
-        {/* Weather Location Selector Button */}
-        <button
-          type="button"
-          onClick={() => {
-            if (onItemClick) onItemClick();
-            setIsSelectorOpen(true);
-          }}
-          className="flex items-center justify-between w-full px-3 py-2 rounded-xl bg-sidebar-accent/60 border border-sidebar-border hover:bg-sidebar-accent transition text-left cursor-pointer group shrink-0"
-          title={t("Click to change weather location")}
-        >
-          <div className="flex items-center gap-2 min-w-0">
-            <div className="h-6 w-6 rounded-lg bg-emerald-100 text-[#1b4332] flex items-center justify-center shrink-0">
-              <MapPin className="h-3.5 w-3.5 text-[#2d6a4f]" />
-            </div>
-            <div className="min-w-0">
-              <p className="text-[9px] font-bold uppercase tracking-wider text-[#2d6a4f]/80 leading-none">
-                {t("Weather Mandi")}
-              </p>
-              <p className="text-xs font-bold text-[#1b4332] truncate mt-0.5">
-                {selectedLocation}
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center gap-1 shrink-0">
-            {weatherData ? (
-              <span className="text-xs font-extrabold text-[#1b4332]">
-                {weatherData.temp}°C
-              </span>
-            ) : null}
-            <ChevronDown className="h-3 w-3 text-muted-foreground group-hover:text-foreground" />
-          </div>
-        </button>
-
         {/* Navigation Groups */}
-        <div className="space-y-5 flex-1 min-h-0 overflow-y-auto no-scrollbar pr-1">
+        <div className="space-y-5 flex-1 min-h-0 overflow-y-auto no-scrollbar pr-1 pt-1">
           <div>
             <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-[#2d6a4f]">
               {user?.role === "admin" ? t("Management") : t("Main Navigation")}
