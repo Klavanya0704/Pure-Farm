@@ -65,26 +65,16 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/fresh-farm-spinach-palak-250-g.jpg",
   "Paddy Seed PR-126 (5 kg)":
     "/products/paddy-seed-pr-126-5-kg.jpg",
-  "Wheat Seed PBW-343 (5 kg)":
-    "/products/wheat-seed-pbw-343-5-kg.jpg",
   "BT Cotton Seed (450 g)":
     "/products/bt-cotton-seed-450-g.jpg",
-  "Groundnut Seed TAG-24 (10 kg)":
-    "/products/groundnut-seed-tag-24-10-kg.jpg",
   "Hybrid Maize Seed DKC-9108 (5 kg)":
     "/products/hybrid-maize-seed-dkc-9108-5-kg.jpg",
   "Sunflower Seed KBSH-44 (5 kg)":
     "/products/sunflower-seed-kbsh-44-5-kg.jpg",
   "Pearl Millet Seed HHB-67 (5 kg)":
     "/products/pearl-millet-seed-hhb-67-5-kg.jpg",
-  "Hybrid Tomato Seed (10 g)":
-    "/products/hybrid-tomato-seed-10-g.jpg",
   "Onion Seed Agrifound Dark Red (50 g)":
     "/products/onion-seed-agrifound-dark-red-50-g.jpg",
-  "Hybrid Brinjal Seed (10 g)":
-    "/products/hybrid-brinjal-seed-10-g.jpg",
-  "Chilli Seed Byadgi Dabbi (50 g)":
-    "/products/chilli-seed-byadgi-dabbi-50-g.jpg",
   "Okra Seed Arka Anamika (250 g)":
     "/products/okra-seed-arka-anamika-250-g.jpg",
   "Mustard Seed Pusa Bold (2 kg)":
@@ -107,72 +97,16 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/cabbage-seed-golden-acre-100-g.jpg",
   "Cauliflower Seed Snowball-16 (50 g)":
     "/products/cauliflower-seed-snowball-16-50-g.jpg",
-  "Cucumber Seed Hybrid Malini (25 g)":
-    "/products/cucumber-seed-hybrid-malini-25-g.jpg",
-  "Bottle Gourd Seed Pusa Naveen (100 g)":
-    "/products/bottle-gourd-seed-pusa-naveen-100-g.jpg",
-  "Bitter Gourd Seed Hybrid (50 g)":
-    "/products/bitter-gourd-seed-hybrid-50-g.jpg",
-  "Watermelon Seed Sugar Baby (100 g)":
-    "/products/watermelon-seed-sugar-baby-100-g.jpg",
-  "Muskmelon Seed Hara Madhu (100 g)":
-    "/products/muskmelon-seed-hara-madhu-100-g.jpg",
-  "Carrot Seed Pusa Rudhira (250 g)":
-    "/products/carrot-seed-pusa-rudhira-250-g.jpg",
-  "Spinach Seed All Green (500 g)":
-    "/products/spinach-seed-all-green-500-g.jpg",
   "Coriander Seed Local (1 kg)":
     "/products/coriander-seed-local-1-kg.jpg",
   "Fenugreek Seed Pusa Early Bunching (1 kg)":
     "/products/fenugreek-seed-pusa-early-bunching-1-kg.jpg",
-  "Barley Seed BH-946 (20 kg)":
-    "/products/barley-seed-bh-946-20-kg.jpg",
   "Lentil Seed IPL-406 (5 kg)":
     "/products/lentil-seed-ipl-406-5-kg.jpg",
-  "Field Pea Seed HFP-4 (10 kg)":
-    "/products/field-pea-seed-hfp-4-10-kg.jpg",
-  "Berseem Fodder Seed (10 kg)":
-    "/products/berseem-fodder-seed-10-kg.jpg",
-  "Marigold Seed African Orange (50 g)":
-    "/products/marigold-seed-african-orange-50-g.jpg",
   "Turmeric Rhizome Seed Salem (25 kg)":
     "/products/turmeric-rhizome-seed-salem-25-kg.jpg",
-  "Papaya Seed Red Lady (10 g)":
-    "/products/papaya-seed-red-lady-10-g.jpg",
   "Banana Tissue Culture Plant G-9":
     "/products/banana-tissue-culture-plant-g-9.jpg",
-  "Urea 46% N (45 kg)":
-    "/products/urea-46-n-45-kg.jpg",
-  "DAP 18-46-0 (50 kg)":
-    "/products/dap-18-46-0-50-kg.jpg",
-  "MOP Muriate of Potash (50 kg)":
-    "/products/mop-muriate-of-potash-50-kg.jpg",
-  "NPK 10:26:26 Complex (50 kg)":
-    "/products/npk-102626-complex-50-kg.jpg",
-  "NPK 20:20:0:13 (50 kg)":
-    "/products/npk-2020013-50-kg.jpg",
-  "Single Super Phosphate (50 kg)":
-    "/products/single-super-phosphate-50-kg.jpg",
-  "Zinc Sulphate 21% (5 kg)":
-    "/products/zinc-sulphate-21-5-kg.jpg",
-  "Ammonium Sulphate (50 kg)":
-    "/products/ammonium-sulphate-50-kg.jpg",
-  "Calcium Nitrate (25 kg)":
-    "/products/calcium-nitrate-25-kg.jpg",
-  "Water Soluble NPK 19:19:19 (1 kg)":
-    "/products/water-soluble-npk-191919-1-kg.jpg",
-  "Water Soluble NPK 0:52:34 (1 kg)":
-    "/products/water-soluble-npk-05234-1-kg.jpg",
-  "Potassium Schoenite (25 kg)":
-    "/products/potassium-schoenite-25-kg.jpg",
-  "Vermicompost Organic (30 kg)":
-    "/products/vermicompost-organic-30-kg.jpg",
-  "Rhizobium Biofertiliser (500 g)":
-    "/products/rhizobium-biofertiliser-500-g.jpg",
-  "Azotobacter Biofertiliser (500 g)":
-    "/products/azotobacter-biofertiliser-500-g.jpg",
-  "Nano Urea Liquid (500 ml)":
-    "/products/nano-urea-liquid-500-ml.jpg",
   "Trichoderma Viride Bio-fungicide (1 kg)":
     "/products/trichoderma-viride-bio-fungicide-1-kg.jpg",
   "Pseudomonas Fluorescens (1 kg)":
@@ -197,8 +131,6 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/grain-moisture-meter.jpg",
   "HDPE Mulching Film 25 Micron (400 m)":
     "/products/hdpe-mulching-film-25-micron-400-m.jpg",
-  "Shade Net 50% Green (3 x 50 m)":
-    "/products/shade-net-50-green-3-x-50-m.jpg",
   "Insect Net 40 Mesh (3 x 50 m)":
     "/products/insect-net-40-mesh-3-x-50-m.jpg",
   "Tarpaulin Sheet 200 GSM (18 x 24 ft)":
@@ -235,14 +167,10 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/sprinkler-set-1-acre.jpg",
   "Chaff Cutter Electric 2 HP":
     "/products/chaff-cutter-electric-2-hp.jpg",
-  "Water Pump 5 HP Diesel":
-    "/products/water-pump-5-hp-diesel.jpg",
   "Submersible Pump 3 HP":
     "/products/submersible-pump-3-hp.jpg",
   "Solar Pump Controller 5 HP":
     "/products/solar-pump-controller-5-hp.jpg",
-  "Grain Storage Silo 1 Tonne":
-    "/products/grain-storage-silo-1-tonne.jpg",
   "Weighing Scale Platform 300 kg":
     "/products/weighing-scale-platform-300-kg.jpg",
   "Milking Machine Single Bucket":
@@ -477,16 +405,6 @@ const ROWS: Row[] = [
     "Best Seller",
   ],
   [
-    "Wheat Seed PBW-343 (5 kg)",
-    "Punjab Seeds Corp.",
-    "seeds",
-    "bag",
-    275,
-    4.6,
-    1200,
-    "Premium wheat seed with superior milling quality, ideal for roti and bread making.",
-  ],
-  [
     "BT Cotton Seed (450 g)",
     "Mahyco Seeds",
     "seeds",
@@ -495,16 +413,6 @@ const ROWS: Row[] = [
     4.4,
     300,
     "Bollworm-resistant BT cotton hybrid with high fibre length and lint percentage.",
-  ],
-  [
-    "Groundnut Seed TAG-24 (10 kg)",
-    "Gujarat Seeds Corp.",
-    "seeds",
-    "bag",
-    1100,
-    4.3,
-    400,
-    "Bold-seeded groundnut with high oil content (50%). Ideal for the Kharif season.",
   ],
   [
     "Hybrid Maize Seed DKC-9108 (5 kg)",
@@ -538,16 +446,6 @@ const ROWS: Row[] = [
     "Downy mildew resistant millet. Performs well in Rajasthan and Haryana.",
   ],
   [
-    "Hybrid Tomato Seed (10 g)",
-    "Syngenta Seeds",
-    "seeds",
-    "pack",
-    95,
-    4.3,
-    900,
-    "Indeterminate hybrid with compact fruit, high lycopene and 70-day maturity.",
-  ],
-  [
     "Onion Seed Agrifound Dark Red (50 g)",
     "NHRDF",
     "seeds",
@@ -557,26 +455,6 @@ const ROWS: Row[] = [
     420,
     "Popular rabi onion variety with good storage life and deep red colour.",
     "Featured",
-  ],
-  [
-    "Hybrid Brinjal Seed (10 g)",
-    "East-West Seeds",
-    "seeds",
-    "pack",
-    85,
-    4.2,
-    560,
-    "Purple oval hybrid with excellent shelf life and uniform fruit set.",
-  ],
-  [
-    "Chilli Seed Byadgi Dabbi (50 g)",
-    "Karnataka Seeds Corp.",
-    "seeds",
-    "pack",
-    420,
-    4.4,
-    340,
-    "Rich red colour variety prized for paprika production. Mild pungency.",
   ],
   [
     "Okra Seed Arka Anamika (250 g)",
@@ -690,76 +568,6 @@ const ROWS: Row[] = [
     "Pure white compact curds with excellent field holding capacity.",
   ],
   [
-    "Cucumber Seed Hybrid Malini (25 g)",
-    "East-West Seeds",
-    "seeds",
-    "pack",
-    290,
-    4.1,
-    430,
-    "Gynoecious hybrid for polyhouse and open field summer cultivation.",
-  ],
-  [
-    "Bottle Gourd Seed Pusa Naveen (100 g)",
-    "IARI Seeds",
-    "seeds",
-    "pack",
-    180,
-    4.0,
-    520,
-    "Cylindrical fruits with a light green skin. First harvest in 55 days.",
-  ],
-  [
-    "Bitter Gourd Seed Hybrid (50 g)",
-    "Syngenta Seeds",
-    "seeds",
-    "pack",
-    320,
-    4.2,
-    350,
-    "Dark green spindle fruits with high yield across kharif and zaid.",
-  ],
-  [
-    "Watermelon Seed Sugar Baby (100 g)",
-    "Nunhems India",
-    "seeds",
-    "pack",
-    460,
-    4.4,
-    280,
-    "Sweet 3-4 kg fruit seed with deep red flesh and 12% TSS.",
-  ],
-  [
-    "Muskmelon Seed Hara Madhu (100 g)",
-    "Punjab Seeds Corp.",
-    "seeds",
-    "pack",
-    410,
-    4.1,
-    240,
-    "Aromatic green-fleshed melon seed well suited to river-bed cultivation.",
-  ],
-  [
-    "Carrot Seed Pusa Rudhira (250 g)",
-    "IARI Seeds",
-    "seeds",
-    "pack",
-    520,
-    4.3,
-    260,
-    "Red-cored tropical carrot seed rich in lycopene. Sow October to November.",
-  ],
-  [
-    "Spinach Seed All Green (500 g)",
-    "Namdhari Seeds",
-    "seeds",
-    "pack",
-    210,
-    4.0,
-    640,
-    "Multi-cut leafy spinach seed with quick regrowth after each harvest.",
-  ],
-  [
     "Coriander Seed Local (1 kg)",
     "Raj Agri Seeds",
     "seeds",
@@ -780,16 +588,6 @@ const ROWS: Row[] = [
     "Quick bunching methi seed giving 3-4 cuttings during the rabi season.",
   ],
   [
-    "Barley Seed BH-946 (20 kg)",
-    "Haryana Seeds",
-    "seeds",
-    "bag",
-    1180,
-    4.2,
-    200,
-    "Feed and malt barley seed tolerant to salinity and late sowing.",
-  ],
-  [
     "Lentil Seed IPL-406 (5 kg)",
     "IIPR Kanpur",
     "seeds",
@@ -798,36 +596,6 @@ const ROWS: Row[] = [
     4.3,
     300,
     "Bold-seeded masoor seed with rust resistance and 120-day maturity.",
-  ],
-  [
-    "Field Pea Seed HFP-4 (10 kg)",
-    "Haryana Seeds",
-    "seeds",
-    "bag",
-    1250,
-    4.0,
-    170,
-    "Powdery mildew tolerant pea seed for grain and green pod harvest.",
-  ],
-  [
-    "Berseem Fodder Seed (10 kg)",
-    "Punjab Seeds Corp.",
-    "seeds",
-    "bag",
-    1450,
-    4.4,
-    210,
-    "Multi-cut winter fodder seed giving 6-7 cuttings of nutritious green matter.",
-  ],
-  [
-    "Marigold Seed African Orange (50 g)",
-    "Namdhari Seeds",
-    "seeds",
-    "pack",
-    350,
-    4.1,
-    260,
-    "Large double blooms flower seed for cut flower and border planting.",
   ],
   [
     "Turmeric Rhizome Seed Salem (25 kg)",
@@ -839,17 +607,6 @@ const ROWS: Row[] = [
     130,
     "High curcumin (4.5%) rhizome seed for the Erode and Salem belt.",
     "Featured",
-  ],
-  [
-    "Papaya Seed Red Lady (10 g)",
-    "Known-You Seeds",
-    "seeds",
-    "pack",
-    780,
-    4.6,
-    200,
-    "Dwarf gynodioecious papaya seed bearing 1.5-2 kg fruit within 9 months.",
-    "Top Rated",
   ],
   [
     "Banana Tissue Culture Plant G-9",
@@ -864,172 +621,6 @@ const ROWS: Row[] = [
   ],
 
   // --- FERTILIZERS ---
-  [
-    "Urea 46% N (45 kg)",
-    "IFFCO",
-    "fertilizers",
-    "bag",
-    267,
-    4.6,
-    2400,
-    "Prilled urea, the primary nitrogen source for cereals and vegetables.",
-    "Best Seller",
-  ],
-  [
-    "DAP 18-46-0 (50 kg)",
-    "IFFCO",
-    "fertilizers",
-    "bag",
-    1350,
-    4.5,
-    1800,
-    "Di-ammonium phosphate for strong root development at sowing.",
-  ],
-  [
-    "MOP Muriate of Potash (50 kg)",
-    "IPL",
-    "fertilizers",
-    "bag",
-    1700,
-    4.3,
-    1100,
-    "Potassium chloride improving grain filling and disease tolerance.",
-  ],
-  [
-    "NPK 10:26:26 Complex (50 kg)",
-    "Coromandel",
-    "fertilizers",
-    "bag",
-    1470,
-    4.4,
-    1300,
-    "Balanced complex for basal application in cotton, chilli and pulses.",
-  ],
-  [
-    "NPK 20:20:0:13 (50 kg)",
-    "Chambal Fertilisers",
-    "fertilizers",
-    "bag",
-    1290,
-    4.2,
-    950,
-    "Nitrogen-phosphorus complex with sulphur for oilseeds.",
-  ],
-  [
-    "Single Super Phosphate (50 kg)",
-    "Rama Phosphates",
-    "fertilizers",
-    "bag",
-    470,
-    4.1,
-    1600,
-    "SSP supplying phosphorus, calcium and sulphur to pulses and oilseeds.",
-  ],
-  [
-    "Zinc Sulphate 21% (5 kg)",
-    "Coromandel",
-    "fertilizers",
-    "bag",
-    340,
-    4.3,
-    1400,
-    "Corrects zinc deficiency in paddy and wheat. Apply at sowing.",
-  ],
-  [
-    "Ammonium Sulphate (50 kg)",
-    "GSFC",
-    "fertilizers",
-    "bag",
-    1150,
-    4.0,
-    700,
-    "Nitrogen plus sulphur fertiliser ideal for tea, paddy and mustard.",
-  ],
-  [
-    "Calcium Nitrate (25 kg)",
-    "Haifa India",
-    "fertilizers",
-    "bag",
-    1850,
-    4.4,
-    420,
-    "Water-soluble calcium source preventing blossom end rot in tomato.",
-  ],
-  [
-    "Water Soluble NPK 19:19:19 (1 kg)",
-    "Yara India",
-    "fertilizers",
-    "pack",
-    260,
-    4.6,
-    2200,
-    "Fully soluble balanced grade for fertigation and foliar spray.",
-    "Top Rated",
-  ],
-  [
-    "Water Soluble NPK 0:52:34 (1 kg)",
-    "Yara India",
-    "fertilizers",
-    "pack",
-    340,
-    4.5,
-    1500,
-    "Flowering-stage grade boosting fruit set and grain filling.",
-  ],
-  [
-    "Potassium Schoenite (25 kg)",
-    "IFFCO",
-    "fertilizers",
-    "bag",
-    1240,
-    4.1,
-    380,
-    "Chloride-free potash with magnesium and sulphur for horticulture.",
-  ],
-  [
-    "Vermicompost Organic (30 kg)",
-    "PureFarm Organics",
-    "fertilizers",
-    "bag",
-    320,
-    4.7,
-    3000,
-    "Earthworm-processed compost improving soil structure and microbes.",
-    "Best Seller",
-  ],
-  [
-    "Rhizobium Biofertiliser (500 g)",
-    "Kribhco",
-    "fertilizers",
-    "pack",
-    110,
-    4.5,
-    1800,
-    "Nitrogen-fixing bio-inoculant for pulse crop seed treatment.",
-  ],
-  [
-    "Azotobacter Biofertiliser (500 g)",
-    "Kribhco",
-    "fertilizers",
-    "pack",
-    115,
-    4.2,
-    1500,
-    "Free-living nitrogen fixer for non-leguminous crops like cereals.",
-  ],
-  [
-    "Nano Urea Liquid (500 ml)",
-    "IFFCO",
-    "fertilizers",
-    "bottle",
-    240,
-    4.1,
-    2100,
-    "Foliar nano nitrogen replacing one bag of conventional urea.",
-    "Featured",
-  ],
-
-  // --- PESTICIDES & CROP PROTECTION ---
   [
     "Trichoderma Viride Bio-fungicide (1 kg)",
     "Multiplex",
@@ -1151,16 +742,6 @@ const ROWS: Row[] = [
     4.4,
     400,
     "Silver-black UV-stabilised mulching film for weed suppression.",
-  ],
-  [
-    "Shade Net 50% Green (3 x 50 m)",
-    "Garware",
-    "farm-tools",
-    "roll",
-    4300,
-    4.3,
-    300,
-    "UV-stabilised green shade net for nursery and polyhouse shading.",
   ],
   [
     "Insect Net 40 Mesh (3 x 50 m)",
@@ -1346,16 +927,6 @@ const ROWS: Row[] = [
     "Electric fodder cutter for green and dry cattle fodder.",
   ],
   [
-    "Water Pump 5 HP Diesel",
-    "Kirloskar",
-    "equipment",
-    "unit",
-    32500,
-    4.4,
-    180,
-    "High-head centrifugal diesel water pump for field irrigation.",
-  ],
-  [
     "Submersible Pump 3 HP",
     "Crompton",
     "equipment",
@@ -1374,16 +945,6 @@ const ROWS: Row[] = [
     4.2,
     140,
     "MPPT solar pump drive controller for AC/DC submersible pumps.",
-  ],
-  [
-    "Grain Storage Silo 1 Tonne",
-    "Agrosaw",
-    "equipment",
-    "unit",
-    14500,
-    4.3,
-    160,
-    "Galvanised steel airtight grain silo for safe long-term storage.",
   ],
   [
     "Weighing Scale Platform 300 kg",

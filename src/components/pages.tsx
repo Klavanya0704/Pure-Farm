@@ -3,7 +3,7 @@ import { useTranslation } from "@/i18n/LanguageContext";
 import { LanguageSelector } from "./AppShell";
 import { getColdStorageFacilities, updateFacilityCapacity, type ColdStorageFacility } from "@/services/coldStorage";
 import { getMarketPrices, syncLiveMarketPrices, INITIAL_AGMARKNET_PRICES, type SyncResult } from "@/services/marketPrices";
-import { getMachines, createMachine, getEquipmentImage } from "@/services/machines";
+import { getMachines, createMachine, getEquipmentImage, getEquipmentPlaceholder } from "@/services/machines";
 import {
   fetchWeatherData,
   fetchWeatherByCoords,
@@ -9136,7 +9136,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "50 HP Engine, High Torque, Power Steering, Constant Mesh",
       description: "50 HP heavy-duty agricultural tractor engineered for low fuel consumption and high pulling force with subsoilers and haulage.",
-      image: "/images/machines/sonalika_745_tractor.jpg",
+      image: getEquipmentPlaceholder("Tractor", "Sonalika DI 745 III Sikander (50 HP)"),
       phone: "9848011445",
     },
 
@@ -9152,7 +9152,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "68 HP, Paddy & Wheat Combine, Hydrostatic Drive",
       description: "High performance paddy & wheat combine harvester operating in field with 68 HP diesel engine for quick harvesting.",
-      image: "/images/machines/kubota_dc68g_harvester.jpg",
+      image: getEquipmentPlaceholder("Harvester", "Kubota Harvester DC-68G"),
       phone: "9848023456",
     },
     {
@@ -9166,7 +9166,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "100 HP Turbocharged, 14-ft Cutter Bar, Grain Loss Monitor",
       description: "100 HP turbocharged self-propelled combine harvester with 14-foot cutter bar and active grain loss monitor for large fields.",
-      image: "/images/machines/john_deere_w70_harvester.jpg",
+      image: getEquipmentPlaceholder("Harvester", "John Deere W70 Grain Combine Harvester"),
       phone: "9848022334",
     },
     {
@@ -9180,7 +9180,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "101 HP Engine, Straw Chopper Attachment, Rubber Tracks",
       description: "Heavy duty 101 HP paddy crawler combine with heavy-duty rubber tracks for harvesting in wet muddy paddy fields.",
-      image: "/images/machines/preet_987_harvester.jpg",
+      image: getEquipmentPlaceholder("Harvester", "Preet 987 Paddy Combine Harvester"),
       phone: "9848022445",
     },
     {
@@ -9194,7 +9194,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "130 HP Engine, Rotary Separator, Dual Drum Threshing",
       description: "130 HP multi-crop combine harvester with rotary separator and dual drum paddy threshing mechanism.",
-      image: "/images/machines/new_holland_tc530_harvester.jpg",
+      image: getEquipmentPlaceholder("Harvester", "New Holland TC5.30 Combine Harvester"),
       phone: "9848022556",
     },
 
@@ -9224,7 +9224,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "42 Boron Steel Blades, Heavy Duty Side Gear Drive",
       description: "Italian boron steel 42-blade rotavator engineered for smooth soil pulverization and residue incorporation.",
-      image: "/images/machines/maschio_rotavator_6ft.jpg",
+      image: getEquipmentPlaceholder("Rotavator", "Maschio Gaspardo Virtus 6-Foot Rotavator"),
       phone: "9848033445",
     },
     {
@@ -9238,7 +9238,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "54 L-Type Blades, Dual Crown Multi-Speed Gearbox",
       description: "Wide 8-foot tractor rotavator with 54 L-type blades suitable for tractors above 50 HP for fast land preparation.",
-      image: "/images/machines/fieldking_rotavator_8ft.jpg",
+      image: getEquipmentPlaceholder("Rotavator", "Fieldking Heavy Duty 8-Foot Rotavator"),
       phone: "9848033556",
     },
     {
@@ -9252,14 +9252,14 @@ export function MachinesToolsPage() {
       available: true,
       specs: "Waterproof Bearing Seal, 36 C-Type Blades for Wet Tillage",
       description: "Specialized wet land paddy rotavator with waterproof bearing seals and 36 C-type blades for thorough puddling.",
-      image: "/images/machines/dasmesh_paddy_rotavator.jpg",
+      image: getEquipmentPlaceholder("Rotavator", "Dasmesh 642 Heavy Duty Paddy Rotavator"),
       phone: "9848033667",
     },
 
     // 4. CULTIVATORS (4 items)
     {
       id: "eq-6",
-      name: "STIHL Heavy Duty Power Tiller 7.5 HP",
+      name: "Husqvarna T-550 R Power Tiller (5.5 HP)",
       category: "Cultivator",
       owner: "Rambabu",
       location: "Mandapeta",
@@ -9282,7 +9282,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "9 Forged Steel Tynes, Heavy Channel Frame, 35+ HP Mount",
       description: "Tractor-mounted 9-tyne rigid cultivator with forged steel tynes for hard soil loosening and primary tillage.",
-      image: "/images/machines/swan_9tyne_cultivator.jpg",
+      image: getEquipmentPlaceholder("Cultivator", "Swan 9-Tyne Rigid Frame Field Cultivator"),
       phone: "9848066778",
     },
     {
@@ -9296,7 +9296,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "High-Tensile Springs, Reversible Carbon Shovels, 11 Tynes",
       description: "Heavy-duty 11-tyne spring-loaded cultivator designed for stony soils with high clearance and reversible carbon shovels.",
-      image: "/images/machines/fieldking_11tyne_cultivator.jpg",
+      image: getEquipmentPlaceholder("Cultivator", "Fieldking 11-Tyne Spring Loaded Cultivator"),
       phone: "9848066889",
     },
     {
@@ -9310,7 +9310,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "13 HP Diesel Engine, 18-Blade Rotary Tiller",
       description: "13 HP diesel water-cooled power tiller equipped with 18-blade rotary tiller for inter-cultivation and vegetable plots.",
-      image: "/images/machines/vst_shakti_13hp_tiller.jpg",
+      image: getEquipmentPlaceholder("Cultivator", "VST Shakti 13 HP Power Tiller / Cultivator"),
       phone: "9848066990",
     },
 
@@ -9326,7 +9326,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "9 Tines, Double Box Seed & Fertilizer, Adjustable Depth",
       description: "Tractor-mounted 9-row automatic seed drill and fertilizer applicator for precise sowing.",
-      image: "/images/machines/national_seed_drill_9row.jpg",
+      image: getEquipmentPlaceholder("Seeder", "National Automatic 9-Row Seed Drill"),
       phone: "9848078901",
     },
     {
@@ -9368,7 +9368,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "Vacuum Precision Metering, 4 Rows, Adjustable Spacing",
       description: "Pneumatic vacuum precision planter for single-seed placement of maize, cotton, and sunflower seeds.",
-      image: "/images/machines/pneumatic_precision_planter.jpg",
+      image: getEquipmentPlaceholder("Seeder", "Pneumatic Precision Planter & Maize Seeder"),
       phone: "9848077101",
     },
 
@@ -9398,7 +9398,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "400L Polyethylene Tank, 12m Folding Boom, PTO Pump",
       description: "400-litre tractor PTO-driven boom sprayer with 12-meter folding spray booms for fast field chemical treatment.",
-      image: "/images/machines/fieldking_400l_boom_sprayer.jpg",
+      image: getEquipmentPlaceholder("Sprayer", "Fieldking 400L Tractor Boom Sprayer"),
       phone: "9848044556",
     },
     {
@@ -9412,7 +9412,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "Brass Pump Barrel, 2m Extension Rod, High Pressure Hose",
       description: "High-pressure foot sprayer with brass pump cylinder and long delivery hose for orchard trees.",
-      image: "/images/machines/aspee_foot_orchard_sprayer.jpg",
+      image: getEquipmentPlaceholder("Sprayer", "Aspee Marut Foot-Operated Orchard Sprayer"),
       phone: "9848044667",
     },
     {
@@ -9442,7 +9442,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "5 HP Engine, 3-inch Delivery Pipe, 1000L/min Flow",
       description: "4-stroke petrol 3-inch agricultural irrigation water pump for high volume field watering.",
-      image: "/images/machines/honda_5hp_water_pump.jpg",
+      image: getEquipmentPlaceholder("Water Pump", "Honda 5 HP High Pressure Water Pump"),
       phone: "9848056789",
     },
     {
@@ -9456,7 +9456,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "7.5 HP Air-Cooled Diesel, 4-inch Suction & Delivery",
       description: "Heavy duty single cylinder diesel water pump coupled with 4-inch high discharge centrifugal pump.",
-      image: "/images/machines/kirloskar_7hp_diesel_pump.jpg",
+      image: getEquipmentPlaceholder("Water Pump", "Kirloskar 7.5 HP Diesel Agricultural Pump"),
       phone: "9848055667",
     },
     {
@@ -9484,7 +9484,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "3 HP Single Phase, Heavy Cast Iron Body, High Discharge",
       description: "Single-phase 3 HP monoblock pump suitable for lifting water from canals, ponds, and shallow borewells.",
-      image: "/images/machines/texmo_monoblock_pump.jpg",
+      image: getEquipmentPlaceholder("Water Pump", "Texmo 3 HP Monoblock Irrigation Water Pump"),
       phone: "9848055889",
     },
 
@@ -9563,7 +9563,7 @@ export function MachinesToolsPage() {
     },
     {
       id: "eq-9b",
-      name: "Husqvarna 455 Rancher Chainsaw 3.5 HP",
+      name: "STIHL MS 362 C Chainsaw 3.5 HP",
       category: "Power Tool",
       owner: "T. Anjaneyulu",
       location: "Rajahmundry",
@@ -9616,7 +9616,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "5-Ton Capacity, Single Axle, Hydraulic Ram Lift",
       description: "Heavy duty 5-tonne hydraulic tipping tractor trailer for agricultural crop haulage and transport.",
-      image: "/images/machines/hydraulic_tipping_trolley.jpg",
+      image: getEquipmentPlaceholder("Other", "Hydraulic Tipping Tractor Trolley 5-Ton"),
       phone: "9848091234",
     },
     {
@@ -9630,7 +9630,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "3 Bottom MB Plough, High Carbon Steel, Hydraulic Turnover",
       description: "Hydraulic reversible mouldboard plough for deep tillage, soil inversion, and breaking hard pan layers.",
-      image: "/images/machines/fieldking_3bottom_mb_plough.jpg",
+      image: getEquipmentPlaceholder("Other", "Fieldking 3-Bottom Hydraulic Reversible MB Plough"),
       phone: "9848091122",
     },
     {
@@ -10377,23 +10377,23 @@ export function MachinesToolsListPage() {
   const sampleImages = [
     {
       label: "Tractor",
-      url: "/images/machines/tractor.jpg",
+      url: "/images/machines/mahindra_575_tractor.jpg",
     },
     {
       label: "Harvester",
-      url: "/images/machines/harvester.jpg",
+      url: getEquipmentPlaceholder("Harvesters", "Harvester"),
     },
     {
       label: "Rotavator",
-      url: "/images/machines/rotavator.jpg",
+      url: "/images/machines/shaktiman_rotavator_7ft.jpg",
     },
     {
       label: "Sprayer",
-      url: "/images/machines/sprayer.jpg",
+      url: "/images/machines/kisankraft_petrol_sprayer.jpg",
     },
     {
       label: "Water Pump",
-      url: "/images/machines/water_pump.jpg",
+      url: "/images/machines/crompton_submersible_pump.jpg",
     },
   ];
 
