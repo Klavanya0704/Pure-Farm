@@ -129,8 +129,22 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/submersible-pump-3-hp.jpg",
   "Urea Fertilizer — 45 kg bag":
     "/products/urea-fertilizer-45-kg.jpg",
+  "DAP Fertilizer (18-46-0) — 50 kg bag":
+    "/products/dap-fertilizer-18-46-0.jpg",
+  "NPK Complex Fertilizer (10-26-26) — 50 kg bag":
+    "/products/npk-complex-fertilizer-10-26-26.jpg",
+  "MOP / Potassium Chloride Fertilizer — 50 kg bag":
+    "/products/mop-potassium-chloride-fertilizer.jpg",
+  "Single Super Phosphate (SSP) — 50 kg bag":
+    "/products/single-super-phosphate-ssp.jpg",
+  "Water-Soluble NPK Fertilizer (19-19-19) — 1 kg pack":
+    "/products/water-soluble-npk-19-19-19.jpg",
+  "Zinc Sulphate Fertilizer — 5 kg pack":
+    "/products/zinc-sulphate-fertilizer.jpg",
   "Organic Vermicompost — 30 kg bag":
     "/products/organic-vermicompost-30-kg.jpg",
+  "Rhizobium Biofertilizer — 500 g pack":
+    "/products/rhizobium-biofertilizer.jpg",
   "Neem-Based Bio-Pesticide / Neem Oil — 1 litre":
     "/products/neem-oil-bio-pesticide-1-litre.jpg",
 };
