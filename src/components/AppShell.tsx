@@ -133,6 +133,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     if (user?.role === "student") {
       return [
         { to: "/", label: t("Home"), icon: Home },
+        { to: "/marketplace", label: t("Marketplace"), icon: Store },
         { to: "/learn", label: t("Learn"), icon: GraduationCap },
         { to: "/courses", label: t("Courses"), icon: BookOpen },
         { to: "/internships", label: t("Internships"), icon: Briefcase },
@@ -177,6 +178,9 @@ export function AppShell({ children }: { children: ReactNode }) {
 
     if (user?.role === "student") {
       return [
+        { to: "/cart", label: t("My Cart"), icon: ShoppingCart },
+        { to: "/wishlist", label: t("My Wishlist"), icon: Heart },
+        { to: "/order", label: t("My Orders"), icon: ShoppingBag },
         { to: "/my-courses", label: t("My Courses"), icon: BookOpen },
         { to: "/my-applications", label: t("My Applications"), icon: FileText },
         { to: "/certificates", label: t("Certificates"), icon: Award },
@@ -241,7 +245,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               {user?.role === "buyer"
                 ? t("Account & Shopping")
                 : user?.role === "student"
-                  ? t("Career")
+                  ? t("Shopping & Career")
                   : t("Account & Activity")}
             </p>
             <nav className="mt-2 flex flex-col gap-0.5">

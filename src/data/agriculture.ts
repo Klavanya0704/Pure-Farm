@@ -1168,6 +1168,9 @@ export const INTERNSHIPS: Internship[] = [
       "Assist farmers in using PureFarm mobile apps and digital tools",
       "Collect crop health data, soil advisory updates, and harvest readiness logs",
     ],
+    isInternal: true,
+    applyType: "internal",
+    applyUrl: null,
   },
   {
     id: "agri-int-2",
@@ -1189,6 +1192,9 @@ export const INTERNSHIPS: Internship[] = [
       "Record weed density and pest occurrence in experimental trial plots",
       "Prepare seasonal crop rotation and sowing recommendations for regional crops",
     ],
+    isInternal: false,
+    applyType: "external",
+    applyUrl: null,
   },
   {
     id: "agri-int-3",
@@ -1210,6 +1216,9 @@ export const INTERNSHIPS: Internship[] = [
       "Analyze pH, N-P-K levels, organic carbon, and electrical conductivity",
       "Draft customized Soil Health Cards and fertilizer dose advisories",
     ],
+    isInternal: false,
+    applyType: "external",
+    applyUrl: null,
   },
   {
     id: "agri-int-4",
@@ -1231,6 +1240,9 @@ export const INTERNSHIPS: Internship[] = [
       "Map farm plots using multispectral drone sensors",
       "Generate crop vigor maps (NDVI) for precision fertilizer application",
     ],
+    isInternal: false,
+    applyType: "external",
+    applyUrl: null,
   },
   {
     id: "agri-int-5",
@@ -1252,6 +1264,9 @@ export const INTERNSHIPS: Internship[] = [
       "Monitor drip fertigation schedules for polyhouse vegetable crops",
       "Participate in post-harvest harvesting, grading, and packing of fruit crops",
     ],
+    isInternal: false,
+    applyType: "external",
+    applyUrl: null,
   },
   {
     id: "agri-int-6",
@@ -1273,6 +1288,9 @@ export const INTERNSHIPS: Internship[] = [
       "Monitor milking parlor hygiene, milk testing, and cold storage temperature",
       "Maintain animal health logs, ear tagging records, and vaccination schedules",
     ],
+    isInternal: false,
+    applyType: "external",
+    applyUrl: null,
   },
   {
     id: "agri-int-7",
@@ -1294,6 +1312,9 @@ export const INTERNSHIPS: Internship[] = [
       "Test moisture content and shelf-life stability of dried fruits & spices",
       "Follow FSSAI safety standards across processing and cold storage lines",
     ],
+    isInternal: false,
+    applyType: "external",
+    applyUrl: null,
   },
   {
     id: "agri-int-8",
@@ -1315,6 +1336,9 @@ export const INTERNSHIPS: Internship[] = [
       "Implement crop rotation and green manuring in organic vegetable beds",
       "Document organic farm compliance records for organic certification",
     ],
+    isInternal: false,
+    applyType: "external",
+    applyUrl: null,
   },
   {
     id: "agri-int-9",
@@ -1336,6 +1360,9 @@ export const INTERNSHIPS: Internship[] = [
       "Distribute agricultural advisory pamphlets and scheme guides",
       "Assist farmers in enrolling for government welfare schemes and PM-KISAN",
     ],
+    isInternal: false,
+    applyType: "external",
+    applyUrl: null,
   },
 ];
 

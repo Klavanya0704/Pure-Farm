@@ -4,10 +4,12 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
 import { useAuth } from "./AuthContext";
+import { getProduct, getCategoryPlaceholder, getProductImage } from "@/data/products";
 
 export interface WishlistProductItem {
   id: string;
@@ -26,16 +28,76 @@ export interface WishlistContextValue {
   wishlistIds: string[];
   wishlistCount: number;
   isInWishlist: (productId: string) => boolean;
-  toggleWishlist: (product: WishlistProductItem) => void;
-  addToWishlist: (product: WishlistProductItem) => void;
+  toggleWishlist: (product: WishlistProductItem | string) => void;
+  addToWishlist: (product: WishlistProductItem | string) => void;
   removeFromWishlist: (productId: string) => void;
   clearWishlist: () => void;
+  isReady: boolean;
+  refreshWishlist: () => void;
 }
 
 const WishlistContext = createContext<WishlistContextValue | null>(null);
 
 function getStorageKey(userId?: string | null): string {
   return userId ? `purefarm_wishlist_${userId}` : "purefarm_wishlist_guest";
+}
+
+function normalizeWishlistItem(input: any): WishlistProductItem | null {
+  if (!input) return null;
+  const id =
+    typeof input === "string"
+      ? input.trim()
+      : typeof input.id === "string"
+        ? input.id.trim()
+        : "";
+  if (!id) return null;
+
+  const staticProduct = getProduct(id);
+  if (staticProduct) {
+    return {
+      id: staticProduct.id,
+      name: staticProduct.name,
+      price: Number(staticProduct.price) || 0,
+      unit: staticProduct.unit || "kg",
+      image: staticProduct.image || getProductImage(staticProduct.name, staticProduct.category, null),
+      category: staticProduct.category || "vegetables",
+      stock: staticProduct.stock !== undefined ? Number(staticProduct.stock) : 99,
+      brand: staticProduct.brand || "PureFarm Direct",
+      description: staticProduct.description || "Verified agricultural input.",
+    };
+  }
+
+  if (typeof input === "object") {
+    return {
+      id,
+      name:
+        typeof input.name === "string" && input.name.trim()
+          ? input.name.trim()
+          : "Agricultural Produce",
+      price: Number(input.price) || 0,
+      unit: typeof input.unit === "string" && input.unit.trim() ? input.unit.trim() : "kg",
+      image: input.image || getCategoryPlaceholder(input.category, input.name),
+      category: typeof input.category === "string" ? input.category : "vegetables",
+      stock: input.stock !== undefined ? Number(input.stock) : 99,
+      brand: typeof input.brand === "string" ? input.brand : "PureFarm Direct",
+      description:
+        typeof input.description === "string"
+          ? input.description
+          : "Saved produce item from PureFarm marketplace.",
+    };
+  }
+
+  return {
+    id,
+    name: "Produce Item",
+    price: 0,
+    unit: "unit",
+    image: getCategoryPlaceholder("Produce", id),
+    category: "produce",
+    stock: 99,
+    brand: "PureFarm Direct",
+    description: "Saved produce item from PureFarm.",
+  };
 }
 
 function readStoredWishlist(key: string): WishlistProductItem[] {
@@ -45,8 +107,16 @@ function readStoredWishlist(key: string): WishlistProductItem[] {
     if (!raw) return [];
     const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed)) return [];
-    return parsed.filter((item) => item && typeof item.id === "string" && item.id.length > 0);
-  } catch {
+    const result: WishlistProductItem[] = [];
+    for (const entry of parsed) {
+      const clean = normalizeWishlistItem(entry);
+      if (clean && !result.some((existing) => existing.id === clean.id)) {
+        result.push(clean);
+      }
+    }
+    return result;
+  } catch (err) {
+    console.error("Failed to read wishlist from localStorage:", err);
     return [];
   }
 }
@@ -54,41 +124,60 @@ function readStoredWishlist(key: string): WishlistProductItem[] {
 function writeStoredWishlist(key: string, items: WishlistProductItem[]): void {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(key, JSON.stringify(idsToCleanItems(items)));
+    const sanitized = items
+      .map(normalizeWishlistItem)
+      .filter((i): i is WishlistProductItem => Boolean(i && i.id));
+    window.localStorage.setItem(key, JSON.stringify(sanitized));
   } catch (err) {
-    console.error("Failed to save wishlist", err);
+    console.error("Failed to save wishlist:", err);
   }
-}
-
-function idsToCleanItems(items: WishlistProductItem[]): WishlistProductItem[] {
-  return items.map((i) => ({
-    id: i.id,
-    name: i.name || "Produce Item",
-    price: Number(i.price) || 0,
-    unit: i.unit || "kg",
-    image: i.image,
-    category: i.category || "vegetables",
-    stock: i.stock !== undefined ? Number(i.stock) : 99,
-    brand: i.brand || "PureFarm Direct",
-    description: i.description,
-  }));
 }
 
 export function WishlistProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth();
-  const storageKey = useMemo(() => getStorageKey(user?.id), [user?.id]);
+  const currentUserId = user?.id || null;
+  const storageKey = useMemo(() => getStorageKey(currentUserId), [currentUserId]);
   const [items, setItems] = useState<WishlistProductItem[]>([]);
   const [isReady, setIsReady] = useState(false);
+  const activeKeyRef = useRef(storageKey);
 
-  // Load wishlist whenever active user changes
+  const refreshWishlist = () => {
+    const loaded = readStoredWishlist(storageKey);
+    setItems(loaded);
+  };
+
+  // Load and safely merge on active user change
   useEffect(() => {
-    setItems(readStoredWishlist(storageKey));
+    activeKeyRef.current = storageKey;
+    setIsReady(false);
+
+    let loaded = readStoredWishlist(storageKey);
+
+    // If user is logged in, check if guest wishlist had items that should be merged
+    if (currentUserId) {
+      const guestItems = readStoredWishlist("purefarm_wishlist_guest");
+      if (guestItems.length > 0) {
+        const merged = [...loaded];
+        for (const gi of guestItems) {
+          if (!merged.some((i) => i.id === gi.id)) {
+            merged.push(gi);
+          }
+        }
+        loaded = merged;
+        writeStoredWishlist(storageKey, loaded);
+        try {
+          window.localStorage.removeItem("purefarm_wishlist_guest");
+        } catch {}
+      }
+    }
+
+    setItems(loaded);
     setIsReady(true);
-  }, [storageKey]);
+  }, [storageKey, currentUserId]);
 
-  // Save wishlist on changes once loaded
+  // Persist changes whenever items change, but only once loaded and key is matching
   useEffect(() => {
-    if (isReady && typeof window !== "undefined") {
+    if (isReady && typeof window !== "undefined" && activeKeyRef.current === storageKey) {
       writeStoredWishlist(storageKey, items);
     }
   }, [isReady, storageKey, items]);
@@ -96,25 +185,52 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
   const value = useMemo<WishlistContextValue>(() => {
     const wishlistIds = items.map((i) => i.id);
 
-    const isInWishlist = (productId: string) => wishlistIds.includes(productId);
-
-    const toggleWishlist = (product: WishlistProductItem) => {
-      setItems((prev) =>
-        prev.some((i) => i.id === product.id)
-          ? prev.filter((i) => i.id !== product.id)
-          : [...prev, product],
-      );
+    const isInWishlist = (productId: string) => {
+      if (!productId) return false;
+      return wishlistIds.includes(productId.trim());
     };
 
-    const addToWishlist = (product: WishlistProductItem) => {
-      setItems((prev) => (prev.some((i) => i.id === product.id) ? prev : [...prev, product]));
+    const toggleWishlist = (productOrId: WishlistProductItem | string) => {
+      const targetId =
+        typeof productOrId === "string" ? productOrId.trim() : productOrId?.id?.trim();
+      if (!targetId) return;
+
+      setItems((prev) => {
+        const exists = prev.some((i) => i.id === targetId);
+        if (exists) {
+          return prev.filter((i) => i.id !== targetId);
+        }
+        const clean = normalizeWishlistItem(productOrId);
+        return clean ? [...prev, clean] : prev;
+      });
+    };
+
+    const addToWishlist = (productOrId: WishlistProductItem | string) => {
+      const targetId =
+        typeof productOrId === "string" ? productOrId.trim() : productOrId?.id?.trim();
+      if (!targetId) return;
+
+      setItems((prev) => {
+        if (prev.some((i) => i.id === targetId)) return prev;
+        const clean = normalizeWishlistItem(productOrId);
+        return clean ? [...prev, clean] : prev;
+      });
     };
 
     const removeFromWishlist = (productId: string) => {
-      setItems((prev) => prev.filter((i) => i.id !== productId));
+      if (!productId) return;
+      const cleanId = productId.trim();
+      setItems((prev) => prev.filter((i) => i.id !== cleanId));
     };
 
-    const clearWishlist = () => setItems([]);
+    const clearWishlist = () => {
+      setItems([]);
+      if (typeof window !== "undefined") {
+        try {
+          window.localStorage.removeItem(storageKey);
+        } catch {}
+      }
+    };
 
     return {
       items,
@@ -125,8 +241,10 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
       addToWishlist,
       removeFromWishlist,
       clearWishlist,
+      isReady,
+      refreshWishlist,
     };
-  }, [items]);
+  }, [items, isReady, storageKey]);
 
   return <WishlistContext.Provider value={value}>{children}</WishlistContext.Provider>;
 }

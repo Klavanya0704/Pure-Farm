@@ -144,6 +144,9 @@ export interface Internship {
   duration?: string;
   eligibility?: string;
   responsibilities?: string[];
+  isInternal?: boolean;
+  applyType?: "internal" | "external";
+  applyUrl?: string | null;
 }
 
 export interface Crop {

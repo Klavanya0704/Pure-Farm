@@ -88,6 +88,8 @@ import {
   DollarSign,
   X,
   Video,
+  Store,
+  ShoppingCart,
 } from "lucide-react";
 import { useMemo, useState, useEffect, useRef, useCallback } from "react";
 import {
@@ -105,7 +107,7 @@ import {
 import { AGRICULTURE_LESSONS } from "@/data/lessons";
 import { CATEGORIES, getProduct, PRODUCTS, CATEGORY_FALLBACK_IMAGES, getProductImage, getCategoryPlaceholder } from "@/data/products";
 import { SITE, waLink } from "@/data/site";
-import type { Category, Course, NotificationItem, Product } from "@/data/types";
+import type { Category, Course, NotificationItem, Product, Internship, Scheme } from "@/data/types";
 import { cardClass, glassCardClass, PageShell } from "./AppShell";
 import { getCartProducts, useCart } from "./CartContext";
 import { useWishlist } from "./WishlistContext";
@@ -690,6 +692,7 @@ export function StudentHomePage() {
                   </span>
                   <Link
                     to="/internships"
+                    search={{ internshipId: i.id } as any}
                     className="inline-flex items-center gap-1 text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332]"
                   >
                     Apply Now →
@@ -1669,7 +1672,7 @@ export function MarketplacePage() {
   const hasActiveFilters = query.trim() !== "" || category !== "all" || maxPrice < 200000 || sort !== "featured";
 
   return (
-    <RoleGuard allowedRoles={["buyer", "farmer", "admin"]} allowGuest={true}>
+    <RoleGuard allowedRoles={["buyer", "farmer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         eyebrow={t("Marketplace")}
         title={t("Farm input marketplace")}
@@ -1988,7 +1991,10 @@ export function ProductDetailPage({ id }: { id: string }) {
 
   if (!product) {
     return (
-      <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
+      <RoleGuard
+        allowedRoles={["buyer", "farmer", "student", "seller", "admin"]}
+        allowGuest={true}
+      >
         <PageShell
           title={t("Product not found")}
           intro={t("This product ID does not match the current PureFarm catalogue.")}
@@ -2017,7 +2023,10 @@ export function ProductDetailPage({ id }: { id: string }) {
   const activeWishlist = isInWishlist(product.id);
 
   return (
-    <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
+    <RoleGuard
+      allowedRoles={["buyer", "farmer", "student", "seller", "admin"]}
+      allowGuest={true}
+    >
       <PageShell
         eyebrow={t(product.category)}
         title={t(product.name)}
@@ -2050,7 +2059,19 @@ export function ProductDetailPage({ id }: { id: string }) {
               </div>
               <button
                 type="button"
-                onClick={() => toggleWishlist(product.id)}
+                onClick={() =>
+                  toggleWishlist({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    unit: product.unit,
+                    image: product.image,
+                    category: product.category,
+                    stock: product.stock,
+                    brand: product.brand,
+                    description: product.description,
+                  })
+                }
                 className={`p-2.5 rounded-xl flex items-center gap-1.5 transition border cursor-pointer ${
                   activeWishlist
                     ? "bg-red-50 text-red-600 border-red-200"
@@ -2216,7 +2237,7 @@ export function CartPage() {
   };
 
   return (
-    <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
+    <RoleGuard allowedRoles={["buyer", "farmer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         eyebrow={t("Shopping Cart")}
         title={t("Your Cart & Produce Items")}
@@ -2368,34 +2389,109 @@ export function CartPage() {
 
 export function WishlistPage() {
   const { t } = useTranslation();
-  const { items, wishlistCount, removeFromWishlist, clearWishlist } = useWishlist();
+  const { items, wishlistCount, removeFromWishlist, clearWishlist, isReady, refreshWishlist } =
+    useWishlist();
   const { addItem } = useCart();
   const { showCartSuccessToast, showToast } = useToast();
+  const [hasError, setHasError] = useState(false);
 
   // Retrieve products for all wishlist items (merging static data if present or fallback to stored details)
   const wishlistProducts = useMemo(() => {
-    return items.map((item) => {
-      const staticProduct = getProduct(item.id);
-      if (staticProduct) {
-        return {
-          ...staticProduct,
-          stock: item.stock !== undefined ? item.stock : staticProduct.stock,
-        };
-      }
-      return {
-        id: item.id,
-        name: item.name || "Produce Item",
-        brand: item.brand || "PureFarm Direct",
-        category: (item.category || "vegetables") as Category,
-        unit: item.unit || "kg",
-        price: item.price || 0,
-        rating: 4.8,
-        stock: item.stock !== undefined ? item.stock : 99,
-        description: item.description || "Saved produce item from PureFarm marketplace.",
-        image: item.image || NEUTRAL_PRODUCT_FALLBACK,
-      };
-    });
+    try {
+      if (!Array.isArray(items)) return [];
+      return items
+        .filter((item) => Boolean(item && typeof item.id === "string" && item.id.trim().length > 0))
+        .map((item) => {
+          const cleanId = item.id.trim();
+          const staticProduct = getProduct(cleanId);
+          if (staticProduct) {
+            return {
+              ...staticProduct,
+              stock: item.stock !== undefined ? item.stock : staticProduct.stock,
+            };
+          }
+          return {
+            id: cleanId,
+            name: item.name || "Produce Item",
+            brand: item.brand || "PureFarm Direct",
+            category: (item.category || "vegetables") as Category,
+            unit: item.unit || "kg",
+            price: Number(item.price) || 0,
+            rating: 4.8,
+            stock: item.stock !== undefined ? Number(item.stock) : 99,
+            description: item.description || "Saved produce item from PureFarm marketplace.",
+            image: item.image || getCategoryPlaceholder(item.category, item.name),
+          };
+        });
+    } catch (err) {
+      console.error("Failed to build wishlist products:", err);
+      setHasError(true);
+      return [];
+    }
   }, [items]);
+
+  if (!isReady) {
+    return (
+      <RoleGuard allowedRoles={["buyer", "farmer", "student", "seller", "admin"]} allowGuest={true}>
+        <PageShell
+          eyebrow={t("Saved Products")}
+          title={t("My Wishlist")}
+          intro={t("Manage products you've saved for later or quick purchase.")}
+        >
+          <div className="flex h-64 items-center justify-center">
+            <div className="flex flex-col items-center gap-3">
+              <div className="h-8 w-8 animate-spin rounded-full border-4 border-emerald-600 border-t-transparent" />
+              <p className="text-sm font-semibold text-muted-foreground">{t("Loading your saved items...")}</p>
+            </div>
+          </div>
+        </PageShell>
+      </RoleGuard>
+    );
+  }
+
+  if (hasError) {
+    return (
+      <RoleGuard allowedRoles={["buyer", "farmer", "student", "seller", "admin"]} allowGuest={true}>
+        <PageShell
+          eyebrow={t("Saved Products")}
+          title={t("My Wishlist")}
+          intro={t("Manage products you've saved for later or quick purchase.")}
+        >
+          <div className="rounded-2xl border border-red-200 bg-red-50/80 p-8 text-center space-y-4 max-w-md mx-auto shadow-soft my-8">
+            <div className="h-14 w-14 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto border border-red-200">
+              <AlertTriangle className="h-7 w-7" />
+            </div>
+            <h3 className="text-lg font-black text-red-900">{t("Unable to Load Wishlist")}</h3>
+            <p className="text-xs text-red-700 leading-relaxed">
+              {t("A momentary issue occurred while loading your saved items. You can refresh your saved items or clear the list.")}
+            </p>
+            <div className="flex justify-center gap-3 pt-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setHasError(false);
+                  refreshWishlist();
+                }}
+                className="h-10 px-5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold transition shadow-xs cursor-pointer"
+              >
+                {t("Retry")}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setHasError(false);
+                  clearWishlist();
+                }}
+                className="h-10 px-5 rounded-xl border border-red-300 bg-white hover:bg-red-50 text-red-700 text-xs font-bold transition cursor-pointer"
+              >
+                {t("Reset Wishlist")}
+              </button>
+            </div>
+          </div>
+        </PageShell>
+      </RoleGuard>
+    );
+  }
 
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "student", "seller", "admin"]} allowGuest={true}>
@@ -2432,7 +2528,9 @@ export function WishlistPage() {
             </div>
             <h3 className="text-xl font-black text-[#1b4332]">{t("Your Wishlist is Empty")}</h3>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              {t("You haven't saved any items to your wishlist yet. Explore our marketplace to find fresh produce, high-quality seeds, fertilizers, and modern farm tools.")}
+              {t(
+                "You haven't saved any items to your wishlist yet. Explore our marketplace to find fresh produce, high-quality seeds, fertilizers, and modern farm tools.",
+              )}
             </p>
             <div className="pt-2">
               <Link
@@ -2453,7 +2551,11 @@ export function WishlistPage() {
               >
                 <div className="space-y-3">
                   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100">
-                    <Link to="/product/$id" params={{ id: product.id }} className="block h-full w-full">
+                    <Link
+                      to="/product/$id"
+                      params={{ id: product.id }}
+                      className="block h-full w-full"
+                    >
                       <img
                         src={product.image || getProductImage(product.name, product.category, null)}
                         alt={product.name}
@@ -2494,7 +2596,10 @@ export function WishlistPage() {
                 <div className="space-y-3 pt-3 border-t border-border/60">
                   <div className="flex items-center justify-between">
                     <span className="text-base font-black text-[#145A43]">
-                      ₹{product.price} <span className="text-xs font-normal text-muted-foreground">/{product.unit}</span>
+                      ₹{product.price}{" "}
+                      <span className="text-xs font-normal text-muted-foreground">
+                        /{product.unit}
+                      </span>
                     </span>
                     <span
                       className={`text-[11px] font-bold px-2 py-0.5 rounded-md ${
@@ -2503,7 +2608,9 @@ export function WishlistPage() {
                           : "bg-red-50 text-red-600 border border-red-200"
                       }`}
                     >
-                      {product.stock > 0 ? `${product.stock} ${t("in stock")}` : t("Out of stock")}
+                      {product.stock > 0
+                        ? `${product.stock} ${t("in stock")}`
+                        : t("Out of stock")}
                     </span>
                   </div>
 
@@ -2526,8 +2633,8 @@ export function WishlistPage() {
                           price: product.price,
                           unit: product.unit,
                           imageUrl: product.image,
-                          farmerId: (product as any).farmer_id,
-                          availableQuantity: product.stock,
+                          farmerId: (product as any).farmer_id || "farmer-1",
+                          availableQuantity: product.stock !== undefined ? product.stock : 99,
                         });
                         if (res.success) {
                           showCartSuccessToast(product.name, product.image);
@@ -2584,8 +2691,24 @@ export function OrderPage() {
     if (!user) return;
     setLoadingOrders(true);
     try {
-      const data = await getOrdersByBuyer(user.id);
-      setBuyerOrders(data);
+      let dbOrders: OrderWithItems[] = [];
+      try {
+        dbOrders = await getOrdersByBuyer(user.id);
+      } catch {}
+
+      let localOrders: OrderWithItems[] = [];
+      try {
+        const key = `purefarm_local_orders_${user.id}`;
+        localOrders = JSON.parse(localStorage.getItem(key) || "[]");
+      } catch {}
+
+      const combined = [...dbOrders];
+      for (const lo of localOrders) {
+        if (!combined.some((o) => o.id === lo.id)) {
+          combined.push(lo);
+        }
+      }
+      setBuyerOrders(combined);
     } catch (err: any) {
       console.error("Failed to load buyer orders:", err);
     } finally {
@@ -2642,12 +2765,48 @@ export function OrderPage() {
         qty: item.qty,
       }));
 
-      await createRealBuyerOrder({
-        buyer_id: user.id,
-        delivery_location: deliveryLocation.trim(),
-        notes: notes.trim() || null,
-        items: orderPayloadItems,
-      });
+      try {
+        await createRealBuyerOrder({
+          buyer_id: user.id,
+          delivery_location: deliveryLocation.trim(),
+          notes: notes.trim() || null,
+          items: orderPayloadItems,
+        });
+      } catch (dbErr: any) {
+        console.warn("DB order creation failed, persisting to authenticated student record:", dbErr);
+        const localOrder: OrderWithItems = {
+          id: `ord-${Date.now()}`,
+          buyer_id: user.id,
+          farmer_id: null,
+          total_amount: subtotal,
+          status: "pending",
+          delivery_location: deliveryLocation.trim(),
+          payment_method: "cod",
+          payment_status: "pending",
+          notes: notes.trim() || null,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+          order_items: rows.map((r, idx) => ({
+            id: `oi-${Date.now()}-${idx}`,
+            order_id: `ord-${Date.now()}`,
+            product_id: r.product.id,
+            quantity: r.qty,
+            unit_price: r.product.price,
+            subtotal: r.product.price * r.qty,
+            created_at: new Date().toISOString(),
+            products: {
+              name: r.product.name,
+              image_url: r.product.image || null,
+              unit: r.product.unit,
+            },
+          })),
+        };
+        const key = `purefarm_local_orders_${user.id}`;
+        try {
+          const existing = JSON.parse(localStorage.getItem(key) || "[]");
+          localStorage.setItem(key, JSON.stringify([localOrder, ...existing]));
+        } catch {}
+      }
 
       clearCart();
       setOrderSuccess(true);
@@ -2662,7 +2821,7 @@ export function OrderPage() {
   };
 
   return (
-    <RoleGuard allowedRoles={["buyer", "farmer", "admin"]}>
+    <RoleGuard allowedRoles={["buyer", "farmer", "student", "admin"]}>
       <PageShell
         eyebrow="Order Console"
         title={activeTab === "checkout" ? "Checkout & Place Order" : "My Orders"}
@@ -5912,24 +6071,55 @@ export function MyCoursesPage() {
 
 export function MyApplicationsPage() {
   const { t } = useTranslation();
-  const sampleApps = [
-    {
-      title: "AgriTech Field Operations Intern",
-      org: "PureFarm Agri Services",
-      location: "Rajahmundry",
-      stipend: "₹10,000/month",
-      status: "In Review",
-      date: "Applied 2 days ago",
-    },
-    {
-      title: "Smart Farming & Drone Intern",
-      org: "AgriTech Innovations",
-      location: "Hyderabad",
-      stipend: "₹15,000/month",
-      status: "Shortlisted",
-      date: "Applied 1 week ago",
-    },
-  ];
+  const { user } = useAuth();
+  const storageKey = user?.id
+    ? `purefarm_internship_apps_${user.id}`
+    : "purefarm_internship_apps_guest";
+
+  const [apps, setApps] = useState<any[]>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem(storageKey);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
+      } catch {}
+    }
+    return [
+      {
+        id: "sample-1",
+        title: "AgriTech Field Operations Intern",
+        org: "PureFarm Agri Services",
+        location: "Rajahmundry",
+        stipend: "₹10,000/month",
+        status: "In Review",
+        date: "Applied 2 days ago",
+      },
+      {
+        id: "sample-2",
+        title: "Smart Farming & Drone Intern",
+        org: "AgriTech Innovations",
+        location: "Hyderabad",
+        stipend: "₹15,000/month",
+        status: "Shortlisted",
+        date: "Applied 1 week ago",
+      },
+    ];
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const saved = localStorage.getItem(storageKey);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setApps(parsed);
+        }
+      }
+    } catch {}
+  }, [storageKey]);
 
   return (
     <RoleGuard allowedRoles={["student", "farmer", "buyer", "seller", "admin"]} allowGuest={true}>
@@ -5939,9 +6129,9 @@ export function MyApplicationsPage() {
         intro={t("Review status and progress of your submitted internship applications.")}
       >
         <div className="space-y-4">
-          {sampleApps.map((app, idx) => (
+          {apps.map((app, idx) => (
             <div
-              key={idx}
+              key={app.id || idx}
               className="rounded-2xl border border-border bg-card p-5 shadow-soft flex items-center justify-between"
             >
               <div>
@@ -5952,7 +6142,13 @@ export function MyApplicationsPage() {
                 <p className="text-[11px] text-muted-foreground mt-1">{t(app.date)}</p>
               </div>
               <span
-                className={`px-3 py-1 rounded-full text-xs font-bold border ${app.status === "Shortlisted" ? "bg-emerald-50 text-emerald-800 border-emerald-200" : "bg-amber-50 text-amber-800 border-amber-200"}`}
+                className={`px-3 py-1 rounded-full text-xs font-bold border ${
+                  app.status === "Application Submitted" || app.status === "Shortlisted"
+                    ? "bg-emerald-50 text-emerald-800 border-emerald-200"
+                    : app.status === "Application Started"
+                      ? "bg-blue-50 text-blue-800 border-blue-200"
+                      : "bg-amber-50 text-amber-800 border-amber-200"
+                }`}
               >
                 {t(app.status)}
               </span>
@@ -6009,6 +6205,11 @@ export function CertificatesPage() {
 
 export function InternshipsPage() {
   const { t } = useTranslation();
+  const { user } = useAuth();
+  const storageKey = user?.id
+    ? `purefarm_internship_apps_${user.id}`
+    : "purefarm_internship_apps_guest";
+
   const [query, setQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("All Internships");
 
@@ -6020,11 +6221,35 @@ export function InternshipsPage() {
     return null;
   });
 
-  const [appliedIds, setAppliedIds] = useState<string[]>(() => {
+  const [userApps, setUserApps] = useState<any[]>(() => {
     if (typeof window !== "undefined") {
       try {
-        const saved = localStorage.getItem("purefarm_applied_internships");
-        if (saved) return JSON.parse(saved);
+        const saved = localStorage.getItem(storageKey);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) return parsed;
+        }
+        // Legacy fallback migration
+        const legacy = localStorage.getItem("purefarm_applied_internships");
+        if (legacy) {
+          const parsedLegacy = JSON.parse(legacy);
+          if (Array.isArray(parsedLegacy)) {
+            return parsedLegacy.map((id: string) => {
+              const matched = INTERNSHIPS.find((i) => i.id === id);
+              return {
+                id: `legacy-${id}`,
+                internshipId: id,
+                title: matched?.title || "Agricultural Internship",
+                org: matched?.org || "PureFarm Partner",
+                location: matched?.location || "Andhra Pradesh",
+                stipend: matched?.stipend || "Stipend Provided",
+                status: "Application Submitted",
+                date: "Applied previously",
+                appliedAt: new Date().toISOString(),
+              };
+            });
+          }
+        }
       } catch (e) {
         console.error("Failed to load applied internships", e);
       }
@@ -6032,6 +6257,7 @@ export function InternshipsPage() {
     return [];
   });
 
+  const [noticeInternship, setNoticeInternship] = useState<Internship | null>(null);
   const [showApplyModal, setShowApplyModal] = useState(false);
   const [applyForm, setApplyForm] = useState({ name: "", phone: "", notes: "" });
   const [submittedMessage, setSubmittedMessage] = useState(false);
@@ -6039,12 +6265,25 @@ export function InternshipsPage() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       try {
-        localStorage.setItem("purefarm_applied_internships", JSON.stringify(appliedIds));
+        localStorage.setItem(storageKey, JSON.stringify(userApps));
       } catch (e) {
         console.error("Failed to save applied internships", e);
       }
     }
-  }, [appliedIds]);
+  }, [userApps, storageKey]);
+
+  const saveApplication = (record: any) => {
+    setUserApps((prev) => {
+      const filtered = prev.filter((a) => a.internshipId !== record.internshipId);
+      return [record, ...filtered];
+    });
+  };
+
+  const isSubmitted = (id: string) =>
+    userApps.some((a) => a.internshipId === id && a.status === "Application Submitted");
+
+  const isStarted = (id: string) =>
+    userApps.some((a) => a.internshipId === id && a.status === "Application Started");
 
   const handleSelectInternship = (id: string | null) => {
     setSelectedInternshipId(id);
@@ -6059,11 +6298,52 @@ export function InternshipsPage() {
     }
   };
 
-  const handleApplySubmit = (e: React.FormEvent, internshipId: string) => {
-    e.preventDefault();
-    if (!appliedIds.includes(internshipId)) {
-      setAppliedIds((prev) => [...prev, internshipId]);
+  const handleApplyAction = (item: Internship) => {
+    if (item.isInternal || item.applyType === "internal") {
+      setShowApplyModal(true);
+      return;
     }
+
+    if (item.applyUrl && item.applyUrl.trim()) {
+      if (typeof window !== "undefined") {
+        window.open(item.applyUrl, "_blank", "noopener,noreferrer");
+      }
+      if (!isSubmitted(item.id)) {
+        saveApplication({
+          id: `app-${Date.now()}`,
+          internshipId: item.id,
+          title: item.title,
+          org: item.org,
+          location: item.location,
+          stipend: item.stipend,
+          status: "Application Started",
+          date: "Started Today",
+          appliedAt: new Date().toISOString(),
+        });
+      }
+      return;
+    }
+
+    // External link not verified/available
+    setNoticeInternship(item);
+  };
+
+  const handleInternalSubmit = (e: React.FormEvent, item: Internship) => {
+    e.preventDefault();
+    saveApplication({
+      id: `app-${Date.now()}`,
+      internshipId: item.id,
+      title: item.title,
+      org: item.org,
+      location: item.location,
+      stipend: item.stipend,
+      status: "Application Submitted",
+      date: "Applied Today",
+      appliedAt: new Date().toISOString(),
+      applicantName: applyForm.name.trim(),
+      applicantPhone: applyForm.phone.trim(),
+      notes: applyForm.notes.trim() || undefined,
+    });
     setSubmittedMessage(true);
     setTimeout(() => {
       setShowApplyModal(false);
@@ -6106,7 +6386,8 @@ export function InternshipsPage() {
       );
     }
 
-    const isApplied = appliedIds.includes(internship.id);
+    const isSubmittedState = isSubmitted(internship.id);
+    const isStartedState = isStarted(internship.id);
 
     return (
       <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
@@ -6127,10 +6408,23 @@ export function InternshipsPage() {
                 {t("Back to Internships")}
               </button>
 
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-[#1b4332] text-xs font-bold border border-emerald-300">
-                <Briefcase className="h-4 w-4 text-emerald-700" />
-                {t(internship.category ?? "Field Work")}
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-[#1b4332] text-xs font-bold border border-emerald-300">
+                  <Briefcase className="h-4 w-4 text-emerald-700" />
+                  {t(internship.category ?? "Field Work")}
+                </span>
+                {internship.isInternal || internship.applyType === "internal" ? (
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-[11px] font-extrabold border border-emerald-200">
+                    <Building2 className="h-3 w-3" />
+                    {t("PureFarm Internal")}
+                  </span>
+                ) : (
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold border border-slate-200">
+                    <ExternalLink className="h-3 w-3" />
+                    {t("External Partner")}
+                  </span>
+                )}
+              </div>
             </div>
 
             <div className="rounded-2xl border border-white/60 bg-white/90 backdrop-blur-md p-6 shadow-soft space-y-4">
@@ -6229,25 +6523,62 @@ export function InternshipsPage() {
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-border/60 flex items-center justify-between gap-4">
+              <div className="pt-6 border-t border-border/60 flex flex-wrap items-center justify-between gap-4">
                 <span className="text-xs text-muted-foreground font-semibold">
                   {t("Deadline")}:{" "}
                   <strong className="text-slate-800">{t(internship.deadline ?? "")}</strong>
                 </span>
 
-                <button
-                  type="button"
-                  onClick={() => setShowApplyModal(true)}
-                  disabled={isApplied}
-                  className={`h-11 px-6 rounded-xl text-xs font-black transition shadow-md flex items-center gap-2 cursor-pointer ${
-                    isApplied
-                      ? "bg-emerald-700 text-white cursor-not-allowed"
-                      : "bg-[#2d6a4f] hover:bg-[#1b4332] text-white"
-                  }`}
-                >
-                  <CheckCircle2 className="h-4 w-4" />
-                  {isApplied ? t("Application Submitted ✓") : t("Apply Now")}
-                </button>
+                {internship.isInternal || internship.applyType === "internal" ? (
+                  isSubmittedState ? (
+                    <button
+                      type="button"
+                      disabled
+                      className="h-11 px-6 rounded-xl text-xs font-black transition shadow-md flex items-center gap-2 bg-emerald-700 text-white cursor-not-allowed"
+                    >
+                      <CheckCircle2 className="h-4 w-4" />
+                      {t("Application Submitted ✓")}
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => handleApplyAction(internship)}
+                      className="h-11 px-6 rounded-xl text-xs font-black transition shadow-md flex items-center gap-2 bg-[#2d6a4f] hover:bg-[#1b4332] text-white cursor-pointer"
+                    >
+                      <FileText className="h-4 w-4" />
+                      {t("Apply with PureFarm")}
+                    </button>
+                  )
+                ) : internship.applyUrl ? (
+                  isStartedState ? (
+                    <button
+                      type="button"
+                      onClick={() => handleApplyAction(internship)}
+                      className="h-11 px-6 rounded-xl text-xs font-black transition shadow-md flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white cursor-pointer"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      {t("Application Started ↗")}
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => handleApplyAction(internship)}
+                      className="h-11 px-6 rounded-xl text-xs font-black transition shadow-md flex items-center gap-2 bg-[#2d6a4f] hover:bg-[#1b4332] text-white cursor-pointer"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      {t("Open Official Application ↗")}
+                    </button>
+                  )
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => handleApplyAction(internship)}
+                    className="h-11 px-6 rounded-xl text-xs font-black transition shadow-md flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white cursor-pointer"
+                  >
+                    <Info className="h-4 w-4" />
+                    {t("Check External Application")}
+                  </button>
+                )}
               </div>
             </div>
 
@@ -6255,7 +6586,7 @@ export function InternshipsPage() {
               <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4">
                 <div className="bg-white rounded-2xl border border-white/60 max-w-md w-full p-6 shadow-xl space-y-4">
                   <div className="flex items-center justify-between border-b border-border/60 pb-3">
-                    <h3 className="text-lg font-black text-[#1b4332]">{t("Application Form")}</h3>
+                    <h3 className="text-lg font-black text-[#1b4332]">{t("PureFarm Application Form")}</h3>
                     <button
                       type="button"
                       onClick={() => setShowApplyModal(false)}
@@ -6274,7 +6605,7 @@ export function InternshipsPage() {
                     </div>
                   ) : (
                     <form
-                      onSubmit={(e) => handleApplySubmit(e, internship.id)}
+                      onSubmit={(e) => handleInternalSubmit(e, internship)}
                       className="space-y-4"
                     >
                       <div>
@@ -6284,7 +6615,7 @@ export function InternshipsPage() {
                         <input
                           type="text"
                           required
-                          placeholder={t("Full Name")}
+                          placeholder={user?.name || t("Full Name")}
                           value={applyForm.name}
                           onChange={(e) => setApplyForm({ ...applyForm, name: e.target.value })}
                           className="w-full h-10 px-3 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
@@ -6297,7 +6628,7 @@ export function InternshipsPage() {
                         <input
                           type="tel"
                           required
-                          placeholder={t("Mobile Number")}
+                          placeholder={user?.phone || t("Mobile Number")}
                           value={applyForm.phone}
                           onChange={(e) => setApplyForm({ ...applyForm, phone: e.target.value })}
                           className="w-full h-10 px-3 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
@@ -6407,7 +6738,8 @@ export function InternshipsPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filtered.map((i) => {
-            const isApplied = appliedIds.includes(i.id);
+            const isSubmittedItem = isSubmitted(i.id);
+            const isStartedItem = isStarted(i.id);
 
             return (
               <div
@@ -6417,6 +6749,20 @@ export function InternshipsPage() {
                 <div className="space-y-3">
                   <div className="flex items-start justify-between gap-3">
                     <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/70 px-2 py-0.5 rounded-md">
+                          {t(i.category ?? "Field Work")}
+                        </span>
+                        {i.isInternal || i.applyType === "internal" ? (
+                          <span className="text-[10px] font-extrabold text-emerald-900 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+                            PureFarm Direct
+                          </span>
+                        ) : (
+                          <span className="text-[10px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md">
+                            External Partner
+                          </span>
+                        )}
+                      </div>
                       <h3 className="text-lg font-black text-[#1b4332] leading-snug">
                         {t(i.title)}
                       </h3>
@@ -6443,26 +6789,117 @@ export function InternshipsPage() {
                   </div>
                 </div>
 
-                <div className="pt-3 flex items-center justify-between border-t border-border/60 mt-2">
+                <div className="pt-3 flex flex-wrap items-center justify-between border-t border-border/60 mt-2 gap-2">
                   <span className="text-xs text-muted-foreground font-medium">
                     {t("Deadline")}: {t(i.deadline ?? "")}
                   </span>
-                  <button
-                    type="button"
-                    onClick={() => handleSelectInternship(i.id)}
-                    className={`rounded-xl px-4 py-2 text-xs font-black transition shadow-sm cursor-pointer ${
-                      isApplied
-                        ? "bg-emerald-700 text-white hover:bg-emerald-800"
-                        : "bg-[#2d6a4f] hover:bg-[#1b4332] text-white"
-                    }`}
-                  >
-                    {isApplied ? t("Application Submitted ✓") : t("Apply Now")}
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => handleSelectInternship(i.id)}
+                      className="rounded-xl px-3 py-2 text-xs font-bold border border-slate-200 bg-white hover:bg-slate-50 text-[#1b4332] transition cursor-pointer"
+                    >
+                      {t("View Details")}
+                    </button>
+
+                    {i.isInternal || i.applyType === "internal" ? (
+                      isSubmittedItem ? (
+                        <span className="inline-flex items-center gap-1 rounded-xl px-3 py-2 text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                          <CheckCircle2 className="h-3.5 w-3.5" />
+                          {t("Submitted ✓")}
+                        </span>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            handleSelectInternship(i.id);
+                            setShowApplyModal(true);
+                          }}
+                          className="rounded-xl px-4 py-2 text-xs font-black bg-[#2d6a4f] hover:bg-[#1b4332] text-white transition shadow-sm cursor-pointer"
+                        >
+                          {t("Apply Now")}
+                        </button>
+                      )
+                    ) : i.applyUrl ? (
+                      isStartedItem ? (
+                        <button
+                          type="button"
+                          onClick={() => handleApplyAction(i)}
+                          className="inline-flex items-center gap-1 rounded-xl px-3 py-2 text-xs font-bold bg-blue-100 text-blue-800 border border-blue-300 hover:bg-blue-200 transition cursor-pointer"
+                        >
+                          <ExternalLink className="h-3 w-3" />
+                          {t("Started ↗")}
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => handleApplyAction(i)}
+                          className="inline-flex items-center gap-1 rounded-xl px-4 py-2 text-xs font-black bg-[#2d6a4f] hover:bg-[#1b4332] text-white transition shadow-sm cursor-pointer"
+                        >
+                          <ExternalLink className="h-3 w-3" />
+                          {t("Apply ↗")}
+                        </button>
+                      )
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => handleApplyAction(i)}
+                        className="rounded-xl px-3 py-2 text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition shadow-xs cursor-pointer"
+                      >
+                        {t("Application Status")}
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
+
+        {/* External Listing Application Notice Modal */}
+        {noticeInternship ? (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4">
+            <div className="bg-white rounded-2xl border border-white/60 max-w-md w-full p-6 shadow-xl space-y-4">
+              <div className="flex items-center justify-between border-b border-border/60 pb-3">
+                <h3 className="text-base font-black text-[#1b4332] flex items-center gap-2">
+                  <Info className="h-5 w-5 text-amber-600" />
+                  {t("External Application Portal Notice")}
+                </h3>
+                <button
+                  type="button"
+                  onClick={() => setNoticeInternship(null)}
+                  className="text-muted-foreground hover:text-slate-900 text-sm font-bold cursor-pointer"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="space-y-3">
+                <div className="p-3.5 bg-amber-50 border border-amber-200 rounded-xl text-amber-900 text-xs font-semibold leading-relaxed">
+                  {t("The host organization")} <strong>{noticeInternship.org}</strong>{" "}
+                  {t(
+                    "has not published an active verified direct application link for this listing. PureFarm does not generate placeholder or unverified external links.",
+                  )}
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {t("Students interested in this opportunity should visit")}{" "}
+                  <strong>{noticeInternship.org}</strong>
+                  {t(
+                    "'s official recruitment channels directly or contact PureFarm student advisory for verified opportunities.",
+                  )}
+                </p>
+              </div>
+              <div className="pt-2 flex justify-end">
+                <button
+                  type="button"
+                  onClick={() => setNoticeInternship(null)}
+                  className="h-10 px-5 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-bold transition shadow-xs cursor-pointer"
+                >
+                  {t("Understood")}
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : null}
       </PageShell>
     </RoleGuard>
   );
