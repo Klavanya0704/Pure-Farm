@@ -29,6 +29,7 @@ import {
   Award,
   Wrench,
   ChevronDown,
+  Video,
 } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { SITE, waLink } from "@/data/site";
@@ -203,6 +204,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   const moreNav = [
     { to: "/about", label: t("About Us"), icon: Info },
+    { to: "/inauguration", label: t("Inauguration Ceremony"), icon: Video },
     { to: "/support", label: t("Support"), icon: LifeBuoy },
     { to: "/contact", label: t("Contact Us"), icon: Phone },
   ];

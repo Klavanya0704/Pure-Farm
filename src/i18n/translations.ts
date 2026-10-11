@@ -21,6 +21,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "Abohar Mandi": "Abohar Mandi",
     "Abohar, Punjab": "Abohar, Punjab",
     "About Us": "About Us",
+    "Inauguration Ceremony": "Inauguration Ceremony",
     "Access Restricted": "Access Restricted",
     "Access agricultural courses, internships, and skill training.":
       "Access agricultural courses, internships, and skill training.",
@@ -2013,6 +2014,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "Abohar Mandi": "\u0c05\u0c2c\u0c4b\u0c39\u0c30\u0c4d \u0c2e\u0c02\u0c21\u0c40",
     "Abohar, Punjab": "\u0c05\u0c2c\u0c4b\u0c39\u0c30\u0c4d, \u0c2a\u0c02\u0c1c\u0c3e\u0c2c\u0c4d",
     "About Us": "\u0c2e\u0c3e \u0c17\u0c41\u0c30\u0c3f\u0c02\u0c1a\u0c3f",
+    "Inauguration Ceremony": "\u0c2a\u0c4d\u0c30\u0c3e\u0c30\u0c02\u0c2d\u0c4b\u0c24\u0c4d\u0c38\u0c35\u0c02",
     "Access Restricted":
       "\u0c2a\u0c4d\u0c30\u0c35\u0c47\u0c36\u0c02 \u0c2a\u0c30\u0c3f\u0c2e\u0c3f\u0c24\u0c02 \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
     "Access agricultural courses, internships, and skill training.":

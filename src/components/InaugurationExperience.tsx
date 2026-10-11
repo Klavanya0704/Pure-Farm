@@ -62,6 +62,16 @@ export function InaugurationExperience({
     }
   }, []);
 
+  // Lock body scroll while inauguration experience is active
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, []);
+
   // Update muted state on active video element
   useEffect(() => {
     if (openingVideoRef.current) {
@@ -83,8 +93,18 @@ export function InaugurationExperience({
         setIsAutoplayBlocked(false);
       })
       .catch((err) => {
-        console.error("Failed to play opening video:", err);
-        setVideoError("Unable to play video. Please try again.");
+        console.warn("Unmuted playback restricted, falling back to muted play:", err);
+        video.muted = true;
+        setIsMuted(true);
+        video
+          .play()
+          .then(() => {
+            setIsAutoplayBlocked(false);
+          })
+          .catch((e) => {
+            console.error("Failed to play opening video:", e);
+            setVideoError("Unable to play video. Please try again.");
+          });
       });
   };
 
@@ -117,9 +137,19 @@ export function InaugurationExperience({
           setIsLoading(false);
         })
         .catch((err) => {
-          console.error("Failed to play ribbon cutting video:", err);
-          setIsLoading(false);
-          setVideoError("Unable to start the ribbon-cutting video. Please click retry.");
+          console.warn("Unmuted ribbon cutting playback restricted, trying muted:", err);
+          ribbonVideo.muted = true;
+          setIsMuted(true);
+          ribbonVideo
+            .play()
+            .then(() => {
+              setIsLoading(false);
+            })
+            .catch((e) => {
+              console.error("Failed to play ribbon cutting video:", e);
+              setIsLoading(false);
+              setVideoError("Unable to start the ribbon-cutting video. Please click retry.");
+            });
         });
     }
   };
@@ -266,7 +296,7 @@ export function InaugurationExperience({
 
       {/* Main Video Viewport */}
       <main className="relative flex-1 flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-hidden">
-        <div className="relative w-full max-w-5xl aspect-video max-h-[75vh] sm:max-h-[80vh] flex items-center justify-center rounded-2xl overflow-hidden bg-black/90 shadow-2xl border border-emerald-900/40">
+        <div className="relative w-full max-w-6xl xl:max-w-7xl aspect-video max-h-[78vh] sm:max-h-[82vh] flex items-center justify-center rounded-2xl overflow-hidden bg-black/95 shadow-2xl border border-emerald-900/50">
           {/* Video 1: Opening Video */}
           <video
             ref={openingVideoRef}
