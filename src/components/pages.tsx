@@ -9085,29 +9085,29 @@ export function MachinesToolsPage() {
     // 1. TRACTORS (4 items)
     {
       id: "eq-1",
-      name: "Mahindra 575 DI Tractor (45 HP)",
+      name: "Mahindra E350-DI Tractor (35 HP)",
       category: "Tractor",
       owner: "Ramesh Varma",
       location: "Rajahmundry",
       rate: "₹500",
       rateUnit: "hr",
       available: true,
-      specs: "45 HP, Diesel Engine, Dual Clutch, Heavy Tow Hitch",
-      description: "Multi-purpose 45 HP red diesel agricultural tractor with power steering and dual clutch. Ideal for tilling, ploughing, and transport.",
+      specs: "35 HP, Diesel Engine, Dual Clutch, Heavy Tow Hitch",
+      description: "Multi-purpose 35 HP red diesel agricultural tractor with power steering. Ideal for tilling, ploughing, and transport.",
       image: "/images/machines/mahindra_575_tractor.jpg",
       phone: "9848012345",
     },
     {
       id: "eq-1b",
-      name: "John Deere 5310 GearPro Tractor (55 HP)",
+      name: "John Deere 6310 Tractor with Front Loader (100 HP)",
       category: "Tractor",
       owner: "K. Srinivasa Rao",
       location: "Vijayawada",
       rate: "₹650",
       rateUnit: "hr",
       available: true,
-      specs: "55 HP Power Steering, 12F+4R Gearbox, Oil Immersed Brakes",
-      description: "High power 55 HP heavy-duty tractor equipped with 12F+4R gear transmission, oil immersed disc brakes, and high torque output.",
+      specs: "100 HP Power Steering, Stoll Front Loader, 4WD Heavy Duty",
+      description: "High power 100 HP heavy-duty tractor equipped with Stoll front-loading bucket, 4WD transmission, and heavy lift capacity.",
       image: "/images/machines/john_deere_5310_tractor.jpg",
       phone: "9848011223",
     },
@@ -9122,7 +9122,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "48 HP 3-Cylinder Diesel, Direction Control Valve, 2000kg Lift",
       description: "Reliable 48 HP 3-cylinder diesel tractor with multi-speed PTO, dual clutch, and 2000kg hydraulic lift capacity for heavy soil tilling.",
-      image: "/images/machines/swaraj_744_tractor.jpg",
+      image: getEquipmentPlaceholder("Tractor", "Swaraj 744 FE Multi-Speed Tractor (48 HP)"),
       phone: "9848011334",
     },
     {
@@ -9266,9 +9266,9 @@ export function MachinesToolsPage() {
       rate: "₹350",
       rateUnit: "hr",
       available: true,
-      specs: "7.5 HP Petrol, Reverse Gear, Tillage Depth 6-8 inch",
+      specs: "5.5 HP Petrol, Reverse Gear, Tillage Depth 6-8 inch",
       description: "Heavy duty petrol power tiller cultivator with visible tines for orchard tilling and weeding.",
-      image: "/images/machines/stihl_power_tiller_7hp.jpg",
+      image: "/images/machines/husqvarna_t550r_power_tiller.jpg",
       phone: "9848067890",
     },
     {
@@ -9340,7 +9340,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "11 Rows, Fluted Roller Metering, Zero Tillage",
       description: "Direct seed drill allowing sowing without prior tilling, saving fuel and conserving soil moisture.",
-      image: "/images/machines/khedut_zero_till_drill.jpg",
+      image: getEquipmentPlaceholder("Seeder", "Khedut 11-Row Zero Tillage Seed Drill"),
       phone: "9848077889",
     },
     {
@@ -9354,7 +9354,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "8 Rows Direct Sowing, Fiber Drums, Lightweight Pull",
       description: "Lightweight 8-row direct paddy drum seeder for sprouted paddy seeds in prepared puddled fields.",
-      image: "/images/machines/landforce_paddy_drum_seeder.jpg",
+      image: getEquipmentPlaceholder("Seeder", "Landforce Paddy Drum Seeder (Manual 8-Row)"),
       phone: "9848077990",
     },
     {
@@ -9426,7 +9426,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "31cc 4-Stroke Engine, 50m Hose Reel, High Jet Pressure",
       description: "Portable 31cc 4-stroke petrol engine power sprayer with 50-meter hose reel for spraying fruit gardens and field crops.",
-      image: "/images/machines/kisankraft_petrol_sprayer.jpg",
+      image: getEquipmentPlaceholder("Sprayer", "KisanKraft 4-Stroke Petrol Engine Power Sprayer"),
       phone: "9848044778",
     },
 
@@ -9514,7 +9514,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "Inline Dripper Tubes, Screen Filter, Venturi Injector",
       description: "Complete 1-acre drip irrigation kit featuring inline pressure compensating drippers, screen filter, and venturi injector.",
-      image: "/images/machines/netafim_drip_irrigation_kit.jpg",
+      image: getEquipmentPlaceholder("Irrigation Equipment", "Netafim Micro Drip Irrigation Kit 1-Acre"),
       phone: "9848088990",
     },
     {
@@ -9528,7 +9528,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "1.5-inch Heavy Brass Rain Gun, 30m Radius, Quick Latch",
       description: "High-throw 1.5-inch brass rain gun sprinkler capable of 30-meter spray radius for sugarcane and maize fields.",
-      image: "/images/machines/finolex_raingun_sprinkler.jpg",
+      image: getEquipmentPlaceholder("Irrigation Equipment", "Finolex Rain Gun Sprinkler Irrigation System"),
       phone: "9848088101",
     },
     {
@@ -9542,7 +9542,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "60mm Quick Latch Pipes, 20 Brass Impact Heads",
       description: "Portable sprinkler pipeline kit with 20 brass impact sprinklers and 60mm quick-couple latch pipes.",
-      image: "/images/machines/kritika_hdpe_sprinkler_pipes.jpg",
+      image: getEquipmentPlaceholder("Irrigation Equipment", "Kritika Portable HDPE Hose Reel Sprinkler Set"),
       phone: "9848088212",
     },
 
@@ -9572,7 +9572,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "55.5cc Engine, 20-inch Guide Bar, AutoTune Carburetor",
       description: "Professional 55.5cc petrol chainsaw with 20-inch guide bar for farm tree pruning, timber cutting, and land clearing.",
-      image: "/images/machines/husqvarna_455_chainsaw.jpg",
+      image: "/images/machines/stihl_ms362c_chainsaw.jpg",
       phone: "9848099001",
     },
     {
@@ -9586,7 +9586,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "52cc 2-Stroke Petrol, 8-inch & 10-inch Bits, Plantation Digger",
       description: "One-man petrol earth auger with 8-inch and 10-inch heavy steel bits for fencing posts and tree sapling plantations.",
-      image: "/images/machines/kisankraft_earth_auger.jpg",
+      image: getEquipmentPlaceholder("Power Tool", "KisanKraft Earth Auger Hole Digger 52cc"),
       phone: "9848099112",
     },
     {
@@ -9600,7 +9600,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "4-Stroke Engine, Carbide Tipped Blade, Lightweight Frame",
       description: "Portable 4-stroke crop harvester cutter tool for fast harvesting of sugarcane, paddy stalks, and fodder grass.",
-      image: "/images/machines/honda_sugarcane_crop_cutter.jpg",
+      image: getEquipmentPlaceholder("Power Tool", "Honda Petrol Engine Sugarcane & Crop Cutter"),
       phone: "9848099223",
     },
 
@@ -9644,7 +9644,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "Tractor PTO Shaft Driven, Heavy Flail Blades, Organic Mulch",
       description: "PTO driven crop residue flail shredder for crushing sugarcane trash and crop straw into organic soil mulch.",
-      image: "/images/machines/redlands_trash_mulcher.jpg",
+      image: getEquipmentPlaceholder("Other", "Redlands Sugarcane Trash Shredder & Mulcher"),
       phone: "9848091233",
     },
     {
@@ -9658,7 +9658,7 @@ export function MachinesToolsPage() {
       available: true,
       specs: "500kg Batch Capacity, Solar Powered Fans, UV Sheet",
       description: "Solar powered grain & spice drying chamber with forced air ventilation for hygienic drying of agricultural produce.",
-      image: "/images/machines/grain_solar_dryer_chamber.jpg",
+      image: getEquipmentPlaceholder("Other", "Grain Solar Dryer Portable Chamber 500kg"),
       phone: "9848091344",
     },
   ];
@@ -10389,7 +10389,7 @@ export function MachinesToolsListPage() {
     },
     {
       label: "Sprayer",
-      url: "/images/machines/kisankraft_petrol_sprayer.jpg",
+      url: "/images/machines/knapsack_power_sprayer_20l.jpg",
     },
     {
       label: "Water Pump",

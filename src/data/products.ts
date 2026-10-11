@@ -53,26 +53,14 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/fresh-purple-brinjal-1-kg.jpg",
   "Fresh Green Chilli (250 g)":
     "/products/fresh-green-chilli-250-g.jpg",
-  "Fresh Ooty Carrots (1 kg)":
-    "/products/fresh-ooty-carrots-1-kg.jpg",
   "Fresh Green Cabbage (1 pc)":
     "/products/fresh-green-cabbage-1-pc.jpg",
   "Fresh White Cauliflower (1 pc)":
     "/products/fresh-white-cauliflower-1-pc.jpg",
   "Fresh Green Capsicum (500 g)":
     "/products/fresh-green-capsicum-500-g.jpg",
-  "Fresh Farm Spinach / Palak (250 g)":
-    "/products/fresh-farm-spinach-palak-250-g.jpg",
-  "Paddy Seed PR-126 (5 kg)":
-    "/products/paddy-seed-pr-126-5-kg.jpg",
-  "BT Cotton Seed (450 g)":
-    "/products/bt-cotton-seed-450-g.jpg",
-  "Hybrid Maize Seed DKC-9108 (5 kg)":
-    "/products/hybrid-maize-seed-dkc-9108-5-kg.jpg",
   "Sunflower Seed KBSH-44 (5 kg)":
     "/products/sunflower-seed-kbsh-44-5-kg.jpg",
-  "Pearl Millet Seed HHB-67 (5 kg)":
-    "/products/pearl-millet-seed-hhb-67-5-kg.jpg",
   "Onion Seed Agrifound Dark Red (50 g)":
     "/products/onion-seed-agrifound-dark-red-50-g.jpg",
   "Okra Seed Arka Anamika (250 g)":
@@ -83,8 +71,6 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/chickpea-seed-jg-11-10-kg.jpg",
   "Pigeon Pea Seed ICPL-87 (5 kg)":
     "/products/pigeon-pea-seed-icpl-87-5-kg.jpg",
-  "Soybean Seed JS-9560 (20 kg)":
-    "/products/soybean-seed-js-9560-20-kg.jpg",
   "Sugarcane Seed Sett Co-0238 (100 setts)":
     "/products/sugarcane-seed-sett-co-0238-100-setts.jpg",
   "Potato Seed Tuber Kufri Jyoti (50 kg)":
@@ -107,16 +93,6 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/turmeric-rhizome-seed-salem-25-kg.jpg",
   "Banana Tissue Culture Plant G-9":
     "/products/banana-tissue-culture-plant-g-9.jpg",
-  "Trichoderma Viride Bio-fungicide (1 kg)":
-    "/products/trichoderma-viride-bio-fungicide-1-kg.jpg",
-  "Pseudomonas Fluorescens (1 kg)":
-    "/products/pseudomonas-fluorescens-1-kg.jpg",
-  "Neem Oil 10000 PPM Azadirachtin (1 litre)":
-    "/products/neem-oil-10000-ppm-azadirachtin-1-litre.jpg",
-  "Chlorpyrifos 20% EC (1 litre)":
-    "/products/chlorpyrifos-20-ec-1-litre.jpg",
-  "Mancozeb 75% WP Fungicide (1 kg)":
-    "/products/mancozeb-75-wp-fungicide-1-kg.jpg",
   "Sickle Serrated Steel":
     "/products/sickle-serrated-steel.jpg",
   "Kudali / Hoe 1.5 kg":
@@ -125,12 +101,6 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/garden-spade-steel.jpg",
   "Pruning Secateur Bypass":
     "/products/pruning-secateur-bypass.jpg",
-  "Soil Testing Kit Digital":
-    "/products/soil-testing-kit-digital.jpg",
-  "Grain Moisture Meter":
-    "/products/grain-moisture-meter.jpg",
-  "HDPE Mulching Film 25 Micron (400 m)":
-    "/products/hdpe-mulching-film-25-micron-400-m.jpg",
   "Insect Net 40 Mesh (3 x 50 m)":
     "/products/insect-net-40-mesh-3-x-50-m.jpg",
   "Tarpaulin Sheet 200 GSM (18 x 24 ft)":
@@ -145,14 +115,6 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/wheelbarrow-steel-100-l.jpg",
   "Pheromone Trap Set (Pack of 10)":
     "/products/pheromone-trap-set-pack-of-10.jpg",
-  "Farm Safety Kit (Mask, Gloves, Goggles)":
-    "/products/farm-safety-kit-mask-gloves-goggles.jpg",
-  "Weather Station Mini Digital":
-    "/products/weather-station-mini-digital.jpg",
-  "Battery Knapsack Sprayer 16 L":
-    "/products/battery-knapsack-sprayer-16-l.jpg",
-  "Manual Knapsack Sprayer 16 L":
-    "/products/manual-knapsack-sprayer-16-l.jpg",
   "Power Weeder 5 HP":
     "/products/power-weeder-5-hp.jpg",
   "Brush Cutter 2-Stroke 43 CC":
@@ -161,26 +123,10 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/rotavator-5-feet.jpg",
   "Seed Drill 9 Tyne":
     "/products/seed-drill-9-tyne.jpg",
-  "Drip Irrigation Kit 1 Acre":
-    "/products/drip-irrigation-kit-1-acre.jpg",
   "Sprinkler Set 1 Acre":
     "/products/sprinkler-set-1-acre.jpg",
-  "Chaff Cutter Electric 2 HP":
-    "/products/chaff-cutter-electric-2-hp.jpg",
   "Submersible Pump 3 HP":
     "/products/submersible-pump-3-hp.jpg",
-  "Solar Pump Controller 5 HP":
-    "/products/solar-pump-controller-5-hp.jpg",
-  "Weighing Scale Platform 300 kg":
-    "/products/weighing-scale-platform-300-kg.jpg",
-  "Milking Machine Single Bucket":
-    "/products/milking-machine-single-bucket.jpg",
-  "Fogger Machine Portable":
-    "/products/fogger-machine-portable.jpg",
-  "Solar Insect Light Trap":
-    "/products/solar-insect-light-trap.jpg",
-  "Tractor Trolley Tipping 5 Tonne":
-    "/products/tractor-trolley-tipping-5-tonne.jpg",
 };
 
 const ROWS: Row[] = [
@@ -342,16 +288,6 @@ const ROWS: Row[] = [
     "Fresh spicy green chillies for daily kitchen seasoning.",
   ],
   [
-    "Fresh Ooty Carrots (1 kg)",
-    "Nilgiri Organic Farms",
-    "vegetables",
-    "kg",
-    55,
-    4.7,
-    500,
-    "Sweet, crunchy orange carrots grown in high-altitude soil.",
-  ],
-  [
     "Fresh Green Cabbage (1 pc)",
     "Local Farm Direct",
     "vegetables",
@@ -381,50 +317,8 @@ const ROWS: Row[] = [
     450,
     "Crisp, thick-walled green bell peppers.",
   ],
-  [
-    "Fresh Farm Spinach / Palak (250 g)",
-    "Organic Green Farms",
-    "vegetables",
-    "pack",
-    18,
-    4.5,
-    900,
-    "Fresh tender spinach leaves rich in iron and minerals.",
-  ],
 
   // --- SEEDS & PLANTING MATERIAL ---
-  [
-    "Paddy Seed PR-126 (5 kg)",
-    "Punjab Seeds Corp.",
-    "seeds",
-    "bag",
-    285,
-    4.7,
-    500,
-    "High-yielding paddy variety with excellent disease resistance. Matures in 125 days.",
-    "Best Seller",
-  ],
-  [
-    "BT Cotton Seed (450 g)",
-    "Mahyco Seeds",
-    "seeds",
-    "packet",
-    750,
-    4.4,
-    300,
-    "Bollworm-resistant BT cotton hybrid with high fibre length and lint percentage.",
-  ],
-  [
-    "Hybrid Maize Seed DKC-9108 (5 kg)",
-    "Dekalb Agri",
-    "seeds",
-    "bag",
-    1650,
-    4.5,
-    220,
-    "Hybrid maize with 10-12 tonne/ha yield potential. Drought tolerant.",
-    "Top Rated",
-  ],
   [
     "Sunflower Seed KBSH-44 (5 kg)",
     "Karnataka Seeds Corp.",
@@ -434,16 +328,6 @@ const ROWS: Row[] = [
     4.2,
     180,
     "High-oleic sunflower hybrid. 90-day duration. Suitable for rain-fed conditions.",
-  ],
-  [
-    "Pearl Millet Seed HHB-67 (5 kg)",
-    "Raj Agri Seeds",
-    "seeds",
-    "bag",
-    210,
-    4.1,
-    650,
-    "Downy mildew resistant millet. Performs well in Rajasthan and Haryana.",
   ],
   [
     "Onion Seed Agrifound Dark Red (50 g)",
@@ -497,17 +381,6 @@ const ROWS: Row[] = [
     "Short duration arhar suited to intercropping with cotton and soybean.",
   ],
   [
-    "Soybean Seed JS-9560 (20 kg)",
-    "MP Seeds Corp.",
-    "seeds",
-    "bag",
-    2450,
-    4.4,
-    190,
-    "Early maturing soybean with high pod density and shatter resistance.",
-    "Best Seller",
-  ],
-  [
     "Sugarcane Seed Sett Co-0238 (100 setts)",
     "UP Cane Research",
     "seeds",
@@ -543,7 +416,7 @@ const ROWS: Row[] = [
     "seeds",
     "bag",
     690,
-    4.0,
+    4,
     360,
     "Yellow mosaic tolerant urad with 75-day maturity.",
   ],
@@ -583,7 +456,7 @@ const ROWS: Row[] = [
     "seeds",
     "bag",
     230,
-    4.0,
+    4,
     610,
     "Quick bunching methi seed giving 3-4 cuttings during the rabi season.",
   ],
@@ -618,58 +491,6 @@ const ROWS: Row[] = [
     5000,
     "Disease-free tissue culture banana plant sapling with uniform bunch maturity.",
     "Best Seller",
-  ],
-
-  // --- FERTILIZERS ---
-  [
-    "Trichoderma Viride Bio-fungicide (1 kg)",
-    "Multiplex",
-    "pesticides",
-    "pack",
-    280,
-    4.5,
-    1250,
-    "Controls wilt, root rot and damping off in a wide range of crops.",
-  ],
-  [
-    "Pseudomonas Fluorescens (1 kg)",
-    "Multiplex",
-    "pesticides",
-    "pack",
-    290,
-    4.3,
-    980,
-    "Biocontrol agent against bacterial blight and sheath blight.",
-  ],
-  [
-    "Neem Oil 10000 PPM Azadirachtin (1 litre)",
-    "PureFarm Bio",
-    "pesticides",
-    "bottle",
-    550,
-    4.6,
-    850,
-    "Broad-spectrum organic botanical insecticide and mite control.",
-  ],
-  [
-    "Chlorpyrifos 20% EC (1 litre)",
-    "Coromandel",
-    "pesticides",
-    "bottle",
-    420,
-    4.3,
-    600,
-    "Effective control against termites, stem borer and soil insects.",
-  ],
-  [
-    "Mancozeb 75% WP Fungicide (1 kg)",
-    "UPL India",
-    "pesticides",
-    "pack",
-    480,
-    4.4,
-    900,
-    "Contact fungicide controlling late blight, leaf spots and rusts.",
   ],
 
   // --- FARM TOOLS ---
@@ -714,36 +535,6 @@ const ROWS: Row[] = [
     "Bypass pruner for fruit tree pruning and branch trimming.",
   ],
   [
-    "Soil Testing Kit Digital",
-    "AgriLab India",
-    "farm-tools",
-    "kit",
-    3400,
-    4.1,
-    180,
-    "Portable digital kit measuring soil N, P, K, pH and EC.",
-  ],
-  [
-    "Grain Moisture Meter",
-    "AgriLab India",
-    "farm-tools",
-    "unit",
-    2900,
-    4.4,
-    220,
-    "Handheld digital grain moisture meter for paddy, wheat and pulses.",
-  ],
-  [
-    "HDPE Mulching Film 25 Micron (400 m)",
-    "Garware",
-    "farm-tools",
-    "roll",
-    3200,
-    4.4,
-    400,
-    "Silver-black UV-stabilised mulching film for weed suppression.",
-  ],
-  [
     "Insect Net 40 Mesh (3 x 50 m)",
     "Garware",
     "farm-tools",
@@ -779,7 +570,7 @@ const ROWS: Row[] = [
     "farm-tools",
     "unit",
     1450,
-    4.0,
+    4,
     350,
     "Heavy plastic feeding trough for dairy cattle.",
   ],
@@ -813,49 +604,8 @@ const ROWS: Row[] = [
     800,
     "Funnel traps with lures for bollworm and fall armyworm monitoring.",
   ],
-  [
-    "Farm Safety Kit (Mask, Gloves, Goggles)",
-    "Karam Safety",
-    "farm-tools",
-    "kit",
-    890,
-    4.4,
-    950,
-    "Personal protective safety kit for pesticide spraying and handling.",
-  ],
-  [
-    "Weather Station Mini Digital",
-    "AgriLab India",
-    "farm-tools",
-    "unit",
-    15500,
-    4.2,
-    90,
-    "Solar-powered micro weather station measuring temp, humidity, rainfall.",
-  ],
 
   // --- FARM EQUIPMENT & MACHINERY ---
-  [
-    "Battery Knapsack Sprayer 16 L",
-    "Aspee",
-    "equipment",
-    "unit",
-    3250,
-    4.5,
-    800,
-    "12V battery-operated knapsack sprayer with dual nozzle system.",
-    "Best Seller",
-  ],
-  [
-    "Manual Knapsack Sprayer 16 L",
-    "Aspee",
-    "equipment",
-    "unit",
-    1180,
-    4.2,
-    1100,
-    "High-density polyethylene manual brass pump sprayer.",
-  ],
   [
     "Power Weeder 5 HP",
     "VST Shakti",
@@ -897,16 +647,6 @@ const ROWS: Row[] = [
     "Automatic tractor-drawn seed-cum-fertiliser drill 9 tyne.",
   ],
   [
-    "Drip Irrigation Kit 1 Acre",
-    "Jain Irrigation",
-    "equipment",
-    "kit",
-    24500,
-    4.6,
-    250,
-    "Complete 16 mm inline drip lateral kit with screen filter and venturi.",
-  ],
-  [
     "Sprinkler Set 1 Acre",
     "Finolex Plasson",
     "equipment",
@@ -917,16 +657,6 @@ const ROWS: Row[] = [
     "Portable HDPE sprinkler pipe set with 3/4 inch brass sprinkler heads.",
   ],
   [
-    "Chaff Cutter Electric 2 HP",
-    "Kisankraft",
-    "equipment",
-    "unit",
-    22500,
-    4.3,
-    200,
-    "Electric fodder cutter for green and dry cattle fodder.",
-  ],
-  [
     "Submersible Pump 3 HP",
     "Crompton",
     "equipment",
@@ -935,66 +665,6 @@ const ROWS: Row[] = [
     4.3,
     280,
     "Borewell submersible pump set with copper winding motor.",
-  ],
-  [
-    "Solar Pump Controller 5 HP",
-    "Shakti Solar",
-    "equipment",
-    "unit",
-    26500,
-    4.2,
-    140,
-    "MPPT solar pump drive controller for AC/DC submersible pumps.",
-  ],
-  [
-    "Weighing Scale Platform 300 kg",
-    "Essae Digitronics",
-    "equipment",
-    "unit",
-    9800,
-    4.4,
-    300,
-    "Heavy-duty industrial digital platform scale for mandi bag weighing.",
-  ],
-  [
-    "Milking Machine Single Bucket",
-    "Delaval India",
-    "equipment",
-    "unit",
-    42500,
-    4.5,
-    110,
-    "Single bucket trolley milking machine with vacuum pump.",
-  ],
-  [
-    "Fogger Machine Portable",
-    "Neptune Agri",
-    "equipment",
-    "unit",
-    6800,
-    4.3,
-    350,
-    "Thermal fogging machine for orchard disease and mosquito control.",
-  ],
-  [
-    "Solar Insect Light Trap",
-    "Shakti Solar",
-    "equipment",
-    "unit",
-    2450,
-    4.6,
-    650,
-    "Automatic solar light trap attracting and killing crop pest moths.",
-  ],
-  [
-    "Tractor Trolley Tipping 5 Tonne",
-    "Shaktiman",
-    "equipment",
-    "unit",
-    168000,
-    4.5,
-    60,
-    "Hydraulic tipping 2-wheel tractor trailer 5 tonne capacity.",
   ],
 ];
 
