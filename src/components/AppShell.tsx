@@ -288,6 +288,25 @@ export function AppShell({ children }: { children: ReactNode }) {
             {t("Farmer Registration")}
           </Link>
         </div>
+      ) : user.role === "student" ? (
+        <div className="mt-4 rounded-2xl border border-emerald-200/80 bg-[#f4f9f6] p-4 relative overflow-hidden">
+          <div className="flex items-center gap-2 mb-1.5">
+            <div className="h-7 w-7 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-800">
+              <Leaf className="h-4 w-4" />
+            </div>
+            <p className="text-sm font-black text-[#1b4332]">{t("Build Your Future")}</p>
+          </div>
+          <p className="text-xs leading-normal text-[#2d6a4f] font-medium">
+            {t("Gain real-world experience and grow in Agriculture.")}
+          </p>
+          <Link
+            to="/internships"
+            onClick={onItemClick}
+            className="mt-3 inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-[#1b4332] hover:bg-[#143a2b] py-2 text-xs font-bold text-white transition shadow-xs"
+          >
+            {t("Explore Internships")} →
+          </Link>
+        </div>
       ) : null}
     </div>
   );

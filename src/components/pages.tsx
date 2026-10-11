@@ -90,6 +90,9 @@ import {
   Video,
   Store,
   ShoppingCart,
+  SlidersHorizontal,
+  LayoutGrid,
+  Laptop,
 } from "lucide-react";
 import { useMemo, useState, useEffect, useRef, useCallback } from "react";
 import {
@@ -6210,9 +6213,16 @@ export function InternshipsPage() {
     ? `purefarm_internship_apps_${user.id}`
     : "purefarm_internship_apps_guest";
 
+  // Filter and Search States
   const [query, setQuery] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState("All Internships");
+  const [categoryFilter, setCategoryFilter] = useState("All");
+  const [locationFilter, setLocationFilter] = useState("All Locations");
+  const [sortBy, setSortBy] = useState("latest");
+  const [workArrangementFilter, setWorkArrangementFilter] = useState("All");
+  const [minStipendFilter, setMinStipendFilter] = useState<number>(0);
+  const [showFilterModal, setShowFilterModal] = useState(false);
 
+  // Selected Internship for Details View
   const [selectedInternshipId, setSelectedInternshipId] = useState<string | null>(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
@@ -6221,6 +6231,7 @@ export function InternshipsPage() {
     return null;
   });
 
+  // User Applications State
   const [userApps, setUserApps] = useState<any[]>(() => {
     if (typeof window !== "undefined") {
       try {
@@ -6229,7 +6240,6 @@ export function InternshipsPage() {
           const parsed = JSON.parse(saved);
           if (Array.isArray(parsed)) return parsed;
         }
-        // Legacy fallback migration
         const legacy = localStorage.getItem("purefarm_applied_internships");
         if (legacy) {
           const parsedLegacy = JSON.parse(legacy);
@@ -6259,7 +6269,16 @@ export function InternshipsPage() {
 
   const [noticeInternship, setNoticeInternship] = useState<Internship | null>(null);
   const [showApplyModal, setShowApplyModal] = useState(false);
-  const [applyForm, setApplyForm] = useState({ name: "", phone: "", notes: "" });
+  const [applyForm, setApplyForm] = useState(() => {
+    const rawName = user?.name || "";
+    const cleanName = rawName.replace(/\s*[\(\[]?\s*Demo\s*[\)\]]?$/i, "").trim();
+    return {
+      name: cleanName,
+      phone: user?.phone || "",
+      education: "",
+      notes: "",
+    };
+  });
   const [submittedMessage, setSubmittedMessage] = useState(false);
 
   useEffect(() => {
@@ -6300,6 +6319,14 @@ export function InternshipsPage() {
 
   const handleApplyAction = (item: Internship) => {
     if (item.isInternal || item.applyType === "internal") {
+      const rawName = user?.name || "";
+      const cleanName = rawName.replace(/\s*[\(\[]?\s*Demo\s*[\)\]]?$/i, "").trim();
+      setApplyForm({
+        name: cleanName,
+        phone: user?.phone || "",
+        education: "",
+        notes: "",
+      });
       setShowApplyModal(true);
       return;
     }
@@ -6324,7 +6351,6 @@ export function InternshipsPage() {
       return;
     }
 
-    // External link not verified/available
     setNoticeInternship(item);
   };
 
@@ -6342,46 +6368,103 @@ export function InternshipsPage() {
       appliedAt: new Date().toISOString(),
       applicantName: applyForm.name.trim(),
       applicantPhone: applyForm.phone.trim(),
+      applicantEducation: applyForm.education.trim() || undefined,
       notes: applyForm.notes.trim() || undefined,
     });
     setSubmittedMessage(true);
     setTimeout(() => {
       setShowApplyModal(false);
       setSubmittedMessage(false);
-      setApplyForm({ name: "", phone: "", notes: "" });
     }, 1800);
   };
 
+  // Categories definition matching reference UI
+  const categoriesList = [
+    { id: "All", label: "Internships", image: null, isAll: true },
+    { id: "Field Work", label: "Field Work", image: "/images/internships/cat-fieldwork.jpg" },
+    { id: "Research", label: "Research", image: "/images/internships/cat-research.jpg" },
+    { id: "Agritech", label: "Agritech", image: "/images/internships/cat-agritech.jpg" },
+    { id: "Horticulture", label: "Horticulture", image: "/images/internships/cat-horticulture.jpg" },
+    { id: "Livestock", label: "Livestock", image: "/images/internships/cat-livestock.jpg" },
+    { id: "Food Processing", label: "Food Processing", image: "/images/internships/cat-food-processing.jpg" },
+    { id: "Organic Farming", label: "Organic Farming", image: "/images/internships/cat-organic-farming.jpg" },
+  ];
+
+  const locationsList = [
+    "All Locations",
+    "Rajahmundry, AP",
+    "Guntur, AP",
+    "Hyderabad, TG",
+    "Vijayawada, AP",
+    "Tadepalligudem, AP",
+    "Eluru, AP",
+    "Visakhapatnam, AP",
+    "Kakinada, AP",
+  ];
+
+  // Filtering and Sorting
+  const filteredAndSorted = useMemo(() => {
+    const filtered = INTERNSHIPS.filter((i) => {
+      const q = query.toLowerCase().trim();
+      const matchesQuery =
+        !q ||
+        `${i.title} ${i.org} ${i.location} ${i.category || ""} ${i.skills.join(" ")} ${i.description || ""}`
+          .toLowerCase()
+          .includes(q);
+
+      const matchesCat = categoryFilter === "All" || i.category === categoryFilter;
+
+      const matchesLoc =
+        locationFilter === "All Locations" ||
+        i.location.toLowerCase().includes(locationFilter.split(",")[0].toLowerCase());
+
+      const matchesWork =
+        workArrangementFilter === "All" || i.workArrangement === workArrangementFilter;
+
+      const matchesStipend =
+        minStipendFilter === 0 || (i.stipendValue || 0) >= minStipendFilter;
+
+      return matchesQuery && matchesCat && matchesLoc && matchesWork && matchesStipend;
+    });
+
+    return filtered.sort((a, b) => {
+      if (sortBy === "stipend-desc") {
+        return (b.stipendValue || 0) - (a.stipendValue || 0);
+      }
+      if (sortBy === "stipend-asc") {
+        return (a.stipendValue || 0) - (b.stipendValue || 0);
+      }
+      if (sortBy === "duration") {
+        return (a.duration || "").localeCompare(b.duration || "");
+      }
+      return 0; // default / latest
+    });
+  }, [query, categoryFilter, locationFilter, sortBy, workArrangementFilter, minStipendFilter]);
+
+  // Detail View when an internship is selected
   if (selectedInternshipId !== null) {
     const internship = INTERNSHIPS.find((item) => item.id === selectedInternshipId);
 
     if (!internship) {
       return (
-        <RoleGuard
-          allowedRoles={["farmer", "buyer", "student", "seller", "admin"]}
-          allowGuest={true}
-        >
-          <PageShell
-            eyebrow={t("Internships")}
-            title={t("Internship Not Found")}
-            intro={t("The requested internship could not be found.")}
-          >
-            <div className="rounded-2xl border border-amber-200 bg-amber-50/80 p-8 text-center space-y-4 max-w-lg mx-auto">
+        <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
+          <div className="min-h-screen bg-[#f8f9f7] px-4 py-8 sm:px-6 lg:px-8">
+            <div className="max-w-md mx-auto text-center space-y-4 rounded-3xl bg-white border border-slate-200 p-8 shadow-sm">
               <AlertTriangle className="h-12 w-12 text-amber-600 mx-auto" />
-              <h2 className="text-xl font-black text-amber-900">{t("Internship Not Found")}</h2>
-              <p className="text-sm text-amber-800">
-                {t("The requested internship could not be found.")}
+              <h2 className="text-xl font-black text-slate-900">{t("Internship Not Found")}</h2>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                {t("The selected internship listing could not be found or has expired.")}
               </p>
               <button
                 type="button"
                 onClick={() => handleSelectInternship(null)}
-                className="inline-flex items-center gap-2 h-11 px-6 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-sm font-bold transition shadow-md cursor-pointer"
+                className="inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-[#1b4332] text-white text-xs font-bold hover:bg-[#143a2b] transition cursor-pointer"
               >
                 <ArrowLeft className="h-4 w-4" />
                 {t("Back to Internships")}
               </button>
             </div>
-          </PageShell>
+          </div>
         </RoleGuard>
       );
     }
@@ -6391,18 +6474,13 @@ export function InternshipsPage() {
 
     return (
       <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
-        <PageShell
-          bgImage="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=2000"
-          eyebrow={t("Internships")}
-          title={t(internship.title)}
-          intro={`${t(internship.org)} · ${t(internship.location)}`}
-        >
-          <div className="space-y-6 max-w-4xl mx-auto">
+        <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto space-y-6">
             <div className="flex items-center justify-between">
               <button
                 type="button"
                 onClick={() => handleSelectInternship(null)}
-                className="inline-flex items-center gap-2 h-10 px-4 rounded-xl bg-white/80 border border-white/60 text-[#1b4332] text-xs font-black hover:bg-white transition shadow-sm cursor-pointer"
+                className="inline-flex items-center gap-2 h-10 px-4 rounded-xl bg-white border border-slate-200 text-[#1b4332] text-xs font-black hover:bg-slate-50 transition shadow-xs cursor-pointer"
               >
                 <ArrowLeft className="h-4 w-4" />
                 {t("Back to Internships")}
@@ -6410,7 +6488,7 @@ export function InternshipsPage() {
 
               <div className="flex items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-[#1b4332] text-xs font-bold border border-emerald-300">
-                  <Briefcase className="h-4 w-4 text-emerald-700" />
+                  <Briefcase className="h-3.5 w-3.5 text-emerald-700" />
                   {t(internship.category ?? "Field Work")}
                 </span>
                 {internship.isInternal || internship.applyType === "internal" ? (
@@ -6427,70 +6505,92 @@ export function InternshipsPage() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-white/60 bg-white/90 backdrop-blur-md p-6 shadow-soft space-y-4">
-              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-border/60 pb-4">
-                <div className="space-y-1">
-                  <h1 className="text-2xl font-black text-[#1b4332]">{t(internship.title)}</h1>
-                  <p className="text-sm font-bold text-[#2d6a4f]">
-                    {t(internship.org)} · {t(internship.type)}
-                  </p>
-                  <p className="text-xs text-muted-foreground font-semibold flex items-center gap-1 mt-1">
-                    <MapPin className="h-3.5 w-3.5 text-emerald-700 shrink-0" />
-                    {t(internship.location)}
-                  </p>
-                </div>
-                <div className="text-left sm:text-right shrink-0">
-                  <span className="inline-block rounded-full bg-amber-50 text-amber-800 px-4 py-1.5 text-sm font-black border border-amber-200 shadow-2xs">
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-sm space-y-6 overflow-hidden">
+              <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden bg-slate-100">
+                <img
+                  src={internship.image || "/images/internships/cat-fieldwork.jpg"}
+                  alt={internship.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4 text-white">
+                  <div>
+                    <span className="inline-block px-2.5 py-1 rounded-md bg-[#eaf5ee] text-[#1b4332] text-[10px] font-black uppercase tracking-wider mb-2">
+                      {t(internship.category ?? "Field Work")}
+                    </span>
+                    <h1 className="text-xl sm:text-2xl font-black leading-tight drop-shadow-md">
+                      {t(internship.title)}
+                    </h1>
+                    <p className="text-xs sm:text-sm font-semibold text-emerald-200 mt-1 drop-shadow-sm">
+                      {t(internship.org)} • 📍 {t(internship.location)}
+                    </p>
+                  </div>
+                  <span className="shrink-0 rounded-xl bg-amber-400 text-slate-950 px-3.5 py-1.5 text-xs sm:text-sm font-black shadow-md">
                     {t(internship.stipend)}
                   </span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs bg-emerald-50/50 p-4 rounded-xl border border-emerald-100">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#f4f9f6] p-4 rounded-2xl border border-emerald-100 text-xs">
                 <div>
-                  <span className="text-muted-foreground font-semibold block">{t("Duration")}</span>
-                  <span className="font-bold text-[#1b4332]">
-                    {t(internship.duration ?? "3 Months")}
+                  <span className="text-[10px] uppercase font-bold text-[#2d6a4f] block">
+                    {t("Duration")}
+                  </span>
+                  <span className="font-extrabold text-[#1b4332] flex items-center gap-1 mt-0.5">
+                    <CalendarDays className="h-3.5 w-3.5" />
+                    {t(internship.duration ?? "3 months")}
                   </span>
                 </div>
                 <div>
-                  <span className="text-muted-foreground font-semibold block">{t("Posted")}</span>
-                  <span className="font-bold text-[#1b4332]">{t(internship.posted)}</span>
+                  <span className="text-[10px] uppercase font-bold text-[#2d6a4f] block">
+                    {t("Work Type")}
+                  </span>
+                  <span className="font-extrabold text-[#1b4332] flex items-center gap-1 mt-0.5">
+                    <Laptop className="h-3.5 w-3.5" />
+                    {t(internship.workArrangement ?? "On-site")}
+                  </span>
                 </div>
                 <div>
-                  <span className="text-muted-foreground font-semibold block">{t("Deadline")}</span>
-                  <span className="font-bold text-amber-700">{t(internship.deadline ?? "")}</span>
+                  <span className="text-[10px] uppercase font-bold text-[#2d6a4f] block">
+                    {t("Stipend")}
+                  </span>
+                  <span className="font-extrabold text-amber-800 mt-0.5 block">
+                    {t(internship.stipend)}
+                  </span>
                 </div>
                 <div>
-                  <span className="text-muted-foreground font-semibold block">{t("Location")}</span>
-                  <span className="font-bold text-[#1b4332]">{t(internship.location)}</span>
+                  <span className="text-[10px] uppercase font-bold text-[#2d6a4f] block">
+                    {t("Deadline")}
+                  </span>
+                  <span className="font-extrabold text-[#1b4332] mt-0.5 block">
+                    {t(internship.deadline ?? "Open")}
+                  </span>
                 </div>
               </div>
 
-              <div className="space-y-2 pt-2">
-                <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
-                  <FileText className="h-4 w-4 text-emerald-600" />
-                  {t("Overview & Role Description")}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-white/80 p-4 rounded-xl border border-slate-200/80 shadow-2xs">
+              <div className="space-y-3">
+                <h2 className="text-base font-black text-[#1b4332]">{t("About this Internship")}</h2>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {t(internship.description ?? "")}
                 </p>
               </div>
 
               {internship.responsibilities && internship.responsibilities.length > 0 ? (
-                <div className="space-y-2.5 pt-2">
-                  <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
+                <div className="space-y-3">
+                  <h2 className="text-base font-black text-[#1b4332] flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600" />
                     {t("Key Responsibilities")}
-                  </h3>
+                  </h2>
                   <ul className="space-y-2">
-                    {internship.responsibilities.map((resp, idx) => (
+                    {internship.responsibilities.map((r, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start gap-2.5 text-xs text-slate-800 bg-white/70 p-3 rounded-xl border border-slate-200/60"
+                        className="text-xs text-slate-700 flex items-start gap-2.5 bg-slate-50 p-2.5 rounded-xl border border-slate-100"
                       >
-                        <span className="h-2 w-2 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
-                        <span className="font-semibold leading-relaxed">{t(resp)}</span>
+                        <span className="h-5 w-5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold flex items-center justify-center shrink-0">
+                          {idx + 1}
+                        </span>
+                        <span>{t(r)}</span>
                       </li>
                     ))}
                   </ul>
@@ -6498,24 +6598,24 @@ export function InternshipsPage() {
               ) : null}
 
               {internship.eligibility ? (
-                <div className="space-y-2 pt-2">
-                  <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
+                <div className="space-y-2">
+                  <h2 className="text-base font-black text-[#1b4332] flex items-center gap-2">
                     <ShieldCheck className="h-4 w-4 text-emerald-600" />
                     {t("Eligibility & Requirements")}
-                  </h3>
-                  <p className="text-xs text-slate-800 font-semibold bg-emerald-50/60 p-3.5 rounded-xl border border-emerald-100">
+                  </h2>
+                  <p className="text-xs text-slate-700 font-semibold bg-emerald-50/70 p-3.5 rounded-xl border border-emerald-100">
                     {t(internship.eligibility)}
                   </p>
                 </div>
               ) : null}
 
-              <div className="space-y-2 pt-2">
-                <h3 className="text-sm font-black text-[#1b4332]">{t("Required Skills")}</h3>
+              <div className="space-y-2">
+                <h2 className="text-base font-black text-[#1b4332]">{t("Required Skills")}</h2>
                 <div className="flex flex-wrap gap-2">
                   {internship.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-lg bg-emerald-100/80 text-[#1b4332] px-3 py-1 text-xs font-bold border border-emerald-200"
+                      className="rounded-lg bg-emerald-50 text-[#1b4332] px-3 py-1 text-xs font-bold border border-emerald-200"
                     >
                       {t(skill)}
                     </span>
@@ -6523,10 +6623,9 @@ export function InternshipsPage() {
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-border/60 flex flex-wrap items-center justify-between gap-4">
-                <span className="text-xs text-muted-foreground font-semibold">
-                  {t("Deadline")}:{" "}
-                  <strong className="text-slate-800">{t(internship.deadline ?? "")}</strong>
+              <div className="pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
+                <span className="text-xs text-slate-500 font-semibold">
+                  {t("Application Deadline")}: <strong className="text-slate-800">{t(internship.deadline ?? "")}</strong>
                 </span>
 
                 {internship.isInternal || internship.applyType === "internal" ? (
@@ -6534,7 +6633,7 @@ export function InternshipsPage() {
                     <button
                       type="button"
                       disabled
-                      className="h-11 px-6 rounded-xl text-xs font-black transition shadow-md flex items-center gap-2 bg-emerald-700 text-white cursor-not-allowed"
+                      className="h-11 px-6 rounded-xl text-xs font-black flex items-center gap-2 bg-emerald-700 text-white cursor-not-allowed shadow-sm"
                     >
                       <CheckCircle2 className="h-4 w-4" />
                       {t("Application Submitted ✓")}
@@ -6543,7 +6642,7 @@ export function InternshipsPage() {
                     <button
                       type="button"
                       onClick={() => handleApplyAction(internship)}
-                      className="h-11 px-6 rounded-xl text-xs font-black transition shadow-md flex items-center gap-2 bg-[#2d6a4f] hover:bg-[#1b4332] text-white cursor-pointer"
+                      className="h-11 px-6 rounded-xl text-xs font-black flex items-center gap-2 bg-[#1b4332] hover:bg-[#143a2b] text-white transition shadow-sm cursor-pointer"
                     >
                       <FileText className="h-4 w-4" />
                       {t("Apply with PureFarm")}
@@ -6554,7 +6653,7 @@ export function InternshipsPage() {
                     <button
                       type="button"
                       onClick={() => handleApplyAction(internship)}
-                      className="h-11 px-6 rounded-xl text-xs font-black transition shadow-md flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white cursor-pointer"
+                      className="h-11 px-6 rounded-xl text-xs font-black flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white transition shadow-sm cursor-pointer"
                     >
                       <ExternalLink className="h-4 w-4" />
                       {t("Application Started ↗")}
@@ -6563,7 +6662,7 @@ export function InternshipsPage() {
                     <button
                       type="button"
                       onClick={() => handleApplyAction(internship)}
-                      className="h-11 px-6 rounded-xl text-xs font-black transition shadow-md flex items-center gap-2 bg-[#2d6a4f] hover:bg-[#1b4332] text-white cursor-pointer"
+                      className="h-11 px-6 rounded-xl text-xs font-black flex items-center gap-2 bg-[#1b4332] hover:bg-[#143a2b] text-white transition shadow-sm cursor-pointer"
                     >
                       <ExternalLink className="h-4 w-4" />
                       {t("Open Official Application ↗")}
@@ -6573,7 +6672,7 @@ export function InternshipsPage() {
                   <button
                     type="button"
                     onClick={() => handleApplyAction(internship)}
-                    className="h-11 px-6 rounded-xl text-xs font-black transition shadow-md flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white cursor-pointer"
+                    className="h-11 px-6 rounded-xl text-xs font-black flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white transition shadow-sm cursor-pointer"
                   >
                     <Info className="h-4 w-4" />
                     {t("Check External Application")}
@@ -6582,11 +6681,14 @@ export function InternshipsPage() {
               </div>
             </div>
 
+            {/* In-app Application Modal */}
             {showApplyModal ? (
-              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4">
-                <div className="bg-white rounded-2xl border border-white/60 max-w-md w-full p-6 shadow-xl space-y-4">
-                  <div className="flex items-center justify-between border-b border-border/60 pb-3">
-                    <h3 className="text-lg font-black text-[#1b4332]">{t("PureFarm Application Form")}</h3>
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+                <div className="bg-white rounded-3xl border border-slate-200 max-w-md w-full p-6 shadow-2xl space-y-4">
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <h3 className="text-base font-black text-[#1b4332]">
+                      {t("PureFarm Application Form")}
+                    </h3>
                     <button
                       type="button"
                       onClick={() => setShowApplyModal(false)}
@@ -6597,41 +6699,53 @@ export function InternshipsPage() {
                   </div>
 
                   {submittedMessage ? (
-                    <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-center space-y-2">
-                      <CheckCircle2 className="h-8 w-8 text-emerald-600 mx-auto" />
-                      <p className="text-xs font-black text-emerald-900">
+                    <div className="p-5 bg-emerald-50 border border-emerald-200 rounded-2xl text-center space-y-2">
+                      <CheckCircle2 className="h-9 w-9 text-emerald-600 mx-auto" />
+                      <p className="text-sm font-black text-emerald-900">
                         {t("Your application has been submitted successfully!")}
+                      </p>
+                      <p className="text-xs text-emerald-700">
+                        {t("Track your submission under My Applications.")}
                       </p>
                     </div>
                   ) : (
-                    <form
-                      onSubmit={(e) => handleInternalSubmit(e, internship)}
-                      className="space-y-4"
-                    >
+                    <form onSubmit={(e) => handleInternalSubmit(e, internship)} className="space-y-3.5">
                       <div>
                         <label className="text-xs font-bold text-slate-700 block mb-1">
-                          {t("Full Name")}
+                          {t("Full Name")} *
                         </label>
                         <input
                           type="text"
                           required
-                          placeholder={user?.name || t("Full Name")}
+                          placeholder={applyForm.name || t("Full Name")}
                           value={applyForm.name}
                           onChange={(e) => setApplyForm({ ...applyForm, name: e.target.value })}
-                          className="w-full h-10 px-3 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
+                          className="w-full h-10 px-3.5 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
                         />
                       </div>
                       <div>
                         <label className="text-xs font-bold text-slate-700 block mb-1">
-                          {t("Mobile Number")}
+                          {t("Mobile Number")} *
                         </label>
                         <input
                           type="tel"
                           required
-                          placeholder={user?.phone || t("Mobile Number")}
+                          placeholder={applyForm.phone || t("Mobile Number")}
                           value={applyForm.phone}
                           onChange={(e) => setApplyForm({ ...applyForm, phone: e.target.value })}
-                          className="w-full h-10 px-3 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
+                          className="w-full h-10 px-3.5 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs font-bold text-slate-700 block mb-1">
+                          {t("College / Current Degree")}
+                        </label>
+                        <input
+                          type="text"
+                          placeholder={t("e.g. B.Sc Agriculture, Diploma, or Agritech")}
+                          value={applyForm.education}
+                          onChange={(e) => setApplyForm({ ...applyForm, education: e.target.value })}
+                          className="w-full h-10 px-3.5 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
                         />
                       </div>
                       <div>
@@ -6640,7 +6754,7 @@ export function InternshipsPage() {
                         </label>
                         <textarea
                           rows={3}
-                          placeholder={t("Brief Introduction / Cover Note")}
+                          placeholder={t("Why are you interested in this internship?")}
                           value={applyForm.notes}
                           onChange={(e) => setApplyForm({ ...applyForm, notes: e.target.value })}
                           className="w-full p-3 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
@@ -6651,15 +6765,15 @@ export function InternshipsPage() {
                         <button
                           type="button"
                           onClick={() => setShowApplyModal(false)}
-                          className="h-10 px-4 rounded-xl border border-slate-300 text-xs font-bold hover:bg-slate-50 cursor-pointer"
+                          className="h-10 px-4 rounded-xl border border-slate-200 text-xs font-bold hover:bg-slate-50 cursor-pointer"
                         >
-                          Cancel
+                          {t("Cancel")}
                         </button>
                         <button
                           type="submit"
-                          className="h-10 px-6 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black shadow-sm cursor-pointer"
+                          className="h-10 px-6 rounded-xl bg-[#1b4332] hover:bg-[#143a2b] text-white text-xs font-black shadow-sm cursor-pointer"
                         >
-                          {t("Submit My Application")}
+                          {t("Submit Application")}
                         </button>
                       </div>
                     </form>
@@ -6668,242 +6782,677 @@ export function InternshipsPage() {
               </div>
             ) : null}
           </div>
-        </PageShell>
+        </div>
       </RoleGuard>
     );
   }
 
-  const filterCategories = [
-    "All Internships",
-    "Field Work",
-    "Research",
-    "Agritech",
-    "Horticulture",
-    "Livestock",
-    "Food Processing",
-    "Organic Farming",
-  ];
-
-  const filtered = INTERNSHIPS.filter((i) => {
-    const matchesQuery =
-      `${t(i.title)} ${t(i.org)} ${t(i.location)} ${t(i.description ?? "")} ${i.skills.join(" ")}`
-        .toLowerCase()
-        .includes(query.toLowerCase());
-
-    const matchesCategory = categoryFilter === "All Internships" || i.category === categoryFilter;
-
-    return matchesQuery && matchesCategory;
-  });
-
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
-      <PageShell
-        bgImage="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=2000"
-        eyebrow={t("Internships")}
-        title={t("Agriculture Internship Hub")}
-        intro={t(
-          "Explore internships in agriculture, agritech, farming, horticulture, livestock, food processing, and rural development.",
-        )}
-      >
-        <div className="mb-6 space-y-4">
-          <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder={t("Search internships...")}
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                className="w-full h-11 pl-10 pr-4 rounded-xl border border-white/50 bg-white/80 backdrop-blur-md shadow-sm text-sm outline-none focus:bg-white focus:ring-2 focus:ring-emerald-600"
-              />
+      <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-6">
+          
+          {/* 1. Spacious Agriculture Hero Section matching Reference Image */}
+          <section className="relative rounded-3xl bg-gradient-to-r from-[#edf6f0] via-[#f7faf8] to-[#edf6f1] border border-emerald-100/90 shadow-xs overflow-hidden p-6 sm:p-8 lg:p-10">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              {/* Left Column: Heading and description */}
+              <div className="md:col-span-7 space-y-4 z-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-200 text-emerald-800 text-xs font-bold shadow-2xs">
+                  <GraduationCap className="h-4 w-4 text-emerald-700" />
+                  <span>{t("Internships")}</span>
+                </div>
+
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#1b4332] tracking-tight leading-tight">
+                  {t("Gain Real-World Experience in Agriculture & AgriTech")}
+                </h1>
+
+                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-xl">
+                  {t(
+                    "Work with leading farms, agritech startups, research organizations and FPOs. Develop practical skills, get mentored by experts, and grow your career.",
+                  )}
+                </p>
+
+                {/* Floating pill badges on the left */}
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-white/95 border border-emerald-100 shadow-xs text-xs font-bold text-[#1b4332]">
+                    <div className="h-7 w-7 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-700">
+                      <Leaf className="h-4 w-4" />
+                    </div>
+                    <span>{t("Hands-on Learning")}</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-white/95 border border-emerald-100 shadow-xs text-xs font-bold text-[#1b4332]">
+                    <div className="h-7 w-7 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-700">
+                      <Users className="h-4 w-4" />
+                    </div>
+                    <span>{t("Expert Mentorship")}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Authentic Agriculture Student Visual matching Reference */}
+              <div className="md:col-span-5 relative flex items-center justify-center lg:justify-end">
+                <div className="relative w-full max-w-[360px] h-56 sm:h-64 rounded-3xl overflow-hidden shadow-md border-2 border-white/80 bg-emerald-950/5">
+                  <img
+                    src="/images/student-learning-banner.png"
+                    alt="PureFarm Agriculture & AgriTech Student"
+                    className="w-full h-full object-cover object-right"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/25 via-transparent to-transparent pointer-events-none" />
+                </div>
+
+                {/* Floating pill badges on the right side */}
+                <div className="absolute -bottom-3 right-2 sm:right-4 flex flex-col gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-xs border border-emerald-100 shadow-md text-[11px] font-bold text-[#1b4332]">
+                    <div className="h-6 w-6 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-700">
+                      <Award className="h-3.5 w-3.5" />
+                    </div>
+                    <span>{t("Certificate Support")}</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-xs border border-emerald-100 shadow-md text-[11px] font-bold text-[#1b4332]">
+                    <div className="h-6 w-6 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-700">
+                      <Briefcase className="h-3.5 w-3.5" />
+                    </div>
+                    <span>{t("Career Opportunities")}</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {filterCategories.map((cat) => (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setCategoryFilter(cat)}
-                  className={`h-10 px-4 rounded-xl text-xs font-bold transition shadow-xs cursor-pointer ${
-                    categoryFilter === cat
-                      ? "bg-[#1b4332] text-white"
-                      : "bg-white/80 border border-white/60 text-[#1b4332] hover:bg-white"
-                  }`}
+          </section>
+
+          {/* 2. Internship Discovery Toolbar Card matching Reference Image */}
+          <section className="rounded-3xl bg-white border border-slate-200/90 shadow-xs p-4 sm:p-5 space-y-4">
+            {/* Top Row: Search and Dropdown Controls */}
+            <div className="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between">
+              {/* Search input with magnifying glass */}
+              <div className="relative flex-1 min-w-[280px]">
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder={t("Search internships (e.g. crop management, FPO, drone, soil testing...)")}
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-white text-xs sm:text-sm outline-none focus:bg-white focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition"
+                />
+              </div>
+
+              {/* Filters & Dropdown Group */}
+              <div className="flex flex-wrap sm:flex-nowrap gap-2.5 items-center">
+                {/* Category Select */}
+                <select
+                  value={categoryFilter}
+                  onChange={(e) => setCategoryFilter(e.target.value)}
+                  className="h-11 px-3.5 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-white text-xs font-bold text-slate-800 outline-none focus:border-emerald-600 cursor-pointer transition"
                 >
-                  {t(cat)}
+                  <option value="All">{t("All Categories")}</option>
+                  <option value="Field Work">{t("Field Work")}</option>
+                  <option value="Research">{t("Research")}</option>
+                  <option value="Agritech">{t("Agritech")}</option>
+                  <option value="Horticulture">{t("Horticulture")}</option>
+                  <option value="Livestock">{t("Livestock")}</option>
+                  <option value="Food Processing">{t("Food Processing")}</option>
+                  <option value="Organic Farming">{t("Organic Farming")}</option>
+                </select>
+
+                {/* Location Select */}
+                <select
+                  value={locationFilter}
+                  onChange={(e) => setLocationFilter(e.target.value)}
+                  className="h-11 px-3.5 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-white text-xs font-bold text-slate-800 outline-none focus:border-emerald-600 cursor-pointer transition"
+                >
+                  {locationsList.map((loc) => (
+                    <option key={loc} value={loc}>
+                      {t(loc)}
+                    </option>
+                  ))}
+                </select>
+
+                {/* Sort Select */}
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="h-11 px-3.5 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-white text-xs font-bold text-slate-800 outline-none focus:border-emerald-600 cursor-pointer transition"
+                >
+                  <option value="latest">{t("Latest")}</option>
+                  <option value="stipend-desc">{t("Stipend (High to Low)")}</option>
+                  <option value="stipend-asc">{t("Stipend (Low to High)")}</option>
+                  <option value="duration">{t("Duration")}</option>
+                </select>
+
+                {/* Filters Action Button */}
+                <button
+                  type="button"
+                  onClick={() => setShowFilterModal(true)}
+                  className="inline-flex items-center gap-1.5 h-11 px-4 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-white text-xs font-bold text-slate-800 transition cursor-pointer shrink-0"
+                >
+                  <SlidersHorizontal className="h-4 w-4 text-emerald-700" />
+                  <span>{t("Filters")}</span>
                 </button>
-              ))}
+              </div>
+            </div>
+
+            {/* Bottom Row: 8 Visual Category Cards with Authentic Agricultural Images */}
+            <div className="pt-2 border-t border-slate-100 flex items-center gap-3 overflow-x-auto no-scrollbar pb-1">
+              {categoriesList.map((cat) => {
+                const isActive = categoryFilter === cat.id;
+
+                if (cat.isAll) {
+                  return (
+                    <button
+                      key={cat.id}
+                      type="button"
+                      onClick={() => setCategoryFilter("All")}
+                      className={`h-20 min-w-[100px] sm:min-w-[110px] rounded-2xl p-2.5 flex flex-col items-center justify-center gap-1.5 transition cursor-pointer shrink-0 ${
+                        isActive
+                          ? "bg-[#1b4332] text-white shadow-md ring-2 ring-emerald-600/40"
+                          : "bg-slate-50 border border-slate-200 text-slate-700 hover:bg-white"
+                      }`}
+                    >
+                      <div
+                        className={`h-7 w-7 rounded-lg flex items-center justify-center ${
+                          isActive ? "bg-white/10 text-white" : "bg-emerald-100 text-emerald-800"
+                        }`}
+                      >
+                        <LayoutGrid className="h-4 w-4" />
+                      </div>
+                      <span className="text-xs font-black tracking-tight">{t("Internships")}</span>
+                    </button>
+                  );
+                }
+
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => setCategoryFilter(cat.id)}
+                    className={`h-20 min-w-[110px] sm:min-w-[120px] rounded-2xl p-1.5 flex flex-col items-center justify-between transition cursor-pointer shrink-0 bg-white border ${
+                      isActive
+                        ? "border-emerald-600 ring-2 ring-emerald-600/30 shadow-xs bg-emerald-50/40"
+                        : "border-slate-200 hover:border-slate-300 hover:shadow-2xs"
+                    }`}
+                  >
+                    <div className="h-11 w-full rounded-xl overflow-hidden bg-slate-100">
+                      <img
+                        src={cat.image || "/images/internships/cat-fieldwork.jpg"}
+                        alt={cat.label}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <span
+                      className={`text-[11px] font-black truncate px-1 ${
+                        isActive ? "text-[#1b4332]" : "text-slate-700"
+                      }`}
+                    >
+                      {t(cat.label)}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* 3. Section Results Header */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-2">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-black text-[#1b4332] tracking-tight">
+                {filteredAndSorted.length} {t("Internship Opportunities")}
+              </h2>
+              {categoryFilter !== "All" || locationFilter !== "All Locations" || query ? (
+                <p className="text-xs text-slate-500 font-medium mt-0.5">
+                  {t("Showing filtered agricultural opportunities")}
+                  {(categoryFilter !== "All" || locationFilter !== "All Locations" || query) && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setCategoryFilter("All");
+                        setLocationFilter("All Locations");
+                        setQuery("");
+                        setWorkArrangementFilter("All");
+                        setMinStipendFilter(0);
+                      }}
+                      className="ml-2 text-emerald-700 hover:underline font-bold"
+                    >
+                      ({t("Clear all filters")})
+                    </button>
+                  )}
+                </p>
+              ) : null}
+            </div>
+
+            <div className="flex items-center gap-2 text-xs font-bold text-slate-600 self-end sm:self-auto">
+              <span>{t("Sort by:")}</span>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="h-9 px-3 rounded-xl border border-slate-200 bg-white text-xs font-bold text-[#1b4332] outline-none cursor-pointer shadow-2xs"
+              >
+                <option value="latest">{t("Latest")}</option>
+                <option value="stipend-desc">{t("Stipend (High to Low)")}</option>
+                <option value="stipend-asc">{t("Stipend (Low to High)")}</option>
+                <option value="duration">{t("Duration")}</option>
+              </select>
             </div>
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filtered.map((i) => {
-            const isSubmittedItem = isSubmitted(i.id);
-            const isStartedItem = isStarted(i.id);
-
-            return (
-              <div
-                key={i.id}
-                className="rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-6 shadow-soft space-y-4 hover:shadow-md transition flex flex-col justify-between"
+          {/* 4. Internship Grid: 4 columns on large desktop, 2 on tablet, 1 on mobile */}
+          {filteredAndSorted.length === 0 ? (
+            <div className="rounded-3xl border border-slate-200 bg-white p-12 text-center space-y-4 max-w-lg mx-auto shadow-xs">
+              <Search className="h-10 w-10 text-slate-300 mx-auto" />
+              <h3 className="text-base font-black text-slate-800">
+                {t("No internship opportunities found")}
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                {t("Try clearing your search query or selecting a different category or location.")}
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setCategoryFilter("All");
+                  setLocationFilter("All Locations");
+                  setQuery("");
+                  setWorkArrangementFilter("All");
+                  setMinStipendFilter(0);
+                }}
+                className="h-10 px-5 rounded-xl bg-[#1b4332] text-white text-xs font-bold hover:bg-[#143a2b] transition cursor-pointer"
               >
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/70 px-2 py-0.5 rounded-md">
+                {t("Reset Filters")}
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              {filteredAndSorted.map((i) => {
+                const isSubmittedItem = isSubmitted(i.id);
+                const isStartedItem = isStarted(i.id);
+
+                return (
+                  <div
+                    key={i.id}
+                    className="rounded-3xl border border-slate-200/90 bg-white shadow-xs hover:shadow-md transition duration-200 overflow-hidden flex flex-col justify-between group"
+                  >
+                    {/* Top Image Thumbnail Area */}
+                    <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-100">
+                      <img
+                        src={i.image || "/images/internships/cat-fieldwork.jpg"}
+                        alt={i.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
+
+                      {/* Category Badge on Bottom-Left */}
+                      <div className="absolute bottom-2.5 left-2.5">
+                        <span className="inline-block px-2.5 py-1 rounded-md bg-[#eaf5ee] text-[#1b4332] text-[10px] font-black uppercase tracking-wider shadow-xs border border-emerald-200/80">
                           {t(i.category ?? "Field Work")}
                         </span>
+                      </div>
+
+                      {/* Stipend Badge on Bottom-Right */}
+                      <div className="absolute bottom-2.5 right-2.5">
+                        <span className="inline-block px-2.5 py-1 rounded-md bg-[#fff8eb] text-[#b45309] text-[11px] font-black shadow-xs border border-amber-200/90">
+                          {t(i.stipend)}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Card Body Content */}
+                    <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
+                      <div>
+                        <h3
+                          onClick={() => handleSelectInternship(i.id)}
+                          className="text-sm sm:text-base font-black text-[#1b4332] leading-snug line-clamp-1 hover:text-emerald-700 cursor-pointer transition"
+                          title={i.title}
+                        >
+                          {t(i.title)}
+                        </h3>
+
+                        <div className="flex items-center gap-1.5 text-xs text-slate-500 font-semibold mt-1">
+                          <span className="text-slate-700 font-bold truncate max-w-[130px]">
+                            {t(i.org)}
+                          </span>
+                          <span>•</span>
+                          <span className="flex items-center gap-0.5 text-emerald-800 font-semibold shrink-0">
+                            <MapPin className="h-3 w-3 text-emerald-700" />
+                            {t(i.location)}
+                          </span>
+                        </div>
+
+                        <p className="text-xs text-slate-500 font-normal leading-relaxed line-clamp-2 mt-2">
+                          {t(i.description ?? "")}
+                        </p>
+                      </div>
+
+                      {/* Meta Information Row */}
+                      <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-slate-500">
+                        <div className="flex items-center gap-1">
+                          <CalendarDays className="h-3.5 w-3.5 text-slate-400" />
+                          <span>{t(i.duration ?? "3 months")}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Laptop className="h-3.5 w-3.5 text-slate-400" />
+                          <span>{t(i.workArrangement ?? "On-site")}</span>
+                        </div>
+                      </div>
+
+                      {/* Card Action Buttons */}
+                      <div className="pt-2 grid grid-cols-2 gap-2">
+                        <button
+                          type="button"
+                          onClick={() => handleSelectInternship(i.id)}
+                          className="h-9 px-2 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center justify-center cursor-pointer shadow-2xs"
+                        >
+                          {t("View Details")}
+                        </button>
+
                         {i.isInternal || i.applyType === "internal" ? (
-                          <span className="text-[10px] font-extrabold text-emerald-900 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
-                            PureFarm Direct
-                          </span>
+                          isSubmittedItem ? (
+                            <button
+                              type="button"
+                              disabled
+                              className="h-9 px-2 rounded-xl bg-emerald-700 text-white text-[11px] font-bold transition flex items-center justify-center gap-1 cursor-not-allowed opacity-90 shadow-2xs"
+                            >
+                              <CheckCircle2 className="h-3.5 w-3.5" />
+                              <span>{t("Submitted")}</span>
+                            </button>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                handleSelectInternship(i.id);
+                                setShowApplyModal(true);
+                              }}
+                              className="h-9 px-2 rounded-xl bg-[#1b4332] hover:bg-[#143a2b] text-white text-xs font-black transition shadow-xs flex items-center justify-center gap-1 cursor-pointer"
+                            >
+                              <span>{t("Apply Now")}</span>
+                              <ArrowRight className="h-3.5 w-3.5" />
+                            </button>
+                          )
+                        ) : i.applyUrl ? (
+                          isStartedItem ? (
+                            <button
+                              type="button"
+                              onClick={() => handleApplyAction(i)}
+                              className="h-9 px-2 rounded-xl bg-blue-700 text-white text-[11px] font-bold transition flex items-center justify-center gap-1 cursor-pointer shadow-2xs"
+                            >
+                              <ExternalLink className="h-3.5 w-3.5" />
+                              <span>{t("Started")}</span>
+                            </button>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={() => handleApplyAction(i)}
+                              className="h-9 px-2 rounded-xl bg-[#1b4332] hover:bg-[#143a2b] text-white text-xs font-black transition shadow-xs flex items-center justify-center gap-1 cursor-pointer"
+                            >
+                              <span>{t("Apply Now")}</span>
+                              <ArrowRight className="h-3.5 w-3.5" />
+                            </button>
+                          )
                         ) : (
-                          <span className="text-[10px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md">
-                            External Partner
-                          </span>
+                          <button
+                            type="button"
+                            onClick={() => handleApplyAction(i)}
+                            className="h-9 px-2 rounded-xl bg-[#1b4332] hover:bg-[#143a2b] text-white text-xs font-black transition shadow-xs flex items-center justify-center gap-1 cursor-pointer"
+                          >
+                            <span>{t("Apply Now")}</span>
+                            <ArrowRight className="h-3.5 w-3.5" />
+                          </button>
                         )}
                       </div>
-                      <h3 className="text-lg font-black text-[#1b4332] leading-snug">
-                        {t(i.title)}
-                      </h3>
-                      <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">
-                        {t(i.org)} · {t(i.type)} ({t(i.location)})
-                      </p>
                     </div>
-                    <span className="shrink-0 rounded-full bg-amber-50 text-amber-800 px-3 py-1 text-xs font-black border border-amber-200 shadow-2xs">
-                      {t(i.stipend)}
-                    </span>
                   </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {t(i.description ?? "")}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {i.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="rounded-md bg-emerald-50 text-[#1b4332] px-2.5 py-1 text-[11px] font-bold border border-emerald-200"
-                      >
-                        {t(skill)}
-                      </span>
-                    ))}
+                );
+              })}
+            </div>
+          )}
+
+          {/* 5. Advanced Filters Modal */}
+          {showFilterModal ? (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+              <div className="bg-white rounded-3xl border border-slate-200 max-w-md w-full p-6 shadow-2xl space-y-4">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <h3 className="text-base font-black text-[#1b4332] flex items-center gap-2">
+                    <SlidersHorizontal className="h-4 w-4 text-emerald-700" />
+                    {t("Advanced Internship Filters")}
+                  </h3>
+                  <button
+                    type="button"
+                    onClick={() => setShowFilterModal(false)}
+                    className="text-muted-foreground hover:text-slate-900 text-sm font-bold cursor-pointer"
+                  >
+                    ✕
+                  </button>
+                </div>
+
+                <div className="space-y-4 text-xs">
+                  <div>
+                    <label className="font-bold text-slate-700 block mb-1.5">
+                      {t("Work Arrangement")}
+                    </label>
+                    <div className="grid grid-cols-4 gap-2">
+                      {["All", "On-site", "Hybrid", "Remote"].map((opt) => (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => setWorkArrangementFilter(opt)}
+                          className={`h-9 rounded-xl font-bold transition text-xs ${
+                            workArrangementFilter === opt
+                              ? "bg-[#1b4332] text-white shadow-2xs"
+                              : "bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100"
+                          }`}
+                        >
+                          {t(opt)}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="font-bold text-slate-700 block mb-1.5">
+                      {t("Minimum Stipend (per month)")}
+                    </label>
+                    <div className="grid grid-cols-4 gap-2">
+                      {[
+                        { label: "All", val: 0 },
+                        { label: "₹10K+", val: 10000 },
+                        { label: "₹12K+", val: 12000 },
+                        { label: "₹15K+", val: 15000 },
+                      ].map((opt) => (
+                        <button
+                          key={opt.label}
+                          type="button"
+                          onClick={() => setMinStipendFilter(opt.val)}
+                          className={`h-9 rounded-xl font-bold transition text-xs ${
+                            minStipendFilter === opt.val
+                              ? "bg-[#1b4332] text-white shadow-2xs"
+                              : "bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100"
+                          }`}
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                <div className="pt-3 flex flex-wrap items-center justify-between border-t border-border/60 mt-2 gap-2">
-                  <span className="text-xs text-muted-foreground font-medium">
-                    {t("Deadline")}: {t(i.deadline ?? "")}
-                  </span>
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => handleSelectInternship(i.id)}
-                      className="rounded-xl px-3 py-2 text-xs font-bold border border-slate-200 bg-white hover:bg-slate-50 text-[#1b4332] transition cursor-pointer"
-                    >
-                      {t("View Details")}
-                    </button>
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setWorkArrangementFilter("All");
+                      setMinStipendFilter(0);
+                    }}
+                    className="text-xs text-slate-500 hover:text-slate-800 font-bold"
+                  >
+                    {t("Reset Filter Options")}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowFilterModal(false)}
+                    className="h-10 px-6 rounded-xl bg-[#1b4332] hover:bg-[#143a2b] text-white text-xs font-black shadow-xs cursor-pointer"
+                  >
+                    {t("Apply Filters")}
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : null}
 
-                    {i.isInternal || i.applyType === "internal" ? (
-                      isSubmittedItem ? (
-                        <span className="inline-flex items-center gap-1 rounded-xl px-3 py-2 text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
-                          <CheckCircle2 className="h-3.5 w-3.5" />
-                          {t("Submitted ✓")}
-                        </span>
-                      ) : (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            handleSelectInternship(i.id);
-                            setShowApplyModal(true);
-                          }}
-                          className="rounded-xl px-4 py-2 text-xs font-black bg-[#2d6a4f] hover:bg-[#1b4332] text-white transition shadow-sm cursor-pointer"
-                        >
-                          {t("Apply Now")}
-                        </button>
-                      )
-                    ) : i.applyUrl ? (
-                      isStartedItem ? (
-                        <button
-                          type="button"
-                          onClick={() => handleApplyAction(i)}
-                          className="inline-flex items-center gap-1 rounded-xl px-3 py-2 text-xs font-bold bg-blue-100 text-blue-800 border border-blue-300 hover:bg-blue-200 transition cursor-pointer"
-                        >
-                          <ExternalLink className="h-3 w-3" />
-                          {t("Started ↗")}
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          onClick={() => handleApplyAction(i)}
-                          className="inline-flex items-center gap-1 rounded-xl px-4 py-2 text-xs font-black bg-[#2d6a4f] hover:bg-[#1b4332] text-white transition shadow-sm cursor-pointer"
-                        >
-                          <ExternalLink className="h-3 w-3" />
-                          {t("Apply ↗")}
-                        </button>
-                      )
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => handleApplyAction(i)}
-                        className="rounded-xl px-3 py-2 text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition shadow-xs cursor-pointer"
-                      >
-                        {t("Application Status")}
-                      </button>
+          {/* 6. External Listing Notice Modal */}
+          {noticeInternship ? (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+              <div className="bg-white rounded-3xl border border-slate-200 max-w-md w-full p-6 shadow-2xl space-y-4">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <h3 className="text-base font-black text-[#1b4332] flex items-center gap-2">
+                    <Info className="h-5 w-5 text-amber-600" />
+                    {t("External Application Portal Notice")}
+                  </h3>
+                  <button
+                    type="button"
+                    onClick={() => setNoticeInternship(null)}
+                    className="text-muted-foreground hover:text-slate-900 text-sm font-bold cursor-pointer"
+                  >
+                    ✕
+                  </button>
+                </div>
+                <div className="space-y-3">
+                  <div className="p-3.5 bg-amber-50 border border-amber-200 rounded-2xl text-amber-900 text-xs font-semibold leading-relaxed">
+                    {t("The host organization")} <strong>{noticeInternship.org}</strong>{" "}
+                    {t(
+                      "has not published an active verified direct application link for this listing. PureFarm does not generate placeholder or unverified external links.",
                     )}
                   </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {t("Students interested in this opportunity should visit")}{" "}
+                    <strong>{noticeInternship.org}</strong>
+                    {t(
+                      "\x27s official recruitment channels directly or contact PureFarm student advisory for verified opportunities.",
+                    )}
+                  </p>
+                </div>
+                <div className="pt-2 flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => setNoticeInternship(null)}
+                    className="h-10 px-5 rounded-xl bg-[#1b4332] hover:bg-[#143a2b] text-white text-xs font-bold transition shadow-xs cursor-pointer"
+                  >
+                    {t("Understood")}
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          {/* 7. In-app Application Modal for Internal Listings */}
+          {showApplyModal && selectedInternshipId ? (() => {
+            const currentItem = INTERNSHIPS.find((i) => i.id === selectedInternshipId);
+            if (!currentItem) return null;
+            return (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+                <div className="bg-white rounded-3xl border border-slate-200 max-w-md w-full p-6 shadow-2xl space-y-4">
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <div>
+                      <h3 className="text-base font-black text-[#1b4332]">
+                        {t("Apply for Internship")}
+                      </h3>
+                      <p className="text-xs text-slate-500 font-semibold mt-0.5">{currentItem.title}</p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setShowApplyModal(false)}
+                      className="text-muted-foreground hover:text-slate-900 text-sm font-bold cursor-pointer"
+                    >
+                      ✕
+                    </button>
+                  </div>
+
+                  {submittedMessage ? (
+                    <div className="p-5 bg-emerald-50 border border-emerald-200 rounded-2xl text-center space-y-2">
+                      <CheckCircle2 className="h-9 w-9 text-emerald-600 mx-auto" />
+                      <p className="text-sm font-black text-emerald-900">
+                        {t("Your application has been submitted successfully!")}
+                      </p>
+                      <p className="text-xs text-emerald-700">
+                        {t("Track your submission under My Applications.")}
+                      </p>
+                    </div>
+                  ) : (
+                    <form onSubmit={(e) => handleInternalSubmit(e, currentItem)} className="space-y-3.5">
+                      <div>
+                        <label className="text-xs font-bold text-slate-700 block mb-1">
+                          {t("Full Name")} *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          placeholder={applyForm.name || t("Full Name")}
+                          value={applyForm.name}
+                          onChange={(e) => setApplyForm({ ...applyForm, name: e.target.value })}
+                          className="w-full h-10 px-3.5 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs font-bold text-slate-700 block mb-1">
+                          {t("Mobile Number")} *
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          placeholder={applyForm.phone || t("Mobile Number")}
+                          value={applyForm.phone}
+                          onChange={(e) => setApplyForm({ ...applyForm, phone: e.target.value })}
+                          className="w-full h-10 px-3.5 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs font-bold text-slate-700 block mb-1">
+                          {t("College / Current Degree")}
+                        </label>
+                        <input
+                          type="text"
+                          placeholder={t("e.g. B.Sc Agriculture, Diploma, or Agritech")}
+                          value={applyForm.education}
+                          onChange={(e) => setApplyForm({ ...applyForm, education: e.target.value })}
+                          className="w-full h-10 px-3.5 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs font-bold text-slate-700 block mb-1">
+                          {t("Brief Introduction / Cover Note")}
+                        </label>
+                        <textarea
+                          rows={3}
+                          placeholder={t("Why are you interested in this internship?")}
+                          value={applyForm.notes}
+                          onChange={(e) => setApplyForm({ ...applyForm, notes: e.target.value })}
+                          className="w-full p-3 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
+                        />
+                      </div>
+
+                      <div className="pt-2 flex justify-end gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setShowApplyModal(false)}
+                          className="h-10 px-4 rounded-xl border border-slate-200 text-xs font-bold hover:bg-slate-50 cursor-pointer"
+                        >
+                          {t("Cancel")}
+                        </button>
+                        <button
+                          type="submit"
+                          className="h-10 px-6 rounded-xl bg-[#1b4332] hover:bg-[#143a2b] text-white text-xs font-black shadow-sm cursor-pointer"
+                        >
+                          {t("Submit Application")}
+                        </button>
+                      </div>
+                    </form>
+                  )}
                 </div>
               </div>
             );
-          })}
-        </div>
+          })() : null}
 
-        {/* External Listing Application Notice Modal */}
-        {noticeInternship ? (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4">
-            <div className="bg-white rounded-2xl border border-white/60 max-w-md w-full p-6 shadow-xl space-y-4">
-              <div className="flex items-center justify-between border-b border-border/60 pb-3">
-                <h3 className="text-base font-black text-[#1b4332] flex items-center gap-2">
-                  <Info className="h-5 w-5 text-amber-600" />
-                  {t("External Application Portal Notice")}
-                </h3>
-                <button
-                  type="button"
-                  onClick={() => setNoticeInternship(null)}
-                  className="text-muted-foreground hover:text-slate-900 text-sm font-bold cursor-pointer"
-                >
-                  ✕
-                </button>
-              </div>
-              <div className="space-y-3">
-                <div className="p-3.5 bg-amber-50 border border-amber-200 rounded-xl text-amber-900 text-xs font-semibold leading-relaxed">
-                  {t("The host organization")} <strong>{noticeInternship.org}</strong>{" "}
-                  {t(
-                    "has not published an active verified direct application link for this listing. PureFarm does not generate placeholder or unverified external links.",
-                  )}
-                </div>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  {t("Students interested in this opportunity should visit")}{" "}
-                  <strong>{noticeInternship.org}</strong>
-                  {t(
-                    "'s official recruitment channels directly or contact PureFarm student advisory for verified opportunities.",
-                  )}
-                </p>
-              </div>
-              <div className="pt-2 flex justify-end">
-                <button
-                  type="button"
-                  onClick={() => setNoticeInternship(null)}
-                  className="h-10 px-5 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-bold transition shadow-xs cursor-pointer"
-                >
-                  {t("Understood")}
-                </button>
-              </div>
-            </div>
-          </div>
-        ) : null}
-      </PageShell>
+        </div>
+      </div>
     </RoleGuard>
   );
 }
+
 
 export function NotificationsPage() {
   const { language, t } = useTranslation();
