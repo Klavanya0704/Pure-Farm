@@ -147,6 +147,20 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/rhizobium-biofertilizer.jpg",
   "Neem-Based Bio-Pesticide / Neem Oil — 1 litre":
     "/products/neem-oil-bio-pesticide-1-litre.jpg",
+  "Azadirachtin Botanical Pesticide (1500 PPM) — 1 litre":
+    "/products/neem-azadirachtin-pesticide.jpg",
+  "Trichoderma Viride Biofungicide (1.5% WP) — 1 kg":
+    "/products/trichoderma-biofungicide.jpg",
+  "Pseudomonas Fluorescens Bio-Control (1.0% Liquid) — 1 litre":
+    "/products/pseudomonas-biocontrol.jpg",
+  "Beauveria Bassiana Biopesticide (Liquid) — 1 litre":
+    "/products/beauveria-bassiana-biopesticide.jpg",
+  "Bacillus Thuringiensis Bt Biopesticide — 1 litre":
+    "/products/bt-biopesticide.jpg",
+  "Copper Oxychloride 50% WP Contact Fungicide — 500 g":
+    "/products/copper-fungicide.jpg",
+  "Sulphur 80% WDG Fungicide & Acaricide — 1 kg":
+    "/products/sulphur-fungicide.jpg",
 };
 
 const ROWS: Row[] = [
@@ -794,6 +808,79 @@ const ROWS: Row[] = [
     350,
     "Cold-pressed neem oil formulation for organic pest management and broad-spectrum insect repelling in field and horticulture crops.",
     "Eco Friendly",
+  ],
+  [
+    "Azadirachtin Botanical Pesticide (1500 PPM) — 1 litre",
+    "Katyayani Organics",
+    "pesticides",
+    "bottle",
+    550,
+    4.8,
+    280,
+    "Cold-pressed botanical neem insecticide containing 1500 PPM Azadirachtin to manage aphids, whiteflies, thrips, and caterpillars.",
+    "Eco Friendly",
+  ],
+  [
+    "Trichoderma Viride Biofungicide (1.5% WP) — 1 kg",
+    "Katyayani Organics",
+    "pesticides",
+    "pack",
+    280,
+    4.7,
+    340,
+    "High-potency Trichoderma viride biological fungicide for protecting crops from soil-borne root rot, collar rot, damping off, and wilt.",
+    "Popular",
+  ],
+  [
+    "Pseudomonas Fluorescens Bio-Control (1.0% Liquid) — 1 litre",
+    "Katyayani Organics",
+    "pesticides",
+    "bottle",
+    320,
+    4.6,
+    260,
+    "Liquid biological formulation that colonizes the plant rhizosphere to suppress bacterial blight, damping-off, and fungal root pathogens.",
+  ],
+  [
+    "Beauveria Bassiana Biopesticide (Liquid) — 1 litre",
+    "Katyayani Organics",
+    "pesticides",
+    "bottle",
+    340,
+    4.7,
+    310,
+    "Entomopathogenic fungal biopesticide for biological management of whiteflies, thrips, aphids, mealybugs, and leaf-eating caterpillars.",
+  ],
+  [
+    "Bacillus Thuringiensis Bt Biopesticide — 1 litre",
+    "Katyayani Organics",
+    "pesticides",
+    "bottle",
+    420,
+    4.8,
+    220,
+    "Microbial larvicide targeting lepidopteran caterpillars, fruit borers, and pod borers without harming beneficial pollinators.",
+    "Best Seller",
+  ],
+  [
+    "Copper Oxychloride 50% WP Contact Fungicide — 500 g",
+    "Katyayani Organics",
+    "pesticides",
+    "pack",
+    360,
+    4.6,
+    400,
+    "Broad-spectrum protectant contact fungicide and bactericide for downy mildew, leaf spots, fruit rot, and late blight prevention.",
+  ],
+  [
+    "Sulphur 80% WDG Fungicide & Acaricide — 1 kg",
+    "Katyayani Organics",
+    "pesticides",
+    "pack",
+    240,
+    4.7,
+    450,
+    "Water-dispersible granular sulphur providing triple action: powdery mildew control, mite management, and essential sulphur plant nutrition.",
   ],
 ];
 

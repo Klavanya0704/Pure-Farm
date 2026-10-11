@@ -1701,6 +1701,13 @@ export const translations: Record<Language, Record<string, string>> = {
     "Organic Vermicompost — 30 kg bag": "Organic Vermicompost — 30 kg bag",
     "Rhizobium Biofertilizer — 500 g pack": "Rhizobium Biofertilizer — 500 g pack",
     "Neem-Based Bio-Pesticide / Neem Oil — 1 litre": "Neem-Based Bio-Pesticide / Neem Oil — 1 litre",
+    "Azadirachtin Botanical Pesticide (1500 PPM) — 1 litre": "Azadirachtin Botanical Pesticide (1500 PPM) — 1 litre",
+    "Trichoderma Viride Biofungicide (1.5% WP) — 1 kg": "Trichoderma Viride Biofungicide (1.5% WP) — 1 kg",
+    "Pseudomonas Fluorescens Bio-Control (1.0% Liquid) — 1 litre": "Pseudomonas Fluorescens Bio-Control (1.0% Liquid) — 1 litre",
+    "Beauveria Bassiana Biopesticide (Liquid) — 1 litre": "Beauveria Bassiana Biopesticide (Liquid) — 1 litre",
+    "Bacillus Thuringiensis Bt Biopesticide — 1 litre": "Bacillus Thuringiensis Bt Biopesticide — 1 litre",
+    "Copper Oxychloride 50% WP Contact Fungicide — 500 g": "Copper Oxychloride 50% WP Contact Fungicide — 500 g",
+    "Sulphur 80% WDG Fungicide & Acaricide — 1 kg": "Sulphur 80% WDG Fungicide & Acaricide — 1 kg",
     "Swaraj 735 FE Tractor (40 HP)": "Swaraj 735 FE Tractor (40 HP)",
     "Sonalika Baagban DI-30 RX Tractor (30 HP)": "Sonalika Baagban DI-30 RX Tractor (30 HP)",
     "Kubota Harvester DC-60 (60 HP)": "Kubota Harvester DC-60 (60 HP)",
@@ -4260,6 +4267,20 @@ export const translations: Record<Language, Record<string, string>> = {
       "రైజోబియం జీవ ఎరువు — 500 గ్రాముల ప్యాక్",
     "Neem-Based Bio-Pesticide / Neem Oil — 1 litre":
       "వేప ఆధారిత బయో-పురుగుమందు / వేప నూనె — 1 లీటరు",
+    "Azadirachtin Botanical Pesticide (1500 PPM) — 1 litre":
+      "అజాడిరక్టిన్ సేంద్రీయ పురుగుమందు (1500 PPM) — 1 లీటరు",
+    "Trichoderma Viride Biofungicide (1.5% WP) — 1 kg":
+      "ట్రైకోడెర్మా విరిడే జీవ శిలీంద్రనాశిని (1.5% WP) — 1 కేజీ",
+    "Pseudomonas Fluorescens Bio-Control (1.0% Liquid) — 1 litre":
+      "సూడోమోనాస్ ఫ్లోరోసెన్స్ జీవ నియంత్రణ ద్రావణం — 1 లీటరు",
+    "Beauveria Bassiana Biopesticide (Liquid) — 1 litre":
+      "బ్యూవేరియా బాసియానా జీవ పురుగుమందు — 1 లీటరు",
+    "Bacillus Thuringiensis Bt Biopesticide — 1 litre":
+      "బాసిల్లస్ తురింజియెన్సిస్ Bt జీవ లార్వానాశిని — 1 లీటరు",
+    "Copper Oxychloride 50% WP Contact Fungicide — 500 g":
+      "కాపర్ ఆక్సీక్లోరైడ్ 50% WP శిలీంద్రనాశిని — 500 గ్రాములు",
+    "Sulphur 80% WDG Fungicide & Acaricide — 1 kg":
+      "సల్ఫర్ 80% WDG శిలీంద్రనాశిని & మైట్ నాశిని — 1 కేజీ",
     "Swaraj 735 FE Tractor (40 HP)":
       "స్వరాజ్ 735 ఎఫ్ఈ ట్రాక్టర్ (40 హెచ్‌పి)",
     "Sonalika Baagban DI-30 RX Tractor (30 HP)":
