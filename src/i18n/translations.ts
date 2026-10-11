@@ -214,13 +214,11 @@ export const translations: Record<Language, Record<string, string>> = {
     "Bhimavaram, Andhra Pradesh": "Bhimavaram, Andhra Pradesh",
     "Bitter Gourd Seed Hybrid (50 g)": "Bitter Gourd Seed Hybrid (50 g)",
     "Black Gram Seed Pant U-31 (5 kg)": "Black Gram Seed Pant U-31 (5 kg)",
-    "Bone Meal Organic (10 kg)": "Bone Meal Organic (10 kg)",
     "Book certified cold storage spaces early during peak harvest seasons":
       "Book certified cold storage spaces early during peak harvest seasons",
     "Border rows of tall Maize or Sorghum act as natural windbreakers for delicate vegetable crops.":
       "Border rows of tall Maize or Sorghum act as natural windbreakers for delicate vegetable crops.",
     "Borer insects damage stems and fruit tissues": "Borer insects damage stems and fruit tissues",
-    "Boron 20% Powder (1 kg)": "Boron 20% Powder (1 kg)",
     "Bottle Gourd Seed Pusa Naveen (100 g)": "Bottle Gourd Seed Pusa Naveen (100 g)",
     "Box / Crate": "Box / Crate",
     "Brief Introduction / Cover Note": "Brief Introduction / Cover Note",
@@ -269,7 +267,6 @@ export const translations: Record<Language, Record<string, string>> = {
     Career: "Career",
     "Carefully Handpicked": "Carefully Handpicked",
     "Carrot Seed Pusa Rudhira (250 g)": "Carrot Seed Pusa Rudhira (250 g)",
-    "Castor Seed GCH-7 (5 kg)": "Castor Seed GCH-7 (5 kg)",
     Category: "Category",
     "Cattle Feed Trough Plastic 60 L": "Cattle Feed Trough Plastic 60 L",
     "Cauliflower Seed Snowball-16 (50 g)": "Cauliflower Seed Snowball-16 (50 g)",
@@ -399,7 +396,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "Covers prevented sowing, standing crop damage, and localized hailstorm loss",
     "Covers rainfall deficit/excess, unseasonal rainfall, high/low temperature spikes, humidity fluctuations, and wind speed deviations.":
       "Covers rainfall deficit/excess, unseasonal rainfall, high/low temperature spikes, humidity fluctuations, and wind speed deviations.",
-    "Cow Dung Manure Composted (40 kg)": "Cow Dung Manure Composted (40 kg)",
     "Create Account": "Create Account",
     Credit: "Credit",
     "Critical Crop Water Requirement Stages": "Critical Crop Water Requirement Stages",
@@ -429,7 +425,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "Cultivating cover crops and organic mulches to enrich soil biology.":
       "Cultivating cover crops and organic mulches to enrich soil biology.",
     "Current Weather": "Current Weather",
-    "Curry Leaf Plant Sapling": "Curry Leaf Plant Sapling",
     "DAP 18-46-0 (50 kg)": "DAP 18-46-0 (50 kg)",
     "Dairy Cattle, Buffalo, Goat & Sheep": "Dairy Cattle, Buffalo, Goat & Sheep",
     "Dairy Management": "Dairy Management",
@@ -518,7 +513,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "Drone spraying for pesticides, fertilizers, and crop surveillance.",
     "Drones cover 1 acre field spray in under 10 minutes":
       "Drones cover 1 acre field spray in under 10 minutes",
-    "Drumstick Seed PKM-1 (250 g)": "Drumstick Seed PKM-1 (250 g)",
     "Duggirala Cold Storage": "Duggirala Cold Storage",
     Duration: "Duration",
     "EC sensors monitor root zone salinity and prevent fertilizer burn":
@@ -633,7 +627,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "Fenugreek Seed Pusa Early Bunching (1 kg)": "Fenugreek Seed Pusa Early Bunching (1 kg)",
     "Ferment Jeevamrutha culture for 48-72 hours under shade":
       "Ferment Jeevamrutha culture for 48-72 hours under shade",
-    "Ferrous Sulphate (10 kg)": "Ferrous Sulphate (10 kg)",
     "Fertigation delivers liquid water-soluble fertilizers directly into root zones via drip lines, raising nutrient efficiency from 40% to 80%.":
       "Fertigation delivers liquid water-soluble fertilizers directly into root zones via drip lines, raising nutrient efficiency from 40% to 80%.",
     "Fertigation: Dosing Water-Soluble Fertilizers":
@@ -655,7 +648,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "Find fresh crops, fruits, seeds, and equipment",
     "Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation.":
       "Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation.",
-    "Finger Millet Seed GPU-28 (5 kg)": "Finger Millet Seed GPU-28 (5 kg)",
     "Five-day local forecast with field action notes.":
       "Five-day local forecast with field action notes.",
     Flowering: "Flowering",
@@ -706,7 +698,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "Gain practical experience in vegetable cultivation, fruit crops, nursery management, and protected cultivation.":
       "Gain practical experience in vegetable cultivation, fruit crops, nursery management, and protected cultivation.",
     "Garden Spade Steel": "Garden Spade Steel",
-    "Garlic Seed Bulb G-282 (10 kg)": "Garlic Seed Bulb G-282 (10 kg)",
     "Generate crop vigor maps (NDVI) for precision fertilizer application":
       "Generate crop vigor maps (NDVI) for precision fertilizer application",
     "Generates additional long-term income alongside seasonal food crops":
@@ -715,7 +706,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "Get produce quality sampled and tested at e-NAM assaying labs",
     "Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.":
       "Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.",
-    "Ginger Rhizome Seed Varada (25 kg)": "Ginger Rhizome Seed Varada (25 kg)",
     "Go to Dashboard": "Go to Dashboard",
     "Go to Marketplace": "Go to Marketplace",
     "Godavari Fresh Storage & Agro Hub": "Godavari Fresh Storage & Agro Hub",
@@ -749,13 +739,11 @@ export const translations: Record<Language, Record<string, string>> = {
     "Grow Marigold along field borders as a trap crop for nematodes":
       "Grow Marigold along field borders as a trap crop for nematodes",
     "Grow More. Harvest Better.": "Grow More. Harvest Better.",
-    "Guava Grafted Plant Allahabad Safeda": "Guava Grafted Plant Allahabad Safeda",
     Guest: "Guest",
     "Guntur Agri Cold Storage": "Guntur Agri Cold Storage",
     "Guntur Road, Vijayawada, Andhra Pradesh - 520001":
       "Guntur Road, Vijayawada, Andhra Pradesh - 520001",
     "Guntur, Andhra Pradesh": "Guntur, Andhra Pradesh",
-    "Gypsum Agricultural Grade (50 kg)": "Gypsum Agricultural Grade (50 kg)",
     "HDPE Mulching Film 25 Micron (400 m)": "HDPE Mulching Film 25 Micron (400 m)",
     "HEALTHY SOIL \u2022 HEALTHY CROPS": "HEALTHY SOIL \u2022 HEALTHY CROPS",
     HOT: "HOT",
@@ -794,7 +782,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "How to collect soil samples, understand pH values, and correct acidic or alkaline soil.",
     "How to get free soil testing, reading soil card results, and fertilizer recommendations.":
       "How to get free soil testing, reading soil card results, and fertilizer recommendations.",
-    "Humic Acid Granules (5 kg)": "Humic Acid Granules (5 kg)",
     "Humid sunshine": "Humid sunshine",
     Humidity: "Humidity",
     "Humidity control: Automated 85%-95% RH": "Humidity control: Automated 85%-95% RH",
@@ -879,7 +866,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "Issue Date": "Issue Date",
     Issuer: "Issuer",
     "Item Total": "Item Total",
-    "Jeevamrut Concentrate (5 litre)": "Jeevamrut Concentrate (5 litre)",
     "Jeevamrutha is a fermented bio-culture rich in beneficial microorganisms that revive soil health. Neem oil (10,000 ppm) acts as an effective repellent and growth disruptor for insect pests.":
       "Jeevamrutha is a fermented bio-culture rich in beneficial microorganisms that revive soil health. Neem oil (10,000 ppm) acts as an effective repellent and growth disruptor for insect pests.",
     "Join a local FPO to aggregate small crop quantities into bulk lots that attract corporate buyers.":
@@ -965,7 +951,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "Light showers": "Light showers",
     "Line farm ponds with HDPE sheets to prevent seepage":
       "Line farm ponds with HDPE sheets to prevent seepage",
-    "Liquid Consortia Biofertiliser (1 litre)": "Liquid Consortia Biofertiliser (1 litre)",
     "List New Produce": "List New Produce",
     "List Your First Product": "List Your First Product",
     "Live Mandi Prices": "Live Mandi Prices",
@@ -1020,7 +1005,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "Mandi Market Advisory": "Mandi Market Advisory",
     "Mandi prices fluctuate daily based on total crop arrival volumes, quality grading, buyer competition, and transportation costs. Monitoring arrival trends helps farmers choose the best selling day.":
       "Mandi prices fluctuate daily based on total crop arrival volumes, quality grading, buyer competition, and transportation costs. Monitoring arrival trends helps farmers choose the best selling day.",
-    "Mango Grafted Plant Dasheri": "Mango Grafted Plant Dasheri",
     "Manual Knapsack Sprayer 16 L": "Manual Knapsack Sprayer 16 L",
     "Map farm plots using multispectral drone sensors":
       "Map farm plots using multispectral drone sensors",
@@ -1041,7 +1025,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "Maximizing land efficiency by growing complementary crops together.":
       "Maximizing land efficiency by growing complementary crops together.",
     "Metric Ton": "Metric Ton",
-    "Micronutrient Mixture Grade-II (5 kg)": "Micronutrient Mixture Grade-II (5 kg)",
     "Milking Machine Single Bucket": "Milking Machine Single Bucket",
     "Millets consume 70% less water than paddy and survive high heat dry spells.":
       "Millets consume 70% less water than paddy and survive high heat dry spells.",
@@ -1090,7 +1073,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "My Orders": "My Orders",
     "My Products & Inventory": "My Products & Inventory",
     "My Products (Sell)": "My Products (Sell)",
-    "Mycorrhiza VAM Granules (4 kg)": "Mycorrhiza VAM Granules (4 kg)",
     "NABARD and Banks": "NABARD and Banks",
     "NDVI satellite imagery measures green vegetation health from space, helping farmers identify yield variations, nutrient shortages, and irrigation leaks.":
       "NDVI satellite imagery measures green vegetation health from space, helping farmers identify yield variations, nutrient shortages, and irrigation leaks.",
@@ -1099,14 +1081,11 @@ export const translations: Record<Language, Record<string, string>> = {
     "NEXT-GEN AGRICULTURE": "NEXT-GEN AGRICULTURE",
     "NPK 10:26:26 Complex (50 kg)": "NPK 10:26:26 Complex (50 kg)",
     "NPK 20:20:0:13 (50 kg)": "NPK 20:20:0:13 (50 kg)",
-    "Nano DAP Liquid (500 ml)": "Nano DAP Liquid (500 ml)",
     "Nano Urea Liquid (500 ml)": "Nano Urea Liquid (500 ml)",
-    "Napier Grass Root Slips (100 slips)": "Napier Grass Root Slips (100 slips)",
     "Natural Pest Control (Jeevamrutha & Neem Oil)":
       "Natural Pest Control (Jeevamrutha & Neem Oil)",
     "Nearest Distance First": "Nearest Distance First",
     "Need Help?": "Need Help?",
-    "Neem Cake Powder (25 kg)": "Neem Cake Powder (25 kg)",
     "Never miss irrigation during the Crown Root Initiation stage (20-25 days after Wheat sowing).":
       "Never miss irrigation during the Crown Root Initiation stage (20-25 days after Wheat sowing).",
     "Never mix damaged or decaying fruits/vegetables with healthy produce during packaging.":
@@ -1186,7 +1165,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "PMFBY protects farmers against non-preventable crop losses from natural calamities, droughts, floods, and pest attacks. Premium is capped at just 2% for Kharif and 1.5% for Rabi crops.":
       "PMFBY protects farmers against non-preventable crop losses from natural calamities, droughts, floods, and pest attacks. Premium is capped at just 2% for Kharif and 1.5% for Rabi crops.",
     "PRODUCE PRESERVATION & LOGISTICS": "PRODUCE PRESERVATION & LOGISTICS",
-    "PSB Phosphate Solubilising Bacteria (500 g)": "PSB Phosphate Solubilising Bacteria (500 g)",
     "Pack produce in clean jute or breathable HDPE bags with weight tags":
       "Pack produce in clean jute or breathable HDPE bags with weight tags",
     Packaging: "Packaging",
@@ -1195,7 +1173,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "Paddy mandi price up in Amritsar": "Paddy mandi price up in Amritsar",
     "Paddy requires critical water at tillering and panicle initiation":
       "Paddy requires critical water at tillering and panicle initiation",
-    "Panchagavya Organic Tonic (5 litre)": "Panchagavya Organic Tonic (5 litre)",
     "Papaya Seed Red Lady (10 g)": "Papaya Seed Red Lady (10 g)",
     "Participate in post-harvest harvesting, grading, and packing of fruit crops":
       "Participate in post-harvest harvesting, grading, and packing of fruit crops",
@@ -1256,7 +1233,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "Post-harvest cleaning and grading separates damaged, undersized, or diseased produce from top-quality items. Graded produce commands a 15-20% higher market price in mandis.":
       "Post-harvest cleaning and grading separates damaged, undersized, or diseased produce from top-quality items. Graded produce commands a 15-20% higher market price in mandis.",
     Posted: "Posted",
-    "Potassium Humate Shiny Flakes (2 kg)": "Potassium Humate Shiny Flakes (2 kg)",
     "Potassium Schoenite (25 kg)": "Potassium Schoenite (25 kg)",
     Potato: "Potato",
     "Potato Seed Tuber Kufri Jyoti (50 kg)": "Potato Seed Tuber Kufri Jyoti (50 kg)",
@@ -1473,7 +1449,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "Seasonal Crop Insurance": "Seasonal Crop Insurance",
     "Seasonal Farming Guide": "Seasonal Farming Guide",
     "Seasonal crop insurance": "Seasonal crop insurance",
-    "Seaweed Extract Liquid (1 litre)": "Seaweed Extract Liquid (1 litre)",
     "Secure Payments": "Secure Payments",
     "Seed Drill 9 Tyne": "Seed Drill 9 Tyne",
     "Seed Selection and Sowing Techniques": "Seed Selection and Sowing Techniques",
@@ -1499,7 +1474,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "Selling through FPOs or direct supply contracts with retail chains bypasses multiple middleman commissions, increasing farmer profit margins by 15-20%.":
       "Selling through FPOs or direct supply contracts with retail chains bypasses multiple middleman commissions, increasing farmer profit margins by 15-20%.",
     "Send Verification Code": "Send Verification Code",
-    "Sesame Seed GT-10 (2 kg)": "Sesame Seed GT-10 (2 kg)",
     "Set up 5 pheromone traps per acre for early detection of bollworm and stem borer moths.":
       "Set up 5 pheromone traps per acre for early detection of bollworm and stem borer moths.",
     "Shade Net 50% Green (3 x 50 m)": "Shade Net 50% Green (3 x 50 m)",
@@ -1560,7 +1534,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "Solar drying tomatoes and chillies creates shelf-stable products that sell at 3x raw prices.":
       "Solar drying tomatoes and chillies creates shelf-stable products that sell at 3x raw prices.",
     "Solid State Storage": "Solid State Storage",
-    "Sorghum Seed CSH-16 (5 kg)": "Sorghum Seed CSH-16 (5 kg)",
     "Sort By": "Sort By",
     "Sow Dhaincha or Sunn Hemp at 20-25 kg seed per acre":
       "Sow Dhaincha or Sunn Hemp at 20-25 kg seed per acre",
@@ -1625,7 +1598,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "Sudden heatwaves during grain filling shorten crop maturity and reduce grain weight. Applying foliar sprays of 1% Potassium Nitrate helps plants maintain cell turgor and withstand thermal stress.":
       "Sudden heatwaves during grain filling shorten crop maturity and reduce grain weight. Applying foliar sprays of 1% Potassium Nitrate helps plants maintain cell turgor and withstand thermal stress.",
     "Sugarcane Seed Sett Co-0238 (100 setts)": "Sugarcane Seed Sett Co-0238 (100 setts)",
-    "Sulphur 90% WDG (5 kg)": "Sulphur 90% WDG (5 kg)",
     "Sum insured based on district crop notification and scale of finance.":
       "Sum insured based on district crop notification and scale of finance.",
     Sun: "Sun",
@@ -2270,16 +2242,12 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c15\u0c3e\u0c15\u0c30\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c39\u0c48\u0c2c\u0c4d\u0c30\u0c3f\u0c21\u0c4d (50 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
     "Black Gram Seed Pant U-31 (5 kg)":
       "\u0c2e\u0c3f\u0c28\u0c41\u0c2e\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2a\u0c4d\u0c2f\u0c3e\u0c02\u0c1f\u0c4d U-31 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Bone Meal Organic (10 kg)":
-      "\u0c0e\u0c2e\u0c41\u0c15\u0c32 \u0c2a\u0c4a\u0c21\u0c3f \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c0e\u0c30\u0c41\u0c35\u0c41 (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Book certified cold storage spaces early during peak harvest seasons":
       "\u0c15\u0c4b\u0c24 \u0c15\u0c3e\u0c32\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2e\u0c41\u0c02\u0c26\u0c47 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c38\u0c4d\u0c25\u0c32\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2c\u0c41\u0c15\u0c4d \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f",
     "Border rows of tall Maize or Sorghum act as natural windbreakers for delicate vegetable crops.":
       "\u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32 \u0c2a\u0c02\u0c1f\u0c32 \u0c1a\u0c41\u0c1f\u0c4d\u0c1f\u0c42 \u0c2a\u0c4a\u0c21\u0c35\u0c3e\u0c1f\u0c3f \u0c1c\u0c4a\u0c28\u0c4d\u0c28 \u0c32\u0c47\u0c26\u0c3e \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c1c\u0c4a\u0c28\u0c4d\u0c28 \u0c35\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c17\u0c3e\u0c32\u0c3f \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
     "Borer insects damage stems and fruit tissues":
       "\u0c24\u0c4a\u0c32\u0c41\u0c1a\u0c41 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32\u0c41 \u0c15\u0c3e\u0c02\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c3e\u0c2f\u0c32\u0c15\u0c41 \u0c28\u0c37\u0c4d\u0c1f\u0c02 \u0c15\u0c32\u0c3f\u0c17\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
-    "Boron 20% Powder (1 kg)":
-      "\u0c2c\u0c4b\u0c30\u0c3e\u0c28\u0c4d 20% \u0c2a\u0c4a\u0c21\u0c3f (1 \u0c15\u0c3f\u0c32\u0c4b)",
     "Bottle Gourd Seed Pusa Naveen (100 g)":
       "\u0c38\u0c4a\u0c30\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2a\u0c42\u0c38\u0c3e \u0c28\u0c35\u0c40\u0c28\u0c4d (100 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
     "Box / Crate": "\u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c46 / \u0c15\u0c4d\u0c30\u0c47\u0c1f\u0c4d",
@@ -2345,8 +2313,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c1c\u0c3e\u0c17\u0c4d\u0c30\u0c24\u0c4d\u0c24\u0c17\u0c3e \u0c0e\u0c02\u0c2a\u0c3f\u0c15 \u0c1a\u0c47\u0c38\u0c3f\u0c28\u0c35\u0c3f",
     "Carrot Seed Pusa Rudhira (250 g)":
       "\u0c15\u0c4d\u0c2f\u0c3e\u0c30\u0c46\u0c1f\u0c4d \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2a\u0c42\u0c38\u0c3e \u0c30\u0c41\u0c27\u0c3f\u0c30 (250 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
-    "Castor Seed GCH-7 (5 kg)":
-      "\u0c06\u0c2e\u0c41\u0c26\u0c02 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 GCH-7 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     Category: "\u0c35\u0c30\u0c4d\u0c17\u0c02",
     "Cattle Feed Trough Plastic 60 L":
       "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c47\u0c24 \u0c2a\u0c4d\u0c32\u0c3e\u0c38\u0c4d\u0c1f\u0c3f\u0c15\u0c4d \u0c24\u0c4a\u0c1f\u0c4d\u0c1f\u0c3f 60 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41",
@@ -2520,8 +2486,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c35\u0c30\u0c26\u0c32\u0c41, \u0c35\u0c21\u0c17\u0c02\u0c21\u0c4d\u0c32 \u0c35\u0c30\u0c4d\u0c37\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c15\u0c32\u0c3f\u0c17\u0c47 \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c30\u0c3f\u0c39\u0c3e\u0c30\u0c02 \u0c07\u0c38\u0c4d\u0c24\u0c3e\u0c30\u0c41",
     "Covers rainfall deficit/excess, unseasonal rainfall, high/low temperature spikes, humidity fluctuations, and wind speed deviations.":
       "\u0c35\u0c30\u0c4d\u0c37\u0c2a\u0c3e\u0c24\u0c02 \u0c32\u0c4b\u0c1f\u0c41/\u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35, \u0c05\u0c15\u0c3e\u0c32 \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c09\u0c37\u0c4d\u0c23\u0c4b\u0c17\u0c4d\u0c30\u0c24 \u0c2e\u0c3e\u0c30\u0c4d\u0c2a\u0c41\u0c32\u0c15\u0c41 \u0c30\u0c15\u0c4d\u0c37\u0c23.",
-    "Cow Dung Manure Composted (40 kg)":
-      "\u0c2a\u0c36\u0c41\u0c35\u0c41\u0c32 \u0c0e\u0c30\u0c41\u0c35\u0c41 \u0c15\u0c02\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d (40 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Create Account":
       "\u0c16\u0c3e\u0c24\u0c3e\u0c28\u0c41 \u0c38\u0c43\u0c37\u0c4d\u0c1f\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
     Credit: "\u0c30\u0c41\u0c23\u0c02",
@@ -2562,8 +2526,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c28\u0c47\u0c32 \u0c38\u0c3e\u0c30\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c46\u0c02\u0c1a\u0c21\u0c3e\u0c28\u0c3f\u0c15\u0c3f \u0c2a\u0c1a\u0c4d\u0c1a\u0c3f\u0c30\u0c4a\u0c1f\u0c4d\u0c1f \u0c2a\u0c48\u0c30\u0c4d\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c1a\u0c4d\u0c1b\u0c3e\u0c26\u0c28 \u0c35\u0c3e\u0c21\u0c15\u0c02.",
     "Current Weather":
       "\u0c2a\u0c4d\u0c30\u0c38\u0c4d\u0c24\u0c41\u0c24 \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23\u0c02",
-    "Curry Leaf Plant Sapling":
-      "\u0c15\u0c30\u0c3f\u0c35\u0c47\u0c2a\u0c3e\u0c15\u0c41 \u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c28\u0c3e\u0c1f\u0c41",
     "DAP 18-46-0 (50 kg)":
       "\u0c21\u0c3f\u0c0e\u0c2a\u0c3f 18-46-0 (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Dairy Cattle, Buffalo, Goat & Sheep":
@@ -2690,8 +2652,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41 \u0c2e\u0c02\u0c26\u0c41\u0c32\u0c41, \u0c26\u0c4d\u0c30\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c02\u0c1f \u0c2a\u0c30\u0c4d\u0c2f\u0c35\u0c47\u0c15\u0c4d\u0c37\u0c23\u0c15\u0c41 \u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02.",
     "Drones cover 1 acre field spray in under 10 minutes":
       "\u0c21\u0c4d\u0c30\u0c4b\u0c28\u0c4d\u0c32\u0c41 \u0c0e\u0c15\u0c30\u0c02 \u0c2a\u0c4a\u0c32\u0c3e\u0c28\u0c4d\u0c28\u0c3f 10 \u0c28\u0c3f\u0c2e\u0c3f\u0c37\u0c3e\u0c32\u0c32\u0c4b \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f",
-    "Drumstick Seed PKM-1 (250 g)":
-      "\u0c2e\u0c41\u0c28\u0c17\u0c15\u0c3e\u0c2f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 PKM-1 (250 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
     "Duggirala Cold Storage":
       "\u0c26\u0c41\u0c17\u0c4d\u0c17\u0c3f\u0c30\u0c3e\u0c32 \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d",
     Duration: "\u0c35\u0c4d\u0c2f\u0c35\u0c27\u0c3f",
@@ -2848,8 +2808,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c2e\u0c46\u0c02\u0c24\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c2a\u0c42\u0c38\u0c3e (1 \u0c15\u0c3f\u0c32\u0c4b)",
     "Ferment Jeevamrutha culture for 48-72 hours under shade":
       "\u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c28\u0c40\u0c21\u0c32\u0c4b 48-72 \u0c17\u0c02\u0c1f\u0c32 \u0c2a\u0c3e\u0c1f\u0c41 \u0c2a\u0c41\u0c32\u0c3f\u0c2f\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c02\u0c21\u0c3f",
-    "Ferrous Sulphate (10 kg)":
-      "\u0c2b\u0c46\u0c30\u0c4d\u0c30\u0c38\u0c4d \u0c38\u0c32\u0c4d\u0c2b\u0c47\u0c1f\u0c4d (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Fertigation delivers liquid water-soluble fertilizers directly into root zones via drip lines, raising nutrient efficiency from 40% to 80%.":
       "\u0c28\u0c40\u0c1f\u0c3f\u0c32\u0c4b \u0c15\u0c30\u0c3f\u0c17\u0c47 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c2c\u0c3f\u0c02\u0c26\u0c41 \u0c38\u0c47\u0c26\u0c4d\u0c2f\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c05\u0c02\u0c26\u0c3f\u0c02\u0c1a\u0c21\u0c02 (\u0c2b\u0c46\u0c30\u0c4d\u0c1f\u0c3f\u0c17\u0c47\u0c37\u0c28\u0c4d) \u0c35\u0c32\u0c4d\u0c32 \u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c17\u0c4d\u0c30\u0c39\u0c23 40% \u0c28\u0c41\u0c02\u0c21\u0c3f 80% \u0c15\u0c3f \u0c2a\u0c46\u0c30\u0c41\u0c17\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
     "Fertigation: Dosing Water-Soluble Fertilizers":
@@ -2878,8 +2836,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c24\u0c3e\u0c1c\u0c3e \u0c2a\u0c02\u0c1f\u0c32\u0c41, \u0c2a\u0c02\u0c21\u0c4d\u0c32\u0c41, \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c41 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2a\u0c30\u0c3f\u0c15\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c36\u0c4b\u0c27\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
     "Find nearby cold storage facilities for your produce, check live capacity, and lock in preservation.":
       "\u0c2e\u0c40 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c15\u0c4b\u0c38\u0c02 \u0c38\u0c2e\u0c40\u0c2a\u0c02\u0c32\u0c4b\u0c28\u0c3f \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d \u0c15\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c3e\u0c32\u0c28\u0c41 \u0c15\u0c28\u0c41\u0c17\u0c4a\u0c28\u0c3f, \u0c05\u0c02\u0c26\u0c41\u0c2c\u0c3e\u0c1f\u0c41\u0c32\u0c4b \u0c09\u0c28\u0c4d\u0c28 \u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c24\u0c28\u0c3f\u0c16\u0c40 \u0c1a\u0c47\u0c38\u0c3f, \u0c28\u0c3f\u0c32\u0c4d\u0c35\u0c28\u0c41 \u0c0f\u0c30\u0c4d\u0c2a\u0c3e\u0c1f\u0c41 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c02\u0c21\u0c3f.",
-    "Finger Millet Seed GPU-28 (5 kg)":
-      "\u0c30\u0c3e\u0c17\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 GPU-28 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Five-day local forecast with field action notes.":
       "\u0c2a\u0c4a\u0c32\u0c02 \u0c2a\u0c28\u0c41\u0c32 \u0c38\u0c32\u0c39\u0c3e\u0c32\u0c24\u0c4b 5 \u0c30\u0c4b\u0c1c\u0c41\u0c32 \u0c38\u0c4d\u0c25\u0c3e\u0c28\u0c3f\u0c15 \u0c38\u0c42\u0c1a\u0c28.",
     Flowering: "\u0c2a\u0c42\u0c24 \u0c26\u0c36",
@@ -2941,8 +2897,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c15\u0c42\u0c30\u0c17\u0c3e\u0c2f\u0c32 \u0c38\u0c3e\u0c17\u0c41, \u0c2a\u0c02\u0c21\u0c4d\u0c32 \u0c2a\u0c02\u0c1f\u0c32\u0c41, \u0c28\u0c30\u0c4d\u0c38\u0c30\u0c40 \u0c28\u0c3f\u0c30\u0c4d\u0c35\u0c39\u0c23 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c24 \u0c38\u0c3e\u0c17\u0c41\u0c32\u0c4b \u0c2a\u0c4d\u0c30\u0c3e\u0c15\u0c4d\u0c1f\u0c3f\u0c15\u0c32\u0c4d \u0c05\u0c28\u0c41\u0c2d\u0c35\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f.",
     "Garden Spade Steel":
       "\u0c24\u0c4b\u0c1f \u0c2a\u0c3e\u0c30 \u0c38\u0c4d\u0c1f\u0c40\u0c32\u0c4d",
-    "Garlic Seed Bulb G-282 (10 kg)":
-      "\u0c35\u0c46\u0c32\u0c4d\u0c32\u0c41\u0c32\u0c4d\u0c32\u0c3f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 G-282 (10 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Generate crop vigor maps (NDVI) for precision fertilizer application":
       "\u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c35\u0c3e\u0c21\u0c15\u0c02 \u0c15\u0c4b\u0c38\u0c02 \u0c2a\u0c02\u0c1f \u0c2a\u0c1a\u0c4d\u0c1a\u0c26\u0c28\u0c02 \u0c2e\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u200c\u0c32\u0c28\u0c41 (NDVI) \u0c24\u0c2f\u0c3e\u0c30\u0c41 \u0c1a\u0c47\u0c2f\u0c21\u0c02",
     "Generates additional long-term income alongside seasonal food crops":
@@ -2951,8 +2905,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c08-\u0c28\u0c3e\u0c2e\u0c4d \u0c32\u0c4d\u0c2f\u0c3e\u0c2c\u0c4d\u200c\u0c32\u0c32\u0c4b \u0c38\u0c30\u0c41\u0c15\u0c41 \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37 \u0c1a\u0c47\u0c2f\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f",
     "Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.":
       "\u0c24\u0c3e\u0c1c\u0c3e \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c35\u0c3e\u0c30\u0c4d\u0c24\u0c32\u0c41, \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c27\u0c30\u0c32\u0c41, \u0c35\u0c3e\u0c24\u0c3e\u0c35\u0c30\u0c23 \u0c38\u0c2e\u0c3e\u0c1a\u0c3e\u0c30\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c28\u0c3f\u0c2a\u0c41\u0c23\u0c41\u0c32 \u0c38\u0c42\u0c1a\u0c28\u0c32\u0c28\u0c41 \u0c2e\u0c40 \u0c2e\u0c4a\u0c2c\u0c48\u0c32\u0c4d\u200c\u0c32\u0c4b \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c2a\u0c4a\u0c02\u0c26\u0c02\u0c21\u0c3f.",
-    "Ginger Rhizome Seed Varada (25 kg)":
-      "\u0c05\u0c32\u0c4d\u0c32\u0c02 \u0c15\u0c4a\u0c2e\u0c4d\u0c2e\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c35\u0c30\u0c26 (25 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Go to Dashboard":
       "\u0c21\u0c3e\u0c37\u0c4d\u200c\u0c2c\u0c4b\u0c30\u0c4d\u0c21\u0c4d\u200c\u0c15\u0c41 \u0c35\u0c46\u0c33\u0c4d\u0c32\u0c02\u0c21\u0c3f",
     "Go to Marketplace":
@@ -3004,8 +2956,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c28\u0c41\u0c32\u0c3f\u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23\u0c15\u0c41 \u0c2a\u0c4a\u0c32\u0c02 \u0c38\u0c30\u0c3f\u0c39\u0c26\u0c4d\u0c26\u0c41\u0c32\u0c4d\u0c32\u0c4b \u0c2c\u0c02\u0c24\u0c3f \u0c2a\u0c42\u0c32 \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c32\u0c28\u0c41 \u0c2a\u0c46\u0c02\u0c1a\u0c02\u0c21\u0c3f",
     "Grow More. Harvest Better.":
       "\u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c2a\u0c02\u0c21\u0c3f\u0c02\u0c1a\u0c02\u0c21\u0c3f. \u0c2e\u0c46\u0c30\u0c41\u0c17\u0c4d\u0c17\u0c3e \u0c15\u0c4b\u0c24 \u0c15\u0c4b\u0c2f\u0c02\u0c21\u0c3f.",
-    "Guava Grafted Plant Allahabad Safeda":
-      "\u0c1c\u0c3e\u0c2e \u0c05\u0c02\u0c1f\u0c41 \u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c05\u0c32\u0c39\u0c3e\u0c2c\u0c3e\u0c26\u0c4d \u0c38\u0c2b\u0c47\u0c26\u0c3e",
     Guest: "\u0c05\u0c24\u0c3f\u0c25\u0c3f",
     "Guntur Agri Cold Storage":
       "\u0c17\u0c41\u0c02\u0c1f\u0c42\u0c30\u0c41 \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c15\u0c4b\u0c32\u0c4d\u0c21\u0c4d \u0c38\u0c4d\u0c1f\u0c4b\u0c30\u0c47\u0c1c\u0c4d",
@@ -3013,8 +2963,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c17\u0c41\u0c02\u0c1f\u0c42\u0c30\u0c41 \u0c30\u0c4b\u0c21\u0c4d, \u0c35\u0c3f\u0c1c\u0c2f\u0c35\u0c3e\u0c21, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d - 520001",
     "Guntur, Andhra Pradesh":
       "\u0c17\u0c41\u0c02\u0c1f\u0c42\u0c30\u0c41, \u0c06\u0c02\u0c27\u0c4d\u0c30\u0c2a\u0c4d\u0c30\u0c26\u0c47\u0c36\u0c4d",
-    "Gypsum Agricultural Grade (50 kg)":
-      "\u0c1c\u0c3f\u0c2a\u0c4d\u0c38\u0c2e\u0c4d \u0c35\u0c4d\u0c2f\u0c35\u0c38\u0c3e\u0c2f \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c4d (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "HDPE Mulching Film 25 Micron (400 m)":
       "\u0c2e\u0c32\u0c4d\u0c1a\u0c3f\u0c02\u0c17\u0c4d \u0c2a\u0c47\u0c2a\u0c30\u0c4d 25 \u0c2e\u0c48\u0c15\u0c4d\u0c30\u0c3e\u0c28\u0c4d (400 \u0c2e\u0c40)",
     "HEALTHY SOIL \u2022 HEALTHY CROPS":
@@ -3062,8 +3010,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c2e\u0c1f\u0c4d\u0c1f\u0c3f \u0c28\u0c2e\u0c42\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c38\u0c47\u0c15\u0c30\u0c3f\u0c02\u0c1a\u0c21\u0c02, pH \u0c35\u0c3f\u0c32\u0c41\u0c35\u0c32\u0c28\u0c41 \u0c05\u0c30\u0c4d\u0c25\u0c02 \u0c1a\u0c47\u0c38\u0c41\u0c15\u0c4b\u0c35\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c06\u0c2e\u0c4d\u0c32/\u0c15\u0c4d\u0c37\u0c3e\u0c30 \u0c28\u0c47\u0c32\u0c32\u0c28\u0c41 \u0c38\u0c30\u0c3f\u0c1a\u0c47\u0c2f\u0c21\u0c02.",
     "How to get free soil testing, reading soil card results, and fertilizer recommendations.":
       "\u0c09\u0c1a\u0c3f\u0c24 \u0c28\u0c47\u0c32 \u0c2a\u0c30\u0c40\u0c15\u0c4d\u0c37\u0c32\u0c41, \u0c38\u0c3e\u0c2f\u0c3f\u0c32\u0c4d \u0c15\u0c3e\u0c30\u0c4d\u0c21\u0c4d \u0c2b\u0c32\u0c3f\u0c24\u0c3e\u0c32\u0c28\u0c41 \u0c1a\u0c26\u0c35\u0c21\u0c02 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c38\u0c3f\u0c2b\u0c3e\u0c30\u0c4d\u0c38\u0c41\u0c32\u0c41.",
-    "Humic Acid Granules (5 kg)":
-      "\u0c39\u0c4d\u0c2f\u0c42\u0c2e\u0c3f\u0c15\u0c4d \u0c2f\u0c3e\u0c38\u0c3f\u0c21\u0c4d \u0c17\u0c41\u0c33\u0c3f\u0c15\u0c32\u0c41 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Humid sunshine":
       "\u0c24\u0c47\u0c2e\u0c24\u0c4b \u0c15\u0c42\u0c21\u0c3f\u0c28 \u0c0e\u0c02\u0c21",
     Humidity: "\u0c24\u0c47\u0c2e",
@@ -3172,8 +3118,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c2e\u0c02\u0c1c\u0c42\u0c30\u0c41 \u0c1a\u0c47\u0c38\u0c3f\u0c28 \u0c36\u0c3e\u0c16",
     "Item Total":
       "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c2e\u0c4a\u0c24\u0c4d\u0c24\u0c02",
-    "Jeevamrut Concentrate (5 litre)":
-      "\u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 \u0c15\u0c3e\u0c28\u0c4d\u0c38\u0c02\u0c1f\u0c4d\u0c30\u0c47\u0c1f\u0c4d (5 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41)",
     "Jeevamrutha is a fermented bio-culture rich in beneficial microorganisms that revive soil health. Neem oil (10,000 ppm) acts as an effective repellent and growth disruptor for insect pests.":
       "\u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 \u0c28\u0c47\u0c32\u0c32\u0c4b\u0c28\u0c3f \u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e\u0c1c\u0c40\u0c35\u0c41\u0c32\u0c28\u0c41 \u0c2a\u0c41\u0c28\u0c30\u0c41\u0c1c\u0c4d\u0c1c\u0c40\u0c35\u0c3f\u0c02\u0c2a\u0c1c\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c35\u0c47\u0c2a \u0c28\u0c42\u0c28\u0c46 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c35\u0c4d\u0c2f\u0c3e\u0c2a\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c05\u0c30\u0c3f\u0c15\u0c1f\u0c4d\u0c1f\u0c21\u0c02\u0c32\u0c4b \u0c38\u0c2e\u0c30\u0c4d\u0c25\u0c35\u0c02\u0c24\u0c02\u0c17\u0c3e \u0c2a\u0c28\u0c3f\u0c1a\u0c47\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
     "Join a local FPO to aggregate small crop quantities into bulk lots that attract corporate buyers.":
@@ -3280,8 +3224,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c24\u0c47\u0c32\u0c3f\u0c15\u0c2a\u0c3e\u0c1f\u0c3f \u0c1c\u0c32\u0c4d\u0c32\u0c41\u0c32\u0c41",
     "Line farm ponds with HDPE sheets to prevent seepage":
       "\u0c28\u0c40\u0c30\u0c41 \u0c07\u0c02\u0c15\u0c3f\u0c2a\u0c4b\u0c15\u0c41\u0c02\u0c21\u0c3e HDPE \u0c37\u0c40\u0c1f\u0c4d\u0c32\u0c28\u0c41 \u0c2a\u0c30\u0c1a\u0c02\u0c21\u0c3f",
-    "Liquid Consortia Biofertiliser (1 litre)":
-      "\u0c26\u0c4d\u0c30\u0c35 \u0c1c\u0c40\u0c35 \u0c0e\u0c30\u0c41\u0c35\u0c41\u0c32 \u0c2e\u0c3f\u0c36\u0c4d\u0c30\u0c2e\u0c02 (1 \u0c32\u0c40\u0c1f\u0c30\u0c41)",
     "List New Produce":
       "\u0c15\u0c4a\u0c24\u0c4d\u0c24 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
     "List Your First Product":
@@ -3350,8 +3292,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c2e\u0c02\u0c21\u0c40 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c05\u0c21\u0c4d\u0c35\u0c48\u0c1c\u0c30\u0c40",
     "Mandi prices fluctuate daily based on total crop arrival volumes, quality grading, buyer competition, and transportation costs. Monitoring arrival trends helps farmers choose the best selling day.":
       "\u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30\u0c32\u0c41 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d \u0c30\u0c3e\u0c2c\u0c21\u0c3f, \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c15\u0c4a\u0c28\u0c41\u0c17\u0c4b\u0c32\u0c41\u0c26\u0c3e\u0c30\u0c41\u0c32 \u0c2a\u0c4b\u0c1f\u0c40 \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c30\u0c4b\u0c1c\u0c42 \u0c2e\u0c3e\u0c30\u0c24\u0c3e\u0c2f\u0c3f. \u0c08 \u0c35\u0c3f\u0c35\u0c30\u0c3e\u0c32\u0c41 \u0c24\u0c46\u0c32\u0c3f\u0c38\u0c4d\u0c24\u0c47 \u0c2e\u0c02\u0c1a\u0c3f \u0c30\u0c4b\u0c1c\u0c41\u0c28 \u0c05\u0c2e\u0c4d\u0c2e\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
-    "Mango Grafted Plant Dasheri":
-      "\u0c2e\u0c3e\u0c2e\u0c3f\u0c21\u0c3f \u0c05\u0c02\u0c1f\u0c41 \u0c2e\u0c4a\u0c15\u0c4d\u0c15 \u0c26\u0c38\u0c47\u0c30\u0c40",
     "Manual Knapsack Sprayer 16 L":
       "\u0c2e\u0c47\u0c28\u0c4d\u0c2f\u0c41\u0c35\u0c32\u0c4d \u0c38\u0c4d\u0c2a\u0c4d\u0c30\u0c47\u0c2f\u0c30\u0c4d 16 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41",
     "Map farm plots using multispectral drone sensors":
@@ -3377,8 +3317,6 @@ export const translations: Record<Language, Record<string, string>> = {
     "Maximizing land efficiency by growing complementary crops together.":
       "\u0c12\u0c15\u0c47 \u0c2a\u0c4a\u0c32\u0c02\u0c32\u0c4b \u0c05\u0c28\u0c41\u0c15\u0c42\u0c32\u0c2e\u0c48\u0c28 \u0c05\u0c02\u0c24\u0c30 \u0c2a\u0c02\u0c1f\u0c32\u0c28\u0c41 \u0c2a\u0c46\u0c02\u0c1a\u0c21\u0c02 \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c2d\u0c42\u0c2e\u0c3f \u0c38\u0c3e\u0c2e\u0c30\u0c4d\u0c25\u0c4d\u0c2f\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c17\u0c30\u0c3f\u0c37\u0c4d\u0c1f\u0c02 \u0c1a\u0c47\u0c2f\u0c21\u0c02.",
     "Metric Ton": "\u0c2e\u0c46\u0c1f\u0c4d\u0c30\u0c3f\u0c15\u0c4d \u0c1f\u0c28\u0c4d\u0c28\u0c41",
-    "Micronutrient Mixture Grade-II (5 kg)":
-      "\u0c38\u0c42\u0c15\u0c4d\u0c37\u0c4d\u0c2e\u0c2a\u0c4b\u0c37\u0c15\u0c3e\u0c32 \u0c2e\u0c3f\u0c36\u0c4d\u0c30\u0c2e\u0c02 \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c4d-II (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Milking Machine Single Bucket":
       "\u0c2a\u0c3e\u0c32\u0c41 \u0c2a\u0c3f\u0c24\u0c3f\u0c15\u0c47 \u0c2f\u0c02\u0c24\u0c4d\u0c30\u0c02 \u0c38\u0c3f\u0c02\u0c17\u0c3f\u0c32\u0c4d \u0c2c\u0c15\u0c46\u0c1f\u0c4d",
     "Millets consume 70% less water than paddy and survive high heat dry spells.":
@@ -3442,8 +3380,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c28\u0c3e \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 & \u0c28\u0c3f\u0c32\u0c4d\u0c35\u0c32\u0c41",
     "My Products (Sell)":
       "\u0c28\u0c3e \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c41 (\u0c05\u0c2e\u0c4d\u0c2e\u0c15\u0c02)",
-    "Mycorrhiza VAM Granules (4 kg)":
-      "\u0c2e\u0c48\u0c15\u0c4b\u0c30\u0c48\u0c1c\u0c3e VAM \u0c17\u0c41\u0c33\u0c3f\u0c15\u0c32\u0c41 (4 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "NABARD and Banks":
       "\u0c28\u0c3e\u0c2c\u0c3e\u0c30\u0c4d\u0c21\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c2f\u0c3e\u0c02\u0c15\u0c41\u0c32\u0c41",
     "NDVI satellite imagery measures green vegetation health from space, helping farmers identify yield variations, nutrient shortages, and irrigation leaks.":
@@ -3456,19 +3392,13 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c0e\u0c28\u0c4d\u200c\u0c2a\u0c3f\u0c15\u0c3f 10:26:26 \u0c15\u0c3e\u0c02\u0c2a\u0c4d\u0c32\u0c46\u0c15\u0c4d\u0c38\u0c4d (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "NPK 20:20:0:13 (50 kg)":
       "\u0c0e\u0c28\u0c4d\u200c\u0c2a\u0c3f\u0c15\u0c3f 20:20:0:13 (50 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
-    "Nano DAP Liquid (500 ml)":
-      "\u0c28\u0c3e\u0c28\u0c4b \u0c21\u0c3f\u0c0e\u0c2a\u0c3f \u0c26\u0c4d\u0c30\u0c35\u0c02 (500 \u0c2e\u0c3f.\u0c32\u0c40)",
     "Nano Urea Liquid (500 ml)":
       "\u0c28\u0c3e\u0c28\u0c4b \u0c2f\u0c42\u0c30\u0c3f\u0c2f\u0c3e \u0c26\u0c4d\u0c30\u0c35\u0c02 (500 \u0c2e\u0c3f.\u0c32\u0c40)",
-    "Napier Grass Root Slips (100 slips)":
-      "\u0c28\u0c47\u0c2a\u0c3f\u0c2f\u0c30\u0c4d \u0c17\u0c21\u0c4d\u0c21\u0c3f \u0c35\u0c47\u0c30\u0c4d\u0c32\u0c41 (100 \u0c2e\u0c41\u0c15\u0c4d\u0c15\u0c32\u0c41)",
     "Natural Pest Control (Jeevamrutha & Neem Oil)":
       "\u0c38\u0c39\u0c1c \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41\u0c32 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23 (\u0c1c\u0c40\u0c35\u0c3e\u0c2e\u0c43\u0c24\u0c02 & \u0c35\u0c47\u0c2a \u0c28\u0c42\u0c28\u0c46)",
     "Nearest Distance First":
       "\u0c38\u0c2e\u0c40\u0c2a \u0c26\u0c42\u0c30\u0c02 \u0c2e\u0c41\u0c02\u0c26\u0c41\u0c17\u0c3e",
     "Need Help?": "\u0c38\u0c39\u0c3e\u0c2f\u0c02 \u0c15\u0c3e\u0c35\u0c3e\u0c32\u0c3e?",
-    "Neem Cake Powder (25 kg)":
-      "\u0c35\u0c47\u0c2a \u0c2a\u0c3f\u0c02\u0c21\u0c3f \u0c2a\u0c4a\u0c21\u0c3f (25 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Never miss irrigation during the Crown Root Initiation stage (20-25 days after Wheat sowing).":
       "\u0c17\u0c4b\u0c27\u0c41\u0c2e \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c3f\u0c28 20-25 \u0c30\u0c4b\u0c1c\u0c41\u0c32\u0c15\u0c41 (CRI \u0c26\u0c36) \u0c28\u0c40\u0c30\u0c41 \u0c2a\u0c46\u0c1f\u0c4d\u0c1f\u0c21\u0c02 \u0c2e\u0c30\u0c35\u0c15\u0c02\u0c21\u0c3f.",
     "Never mix damaged or decaying fruits/vegetables with healthy produce during packaging.":
@@ -3578,8 +3508,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c2a\u0c4d\u0c30\u0c15\u0c43\u0c24\u0c3f \u0c35\u0c48\u0c2a\u0c30\u0c40\u0c24\u0c4d\u0c2f\u0c3e\u0c32\u0c41, \u0c35\u0c30\u0c4d\u0c37\u0c3e\u0c2d\u0c3e\u0c35\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c15\u0c32\u0c3f\u0c17\u0c47 \u0c2a\u0c02\u0c1f \u0c28\u0c37\u0c4d\u0c1f\u0c3e\u0c32 \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2b\u0c38\u0c32\u0c4d \u0c2c\u0c40\u0c2e\u0c3e \u0c2f\u0c4b\u0c1c\u0c28 \u0c06\u0c30\u0c4d\u0c25\u0c3f\u0c15 \u0c30\u0c15\u0c4d\u0c37\u0c23 \u0c07\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f. \u0c16\u0c30\u0c40\u0c2b\u0c4d\u200c\u0c15\u0c41 2%, \u0c30\u0c2c\u0c40\u0c15\u0c3f 1.5% \u0c2e\u0c3e\u0c24\u0c4d\u0c30\u0c2e\u0c47 \u0c2a\u0c4d\u0c30\u0c40\u0c2e\u0c3f\u0c2f\u0c02.",
     "PRODUCE PRESERVATION & LOGISTICS":
       "\u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32 \u0c38\u0c02\u0c30\u0c15\u0c4d\u0c37\u0c23 & \u0c32\u0c3e\u0c1c\u0c3f\u0c38\u0c4d\u0c1f\u0c3f\u0c15\u0c4d\u0c38\u0c4d",
-    "PSB Phosphate Solubilising Bacteria (500 g)":
-      "\u0c2a\u0c3f\u0c0e\u0c38\u0c4d\u200c\u0c2c\u0c3f \u0c2b\u0c3e\u0c38\u0c4d\u0c2b\u0c47\u0c1f\u0c4d \u0c2c\u0c4d\u0c2f\u0c3e\u0c15\u0c4d\u0c1f\u0c40\u0c30\u0c3f\u0c2f\u0c3e (500 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
     "Pack produce in clean jute or breathable HDPE bags with weight tags":
       "\u0c2a\u0c30\u0c3f\u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c2e\u0c48\u0c28 \u0c17\u0c4b\u0c28\u0c46 \u0c38\u0c02\u0c1a\u0c41\u0c32\u0c32\u0c4b \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f",
     Packaging: "\u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c47\u0c1c\u0c3f\u0c02\u0c17\u0c4d",
@@ -3590,8 +3518,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c05\u0c2e\u0c43\u0c24\u0c38\u0c30\u0c4d\u200c\u0c32\u0c4b \u0c35\u0c30\u0c3f \u0c2e\u0c02\u0c21\u0c40 \u0c27\u0c30 \u0c2a\u0c46\u0c30\u0c3f\u0c17\u0c3f\u0c02\u0c26\u0c3f",
     "Paddy requires critical water at tillering and panicle initiation":
       "\u0c35\u0c30\u0c3f\u0c15\u0c3f \u0c2a\u0c3f\u0c32\u0c15\u0c32 \u0c26\u0c36 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c08\u0c24 \u0c26\u0c36\u0c32\u0c32\u0c4b \u0c28\u0c40\u0c30\u0c41 \u0c1a\u0c3e\u0c32\u0c3e \u0c05\u0c35\u0c38\u0c30\u0c02",
-    "Panchagavya Organic Tonic (5 litre)":
-      "\u0c2a\u0c02\u0c1a\u0c17\u0c35\u0c4d\u0c2f \u0c38\u0c47\u0c02\u0c26\u0c4d\u0c30\u0c40\u0c2f \u0c1f\u0c3e\u0c28\u0c3f\u0c15\u0c4d (5 \u0c32\u0c40\u0c1f\u0c30\u0c4d\u0c32\u0c41)",
     "Papaya Seed Red Lady (10 g)":
       "\u0c2c\u0c4a\u0c2a\u0c4d\u0c2a\u0c3e\u0c2f\u0c3f \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 \u0c30\u0c46\u0c21\u0c4d \u0c32\u0c47\u0c21\u0c40 (10 \u0c17\u0c4d\u0c30\u0c3e\u0c2e\u0c41\u0c32\u0c41)",
     "Participate in post-harvest harvesting, grading, and packing of fruit crops":
@@ -3673,8 +3599,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c15\u0c4b\u0c24 \u0c05\u0c28\u0c02\u0c24\u0c30 \u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c24 \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c17\u0c4d\u0c30\u0c47\u0c21\u0c3f\u0c02\u0c17\u0c4d \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c2e\u0c48\u0c28 \u0c09\u0c24\u0c4d\u0c2a\u0c24\u0c4d\u0c24\u0c41\u0c32\u0c28\u0c41 \u0c35\u0c47\u0c30\u0c41 \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c2e\u0c3e\u0c30\u0c4d\u0c15\u0c46\u0c1f\u0c4d\u0c32\u0c4b 15-20% \u0c05\u0c26\u0c28\u0c2a\u0c41 \u0c27\u0c30 \u0c32\u0c2d\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
     Posted:
       "\u0c2a\u0c4b\u0c38\u0c4d\u0c1f\u0c4d \u0c1a\u0c47\u0c2f\u0c2c\u0c21\u0c3f\u0c02\u0c26\u0c3f",
-    "Potassium Humate Shiny Flakes (2 kg)":
-      "\u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c39\u0c4d\u0c2f\u0c42\u0c2e\u0c47\u0c1f\u0c4d \u0c2b\u0c4d\u0c32\u0c47\u0c15\u0c4d\u0c38\u0c4d (2 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Potassium Schoenite (25 kg)":
       "\u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c37\u0c4a\u0c28\u0c48\u0c1f\u0c4d (25 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     Potato: "\u0c2c\u0c02\u0c17\u0c3e\u0c33\u0c3e\u0c26\u0c41\u0c02\u0c2a",
@@ -3967,8 +3891,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c38\u0c40\u0c1c\u0c28\u0c32\u0c4d \u0c2b\u0c3e\u0c30\u0c4d\u0c2e\u0c3f\u0c02\u0c17\u0c4d \u0c17\u0c48\u0c21\u0c4d",
     "Seasonal crop insurance":
       "\u0c38\u0c40\u0c1c\u0c28\u0c32\u0c4d \u0c2a\u0c02\u0c1f \u0c2c\u0c40\u0c2e\u0c3e",
-    "Seaweed Extract Liquid (1 litre)":
-      "\u0c38\u0c2e\u0c41\u0c26\u0c4d\u0c30\u0c2a\u0c41 \u0c2a\u0c3e\u0c1a\u0c3f \u0c26\u0c4d\u0c30\u0c35\u0c02 (1 \u0c32\u0c40\u0c1f\u0c30\u0c41)",
     "Secure Payments":
       "\u0c38\u0c41\u0c30\u0c15\u0c4d\u0c37\u0c3f\u0c24\u0c2e\u0c48\u0c28 \u0c1a\u0c46\u0c32\u0c4d\u0c32\u0c3f\u0c02\u0c2a\u0c41\u0c32\u0c41",
     "Seed Drill 9 Tyne":
@@ -4006,8 +3928,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c30\u0c48\u0c24\u0c41 \u0c38\u0c02\u0c18\u0c3e\u0c32 (FPO) \u0c26\u0c4d\u0c35\u0c3e\u0c30\u0c3e \u0c28\u0c47\u0c30\u0c41\u0c17\u0c3e \u0c35\u0c3f\u0c15\u0c4d\u0c30\u0c2f\u0c3f\u0c02\u0c1a\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 \u0c26\u0c33\u0c3e\u0c30\u0c41\u0c32 \u0c15\u0c2e\u0c3f\u0c37\u0c28\u0c4d\u0c32\u0c41 \u0c24\u0c2a\u0c4d\u0c2a\u0c3f \u0c30\u0c48\u0c24\u0c41\u0c32\u0c15\u0c41 15-20% \u0c05\u0c26\u0c28\u0c2a\u0c41 \u0c32\u0c3e\u0c2d\u0c02 \u0c1a\u0c47\u0c15\u0c42\u0c30\u0c41\u0c24\u0c41\u0c02\u0c26\u0c3f.",
     "Send Verification Code":
       "\u0c27\u0c43\u0c35\u0c40\u0c15\u0c30\u0c23 \u0c15\u0c4b\u0c21\u0c4d\u200c\u0c28\u0c41 \u0c2a\u0c02\u0c2a\u0c02\u0c21\u0c3f",
-    "Sesame Seed GT-10 (2 kg)":
-      "\u0c28\u0c41\u0c35\u0c4d\u0c35\u0c41\u0c32 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 GT-10 (2 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Set up 5 pheromone traps per acre for early detection of bollworm and stem borer moths.":
       "\u0c15\u0c3e\u0c02\u0c21\u0c02 \u0c24\u0c4a\u0c32\u0c41\u0c1a\u0c41 \u0c2a\u0c41\u0c30\u0c41\u0c17\u0c41 \u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c23\u0c15\u0c41 \u0c0e\u0c15\u0c30\u0c3e\u0c15\u0c41 5 \u0c32\u0c3f\u0c02\u0c17 \u0c06\u0c15\u0c30\u0c4d\u0c37\u0c23 \u0c2c\u0c41\u0c1f\u0c4d\u0c1f\u0c32\u0c28\u0c41 \u0c05\u0c2e\u0c30\u0c4d\u0c1a\u0c02\u0c21\u0c3f.",
     "Shade Net 50% Green (3 x 50 m)":
@@ -4095,8 +4015,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c1f\u0c2e\u0c3e\u0c1f\u0c3e\u0c32\u0c41, \u0c2e\u0c3f\u0c30\u0c2a\u0c15\u0c3e\u0c2f\u0c32\u0c28\u0c41 \u0c0e\u0c02\u0c21\u0c2c\u0c46\u0c1f\u0c4d\u0c1f\u0c3f \u0c2a\u0c4d\u0c2f\u0c3e\u0c15\u0c4d \u0c1a\u0c47\u0c2f\u0c21\u0c02 \u0c35\u0c32\u0c4d\u0c32 3 \u0c30\u0c46\u0c1f\u0c4d\u0c32\u0c41 \u0c0e\u0c15\u0c4d\u0c15\u0c41\u0c35 \u0c27\u0c30 \u0c2a\u0c4a\u0c02\u0c26\u0c35\u0c1a\u0c4d\u0c1a\u0c41.",
     "Solid State Storage":
       "\u0c18\u0c28 \u0c38\u0c4d\u0c25\u0c3f\u0c24\u0c3f \u0c28\u0c3f\u0c32\u0c4d\u0c35",
-    "Sorghum Seed CSH-16 (5 kg)":
-      "\u0c1c\u0c4a\u0c28\u0c4d\u0c28 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 CSH-16 (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Sort By": "\u0c15\u0c4d\u0c30\u0c2e\u0c2c\u0c26\u0c4d\u0c27\u0c40\u0c15\u0c30\u0c23",
     "Sow Dhaincha or Sunn Hemp at 20-25 kg seed per acre":
       "\u0c0e\u0c15\u0c30\u0c3e\u0c15\u0c41 20-25 \u0c15\u0c47\u0c1c\u0c40\u0c32 \u0c1c\u0c40\u0c32\u0c41\u0c17\u0c41 \u0c32\u0c47\u0c26\u0c3e \u0c1c\u0c28\u0c41\u0c2e\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c3e\u0c32\u0c28\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c02\u0c21\u0c3f",
@@ -4182,8 +4100,6 @@ export const translations: Record<Language, Record<string, string>> = {
       "\u0c05\u0c28\u0c41\u0c15\u0c4b\u0c15\u0c41\u0c02\u0c21\u0c3e \u0c35\u0c1a\u0c4d\u0c1a\u0c47 \u0c24\u0c40\u0c35\u0c4d\u0c30\u0c2e\u0c48\u0c28 \u0c35\u0c21\u0c17\u0c3e\u0c32\u0c41\u0c32\u0c41 \u0c17\u0c3f\u0c02\u0c1c \u0c28\u0c3e\u0c23\u0c4d\u0c2f\u0c24\u0c28\u0c41 \u0c24\u0c17\u0c4d\u0c17\u0c3f\u0c38\u0c4d\u0c24\u0c3e\u0c2f\u0c3f. \u0c2a\u0c4a\u0c1f\u0c3e\u0c37\u0c3f\u0c2f\u0c02 \u0c28\u0c48\u0c1f\u0c4d\u0c30\u0c47\u0c1f\u0c4d (1%) \u0c2a\u0c3f\u0c1a\u0c3f\u0c15\u0c3e\u0c30\u0c40 \u0c2e\u0c4a\u0c15\u0c4d\u0c15\u0c32\u0c15\u0c41 \u0c35\u0c47\u0c21\u0c3f\u0c28\u0c3f \u0c24\u0c1f\u0c4d\u0c1f\u0c41\u0c15\u0c41\u0c28\u0c47 \u0c36\u0c15\u0c4d\u0c24\u0c3f\u0c28\u0c3f \u0c07\u0c38\u0c4d\u0c24\u0c41\u0c02\u0c26\u0c3f.",
     "Sugarcane Seed Sett Co-0238 (100 setts)":
       "\u0c1a\u0c46\u0c30\u0c15\u0c41 \u0c35\u0c3f\u0c24\u0c4d\u0c24\u0c28\u0c02 Co-0238 (100 \u0c2e\u0c41\u0c15\u0c4d\u0c15\u0c32\u0c41)",
-    "Sulphur 90% WDG (5 kg)":
-      "\u0c38\u0c32\u0c4d\u0c2b\u0c30\u0c4d 90% WDG (5 \u0c15\u0c3f\u0c32\u0c4b\u0c32\u0c41)",
     "Sum insured based on district crop notification and scale of finance.":
       "\u0c1c\u0c3f\u0c32\u0c4d\u0c32\u0c3e \u0c2a\u0c02\u0c1f \u0c28\u0c4b\u0c1f\u0c3f\u0c2b\u0c3f\u0c15\u0c47\u0c37\u0c28\u0c4d \u0c06\u0c27\u0c3e\u0c30\u0c02\u0c17\u0c3e \u0c07\u0c28\u0c4d\u0c38\u0c42\u0c30\u0c46\u0c28\u0c4d\u0c38\u0c4d \u0c2a\u0c30\u0c3f\u0c2e\u0c3f\u0c24\u0c3f.",
     Sun: "\u0c06\u0c26\u0c3f\u0c35\u0c3e\u0c30\u0c02",
