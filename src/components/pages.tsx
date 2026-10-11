@@ -279,30 +279,39 @@ export function BuyerHomePage() {
     <RoleGuard allowedRoles={["buyer", "admin"]}>
       <div className="px-4 py-6 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
         {/* Buyer Hero Banner */}
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#1b4332] to-[#2d6a4f] text-white p-8 sm:p-12 shadow-soft">
+        <div
+          className="relative overflow-hidden rounded-2xl bg-[#1b4332] text-white p-8 sm:p-12 shadow-soft bg-cover bg-no-repeat bg-[center_right]"
+          style={{
+            backgroundImage: "url('/images/buyer-marketplace-banner.png')",
+          }}
+        >
+          {/* Subtle dark-green gradient overlay ensuring crisp text contrast while showcasing buyer and produce */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1b4332]/95 via-[#1b4332]/75 to-transparent sm:via-[#1b4332]/60 sm:to-transparent pointer-events-none" />
+
           <div className="max-w-xl space-y-4 relative z-10">
             <span className="inline-flex rounded-full bg-amber-500/20 text-amber-300 px-3 py-1 text-xs font-black uppercase tracking-wider">
               PUREFARM MARKETPLACE
             </span>
-            <h1 className="text-3xl sm:text-4xl font-black leading-tight text-white">
-              Fresh Produce & Quality Agri Products Delivered
+            <h1 className="text-3xl sm:text-4xl font-black leading-tight text-white drop-shadow-xs">
+              {t("Fresh Produce & Quality Agri Products Delivered")}
             </h1>
-            <p className="text-sm text-emerald-100/90 leading-relaxed font-medium">
-              Browse directly from verified local farmers and certified suppliers. High quality,
-              fair prices, direct sourcing.
+            <p className="text-sm text-emerald-100/90 leading-relaxed font-medium drop-shadow-xs">
+              {t(
+                "Browse directly from verified local farmers and certified suppliers. High quality, fair prices, direct sourcing."
+              )}
             </p>
             <div className="pt-2 flex flex-wrap gap-3">
               <Link
                 to="/marketplace"
-                className="inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 transition px-5 py-3 text-xs font-black text-white shadow-md"
+                className="inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 transition px-5 py-3 text-xs font-black text-white shadow-md active:scale-95"
               >
-                Browse Marketplace <ArrowRight className="h-4 w-4" />
+                {t("Browse Marketplace")} <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/order"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 hover:bg-white/20 transition px-5 py-3 text-xs font-black text-white"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 hover:bg-white/20 transition px-5 py-3 text-xs font-black text-white backdrop-blur-xs active:scale-95"
               >
-                My Orders <ShoppingBag className="h-4 w-4" />
+                {t("My Orders")} <ShoppingBag className="h-4 w-4" />
               </Link>
             </div>
           </div>
