@@ -127,42 +127,20 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/fenugreek-seed-pusa-early-bunching-1-kg.jpg",
   "Barley Seed BH-946 (20 kg)":
     "/products/barley-seed-bh-946-20-kg.jpg",
-  "Sorghum Seed CSH-16 (5 kg)":
-    "/products/sorghum-seed-csh-16-5-kg.jpg",
-  "Finger Millet Seed GPU-28 (5 kg)":
-    "/products/finger-millet-seed-gpu-28-5-kg.jpg",
-  "Sesame Seed GT-10 (2 kg)":
-    "/products/sesame-seed-gt-10-2-kg.jpg",
-  "Castor Seed GCH-7 (5 kg)":
-    "/products/castor-seed-gch-7-5-kg.jpg",
   "Lentil Seed IPL-406 (5 kg)":
     "/products/lentil-seed-ipl-406-5-kg.jpg",
   "Field Pea Seed HFP-4 (10 kg)":
     "/products/field-pea-seed-hfp-4-10-kg.jpg",
   "Berseem Fodder Seed (10 kg)":
     "/products/berseem-fodder-seed-10-kg.jpg",
-  "Napier Grass Root Slips (100 slips)":
-    "/products/napier-grass-root-slips-100-slips.jpg",
   "Marigold Seed African Orange (50 g)":
     "/products/marigold-seed-african-orange-50-g.jpg",
   "Turmeric Rhizome Seed Salem (25 kg)":
     "/products/turmeric-rhizome-seed-salem-25-kg.jpg",
-  "Ginger Rhizome Seed Varada (25 kg)":
-    "/products/ginger-rhizome-seed-varada-25-kg.jpg",
-  "Garlic Seed Bulb G-282 (10 kg)":
-    "/products/garlic-seed-bulb-g-282-10-kg.jpg",
   "Papaya Seed Red Lady (10 g)":
     "/products/papaya-seed-red-lady-10-g.jpg",
   "Banana Tissue Culture Plant G-9":
     "/products/banana-tissue-culture-plant-g-9.jpg",
-  "Guava Grafted Plant Allahabad Safeda":
-    "/products/guava-grafted-plant-allahabad-safeda.jpg",
-  "Mango Grafted Plant Dasheri":
-    "/products/mango-grafted-plant-dasheri.jpg",
-  "Drumstick Seed PKM-1 (250 g)":
-    "/products/drumstick-seed-pkm-1-250-g.jpg",
-  "Curry Leaf Plant Sapling":
-    "/products/curry-leaf-plant-sapling.jpg",
   "Urea 46% N (45 kg)":
     "/products/urea-46-n-45-kg.jpg",
   "DAP 18-46-0 (50 kg)":
@@ -189,46 +167,12 @@ export const IMAGE_MAPPINGS: Record<string, string> = {
     "/products/potassium-schoenite-25-kg.jpg",
   "Vermicompost Organic (30 kg)":
     "/products/vermicompost-organic-30-kg.jpg",
-  "Neem Cake Powder (25 kg)":
-    "/products/neem-cake-powder-25-kg.jpg",
-  "Bone Meal Organic (10 kg)":
-    "/products/bone-meal-organic-10-kg.jpg",
-  "Cow Dung Manure Composted (40 kg)":
-    "/products/cow-dung-manure-composted-40-kg.jpg",
   "Rhizobium Biofertiliser (500 g)":
     "/products/rhizobium-biofertiliser-500-g.jpg",
   "Azotobacter Biofertiliser (500 g)":
     "/products/azotobacter-biofertiliser-500-g.jpg",
-  "PSB Phosphate Solubilising Bacteria (500 g)":
-    "/products/psb-phosphate-solubilising-bacteria-500-g.jpg",
-  "Mycorrhiza VAM Granules (4 kg)":
-    "/products/mycorrhiza-vam-granules-4-kg.jpg",
-  "Humic Acid Granules (5 kg)":
-    "/products/humic-acid-granules-5-kg.jpg",
-  "Seaweed Extract Liquid (1 litre)":
-    "/products/seaweed-extract-liquid-1-litre.jpg",
-  "Micronutrient Mixture Grade-II (5 kg)":
-    "/products/micronutrient-mixture-grade-ii-5-kg.jpg",
-  "Boron 20% Powder (1 kg)":
-    "/products/boron-20-powder-1-kg.jpg",
-  "Ferrous Sulphate (10 kg)":
-    "/products/ferrous-sulphate-10-kg.jpg",
-  "Gypsum Agricultural Grade (50 kg)":
-    "/products/gypsum-agricultural-grade-50-kg.jpg",
-  "Sulphur 90% WDG (5 kg)":
-    "/products/sulphur-90-wdg-5-kg.jpg",
-  "Liquid Consortia Biofertiliser (1 litre)":
-    "/products/liquid-consortia-biofertiliser-1-litre.jpg",
   "Nano Urea Liquid (500 ml)":
     "/products/nano-urea-liquid-500-ml.jpg",
-  "Nano DAP Liquid (500 ml)":
-    "/products/nano-dap-liquid-500-ml.jpg",
-  "Potassium Humate Shiny Flakes (2 kg)":
-    "/products/potassium-humate-shiny-flakes-2-kg.jpg",
-  "Panchagavya Organic Tonic (5 litre)":
-    "/products/panchagavya-organic-tonic-5-litre.jpg",
-  "Jeevamrut Concentrate (5 litre)":
-    "/products/jeevamrut-concentrate-5-litre.jpg",
   "Trichoderma Viride Bio-fungicide (1 kg)":
     "/products/trichoderma-viride-bio-fungicide-1-kg.jpg",
   "Pseudomonas Fluorescens (1 kg)":
@@ -846,46 +790,6 @@ const ROWS: Row[] = [
     "Feed and malt barley seed tolerant to salinity and late sowing.",
   ],
   [
-    "Sorghum Seed CSH-16 (5 kg)",
-    "Maharashtra Seeds",
-    "seeds",
-    "bag",
-    560,
-    4.1,
-    330,
-    "Dual purpose jowar seed hybrid producing high grain and fodder yield.",
-  ],
-  [
-    "Finger Millet Seed GPU-28 (5 kg)",
-    "Karnataka Seeds Corp.",
-    "seeds",
-    "bag",
-    380,
-    4.2,
-    290,
-    "Blast resistant ragi seed with 110-day duration and high calcium grain.",
-  ],
-  [
-    "Sesame Seed GT-10 (2 kg)",
-    "Gujarat Seeds Corp.",
-    "seeds",
-    "bag",
-    460,
-    4.0,
-    250,
-    "White seeded til seed for kharif with 48% oil recovery.",
-  ],
-  [
-    "Castor Seed GCH-7 (5 kg)",
-    "Gujarat Seeds Corp.",
-    "seeds",
-    "bag",
-    850,
-    4.1,
-    180,
-    "Wilt tolerant castor seed hybrid with high bean yield in light soils.",
-  ],
-  [
     "Lentil Seed IPL-406 (5 kg)",
     "IIPR Kanpur",
     "seeds",
@@ -916,16 +820,6 @@ const ROWS: Row[] = [
     "Multi-cut winter fodder seed giving 6-7 cuttings of nutritious green matter.",
   ],
   [
-    "Napier Grass Root Slips (100 slips)",
-    "TNAU Certified",
-    "seeds",
-    "bundle",
-    620,
-    4.2,
-    140,
-    "Perennial fodder grass root slips producing 200+ tonnes of green fodder per ha.",
-  ],
-  [
     "Marigold Seed African Orange (50 g)",
     "Namdhari Seeds",
     "seeds",
@@ -945,26 +839,6 @@ const ROWS: Row[] = [
     130,
     "High curcumin (4.5%) rhizome seed for the Erode and Salem belt.",
     "Featured",
-  ],
-  [
-    "Ginger Rhizome Seed Varada (25 kg)",
-    "Kerala Agri Board",
-    "seeds",
-    "bag",
-    2300,
-    4.3,
-    110,
-    "Plump fibre-low rhizome seed with good recovery in dry ginger.",
-  ],
-  [
-    "Garlic Seed Bulb G-282 (10 kg)",
-    "NHRDF",
-    "seeds",
-    "bag",
-    1650,
-    4.2,
-    160,
-    "Large bold garlic seed cloves with strong pungency and long storage life.",
   ],
   [
     "Papaya Seed Red Lady (10 g)",
@@ -987,46 +861,6 @@ const ROWS: Row[] = [
     5000,
     "Disease-free tissue culture banana plant sapling with uniform bunch maturity.",
     "Best Seller",
-  ],
-  [
-    "Guava Grafted Plant Allahabad Safeda",
-    "Punjab Nursery",
-    "seeds",
-    "plant",
-    145,
-    4.4,
-    800,
-    "Grafted guava plant sapling bearing sweet white-fleshed fruit in 2 years.",
-  ],
-  [
-    "Mango Grafted Plant Dasheri",
-    "UP Horticulture Nursery",
-    "seeds",
-    "plant",
-    220,
-    4.5,
-    650,
-    "Grafted mango plant sapling of the popular Dasheri variety.",
-  ],
-  [
-    "Drumstick Seed PKM-1 (250 g)",
-    "TNAU Certified",
-    "seeds",
-    "pack",
-    380,
-    4.3,
-    340,
-    "Annual moringa seed yielding 200+ pods per tree from the first year.",
-  ],
-  [
-    "Curry Leaf Plant Sapling",
-    "Kerala Agri Board",
-    "seeds",
-    "plant",
-    90,
-    4.2,
-    900,
-    "Hardy kadi patta plant sapling for kitchen garden and commercial planting.",
   ],
 
   // --- FERTILIZERS ---
@@ -1164,36 +998,6 @@ const ROWS: Row[] = [
     "Best Seller",
   ],
   [
-    "Neem Cake Powder (25 kg)",
-    "PureFarm Organics",
-    "fertilizers",
-    "bag",
-    450,
-    4.4,
-    1200,
-    "Organic neem cake powder protecting roots from soil nematodes.",
-  ],
-  [
-    "Bone Meal Organic (10 kg)",
-    "Green Earth Agri",
-    "fertilizers",
-    "bag",
-    380,
-    4.2,
-    800,
-    "Slow-release organic phosphorus source for flowering and fruiting.",
-  ],
-  [
-    "Cow Dung Manure Composted (40 kg)",
-    "PureFarm Organics",
-    "fertilizers",
-    "bag",
-    240,
-    4.3,
-    2500,
-    "Aged, fully composted cow dung manure enriched with beneficial microbes.",
-  ],
-  [
     "Rhizobium Biofertiliser (500 g)",
     "Kribhco",
     "fertilizers",
@@ -1214,106 +1018,6 @@ const ROWS: Row[] = [
     "Free-living nitrogen fixer for non-leguminous crops like cereals.",
   ],
   [
-    "PSB Phosphate Solubilising Bacteria (500 g)",
-    "Kribhco",
-    "fertilizers",
-    "pack",
-    130,
-    4.3,
-    1650,
-    "Unlocks fixed soil phosphorus and reduces DAP requirement.",
-  ],
-  [
-    "Mycorrhiza VAM Granules (4 kg)",
-    "Green Earth Agri",
-    "fertilizers",
-    "bag",
-    560,
-    4.4,
-    480,
-    "Root-symbiont fungi improving nutrient and water uptake.",
-  ],
-  [
-    "Humic Acid Granules (5 kg)",
-    "Kribhco",
-    "fertilizers",
-    "bag",
-    590,
-    4.4,
-    860,
-    "Soil conditioner improving cation exchange and root proliferation.",
-  ],
-  [
-    "Seaweed Extract Liquid (1 litre)",
-    "Multiplex",
-    "fertilizers",
-    "bottle",
-    480,
-    4.5,
-    740,
-    "Natural growth promoter with cytokinins for flowering crops.",
-  ],
-  [
-    "Micronutrient Mixture Grade-II (5 kg)",
-    "Coromandel",
-    "fertilizers",
-    "bag",
-    690,
-    4.2,
-    1050,
-    "Chelated Zn, Fe, Mn, B and Cu blend for foliar correction.",
-  ],
-  [
-    "Boron 20% Powder (1 kg)",
-    "Yara India",
-    "fertilizers",
-    "pack",
-    320,
-    4.1,
-    900,
-    "Prevents fruit cracking and improves pollen viability.",
-  ],
-  [
-    "Ferrous Sulphate (10 kg)",
-    "GSFC",
-    "fertilizers",
-    "bag",
-    420,
-    4.0,
-    780,
-    "Corrects iron chlorosis in calcareous and sandy soils.",
-  ],
-  [
-    "Gypsum Agricultural Grade (50 kg)",
-    "Rajasthan Minerals",
-    "fertilizers",
-    "bag",
-    310,
-    4.2,
-    1600,
-    "Calcium and sulphur for groundnut pod filling and sodic soil reclamation.",
-  ],
-  [
-    "Sulphur 90% WDG (5 kg)",
-    "Coromandel",
-    "fertilizers",
-    "bag",
-    640,
-    4.3,
-    620,
-    "Granular sulphur for oilseeds and pulses. Also lowers soil pH.",
-  ],
-  [
-    "Liquid Consortia Biofertiliser (1 litre)",
-    "IFFCO",
-    "fertilizers",
-    "bottle",
-    350,
-    4.4,
-    690,
-    "Three-strain liquid consortium for drip and seed treatment.",
-  ],
-  [
     "Nano Urea Liquid (500 ml)",
     "IFFCO",
     "fertilizers",
@@ -1323,46 +1027,6 @@ const ROWS: Row[] = [
     2100,
     "Foliar nano nitrogen replacing one bag of conventional urea.",
     "Featured",
-  ],
-  [
-    "Nano DAP Liquid (500 ml)",
-    "IFFCO",
-    "fertilizers",
-    "bottle",
-    600,
-    4.2,
-    1400,
-    "Nano phosphorus for seed treatment and foliar application.",
-  ],
-  [
-    "Potassium Humate Shiny Flakes (2 kg)",
-    "Green Earth Agri",
-    "fertilizers",
-    "pack",
-    520,
-    4.3,
-    540,
-    "High-purity humate flakes for drip irrigation systems.",
-  ],
-  [
-    "Panchagavya Organic Tonic (5 litre)",
-    "PureFarm Organics",
-    "fertilizers",
-    "can",
-    650,
-    4.6,
-    420,
-    "Traditional organic growth promoter and immunity booster.",
-  ],
-  [
-    "Jeevamrut Concentrate (5 litre)",
-    "PureFarm Organics",
-    "fertilizers",
-    "can",
-    420,
-    4.5,
-    500,
-    "Fermented bio-enhancer rich in beneficial soil microorganisms.",
   ],
 
   // --- PESTICIDES & CROP PROTECTION ---
