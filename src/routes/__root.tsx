@@ -159,7 +159,10 @@ function RootComponent() {
   const router = useRouter();
   const currentPath = router.state.location.pathname;
 
-  const isAuthRoute = currentPath === "/login" || currentPath === "/register";
+  const isStandaloneRoute =
+    currentPath === "/login" ||
+    currentPath === "/register" ||
+    currentPath === "/inauguration";
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -169,7 +172,7 @@ function RootComponent() {
             <ToastProvider>
               <CartProvider>
                 <WeatherProvider>
-                  {isAuthRoute ? (
+                  {isStandaloneRoute ? (
                     <Outlet />
                   ) : (
                     <AppShell>
