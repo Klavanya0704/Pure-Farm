@@ -427,32 +427,42 @@ export function AppShell({ children }: { children: ReactNode }) {
               </Link>
 
               {/* User profile / Auth status */}
-              {user ? (
-                <div className="flex items-center gap-3 border-l border-border pl-3">
-                  <div className="flex items-center gap-2">
-                    <div className="h-9 w-9 rounded-full bg-[#2d6a4f] text-white flex items-center justify-center font-bold text-xs shadow-sm">
-                      {user.name ? user.name.charAt(0).toUpperCase() : "U"}
+              {user ? (() => {
+                const rawName = user.name || "";
+                const cleanedName = rawName.replace(/\s*[\(\[]?\s*Demo\s*[\)\]]?$/i, "").trim();
+                const displayName =
+                  cleanedName && cleanedName.toLowerCase() === "student"
+                    ? "Student"
+                    : cleanedName || (user.role === "student" ? "Student" : user.name || "User");
+                const initial = displayName ? displayName.charAt(0).toUpperCase() : "U";
+
+                return (
+                  <div className="flex items-center gap-3 border-l border-border pl-3">
+                    <div className="flex items-center gap-2">
+                      <div className="h-9 w-9 rounded-full bg-[#2d6a4f] text-white flex items-center justify-center font-bold text-xs shadow-sm">
+                        {initial}
+                      </div>
+                      <div className="hidden sm:block text-left">
+                        <p className="text-xs font-bold leading-none text-foreground">{displayName}</p>
+                        <p className="mt-1 text-[10px] font-semibold leading-none uppercase text-[#2d6a4f]">
+                          {t(
+                            user.role
+                              ? user.role.charAt(0).toUpperCase() + user.role.slice(1)
+                              : "Farmer",
+                          )}
+                        </p>
+                      </div>
                     </div>
-                    <div className="hidden sm:block text-left">
-                      <p className="text-xs font-bold leading-none text-foreground">{user.name}</p>
-                      <p className="mt-1 text-[10px] font-semibold leading-none uppercase text-[#2d6a4f]">
-                        {t(
-                          user.role
-                            ? user.role.charAt(0).toUpperCase() + user.role.slice(1)
-                            : "Farmer",
-                        )}
-                      </p>
-                    </div>
+                    <button
+                      type="button"
+                      onClick={logout}
+                      className="inline-flex h-8 items-center justify-center rounded-lg border border-border bg-card px-2.5 text-[10px] font-bold text-destructive hover:bg-muted/50 transition"
+                    >
+                      {t("Logout")}
+                    </button>
                   </div>
-                  <button
-                    type="button"
-                    onClick={logout}
-                    className="inline-flex h-8 items-center justify-center rounded-lg border border-border bg-card px-2.5 text-[10px] font-bold text-destructive hover:bg-muted/50 transition"
-                  >
-                    {t("Logout")}
-                  </button>
-                </div>
-              ) : (
+                );
+              })() : (
                 <div className="flex items-center gap-2 border-l border-border pl-3">
                   <Link
                     to="/login"

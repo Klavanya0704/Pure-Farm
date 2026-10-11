@@ -334,9 +334,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       else if (normalizedEmail.includes("admin")) fallbackRole = "admin";
       else if (normalizedEmail.includes("seller")) fallbackRole = "seller";
 
+      const rawPrefix = normalizedEmail.split("@")[0] || "Farmer";
+      const cleanedPrefix = rawPrefix.charAt(0).toUpperCase() + rawPrefix.slice(1);
+
       const userSession: UserSession = {
         id: "u-demo-" + normalizedEmail.replace(/[^a-zA-Z0-9]/g, ""),
-        name: (normalizedEmail.split("@")[0] || "Farmer").toUpperCase() + " (Demo)",
+        name: cleanedPrefix,
         email: normalizedEmail,
         role: fallbackRole,
       };

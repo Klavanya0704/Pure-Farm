@@ -405,19 +405,34 @@ export function StudentHomePage() {
   const { t } = useTranslation();
   const { user } = useAuth();
 
+  const studentName = useMemo(() => {
+    if (!user?.name) return "Student";
+    const cleaned = user.name.replace(/\s*[\(\[]?\s*Demo\s*[\)\]]?$/i, "").trim();
+    if (!cleaned || cleaned.toLowerCase() === "student") return "Student";
+    return cleaned;
+  }, [user?.name]);
+
   return (
     <RoleGuard allowedRoles={["student", "admin"]}>
       <div className="px-4 py-6 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
         {/* Student Welcome Banner */}
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#0d1e16] via-[#1b4332] to-[#2d6a4f] text-white p-8 sm:p-10 shadow-soft">
+        <div
+          className="relative overflow-hidden rounded-2xl bg-[#0d1e16] text-white p-8 sm:p-10 shadow-soft bg-cover bg-no-repeat bg-[center_right]"
+          style={{
+            backgroundImage: "url('/images/student-learning-banner.png')",
+          }}
+        >
+          {/* Subtle dark-green gradient overlay ensuring white text remains readable while keeping student, laptop, and AgriTech dashboard visible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1e16]/95 via-[#1b4332]/75 to-transparent sm:via-[#1b4332]/60 sm:to-transparent pointer-events-none" />
+
           <div className="max-w-2xl space-y-3 relative z-10">
             <span className="inline-flex rounded-full bg-emerald-400/20 text-emerald-300 px-3 py-1 text-xs font-black uppercase tracking-wider">
               STUDENT DASHBOARD
             </span>
-            <h1 className="text-2xl sm:text-3xl font-black leading-tight text-white">
-              Welcome Back, {user?.name || "Student"} 👋
+            <h1 className="text-2xl sm:text-3xl font-black leading-tight text-white drop-shadow-xs">
+              Welcome Back, {studentName} 👋
             </h1>
-            <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-medium">
+            <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-medium drop-shadow-xs">
               {t(
                 "Advance your skills in Web Development, Python, AI/ML, and AgriTech. Explore active internship opportunities and track course progress.",
               )}
@@ -425,14 +440,14 @@ export function StudentHomePage() {
             <div className="pt-2 flex flex-wrap gap-3">
               <Link
                 to="/courses"
-                className="inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 transition px-4 py-2.5 text-xs font-black text-white shadow-sm"
+                className="inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 transition px-4 py-2.5 text-xs font-black text-white shadow-sm active:scale-95"
               >
                 {t("Browse All Courses")}
                 <GraduationCap className="h-4 w-4" />
               </Link>
               <Link
                 to="/internships"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 hover:bg-white/20 transition px-4 py-2.5 text-xs font-black text-white"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 hover:bg-white/20 transition px-4 py-2.5 text-xs font-black text-white backdrop-blur-xs active:scale-95"
               >
                 View Internships <Briefcase className="h-4 w-4" />
               </Link>
