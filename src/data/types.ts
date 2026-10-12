@@ -144,7 +144,7 @@ export interface Internship {
   duration?: string;
   eligibility?: string;
   responsibilities?: string[];
-  image?: string;
+  image?: string | null;
   workArrangement?: "On-site" | "Hybrid" | "Remote";
   stipendValue?: number;
   isInternal?: boolean;

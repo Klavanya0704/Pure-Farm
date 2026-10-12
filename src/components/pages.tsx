@@ -6206,6 +6206,122 @@ export function CertificatesPage() {
   );
 }
 
+function InternshipCardThumbnail({
+  src,
+  title,
+  category,
+  stipend,
+}: {
+  src?: string | null;
+  title: string;
+  category?: string;
+  stipend: string;
+}) {
+  const { t } = useTranslation();
+  const [hasError, setHasError] = useState(false);
+  const isFallback = !src || hasError;
+
+  return (
+    <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-100">
+      {isFallback ? (
+        <div className="w-full h-full bg-gradient-to-br from-emerald-50 via-slate-50 to-emerald-100/50 flex flex-col items-center justify-center gap-1.5 p-4 text-center">
+          <div className="h-10 w-10 rounded-2xl bg-white shadow-2xs border border-emerald-100 flex items-center justify-center text-emerald-700">
+            <Sprout className="h-5 w-5 text-emerald-600" />
+          </div>
+          <span className="text-xs font-bold text-slate-600">{t("Image unavailable")}</span>
+          <span className="text-[10px] font-semibold text-emerald-700/80">{t("PureFarm Verified Opportunity")}</span>
+        </div>
+      ) : (
+        <>
+          <img
+            src={src}
+            alt={title}
+            onError={() => setHasError(true)}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+        </>
+      )}
+
+      {/* Category Badge on Bottom-Left */}
+      <div className="absolute bottom-2.5 left-2.5 z-10">
+        <span className="inline-block px-2.5 py-1 rounded-md bg-[#eaf5ee] text-[#1b4332] text-[10px] font-black uppercase tracking-wider shadow-xs border border-emerald-200/80">
+          {t(category ?? "Field Work")}
+        </span>
+      </div>
+
+      {/* Stipend Badge on Bottom-Right */}
+      <div className="absolute bottom-2.5 right-2.5 z-10">
+        <span className="inline-block px-2.5 py-1 rounded-md bg-[#fff8eb] text-[#b45309] text-[11px] font-black shadow-xs border border-amber-200/90">
+          {t(stipend)}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function InternshipDetailBanner({
+  src,
+  title,
+  org,
+  location,
+  category,
+  stipend,
+}: {
+  src?: string | null;
+  title: string;
+  org: string;
+  location: string;
+  category?: string;
+  stipend: string;
+}) {
+  const { t } = useTranslation();
+  const [hasError, setHasError] = useState(false);
+  const isFallback = !src || hasError;
+
+  return (
+    <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden bg-slate-100">
+      {isFallback ? (
+        <div className="w-full h-full bg-gradient-to-br from-emerald-100/60 via-slate-100 to-emerald-200/40 flex flex-col items-center justify-center gap-2 p-6 text-center">
+          <div className="h-14 w-14 rounded-3xl bg-white shadow-sm border border-emerald-200 flex items-center justify-center text-emerald-700">
+            <Sprout className="h-7 w-7 text-emerald-600" />
+          </div>
+          <span className="text-sm font-bold text-slate-700">{t("Image unavailable")}</span>
+          <span className="text-xs text-slate-500">{t("PureFarm Verified Agriculture Opportunity")}</span>
+        </div>
+      ) : (
+        <>
+          <img
+            src={src}
+            alt={title}
+            onError={() => setHasError(true)}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent pointer-events-none" />
+        </>
+      )}
+
+      <div className={`absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4 z-10 ${isFallback ? "text-slate-900" : "text-white"}`}>
+        <div>
+          <span className="inline-block px-2.5 py-1 rounded-md bg-[#eaf5ee] text-[#1b4332] text-[10px] font-black uppercase tracking-wider mb-2 border border-emerald-200">
+            {t(category ?? "Field Work")}
+          </span>
+          <h1 className={`text-xl sm:text-2xl font-black leading-tight ${isFallback ? "text-slate-900" : "text-white drop-shadow-md"}`}>
+            {t(title)}
+          </h1>
+          <p className={`text-xs sm:text-sm font-semibold mt-1 ${isFallback ? "text-emerald-800" : "text-emerald-200 drop-shadow-sm"}`}>
+            {t(org)} • 📍 {t(location)}
+          </p>
+        </div>
+        <span className="shrink-0 rounded-xl bg-amber-400 text-slate-950 px-3.5 py-1.5 text-xs sm:text-sm font-black shadow-md">
+          {t(stipend)}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export function InternshipsPage() {
   const { t } = useTranslation();
   const { user } = useAuth();
@@ -6381,13 +6497,13 @@ export function InternshipsPage() {
   // Categories definition matching reference UI
   const categoriesList = [
     { id: "All", label: "Internships", image: null, isAll: true },
-    { id: "Field Work", label: "Field Work", image: "/images/internships/cat-fieldwork.jpg" },
-    { id: "Research", label: "Research", image: "/images/internships/cat-research.jpg" },
-    { id: "Agritech", label: "Agritech", image: "/images/internships/cat-agritech.jpg" },
-    { id: "Horticulture", label: "Horticulture", image: "/images/internships/cat-horticulture.jpg" },
-    { id: "Livestock", label: "Livestock", image: "/images/internships/cat-livestock.jpg" },
-    { id: "Food Processing", label: "Food Processing", image: "/images/internships/cat-food-processing.jpg" },
-    { id: "Organic Farming", label: "Organic Farming", image: "/images/internships/cat-organic-farming.jpg" },
+    { id: "Field Work", label: "Field Work", image: "/images/internships/agricultural-extension.jpg" },
+    { id: "Research", label: "Research", image: "/images/internships/soil-microbial-research.jpg" },
+    { id: "Agritech", label: "Agritech", image: "/images/internships/agritech-field-operations.jpg" },
+    { id: "Horticulture", label: "Horticulture", image: "/images/internships/horticulture-production.jpg" },
+    { id: "Livestock", label: "Livestock", image: "/images/internships/dairy-farm-management.jpg" },
+    { id: "Food Processing", label: "Food Processing", image: "/images/internships/agri-food-processing.jpg" },
+    { id: "Organic Farming", label: "Organic Farming", image: "/images/internships/organic-farming.jpg" },
   ];
 
   const locationsList = [
@@ -6506,30 +6622,14 @@ export function InternshipsPage() {
             </div>
 
             <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-sm space-y-6 overflow-hidden">
-              <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden bg-slate-100">
-                <img
-                  src={internship.image || "/images/internships/cat-fieldwork.jpg"}
-                  alt={internship.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4 text-white">
-                  <div>
-                    <span className="inline-block px-2.5 py-1 rounded-md bg-[#eaf5ee] text-[#1b4332] text-[10px] font-black uppercase tracking-wider mb-2">
-                      {t(internship.category ?? "Field Work")}
-                    </span>
-                    <h1 className="text-xl sm:text-2xl font-black leading-tight drop-shadow-md">
-                      {t(internship.title)}
-                    </h1>
-                    <p className="text-xs sm:text-sm font-semibold text-emerald-200 mt-1 drop-shadow-sm">
-                      {t(internship.org)} • 📍 {t(internship.location)}
-                    </p>
-                  </div>
-                  <span className="shrink-0 rounded-xl bg-amber-400 text-slate-950 px-3.5 py-1.5 text-xs sm:text-sm font-black shadow-md">
-                    {t(internship.stipend)}
-                  </span>
-                </div>
-              </div>
+              <InternshipDetailBanner
+                src={internship.image}
+                title={internship.title}
+                org={internship.org}
+                location={internship.location}
+                category={internship.category}
+                stipend={internship.stipend}
+              />
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#f4f9f6] p-4 rounded-2xl border border-emerald-100 text-xs">
                 <div>
@@ -6833,11 +6933,11 @@ export function InternshipsPage() {
               <div className="md:col-span-5 relative flex items-center justify-center lg:justify-end">
                 <div className="relative w-full max-w-[360px] h-56 sm:h-64 rounded-3xl overflow-hidden shadow-md border-2 border-white/80 bg-emerald-950/5">
                   <img
-                    src="/images/student-learning-banner.png"
-                    alt="PureFarm Agriculture & AgriTech Student"
-                    className="w-full h-full object-cover object-right"
+                    src="/images/internships/internship-hero-banner.png"
+                    alt="PureFarm Agriculture & AgriTech Students"
+                    className="w-full h-full object-cover object-center"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/25 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/20 via-transparent to-transparent pointer-events-none" />
                 </div>
 
                 {/* Floating pill badges on the right side */}
@@ -6972,9 +7072,12 @@ export function InternshipsPage() {
                   >
                     <div className="h-11 w-full rounded-xl overflow-hidden bg-slate-100">
                       <img
-                        src={cat.image || "/images/internships/cat-fieldwork.jpg"}
+                        src={cat.image || "/images/internships/agricultural-extension.jpg"}
                         alt={cat.label}
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).src = "/images/internships/agricultural-extension.jpg";
+                        }}
                       />
                     </div>
                     <span
@@ -6989,6 +7092,59 @@ export function InternshipsPage() {
               })}
             </div>
           </section>
+
+          {/* Stats Highlights Bar matching Reference */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            <div className="bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-2xs flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-100">
+                <Briefcase className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="text-base font-black text-[#1b4332]">24+</div>
+                <div className="text-[11px] font-bold text-slate-500 leading-tight">{t("Active Opportunities")}</div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-2xs flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-100">
+                <GraduationCap className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="text-base font-black text-[#1b4332]">8</div>
+                <div className="text-[11px] font-bold text-slate-500 leading-tight">{t("Specialized Domains")}</div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-2xs flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-100">
+                <Sprout className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="text-base font-black text-[#1b4332]">100%</div>
+                <div className="text-[11px] font-bold text-slate-500 leading-tight">{t("Practical Fieldwork")}</div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-2xs flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-100">
+                <Award className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="text-base font-black text-[#1b4332]">{t("Verified")}</div>
+                <div className="text-[11px] font-bold text-slate-500 leading-tight">{t("Certificates Provided")}</div>
+              </div>
+            </div>
+
+            <div className="col-span-2 sm:col-span-1 bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-2xs flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center shrink-0 border border-amber-100">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="text-base font-black text-amber-800">{t("Guaranteed")}</div>
+                <div className="text-[11px] font-bold text-slate-500 leading-tight">{t("Monthly Stipend")}</div>
+              </div>
+            </div>
+          </div>
 
           {/* 3. Section Results Header */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-2">
@@ -7069,28 +7225,12 @@ export function InternshipsPage() {
                     className="rounded-3xl border border-slate-200/90 bg-white shadow-xs hover:shadow-md transition duration-200 overflow-hidden flex flex-col justify-between group"
                   >
                     {/* Top Image Thumbnail Area */}
-                    <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-100">
-                      <img
-                        src={i.image || "/images/internships/cat-fieldwork.jpg"}
-                        alt={i.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
-
-                      {/* Category Badge on Bottom-Left */}
-                      <div className="absolute bottom-2.5 left-2.5">
-                        <span className="inline-block px-2.5 py-1 rounded-md bg-[#eaf5ee] text-[#1b4332] text-[10px] font-black uppercase tracking-wider shadow-xs border border-emerald-200/80">
-                          {t(i.category ?? "Field Work")}
-                        </span>
-                      </div>
-
-                      {/* Stipend Badge on Bottom-Right */}
-                      <div className="absolute bottom-2.5 right-2.5">
-                        <span className="inline-block px-2.5 py-1 rounded-md bg-[#fff8eb] text-[#b45309] text-[11px] font-black shadow-xs border border-amber-200/90">
-                          {t(i.stipend)}
-                        </span>
-                      </div>
-                    </div>
+                    <InternshipCardThumbnail
+                      src={i.image}
+                      title={i.title}
+                      category={i.category}
+                      stipend={i.stipend}
+                    />
 
                     {/* Card Body Content */}
                     <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
