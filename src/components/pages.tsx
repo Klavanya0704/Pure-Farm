@@ -112,6 +112,7 @@ import { CATEGORIES, getProduct, PRODUCTS, CATEGORY_FALLBACK_IMAGES, getProductI
 import { SITE, waLink } from "@/data/site";
 import type { Category, Course, NotificationItem, Product, Internship, Scheme } from "@/data/types";
 import { cardClass, glassCardClass, PageShell } from "./AppShell";
+import { StudentPortalHero } from "./StudentPortalHero";
 import { getCartProducts, useCart } from "./CartContext";
 import { useWishlist } from "./WishlistContext";
 import { useToast } from "./ToastContext";
@@ -5258,13 +5259,32 @@ export function LearnPage() {
 
     return (
       <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
-        <PageShell
-          bgImage="/hero-tractor.jpg"
-          eyebrow={t("Agriculture Education")}
-          title={t(course.title)}
-          intro={t(course.description ?? "")}
-        >
-          <div className="space-y-6">
+        <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto space-y-6">
+            <StudentPortalHero
+              size="sm"
+              eyebrow={course.category || t("Agriculture Education")}
+              eyebrowIcon={BookOpen}
+              title={course.title}
+              description={course.description}
+              badges={[
+                { label: `${t(course.instructor)} · ${course.hours} ${t("hrs")}`, icon: Users },
+                { label: `${courseLessons.length} ${t("Modules")}`, icon: BookOpen },
+                { label: `${progressPct}% ${t("completed")}`, icon: CheckCircle2 },
+              ]}
+              actions={
+                <button
+                  type="button"
+                  onClick={() => handleSelectCourse(null)}
+                  className="inline-flex items-center gap-2 h-9 px-4 rounded-xl bg-white/95 text-[#1b4332] text-xs font-black hover:bg-white transition shadow-sm cursor-pointer"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  {t("Back to Agriculture Learning Hub")}
+                </button>
+              }
+            />
+
+            <div className="space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <button
                 type="button"
@@ -5531,8 +5551,9 @@ export function LearnPage() {
               </div>
             </div>
           </div>
-        </PageShell>
-      </RoleGuard>
+        </div>
+      </div>
+    </RoleGuard>
     );
   }
 
@@ -5572,56 +5593,65 @@ export function LearnPage() {
 
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
-      <PageShell
-        bgImage="/hero-tractor.jpg"
-        eyebrow={t("Agriculture Education & Knowledge")}
-        title={t("PureFarm Agriculture Learning Hub")}
-        intro={t(
-          "Learn practical farming skills, soil fertility, modern irrigation, pest management, crop planning, and agricultural technologies.",
-        )}
-      >
-        <div className="mb-6 space-y-4">
-          <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder={t("Search agriculture courses, soil guides, pest control...")}
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                className="w-full h-11 pl-10 pr-9 rounded-xl border border-white/50 bg-white/80 backdrop-blur-md shadow-sm text-sm outline-none focus:bg-white focus:ring-2 focus:ring-emerald-600"
-              />
-              {query && (
-                <button
-                  type="button"
-                  onClick={() => setQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              )}
-            </div>
+      <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <StudentPortalHero
+            size="lg"
+            eyebrow={t("Agriculture Education & Knowledge")}
+            eyebrowIcon={GraduationCap}
+            title={t("PureFarm Agriculture Learning Hub")}
+            description={t(
+              "Learn practical farming skills, soil fertility, modern irrigation, pest management, crop planning, and agricultural technologies with guided field modules.",
+            )}
+            badges={[
+              { label: t("Hands-on Learning"), icon: Leaf },
+              { label: t("Expert Mentorship"), icon: Users },
+              { label: t("Verified Modules"), icon: Award },
+            ]}
+          />
 
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-xs font-bold text-slate-700 flex items-center gap-1 shrink-0 mr-1">
-                <Filter className="h-3.5 w-3.5 text-emerald-700" />
-                {t("Category:")}
-              </span>
-              {agriCategoriesList.map((cat) => (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setCategoryFilter(cat)}
-                  className={`h-9 px-3 rounded-xl text-xs font-bold transition shadow-2xs cursor-pointer ${
-                    categoryFilter === cat
-                      ? "bg-[#1b4332] text-white"
-                      : "bg-white/80 border border-white/60 text-[#1b4332] hover:bg-white"
-                  }`}
-                >
-                  {t(cat)}
-                </button>
-              ))}
-            </div>
+          <div className="rounded-3xl bg-white border border-slate-200/90 p-4 sm:p-5 shadow-xs space-y-4">
+            <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+              <div className="relative flex-1 max-w-md">
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder={t("Search agriculture courses, soil guides, pest control...")}
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  className="w-full h-11 pl-10 pr-9 rounded-xl border border-slate-200 bg-slate-50/70 text-slate-800 shadow-2xs text-sm outline-none focus:bg-white focus:ring-2 focus:ring-emerald-600"
+                />
+                {query && (
+                  <button
+                    type="button"
+                    onClick={() => setQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                )}
+              </div>
+
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="text-xs font-bold text-slate-700 flex items-center gap-1 shrink-0 mr-1">
+                  <Filter className="h-3.5 w-3.5 text-emerald-700" />
+                  {t("Category:")}
+                </span>
+                {agriCategoriesList.map((cat) => (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setCategoryFilter(cat)}
+                    className={`h-9 px-3 rounded-xl text-xs font-bold transition shadow-2xs cursor-pointer ${
+                      categoryFilter === cat
+                        ? "bg-[#1b4332] text-white"
+                        : "bg-slate-50 border border-slate-200 text-[#1b4332] hover:bg-white"
+                    }`}
+                  >
+                    {t(cat)}
+                  </button>
+                ))}
+              </div>
           </div>
 
           <div className="flex flex-wrap items-center justify-between gap-3 pt-1 border-t border-white/40">
@@ -5871,7 +5901,8 @@ export function LearnPage() {
             </div>
           </div>
         )}
-      </PageShell>
+        </div>
+      </div>
     </RoleGuard>
   );
 }
@@ -5885,68 +5916,86 @@ export function CoursesPage() {
 
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
-      <PageShell
-        eyebrow={t("Education")}
-        title={t("Student Courses Catalog")}
-        intro={t("Explore modern farming, crop science, soil fertility, irrigation, and AgriTech courses.")}
-      >
-        <div className="mb-6 flex max-w-md items-center rounded-xl border border-border bg-card px-3.5 py-2.5 shadow-sm">
-          <Search className="h-4 w-4 text-muted-foreground mr-2" />
-          <input
-            type="text"
-            placeholder={t("Search courses...")}
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="w-full bg-transparent text-sm outline-none"
+      <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <StudentPortalHero
+            size="lg"
+            eyebrow={t("Agricultural Curriculum")}
+            eyebrowIcon={BookOpen}
+            title={t("Student Courses Catalog")}
+            description={t(
+              "Explore modern farming, crop science, soil fertility, irrigation, and AgriTech courses designed for hands-on student learners.",
+            )}
+            badges={[
+              { label: t("Hands-on Learning"), icon: Leaf },
+              { label: t("Expert Mentorship"), icon: Users },
+              { label: t("Certificate Support"), icon: Award },
+            ]}
           />
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((c) => (
-            <div
-              key={c.id}
-              className="rounded-2xl border border-border bg-card p-5 shadow-soft flex flex-col justify-between space-y-4"
-            >
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
-                    {t(c.level)}
-                  </span>
-                  <span className="text-xs text-muted-foreground font-semibold">
-                    {c.hours} {t("hrs")} · {c.lessons} {t("lessons")}
-                  </span>
-                </div>
-                <h3 className="text-lg font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  {t(c.description ?? "")}
-                </p>
-              </div>
-
-              <div className="space-y-3 pt-3 border-t border-border/60">
-                <div className="flex justify-between text-xs font-bold">
-                  <span className="text-muted-foreground">{t(c.instructor)}</span>
-                  <span className="text-[#2d6a4f]">
-                    {c.progress}% {t("completed")}
-                  </span>
-                </div>
-                <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
-                  <div
-                    className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
-                    style={{ width: `${c.progress}%` }}
-                  />
-                </div>
-                <Link
-                  to={`/learn?courseId=${c.id}`}
-                  className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm flex items-center justify-center gap-1.5"
-                >
-                  {c.progress > 0 ? t("Continue Learning") : t("Start Course")}
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
+          <div className="rounded-3xl bg-white border border-slate-200/90 p-4 sm:p-5 shadow-xs flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+            <div className="relative flex-1 max-w-md">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+              <input
+                type="text"
+                placeholder={t("Search courses by title, topic, or level...")}
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50/70 text-slate-800 text-sm outline-none focus:bg-white focus:ring-2 focus:ring-emerald-600 shadow-2xs"
+              />
             </div>
-          ))}
+            <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-200 self-start sm:self-auto">
+              {filtered.length} {t("Courses Available")}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filtered.map((c) => (
+              <div
+                key={c.id}
+                className="rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md transition duration-200 flex flex-col justify-between space-y-4"
+              >
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
+                      {t(c.level)}
+                    </span>
+                    <span className="text-xs text-slate-500 font-semibold">
+                      {c.hours} {t("hrs")} · {c.lessons} {t("lessons")}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {t(c.description ?? "")}
+                  </p>
+                </div>
+
+                <div className="space-y-3 pt-3 border-t border-slate-100">
+                  <div className="flex justify-between text-xs font-bold">
+                    <span className="text-slate-500">{t(c.instructor)}</span>
+                    <span className="text-[#2d6a4f]">
+                      {c.progress}% {t("completed")}
+                    </span>
+                  </div>
+                  <div className="h-2 w-full rounded-full bg-slate-100 overflow-hidden">
+                    <div
+                      className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
+                      style={{ width: `${c.progress}%` }}
+                    />
+                  </div>
+                  <Link
+                    to={`/learn?courseId=${c.id}`}
+                    className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm flex items-center justify-center gap-1.5"
+                  >
+                    {c.progress > 0 ? t("Continue Learning") : t("Start Course")}
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </PageShell>
+      </div>
     </RoleGuard>
   );
 }
@@ -6006,68 +6055,78 @@ export function MyCoursesPage() {
 
   return (
     <RoleGuard allowedRoles={["student", "admin"]}>
-      <PageShell
-        eyebrow={t("Dashboard")}
-        title={t("My Enrolled Courses")}
-        intro={t("Track ongoing learning progress across active agriculture and AgriTech courses.")}
-      >
-        {enrolledCourses.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-border bg-card/60 p-12 text-center space-y-3 max-w-md mx-auto">
-            <GraduationCap className="h-10 w-10 text-muted-foreground mx-auto" />
-            <h3 className="text-base font-black text-[#1b4332]">{t("No enrolled courses yet")}</h3>
-            <p className="text-xs text-muted-foreground">
-              {t("Browse our agriculture and AgriTech courses catalog to start learning modern farming techniques.")}
-            </p>
-            <div className="pt-2">
-              <Link
-                to="/courses"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-4 py-2 text-xs font-black transition"
-              >
-                {t("Browse Courses")} <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {enrolledCourses.map((c) => {
-              const progress = getCourseProgress(c.id);
-              return (
-                <div
-                  key={c.id}
-                  className="rounded-2xl border border-border bg-card p-5 shadow-soft space-y-4"
+      <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <StudentPortalHero
+            size="md"
+            eyebrow={t("Student Dashboard")}
+            eyebrowIcon={GraduationCap}
+            title={t("My Enrolled Courses")}
+            description={t("Track ongoing learning progress across active agriculture and AgriTech courses.")}
+            badges={[
+              { label: t("Track Progress"), icon: Leaf },
+              { label: t("Resume Anywhere"), icon: BookOpen },
+            ]}
+          />
+
+          {enrolledCourses.length === 0 ? (
+            <div className="rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center space-y-3 max-w-md mx-auto shadow-xs">
+              <GraduationCap className="h-10 w-10 text-slate-400 mx-auto" />
+              <h3 className="text-base font-black text-[#1b4332]">{t("No enrolled courses yet")}</h3>
+              <p className="text-xs text-slate-600">
+                {t("Browse our agriculture and AgriTech courses catalog to start learning modern farming techniques.")}
+              </p>
+              <div className="pt-2">
+                <Link
+                  to="/courses"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-4 py-2 text-xs font-black transition shadow-xs"
                 >
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">
-                        {t(c.topic)}
-                      </span>
-                      <h3 className="text-lg font-black text-[#1b4332]">{t(c.title)}</h3>
-                      <p className="text-xs text-muted-foreground mt-0.5">
-                        {t(c.instructor)} · {c.hours} {t("hrs")}
-                      </p>
-                    </div>
-                    <span className="text-xs font-bold text-[#2d6a4f] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                      {progress}% {t("completed")}
-                    </span>
-                  </div>
-                  <div className="h-2.5 w-full rounded-full bg-muted overflow-hidden">
-                    <div
-                      className="h-full bg-[#2d6a4f] rounded-full"
-                      style={{ width: `${progress}%` }}
-                    />
-                  </div>
-                  <Link
-                    to={`/learn?courseId=${c.id}`}
-                    className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm flex items-center justify-center gap-1.5"
+                  {t("Browse Courses")} <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {enrolledCourses.map((c) => {
+                const progress = getCourseProgress(c.id);
+                return (
+                  <div
+                    key={c.id}
+                    className="rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md transition duration-200 space-y-4"
                   >
-                    {t("Continue Module")} <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </PageShell>
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">
+                          {t(c.topic)}
+                        </span>
+                        <h3 className="text-lg font-black text-[#1b4332]">{t(c.title)}</h3>
+                        <p className="text-xs text-slate-500 mt-0.5">
+                          {t(c.instructor)} · {c.hours} {t("hrs")}
+                        </p>
+                      </div>
+                      <span className="text-xs font-bold text-[#2d6a4f] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                        {progress}% {t("completed")}
+                      </span>
+                    </div>
+                    <div className="h-2.5 w-full rounded-full bg-slate-100 overflow-hidden">
+                      <div
+                        className="h-full bg-[#2d6a4f] rounded-full"
+                        style={{ width: `${progress}%` }}
+                      />
+                    </div>
+                    <Link
+                      to={`/learn?courseId=${c.id}`}
+                      className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm flex items-center justify-center gap-1.5"
+                    >
+                      {t("Continue Module")} <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </div>
     </RoleGuard>
   );
 }
@@ -6126,39 +6185,49 @@ export function MyApplicationsPage() {
 
   return (
     <RoleGuard allowedRoles={["student", "farmer", "buyer", "seller", "admin"]} allowGuest={true}>
-      <PageShell
-        eyebrow={t("Career")}
-        title={t("My Internship Applications")}
-        intro={t("Review status and progress of your submitted internship applications.")}
-      >
-        <div className="space-y-4">
-          {apps.map((app, idx) => (
-            <div
-              key={app.id || idx}
-              className="rounded-2xl border border-border bg-card p-5 shadow-soft flex items-center justify-between"
-            >
-              <div>
-                <h3 className="text-base font-black text-[#1b4332]">{t(app.title)}</h3>
-                <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">
-                  {t(app.org)} · {t(app.location)} · {t(app.stipend)}
-                </p>
-                <p className="text-[11px] text-muted-foreground mt-1">{t(app.date)}</p>
-              </div>
-              <span
-                className={`px-3 py-1 rounded-full text-xs font-bold border ${
-                  app.status === "Application Submitted" || app.status === "Shortlisted"
-                    ? "bg-emerald-50 text-emerald-800 border-emerald-200"
-                    : app.status === "Application Started"
-                      ? "bg-blue-50 text-blue-800 border-blue-200"
-                      : "bg-amber-50 text-amber-800 border-amber-200"
-                }`}
+      <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <StudentPortalHero
+            size="md"
+            eyebrow={t("Career Applications")}
+            eyebrowIcon={FileText}
+            title={t("My Internship Applications")}
+            description={t("Review status and progress of your submitted internship applications.")}
+            badges={[
+              { label: t("Application Tracking"), icon: Briefcase },
+              { label: t("Verified Submissions"), icon: ShieldCheck },
+            ]}
+          />
+
+          <div className="space-y-4">
+            {apps.map((app, idx) => (
+              <div
+                key={app.id || idx}
+                className="rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md transition duration-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
               >
-                {t(app.status)}
-              </span>
-            </div>
-          ))}
+                <div>
+                  <h3 className="text-base font-black text-[#1b4332]">{t(app.title)}</h3>
+                  <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">
+                    {t(app.org)} · {t(app.location)} · {t(app.stipend)}
+                  </p>
+                  <p className="text-[11px] text-slate-500 mt-1">{t(app.date)}</p>
+                </div>
+                <span
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold border shrink-0 ${
+                    app.status === "Application Submitted" || app.status === "Shortlisted"
+                      ? "bg-emerald-50 text-emerald-800 border-emerald-200"
+                      : app.status === "Application Started"
+                        ? "bg-blue-50 text-blue-800 border-blue-200"
+                        : "bg-amber-50 text-amber-800 border-amber-200"
+                  }`}
+                >
+                  {t(app.status)}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
-      </PageShell>
+      </div>
     </RoleGuard>
   );
 }
@@ -6172,36 +6241,49 @@ export function CertificatesPage() {
 
   return (
     <RoleGuard allowedRoles={["student", "farmer", "buyer", "seller", "admin"]} allowGuest={true}>
-      <PageShell
-        eyebrow={t("Achievements")}
-        title={t("My Certificates")}
-        intro={t("View and download verified completion certificates.")}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {sampleCertificates.map((cert, idx) => (
-            <div
-              key={idx}
-              className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-3"
-            >
-              <div className="flex items-center gap-3">
-                <Award className="h-8 w-8 text-amber-500 shrink-0" />
-                <div>
-                  <h3 className="text-base font-black text-[#1b4332]">{t(cert.title)}</h3>
-                  <p className="text-xs text-muted-foreground">
-                    {t(cert.date)} · {cert.id}
-                  </p>
-                </div>
-              </div>
-              <button
-                type="button"
-                className="w-full h-9 rounded-xl border border-border bg-muted/30 hover:bg-muted text-xs font-bold text-[#1b4332] transition cursor-pointer"
+      <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <StudentPortalHero
+            size="md"
+            eyebrow={t("Achievements")}
+            eyebrowIcon={Award}
+            title={t("My Certificates")}
+            description={t("View and download verified completion certificates for completed courses and agricultural field training.")}
+            badges={[
+              { label: t("Verified Credentials"), icon: ShieldCheck },
+              { label: t("PDF Downloadable"), icon: Award },
+            ]}
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {sampleCertificates.map((cert, idx) => (
+              <div
+                key={idx}
+                className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs hover:shadow-md transition duration-200 space-y-4"
               >
-                {t("Download Certificate (PDF)")}
-              </button>
-            </div>
-          ))}
+                <div className="flex items-center gap-3.5">
+                  <div className="h-12 w-12 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 shrink-0 shadow-2xs">
+                    <Award className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-black text-[#1b4332]">{t(cert.title)}</h3>
+                    <p className="text-xs text-slate-500 font-semibold mt-0.5">
+                      {t(cert.date)} · <span className="font-mono text-emerald-800">{cert.id}</span>
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  className="w-full h-10 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-xs font-bold text-[#1b4332] transition cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  <FileText className="h-4 w-4 text-emerald-700" />
+                  {t("Download Certificate (PDF)")}
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
-      </PageShell>
+      </div>
     </RoleGuard>
   );
 }
@@ -6892,72 +6974,22 @@ export function InternshipsPage() {
       <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-6">
           
-          {/* 1. Spacious Agriculture Hero Section matching Reference Image */}
-          <section className="relative rounded-3xl bg-gradient-to-r from-[#edf6f0] via-[#f7faf8] to-[#edf6f1] border border-emerald-100/90 shadow-xs overflow-hidden p-6 sm:p-8 lg:p-10">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-              {/* Left Column: Heading and description */}
-              <div className="md:col-span-7 space-y-4 z-10">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-200 text-emerald-800 text-xs font-bold shadow-2xs">
-                  <GraduationCap className="h-4 w-4 text-emerald-700" />
-                  <span>{t("Internships")}</span>
-                </div>
-
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#1b4332] tracking-tight leading-tight">
-                  {t("Gain Real-World Experience in Agriculture & AgriTech")}
-                </h1>
-
-                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-xl">
-                  {t(
-                    "Work with leading farms, agritech startups, research organizations and FPOs. Develop practical skills, get mentored by experts, and grow your career.",
-                  )}
-                </p>
-
-                {/* Floating pill badges on the left */}
-                <div className="pt-2 flex flex-wrap items-center gap-3">
-                  <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-white/95 border border-emerald-100 shadow-xs text-xs font-bold text-[#1b4332]">
-                    <div className="h-7 w-7 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-700">
-                      <Leaf className="h-4 w-4" />
-                    </div>
-                    <span>{t("Hands-on Learning")}</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-white/95 border border-emerald-100 shadow-xs text-xs font-bold text-[#1b4332]">
-                    <div className="h-7 w-7 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-700">
-                      <Users className="h-4 w-4" />
-                    </div>
-                    <span>{t("Expert Mentorship")}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Authentic Agriculture Student Visual matching Reference */}
-              <div className="md:col-span-5 relative flex items-center justify-center lg:justify-end">
-                <div className="relative w-full max-w-[360px] h-56 sm:h-64 rounded-3xl overflow-hidden shadow-md border-2 border-white/80 bg-emerald-950/5">
-                  <img
-                    src="/images/internships/internship-hero-banner.png"
-                    alt="PureFarm Agriculture & AgriTech Students"
-                    className="w-full h-full object-cover object-center"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/20 via-transparent to-transparent pointer-events-none" />
-                </div>
-
-                {/* Floating pill badges on the right side */}
-                <div className="absolute -bottom-3 right-2 sm:right-4 flex flex-col gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-xs border border-emerald-100 shadow-md text-[11px] font-bold text-[#1b4332]">
-                    <div className="h-6 w-6 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-700">
-                      <Award className="h-3.5 w-3.5" />
-                    </div>
-                    <span>{t("Certificate Support")}</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-xs border border-emerald-100 shadow-md text-[11px] font-bold text-[#1b4332]">
-                    <div className="h-6 w-6 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-700">
-                      <Briefcase className="h-3.5 w-3.5" />
-                    </div>
-                    <span>{t("Career Opportunities")}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          {/* 1. Spacious Agriculture Hero Section using Unified StudentPortalHero */}
+          <StudentPortalHero
+            size="lg"
+            eyebrow={t("Internships")}
+            eyebrowIcon={GraduationCap}
+            title={t("Gain Real-World Experience in Agriculture & AgriTech")}
+            description={t(
+              "Work with leading farms, agritech startups, research organizations and FPOs. Develop practical skills, get mentored by experts, and grow your career.",
+            )}
+            badges={[
+              { label: t("Hands-on Learning"), icon: Leaf },
+              { label: t("Expert Mentorship"), icon: Users },
+              { label: t("Certificate Support"), icon: Award },
+              { label: t("Career Opportunities"), icon: Briefcase },
+            ]}
+          />
 
           {/* 2. Internship Discovery Toolbar Card matching Reference Image */}
           <section className="rounded-3xl bg-white border border-slate-200/90 shadow-xs p-4 sm:p-5 space-y-4">
