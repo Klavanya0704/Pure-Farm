@@ -1,9 +1,23 @@
 import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { useTranslation } from "@/i18n/LanguageContext";
 import { LanguageSelector } from "./AppShell";
-import { getColdStorageFacilities, updateFacilityCapacity, type ColdStorageFacility } from "@/services/coldStorage";
-import { getMarketPrices, syncLiveMarketPrices, INITIAL_AGMARKNET_PRICES, type SyncResult } from "@/services/marketPrices";
-import { getMachines, createMachine, getEquipmentImage, getEquipmentPlaceholder } from "@/services/machines";
+import {
+  getColdStorageFacilities,
+  updateFacilityCapacity,
+  type ColdStorageFacility,
+} from "@/services/coldStorage";
+import {
+  getMarketPrices,
+  syncLiveMarketPrices,
+  INITIAL_AGMARKNET_PRICES,
+  type SyncResult,
+} from "@/services/marketPrices";
+import {
+  getMachines,
+  createMachine,
+  getEquipmentImage,
+  getEquipmentPlaceholder,
+} from "@/services/machines";
 import {
   fetchWeatherData,
   fetchWeatherByCoords,
@@ -93,6 +107,7 @@ import {
   SlidersHorizontal,
   LayoutGrid,
   Laptop,
+  Layers,
 } from "lucide-react";
 import { useMemo, useState, useEffect, useRef, useCallback } from "react";
 import {
@@ -108,7 +123,14 @@ import {
   WEATHER,
 } from "@/data/agriculture";
 import { AGRICULTURE_LESSONS } from "@/data/lessons";
-import { CATEGORIES, getProduct, PRODUCTS, CATEGORY_FALLBACK_IMAGES, getProductImage, getCategoryPlaceholder } from "@/data/products";
+import {
+  CATEGORIES,
+  getProduct,
+  PRODUCTS,
+  CATEGORY_FALLBACK_IMAGES,
+  getProductImage,
+  getCategoryPlaceholder,
+} from "@/data/products";
 import { SITE, waLink } from "@/data/site";
 import type { Category, Course, NotificationItem, Product, Internship, Scheme } from "@/data/types";
 import { cardClass, glassCardClass, PageShell } from "./AppShell";
@@ -303,7 +325,7 @@ export function BuyerHomePage() {
             </h1>
             <p className="text-sm text-emerald-100/90 leading-relaxed font-medium drop-shadow-xs">
               {t(
-                "Browse directly from verified local farmers and certified suppliers. High quality, fair prices, direct sourcing."
+                "Browse directly from verified local farmers and certified suppliers. High quality, fair prices, direct sourcing.",
               )}
             </p>
             <div className="pt-2 flex flex-wrap gap-3">
@@ -482,7 +504,7 @@ export function StudentHomePage() {
       const completed = completedLessons[c.id] || [];
       return courseLessons.every((l) => completed.includes(l.id));
     }).length;
-    return fullyCompleted > 0 ? fullyCompleted : (enrolledCourses.length > 0 ? 2 : 0);
+    return fullyCompleted > 0 ? fullyCompleted : enrolledCourses.length > 0 ? 2 : 0;
   }, [enrolledCourses, completedLessons]);
 
   const getCourseProgress = (courseId: string) => {
@@ -556,7 +578,9 @@ export function StudentHomePage() {
             </p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
-            <p className="text-2xl font-black text-[#1b4332]">{totalHours} {t("hrs")}</p>
+            <p className="text-2xl font-black text-[#1b4332]">
+              {totalHours} {t("hrs")}
+            </p>
             <p className="text-xs font-semibold text-muted-foreground mt-0.5">
               {t("Learning Time")}
             </p>
@@ -580,9 +604,13 @@ export function StudentHomePage() {
           {enrolledCourses.length === 0 ? (
             <div className="rounded-2xl border border-dashed border-border bg-card/60 p-10 text-center space-y-3">
               <GraduationCap className="h-10 w-10 text-muted-foreground mx-auto" />
-              <h3 className="text-base font-black text-[#1b4332]">{t("No enrolled courses yet")}</h3>
+              <h3 className="text-base font-black text-[#1b4332]">
+                {t("No enrolled courses yet")}
+              </h3>
               <p className="text-xs text-muted-foreground max-w-md mx-auto">
-                {t("Browse our agriculture and AgriTech courses catalog to start learning modern farming techniques.")}
+                {t(
+                  "Browse our agriculture and AgriTech courses catalog to start learning modern farming techniques.",
+                )}
               </p>
               <div className="pt-2">
                 <Link
@@ -611,7 +639,9 @@ export function StudentHomePage() {
                           {c.hours} {t("hrs")} · {c.lessons} {t("lessons")}
                         </span>
                       </div>
-                      <h3 className="text-base font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
+                      <h3 className="text-base font-black text-[#1b4332] leading-snug">
+                        {t(c.title)}
+                      </h3>
                       <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
                         {t(c.description ?? "")}
                       </p>
@@ -1328,7 +1358,9 @@ export function FarmerHomePage() {
                   <div>
                     <p className="text-[10px] text-muted-foreground font-semibold">{t("Rain")}</p>
                     <p className="text-xs font-black text-[#1b4332] mt-0.5">
-                      {liveWeather && liveWeather.forecast[0] ? `${liveWeather.forecast[0].rainProb}%` : "10%"}
+                      {liveWeather && liveWeather.forecast[0]
+                        ? `${liveWeather.forecast[0].rainProb}%`
+                        : "10%"}
                     </p>
                   </div>
                 </div>
@@ -1489,9 +1521,17 @@ export function normalizeCategoryParam(param?: string | null): Category | "all" 
   if (p === "fruits" || p === "fruit") return "fruits";
   if (p === "vegetables" || p === "vegetable" || p === "veggies") return "vegetables";
   if (p === "seeds" || p === "seed") return "seeds";
-  if (p === "fertilizers" || p === "fertilizer" || p === "fertilisers" || p === "fertiliser") return "fertilizers";
+  if (p === "fertilizers" || p === "fertilizer" || p === "fertilisers" || p === "fertiliser")
+    return "fertilizers";
   if (p === "pesticides" || p === "pesticide" || p === "crop-protection") return "pesticides";
-  if (p === "farm-tools" || p === "farm tools" || p === "farm_tools" || p === "tools" || p === "tool") return "farm-tools";
+  if (
+    p === "farm-tools" ||
+    p === "farm tools" ||
+    p === "farm_tools" ||
+    p === "tools" ||
+    p === "tool"
+  )
+    return "farm-tools";
   if (p === "equipment" || p === "equipments" || p === "machinery") return "equipment";
   return "all";
 }
@@ -1564,7 +1604,7 @@ export function MarketplacePage() {
     setCategory(newCat);
     if (typeof window !== "undefined") {
       const catObj = CATEGORIES.find((c) => c.id === newCat);
-      const catLabel = newCat === "all" ? undefined : (catObj ? catObj.label : newCat);
+      const catLabel = newCat === "all" ? undefined : catObj ? catObj.label : newCat;
 
       try {
         navigate({
@@ -1645,17 +1685,14 @@ export function MarketplacePage() {
 
     const next = allProducts.filter((product) => {
       const locationText = (product as any).location || "";
-      const searchableText = `${product.name} ${product.category} ${product.brand || ""} ${product.description || ""} ${locationText}`.toLowerCase();
+      const searchableText =
+        `${product.name} ${product.category} ${product.brand || ""} ${product.description || ""} ${locationText}`.toLowerCase();
       const matchesQuery = !q || searchableText.includes(q);
 
       const normProductCat = normalizeCategoryParam(product.category);
       const matchesCat = category === "all" || normProductCat === category;
 
-      return (
-        matchesQuery &&
-        matchesCat &&
-        product.price <= maxPrice
-      );
+      return matchesQuery && matchesCat && product.price <= maxPrice;
     });
 
     return next.sort((a, b) => {
@@ -1673,7 +1710,8 @@ export function MarketplacePage() {
     });
   }, [allProducts, category, maxPrice, query, sort]);
 
-  const hasActiveFilters = query.trim() !== "" || category !== "all" || maxPrice < 200000 || sort !== "featured";
+  const hasActiveFilters =
+    query.trim() !== "" || category !== "all" || maxPrice < 200000 || sort !== "featured";
 
   return (
     <RoleGuard allowedRoles={["buyer", "farmer", "student", "seller", "admin"]} allowGuest={true}>
@@ -1738,8 +1776,8 @@ export function MarketplacePage() {
             {isTelugu
               ? `${filtered.length} ఉత్పత్తులు కనుగొనబడ్డాయి`
               : category === "all"
-              ? `${filtered.length} products found`
-              : `${filtered.length} ${CATEGORIES.find((c) => c.id === category)?.label || category} products found`}
+                ? `${filtered.length} products found`
+                : `${filtered.length} ${CATEGORIES.find((c) => c.id === category)?.label || category} products found`}
           </p>
 
           {hasActiveFilters && (
@@ -1763,7 +1801,9 @@ export function MarketplacePage() {
             <Filter className="h-12 w-12 text-[#087F5B] mx-auto opacity-80" />
             <h3 className="text-xl font-bold text-[#073B2A]">{t("No matching products found")}</h3>
             <p className="text-sm text-emerald-800/80">
-              {t("Try clearing your search query, selecting another category, or adjusting your price limit.")}
+              {t(
+                "Try clearing your search query, selecting another category, or adjusting your price limit.",
+              )}
             </p>
             <button
               onClick={handleClearFilters}
@@ -1830,18 +1870,43 @@ export const CATEGORY_DETAILS: Record<
     teTitle: "వ్యవసాయ పరికరాలు",
     teSubtitle: "అవసరమైన వ్యవసాయ పరికరాలు",
   },
-  grains: { title: "Grains", subtitle: "Quality grains", teTitle: "ధాన్యాలు", teSubtitle: "నాణ్యమైన ధాన్యాలు" },
-  pulses: { title: "Pulses", subtitle: "Quality pulses", teTitle: "పప్పుధాన్యాలు", teSubtitle: "నాణ్యమైన పప్పుధాన్యాలు" },
-  oilseeds: { title: "Oilseeds", subtitle: "Quality oilseeds", teTitle: "నూనెగింజలు", teSubtitle: "నాణ్యమైన నూనెగింజలు" },
-  spices: { title: "Spices", subtitle: "Quality spices", teTitle: "మసాలా దినుసులు", teSubtitle: "నాణ్యమైన మసాలా దినుసులు" },
-  other: { title: "Farm Inputs", subtitle: "Quality farm inputs", teTitle: "వ్యవసాయ ఉత్పత్తులు", teSubtitle: "నాణ్యమైన ఉత్పత్తులు" },
+  grains: {
+    title: "Grains",
+    subtitle: "Quality grains",
+    teTitle: "ధాన్యాలు",
+    teSubtitle: "నాణ్యమైన ధాన్యాలు",
+  },
+  pulses: {
+    title: "Pulses",
+    subtitle: "Quality pulses",
+    teTitle: "పప్పుధాన్యాలు",
+    teSubtitle: "నాణ్యమైన పప్పుధాన్యాలు",
+  },
+  oilseeds: {
+    title: "Oilseeds",
+    subtitle: "Quality oilseeds",
+    teTitle: "నూనెగింజలు",
+    teSubtitle: "నాణ్యమైన నూనెగింజలు",
+  },
+  spices: {
+    title: "Spices",
+    subtitle: "Quality spices",
+    teTitle: "మసాలా దినుసులు",
+    teSubtitle: "నాణ్యమైన మసాలా దినుసులు",
+  },
+  other: {
+    title: "Farm Inputs",
+    subtitle: "Quality farm inputs",
+    teTitle: "వ్యవసాయ ఉత్పత్తులు",
+    teSubtitle: "నాణ్యమైన ఉత్పత్తులు",
+  },
 };
 
 export function CategoryProductsPage({ categorySlug }: { categorySlug: string }) {
   const { language, t } = useTranslation();
   const isTelugu = language === "te";
   const canonicalCategory = normalizeCategoryParam(categorySlug);
-  
+
   const catKey = canonicalCategory === "all" ? "fruits" : canonicalCategory;
   const info = CATEGORY_DETAILS[catKey as Category] || CATEGORY_DETAILS.fruits;
 
@@ -1995,10 +2060,7 @@ export function ProductDetailPage({ id }: { id: string }) {
 
   if (!product) {
     return (
-      <RoleGuard
-        allowedRoles={["buyer", "farmer", "student", "seller", "admin"]}
-        allowGuest={true}
-      >
+      <RoleGuard allowedRoles={["buyer", "farmer", "student", "seller", "admin"]} allowGuest={true}>
         <PageShell
           title={t("Product not found")}
           intro={t("This product ID does not match the current PureFarm catalogue.")}
@@ -2027,10 +2089,7 @@ export function ProductDetailPage({ id }: { id: string }) {
   const activeWishlist = isInWishlist(product.id);
 
   return (
-    <RoleGuard
-      allowedRoles={["buyer", "farmer", "student", "seller", "admin"]}
-      allowGuest={true}
-    >
+    <RoleGuard allowedRoles={["buyer", "farmer", "student", "seller", "admin"]} allowGuest={true}>
       <PageShell
         eyebrow={t(product.category)}
         title={t(product.name)}
@@ -2041,8 +2100,10 @@ export function ProductDetailPage({ id }: { id: string }) {
             src={product.image || getProductImage(product.name, product.category, null)}
             alt={product.name}
             onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src =
-                getCategoryPlaceholder(product.category, product.name);
+              (e.currentTarget as HTMLImageElement).src = getCategoryPlaceholder(
+                product.category,
+                product.name,
+              );
             }}
             className="h-80 w-full rounded-2xl object-cover shadow-soft lg:h-[32rem]"
           />
@@ -2083,7 +2144,9 @@ export function ProductDetailPage({ id }: { id: string }) {
                 }`}
                 aria-label={activeWishlist ? "Remove from wishlist" : "Add to wishlist"}
               >
-                <Heart className={`h-4.5 w-4.5 ${activeWishlist ? "fill-red-500 text-red-500" : ""}`} />
+                <Heart
+                  className={`h-4.5 w-4.5 ${activeWishlist ? "fill-red-500 text-red-500" : ""}`}
+                />
                 <span className="text-xs font-bold">
                   {activeWishlist ? t("Saved in Wishlist") : t("Save to Wishlist")}
                 </span>
@@ -2275,8 +2338,10 @@ export function CartPage() {
                       src={product.image || getProductImage(product.name, product.category, null)}
                       alt={product.name}
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src =
-                          getCategoryPlaceholder(product.category, product.name);
+                        (e.target as HTMLImageElement).src = getCategoryPlaceholder(
+                          product.category,
+                          product.name,
+                        );
                       }}
                       className="h-24 w-full rounded-xl object-cover bg-muted"
                     />
@@ -2445,7 +2510,9 @@ export function WishlistPage() {
           <div className="flex h-64 items-center justify-center">
             <div className="flex flex-col items-center gap-3">
               <div className="h-8 w-8 animate-spin rounded-full border-4 border-emerald-600 border-t-transparent" />
-              <p className="text-sm font-semibold text-muted-foreground">{t("Loading your saved items...")}</p>
+              <p className="text-sm font-semibold text-muted-foreground">
+                {t("Loading your saved items...")}
+              </p>
             </div>
           </div>
         </PageShell>
@@ -2467,7 +2534,9 @@ export function WishlistPage() {
             </div>
             <h3 className="text-lg font-black text-red-900">{t("Unable to Load Wishlist")}</h3>
             <p className="text-xs text-red-700 leading-relaxed">
-              {t("A momentary issue occurred while loading your saved items. You can refresh your saved items or clear the list.")}
+              {t(
+                "A momentary issue occurred while loading your saved items. You can refresh your saved items or clear the list.",
+              )}
             </p>
             <div className="flex justify-center gap-3 pt-2">
               <button
@@ -2564,8 +2633,10 @@ export function WishlistPage() {
                         src={product.image || getProductImage(product.name, product.category, null)}
                         alt={product.name}
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src =
-                            getCategoryPlaceholder(product.category, product.name);
+                          (e.target as HTMLImageElement).src = getCategoryPlaceholder(
+                            product.category,
+                            product.name,
+                          );
                         }}
                         className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
@@ -2612,9 +2683,7 @@ export function WishlistPage() {
                           : "bg-red-50 text-red-600 border border-red-200"
                       }`}
                     >
-                      {product.stock > 0
-                        ? `${product.stock} ${t("in stock")}`
-                        : t("Out of stock")}
+                      {product.stock > 0 ? `${product.stock} ${t("in stock")}` : t("Out of stock")}
                     </span>
                   </div>
 
@@ -2777,7 +2846,10 @@ export function OrderPage() {
           items: orderPayloadItems,
         });
       } catch (dbErr: any) {
-        console.warn("DB order creation failed, persisting to authenticated student record:", dbErr);
+        console.warn(
+          "DB order creation failed, persisting to authenticated student record:",
+          dbErr,
+        );
         const localOrder: OrderWithItems = {
           id: `ord-${Date.now()}`,
           buyer_id: user.id,
@@ -3159,14 +3231,18 @@ export function MarketPage() {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [refreshToast, setRefreshToast] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [lastSyncTime, setLastSyncTime] = useState<string>(() => new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+  const [lastSyncTime, setLastSyncTime] = useState<string>(() =>
+    new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+  );
 
   // Filter & Search Controls
   const [search, setSearch] = useState("");
   const [stateFilter, setStateFilter] = useState("all");
   const [cropFilter, setCropFilter] = useState("all");
   const [marketFilter, setMarketFilter] = useState("all");
-  const [sortOrder, setSortOrder] = useState<"recently_updated" | "price_low_high" | "price_high_low" | "crop_asc" | "market_asc">("recently_updated");
+  const [sortOrder, setSortOrder] = useState<
+    "recently_updated" | "price_low_high" | "price_high_low" | "crop_asc" | "market_asc"
+  >("recently_updated");
 
   // Detail Modal
   const [selectedDetailItem, setSelectedDetailItem] = useState<MarketPrice | null>(null);
@@ -3191,7 +3267,7 @@ export function MarketPage() {
         search: search,
       });
       setDbRecords(data);
-      setLastSyncTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+      setLastSyncTime(new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }));
       if (isManualRefresh) {
         setRefreshToast("Mandi prices successfully updated from AGMARKNET!");
         setTimeout(() => setRefreshToast(null), 4000);
@@ -3212,15 +3288,15 @@ export function MarketPage() {
   // Derived filter dropdown options from total records
   const cropsList = useMemo(() => {
     const crops = new Set<string>();
-    INITIAL_AGMARKNET_PRICES.forEach(r => crops.add(r.crop_name));
-    dbRecords.forEach(r => crops.add(r.crop_name));
+    INITIAL_AGMARKNET_PRICES.forEach((r) => crops.add(r.crop_name));
+    dbRecords.forEach((r) => crops.add(r.crop_name));
     return ["all", ...Array.from(crops).sort()];
   }, [dbRecords]);
 
   const marketsList = useMemo(() => {
     const markets = new Set<string>();
-    INITIAL_AGMARKNET_PRICES.forEach(r => markets.add(r.market_name));
-    dbRecords.forEach(r => markets.add(r.market_name));
+    INITIAL_AGMARKNET_PRICES.forEach((r) => markets.add(r.market_name));
+    dbRecords.forEach((r) => markets.add(r.market_name));
     return ["all", ...Array.from(markets).sort()];
   }, [dbRecords]);
 
@@ -3246,8 +3322,14 @@ export function MarketPage() {
     });
   }, [dbRecords, search, stateFilter, cropFilter, marketFilter]);
 
-  const apCount = useMemo(() => filteredRecords.filter(r => r.state === "Andhra Pradesh").length, [filteredRecords]);
-  const tsCount = useMemo(() => filteredRecords.filter(r => r.state === "Telangana").length, [filteredRecords]);
+  const apCount = useMemo(
+    () => filteredRecords.filter((r) => r.state === "Andhra Pradesh").length,
+    [filteredRecords],
+  );
+  const tsCount = useMemo(
+    () => filteredRecords.filter((r) => r.state === "Telangana").length,
+    [filteredRecords],
+  );
 
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "admin", "student", "seller"]} allowGuest={true}>
@@ -3303,7 +3385,12 @@ export function MarketPage() {
                 <CheckCircle2 className="w-4 h-4 text-emerald-200" />
                 <span>{refreshToast}</span>
               </div>
-              <button onClick={() => setRefreshToast(null)} className="text-emerald-100 hover:text-white font-bold">✕</button>
+              <button
+                onClick={() => setRefreshToast(null)}
+                className="text-emerald-100 hover:text-white font-bold"
+              >
+                ✕
+              </button>
             </div>
           )}
 
@@ -3347,9 +3434,13 @@ export function MarketPage() {
                   className="w-full pl-10 pr-8 py-2.5 rounded-2xl border border-emerald-200 text-xs sm:text-sm font-medium bg-emerald-50/20 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent appearance-none cursor-pointer"
                 >
                   <option value="all">{t("All Crops")}</option>
-                  {cropsList.filter(c => c !== "all").map(c => (
-                    <option key={c} value={c}>{c}</option>
-                  ))}
+                  {cropsList
+                    .filter((c) => c !== "all")
+                    .map((c) => (
+                      <option key={c} value={c}>
+                        {c}
+                      </option>
+                    ))}
                 </select>
                 <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3 top-3.5 pointer-events-none" />
               </div>
@@ -3395,7 +3486,9 @@ export function MarketPage() {
             {loading && (
               <div className="py-16 text-center space-y-3">
                 <div className="w-8 h-8 border-3 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto" />
-                <p className="text-xs font-bold text-muted-foreground">Loading authentic AGMARKNET mandi prices...</p>
+                <p className="text-xs font-bold text-muted-foreground">
+                  Loading authentic AGMARKNET mandi prices...
+                </p>
               </div>
             )}
 
@@ -3403,7 +3496,9 @@ export function MarketPage() {
             {error && !loading && (
               <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold flex items-center justify-between">
                 <span>{error}</span>
-                <button onClick={() => fetchPrices()} className="underline cursor-pointer">Retry</button>
+                <button onClick={() => fetchPrices()} className="underline cursor-pointer">
+                  Retry
+                </button>
               </div>
             )}
 
@@ -3433,8 +3528,12 @@ export function MarketPage() {
                             <div className="flex items-center gap-2.5">
                               <span className="text-xl shrink-0">{getCropIcon(row.crop_name)}</span>
                               <div>
-                                <span className="font-extrabold text-[#1b4332] text-sm block">{row.crop_name}</span>
-                                <span className="text-[10px] text-muted-foreground font-semibold">Wholesale Mandi Grade</span>
+                                <span className="font-extrabold text-[#1b4332] text-sm block">
+                                  {row.crop_name}
+                                </span>
+                                <span className="text-[10px] text-muted-foreground font-semibold">
+                                  Wholesale Mandi Grade
+                                </span>
                               </div>
                             </div>
                           </td>
@@ -3465,7 +3564,10 @@ export function MarketPage() {
                             <span className="font-extrabold text-sm text-[#1b4332]">
                               ₹{Number(row.price).toLocaleString()}
                             </span>
-                            <span className="text-muted-foreground text-[11px] font-semibold"> / {row.unit || "Quintal"}</span>
+                            <span className="text-muted-foreground text-[11px] font-semibold">
+                              {" "}
+                              / {row.unit || "Quintal"}
+                            </span>
                           </td>
 
                           {/* Trend */}
@@ -3509,8 +3611,12 @@ export function MarketPage() {
 
                     {filteredRecords.length === 0 && (
                       <tr>
-                        <td colSpan={7} className="py-12 text-center text-gray-500 text-xs font-bold">
-                          No matching market prices found. Try adjusting your search query or filters.
+                        <td
+                          colSpan={7}
+                          className="py-12 text-center text-gray-500 text-xs font-bold"
+                        >
+                          No matching market prices found. Try adjusting your search query or
+                          filters.
                         </td>
                       </tr>
                     )}
@@ -3526,7 +3632,9 @@ export function MarketPage() {
                   <Sprout className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-gray-900">{t("Official AGMARKNET Data")}</h4>
+                  <h4 className="text-xs font-bold text-gray-900">
+                    {t("Official AGMARKNET Data")}
+                  </h4>
                   <p className="text-[11px] text-gray-500">{t("Direct APMC market feeds")}</p>
                 </div>
               </div>
@@ -3536,7 +3644,9 @@ export function MarketPage() {
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-gray-900">{t("AP & TS District Mandis")}</h4>
+                  <h4 className="text-xs font-bold text-gray-900">
+                    {t("AP & TS District Mandis")}
+                  </h4>
                   <p className="text-[11px] text-gray-500">{t("Guntur, Nizamabad, Eluru, etc.")}</p>
                 </div>
               </div>
@@ -3572,7 +3682,9 @@ export function MarketPage() {
                 <div className="flex items-center gap-2.5">
                   <span className="text-3xl">{getCropIcon(selectedDetailItem.crop_name)}</span>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900">{selectedDetailItem.crop_name}</h3>
+                    <h3 className="text-lg font-bold text-gray-900">
+                      {selectedDetailItem.crop_name}
+                    </h3>
                     <p className="text-xs text-gray-500">{selectedDetailItem.location}</p>
                   </div>
                 </div>
@@ -3587,7 +3699,9 @@ export function MarketPage() {
               <div className="space-y-3 py-2 text-xs">
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
                   <span className="text-gray-500 font-medium">Mandi / APMC Market</span>
-                  <span className="font-extrabold text-gray-900">{selectedDetailItem.market_name}</span>
+                  <span className="font-extrabold text-gray-900">
+                    {selectedDetailItem.market_name}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
                   <span className="text-gray-500 font-medium">State</span>
@@ -3596,7 +3710,8 @@ export function MarketPage() {
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
                   <span className="text-gray-500 font-medium">Current Wholesale Price</span>
                   <span className="font-extrabold text-emerald-800 text-base">
-                    ₹{Number(selectedDetailItem.price).toLocaleString()} / {selectedDetailItem.unit || "Quintal"}
+                    ₹{Number(selectedDetailItem.price).toLocaleString()} /{" "}
+                    {selectedDetailItem.unit || "Quintal"}
                   </span>
                 </div>
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
@@ -3612,7 +3727,8 @@ export function MarketPage() {
                 <div className="flex justify-between items-center py-1.5 border-b border-gray-50">
                   <span className="text-gray-500 font-medium">Data Freshness</span>
                   <span className="inline-flex items-center gap-1 font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full text-[10px]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> Fresh / Updated Today
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> Fresh
+                    / Updated Today
                   </span>
                 </div>
                 <div className="flex justify-between items-center py-1.5">
@@ -3671,17 +3787,30 @@ export function SchemesPage() {
 
   const departments = [
     { value: "all", label: isTelugu ? "అన్ని ప్రభుత్వ శాఖలు" : "All Government Departments" },
-    { value: "Ministry of Agriculture & Farmers Welfare", label: "Ministry of Agriculture & Farmers Welfare" },
+    {
+      value: "Ministry of Agriculture & Farmers Welfare",
+      label: "Ministry of Agriculture & Farmers Welfare",
+    },
     { value: "Ministry of Finance / NABARD", label: "Ministry of Finance / NABARD" },
-    { value: "Ministry of New and Renewable Energy", label: "Ministry of New and Renewable Energy" },
-    { value: "Ministry of Fisheries, Animal Husbandry & Dairying", label: "Ministry of Fisheries & Animal Husbandry" },
-    { value: "Ministry of Food Processing Industries", label: "Ministry of Food Processing Industries" },
+    {
+      value: "Ministry of New and Renewable Energy",
+      label: "Ministry of New and Renewable Energy",
+    },
+    {
+      value: "Ministry of Fisheries, Animal Husbandry & Dairying",
+      label: "Ministry of Fisheries & Animal Husbandry",
+    },
+    {
+      value: "Ministry of Food Processing Industries",
+      label: "Ministry of Food Processing Industries",
+    },
     { value: "Government of Andhra Pradesh", label: "Government of Andhra Pradesh" },
     { value: "Government of Telangana", label: "Government of Telangana" },
   ];
 
   const filteredSchemes = SCHEMES.filter((s) => {
-    const searchTarget = `${s.name} ${s.category} ${s.eligibility} ${s.description} ${s.issuer} ${s.department || ""} ${s.state || ""} ${s.benefit || ""}`.toLowerCase();
+    const searchTarget =
+      `${s.name} ${s.category} ${s.eligibility} ${s.description} ${s.issuer} ${s.department || ""} ${s.state || ""} ${s.benefit || ""}`.toLowerCase();
     const matchesQuery = searchTarget.includes(query.toLowerCase());
     const matchesCategory = categoryFilter === "all" || s.category === categoryFilter;
     const matchesState = stateFilter === "all" || s.state === stateFilter;
@@ -3692,7 +3821,8 @@ export function SchemesPage() {
     return matchesQuery && matchesCategory && matchesState && matchesDepartment;
   });
 
-  const hasActiveFilters = query !== "" || categoryFilter !== "all" || stateFilter !== "all" || departmentFilter !== "all";
+  const hasActiveFilters =
+    query !== "" || categoryFilter !== "all" || stateFilter !== "all" || departmentFilter !== "all";
 
   const clearFilters = () => {
     setQuery("");
@@ -3724,7 +3854,9 @@ export function SchemesPage() {
               <Info className="h-6 w-6 text-[#0D6E48] shrink-0 mt-0.5" />
               <div className="space-y-1">
                 <h4 className="font-bold text-[#123F2D] text-base">
-                  {isTelugu ? "అధికారిక ప్రభుత్వ పథకాల మార్గదర్శి" : "Verified Government Schemes Directory"}
+                  {isTelugu
+                    ? "అధికారిక ప్రభుత్వ పథకాల మార్గదర్శి"
+                    : "Verified Government Schemes Directory"}
                 </h4>
                 <p className="text-xs sm:text-sm text-[#315A49] font-semibold leading-relaxed">
                   {isTelugu
@@ -3818,7 +3950,8 @@ export function SchemesPage() {
                 {isTelugu ? "వర్గాలు:" : "Categories:"}
               </span>
               {categories.map((cat) => {
-                const count = cat === "all" ? SCHEMES.length : SCHEMES.filter((s) => s.category === cat).length;
+                const count =
+                  cat === "all" ? SCHEMES.length : SCHEMES.filter((s) => s.category === cat).length;
                 return (
                   <button
                     key={cat}
@@ -3833,7 +3966,9 @@ export function SchemesPage() {
                     <span>{cat === "all" ? (isTelugu ? "అన్నీ" : "All") : t(cat)}</span>
                     <span
                       className={`rounded-full px-1.5 py-0.2 text-[10px] ${
-                        categoryFilter === cat ? "bg-emerald-500 text-white" : "bg-emerald-100 text-[#0D6E48]"
+                        categoryFilter === cat
+                          ? "bg-emerald-500 text-white"
+                          : "bg-emerald-100 text-[#0D6E48]"
                       }`}
                     >
                       {count}
@@ -4106,7 +4241,9 @@ function SchemeDetailsModal({
               rel="noopener noreferrer"
               className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-xl bg-[#10B981] px-6 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-[#0D9668]"
             >
-              <span>{isTelugu ? "అధికారిక పోర్టల్‌ని సందర్శించండి" : "Visit Official Website"}</span>
+              <span>
+                {isTelugu ? "అధికారిక పోర్టల్‌ని సందర్శించండి" : "Visit Official Website"}
+              </span>
               <ExternalLink className="h-4 w-4" />
             </a>
           </div>
@@ -4132,8 +4269,7 @@ export function InsurancePage() {
 
   const filteredSchemes = useMemo(() => {
     return INSURANCE_SCHEMES.filter((scheme) => {
-      const matchesCategory =
-        selectedCategory === "All" || scheme.category === selectedCategory;
+      const matchesCategory = selectedCategory === "All" || scheme.category === selectedCategory;
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
         !q ||
@@ -4194,7 +4330,8 @@ export function InsurancePage() {
 
             {/* Total Results Counter */}
             <div className="text-xs font-bold text-muted-foreground text-right shrink-0">
-              {t("Showing")} {filteredSchemes.length} {t("of")} {INSURANCE_SCHEMES.length} {t("resources")}
+              {t("Showing")} {filteredSchemes.length} {t("of")} {INSURANCE_SCHEMES.length}{" "}
+              {t("resources")}
             </div>
           </div>
 
@@ -4221,7 +4358,9 @@ export function InsurancePage() {
         {filteredSchemes.length === 0 ? (
           <div className="p-12 text-center bg-card rounded-2xl border border-border shadow-sm">
             <Info className="mx-auto h-8 w-8 text-muted-foreground mb-3" />
-            <p className="text-base font-bold">{t("No insurance resources found matching your search.")}</p>
+            <p className="text-base font-bold">
+              {t("No insurance resources found matching your search.")}
+            </p>
             <p className="text-xs text-muted-foreground mt-1">
               {t("Try clearing your search query or selecting a different category filter.")}
             </p>
@@ -4283,7 +4422,9 @@ export function InsurancePage() {
                   {/* Eligible Crops */}
                   {scheme.crops && scheme.crops.length > 0 && (
                     <div className="mt-3 text-xs">
-                      <span className="font-bold text-foreground">{t("Notified Crops / Categories")}: </span>
+                      <span className="font-bold text-foreground">
+                        {t("Notified Crops / Categories")}:{" "}
+                      </span>
                       <span className="text-primary font-medium">{scheme.crops.join(", ")}</span>
                     </div>
                   )}
@@ -4677,9 +4818,13 @@ export function WeatherPage() {
         setWeatherData(null);
         setLoading(false);
         if (err instanceof WeatherError && err.code === "MISSING_KEY") {
-          setErrorMessage("Weather service is not configured. Please provide VITE_OPENWEATHER_API_KEY.");
+          setErrorMessage(
+            "Weather service is not configured. Please provide VITE_OPENWEATHER_API_KEY.",
+          );
         } else {
-          setErrorMessage("Unable to load weather data. Please verify your location or internet connection.");
+          setErrorMessage(
+            "Unable to load weather data. Please verify your location or internet connection.",
+          );
         }
       });
   }, []);
@@ -4713,7 +4858,7 @@ export function WeatherPage() {
         setIsLocating(false);
         loadWeather(selectedLocation);
       },
-      { timeout: 10000 }
+      { timeout: 10000 },
     );
   };
 
@@ -4727,7 +4872,13 @@ export function WeatherPage() {
 
   // Sync live weather from context
   useEffect(() => {
-    if (globalWeather && (!weatherData || globalWeather.locationName.toLowerCase().includes(selectedLocation.split(",")[0].toLowerCase()))) {
+    if (
+      globalWeather &&
+      (!weatherData ||
+        globalWeather.locationName
+          .toLowerCase()
+          .includes(selectedLocation.split(",")[0].toLowerCase()))
+    ) {
       setWeatherData(globalWeather);
       setLoading(false);
     }
@@ -4758,7 +4909,9 @@ export function WeatherPage() {
         bgImage="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=2000"
         eyebrow={t("Crop Weather")}
         title={t("Crop Weather & Field Advisory")}
-        intro={t("Real-time meteorological forecast and crop-specific field action guidance for Indian farming.")}
+        intro={t(
+          "Real-time meteorological forecast and crop-specific field action guidance for Indian farming.",
+        )}
       >
         <div className="space-y-6">
           {/* Crop & Location Selection Control Panel */}
@@ -4818,7 +4971,10 @@ export function WeatherPage() {
 
               {/* 3. Search Bar & Geolocation Button */}
               <div className="flex items-center gap-2">
-                <form onSubmit={handleSearchSubmit} className="flex items-center gap-2 flex-1 sm:flex-none">
+                <form
+                  onSubmit={handleSearchSubmit}
+                  className="flex items-center gap-2 flex-1 sm:flex-none"
+                >
                   <input
                     type="text"
                     value={searchInput}
@@ -4841,8 +4997,12 @@ export function WeatherPage() {
                   className="h-10 px-3.5 rounded-xl border border-[#10B981]/40 bg-emerald-50 text-[#0D6E48] font-bold text-xs hover:bg-emerald-100 transition flex items-center gap-1.5 shrink-0"
                   title="Use current GPS position"
                 >
-                  <Navigation className={`h-3.5 w-3.5 ${isLocating ? "animate-spin text-emerald-600" : ""}`} />
-                  <span className="hidden sm:inline">{isLocating ? "Locating..." : "My Location"}</span>
+                  <Navigation
+                    className={`h-3.5 w-3.5 ${isLocating ? "animate-spin text-emerald-600" : ""}`}
+                  />
+                  <span className="hidden sm:inline">
+                    {isLocating ? "Locating..." : "My Location"}
+                  </span>
                 </button>
               </div>
             </div>
@@ -4852,7 +5012,9 @@ export function WeatherPage() {
           {loading && (
             <div className="rounded-3xl border border-[#1E6446]/20 bg-white/96 p-12 text-center shadow-xl">
               <div className="inline-block h-10 w-10 animate-spin rounded-full border-4 border-solid border-[#10B981] border-r-transparent align-[-0.125em]" />
-              <p className="mt-4 text-base font-bold text-[#123F2D]">{t("Loading live meteorological forecast...")}</p>
+              <p className="mt-4 text-base font-bold text-[#123F2D]">
+                {t("Loading live meteorological forecast...")}
+              </p>
             </div>
           )}
 
@@ -4861,7 +5023,9 @@ export function WeatherPage() {
             <div className="rounded-3xl border border-red-300 bg-red-50 p-8 text-center shadow-lg text-red-900">
               <CloudRain className="mx-auto h-12 w-12 text-red-600 mb-3" />
               <h3 className="text-lg font-bold text-red-900">{t("Weather Service Notice")}</h3>
-              <p className="mt-1 text-sm font-semibold text-red-700 max-w-md mx-auto">{t(errorMessage)}</p>
+              <p className="mt-1 text-sm font-semibold text-red-700 max-w-md mx-auto">
+                {t(errorMessage)}
+              </p>
               <button
                 type="button"
                 onClick={() => loadWeather(selectedLocation)}
@@ -4891,19 +5055,28 @@ export function WeatherPage() {
 
                       <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/25 backdrop-blur-md px-3.5 py-1 text-xs font-bold text-emerald-200 border border-emerald-400/30">
                         <span>{currentProfile.emoji}</span>
-                        <span>{currentProfile.name} ({currentProfile.season})</span>
+                        <span>
+                          {currentProfile.name} ({currentProfile.season})
+                        </span>
                       </div>
                     </div>
 
                     <div className="mt-4 flex items-center gap-4">
-                      <img src={weatherData.iconUrl} alt={weatherData.condition} className="h-20 w-20 object-contain drop-shadow-md" />
+                      <img
+                        src={weatherData.iconUrl}
+                        alt={weatherData.condition}
+                        className="h-20 w-20 object-contain drop-shadow-md"
+                      />
                       <div>
                         <h2 className="text-5xl font-black tracking-tight">{weatherData.temp}°C</h2>
-                        <p className="text-lg font-bold text-emerald-100 capitalize">{weatherData.description}</p>
+                        <p className="text-lg font-bold text-emerald-100 capitalize">
+                          {weatherData.description}
+                        </p>
                       </div>
                     </div>
                     <p className="mt-2 text-sm text-emerald-200/90 font-semibold">
-                      {t("Feels like")} {weatherData.feelsLike}°C · {t("High")} {weatherData.tempMax}°C / {t("Low")} {weatherData.tempMin}°C
+                      {t("Feels like")} {weatherData.feelsLike}°C · {t("High")}{" "}
+                      {weatherData.tempMax}°C / {t("Low")} {weatherData.tempMin}°C
                     </p>
                   </div>
 
@@ -4911,25 +5084,33 @@ export function WeatherPage() {
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 lg:self-end">
                     <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/15">
                       <Droplets className="mx-auto h-5 w-5 text-emerald-300" />
-                      <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Humidity")}</p>
+                      <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">
+                        {t("Humidity")}
+                      </p>
                       <p className="text-base font-black">{weatherData.humidity}%</p>
                     </div>
 
                     <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/15">
                       <Wind className="mx-auto h-5 w-5 text-emerald-300" />
-                      <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Wind Speed")}</p>
+                      <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">
+                        {t("Wind Speed")}
+                      </p>
                       <p className="text-base font-black">{weatherData.windSpeed} km/h</p>
                     </div>
 
                     <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/15">
                       <Sun className="mx-auto h-5 w-5 text-amber-300" />
-                      <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Sunrise")}</p>
+                      <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">
+                        {t("Sunrise")}
+                      </p>
                       <p className="text-base font-black">{weatherData.sunrise}</p>
                     </div>
 
                     <div className="rounded-2xl bg-white/10 backdrop-blur-md p-3.5 text-center border border-white/15">
                       <CloudSun className="mx-auto h-5 w-5 text-amber-300" />
-                      <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">{t("Sunset")}</p>
+                      <p className="mt-1.5 text-xs text-emerald-200 font-bold uppercase">
+                        {t("Sunset")}
+                      </p>
                       <p className="text-base font-black">{weatherData.sunset}</p>
                     </div>
                   </div>
@@ -4942,10 +5123,13 @@ export function WeatherPage() {
                   <div>
                     <h3 className="text-xl font-bold text-[#123F2D] flex items-center gap-2">
                       <span>{currentProfile.emoji}</span>
-                      <span>{t("Crop Weather Guidance")} — {currentProfile.name}</span>
+                      <span>
+                        {t("Crop Weather Guidance")} — {currentProfile.name}
+                      </span>
                     </h3>
                     <p className="text-xs sm:text-sm text-[#315A49] font-medium mt-0.5">
-                      {t("Live atmospheric evaluation against agronomic growth parameters for")} {currentProfile.name}.
+                      {t("Live atmospheric evaluation against agronomic growth parameters for")}{" "}
+                      {currentProfile.name}.
                     </p>
                   </div>
                   <span className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-[#0D6E48] border border-emerald-300">
@@ -4959,19 +5143,19 @@ export function WeatherPage() {
                       adv.status === "optimal"
                         ? "bg-emerald-50 border-emerald-300 text-[#0D6E48]"
                         : adv.status === "alert"
-                        ? "bg-red-50 border-red-300 text-red-800"
-                        : adv.status === "warning"
-                        ? "bg-amber-50 border-amber-300 text-amber-900"
-                        : "bg-blue-50 border-blue-300 text-blue-900";
+                          ? "bg-red-50 border-red-300 text-red-800"
+                          : adv.status === "warning"
+                            ? "bg-amber-50 border-amber-300 text-amber-900"
+                            : "bg-blue-50 border-blue-300 text-blue-900";
 
                     const badgeColor =
                       adv.status === "optimal"
                         ? "bg-emerald-600 text-white"
                         : adv.status === "alert"
-                        ? "bg-red-600 text-white"
-                        : adv.status === "warning"
-                        ? "bg-amber-600 text-white"
-                        : "bg-blue-600 text-white";
+                          ? "bg-red-600 text-white"
+                          : adv.status === "warning"
+                            ? "bg-amber-600 text-white"
+                            : "bg-blue-600 text-white";
 
                     return (
                       <div
@@ -4982,7 +5166,9 @@ export function WeatherPage() {
                           <span className="text-xs font-bold uppercase tracking-wider opacity-90">
                             {adv.category}
                           </span>
-                          <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-black uppercase ${badgeColor}`}>
+                          <span
+                            className={`rounded-full px-2.5 py-0.5 text-[10px] font-black uppercase ${badgeColor}`}
+                          >
                             {adv.status}
                           </span>
                         </div>
@@ -5001,9 +5187,13 @@ export function WeatherPage() {
               {/* 5-Day Field Advisory Forecast */}
               <div className="space-y-4 pt-2">
                 <div>
-                  <h3 className="text-xl font-bold text-[#123F2D]">{t("5-Day Field Advisory Forecast")}</h3>
+                  <h3 className="text-xl font-bold text-[#123F2D]">
+                    {t("5-Day Field Advisory Forecast")}
+                  </h3>
                   <p className="text-xs sm:text-sm text-[#315A49] font-medium">
-                    {t("Daily agricultural field action recommendations based on live forecast models.")}
+                    {t(
+                      "Daily agricultural field action recommendations based on live forecast models.",
+                    )}
                   </p>
                 </div>
 
@@ -5016,29 +5206,44 @@ export function WeatherPage() {
                       <div>
                         <div className="flex items-center justify-between">
                           <p className="font-bold text-base text-[#123F2D]">{t(day.day)}</p>
-                          <span className="text-[10px] font-bold text-[#527064] uppercase">{day.dateStr.slice(5)}</span>
+                          <span className="text-[10px] font-bold text-[#527064] uppercase">
+                            {day.dateStr.slice(5)}
+                          </span>
                         </div>
 
                         <div className="mt-2 flex items-center gap-2">
-                          <img src={day.iconUrl} alt={day.condition} className="h-10 w-10 object-contain" />
+                          <img
+                            src={day.iconUrl}
+                            alt={day.condition}
+                            className="h-10 w-10 object-contain"
+                          />
                           <div>
-                            <p className="text-xs font-bold capitalize text-[#123F2D]">{t(day.condition)}</p>
-                            <p className="text-[11px] font-semibold text-[#527064]">{day.description}</p>
+                            <p className="text-xs font-bold capitalize text-[#123F2D]">
+                              {t(day.condition)}
+                            </p>
+                            <p className="text-[11px] font-semibold text-[#527064]">
+                              {day.description}
+                            </p>
                           </div>
                         </div>
 
                         <p className="mt-3 text-xl font-black text-[#123F2D]">
-                          {day.high}° <span className="text-sm font-medium text-[#527064]">/ {day.low}°C</span>
+                          {day.high}°{" "}
+                          <span className="text-sm font-medium text-[#527064]">/ {day.low}°C</span>
                         </p>
 
                         <p className="mt-1 text-xs font-bold text-[#0D6E48] flex items-center gap-1">
                           <Droplets className="h-3 w-3 text-blue-500 fill-blue-100" />
-                          <span>{day.rainProb}% {t("rain prob.")}</span>
+                          <span>
+                            {day.rainProb}% {t("rain prob.")}
+                          </span>
                         </p>
                       </div>
 
                       <div className="rounded-xl bg-emerald-50/80 p-2.5 border border-emerald-200/60">
-                        <p className="text-[11px] leading-relaxed text-[#123F2D] font-semibold">{t(day.advisory)}</p>
+                        <p className="text-[11px] leading-relaxed text-[#123F2D] font-semibold">
+                          {t(day.advisory)}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -5121,6 +5326,7 @@ export function LearnPage() {
   const [query, setQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("All Agriculture");
   const [levelFilter, setLevelFilter] = useState("All Levels");
+  const [sortBy, setSortBy] = useState("default");
   const [selectedResourcesCourse, setSelectedResourcesCourse] = useState<Course | null>(null);
 
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(() => {
@@ -5215,7 +5421,185 @@ export function LearnPage() {
     setQuery("");
     setCategoryFilter("All Agriculture");
     setLevelFilter("All Levels");
+    setSortBy("default");
   };
+
+  const agriCategoriesList = [
+    {
+      id: "All Agriculture",
+      label: "All Agriculture",
+      icon: BookOpen,
+      count: COURSES.length,
+    },
+    {
+      id: "Farming Basics",
+      label: "Farming Basics",
+      icon: Sprout,
+      count: COURSES.filter((c) => c.category === "Farming Basics").length,
+    },
+    {
+      id: "Soil & Fertility",
+      label: "Soil & Fertility",
+      icon: Layers,
+      count: COURSES.filter(
+        (c) =>
+          c.category === "Soil & Fertility" ||
+          c.category === "Soil & Fertilizer" ||
+          c.topic?.toLowerCase().includes("soil"),
+      ).length,
+    },
+    {
+      id: "Crop Management",
+      label: "Crop Management",
+      icon: Leaf,
+      count: COURSES.filter(
+        (c) =>
+          c.category === "Crop Management" ||
+          c.category === "Horticulture" ||
+          c.topic?.toLowerCase().includes("crop"),
+      ).length,
+    },
+    {
+      id: "Irrigation",
+      label: "Irrigation",
+      icon: Droplets,
+      count: COURSES.filter(
+        (c) =>
+          c.category === "Irrigation" ||
+          c.topic?.toLowerCase().includes("irrigation") ||
+          c.topic?.toLowerCase().includes("water"),
+      ).length,
+    },
+    {
+      id: "Pest & Disease",
+      label: "Pest & Disease",
+      icon: ShieldCheck,
+      count: COURSES.filter(
+        (c) =>
+          c.category === "Pest & Disease" ||
+          c.topic?.toLowerCase().includes("pest") ||
+          c.topic?.toLowerCase().includes("disease"),
+      ).length,
+    },
+    {
+      id: "Sustainable Farming",
+      label: "Sustainable Farming",
+      icon: Sparkles,
+      count: COURSES.filter(
+        (c) =>
+          c.category === "Sustainable Farming" ||
+          c.category === "Organic Farming" ||
+          c.topic?.toLowerCase().includes("sustainable") ||
+          c.topic?.toLowerCase().includes("organic"),
+      ).length,
+    },
+    {
+      id: "AgriTech",
+      label: "AgriTech",
+      icon: Cpu,
+      count: COURSES.filter(
+        (c) =>
+          c.category?.toLowerCase() === "agritech" ||
+          c.topic?.toLowerCase().includes("tech") ||
+          c.topic?.toLowerCase().includes("drone"),
+      ).length,
+    },
+    {
+      id: "Post-Harvest",
+      label: "Post-Harvest",
+      icon: Package,
+      count: COURSES.filter(
+        (c) =>
+          c.category === "Post-Harvest" ||
+          c.topic?.toLowerCase().includes("post-harvest") ||
+          c.topic?.toLowerCase().includes("storage"),
+      ).length,
+    },
+    {
+      id: "Markets & Schemes",
+      label: "Markets & Schemes",
+      icon: TrendingUp,
+      count: COURSES.filter(
+        (c) =>
+          c.category === "Markets & Schemes" ||
+          c.category === "Market" ||
+          c.category === "Schemes" ||
+          c.category === "Financial Support" ||
+          c.topic?.toLowerCase().includes("market") ||
+          c.topic?.toLowerCase().includes("scheme"),
+      ).length,
+    },
+  ];
+
+  const levelsList = ["All Levels", "Beginner", "Intermediate", "Advanced"];
+
+  const filtered = useMemo(() => {
+    const list = COURSES.filter((c) => {
+      const resourcesText = c.youtubeResources
+        ? c.youtubeResources.map((r) => `${r.title} ${r.channel} ${r.description}`).join(" ")
+        : "";
+      const searchString =
+        `${t(c.title)} ${t(c.topic)} ${t(c.level)} ${c.category ?? ""} ${t(c.instructor)} ${t(c.description ?? "")} ${resourcesText}`.toLowerCase();
+      const matchesQuery = !query.trim() || searchString.includes(query.toLowerCase());
+
+      const cCat = (c.category || "").toLowerCase();
+      const cTopic = (c.topic || "").toLowerCase();
+      const matchesCategory =
+        categoryFilter === "All Agriculture" ||
+        cCat === categoryFilter.toLowerCase() ||
+        (categoryFilter === "Soil & Fertility" &&
+          (cCat === "soil & fertilizer" || cTopic.includes("soil"))) ||
+        (categoryFilter === "AgriTech" &&
+          (cCat === "agritech" || cTopic.includes("tech") || cTopic.includes("drone"))) ||
+        (categoryFilter === "Crop Management" &&
+          (cCat === "crop management" || cCat === "horticulture" || cTopic.includes("crop"))) ||
+        (categoryFilter === "Sustainable Farming" &&
+          (cCat === "sustainable farming" ||
+            cCat === "organic farming" ||
+            cTopic.includes("sustainable") ||
+            cTopic.includes("organic"))) ||
+        (categoryFilter === "Irrigation" &&
+          (cCat === "irrigation" || cTopic.includes("irrigation") || cTopic.includes("water"))) ||
+        (categoryFilter === "Pest & Disease" &&
+          (cCat === "pest & disease" || cTopic.includes("pest") || cTopic.includes("disease"))) ||
+        (categoryFilter === "Post-Harvest" &&
+          (cCat === "post-harvest" ||
+            cTopic.includes("post-harvest") ||
+            cTopic.includes("storage"))) ||
+        (categoryFilter === "Markets & Schemes" &&
+          (cCat === "markets & schemes" ||
+            cCat === "market" ||
+            cCat === "schemes" ||
+            cCat === "financial support" ||
+            cTopic.includes("market") ||
+            cTopic.includes("scheme")));
+
+      const matchesLevel = levelFilter === "All Levels" || c.level === levelFilter;
+
+      return matchesQuery && matchesCategory && matchesLevel;
+    });
+
+    if (sortBy === "duration-asc") {
+      return [...list].sort((a, b) => a.hours - b.hours);
+    }
+    if (sortBy === "duration-desc") {
+      return [...list].sort((a, b) => b.hours - a.hours);
+    }
+    if (sortBy === "lessons-desc") {
+      return [...list].sort((a, b) => (b.lessons || 0) - (a.lessons || 0));
+    }
+    if (sortBy === "level") {
+      const order: Record<string, number> = { Beginner: 1, Intermediate: 2, Advanced: 3 };
+      return [...list].sort((a, b) => (order[a.level] || 0) - (order[b.level] || 0));
+    }
+    return list;
+  }, [query, categoryFilter, levelFilter, sortBy, t]);
+
+  const hasActiveFilters =
+    query.trim() !== "" ||
+    categoryFilter !== "All Agriculture" ||
+    levelFilter !== "All Levels" ||
+    sortBy !== "default";
 
   if (selectedCourseId !== null) {
     const course = COURSES.find((c) => c.id === selectedCourseId);
@@ -5285,346 +5669,322 @@ export function LearnPage() {
             />
 
             <div className="space-y-6">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <button
-                type="button"
-                onClick={() => handleSelectCourse(null)}
-                className="inline-flex items-center gap-2 h-10 px-4 rounded-xl bg-white/80 border border-white/60 text-[#1b4332] text-xs font-black hover:bg-white transition shadow-sm cursor-pointer"
-              >
-                <ArrowLeft className="h-4 w-4" />
-                {t("Back to Agriculture Learning Hub")}
-              </button>
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <button
+                  type="button"
+                  onClick={() => handleSelectCourse(null)}
+                  className="inline-flex items-center gap-2 h-10 px-4 rounded-xl bg-white/80 border border-white/60 text-[#1b4332] text-xs font-black hover:bg-white transition shadow-sm cursor-pointer"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  {t("Back to Agriculture Learning Hub")}
+                </button>
 
-              <div className="flex flex-wrap items-center gap-2">
-                {course.category && (
-                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-100 text-[#1b4332] text-xs font-bold border border-emerald-300">
-                    {t(course.category)}
+                <div className="flex flex-wrap items-center gap-2">
+                  {course.category && (
+                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-100 text-[#1b4332] text-xs font-bold border border-emerald-300">
+                      {t(course.category)}
+                    </span>
+                  )}
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold border border-slate-300">
+                    <GraduationCap className="h-4 w-4" />
+                    {t(course.level)}
                   </span>
-                )}
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold border border-slate-300">
-                  <GraduationCap className="h-4 w-4" />
-                  {t(course.level)}
-                </span>
-                {course.youtubeUrl && (
+                  {course.youtubeUrl && (
+                    <a
+                      href={course.youtubeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold shadow-xs hover:bg-red-700 transition"
+                    >
+                      <Video className="h-3.5 w-3.5" />
+                      {t("Watch on YouTube")}
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              {/* YouTube Educational Content Banner */}
+              {course.youtubeUrl && (
+                <div className="rounded-2xl border border-red-200 bg-red-50/90 backdrop-blur-md p-5 shadow-soft flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="flex items-center gap-3.5">
+                    <div className="p-3 rounded-xl bg-red-600 text-white shrink-0 shadow-sm">
+                      <Video className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-black uppercase tracking-wider text-red-700 bg-red-100/80 px-2 py-0.5 rounded border border-red-200">
+                        {t("Verified Educational Video")}
+                      </span>
+                      <h3 className="text-base font-black text-red-950 mt-1">
+                        {t("Watch Course Video Resource on YouTube")}
+                      </h3>
+                      <p className="text-xs text-red-800 font-medium">
+                        {t("Official channel resource:")}{" "}
+                        <span className="font-bold">
+                          {course.youtubeChannel ?? course.instructor}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
                   <a
                     href={course.youtubeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold shadow-xs hover:bg-red-700 transition"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition shadow-md shrink-0 cursor-pointer"
                   >
-                    <Video className="h-3.5 w-3.5" />
+                    <Video className="h-4 w-4" />
                     {t("Watch on YouTube")}
-                    <ExternalLink className="h-3 w-3" />
+                    <ExternalLink className="h-3.5 w-3.5 ml-0.5" />
                   </a>
-                )}
-              </div>
-            </div>
+                </div>
+              )}
 
-            {/* YouTube Educational Content Banner */}
-            {course.youtubeUrl && (
-              <div className="rounded-2xl border border-red-200 bg-red-50/90 backdrop-blur-md p-5 shadow-soft flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div className="flex items-center gap-3.5">
-                  <div className="p-3 rounded-xl bg-red-600 text-white shrink-0 shadow-sm">
-                    <Video className="h-6 w-6" />
-                  </div>
+              <div className="rounded-2xl border border-white/60 bg-white/90 backdrop-blur-md p-6 shadow-soft space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/60 pb-4">
                   <div>
-                    <span className="text-[10px] font-black uppercase tracking-wider text-red-700 bg-red-100/80 px-2 py-0.5 rounded border border-red-200">
-                      {t("Verified Educational Video")}
-                    </span>
-                    <h3 className="text-base font-black text-red-950 mt-1">
-                      {t("Watch Course Video Resource on YouTube")}
-                    </h3>
-                    <p className="text-xs text-red-800 font-medium">
-                      {t("Official channel resource:")} <span className="font-bold">{course.youtubeChannel ?? course.instructor}</span>
+                    <h1 className="text-2xl font-black text-[#1b4332]">{t(course.title)}</h1>
+                    <p className="text-xs text-muted-foreground font-semibold mt-1">
+                      {t(course.instructor)} · {course.hours} {t("hrs")} · {courseLessons.length}{" "}
+                      {t("lessons")}
                     </p>
                   </div>
-                </div>
-                <a
-                  href={course.youtubeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition shadow-md shrink-0 cursor-pointer"
-                >
-                  <Video className="h-4 w-4" />
-                  {t("Watch on YouTube")}
-                  <ExternalLink className="h-3.5 w-3.5 ml-0.5" />
-                </a>
-              </div>
-            )}
-
-            <div className="rounded-2xl border border-white/60 bg-white/90 backdrop-blur-md p-6 shadow-soft space-y-4">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/60 pb-4">
-                <div>
-                  <h1 className="text-2xl font-black text-[#1b4332]">{t(course.title)}</h1>
-                  <p className="text-xs text-muted-foreground font-semibold mt-1">
-                    {t(course.instructor)} · {course.hours} {t("hrs")} · {courseLessons.length}{" "}
-                    {t("lessons")}
-                  </p>
-                </div>
-                <div className="text-left sm:text-right">
-                  <span className="text-xs text-muted-foreground font-bold">
-                    {t("Overall Course Progress")}
-                  </span>
-                  <div className="text-xl font-black text-[#2d6a4f]">{progressPct}%</div>
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <div className="h-2.5 w-full rounded-full bg-emerald-100 overflow-hidden">
-                  <div
-                    className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
-                    style={{ width: `${progressPct}%` }}
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-              <div className="lg:col-span-4 rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-4 shadow-soft space-y-3">
-                <h3 className="text-sm font-black text-[#1b4332] px-2 flex items-center gap-2">
-                  <BookOpen className="h-4 w-4 text-emerald-600" />
-                  {t("Course Modules & Lessons")}
-                </h3>
-                <div className="space-y-2">
-                  {courseLessons.map((l) => {
-                    const completed = isLessonCompleted(course.id, l.id);
-                    const isActive = currentLesson && currentLesson.id === l.id;
-
-                    return (
-                      <button
-                        key={l.id}
-                        type="button"
-                        onClick={() => setSelectedLessonId(l.id)}
-                        className={`w-full text-left p-3.5 rounded-xl transition flex items-start gap-3 border cursor-pointer ${
-                          isActive
-                            ? "bg-emerald-50/90 border-emerald-500 shadow-sm ring-1 ring-emerald-500/30"
-                            : completed
-                              ? "bg-emerald-50/30 border-emerald-200/60 hover:bg-emerald-50/60 text-slate-700"
-                              : "bg-white/60 border-transparent hover:bg-white/90 text-slate-700"
-                        }`}
-                      >
-                        <div className="mt-0.5 shrink-0">
-                          {completed ? (
-                            <CheckCircle2 className="h-5 w-5 text-emerald-600 fill-emerald-100" />
-                          ) : isActive ? (
-                            <div className="h-5 w-5 rounded-full border-2 border-emerald-600 bg-emerald-600 flex items-center justify-center text-[10px] font-bold text-white">
-                              {l.lessonNumber}
-                            </div>
-                          ) : (
-                            <div className="h-5 w-5 rounded-full border border-slate-300 bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-500">
-                              {l.lessonNumber}
-                            </div>
-                          )}
-                        </div>
-
-                        <div className="flex-1 min-w-0 space-y-0.5">
-                          <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
-                            {t("Lesson")} {l.lessonNumber} · {t(l.duration)}
-                          </p>
-                          <h4
-                            className={`text-xs font-black leading-snug ${isActive ? "text-[#1b4332]" : "text-slate-800"}`}
-                          >
-                            {t(l.title)}
-                          </h4>
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div className="lg:col-span-8 rounded-2xl border border-white/60 bg-white/90 backdrop-blur-md p-6 shadow-soft space-y-6">
-                {currentLesson ? (
-                  <>
-                    <div className="space-y-2 border-b border-border/60 pb-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-                          {t("Lesson")} {currentLesson.lessonNumber} of {courseLessons.length}
-                        </span>
-                        <span className="text-xs text-muted-foreground font-semibold flex items-center gap-1">
-                          <Clock className="h-3.5 w-3.5 text-muted-foreground" />
-                          {t(currentLesson.duration)}
-                        </span>
-                      </div>
-                      <h2 className="text-xl font-black text-[#1b4332] leading-tight">
-                        {t(currentLesson.title)}
-                      </h2>
-                      <p className="text-xs font-medium text-muted-foreground italic bg-slate-50 p-3 rounded-xl border border-slate-200/60">
-                        {t(currentLesson.summary)}
-                      </p>
-                    </div>
-
-                    <div className="space-y-4">
-                      <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
-                        <FileText className="h-4 w-4 text-emerald-600" />
-                        {t("Overview & Field Guidance")}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-white/80 p-4 rounded-xl border border-slate-200/80 shadow-2xs">
-                        {t(currentLesson.content)}
-                      </p>
-                    </div>
-
-                    <div className="space-y-3">
-                      <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-                        {t("Key Takeaways")}
-                      </h3>
-                      <ul className="space-y-2">
-                        {currentLesson.keyPoints.map((pt, idx) => (
-                          <li
-                            key={idx}
-                            className="flex items-start gap-2.5 text-xs text-slate-800 bg-emerald-50/40 p-3 rounded-xl border border-emerald-100"
-                          >
-                            <span className="h-2 w-2 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
-                            <span className="font-semibold leading-relaxed">{t(pt)}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="rounded-xl border border-emerald-300 bg-emerald-50/90 p-4 space-y-2 shadow-2xs">
-                      <div className="flex items-center gap-2 text-xs font-black text-[#1b4332]">
-                        <Leaf className="h-4 w-4 text-emerald-600 fill-emerald-200" />
-                        {t("Practical Action & Pro Tip")}
-                      </div>
-                      <p className="text-xs text-[#1b4332] font-semibold leading-relaxed">
-                        {t(currentLesson.farmingTip)}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3">
-                      <button
-                        type="button"
-                        disabled={activeLessonIndex <= 0}
-                        onClick={() => {
-                          const prevLesson = courseLessons[activeLessonIndex - 1];
-                          if (prevLesson) setSelectedLessonId(prevLesson.id);
-                        }}
-                        className={`w-full sm:w-auto h-10 px-4 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 border cursor-pointer ${
-                          activeLessonIndex <= 0
-                            ? "bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed"
-                            : "bg-white text-[#1b4332] border-slate-300 hover:bg-slate-50 shadow-2xs"
-                        }`}
-                      >
-                        <ChevronLeft className="h-4 w-4" />
-                        {t("Previous Lesson")}
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => toggleLessonCompleted(course.id, currentLesson.id)}
-                        className={`w-full sm:w-auto h-10 px-6 rounded-xl text-xs font-black transition shadow-sm flex items-center justify-center gap-2 cursor-pointer ${
-                          isLessonCompleted(course.id, currentLesson.id)
-                            ? "bg-emerald-700 text-white hover:bg-emerald-800"
-                            : "bg-[#2d6a4f] text-white hover:bg-[#1b4332]"
-                        }`}
-                      >
-                        <CheckCircle2 className="h-4 w-4" />
-                        {isLessonCompleted(course.id, currentLesson.id)
-                          ? t("Completed ✓")
-                          : t("Mark as Complete")}
-                      </button>
-
-                      <button
-                        type="button"
-                        disabled={activeLessonIndex >= courseLessons.length - 1}
-                        onClick={() => {
-                          const nextLesson = courseLessons[activeLessonIndex + 1];
-                          if (nextLesson) setSelectedLessonId(nextLesson.id);
-                        }}
-                        className={`w-full sm:w-auto h-10 px-4 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 border cursor-pointer ${
-                          activeLessonIndex >= courseLessons.length - 1
-                            ? "bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed"
-                            : "bg-white text-[#1b4332] border-slate-300 hover:bg-slate-50 shadow-2xs"
-                        }`}
-                      >
-                        {t("Next Lesson")}
-                        <ChevronRight className="h-4 w-4" />
-                      </button>
-                    </div>
-                  </>
-                ) : (
-                  <div className="p-8 text-center text-muted-foreground text-xs font-semibold">
-                    {t("Select a lesson to begin learning")}
+                  <div className="text-left sm:text-right">
+                    <span className="text-xs text-muted-foreground font-bold">
+                      {t("Overall Course Progress")}
+                    </span>
+                    <div className="text-xl font-black text-[#2d6a4f]">{progressPct}%</div>
                   </div>
-                )}
+                </div>
+
+                <div className="space-y-1.5">
+                  <div className="h-2.5 w-full rounded-full bg-emerald-100 overflow-hidden">
+                    <div
+                      className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
+                      style={{ width: `${progressPct}%` }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                <div className="lg:col-span-4 rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-4 shadow-soft space-y-3">
+                  <h3 className="text-sm font-black text-[#1b4332] px-2 flex items-center gap-2">
+                    <BookOpen className="h-4 w-4 text-emerald-600" />
+                    {t("Course Modules & Lessons")}
+                  </h3>
+                  <div className="space-y-2">
+                    {courseLessons.map((l) => {
+                      const completed = isLessonCompleted(course.id, l.id);
+                      const isActive = currentLesson && currentLesson.id === l.id;
+
+                      return (
+                        <button
+                          key={l.id}
+                          type="button"
+                          onClick={() => setSelectedLessonId(l.id)}
+                          className={`w-full text-left p-3.5 rounded-xl transition flex items-start gap-3 border cursor-pointer ${
+                            isActive
+                              ? "bg-emerald-50/90 border-emerald-500 shadow-sm ring-1 ring-emerald-500/30"
+                              : completed
+                                ? "bg-emerald-50/30 border-emerald-200/60 hover:bg-emerald-50/60 text-slate-700"
+                                : "bg-white/60 border-transparent hover:bg-white/90 text-slate-700"
+                          }`}
+                        >
+                          <div className="mt-0.5 shrink-0">
+                            {completed ? (
+                              <CheckCircle2 className="h-5 w-5 text-emerald-600 fill-emerald-100" />
+                            ) : isActive ? (
+                              <div className="h-5 w-5 rounded-full border-2 border-emerald-600 bg-emerald-600 flex items-center justify-center text-[10px] font-bold text-white">
+                                {l.lessonNumber}
+                              </div>
+                            ) : (
+                              <div className="h-5 w-5 rounded-full border border-slate-300 bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-500">
+                                {l.lessonNumber}
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="flex-1 min-w-0 space-y-0.5">
+                            <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                              {t("Lesson")} {l.lessonNumber} · {t(l.duration)}
+                            </p>
+                            <h4
+                              className={`text-xs font-black leading-snug ${isActive ? "text-[#1b4332]" : "text-slate-800"}`}
+                            >
+                              {t(l.title)}
+                            </h4>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div className="lg:col-span-8 rounded-2xl border border-white/60 bg-white/90 backdrop-blur-md p-6 shadow-soft space-y-6">
+                  {currentLesson ? (
+                    <>
+                      <div className="space-y-2 border-b border-border/60 pb-4">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                            {t("Lesson")} {currentLesson.lessonNumber} of {courseLessons.length}
+                          </span>
+                          <span className="text-xs text-muted-foreground font-semibold flex items-center gap-1">
+                            <Clock className="h-3.5 w-3.5 text-muted-foreground" />
+                            {t(currentLesson.duration)}
+                          </span>
+                        </div>
+                        <h2 className="text-xl font-black text-[#1b4332] leading-tight">
+                          {t(currentLesson.title)}
+                        </h2>
+                        <p className="text-xs font-medium text-muted-foreground italic bg-slate-50 p-3 rounded-xl border border-slate-200/60">
+                          {t(currentLesson.summary)}
+                        </p>
+                      </div>
+
+                      <div className="space-y-4">
+                        <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
+                          <FileText className="h-4 w-4 text-emerald-600" />
+                          {t("Overview & Field Guidance")}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-white/80 p-4 rounded-xl border border-slate-200/80 shadow-2xs">
+                          {t(currentLesson.content)}
+                        </p>
+                      </div>
+
+                      <div className="space-y-3">
+                        <h3 className="text-sm font-black text-[#1b4332] flex items-center gap-2">
+                          <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                          {t("Key Takeaways")}
+                        </h3>
+                        <ul className="space-y-2">
+                          {currentLesson.keyPoints.map((pt, idx) => (
+                            <li
+                              key={idx}
+                              className="flex items-start gap-2.5 text-xs text-slate-800 bg-emerald-50/40 p-3 rounded-xl border border-emerald-100"
+                            >
+                              <span className="h-2 w-2 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
+                              <span className="font-semibold leading-relaxed">{t(pt)}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="rounded-xl border border-emerald-300 bg-emerald-50/90 p-4 space-y-2 shadow-2xs">
+                        <div className="flex items-center gap-2 text-xs font-black text-[#1b4332]">
+                          <Leaf className="h-4 w-4 text-emerald-600 fill-emerald-200" />
+                          {t("Practical Action & Pro Tip")}
+                        </div>
+                        <p className="text-xs text-[#1b4332] font-semibold leading-relaxed">
+                          {t(currentLesson.farmingTip)}
+                        </p>
+                      </div>
+
+                      <div className="pt-4 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3">
+                        <button
+                          type="button"
+                          disabled={activeLessonIndex <= 0}
+                          onClick={() => {
+                            const prevLesson = courseLessons[activeLessonIndex - 1];
+                            if (prevLesson) setSelectedLessonId(prevLesson.id);
+                          }}
+                          className={`w-full sm:w-auto h-10 px-4 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 border cursor-pointer ${
+                            activeLessonIndex <= 0
+                              ? "bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed"
+                              : "bg-white text-[#1b4332] border-slate-300 hover:bg-slate-50 shadow-2xs"
+                          }`}
+                        >
+                          <ChevronLeft className="h-4 w-4" />
+                          {t("Previous Lesson")}
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => toggleLessonCompleted(course.id, currentLesson.id)}
+                          className={`w-full sm:w-auto h-10 px-6 rounded-xl text-xs font-black transition shadow-sm flex items-center justify-center gap-2 cursor-pointer ${
+                            isLessonCompleted(course.id, currentLesson.id)
+                              ? "bg-emerald-700 text-white hover:bg-emerald-800"
+                              : "bg-[#2d6a4f] text-white hover:bg-[#1b4332]"
+                          }`}
+                        >
+                          <CheckCircle2 className="h-4 w-4" />
+                          {isLessonCompleted(course.id, currentLesson.id)
+                            ? t("Completed ✓")
+                            : t("Mark as Complete")}
+                        </button>
+
+                        <button
+                          type="button"
+                          disabled={activeLessonIndex >= courseLessons.length - 1}
+                          onClick={() => {
+                            const nextLesson = courseLessons[activeLessonIndex + 1];
+                            if (nextLesson) setSelectedLessonId(nextLesson.id);
+                          }}
+                          className={`w-full sm:w-auto h-10 px-4 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 border cursor-pointer ${
+                            activeLessonIndex >= courseLessons.length - 1
+                              ? "bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed"
+                              : "bg-white text-[#1b4332] border-slate-300 hover:bg-slate-50 shadow-2xs"
+                          }`}
+                        >
+                          {t("Next Lesson")}
+                          <ChevronRight className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="p-8 text-center text-muted-foreground text-xs font-semibold">
+                      {t("Select a lesson to begin learning")}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </RoleGuard>
+      </RoleGuard>
     );
   }
-
-  const agriCategoriesList = [
-    "All Agriculture",
-    "Farming Basics",
-    "Soil & Fertility",
-    "Crop Management",
-    "Irrigation",
-    "Pest & Disease",
-    "Sustainable Farming",
-    "AgriTech",
-    "Post-Harvest",
-    "Markets & Schemes",
-  ];
-
-  const levelsList = ["All Levels", "Beginner", "Intermediate", "Advanced"];
-
-  const filtered = COURSES.filter((c) => {
-    const resourcesText = c.youtubeResources
-      ? c.youtubeResources.map((r) => `${r.title} ${r.channel} ${r.description}`).join(" ")
-      : "";
-    const searchString = `${t(c.title)} ${t(c.topic)} ${t(c.level)} ${c.category ?? ""} ${t(c.instructor)} ${t(c.description ?? "")} ${resourcesText}`
-      .toLowerCase();
-    const matchesQuery = !query.trim() || searchString.includes(query.toLowerCase());
-
-    const matchesCategory =
-      categoryFilter === "All Agriculture" ||
-      (c.category && c.category.toLowerCase() === categoryFilter.toLowerCase());
-
-    const matchesLevel = levelFilter === "All Levels" || c.level === levelFilter;
-
-    return matchesQuery && matchesCategory && matchesLevel;
-  });
-
-  const hasActiveFilters = query.trim() !== "" || categoryFilter !== "All Agriculture" || levelFilter !== "All Levels";
 
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-6">
+          {/* 1. Dedicated Learning Hero with Exact Attached Banner */}
           <StudentPortalHero
             size="lg"
-            eyebrow={t("Agriculture Education & Knowledge")}
-            eyebrowIcon={GraduationCap}
+            bannerImage="/images/learn-hero-banner.png"
+            eyebrow={t("AGRICULTURE EDUCATION & KNOWLEDGE")}
+            eyebrowIcon={BookOpen}
             title={t("PureFarm Agriculture Learning Hub")}
             description={t(
-              "Learn practical farming skills, soil fertility, modern irrigation, pest management, crop planning, and agricultural technologies with guided field modules.",
+              "Learn practical farming skills, soil fertility, irrigation, pest management, crop planning, and modern agricultural technologies through structured learning modules.",
             )}
             badges={[
               { label: t("Hands-on Learning"), icon: Leaf },
-              { label: t("Expert Mentorship"), icon: Users },
-              { label: t("Verified Modules"), icon: Award },
+              { label: t("Expert Guidance"), icon: Users },
+              { label: t("Practical Modules"), icon: BookOpen },
             ]}
           />
 
-          <div className="rounded-3xl bg-white border border-slate-200/90 p-4 sm:p-5 shadow-xs space-y-4">
-            <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
-              <div className="relative flex-1 max-w-md">
+          {/* 2. Search, Filter, and Sort Toolbar Panel */}
+          <section className="rounded-3xl bg-white border border-slate-200/90 p-4 sm:p-5 shadow-xs space-y-4">
+            <div className="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between">
+              {/* Course search input */}
+              <div className="relative flex-1 min-w-[280px]">
                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                 <input
                   type="text"
-                  placeholder={t("Search agriculture courses, soil guides, pest control...")}
+                  placeholder={t(
+                    "Search courses by title, topic, skill, or keyword (e.g. soil fertility, drip irrigation)...",
+                  )}
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  className="w-full h-11 pl-10 pr-9 rounded-xl border border-slate-200 bg-slate-50/70 text-slate-800 shadow-2xs text-sm outline-none focus:bg-white focus:ring-2 focus:ring-emerald-600"
+                  className="w-full h-11 pl-10 pr-9 rounded-xl border border-slate-200 bg-slate-50/70 text-slate-800 shadow-2xs text-xs sm:text-sm outline-none focus:bg-white focus:ring-1 focus:ring-emerald-600 focus:border-emerald-600 transition"
                 />
                 {query && (
                   <button
                     type="button"
                     onClick={() => setQuery("")}
+                    aria-label="Clear search query"
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
                   >
                     <X className="h-4 w-4" />
@@ -5632,275 +5992,387 @@ export function LearnPage() {
                 )}
               </div>
 
-              <div className="flex flex-wrap items-center gap-1.5">
-                <span className="text-xs font-bold text-slate-700 flex items-center gap-1 shrink-0 mr-1">
-                  <Filter className="h-3.5 w-3.5 text-emerald-700" />
-                  {t("Category:")}
+              {/* Dropdown Filters and Sort */}
+              <div className="flex flex-wrap sm:flex-nowrap gap-2.5 items-center">
+                <select
+                  value={categoryFilter}
+                  onChange={(e) => setCategoryFilter(e.target.value)}
+                  aria-label="Filter by agricultural category"
+                  className="h-11 px-3.5 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-white text-xs font-bold text-slate-800 outline-none focus:border-emerald-600 cursor-pointer transition"
+                >
+                  {agriCategoriesList.map((cat) => (
+                    <option key={cat.id} value={cat.id}>
+                      {t(cat.label)} ({cat.count})
+                    </option>
+                  ))}
+                </select>
+
+                <select
+                  value={levelFilter}
+                  onChange={(e) => setLevelFilter(e.target.value)}
+                  aria-label="Filter by difficulty level"
+                  className="h-11 px-3.5 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-white text-xs font-bold text-slate-800 outline-none focus:border-emerald-600 cursor-pointer transition"
+                >
+                  {levelsList.map((lvl) => (
+                    <option key={lvl} value={lvl}>
+                      {t(lvl)}
+                    </option>
+                  ))}
+                </select>
+
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  aria-label="Sort courses"
+                  className="h-11 px-3.5 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-white text-xs font-bold text-slate-800 outline-none focus:border-emerald-600 cursor-pointer transition"
+                >
+                  <option value="default">{t("Sort: Recommended")}</option>
+                  <option value="duration-asc">{t("Duration: Shortest First")}</option>
+                  <option value="duration-desc">{t("Duration: Longest First")}</option>
+                  <option value="lessons-desc">{t("Most Modules")}</option>
+                  <option value="level">{t("Difficulty Level")}</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Quick Level Pills & Reset button */}
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-100">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-bold text-slate-500 shrink-0 mr-1">
+                  {t("Difficulty Level:")}
                 </span>
-                {agriCategoriesList.map((cat) => (
+                {levelsList.map((lvl) => (
                   <button
-                    key={cat}
+                    key={lvl}
                     type="button"
-                    onClick={() => setCategoryFilter(cat)}
-                    className={`h-9 px-3 rounded-xl text-xs font-bold transition shadow-2xs cursor-pointer ${
-                      categoryFilter === cat
-                        ? "bg-[#1b4332] text-white"
-                        : "bg-slate-50 border border-slate-200 text-[#1b4332] hover:bg-white"
+                    onClick={() => setLevelFilter(lvl)}
+                    className={`h-8 px-3 rounded-lg text-xs font-bold transition cursor-pointer ${
+                      levelFilter === lvl
+                        ? "bg-emerald-700 text-white shadow-2xs"
+                        : "bg-slate-100 text-slate-700 hover:bg-slate-200/80"
                     }`}
                   >
-                    {t(cat)}
+                    {t(lvl)}
                   </button>
                 ))}
               </div>
-          </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-3 pt-1 border-t border-white/40">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-bold text-slate-700 shrink-0 mr-1">
-                {t("Difficulty Level:")}
-              </span>
-              {levelsList.map((lvl) => (
+              {hasActiveFilters && (
                 <button
-                  key={lvl}
                   type="button"
-                  onClick={() => setLevelFilter(lvl)}
-                  className={`h-8 px-3 rounded-lg text-[11px] font-bold transition cursor-pointer ${
-                    levelFilter === lvl
-                      ? "bg-emerald-700 text-white"
-                      : "bg-white/60 border border-white/50 text-slate-700 hover:bg-white"
-                  }`}
+                  onClick={clearFilters}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700 bg-red-50 hover:bg-red-100 px-3 py-1.5 rounded-lg border border-red-200 transition cursor-pointer"
                 >
-                  {t(lvl)}
+                  <X className="h-3.5 w-3.5" />
+                  {t("Clear All Filters")}
                 </button>
-              ))}
+              )}
+            </div>
+          </section>
+
+          {/* 3. Course Categories Strip */}
+          <section className="space-y-3">
+            <div className="flex items-center justify-between">
+              <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+                <Filter className="h-3.5 w-3.5 text-emerald-700" />
+                {t("Explore Courses by Subject")}
+              </h3>
+              {categoryFilter !== "All Agriculture" && (
+                <button
+                  type="button"
+                  onClick={() => setCategoryFilter("All Agriculture")}
+                  className="text-xs font-bold text-emerald-700 hover:text-emerald-900 transition cursor-pointer"
+                >
+                  {t("Reset to All Subjects")} →
+                </button>
+              )}
             </div>
 
-            {hasActiveFilters && (
+            <div className="flex items-center gap-2.5 overflow-x-auto pb-2 scrollbar-none">
+              {agriCategoriesList.map((cat) => {
+                const Icon = cat.icon;
+                const isSelected = categoryFilter === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => setCategoryFilter(cat.id)}
+                    className={`shrink-0 flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl text-xs font-bold transition shadow-2xs border cursor-pointer ${
+                      isSelected
+                        ? "bg-[#1b4332] text-white border-[#1b4332] shadow-xs"
+                        : "bg-white text-slate-700 border-slate-200/90 hover:border-emerald-300 hover:bg-emerald-50/40"
+                    }`}
+                  >
+                    <div
+                      className={`h-7 w-7 rounded-xl flex items-center justify-center shrink-0 ${
+                        isSelected ? "bg-white/20 text-white" : "bg-emerald-50 text-emerald-800"
+                      }`}
+                    >
+                      <Icon className="h-3.5 w-3.5" />
+                    </div>
+                    <div className="text-left">
+                      <span className="block leading-tight">{t(cat.label)}</span>
+                      <span
+                        className={`block text-[10px] font-medium leading-tight mt-0.5 ${
+                          isSelected ? "text-emerald-200" : "text-slate-400"
+                        }`}
+                      >
+                        {cat.count} {t("courses")}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* 4. Course Listing Section Header */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-2 border-b border-emerald-950/10">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-black text-[#1b4332] flex items-center gap-2.5">
+                <GraduationCap className="h-6 w-6 text-emerald-700" />
+                {t("Agriculture & Farmer Education Courses")}
+              </h2>
+              <p className="text-xs text-slate-500 font-medium mt-0.5">
+                {categoryFilter === "All Agriculture"
+                  ? t(
+                      "Comprehensive curriculum covering practical crop management, soil health, and AgriTech",
+                    )
+                  : `${t("Focused modules for")} ${t(categoryFilter)}`}
+              </p>
+            </div>
+            <span className="text-xs font-black text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-200 shadow-2xs">
+              {filtered.length} {t("Courses Available")}
+            </span>
+          </div>
+
+          {/* 5. Course Cards Grid */}
+          {filtered.length === 0 ? (
+            <div className="rounded-3xl border border-slate-200 bg-white p-12 text-center space-y-4 max-w-md mx-auto shadow-xs">
+              <BookOpen className="h-12 w-12 text-slate-400 mx-auto" />
+              <h3 className="text-lg font-black text-[#1b4332]">
+                {t("No Agriculture Courses Found")}
+              </h3>
+              <p className="text-xs text-slate-600">
+                {t("No courses match your current search or category filter.")}
+              </p>
               <button
                 type="button"
                 onClick={clearFilters}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700 bg-red-50/80 hover:bg-red-100 px-3 py-1.5 rounded-lg border border-red-200 transition cursor-pointer"
+                className="inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-[#1b4332] hover:bg-[#143a2b] text-white text-xs font-bold transition shadow-sm cursor-pointer"
               >
-                <X className="h-3.5 w-3.5" />
+                <X className="h-4 w-4" />
                 {t("Clear All Filters")}
               </button>
-            )}
-          </div>
-        </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filtered.map((c) => {
+                const courseLessons = AGRICULTURE_LESSONS.filter((l) => l.courseId === c.id);
+                const totalLessons = courseLessons.length > 0 ? courseLessons.length : c.lessons;
+                const progressPct = getCourseProgressPct(c.id);
+                const resourceCount = c.youtubeResources?.length || 0;
 
-        {/* Primary Catalog Header */}
-        <div className="mb-4 flex items-center justify-between border-b border-emerald-900/10 pb-2">
-          <h2 className="text-lg font-black text-[#1b4332] flex items-center gap-2">
-            <GraduationCap className="h-5 w-5 text-emerald-600" />
-            {t("Agriculture & Farmer Education Courses")}
-          </h2>
-          <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
-            {filtered.length} {t("Courses Available")}
-          </span>
-        </div>
-
-        {filtered.length === 0 ? (
-          <div className="rounded-2xl border border-white/60 bg-white/80 backdrop-blur-md p-12 text-center space-y-4 max-w-md mx-auto shadow-soft">
-            <BookOpen className="h-12 w-12 text-slate-400 mx-auto" />
-            <h3 className="text-lg font-black text-[#1b4332]">{t("No Agriculture Courses Found")}</h3>
-            <p className="text-xs text-muted-foreground">
-              {t("No courses match your current search or category filter.")}
-            </p>
-            <button
-              type="button"
-              onClick={clearFilters}
-              className="inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-bold transition shadow-sm cursor-pointer"
-            >
-              <X className="h-4 w-4" />
-              {t("Clear All Filters")}
-            </button>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((c) => {
-              const courseLessons = AGRICULTURE_LESSONS.filter((l) => l.courseId === c.id);
-              const totalLessons = courseLessons.length > 0 ? courseLessons.length : c.lessons;
-              const progressPct = getCourseProgressPct(c.id);
-              const resourceCount = c.youtubeResources?.length || 0;
-
-              return (
-                <div
-                  key={c.id}
-                  className="rounded-2xl border border-white/60 bg-white/85 backdrop-blur-md p-5 shadow-soft flex flex-col justify-between space-y-4 hover:shadow-md transition"
-                >
-                  <div className="space-y-3">
-                    <div className="flex flex-wrap items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5">
-                        {c.category && (
-                          <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
-                            {t(c.category)}
+                return (
+                  <div
+                    key={c.id}
+                    className="rounded-3xl bg-white border border-slate-200/90 p-5 sm:p-6 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between space-y-4"
+                  >
+                    <div className="space-y-3">
+                      {/* Top Badges */}
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <div className="flex items-center gap-1.5">
+                          {c.category && (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[11px] font-bold border border-emerald-200">
+                              <Sprout className="h-3 w-3 text-emerald-700" />
+                              {t(c.category)}
+                            </span>
+                          )}
+                          <span className="inline-flex rounded-full bg-slate-100 text-slate-700 px-2.5 py-0.5 text-[11px] font-semibold border border-slate-200">
+                            {t(c.level)}
                           </span>
-                        )}
-                        <span className="inline-flex rounded-full bg-slate-100 text-slate-700 px-2 py-0.5 text-[10px] font-bold border border-slate-200">
-                          {t(c.level)}
+                        </div>
+                        <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 font-bold">
+                          <Clock className="h-3 w-3 text-slate-400" />
+                          {c.hours} {t("hrs")} · {totalLessons} {t("modules")}
                         </span>
                       </div>
-                      <span className="text-[11px] text-muted-foreground font-semibold">
-                        {c.hours} {t("hrs")} · {totalLessons} {t("lessons")}
-                      </span>
-                    </div>
 
-                    <h3 className="text-base font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
-                    <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
-                      {t(c.description ?? "")}
-                    </p>
-                  </div>
-
-                  <div className="space-y-3 pt-3 border-t border-border/60">
-                    <div className="flex items-center justify-between text-xs font-bold">
-                      <span className="text-muted-foreground truncate max-w-[60%]">{t(c.instructor)}</span>
-                      <span className="text-[#2d6a4f] shrink-0">
-                        {progressPct}% {t("completed")}
-                      </span>
-                    </div>
-
-                    <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
-                      <div
-                        className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
-                        style={{ width: `${progressPct}%` }}
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-2 pt-1">
-                      {resourceCount > 0 ? (
-                        <button
-                          type="button"
-                          onClick={() => setSelectedResourcesCourse(c)}
-                          className="h-10 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
-                        >
-                          <Video className="h-3.5 w-3.5" />
-                          {t("Learning Resources")}
-                          <span className="ml-0.5 rounded-full bg-red-800/90 px-1.5 py-0.2 text-[10px] font-extrabold text-red-100">
-                            {resourceCount}
-                          </span>
-                        </button>
-                      ) : c.youtubeUrl ? (
-                        <a
-                          href={c.youtubeUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="h-10 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
-                        >
-                          <Video className="h-3.5 w-3.5" />
-                          {t("Watch YouTube")}
-                          <ExternalLink className="h-3 w-3" />
-                        </a>
-                      ) : (
-                        <div />
-                      )}
-
-                      <button
-                        type="button"
-                        onClick={() => handleSelectCourse(c.id)}
-                        className={`h-10 rounded-xl ${
-                          resourceCount > 0 || c.youtubeUrl
-                            ? "bg-[#2d6a4f] hover:bg-[#1b4332]"
-                            : "col-span-2 bg-[#2d6a4f] hover:bg-[#1b4332]"
-                        } text-white text-xs font-black transition shadow-sm cursor-pointer flex items-center justify-center gap-1`}
-                      >
-                        <BookOpen className="h-3.5 w-3.5" />
-                        {progressPct > 0 ? t("Continue") : t("Lessons")}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
-
-
-
-        {/* Video Learning Resources Modal */}
-        {selectedResourcesCourse && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 overflow-y-auto">
-            <div className="relative w-full max-w-2xl rounded-2xl border border-white/40 bg-white p-6 shadow-2xl space-y-5 my-8 max-h-[90vh] flex flex-col">
-              {/* Modal Header */}
-              <div className="flex items-start justify-between border-b border-slate-100 pb-4 shrink-0">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 text-[10px] font-black border border-red-200 uppercase tracking-wide">
-                      <Video className="h-3 w-3" />
-                      {t("YouTube Learning Resources")}
-                    </span>
-                    <span className="text-xs font-bold text-slate-500">
-                      {selectedResourcesCourse.youtubeResources?.length || 0} {t("Verified Videos")}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-black text-[#1b4332] leading-snug">
-                    {t(selectedResourcesCourse.title)}
-                  </h3>
-                  <p className="text-xs text-slate-600 line-clamp-2">
-                    {t(selectedResourcesCourse.description ?? "")}
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setSelectedResourcesCourse(null)}
-                  className="rounded-full p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition cursor-pointer shrink-0 ml-2"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
-
-              {/* Modal Video List */}
-              <div className="space-y-3 overflow-y-auto pr-1 flex-1">
-                {selectedResourcesCourse.youtubeResources?.map((res, idx) => (
-                  <div
-                    key={res.id || idx}
-                    className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 hover:border-red-300 hover:bg-red-50/30 transition space-y-2 group"
-                  >
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                      <div className="space-y-1 min-w-0 flex-1">
-                        <div className="flex items-center gap-2">
-                          <span className="h-5 w-5 rounded-full bg-red-100 text-red-700 text-[10px] font-black flex items-center justify-center shrink-0">
-                            {idx + 1}
-                          </span>
-                          <h4 className="text-sm font-black text-slate-900 group-hover:text-red-700 transition leading-snug">
-                            {res.title}
-                          </h4>
-                        </div>
-                        <p className="text-xs font-bold text-emerald-800 flex items-center gap-1.5 pl-7">
-                          <span>{t("Channel:")} {res.channel}</span>
-                        </p>
-                        <p className="text-xs text-slate-600 leading-relaxed pl-7">
-                          {res.description}
+                      {/* Title & Description */}
+                      <div>
+                        <h3 className="text-base sm:text-lg font-black text-[#1b4332] leading-snug">
+                          {t(c.title)}
+                        </h3>
+                        <p className="text-xs text-slate-600 leading-relaxed mt-2 line-clamp-3 font-medium">
+                          {t(c.description ?? "")}
                         </p>
                       </div>
 
-                      <a
-                        href={res.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-1.5 h-9 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition shadow-xs shrink-0 cursor-pointer w-full sm:w-auto"
-                      >
-                        <Video className="h-3.5 w-3.5" />
-                        {t("Watch on YouTube")}
-                        <ExternalLink className="h-3 w-3" />
-                      </a>
+                      {/* Instructor & Topic */}
+                      <div className="flex items-center justify-between text-xs pt-1">
+                        <span className="inline-flex items-center gap-1.5 text-slate-500 font-medium truncate max-w-[65%]">
+                          <User className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+                          <span className="truncate">{t(c.instructor)}</span>
+                        </span>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 shrink-0">
+                          {t(c.topic)}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Progress & Actions */}
+                    <div className="space-y-3 pt-3 border-t border-slate-100">
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="text-slate-500 font-semibold">{t("Course Progress")}</span>
+                        <span className="font-black text-[#2d6a4f]">
+                          {progressPct}% {t("completed")}
+                        </span>
+                      </div>
+
+                      <div className="h-2 w-full rounded-full bg-slate-100 overflow-hidden">
+                        <div
+                          className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
+                          style={{ width: `${progressPct}%` }}
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2 pt-1">
+                        {resourceCount > 0 ? (
+                          <button
+                            type="button"
+                            onClick={() => setSelectedResourcesCourse(c)}
+                            className="h-10 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                          >
+                            <Video className="h-3.5 w-3.5" />
+                            {t("Resources")}
+                            <span className="rounded-full bg-red-800/90 px-1.5 py-0.2 text-[10px] font-extrabold text-white">
+                              {resourceCount}
+                            </span>
+                          </button>
+                        ) : c.youtubeUrl ? (
+                          <a
+                            href={c.youtubeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="h-10 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                          >
+                            <Video className="h-3.5 w-3.5" />
+                            {t("Watch Video")}
+                            <ExternalLink className="h-3 w-3" />
+                          </a>
+                        ) : (
+                          <div />
+                        )}
+
+                        <button
+                          type="button"
+                          onClick={() => handleSelectCourse(c.id)}
+                          className={`h-10 rounded-xl ${
+                            resourceCount > 0 || c.youtubeUrl
+                              ? "bg-[#1b4332] hover:bg-[#143a2b]"
+                              : "col-span-2 bg-[#1b4332] hover:bg-[#143a2b]"
+                          } text-white text-xs font-black transition shadow-sm cursor-pointer flex items-center justify-center gap-1.5`}
+                        >
+                          <BookOpen className="h-3.5 w-3.5" />
+                          {progressPct > 0 ? t("Continue") : t("Start Lessons")}
+                          <ArrowRight className="h-3.5 w-3.5 ml-0.5" />
+                        </button>
+                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                );
+              })}
+            </div>
+          )}
 
-              {/* Modal Footer */}
-              <div className="pt-3 border-t border-slate-100 flex justify-end shrink-0">
-                <button
-                  type="button"
-                  onClick={() => setSelectedResourcesCourse(null)}
-                  className="h-10 px-5 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold transition cursor-pointer"
-                >
-                  {t("Close")}
-                </button>
+          {/* Video Learning Resources Modal */}
+          {selectedResourcesCourse && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 overflow-y-auto">
+              <div className="relative w-full max-w-2xl rounded-2xl border border-white/40 bg-white p-6 shadow-2xl space-y-5 my-8 max-h-[90vh] flex flex-col">
+                {/* Modal Header */}
+                <div className="flex items-start justify-between border-b border-slate-100 pb-4 shrink-0">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 text-[10px] font-black border border-red-200 uppercase tracking-wide">
+                        <Video className="h-3 w-3" />
+                        {t("YouTube Learning Resources")}
+                      </span>
+                      <span className="text-xs font-bold text-slate-500">
+                        {selectedResourcesCourse.youtubeResources?.length || 0}{" "}
+                        {t("Verified Videos")}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-black text-[#1b4332] leading-snug">
+                      {t(selectedResourcesCourse.title)}
+                    </h3>
+                    <p className="text-xs text-slate-600 line-clamp-2">
+                      {t(selectedResourcesCourse.description ?? "")}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedResourcesCourse(null)}
+                    className="rounded-full p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition cursor-pointer shrink-0 ml-2"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+
+                {/* Modal Video List */}
+                <div className="space-y-3 overflow-y-auto pr-1 flex-1">
+                  {selectedResourcesCourse.youtubeResources?.map((res, idx) => (
+                    <div
+                      key={res.id || idx}
+                      className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 hover:border-red-300 hover:bg-red-50/30 transition space-y-2 group"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div className="space-y-1 min-w-0 flex-1">
+                          <div className="flex items-center gap-2">
+                            <span className="h-5 w-5 rounded-full bg-red-100 text-red-700 text-[10px] font-black flex items-center justify-center shrink-0">
+                              {idx + 1}
+                            </span>
+                            <h4 className="text-sm font-black text-slate-900 group-hover:text-red-700 transition leading-snug">
+                              {res.title}
+                            </h4>
+                          </div>
+                          <p className="text-xs font-bold text-emerald-800 flex items-center gap-1.5 pl-7">
+                            <span>
+                              {t("Channel:")} {res.channel}
+                            </span>
+                          </p>
+                          <p className="text-xs text-slate-600 leading-relaxed pl-7">
+                            {res.description}
+                          </p>
+                        </div>
+
+                        <a
+                          href={res.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-1.5 h-9 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition shadow-xs shrink-0 cursor-pointer w-full sm:w-auto"
+                        >
+                          <Video className="h-3.5 w-3.5" />
+                          {t("Watch on YouTube")}
+                          <ExternalLink className="h-3 w-3" />
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Modal Footer */}
+                <div className="pt-3 border-t border-slate-100 flex justify-end shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedResourcesCourse(null)}
+                    className="h-10 px-5 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold transition cursor-pointer"
+                  >
+                    {t("Close")}
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
         </div>
       </div>
     </RoleGuard>
@@ -5911,91 +6383,68 @@ export function CoursesPage() {
   const { t } = useTranslation();
   const [query, setQuery] = useState("");
   const filtered = COURSES.filter((c) =>
-    `${t(c.title)} ${t(c.topic)} ${t(c.level)} ${c.category ?? ""}`.toLowerCase().includes(query.toLowerCase()),
+    `${t(c.title)} ${t(c.topic)} ${t(c.level)} ${c.category ?? ""}`
+      .toLowerCase()
+      .includes(query.toLowerCase()),
   );
 
   return (
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
-      <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto space-y-6">
-          <StudentPortalHero
-            size="lg"
-            eyebrow={t("Agricultural Curriculum")}
-            eyebrowIcon={BookOpen}
-            title={t("Student Courses Catalog")}
-            description={t(
-              "Explore modern farming, crop science, soil fertility, irrigation, and AgriTech courses designed for hands-on student learners.",
-            )}
-            badges={[
-              { label: t("Hands-on Learning"), icon: Leaf },
-              { label: t("Expert Mentorship"), icon: Users },
-              { label: t("Certificate Support"), icon: Award },
-            ]}
+      <PageShell
+        eyebrow={t("Education")}
+        title={t("Student Courses Catalog")}
+        intro={t(
+          "Explore modern farming, crop science, soil fertility, irrigation, and AgriTech courses.",
+        )}
+      >
+        <div className="mb-6 flex max-w-md items-center rounded-xl border border-border bg-card px-3.5 py-2.5 shadow-sm">
+          <Search className="h-4 w-4 text-muted-foreground mr-2" />
+          <input
+            type="text"
+            placeholder={t("Search courses...")}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="w-full bg-transparent text-sm outline-none"
           />
-
-          <div className="rounded-3xl bg-white border border-slate-200/90 p-4 sm:p-5 shadow-xs flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-              <input
-                type="text"
-                placeholder={t("Search courses by title, topic, or level...")}
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50/70 text-slate-800 text-sm outline-none focus:bg-white focus:ring-2 focus:ring-emerald-600 shadow-2xs"
-              />
-            </div>
-            <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-200 self-start sm:self-auto">
-              {filtered.length} {t("Courses Available")}
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((c) => (
-              <div
-                key={c.id}
-                className="rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md transition duration-200 flex flex-col justify-between space-y-4"
-              >
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
-                      {t(c.level)}
-                    </span>
-                    <span className="text-xs text-slate-500 font-semibold">
-                      {c.hours} {t("hrs")} · {c.lessons} {t("lessons")}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {t(c.description ?? "")}
-                  </p>
-                </div>
-
-                <div className="space-y-3 pt-3 border-t border-slate-100">
-                  <div className="flex justify-between text-xs font-bold">
-                    <span className="text-slate-500">{t(c.instructor)}</span>
-                    <span className="text-[#2d6a4f]">
-                      {c.progress}% {t("completed")}
-                    </span>
-                  </div>
-                  <div className="h-2 w-full rounded-full bg-slate-100 overflow-hidden">
-                    <div
-                      className="h-full bg-[#2d6a4f] rounded-full transition-all duration-300"
-                      style={{ width: `${c.progress}%` }}
-                    />
-                  </div>
-                  <Link
-                    to={`/learn?courseId=${c.id}`}
-                    className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm flex items-center justify-center gap-1.5"
-                  >
-                    {c.progress > 0 ? t("Continue Learning") : t("Start Course")}
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
-      </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filtered.map((c) => (
+            <div
+              key={c.id}
+              className="rounded-2xl border border-border bg-card p-6 shadow-soft hover:shadow-md transition space-y-4 flex flex-col justify-between"
+            >
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex rounded-full bg-emerald-50 text-[#1b4332] px-2.5 py-0.5 text-[10px] font-bold border border-emerald-200">
+                    {t(c.level)}
+                  </span>
+                  <span className="text-xs text-muted-foreground font-semibold">
+                    {c.hours} {t("hrs")} · {c.lessons} {t("lessons")}
+                  </span>
+                </div>
+                <h3 className="text-lg font-black text-[#1b4332] leading-snug">{t(c.title)}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                  {t(c.description ?? "")}
+                </p>
+                <p className="text-xs font-medium text-emerald-800">
+                  {t(c.instructor)} · {t(c.topic)}
+                </p>
+              </div>
+
+              <div className="pt-2 border-t border-border">
+                <Link
+                  to={`/learn?courseId=${c.id}`}
+                  className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm flex items-center justify-center gap-1.5"
+                >
+                  <BookOpen className="h-3.5 w-3.5" />
+                  {t("View Modules & Lessons")}
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </PageShell>
     </RoleGuard>
   );
 }
@@ -6055,78 +6504,70 @@ export function MyCoursesPage() {
 
   return (
     <RoleGuard allowedRoles={["student", "admin"]}>
-      <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto space-y-6">
-          <StudentPortalHero
-            size="md"
-            eyebrow={t("Student Dashboard")}
-            eyebrowIcon={GraduationCap}
-            title={t("My Enrolled Courses")}
-            description={t("Track ongoing learning progress across active agriculture and AgriTech courses.")}
-            badges={[
-              { label: t("Track Progress"), icon: Leaf },
-              { label: t("Resume Anywhere"), icon: BookOpen },
-            ]}
-          />
-
-          {enrolledCourses.length === 0 ? (
-            <div className="rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center space-y-3 max-w-md mx-auto shadow-xs">
-              <GraduationCap className="h-10 w-10 text-slate-400 mx-auto" />
-              <h3 className="text-base font-black text-[#1b4332]">{t("No enrolled courses yet")}</h3>
-              <p className="text-xs text-slate-600">
-                {t("Browse our agriculture and AgriTech courses catalog to start learning modern farming techniques.")}
-              </p>
-              <div className="pt-2">
-                <Link
-                  to="/courses"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-4 py-2 text-xs font-black transition shadow-xs"
+      <PageShell
+        eyebrow={t("Dashboard")}
+        title={t("My Enrolled Courses")}
+        intro={t("Track ongoing learning progress across active agriculture and AgriTech courses.")}
+      >
+        {enrolledCourses.length === 0 ? (
+          <div className="rounded-2xl border border-dashed border-border bg-card/60 p-12 text-center space-y-3 max-w-md mx-auto">
+            <GraduationCap className="h-10 w-10 text-muted-foreground mx-auto" />
+            <h3 className="text-base font-black text-[#1b4332]">{t("No enrolled courses yet")}</h3>
+            <p className="text-xs text-muted-foreground">
+              {t(
+                "Browse our agriculture and AgriTech courses catalog to start learning modern farming techniques.",
+              )}
+            </p>
+            <div className="pt-2">
+              <Link
+                to="/courses"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white px-4 py-2 text-xs font-black transition"
+              >
+                {t("Browse Courses")} <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {enrolledCourses.map((c) => {
+              const progress = getCourseProgress(c.id);
+              return (
+                <div
+                  key={c.id}
+                  className="rounded-2xl border border-border bg-card p-6 shadow-soft hover:shadow-md transition space-y-4"
                 >
-                  {t("Browse Courses")} <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {enrolledCourses.map((c) => {
-                const progress = getCourseProgress(c.id);
-                return (
-                  <div
-                    key={c.id}
-                    className="rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md transition duration-200 space-y-4"
-                  >
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">
-                          {t(c.topic)}
-                        </span>
-                        <h3 className="text-lg font-black text-[#1b4332]">{t(c.title)}</h3>
-                        <p className="text-xs text-slate-500 mt-0.5">
-                          {t(c.instructor)} · {c.hours} {t("hrs")}
-                        </p>
-                      </div>
-                      <span className="text-xs font-bold text-[#2d6a4f] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                        {progress}% {t("completed")}
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">
+                        {t(c.topic)}
                       </span>
+                      <h3 className="text-lg font-black text-[#1b4332]">{t(c.title)}</h3>
+                      <p className="text-xs text-muted-foreground mt-0.5">
+                        {t(c.instructor)} · {c.hours} {t("hrs")}
+                      </p>
                     </div>
-                    <div className="h-2.5 w-full rounded-full bg-slate-100 overflow-hidden">
-                      <div
-                        className="h-full bg-[#2d6a4f] rounded-full"
-                        style={{ width: `${progress}%` }}
-                      />
-                    </div>
-                    <Link
-                      to={`/learn?courseId=${c.id}`}
-                      className="w-full h-10 rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-xs font-black transition shadow-sm flex items-center justify-center gap-1.5"
-                    >
-                      {t("Continue Module")} <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
+                    <span className="text-xs font-bold text-[#2d6a4f] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                      {progress}% {t("completed")}
+                    </span>
                   </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      </div>
+                  <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
+                    <div
+                      className="h-full bg-[#2d6a4f] rounded-full"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
+                  <Link
+                    to={`/learn?courseId=${c.id}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2d6a4f] hover:text-[#1b4332]"
+                  >
+                    {t("Continue Module")} <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </PageShell>
     </RoleGuard>
   );
 }
@@ -6185,49 +6626,39 @@ export function MyApplicationsPage() {
 
   return (
     <RoleGuard allowedRoles={["student", "farmer", "buyer", "seller", "admin"]} allowGuest={true}>
-      <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto space-y-6">
-          <StudentPortalHero
-            size="md"
-            eyebrow={t("Career Applications")}
-            eyebrowIcon={FileText}
-            title={t("My Internship Applications")}
-            description={t("Review status and progress of your submitted internship applications.")}
-            badges={[
-              { label: t("Application Tracking"), icon: Briefcase },
-              { label: t("Verified Submissions"), icon: ShieldCheck },
-            ]}
-          />
-
-          <div className="space-y-4">
-            {apps.map((app, idx) => (
-              <div
-                key={app.id || idx}
-                className="rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md transition duration-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
-              >
-                <div>
-                  <h3 className="text-base font-black text-[#1b4332]">{t(app.title)}</h3>
-                  <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">
-                    {t(app.org)} · {t(app.location)} · {t(app.stipend)}
-                  </p>
-                  <p className="text-[11px] text-slate-500 mt-1">{t(app.date)}</p>
-                </div>
-                <span
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold border shrink-0 ${
-                    app.status === "Application Submitted" || app.status === "Shortlisted"
-                      ? "bg-emerald-50 text-emerald-800 border-emerald-200"
-                      : app.status === "Application Started"
-                        ? "bg-blue-50 text-blue-800 border-blue-200"
-                        : "bg-amber-50 text-amber-800 border-amber-200"
-                  }`}
-                >
-                  {t(app.status)}
-                </span>
+      <PageShell
+        eyebrow={t("Career")}
+        title={t("My Internship Applications")}
+        intro={t("Review status and progress of your submitted internship applications.")}
+      >
+        <div className="space-y-4">
+          {apps.map((app, idx) => (
+            <div
+              key={app.id || idx}
+              className="rounded-2xl border border-border bg-card p-5 shadow-soft flex items-center justify-between"
+            >
+              <div>
+                <h3 className="text-base font-black text-[#1b4332]">{t(app.title)}</h3>
+                <p className="text-xs font-bold text-[#2d6a4f] mt-0.5">
+                  {t(app.org)} · {t(app.location)} · {t(app.stipend)}
+                </p>
+                <p className="text-[11px] text-muted-foreground mt-1">{t(app.date)}</p>
               </div>
-            ))}
-          </div>
+              <span
+                className={`px-3 py-1 rounded-full text-xs font-bold border ${
+                  app.status === "Application Submitted" || app.status === "Shortlisted"
+                    ? "bg-emerald-50 text-emerald-800 border-emerald-200"
+                    : app.status === "Application Started"
+                      ? "bg-blue-50 text-blue-800 border-blue-200"
+                      : "bg-amber-50 text-amber-800 border-amber-200"
+                }`}
+              >
+                {t(app.status)}
+              </span>
+            </div>
+          ))}
         </div>
-      </div>
+      </PageShell>
     </RoleGuard>
   );
 }
@@ -6241,49 +6672,39 @@ export function CertificatesPage() {
 
   return (
     <RoleGuard allowedRoles={["student", "farmer", "buyer", "seller", "admin"]} allowGuest={true}>
-      <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto space-y-6">
-          <StudentPortalHero
-            size="md"
-            eyebrow={t("Achievements")}
-            eyebrowIcon={Award}
-            title={t("My Certificates")}
-            description={t("View and download verified completion certificates for completed courses and agricultural field training.")}
-            badges={[
-              { label: t("Verified Credentials"), icon: ShieldCheck },
-              { label: t("PDF Downloadable"), icon: Award },
-            ]}
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {sampleCertificates.map((cert, idx) => (
-              <div
-                key={idx}
-                className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs hover:shadow-md transition duration-200 space-y-4"
-              >
-                <div className="flex items-center gap-3.5">
-                  <div className="h-12 w-12 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 shrink-0 shadow-2xs">
-                    <Award className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-base font-black text-[#1b4332]">{t(cert.title)}</h3>
-                    <p className="text-xs text-slate-500 font-semibold mt-0.5">
-                      {t(cert.date)} · <span className="font-mono text-emerald-800">{cert.id}</span>
-                    </p>
-                  </div>
+      <PageShell
+        eyebrow={t("Achievements")}
+        title={t("My Certificates")}
+        intro={t("View and download verified completion certificates.")}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {sampleCertificates.map((cert, idx) => (
+            <div
+              key={idx}
+              className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-3"
+            >
+              <div className="flex items-center gap-3">
+                <Award className="h-8 w-8 text-amber-500 shrink-0" />
+                <div>
+                  <h3 className="text-base font-black text-[#1b4332]">{t(cert.title)}</h3>
+                  <p className="text-xs text-muted-foreground">
+                    {t(cert.date)} · {cert.id}
+                  </p>
                 </div>
+              </div>
+              <div className="pt-2 flex gap-2">
                 <button
                   type="button"
-                  className="w-full h-10 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-xs font-bold text-[#1b4332] transition cursor-pointer flex items-center justify-center gap-1.5"
+                  onClick={() => alert(`Downloading Certificate ${cert.id}...`)}
+                  className="rounded-lg bg-[#2d6a4f] text-white px-3 py-1.5 text-xs font-bold hover:bg-[#1b4332] transition cursor-pointer"
                 >
-                  <FileText className="h-4 w-4 text-emerald-700" />
-                  {t("Download Certificate (PDF)")}
+                  {t("Download PDF")}
                 </button>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </div>
+      </PageShell>
     </RoleGuard>
   );
 }
@@ -6311,7 +6732,9 @@ function InternshipCardThumbnail({
             <Sprout className="h-5 w-5 text-emerald-600" />
           </div>
           <span className="text-xs font-bold text-slate-600">{t("Image unavailable")}</span>
-          <span className="text-[10px] font-semibold text-emerald-700/80">{t("PureFarm Verified Opportunity")}</span>
+          <span className="text-[10px] font-semibold text-emerald-700/80">
+            {t("PureFarm Verified Opportunity")}
+          </span>
         </div>
       ) : (
         <>
@@ -6370,7 +6793,9 @@ function InternshipDetailBanner({
             <Sprout className="h-7 w-7 text-emerald-600" />
           </div>
           <span className="text-sm font-bold text-slate-700">{t("Image unavailable")}</span>
-          <span className="text-xs text-slate-500">{t("PureFarm Verified Agriculture Opportunity")}</span>
+          <span className="text-xs text-slate-500">
+            {t("PureFarm Verified Agriculture Opportunity")}
+          </span>
         </div>
       ) : (
         <>
@@ -6384,15 +6809,21 @@ function InternshipDetailBanner({
         </>
       )}
 
-      <div className={`absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4 z-10 ${isFallback ? "text-slate-900" : "text-white"}`}>
+      <div
+        className={`absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4 z-10 ${isFallback ? "text-slate-900" : "text-white"}`}
+      >
         <div>
           <span className="inline-block px-2.5 py-1 rounded-md bg-[#eaf5ee] text-[#1b4332] text-[10px] font-black uppercase tracking-wider mb-2 border border-emerald-200">
             {t(category ?? "Field Work")}
           </span>
-          <h1 className={`text-xl sm:text-2xl font-black leading-tight ${isFallback ? "text-slate-900" : "text-white drop-shadow-md"}`}>
+          <h1
+            className={`text-xl sm:text-2xl font-black leading-tight ${isFallback ? "text-slate-900" : "text-white drop-shadow-md"}`}
+          >
             {t(title)}
           </h1>
-          <p className={`text-xs sm:text-sm font-semibold mt-1 ${isFallback ? "text-emerald-800" : "text-emerald-200 drop-shadow-sm"}`}>
+          <p
+            className={`text-xs sm:text-sm font-semibold mt-1 ${isFallback ? "text-emerald-800" : "text-emerald-200 drop-shadow-sm"}`}
+          >
             {t(org)} • 📍 {t(location)}
           </p>
         </div>
@@ -6579,13 +7010,33 @@ export function InternshipsPage() {
   // Categories definition matching reference UI
   const categoriesList = [
     { id: "All", label: "Internships", image: null, isAll: true },
-    { id: "Field Work", label: "Field Work", image: "/images/internships/agricultural-extension.jpg" },
+    {
+      id: "Field Work",
+      label: "Field Work",
+      image: "/images/internships/agricultural-extension.jpg",
+    },
     { id: "Research", label: "Research", image: "/images/internships/soil-microbial-research.jpg" },
-    { id: "Agritech", label: "Agritech", image: "/images/internships/agritech-field-operations.jpg" },
-    { id: "Horticulture", label: "Horticulture", image: "/images/internships/horticulture-production.jpg" },
+    {
+      id: "Agritech",
+      label: "Agritech",
+      image: "/images/internships/agritech-field-operations.jpg",
+    },
+    {
+      id: "Horticulture",
+      label: "Horticulture",
+      image: "/images/internships/horticulture-production.jpg",
+    },
     { id: "Livestock", label: "Livestock", image: "/images/internships/dairy-farm-management.jpg" },
-    { id: "Food Processing", label: "Food Processing", image: "/images/internships/agri-food-processing.jpg" },
-    { id: "Organic Farming", label: "Organic Farming", image: "/images/internships/organic-farming.jpg" },
+    {
+      id: "Food Processing",
+      label: "Food Processing",
+      image: "/images/internships/agri-food-processing.jpg",
+    },
+    {
+      id: "Organic Farming",
+      label: "Organic Farming",
+      image: "/images/internships/organic-farming.jpg",
+    },
   ];
 
   const locationsList = [
@@ -6619,8 +7070,7 @@ export function InternshipsPage() {
       const matchesWork =
         workArrangementFilter === "All" || i.workArrangement === workArrangementFilter;
 
-      const matchesStipend =
-        minStipendFilter === 0 || (i.stipendValue || 0) >= minStipendFilter;
+      const matchesStipend = minStipendFilter === 0 || (i.stipendValue || 0) >= minStipendFilter;
 
       return matchesQuery && matchesCat && matchesLoc && matchesWork && matchesStipend;
     });
@@ -6645,7 +7095,10 @@ export function InternshipsPage() {
 
     if (!internship) {
       return (
-        <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
+        <RoleGuard
+          allowedRoles={["farmer", "buyer", "student", "seller", "admin"]}
+          allowGuest={true}
+        >
           <div className="min-h-screen bg-[#f8f9f7] px-4 py-8 sm:px-6 lg:px-8">
             <div className="max-w-md mx-auto text-center space-y-4 rounded-3xl bg-white border border-slate-200 p-8 shadow-sm">
               <AlertTriangle className="h-12 w-12 text-amber-600 mx-auto" />
@@ -6751,7 +7204,9 @@ export function InternshipsPage() {
               </div>
 
               <div className="space-y-3">
-                <h2 className="text-base font-black text-[#1b4332]">{t("About this Internship")}</h2>
+                <h2 className="text-base font-black text-[#1b4332]">
+                  {t("About this Internship")}
+                </h2>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {t(internship.description ?? "")}
                 </p>
@@ -6807,7 +7262,8 @@ export function InternshipsPage() {
 
               <div className="pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
                 <span className="text-xs text-slate-500 font-semibold">
-                  {t("Application Deadline")}: <strong className="text-slate-800">{t(internship.deadline ?? "")}</strong>
+                  {t("Application Deadline")}:{" "}
+                  <strong className="text-slate-800">{t(internship.deadline ?? "")}</strong>
                 </span>
 
                 {internship.isInternal || internship.applyType === "internal" ? (
@@ -6891,7 +7347,10 @@ export function InternshipsPage() {
                       </p>
                     </div>
                   ) : (
-                    <form onSubmit={(e) => handleInternalSubmit(e, internship)} className="space-y-3.5">
+                    <form
+                      onSubmit={(e) => handleInternalSubmit(e, internship)}
+                      className="space-y-3.5"
+                    >
                       <div>
                         <label className="text-xs font-bold text-slate-700 block mb-1">
                           {t("Full Name")} *
@@ -6926,7 +7385,9 @@ export function InternshipsPage() {
                           type="text"
                           placeholder={t("e.g. B.Sc Agriculture, Diploma, or Agritech")}
                           value={applyForm.education}
-                          onChange={(e) => setApplyForm({ ...applyForm, education: e.target.value })}
+                          onChange={(e) =>
+                            setApplyForm({ ...applyForm, education: e.target.value })
+                          }
                           className="w-full h-10 px-3.5 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
                         />
                       </div>
@@ -6973,23 +7434,72 @@ export function InternshipsPage() {
     <RoleGuard allowedRoles={["farmer", "buyer", "student", "seller", "admin"]} allowGuest={true}>
       <div className="min-h-screen bg-[#f8f9f7] px-4 py-6 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-6">
-          
-          {/* 1. Spacious Agriculture Hero Section using Unified StudentPortalHero */}
-          <StudentPortalHero
-            size="lg"
-            eyebrow={t("Internships")}
-            eyebrowIcon={GraduationCap}
-            title={t("Gain Real-World Experience in Agriculture & AgriTech")}
-            description={t(
-              "Work with leading farms, agritech startups, research organizations and FPOs. Develop practical skills, get mentored by experts, and grow your career.",
-            )}
-            badges={[
-              { label: t("Hands-on Learning"), icon: Leaf },
-              { label: t("Expert Mentorship"), icon: Users },
-              { label: t("Certificate Support"), icon: Award },
-              { label: t("Career Opportunities"), icon: Briefcase },
-            ]}
-          />
+          {/* 1. Spacious Agriculture Hero Section matching Reference Image */}
+          <section className="relative rounded-3xl bg-gradient-to-r from-[#edf6f0] via-[#f7faf8] to-[#edf6f1] border border-emerald-100/90 shadow-xs overflow-hidden p-6 sm:p-8 lg:p-10">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              {/* Left Column: Heading and description */}
+              <div className="md:col-span-7 space-y-4 z-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-200 text-emerald-800 text-xs font-bold shadow-2xs">
+                  <GraduationCap className="h-4 w-4 text-emerald-700" />
+                  <span>{t("Internships")}</span>
+                </div>
+
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#1b4332] tracking-tight leading-tight">
+                  {t("Gain Real-World Experience in Agriculture & AgriTech")}
+                </h1>
+
+                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-xl">
+                  {t(
+                    "Work with leading farms, agritech startups, research organizations and FPOs. Develop practical skills, get mentored by experts, and grow your career.",
+                  )}
+                </p>
+
+                {/* Floating pill badges on the left */}
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-white/95 border border-emerald-100 shadow-xs text-xs font-bold text-[#1b4332]">
+                    <div className="h-7 w-7 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-700">
+                      <Leaf className="h-4 w-4" />
+                    </div>
+                    <span>{t("Hands-on Learning")}</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-white/95 border border-emerald-100 shadow-xs text-xs font-bold text-[#1b4332]">
+                    <div className="h-7 w-7 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-700">
+                      <Users className="h-4 w-4" />
+                    </div>
+                    <span>{t("Expert Mentorship")}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Authentic Agriculture Student Visual matching Reference */}
+              <div className="md:col-span-5 relative flex items-center justify-center lg:justify-end">
+                <div className="relative w-full max-w-[360px] h-56 sm:h-64 rounded-3xl overflow-hidden shadow-md border-2 border-white/80 bg-emerald-950/5">
+                  <img
+                    src="/images/internships/internship-hero-banner.png"
+                    alt="PureFarm Agriculture & AgriTech Students"
+                    className="w-full h-full object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/20 via-transparent to-transparent pointer-events-none" />
+                </div>
+
+                {/* Floating pill badges on the right side */}
+                <div className="absolute -bottom-3 right-2 sm:right-4 flex flex-col gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-xs border border-emerald-100 shadow-md text-[11px] font-bold text-[#1b4332]">
+                    <div className="h-6 w-6 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-700">
+                      <Award className="h-3.5 w-3.5" />
+                    </div>
+                    <span>{t("Certificate Support")}</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-xs border border-emerald-100 shadow-md text-[11px] font-bold text-[#1b4332]">
+                    <div className="h-6 w-6 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-700">
+                      <Briefcase className="h-3.5 w-3.5" />
+                    </div>
+                    <span>{t("Career Opportunities")}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
           {/* 2. Internship Discovery Toolbar Card matching Reference Image */}
           <section className="rounded-3xl bg-white border border-slate-200/90 shadow-xs p-4 sm:p-5 space-y-4">
@@ -7000,7 +7510,9 @@ export function InternshipsPage() {
                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                 <input
                   type="text"
-                  placeholder={t("Search internships (e.g. crop management, FPO, drone, soil testing...)")}
+                  placeholder={t(
+                    "Search internships (e.g. crop management, FPO, drone, soil testing...)",
+                  )}
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-white text-xs sm:text-sm outline-none focus:bg-white focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition"
@@ -7108,7 +7620,8 @@ export function InternshipsPage() {
                         alt={cat.label}
                         className="w-full h-full object-cover"
                         onError={(e) => {
-                          (e.currentTarget as HTMLImageElement).src = "/images/internships/agricultural-extension.jpg";
+                          (e.currentTarget as HTMLImageElement).src =
+                            "/images/internships/agricultural-extension.jpg";
                         }}
                       />
                     </div>
@@ -7133,7 +7646,9 @@ export function InternshipsPage() {
               </div>
               <div>
                 <div className="text-base font-black text-[#1b4332]">24+</div>
-                <div className="text-[11px] font-bold text-slate-500 leading-tight">{t("Active Opportunities")}</div>
+                <div className="text-[11px] font-bold text-slate-500 leading-tight">
+                  {t("Active Opportunities")}
+                </div>
               </div>
             </div>
 
@@ -7143,7 +7658,9 @@ export function InternshipsPage() {
               </div>
               <div>
                 <div className="text-base font-black text-[#1b4332]">8</div>
-                <div className="text-[11px] font-bold text-slate-500 leading-tight">{t("Specialized Domains")}</div>
+                <div className="text-[11px] font-bold text-slate-500 leading-tight">
+                  {t("Specialized Domains")}
+                </div>
               </div>
             </div>
 
@@ -7153,7 +7670,9 @@ export function InternshipsPage() {
               </div>
               <div>
                 <div className="text-base font-black text-[#1b4332]">100%</div>
-                <div className="text-[11px] font-bold text-slate-500 leading-tight">{t("Practical Fieldwork")}</div>
+                <div className="text-[11px] font-bold text-slate-500 leading-tight">
+                  {t("Practical Fieldwork")}
+                </div>
               </div>
             </div>
 
@@ -7163,7 +7682,9 @@ export function InternshipsPage() {
               </div>
               <div>
                 <div className="text-base font-black text-[#1b4332]">{t("Verified")}</div>
-                <div className="text-[11px] font-bold text-slate-500 leading-tight">{t("Certificates Provided")}</div>
+                <div className="text-[11px] font-bold text-slate-500 leading-tight">
+                  {t("Certificates Provided")}
+                </div>
               </div>
             </div>
 
@@ -7173,7 +7694,9 @@ export function InternshipsPage() {
               </div>
               <div>
                 <div className="text-base font-black text-amber-800">{t("Guaranteed")}</div>
-                <div className="text-[11px] font-bold text-slate-500 leading-tight">{t("Monthly Stipend")}</div>
+                <div className="text-[11px] font-bold text-slate-500 leading-tight">
+                  {t("Monthly Stipend")}
+                </div>
               </div>
             </div>
           </div>
@@ -7512,119 +8035,130 @@ export function InternshipsPage() {
           ) : null}
 
           {/* 7. In-app Application Modal for Internal Listings */}
-          {showApplyModal && selectedInternshipId ? (() => {
-            const currentItem = INTERNSHIPS.find((i) => i.id === selectedInternshipId);
-            if (!currentItem) return null;
-            return (
-              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-                <div className="bg-white rounded-3xl border border-slate-200 max-w-md w-full p-6 shadow-2xl space-y-4">
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                    <div>
-                      <h3 className="text-base font-black text-[#1b4332]">
-                        {t("Apply for Internship")}
-                      </h3>
-                      <p className="text-xs text-slate-500 font-semibold mt-0.5">{currentItem.title}</p>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => setShowApplyModal(false)}
-                      className="text-muted-foreground hover:text-slate-900 text-sm font-bold cursor-pointer"
-                    >
-                      ✕
-                    </button>
-                  </div>
-
-                  {submittedMessage ? (
-                    <div className="p-5 bg-emerald-50 border border-emerald-200 rounded-2xl text-center space-y-2">
-                      <CheckCircle2 className="h-9 w-9 text-emerald-600 mx-auto" />
-                      <p className="text-sm font-black text-emerald-900">
-                        {t("Your application has been submitted successfully!")}
-                      </p>
-                      <p className="text-xs text-emerald-700">
-                        {t("Track your submission under My Applications.")}
-                      </p>
-                    </div>
-                  ) : (
-                    <form onSubmit={(e) => handleInternalSubmit(e, currentItem)} className="space-y-3.5">
-                      <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">
-                          {t("Full Name")} *
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          placeholder={applyForm.name || t("Full Name")}
-                          value={applyForm.name}
-                          onChange={(e) => setApplyForm({ ...applyForm, name: e.target.value })}
-                          className="w-full h-10 px-3.5 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">
-                          {t("Mobile Number")} *
-                        </label>
-                        <input
-                          type="tel"
-                          required
-                          placeholder={applyForm.phone || t("Mobile Number")}
-                          value={applyForm.phone}
-                          onChange={(e) => setApplyForm({ ...applyForm, phone: e.target.value })}
-                          className="w-full h-10 px-3.5 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">
-                          {t("College / Current Degree")}
-                        </label>
-                        <input
-                          type="text"
-                          placeholder={t("e.g. B.Sc Agriculture, Diploma, or Agritech")}
-                          value={applyForm.education}
-                          onChange={(e) => setApplyForm({ ...applyForm, education: e.target.value })}
-                          className="w-full h-10 px-3.5 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">
-                          {t("Brief Introduction / Cover Note")}
-                        </label>
-                        <textarea
-                          rows={3}
-                          placeholder={t("Why are you interested in this internship?")}
-                          value={applyForm.notes}
-                          onChange={(e) => setApplyForm({ ...applyForm, notes: e.target.value })}
-                          className="w-full p-3 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
-                        />
-                      </div>
-
-                      <div className="pt-2 flex justify-end gap-2">
+          {showApplyModal && selectedInternshipId
+            ? (() => {
+                const currentItem = INTERNSHIPS.find((i) => i.id === selectedInternshipId);
+                if (!currentItem) return null;
+                return (
+                  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+                    <div className="bg-white rounded-3xl border border-slate-200 max-w-md w-full p-6 shadow-2xl space-y-4">
+                      <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <div>
+                          <h3 className="text-base font-black text-[#1b4332]">
+                            {t("Apply for Internship")}
+                          </h3>
+                          <p className="text-xs text-slate-500 font-semibold mt-0.5">
+                            {currentItem.title}
+                          </p>
+                        </div>
                         <button
                           type="button"
                           onClick={() => setShowApplyModal(false)}
-                          className="h-10 px-4 rounded-xl border border-slate-200 text-xs font-bold hover:bg-slate-50 cursor-pointer"
+                          className="text-muted-foreground hover:text-slate-900 text-sm font-bold cursor-pointer"
                         >
-                          {t("Cancel")}
-                        </button>
-                        <button
-                          type="submit"
-                          className="h-10 px-6 rounded-xl bg-[#1b4332] hover:bg-[#143a2b] text-white text-xs font-black shadow-sm cursor-pointer"
-                        >
-                          {t("Submit Application")}
+                          ✕
                         </button>
                       </div>
-                    </form>
-                  )}
-                </div>
-              </div>
-            );
-          })() : null}
 
+                      {submittedMessage ? (
+                        <div className="p-5 bg-emerald-50 border border-emerald-200 rounded-2xl text-center space-y-2">
+                          <CheckCircle2 className="h-9 w-9 text-emerald-600 mx-auto" />
+                          <p className="text-sm font-black text-emerald-900">
+                            {t("Your application has been submitted successfully!")}
+                          </p>
+                          <p className="text-xs text-emerald-700">
+                            {t("Track your submission under My Applications.")}
+                          </p>
+                        </div>
+                      ) : (
+                        <form
+                          onSubmit={(e) => handleInternalSubmit(e, currentItem)}
+                          className="space-y-3.5"
+                        >
+                          <div>
+                            <label className="text-xs font-bold text-slate-700 block mb-1">
+                              {t("Full Name")} *
+                            </label>
+                            <input
+                              type="text"
+                              required
+                              placeholder={applyForm.name || t("Full Name")}
+                              value={applyForm.name}
+                              onChange={(e) => setApplyForm({ ...applyForm, name: e.target.value })}
+                              className="w-full h-10 px-3.5 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
+                            />
+                          </div>
+                          <div>
+                            <label className="text-xs font-bold text-slate-700 block mb-1">
+                              {t("Mobile Number")} *
+                            </label>
+                            <input
+                              type="tel"
+                              required
+                              placeholder={applyForm.phone || t("Mobile Number")}
+                              value={applyForm.phone}
+                              onChange={(e) =>
+                                setApplyForm({ ...applyForm, phone: e.target.value })
+                              }
+                              className="w-full h-10 px-3.5 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
+                            />
+                          </div>
+                          <div>
+                            <label className="text-xs font-bold text-slate-700 block mb-1">
+                              {t("College / Current Degree")}
+                            </label>
+                            <input
+                              type="text"
+                              placeholder={t("e.g. B.Sc Agriculture, Diploma, or Agritech")}
+                              value={applyForm.education}
+                              onChange={(e) =>
+                                setApplyForm({ ...applyForm, education: e.target.value })
+                              }
+                              className="w-full h-10 px-3.5 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
+                            />
+                          </div>
+                          <div>
+                            <label className="text-xs font-bold text-slate-700 block mb-1">
+                              {t("Brief Introduction / Cover Note")}
+                            </label>
+                            <textarea
+                              rows={3}
+                              placeholder={t("Why are you interested in this internship?")}
+                              value={applyForm.notes}
+                              onChange={(e) =>
+                                setApplyForm({ ...applyForm, notes: e.target.value })
+                              }
+                              className="w-full p-3 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-emerald-600"
+                            />
+                          </div>
+
+                          <div className="pt-2 flex justify-end gap-2">
+                            <button
+                              type="button"
+                              onClick={() => setShowApplyModal(false)}
+                              className="h-10 px-4 rounded-xl border border-slate-200 text-xs font-bold hover:bg-slate-50 cursor-pointer"
+                            >
+                              {t("Cancel")}
+                            </button>
+                            <button
+                              type="submit"
+                              className="h-10 px-6 rounded-xl bg-[#1b4332] hover:bg-[#143a2b] text-white text-xs font-black shadow-sm cursor-pointer"
+                            >
+                              {t("Submit Application")}
+                            </button>
+                          </div>
+                        </form>
+                      )}
+                    </div>
+                  </div>
+                );
+              })()
+            : null}
         </div>
       </div>
     </RoleGuard>
   );
 }
-
 
 export function NotificationsPage() {
   const { language, t } = useTranslation();
@@ -8333,8 +8867,7 @@ export function RegisterPage() {
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url(/login-bg.jpg)",
+          backgroundImage: "url(/login-bg.jpg)",
         }}
       >
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(0, 35, 25, 0.35)" }} />
@@ -9067,8 +9600,10 @@ export function SellerPage() {
                         src={getProductImage(product.name, product.category, product.image_url)}
                         alt={product.name || (product as any).title}
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src =
-                            getCategoryPlaceholder(product.category, product.name);
+                          (e.target as HTMLImageElement).src = getCategoryPlaceholder(
+                            product.category,
+                            product.name,
+                          );
                         }}
                         className="w-full h-full object-cover"
                       />
@@ -9545,7 +10080,8 @@ export const DEV_TEST_COLD_STORAGE_FIXTURES: ColdStorageFacility[] = [
   {
     id: "dev-test-available",
     name: "[DEV TEST] Available Storage Facility",
-    address: "Test Industrial Zone, Guntur, Andhra Pradesh - 522004 [State: Andhra Pradesh | District: Guntur | City: Guntur | Source: Dev Test Fixture | SourceURL: https://purefarm.org | Type: verification_sample | Status: Operational]",
+    address:
+      "Test Industrial Zone, Guntur, Andhra Pradesh - 522004 [State: Andhra Pradesh | District: Guntur | City: Guntur | Source: Dev Test Fixture | SourceURL: https://purefarm.org | Type: verification_sample | Status: Operational]",
     district: "Guntur",
     city: "Guntur",
     state: "Andhra Pradesh",
@@ -9565,7 +10101,8 @@ export const DEV_TEST_COLD_STORAGE_FIXTURES: ColdStorageFacility[] = [
   {
     id: "dev-test-full",
     name: "[DEV TEST] Full Storage Facility",
-    address: "Test APMC Market, Nizamabad, Telangana - 503003 [State: Telangana | District: Nizamabad | City: Nizamabad | Source: Dev Test Fixture | SourceURL: https://purefarm.org | Type: verification_sample | Status: Full]",
+    address:
+      "Test APMC Market, Nizamabad, Telangana - 503003 [State: Telangana | District: Nizamabad | City: Nizamabad | Source: Dev Test Fixture | SourceURL: https://purefarm.org | Type: verification_sample | Status: Full]",
     district: "Nizamabad",
     city: "Nizamabad",
     state: "Telangana",
@@ -9585,7 +10122,8 @@ export const DEV_TEST_COLD_STORAGE_FIXTURES: ColdStorageFacility[] = [
   {
     id: "dev-test-unknown",
     name: "[DEV TEST] Unknown Availability Facility",
-    address: "Test Highway, Prakasam, Andhra Pradesh - 523001 [State: Andhra Pradesh | District: Prakasam | City: Ongole | Source: Dev Test Fixture | SourceURL: https://purefarm.org | Type: verification_sample | Status: Current status not published]",
+    address:
+      "Test Highway, Prakasam, Andhra Pradesh - 523001 [State: Andhra Pradesh | District: Prakasam | City: Ongole | Source: Dev Test Fixture | SourceURL: https://purefarm.org | Type: verification_sample | Status: Current status not published]",
     district: "Prakasam",
     city: "Ongole",
     state: "Andhra Pradesh",
@@ -9632,11 +10170,19 @@ export function ColdStoragePage() {
   const [districtFilter, setDistrictFilter] = useState<string>("all");
   const [capacityRange, setCapacityRange] = useState<string>("all");
   const [availabilityFilter, setAvailabilityFilter] = useState<string>("all");
-  const [sourceTypeFilter, setSourceTypeFilter] = useState<"verified_directory" | "verification_sample" | "all">("all");
+  const [sourceTypeFilter, setSourceTypeFilter] = useState<
+    "verified_directory" | "verification_sample" | "all"
+  >("all");
   const [sortOrder, setSortOrder] = useState<
-    "nearest" | "name_asc" | "name_desc" | "capacity_high" | "capacity_low" | "utilization_high" | "utilization_low"
+    | "nearest"
+    | "name_asc"
+    | "name_desc"
+    | "capacity_high"
+    | "capacity_low"
+    | "utilization_high"
+    | "utilization_low"
   >("capacity_high");
-  
+
   const [userLat, setUserLat] = useState<number | null>(null);
   const [userLng, setUserLng] = useState<number | null>(null);
   const [locationLoading, setLocationLoading] = useState(false);
@@ -9705,7 +10251,17 @@ export function ColdStoragePage() {
   useEffect(() => {
     fetchFacilities();
     setPage(1);
-  }, [search, stateFilter, districtFilter, capacityRange, availabilityFilter, sourceTypeFilter, sortOrder, userLat, userLng]);
+  }, [
+    search,
+    stateFilter,
+    districtFilter,
+    capacityRange,
+    availabilityFilter,
+    sourceTypeFilter,
+    sortOrder,
+    userLat,
+    userLng,
+  ]);
 
   const handleAdminUpdateCapacity = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -9718,7 +10274,9 @@ export function ColdStoragePage() {
         throw new Error("Please enter a valid non-negative available capacity number in MT.");
       }
       if (availVal > adminModalFacility.capacity) {
-        throw new Error(`Available capacity cannot exceed total installed capacity (${adminModalFacility.capacity} MT).`);
+        throw new Error(
+          `Available capacity cannot exceed total installed capacity (${adminModalFacility.capacity} MT).`,
+        );
       }
       await updateFacilityCapacity(adminModalFacility.id, availVal, adminStatusInput);
       setAdminModalFacility(null);
@@ -9907,7 +10465,9 @@ export function ColdStoragePage() {
                 <option value="name_asc">{t("Name: A to Z")}</option>
                 <option value="name_desc">{t("Name: Z to A")}</option>
                 <option value="nearest" disabled={!userLat || !userLng}>
-                  {userLat && userLng ? t("Nearest Distance First") : t("Nearest (Detect Location First)")}
+                  {userLat && userLng
+                    ? t("Nearest Distance First")
+                    : t("Nearest (Detect Location First)")}
                 </option>
               </select>
             </div>
@@ -9940,7 +10500,8 @@ export function ColdStoragePage() {
 
             <div className="flex items-center gap-3">
               <span>
-                {t("Showing")} {visibleFacilities.length} {t("of")} {displayFacilities.length} {t("facilities")}
+                {t("Showing")} {visibleFacilities.length} {t("of")} {displayFacilities.length}{" "}
+                {t("facilities")}
                 {stateFilter !== "all" ? ` (${stateFilter})` : ""}
                 {districtFilter !== "all" ? ` - ${districtFilter} District` : ""}
               </span>
@@ -9985,7 +10546,9 @@ export function ColdStoragePage() {
               {t("No matching cold storage facilities found")}
             </h3>
             <p className="text-sm text-emerald-800/80">
-              {t("Try clearing your search query or adjusting your state/district/capacity filters.")}
+              {t(
+                "Try clearing your search query or adjusting your state/district/capacity filters.",
+              )}
             </p>
             <button
               onClick={() => {
@@ -10005,7 +10568,8 @@ export function ColdStoragePage() {
           <div className="space-y-8">
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {visibleFacilities.map((facility) => {
-                const hasAvailableCap = facility.available_capacity !== null && facility.available_capacity !== undefined;
+                const hasAvailableCap =
+                  facility.available_capacity !== null && facility.available_capacity !== undefined;
                 const isFullCap = hasAvailableCap && Number(facility.available_capacity) === 0;
                 const isAvailCap = hasAvailableCap && Number(facility.available_capacity) > 0;
 
@@ -10026,7 +10590,9 @@ export function ColdStoragePage() {
                           </h3>
                           <p className="text-xs font-semibold text-emerald-800 flex items-center gap-1">
                             <Building2 className="h-3 w-3 text-[#087F5B] shrink-0" />
-                            <span>{facility.district}, {facility.state}</span>
+                            <span>
+                              {facility.district}, {facility.state}
+                            </span>
                           </p>
                         </div>
 
@@ -10053,22 +10619,26 @@ export function ColdStoragePage() {
                       </p>
 
                       {/* Capacity Section */}
-                      <div className={`p-3 rounded-xl border space-y-2 ${
-                        isFullCap
-                          ? "bg-[#fff5f5] border-rose-200"
-                          : isAvailCap
-                            ? "bg-[#f4fbf7] border-emerald-200/80"
-                            : "bg-muted/40 border-border/60"
-                      }`}>
+                      <div
+                        className={`p-3 rounded-xl border space-y-2 ${
+                          isFullCap
+                            ? "bg-[#fff5f5] border-rose-200"
+                            : isAvailCap
+                              ? "bg-[#f4fbf7] border-emerald-200/80"
+                              : "bg-muted/40 border-border/60"
+                        }`}
+                      >
                         <div className="flex items-center justify-between">
                           <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-900">
                             {t("CAPACITY")}
                           </span>
-                          {facility.calculatedDistance !== undefined && facility.calculatedDistance !== null && (
-                            <span className="text-[10px] font-bold text-emerald-800 flex items-center gap-1">
-                              <Navigation className="h-3 w-3 text-[#087F5B]" /> {facility.calculatedDistance} km
-                            </span>
-                          )}
+                          {facility.calculatedDistance !== undefined &&
+                            facility.calculatedDistance !== null && (
+                              <span className="text-[10px] font-bold text-emerald-800 flex items-center gap-1">
+                                <Navigation className="h-3 w-3 text-[#087F5B]" />{" "}
+                                {facility.calculatedDistance} km
+                              </span>
+                            )}
                         </div>
 
                         {isAvailCap ? (
@@ -10083,12 +10653,20 @@ export function ColdStoragePage() {
                               <div className="space-y-1.5">
                                 <div className="flex items-baseline justify-between">
                                   <div>
-                                    <span className="text-base font-black text-[#073B2A]">{total.toLocaleString()} MT</span>
-                                    <span className="text-[10px] text-muted-foreground font-semibold ml-1">Total</span>
+                                    <span className="text-base font-black text-[#073B2A]">
+                                      {total.toLocaleString()} MT
+                                    </span>
+                                    <span className="text-[10px] text-muted-foreground font-semibold ml-1">
+                                      Total
+                                    </span>
                                   </div>
                                   <div className="text-right">
-                                    <span className="text-base font-black text-[#087F5B]">{avail.toLocaleString()} MT</span>
-                                    <span className="text-[10px] text-muted-foreground font-semibold ml-1">Remaining</span>
+                                    <span className="text-base font-black text-[#087F5B]">
+                                      {avail.toLocaleString()} MT
+                                    </span>
+                                    <span className="text-[10px] text-muted-foreground font-semibold ml-1">
+                                      Remaining
+                                    </span>
                                   </div>
                                 </div>
 
@@ -10111,12 +10689,18 @@ export function ColdStoragePage() {
                           <div className="space-y-1.5">
                             <div className="flex items-baseline justify-between">
                               <div>
-                                <span className="text-base font-black text-[#073B2A]">{facility.capacity.toLocaleString()} MT</span>
-                                <span className="text-[10px] text-muted-foreground font-semibold ml-1">Total</span>
+                                <span className="text-base font-black text-[#073B2A]">
+                                  {facility.capacity.toLocaleString()} MT
+                                </span>
+                                <span className="text-[10px] text-muted-foreground font-semibold ml-1">
+                                  Total
+                                </span>
                               </div>
                               <div className="text-right">
                                 <span className="text-base font-black text-rose-600">0 MT</span>
-                                <span className="text-[10px] text-muted-foreground font-semibold ml-1">Remaining</span>
+                                <span className="text-[10px] text-muted-foreground font-semibold ml-1">
+                                  Remaining
+                                </span>
                               </div>
                             </div>
 
@@ -10133,8 +10717,12 @@ export function ColdStoragePage() {
                         ) : (
                           <div className="space-y-1">
                             <div className="flex items-baseline justify-between">
-                              <span className="text-base font-black text-[#073B2A]">{facility.capacity.toLocaleString()} MT</span>
-                              <span className="text-[10px] text-muted-foreground font-semibold">Total Installed</span>
+                              <span className="text-base font-black text-[#073B2A]">
+                                {facility.capacity.toLocaleString()} MT
+                              </span>
+                              <span className="text-[10px] text-muted-foreground font-semibold">
+                                Total Installed
+                              </span>
                             </div>
                             <div className="text-[11px] font-semibold text-slate-500 bg-white/70 rounded-md py-1.5 px-2 border border-dashed border-slate-200 text-center flex items-center justify-center gap-1.5">
                               <span>🔒</span>
@@ -10147,7 +10735,8 @@ export function ColdStoragePage() {
                       {/* Compact Source Line */}
                       <div className="flex items-center justify-between text-[11px] text-muted-foreground font-medium pt-0.5">
                         <span className="truncate">
-                          ✓ {t("Source")}: <strong className="text-foreground">{facility.source}</strong>
+                          ✓ {t("Source")}:{" "}
+                          <strong className="text-foreground">{facility.source}</strong>
                         </span>
                         {facility.source_type === "verification_sample" && (
                           <span className="bg-amber-100 text-amber-800 text-[9px] px-1.5 py-0.5 rounded font-bold shrink-0">
@@ -10159,19 +10748,32 @@ export function ColdStoragePage() {
                       {/* Expanded Details Drawer */}
                       {expandedId === facility.id && (
                         <div className="pt-2 border-t text-xs space-y-1.5 text-muted-foreground">
-                          <p className="font-bold text-foreground text-[11px]">{t("Facility Directory Details:")}</p>
+                          <p className="font-bold text-foreground text-[11px]">
+                            {t("Facility Directory Details:")}
+                          </p>
                           <ul className="space-y-0.5 text-[11px]">
-                            <li><strong>{t("State")}:</strong> {facility.state}</li>
-                            <li><strong>{t("District")}:</strong> {facility.district}</li>
-                            <li><strong>{t("City/Town")}:</strong> {facility.city}</li>
+                            <li>
+                              <strong>{t("State")}:</strong> {facility.state}
+                            </li>
+                            <li>
+                              <strong>{t("District")}:</strong> {facility.district}
+                            </li>
+                            <li>
+                              <strong>{t("City/Town")}:</strong> {facility.city}
+                            </li>
                             <li>
                               <strong>{t("Coordinates")}:</strong>{" "}
                               {facility.latitude && facility.longitude
                                 ? `${facility.latitude.toFixed(4)}, ${facility.longitude.toFixed(4)}`
                                 : t("Coordinates unavailable")}
                             </li>
-                            <li><strong>{t("Operating Status")}:</strong> {t(facility.status)}</li>
-                            <li><strong>{t("Data Type")}:</strong> Verified Installed Capacity (Government Registry)</li>
+                            <li>
+                              <strong>{t("Operating Status")}:</strong> {t(facility.status)}
+                            </li>
+                            <li>
+                              <strong>{t("Data Type")}:</strong> Verified Installed Capacity
+                              (Government Registry)
+                            </li>
                           </ul>
 
                           {facility.source_url && (
@@ -10182,7 +10784,8 @@ export function ColdStoragePage() {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-1 text-[11px] font-bold text-[#087F5B] hover:underline"
                               >
-                                <ExternalLink className="h-3 w-3" /> {t("View Official Source Page")}
+                                <ExternalLink className="h-3 w-3" />{" "}
+                                {t("View Official Source Page")}
                               </a>
                             </div>
                           )}
@@ -10219,8 +10822,16 @@ export function ColdStoragePage() {
                         <button
                           onClick={() => {
                             setAdminModalFacility(facility);
-                            setAdminAvailInput(facility.available_capacity !== null ? String(facility.available_capacity) : "");
-                            setAdminStatusInput(facility.status.toLowerCase().includes("operational") ? "operational" : facility.status);
+                            setAdminAvailInput(
+                              facility.available_capacity !== null
+                                ? String(facility.available_capacity)
+                                : "",
+                            );
+                            setAdminStatusInput(
+                              facility.status.toLowerCase().includes("operational")
+                                ? "operational"
+                                : facility.status,
+                            );
                             setAdminError(null);
                           }}
                           className="w-full h-7 rounded-md bg-amber-500 hover:bg-amber-600 text-white font-bold text-[10px] transition flex items-center justify-center gap-1"
@@ -10240,7 +10851,8 @@ export function ColdStoragePage() {
                   onClick={() => setPage((p) => p + 1)}
                   className="px-8 py-3 rounded-xl bg-[#087F5B] hover:bg-[#073B2A] text-white font-bold text-sm shadow-md transition inline-flex items-center gap-2"
                 >
-                  {t("Load More Facilities")} ({facilities.length - visibleFacilities.length} {t("remaining")})
+                  {t("Load More Facilities")} ({facilities.length - visibleFacilities.length}{" "}
+                  {t("remaining")})
                 </button>
               </div>
             )}
@@ -10266,7 +10878,9 @@ export function ColdStoragePage() {
 
               <div className="text-xs space-y-1 text-muted-foreground">
                 <p className="font-bold text-foreground">{adminModalFacility.name}</p>
-                <p>{adminModalFacility.district}, {adminModalFacility.state}</p>
+                <p>
+                  {adminModalFacility.district}, {adminModalFacility.state}
+                </p>
                 <p className="text-emerald-700 font-semibold">
                   Installed Capacity: {adminModalFacility.capacity.toLocaleString()} MT
                 </p>
@@ -10295,7 +10909,8 @@ export function ColdStoragePage() {
                     className="w-full h-10 px-3 rounded-xl border bg-background text-sm font-semibold outline-none focus:ring-2 focus:ring-[#087F5B]"
                   />
                   <p className="text-[10px] text-muted-foreground mt-1">
-                    Enter current available MT space. Occupied MT and Utilization % will be automatically calculated.
+                    Enter current available MT space. Occupied MT and Utilization % will be
+                    automatically calculated.
                   </p>
                 </div>
 
@@ -10421,7 +11036,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "35 HP, Diesel Engine, Dual Clutch, Heavy Tow Hitch",
-      description: "Multi-purpose 35 HP red diesel agricultural tractor with power steering. Ideal for tilling, ploughing, and transport.",
+      description:
+        "Multi-purpose 35 HP red diesel agricultural tractor with power steering. Ideal for tilling, ploughing, and transport.",
       image: "/images/machines/mahindra_575_tractor.jpg",
       phone: "9848012345",
     },
@@ -10435,7 +11051,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "100 HP Power Steering, Stoll Front Loader, 4WD Heavy Duty",
-      description: "High power 100 HP heavy-duty tractor equipped with Stoll front-loading bucket, 4WD transmission, and heavy lift capacity.",
+      description:
+        "High power 100 HP heavy-duty tractor equipped with Stoll front-loading bucket, 4WD transmission, and heavy lift capacity.",
       image: "/images/machines/john_deere_5310_tractor.jpg",
       phone: "9848011223",
     },
@@ -10449,7 +11066,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "40 HP 3-Cylinder Diesel, Dual Clutch, High Torque Transmission",
-      description: "Reliable 40 HP 3-cylinder diesel tractor with multi-speed PTO, dual clutch, and heavy hydraulic lift capacity for field tilling and haulage.",
+      description:
+        "Reliable 40 HP 3-cylinder diesel tractor with multi-speed PTO, dual clutch, and heavy hydraulic lift capacity for field tilling and haulage.",
       image: "/images/machines/swaraj_735_fe_tractor.jpg",
       phone: "9848011334",
     },
@@ -10463,7 +11081,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "30 HP HDM Engine, Compact Track Width, Power Steering",
-      description: "30 HP compact agricultural tractor engineered for orchard spraying, inter-cultivation, and row-crop farming.",
+      description:
+        "30 HP compact agricultural tractor engineered for orchard spraying, inter-cultivation, and row-crop farming.",
       image: "/images/machines/sonalika_di30_tractor.jpg",
       phone: "9848011445",
     },
@@ -10479,7 +11098,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "60 HP Kubota Diesel, Rubber Crawler Tracks, 2m Cutter Bar",
-      description: "Paddy combine harvester with rubber crawlers for wet wetland and paddy field harvesting without bogging.",
+      description:
+        "Paddy combine harvester with rubber crawlers for wet wetland and paddy field harvesting without bogging.",
       image: "/images/machines/kubota_dc60_harvester.jpg",
       phone: "9848023456",
     },
@@ -10493,7 +11113,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "240 HP Turbo Diesel Engine, Large Grain Tank, 5.5m Cutter Bar",
-      description: "Large-capacity self-propelled grain combine harvester for large acreage paddy and wheat harvesting with onboard grain tank.",
+      description:
+        "Large-capacity self-propelled grain combine harvester for large acreage paddy and wheat harvesting with onboard grain tank.",
       image: "/images/machines/john_deere_combine_harvester.jpg",
       phone: "9848022334",
     },
@@ -10507,7 +11128,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "130 HP Engine, 4 Straw Walkers, 3.9m Cutter Bar",
-      description: "Multi-crop combine harvester with 130 HP engine, 4-straw walker system, and grain tank for paddy and wheat harvesting.",
+      description:
+        "Multi-crop combine harvester with 130 HP engine, 4-straw walker system, and grain tank for paddy and wheat harvesting.",
       image: "/images/machines/new_holland_tc530_combine.jpg",
       phone: "9848022556",
     },
@@ -10523,7 +11145,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "7 Feet Width, 48 Boron Blades, Side Gear Drive",
-      description: "Heavy-duty 7-foot rotary tiller with 48 boron steel L-type blades. Suitable for 50-65 HP tractors.",
+      description:
+        "Heavy-duty 7-foot rotary tiller with 48 boron steel L-type blades. Suitable for 50-65 HP tractors.",
       image: "/images/machines/shaktiman_rotavator_7ft.jpg",
       phone: "9848034567",
     },
@@ -10537,7 +11160,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "Heavy Duty Gear Drive, Multi-speed Gearbox, Curved Boron Tines",
-      description: "Heavy-duty 7-foot rotary tiller with reinforced gear drive and curved tines for deep soil pulverization and seedbed preparation.",
+      description:
+        "Heavy-duty 7-foot rotary tiller with reinforced gear drive and curved tines for deep soil pulverization and seedbed preparation.",
       image: "/images/machines/kuhn_el201_rotavator.jpg",
       phone: "9848033445",
     },
@@ -10553,7 +11177,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "5.5 HP Petrol Engine, 80cm Working Width, Reverse Gear",
-      description: "Compact 5.5 HP walk-behind power tiller with reverse gear and adjustable tines for inter-crop weeding and horticulture beds.",
+      description:
+        "Compact 5.5 HP walk-behind power tiller with reverse gear and adjustable tines for inter-crop weeding and horticulture beds.",
       image: "/images/machines/husqvarna_t550r_power_tiller.jpg",
       phone: "9848067890",
     },
@@ -10567,7 +11192,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "Single-Axle Petrol Engine, Rotary Cultivation Tines, Adjustable Depth Skids",
-      description: "Versatile single-axle walking cultivator with rotary tines for inter-cultivation, weeding, and vegetable bed aeration.",
+      description:
+        "Versatile single-axle walking cultivator with rotary tines for inter-cultivation, weeding, and vegetable bed aeration.",
       image: "/images/machines/honda_power_tiller_cultivator.jpg",
       phone: "9848066990",
     },
@@ -10583,7 +11209,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "9 Rows, Fluted Roller Metering, Dual Hopper Box",
-      description: "Tractor-drawn automatic 9-row seed drill with metered seed box and adjustable furrow openers for wheat, pulses, and oilseeds.",
+      description:
+        "Tractor-drawn automatic 9-row seed drill with metered seed box and adjustable furrow openers for wheat, pulses, and oilseeds.",
       image: "/images/machines/accord_seed_drill_9row.jpg",
       phone: "9848078901",
     },
@@ -10597,7 +11224,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "Vacuum Precision Metering, 4 Rows, Adjustable Row Spacing",
-      description: "Pneumatic vacuum precision planter for accurate single-seed placement of maize, cotton, sunflower, and soybean.",
+      description:
+        "Pneumatic vacuum precision planter for accurate single-seed placement of maize, cotton, sunflower, and soybean.",
       image: "/images/machines/becker_precision_planter.jpg",
       phone: "9848077101",
     },
@@ -10613,7 +11241,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "20L Tank, 26cc 2-Stroke, Triple Nozzle Brass Lance",
-      description: "2-stroke petrol backpack power sprayer with 20-litre chemical tank. Includes triple nozzle lance and brass pump.",
+      description:
+        "2-stroke petrol backpack power sprayer with 20-litre chemical tank. Includes triple nozzle lance and brass pump.",
       image: "/images/machines/knapsack_power_sprayer_20l.jpg",
       phone: "9848045678",
     },
@@ -10627,7 +11256,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "400L Polyethylene Tank, 12m Folding Boom, PTO Driven Diaphragm Pump",
-      description: "400-litre tractor PTO-driven boom sprayer with 12-meter folding spray booms for fast, uniform field chemical application.",
+      description:
+        "400-litre tractor PTO-driven boom sprayer with 12-meter folding spray booms for fast, uniform field chemical application.",
       image: "/images/machines/fieldking_boom_sprayer_400l.jpg",
       phone: "9848044556",
     },
@@ -10643,7 +11273,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "5 HP Engine, 3-inch Delivery Pipe, 1000L/min Flow",
-      description: "High-pressure 5 HP portable agricultural water pump with 3-inch delivery outlet for canal, stream, and field irrigation.",
+      description:
+        "High-pressure 5 HP portable agricultural water pump with 3-inch delivery outlet for canal, stream, and field irrigation.",
       image: "/images/machines/honda_diesel_water_pump.jpg",
       phone: "9848056789",
     },
@@ -10657,7 +11288,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "7.5 HP Stationary Diesel Engine, 4-inch Outlet, Cast Iron Casing",
-      description: "Heavy-duty 7.5 HP stationary field diesel pump set with 4-inch high discharge pipe for canal and open pond water lifting.",
+      description:
+        "Heavy-duty 7.5 HP stationary field diesel pump set with 4-inch high discharge pipe for canal and open pond water lifting.",
       image: "/images/machines/kirloskar_diesel_water_pump.jpg",
       phone: "9848055667",
     },
@@ -10671,7 +11303,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "5 HP 3-Phase Submersible, 10 Stages, Stainless Steel Jacket",
-      description: "Deep borewell 5 HP multistage water-filled submersible agricultural pump set with control panel box.",
+      description:
+        "Deep borewell 5 HP multistage water-filled submersible agricultural pump set with control panel box.",
       image: "/images/machines/crompton_submersible_pump.jpg",
       phone: "9848055778",
     },
@@ -10685,7 +11318,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "3 HP Single Phase, Heavy Cast Iron Body, High Discharge",
-      description: "Single-phase 3 HP heavy cast iron monoblock centrifugal pump for lifting water from open wells, tanks, and channels.",
+      description:
+        "Single-phase 3 HP heavy cast iron monoblock centrifugal pump for lifting water from open wells, tanks, and channels.",
       image: "/images/machines/texmo_monoblock_pump.jpg",
       phone: "9848055889",
     },
@@ -10701,7 +11335,8 @@ export function MachinesToolsPage() {
       rateUnit: "day",
       available: true,
       specs: "2 Acre Coverage, 30 HDPE Pipes, Brass Rotary Heads",
-      description: "Complete 2-acre sprinkler irrigation setup with 30 HDPE pipes, brass rotary sprinkler heads, and quick-latch couplers.",
+      description:
+        "Complete 2-acre sprinkler irrigation setup with 30 HDPE pipes, brass rotary sprinkler heads, and quick-latch couplers.",
       image: "/images/machines/jain_sprinkler_system.jpg",
       phone: "9848089012",
     },
@@ -10715,7 +11350,8 @@ export function MachinesToolsPage() {
       rateUnit: "day",
       available: true,
       specs: "Inline Dripper Tubes, Screen Filter, Venturi Injector",
-      description: "Complete 1-acre micro drip irrigation kit featuring inline pressure compensating dripper lines, screen filter, and fittings.",
+      description:
+        "Complete 1-acre micro drip irrigation kit featuring inline pressure compensating dripper lines, screen filter, and fittings.",
       image: "/images/machines/netafim_drip_irrigation_kit.jpg",
       phone: "9848088990",
     },
@@ -10731,7 +11367,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "2.2 HP Petrol Engine, Nylon Trimmer Head, 8T Metal Blade",
-      description: "Multi-attachment STIHL power weeder with 2.2 HP 2-stroke petrol motor, nylon trimmer head, and 8-tooth clearing blade.",
+      description:
+        "Multi-attachment STIHL power weeder with 2.2 HP 2-stroke petrol motor, nylon trimmer head, and 8-tooth clearing blade.",
       image: "/images/machines/stihl_brush_cutter.jpg",
       phone: "9848090123",
     },
@@ -10745,7 +11382,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "59cc / 3.5 HP Engine, 20-inch Guide Bar, Anti-Vibration System",
-      description: "Heavy-duty 3.5 HP 59cc professional petrol chainsaw with 20-inch guide bar for farm forestry, orchard pruning, and timber cutting.",
+      description:
+        "Heavy-duty 3.5 HP 59cc professional petrol chainsaw with 20-inch guide bar for farm forestry, orchard pruning, and timber cutting.",
       image: "/images/machines/stihl_ms362c_chainsaw.jpg",
       phone: "9848099001",
     },
@@ -10759,7 +11397,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "PTO Driven, 3-Point Hitch, Replaceable Hardened Cutting Bit",
-      description: "Heavy-duty tractor PTO-driven 3-point earth auger with replaceable hardened cutting blades for orchard planting and fencing posts.",
+      description:
+        "Heavy-duty tractor PTO-driven 3-point earth auger with replaceable hardened cutting blades for orchard planting and fencing posts.",
       image: "/images/machines/tractor_post_hole_auger.jpg",
       phone: "9848099112",
     },
@@ -10775,7 +11414,8 @@ export function MachinesToolsPage() {
       rateUnit: "day",
       available: true,
       specs: "5-Ton Capacity, Single Axle, Hydraulic Ram Lift",
-      description: "Heavy-duty 5-tonne single-axle hydraulic tipping tractor trailer for agricultural crop haulage, silage, and produce transport.",
+      description:
+        "Heavy-duty 5-tonne single-axle hydraulic tipping tractor trailer for agricultural crop haulage, silage, and produce transport.",
       image: "/images/machines/tipping_trailer_5ton.jpg",
       phone: "9848091234",
     },
@@ -10789,7 +11429,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "3 Bottom MB Plough, High Carbon Steel, Hydraulic Turnover",
-      description: "Hydraulic reversible mouldboard (MB) plough for deep primary tillage, weed inversion, and soil aeration.",
+      description:
+        "Hydraulic reversible mouldboard (MB) plough for deep primary tillage, weed inversion, and soil aeration.",
       image: "/images/machines/reversible_mb_plough.jpg",
       phone: "9848091122",
     },
@@ -10803,7 +11444,8 @@ export function MachinesToolsPage() {
       rateUnit: "hr",
       available: true,
       specs: "Tractor PTO Shaft Driven, Heavy Flail Blades, Organic Mulch",
-      description: "Tractor PTO-driven heavy flail mulcher for shredding sugarcane residue, stalks, and crop trash into organic soil mulch.",
+      description:
+        "Tractor PTO-driven heavy flail mulcher for shredding sugarcane residue, stalks, and crop trash into organic soil mulch.",
       image: "/images/machines/sugarcane_trash_shredder.jpg",
       phone: "9848091233",
     },
@@ -10817,7 +11459,8 @@ export function MachinesToolsPage() {
       rateUnit: "day",
       available: true,
       specs: "500kg Batch Capacity, Solar Powered Fans, UV Sheet",
-      description: "Solar powered grain & spice drying chamber with forced air ventilation for hygienic drying of agricultural produce.",
+      description:
+        "Solar powered grain & spice drying chamber with forced air ventilation for hygienic drying of agricultural produce.",
       image: "/images/machines/grain_solar_dryer.jpg",
       phone: "9848091344",
     },
@@ -11570,8 +12213,7 @@ export function MachinesToolsListPage() {
         name,
         category,
         description,
-        image_url:
-          imageUrl || getEquipmentImage(name, category, null),
+        image_url: imageUrl || getEquipmentImage(name, category, null),
         location,
         rental_rate: Number(rentalRate),
         rate_unit: rateUnit,
@@ -11774,9 +12416,7 @@ export function MachinesToolsListPage() {
               <div className="space-y-4">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-[#0D6E48] border-b border-[#1E6446]/10 pb-2 flex items-center gap-2">
                   <DollarSign className="h-4 w-4" />
-                  {isTelugu
-                    ? "2. అద్దె ధర & అందుబాటు వివరాలు"
-                    : "2. Rental Pricing & Availability"}
+                  {isTelugu ? "2. అద్దె ధర & అందుబాటు వివరాలు" : "2. Rental Pricing & Availability"}
                 </h3>
 
                 <div className="grid gap-4 sm:grid-cols-3">
@@ -11804,9 +12444,7 @@ export function MachinesToolsListPage() {
                       onChange={(e) => setRateUnit(e.target.value as MachineRateUnit)}
                       className="w-full rounded-2xl border border-slate-300 bg-slate-50/80 p-3.5 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981] focus:bg-white focus:ring-2 focus:ring-[#10B981]/20 transition cursor-pointer"
                     >
-                      <option value="hr">
-                        {isTelugu ? "గంటకు (Per Hour)" : "Per Hour"}
-                      </option>
+                      <option value="hr">{isTelugu ? "గంటకు (Per Hour)" : "Per Hour"}</option>
                       <option value="day">{isTelugu ? "రోజుకు (Per Day)" : "Per Day"}</option>
                       <option value="week">{isTelugu ? "వారానికి (Per Week)" : "Per Week"}</option>
                     </select>
@@ -11822,14 +12460,10 @@ export function MachinesToolsListPage() {
                       className="w-full rounded-2xl border border-slate-300 bg-slate-50/80 p-3.5 text-sm font-semibold text-[#123F2D] outline-none focus:border-[#10B981] focus:bg-white focus:ring-2 focus:ring-[#10B981]/20 transition cursor-pointer"
                     >
                       <option value="available">
-                        {isTelugu
-                          ? "ఇప్పుడే అందుబాటులో ఉంది (Available Now)"
-                          : "Available Now"}
+                        {isTelugu ? "ఇప్పుడే అందుబాటులో ఉంది (Available Now)" : "Available Now"}
                       </option>
                       <option value="booked">
-                        {isTelugu
-                          ? "ముందస్తు బుకింగ్ మాత్రమే (Booking Only)"
-                          : "Booking Only"}
+                        {isTelugu ? "ముందస్తు బుకింగ్ మాత్రమే (Booking Only)" : "Booking Only"}
                       </option>
                       <option value="maintenance">
                         {isTelugu ? "మరమ్మత్తులో ఉంది (Maintenance)" : "Maintenance"}

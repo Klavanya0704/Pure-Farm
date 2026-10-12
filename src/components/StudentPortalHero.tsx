@@ -12,6 +12,7 @@ export interface StudentPortalHeroProps {
   children?: ReactNode;
   size?: "sm" | "md" | "lg";
   className?: string;
+  bannerImage?: string;
 }
 
 export function StudentPortalHero({
@@ -24,6 +25,7 @@ export function StudentPortalHero({
   children,
   size = "md",
   className = "",
+  bannerImage = "/images/learn-hero-banner.png",
 }: StudentPortalHeroProps) {
   const { t } = useTranslation();
 
@@ -39,12 +41,12 @@ export function StudentPortalHero({
 
   return (
     <section
-      className={`relative rounded-3xl overflow-hidden border border-emerald-950/20 shadow-xs bg-[#0d3322] ${minHeightClass} ${className}`}
+      className={`relative rounded-3xl overflow-hidden border border-emerald-950/20 shadow-xs bg-[#052e1d] ${minHeightClass} ${className}`}
       style={{
-        backgroundImage: "url('/images/student-portal-banner.png')",
+        backgroundImage: `url('${bannerImage}')`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "right 30% center",
+        backgroundPosition: "right center",
       }}
     >
       {/* 
