@@ -5951,7 +5951,7 @@ export function LearnPage() {
           {/* 1. Dedicated Learning Hero with Exact Attached Banner */}
           <StudentPortalHero
             size="lg"
-            bannerImage="/images/learn-hero-banner.png"
+            bannerImage="/images/student-learning-banner.png"
             eyebrow={t("AGRICULTURE EDUCATION & KNOWLEDGE")}
             eyebrowIcon={BookOpen}
             title={t("PureFarm Agriculture Learning Hub")}

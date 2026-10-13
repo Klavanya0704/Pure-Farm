@@ -25,7 +25,7 @@ export function StudentPortalHero({
   children,
   size = "md",
   className = "",
-  bannerImage = "/images/learn-hero-banner.png",
+  bannerImage = "/images/student-learning-banner.png",
 }: StudentPortalHeroProps) {
   const { t } = useTranslation();
 

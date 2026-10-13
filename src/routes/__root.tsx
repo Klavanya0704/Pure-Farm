@@ -159,10 +159,7 @@ function RootComponent() {
   const router = useRouter();
   const currentPath = router.state.location.pathname;
 
-  const isStandaloneRoute =
-    currentPath === "/login" ||
-    currentPath === "/register" ||
-    currentPath === "/inauguration";
+  const isStandaloneRoute = currentPath === "/login" || currentPath === "/register";
 
   return (
     <QueryClientProvider client={queryClient}>

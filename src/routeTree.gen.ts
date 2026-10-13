@@ -19,7 +19,6 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as CropCalendarRouteImport } from './routes/crop-calendar'
 import { Route as CropInsuranceRouteImport } from './routes/crop-insurance'
-import { Route as InaugurationRouteImport } from './routes/inauguration'
 import { Route as InternshipsRouteImport } from './routes/internships'
 import { Route as LearnRouteImport } from './routes/learn'
 import { Route as LoginRouteImport } from './routes/login'
@@ -89,11 +88,6 @@ const CropCalendarRoute = CropCalendarRouteImport.update({
 const CropInsuranceRoute = CropInsuranceRouteImport.update({
   id: '/crop-insurance',
   path: '/crop-insurance',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InaugurationRoute = InaugurationRouteImport.update({
-  id: '/inauguration',
-  path: '/inauguration',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InternshipsRoute = InternshipsRouteImport.update({
@@ -208,7 +202,6 @@ export interface FileRoutesByFullPath {
   '/courses': typeof CoursesRoute
   '/crop-calendar': typeof CropCalendarRoute
   '/crop-insurance': typeof CropInsuranceRoute
-  '/inauguration': typeof InaugurationRoute
   '/internships': typeof InternshipsRoute
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
@@ -241,7 +234,6 @@ export interface FileRoutesByTo {
   '/courses': typeof CoursesRoute
   '/crop-calendar': typeof CropCalendarRoute
   '/crop-insurance': typeof CropInsuranceRoute
-  '/inauguration': typeof InaugurationRoute
   '/internships': typeof InternshipsRoute
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
@@ -275,7 +267,6 @@ export interface FileRoutesById {
   '/courses': typeof CoursesRoute
   '/crop-calendar': typeof CropCalendarRoute
   '/crop-insurance': typeof CropInsuranceRoute
-  '/inauguration': typeof InaugurationRoute
   '/internships': typeof InternshipsRoute
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
@@ -310,7 +301,6 @@ export interface FileRouteTypes {
     | '/courses'
     | '/crop-calendar'
     | '/crop-insurance'
-    | '/inauguration'
     | '/internships'
     | '/learn'
     | '/login'
@@ -343,7 +333,6 @@ export interface FileRouteTypes {
     | '/courses'
     | '/crop-calendar'
     | '/crop-insurance'
-    | '/inauguration'
     | '/internships'
     | '/learn'
     | '/login'
@@ -376,7 +365,6 @@ export interface FileRouteTypes {
     | '/courses'
     | '/crop-calendar'
     | '/crop-insurance'
-    | '/inauguration'
     | '/internships'
     | '/learn'
     | '/login'
@@ -410,7 +398,6 @@ export interface RootRouteChildren {
   CoursesRoute: typeof CoursesRoute
   CropCalendarRoute: typeof CropCalendarRoute
   CropInsuranceRoute: typeof CropInsuranceRoute
-  InaugurationRoute: typeof InaugurationRoute
   InternshipsRoute: typeof InternshipsRoute
   LearnRoute: typeof LearnRoute
   LoginRoute: typeof LoginRoute
@@ -503,13 +490,6 @@ declare module '@tanstack/react-router' {
       path: '/crop-insurance'
       fullPath: '/crop-insurance'
       preLoaderRoute: typeof CropInsuranceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/inauguration': {
-      id: '/inauguration'
-      path: '/inauguration'
-      fullPath: '/inauguration'
-      preLoaderRoute: typeof InaugurationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/internships': {
@@ -666,7 +646,6 @@ const rootRouteChildren: RootRouteChildren = {
   CoursesRoute: CoursesRoute,
   CropCalendarRoute: CropCalendarRoute,
   CropInsuranceRoute: CropInsuranceRoute,
-  InaugurationRoute: InaugurationRoute,
   InternshipsRoute: InternshipsRoute,
   LearnRoute: LearnRoute,
   LoginRoute: LoginRoute,
