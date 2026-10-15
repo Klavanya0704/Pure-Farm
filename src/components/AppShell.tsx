@@ -46,7 +46,7 @@ export function LanguageSelector() {
       <select
         value={language}
         onChange={(e) => setLanguage(e.target.value as any)}
-        className="h-9 rounded-xl border border-border bg-card px-2.5 text-xs font-bold text-foreground hover:bg-muted/50 transition cursor-pointer outline-none focus:ring-1 focus:ring-[#2d6a4f]"
+        className="h-9 rounded-xl border border-border bg-card px-1.5 sm:px-2.5 text-[11px] sm:text-xs font-bold text-foreground hover:bg-muted/50 transition cursor-pointer outline-none focus:ring-1 focus:ring-[#2d6a4f]"
         aria-label="Select Language"
       >
         <option value="en">🌐 English</option>
@@ -314,8 +314,8 @@ export function AppShell({ children }: { children: ReactNode }) {
       <div className="lg:pl-[230px]">
         {/* Header Topbar */}
         <header className="sticky top-0 z-20 border-b border-border bg-background/95 backdrop-blur-md">
-          <div className="flex h-16 items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-1 items-center gap-2.5 min-w-0">
+          <div className="flex h-16 items-center justify-between gap-2 sm:gap-4 px-3 sm:px-6 lg:px-8">
+            <div className="flex flex-1 items-center gap-2 sm:gap-2.5 min-w-0">
               <button
                 type="button"
                 onClick={() => setOpen(true)}
@@ -327,11 +327,11 @@ export function AppShell({ children }: { children: ReactNode }) {
 
               {/* Mobile Brand Logo */}
               <Link to="/" className="flex items-center lg:hidden shrink-0">
-                <div className="h-9 w-auto rounded-lg overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center px-2 py-0.5">
+                <div className="h-9 w-auto rounded-lg overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center px-1.5 sm:px-2 py-0.5">
                   <img
                     src="/images/pure-farm-logo-horizontal.png"
                     alt="Pure Farm — A Digital Path for Future Farming"
-                    className="h-7 w-auto max-w-[130px] sm:max-w-[160px] object-contain"
+                    className="h-6 sm:h-7 w-auto max-w-[110px] sm:max-w-[160px] object-contain"
                   />
                 </div>
               </Link>
@@ -355,7 +355,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             </div>
 
             {/* Right details */}
-            <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-4 shrink-0">
               {/* Location Selector (Interactive) */}
               <button
                 type="button"
