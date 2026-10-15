@@ -715,6 +715,7 @@ export function StudentHomePage() {
 
 export function FarmerHomePage() {
   const { t } = useTranslation();
+  const { showToast } = useToast();
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -1241,32 +1242,41 @@ export function FarmerHomePage() {
             </div>
 
             {/* App download Banner */}
-            <div className="rounded-2xl bg-gradient-to-br from-[#1b4332] to-[#0d1e16] text-white p-6 sm:p-8 shadow-soft flex flex-col sm:flex-row items-center justify-between gap-6 overflow-hidden relative">
-              <div className="absolute right-0 top-0 bottom-0 opacity-10 pointer-events-none hidden md:block">
-                <Leaf className="h-48 w-48 text-white rotate-45 transform translate-x-12 translate-y-4" />
-              </div>
-              <div className="space-y-2 max-w-md">
-                <h3 className="text-xl font-black">{t("Stay Updated, Stay Ahead!")}</h3>
-                <p className="text-xs text-emerald-100 leading-relaxed">
-                  {t(
-                    "Get the latest agriculture news, market updates, weather forecasts and expert tips directly on your mobile device.",
-                  )}
-                </p>
-                <div className="pt-2 flex flex-wrap gap-2.5">
-                  <button className="h-9 px-3.5 rounded-lg bg-white text-[#1b4332] hover:bg-emerald-50 transition text-xs font-bold flex items-center gap-2">
-                    <span>Google Play</span>
-                  </button>
-                  <button className="h-9 px-3.5 rounded-lg bg-emerald-900 border border-emerald-700 text-white hover:bg-emerald-800 transition text-xs font-bold flex items-center gap-2">
-                    <span>App Store</span>
-                  </button>
+            <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#2d6a4f]/20 bg-[#f7f4ed] shadow-soft">
+              <img
+                src="/images/pure-farm-app-banner.png"
+                alt="Take PureFarm Everywhere - A Digital Path for Future Farming"
+                className="w-full h-auto object-contain block select-none"
+                loading="lazy"
+              />
+              {/* Accessible interactive touchpoints aligned over Google Play & App Store badges */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute bottom-[7%] left-[6.5%] w-[42%] flex items-center gap-3 pointer-events-auto">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      showToast(
+                        t("PureFarm mobile app for Android is launching soon on Google Play!"),
+                        "info",
+                      )
+                    }
+                    className="w-1/2 h-8 sm:h-11 rounded-xl opacity-0 hover:opacity-10 focus:opacity-20 bg-black/20 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
+                    aria-label="Download PureFarm on Google Play"
+                    title="Google Play Store"
+                  />
+                  <button
+                    type="button"
+                    onClick={() =>
+                      showToast(
+                        t("PureFarm mobile app for iOS is launching soon on the Apple App Store!"),
+                        "info",
+                      )
+                    }
+                    className="w-1/2 h-8 sm:h-11 rounded-xl opacity-0 hover:opacity-10 focus:opacity-20 bg-black/20 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
+                    aria-label="Download PureFarm on Apple App Store"
+                    title="Apple App Store"
+                  />
                 </div>
-              </div>
-              <div className="shrink-0 flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-[#f7f4ed] border border-white/20 shadow-inner overflow-hidden p-1.5">
-                <img
-                  src="/images/pure-farm-logo.png"
-                  alt="Pure Farm"
-                  className="w-full h-full object-contain"
-                />
               </div>
             </div>
           </div>
