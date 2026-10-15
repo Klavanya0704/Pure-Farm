@@ -375,9 +375,13 @@ export function AppShell({ children }: { children: ReactNode }) {
                 title={t("Click to change weather location")}
                 aria-label={t("Change weather location")}
               >
-                <MapPin className="h-3.5 w-3.5 text-[#2d6a4f] group-hover:scale-110 transition-transform" />
-                <span className="font-bold text-[#1b4332]">{t(selectedLocation)}</span>
-                <ChevronDown className="h-3 w-3 text-muted-foreground opacity-60 group-hover:opacity-100 transition-opacity" />
+                <MapPin className="h-3.5 w-3.5 text-[#2d6a4f] group-hover:scale-110 transition-transform shrink-0" />
+                <span className="font-bold text-[#1b4332] max-w-[170px] truncate">
+                  {selectedLocation.toLowerCase().includes("sasi")
+                    ? "Sasi Institute (SITE)"
+                    : t(selectedLocation)}
+                </span>
+                <ChevronDown className="h-3 w-3 text-muted-foreground opacity-60 group-hover:opacity-100 transition-opacity shrink-0" />
               </button>
 
               {/* Weather */}
@@ -524,7 +528,11 @@ export function AppShell({ children }: { children: ReactNode }) {
             title={t("Click to change weather location")}
           >
             <MapPin className="h-3.5 w-3.5 text-[#2d6a4f] shrink-0" />
-            <span className="truncate max-w-[170px]">{t(selectedLocation)}</span>
+            <span className="truncate max-w-[170px]">
+              {selectedLocation.toLowerCase().includes("sasi")
+                ? "Sasi Institute (SITE)"
+                : t(selectedLocation)}
+            </span>
             <ChevronDown className="h-3 w-3 text-muted-foreground shrink-0" />
           </button>
           <Link
