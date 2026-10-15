@@ -211,21 +211,13 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div className="flex h-full flex-col justify-between min-h-0">
       <div className="flex flex-1 flex-col space-y-5 min-h-0 overflow-hidden">
         {/* Logo */}
-        <Link to="/" onClick={onItemClick} className="flex items-center gap-3 px-2 shrink-0 group">
-          <div className="h-11 w-11 rounded-xl overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center shrink-0 p-0.5 group-hover:scale-105 transition-transform duration-200">
+        <Link to="/" onClick={onItemClick} className="flex items-center px-1 shrink-0 group">
+          <div className="h-12 w-auto max-w-full rounded-xl overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center px-2 py-1 group-hover:scale-[1.02] transition-transform duration-200">
             <img
-              src="/images/pure-farm-farmer-illustration.png"
-              alt="Pure Farm"
-              className="h-full w-full object-contain"
+              src="/images/pure-farm-logo-horizontal.png"
+              alt="Pure Farm — A Digital Path for Future Farming"
+              className="h-9 w-auto max-w-[170px] object-contain"
             />
-          </div>
-          <div className="min-w-0">
-            <span className="block text-lg font-black text-[#1b4332] leading-tight tracking-tight">
-              PureFarm
-            </span>
-            <span className="block text-[10px] font-semibold text-[#2d6a4f]/70 uppercase tracking-wider truncate">
-              {t("Connect - Grow - Prosper")}
-            </span>
           </div>
         </Link>
 
@@ -334,17 +326,14 @@ export function AppShell({ children }: { children: ReactNode }) {
               </button>
 
               {/* Mobile Brand Logo */}
-              <Link to="/" className="flex items-center gap-2 lg:hidden shrink-0">
-                <div className="h-9 w-9 rounded-lg overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center p-0.5">
+              <Link to="/" className="flex items-center lg:hidden shrink-0">
+                <div className="h-9 w-auto rounded-lg overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center px-2 py-0.5">
                   <img
-                    src="/images/pure-farm-farmer-illustration.png"
-                    alt="Pure Farm"
-                    className="h-full w-full object-contain"
+                    src="/images/pure-farm-logo-horizontal.png"
+                    alt="Pure Farm — A Digital Path for Future Farming"
+                    className="h-7 w-auto max-w-[130px] sm:max-w-[160px] object-contain"
                   />
                 </div>
-                <span className="font-black text-[#1b4332] text-sm tracking-tight hidden sm:inline">
-                  PureFarm
-                </span>
               </Link>
 
               {/* Large search input */}
@@ -567,19 +556,13 @@ export function AppShell({ children }: { children: ReactNode }) {
         <footer className="border-t border-border bg-card px-4 py-8 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-[1.4fr_1fr_1fr]">
             <div>
-              <Link to="/" className="inline-flex items-center gap-3 group">
-                <div className="h-12 w-12 rounded-xl overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform duration-200">
+              <Link to="/" className="inline-flex items-center group">
+                <div className="h-14 sm:h-16 w-auto rounded-2xl overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center px-3 py-1.5 group-hover:scale-[1.02] transition-transform duration-200">
                   <img
-                    src="/images/pure-farm-farmer-illustration.png"
-                    alt="Pure Farm"
-                    className="h-full w-full object-contain"
+                    src="/images/pure-farm-logo-horizontal.png"
+                    alt="Pure Farm — A Digital Path for Future Farming"
+                    className="h-10 sm:h-12 w-auto max-w-[210px] sm:max-w-[250px] object-contain"
                   />
-                </div>
-                <div>
-                  <p className="text-lg font-black text-[#1b4332] leading-tight">{SITE.name}</p>
-                  <p className="text-[10px] font-semibold text-[#2d6a4f]/80 uppercase tracking-wider">
-                    {t("A Digital Path for Future Farming")}
-                  </p>
                 </div>
               </Link>
               <p className="mt-3 max-w-xl text-sm text-muted-foreground leading-relaxed">
@@ -595,7 +578,12 @@ export function AppShell({ children }: { children: ReactNode }) {
             </div>
             <div className="text-sm">
               <p className="font-bold text-[#1b4332]">{t("Address")}</p>
-              <p className="mt-2 text-muted-foreground leading-relaxed">{t(SITE.address)}</p>
+              <p className="mt-2 text-muted-foreground leading-relaxed">
+                Department of MBA, Einstein Block,<br />
+                Sasi Institute of Technology and Engineering,<br />
+                Tadepalligudem, West Godavari District,<br />
+                Andhra Pradesh, India.
+              </p>
             </div>
           </div>
         </footer>
@@ -611,15 +599,14 @@ export function AppShell({ children }: { children: ReactNode }) {
           />
           <div className="relative h-full w-[240px] overflow-y-auto bg-sidebar p-5 text-sidebar-foreground shadow-2xl transition-transform duration-300">
             <div className="mb-6 flex items-center justify-between">
-              <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
-                <div className="h-9 w-9 rounded-lg overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center p-0.5">
+              <Link to="/" onClick={() => setOpen(false)} className="flex items-center">
+                <div className="h-9 w-auto rounded-lg overflow-hidden bg-[#f7f4ed] border border-[#2d6a4f]/20 shadow-xs flex items-center justify-center px-2 py-0.5">
                   <img
-                    src="/images/pure-farm-farmer-illustration.png"
-                    alt="Pure Farm"
-                    className="h-full w-full object-contain"
+                    src="/images/pure-farm-logo-horizontal.png"
+                    alt="Pure Farm — A Digital Path for Future Farming"
+                    className="h-7 w-auto max-w-[140px] object-contain"
                   />
                 </div>
-                <span className="text-base font-black text-[#1b4332]">PureFarm</span>
               </Link>
               <button
                 type="button"

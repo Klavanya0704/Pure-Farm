@@ -5,7 +5,7 @@ export const SITE = {
   phone: "+91 83400 25913",
   whatsapp: "918340025913",
   email: "support@purefarm.in",
-  address: "PureFarm Agri Services, Amritsar, Punjab 143001, India",
+  address: "Department of MBA, Einstein Block, Sasi Institute of Technology and Engineering, Tadepalligudem, West Godavari District, Andhra Pradesh, India.",
 };
 
 export function waLink(message: string) {

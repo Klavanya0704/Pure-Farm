@@ -1331,8 +1331,10 @@ export const translations: Record<Language, Record<string, string>> = {
     PureFarm: "PureFarm",
     "PureFarm Agri Academy": "PureFarm Agri Academy",
     "PureFarm Agri Services": "PureFarm Agri Services",
+    "Department of MBA, Einstein Block, Sasi Institute of Technology and Engineering, Tadepalligudem, West Godavari District, Andhra Pradesh, India.":
+      "Department of MBA, Einstein Block, Sasi Institute of Technology and Engineering, Tadepalligudem, West Godavari District, Andhra Pradesh, India.",
     "PureFarm Agri Services, Amritsar, Punjab 143001, India":
-      "PureFarm Agri Services, Amritsar, Punjab 143001, India",
+      "Department of MBA, Einstein Block, Sasi Institute of Technology and Engineering, Tadepalligudem, West Godavari District, Andhra Pradesh, India.",
     "PureFarm Innovations": "PureFarm Innovations",
     "PureFarm Labs": "PureFarm Labs",
     "PureFarm Learning": "PureFarm Learning",
@@ -3765,8 +3767,10 @@ export const translations: Record<Language, Record<string, string>> = {
       "PureFarm \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c05\u0c15\u0c3e\u0c21\u0c2e\u0c40",
     "PureFarm Agri Services":
       "\u0c2a\u0c4d\u0c2f\u0c42\u0c30\u0c4d \u0c2b\u0c3e\u0c2e\u0c4d \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c38\u0c30\u0c4d\u0c35\u0c40\u0c38\u0c46\u0c38\u0c4d",
+    "Department of MBA, Einstein Block, Sasi Institute of Technology and Engineering, Tadepalligudem, West Godavari District, Andhra Pradesh, India.":
+      "డిపార్ట్‌మెంట్ ఆఫ్ MBA, ఐన్‌స్టీన్ బ్లాక్, శశి ఇన్‌స్టిట్యూట్ ఆఫ్ టెక్నాలజీ అండ్ ఇంజనీరింగ్, తాడేపల్లిగూడెం, పశ్చిమ గోదావరి జిల్లా, ఆంధ్రప్రదేశ్, భారతదేశం.",
     "PureFarm Agri Services, Amritsar, Punjab 143001, India":
-      "\u0c2a\u0c4d\u0c2f\u0c42\u0c30\u0c4d\u0c2b\u0c3e\u0c2e\u0c4d \u0c05\u0c17\u0c4d\u0c30\u0c3f \u0c38\u0c30\u0c4d\u0c35\u0c40\u0c38\u0c46\u0c38\u0c4d, \u0c05\u0c2e\u0c43\u0c24\u0c4d\u0c38\u0c30\u0c4d, \u0c2a\u0c02\u0c1c\u0c3e\u0c2c\u0c4d 143001, \u0c07\u0c02\u0c21\u0c3f\u0c2f\u0c3e",
+      "డిపార్ట్‌మెంట్ ఆఫ్ MBA, ఐన్‌స్టీన్ బ్లాక్, శశి ఇన్‌స్టిట్యూట్ ఆఫ్ టెక్నాలజీ అండ్ ఇంజనీరింగ్, తాడేపల్లిగూడెం, పశ్చిమ గోదావరి జిల్లా, ఆంధ్రప్రదేశ్, భారతదేశం.",
     "PureFarm Innovations":
       "PureFarm \u0c07\u0c28\u0c4d\u0c28\u0c4b\u0c35\u0c47\u0c37\u0c28\u0c4d\u0c38\u0c4d",
     "PureFarm Labs": "PureFarm \u0c32\u0c3e\u0c2c\u0c4d\u0c38\u0c4d",

@@ -8256,21 +8256,13 @@ export function LoginPage() {
 
       {/* Top Bar / Header Branding */}
       <header className="relative z-20 w-full px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="h-12 w-12 rounded-2xl overflow-hidden bg-[#f7f4ed] border border-white/40 shadow-md group-hover:scale-105 transition duration-200 flex items-center justify-center p-0.5">
+        <Link to="/" className="flex items-center group">
+          <div className="h-12 w-auto rounded-2xl overflow-hidden bg-[#f7f4ed] border border-white/40 shadow-md group-hover:scale-105 transition duration-200 flex items-center justify-center px-2.5 py-1">
             <img
-              src="/images/pure-farm-farmer-illustration.png"
-              alt="Pure Farm"
-              className="h-full w-full object-contain"
+              src="/images/pure-farm-logo-horizontal.png"
+              alt="Pure Farm — A Digital Path for Future Farming"
+              className="h-8 w-auto max-w-[170px] object-contain"
             />
-          </div>
-          <div>
-            <span className="block text-lg font-extrabold text-[#FFFFFF] drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] leading-none">
-              Pure Farm
-            </span>
-            <span className="block text-[9px] font-bold text-[#E8F5EE] tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] mt-1">
-              {t("Agri Portal")}
-            </span>
           </div>
         </Link>
 
@@ -8323,8 +8315,8 @@ export function LoginPage() {
                 <div className="inline-flex justify-center mb-3">
                   <div className="h-24 w-24 sm:h-28 sm:w-28 rounded-2xl overflow-hidden bg-[#f7f4ed] shadow-xl border border-white/40 flex items-center justify-center p-1">
                     <img
-                      src="/images/pure-farm-farmer-illustration.png"
-                      alt="Pure Farm Farmer"
+                      src="/images/pure-farm-logo.png"
+                      alt="Pure Farm"
                       className="h-full w-full object-contain"
                     />
                   </div>
@@ -8510,21 +8502,13 @@ export function RegisterPage() {
 
       {/* Top Left Branding */}
       <div className="absolute top-6 left-6 lg:top-10 lg:left-12 z-10 flex items-center gap-3">
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="h-12 w-12 rounded-2xl overflow-hidden bg-[#f7f4ed] border border-white/40 shadow-lg group-hover:scale-105 transition duration-200 flex items-center justify-center p-0.5">
+        <Link to="/" className="flex items-center group">
+          <div className="h-12 w-auto rounded-2xl overflow-hidden bg-[#f7f4ed] border border-white/40 shadow-lg group-hover:scale-105 transition duration-200 flex items-center justify-center px-2.5 py-1">
             <img
-              src="/images/pure-farm-farmer-illustration.png"
-              alt="Pure Farm"
-              className="h-full w-full object-contain"
+              src="/images/pure-farm-logo-horizontal.png"
+              alt="Pure Farm — A Digital Path for Future Farming"
+              className="h-8 w-auto max-w-[170px] object-contain"
             />
-          </div>
-          <div>
-            <span className="block text-xl sm:text-2xl font-black tracking-wide leading-none text-white drop-shadow-md">
-              Pure Farm
-            </span>
-            <span className="block text-[9px] sm:text-[10px] font-bold text-[#E8F5EE] uppercase tracking-wider leading-none mt-1 drop-shadow-md">
-              {t("Agri Portal")}
-            </span>
           </div>
         </Link>
       </div>
